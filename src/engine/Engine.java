@@ -24,9 +24,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Optional;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import model.TestCasesExecution;
 
 /**
@@ -122,7 +125,7 @@ public class Engine {
             int itStepCount = 0;
             while (itSteps.hasNext()) {                                          //Loop through each STEP EXECUTION
                 itStepCount++;
-                System.out.println("while loop itStepCount : " + itStepCount );
+                System.out.println("while loop itStepCount : " + itStepCount);
                 StepExecutions currentStep = itSteps.next();
                 startCaseInit(hashMapNumberResultScript);
                 startCaseInit(hashMapNumberResultMacro);
@@ -166,27 +169,27 @@ public class Engine {
                                 int itParamScMacroCount = 0;
                                 while (itParamScMacro.hasNext()) {              //loop through each ParamScriptMacros from MACRO
                                     itParamScMacroCount++;
-                                    System.out.println("while loop itParamScMacro : "+itParamScMacroCount);
-                                    
+                                    System.out.println("while loop itParamScMacro : " + itParamScMacroCount);
+
                                     ParametersExecution param = new ParametersExecution();      //declare new ParameterExecution
-                                    ParamScriptMacro paramScMacro = itParamScMacro.next();  
+                                    ParamScriptMacro paramScMacro = itParamScMacro.next();
                                     System.out.println("Parameter: " + paramScMacro.getValue());
-                                            //get current ParamScriptMacro
-                                    if (paramScMacro.getToDisplay() == 0) {         
+                                    //get current ParamScriptMacro
+                                    if (paramScMacro.getToDisplay() == 0) {
                                         if (paramScMacro.getParamScriptMacro() == null) {       //if current ParamScript does not include more ParamScripts
                                             param.setValue(paramScMacro.getValue());
                                             param.setParamOrder(paramScMacro.getScriptHasParameters().getParamOrder());
                                             paramScriptMacro.add(param);
                                         } else {
                                             //if current ParamScript does not include more paramscripts
-                                            
+
                                             try {
                                                 param.setValue(paramScMacro.getParamScriptMacro().getValue());
                                                 System.out.println("param.getValue: " + paramScMacro.getParamScriptMacro().getValue());
                                                 param.setParamOrder(paramScMacro.getScriptHasParameters().getParamOrder());
                                                 paramScriptMacro.add(param);
                                             } catch (Exception e) {
-                                                
+
                                                 System.out.println("EXCEPTION macro" + e);
                                                 System.out.println("ParamScMacro ID: " + paramScMacro.getMacro().getIdmacro());
                                             }
@@ -214,7 +217,7 @@ public class Engine {
                                     }
                                     tempsDebut3 = System.currentTimeMillis();
                                     System.out.println("ScriptName : " + scriptName.toString());
-                                    System.out.println("paramScriptMacro : "+paramScriptMacro.toString());
+                                    System.out.println("paramScriptMacro : " + paramScriptMacro.toString());
                                     testResult = runCheckScript(scriptName, paramScriptMacro, hashMap);
                                     tempsFin3 = System.currentTimeMillis();
                                     seconds3 = (tempsFin3 - tempsDebut3) / 1000F;
@@ -457,7 +460,7 @@ public class Engine {
     }
 
     private void setMacroComment(String result, String comment, ScriptExecutions currentScript, Script scriptByScriptIdScript1) {
-        currentScript.setScriptExecutionComment(currentScript.getScriptExecutionComment()+"\n" + scriptByScriptIdScript1.getName() + ": " + result + " " + comment);
+        currentScript.setScriptExecutionComment(currentScript.getScriptExecutionComment() + "\n" + scriptByScriptIdScript1.getName() + ": " + result + " " + comment);
         //currentScript.setScriptExecutionResult(result);
     }
 
@@ -559,11 +562,14 @@ public class Engine {
 //                System.out.println("InvocationTarget Exception caught.");
 //            }
 //            return res; 
-              return (Result) method.invoke(o, parameters, hashMap);
-        } else {
-            //if there is no parameters for the test, execute the scripts without parameters
-              return (Result) method.invoke(o, "");
+            try {
+                return (Result) method.invoke(o, parameters, hashMap);
+            } catch (InvocationTargetException e) {
+                System.out.println("ERROR. Need to notify User."); //Use Alert ==> How to pass this to view?
+            }
         }
+        //if there is no parameters for the test, execute the scripts without parameters
+        return (Result) method.invoke(o, "");
     }
 
     /**
