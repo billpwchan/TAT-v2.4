@@ -57,6 +57,7 @@ import model.TestCasesExecution;
 import model.initColumn;
 import java.io.File;
 import java.io.InputStream;
+import java.util.Optional;
 import javafx.scene.control.ButtonType;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -265,7 +266,17 @@ public class PopUpRunController implements Initializable {
                 try {
                     engine.run();
                 } catch (Exception ex) {
-                    Logger.getLogger(PopUpRunController.class.getName()).log(Level.SEVERE, null, ex);
+                    
+                    
+                    Platform.runLater(() -> {
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setTitle("Error. ");
+                        alert.setHeaderText("InvocationTarget Exception Caught. Cannot perform script: "  + ex.getMessage());
+                        alert.setContentText("Please ensure the Internet connection is correct.");
+                        Optional<ButtonType> result = alert.showAndWait();
+                    });
+                    //Logger.getLogger(PopUpRunController.class.getName()).log(Level.SEVERE, null, ex);
+                    System.out.println("Get the exception. Now check receive or not");
                     Thread.currentThread().interrupt();
                 }
                 return null;

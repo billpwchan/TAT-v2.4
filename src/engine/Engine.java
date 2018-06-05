@@ -555,18 +555,8 @@ public class Engine {
         if (parameters != null) {
             //if there is parameters for the test, execute the scripts with the parameters
             System.out.println("Parameters is not null");
-//            Result res = null;
-//            try {
-//                res = (Result) method.invoke(o, parameters, hashMap);
-//            } catch (InvocationTargetException e) {
-//                System.out.println("InvocationTarget Exception caught.");
-//            }
-//            return res; 
-            try {
-                return (Result) method.invoke(o, parameters, hashMap);
-            } catch (InvocationTargetException e) {
-                System.out.println("ERROR. Need to notify User."); //Use Alert ==> How to pass this to view?
-            }
+            //Should not use catch here, but catch in PopUpRnController.java: 261
+            return (Result) method.invoke(o, parameters, hashMap);
         }
         //if there is no parameters for the test, execute the scripts without parameters
         return (Result) method.invoke(o, "");
