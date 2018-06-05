@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.web.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="anchorPaneStep" minHeight="60.0" prefHeight="60.0" prefWidth="875.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.tablestep.StepLineTableStepController">
+    <children>
+        <GridPane fx:id="gridPaneStep" alignment="CENTER" gridLinesVisible="true" prefHeight="60.0" prefWidth="875.0" style="-fx-background-color: #CCFFCC;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <columnConstraints>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="70.0" minWidth="10.0" prefWidth="70.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="40.0" minWidth="10.0" prefWidth="40.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="45.0" minWidth="10.0" prefWidth="45.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="45.0" minWidth="10.0" prefWidth="45.0" />
+                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="26.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="135.0" minWidth="10.0" prefWidth="135.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="60.0" minWidth="10.0" prefWidth="60.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <ListView fx:id="listRequirement" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #CCFFCC;" GridPane.columnIndex="7" />
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="8">
+               <children>
+                  <ListView fx:id="listPCR" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #CCFFCC;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="anchorPaneVerif" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4">
+               <children>
+                      <TextArea fx:id="textAreaVerif" prefHeight="60.0" prefWidth="88.0" style="-fx-background-color: #CCFFCC;" visible="false" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <padding>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                     </padding></TextArea>
+                  <Label fx:id="labelVerifArea" alignment="TOP_LEFT" layoutX="14.0" layoutY="6.0" prefHeight="60.0" prefWidth="88.0" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding></Label>
+               </children>
+            </AnchorPane>
+                <CheckBox fx:id="blockingStep" alignment="CENTER" mnemonicParsing="false" textAlignment="CENTER" GridPane.columnIndex="6" />
+            <AnchorPane fx:id="anchorPaneAction" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
+               <children>
+                      <TextArea fx:id="textAreaAction" prefHeight="60.0" prefWidth="88.0" style="-fx-background-color: #CCFFCC;" visible="false" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <padding>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                     </padding>
+                  </TextArea>
+                  <Label fx:id="labelActionArea" alignment="TOP_LEFT" layoutX="14.0" layoutY="6.0" prefHeight="60.0" prefWidth="88.0" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <Label fx:id="idStep" alignment="CENTER" contentDisplay="CENTER" text="1" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" />
+            <HBox alignment="CENTER" spacing="5.0">
+               <children>
+                  <ImageView fx:id="imageTrash" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="LEFT" GridPane.valignment="CENTER" />
+                  <VBox alignment="CENTER">
+                     <children>
+                              <ImageView fx:id="imageUp" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="imageExpand" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0" visible="false" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+                                  <GridPane.margin>
+                                      <Insets bottom="5.0" />
+                                  </GridPane.margin>
+                              </ImageView>
+                              <ImageView fx:id="imageDown" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <Pane fx:id="paneAction" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" />
+            <Pane fx:id="paneVerif" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" />
+            <Label fx:id="labelVerif" text="label" visible="false" wrapText="true" GridPane.columnIndex="5" />
+            <Label fx:id="labelAction" text="label" visible="false" wrapText="true" GridPane.columnIndex="3" />
+                <Label fx:id="labelCommentStep" alignment="CENTER" text="Label" visible="false" wrapText="true" GridPane.columnIndex="9" GridPane.halignment="LEFT" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </GridPane.margin></Label>
+            </children>
+        </GridPane>
+    </children>
+</AnchorPane>
