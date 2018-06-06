@@ -270,11 +270,16 @@ public class PopUpRunController implements Initializable {
                     //Default Logger Event
                     Logger.getLogger(PopUpRunController.class.getName()).log(Level.SEVERE, null, ex);
                     //Can be specified to different types of exception. 
+                    String exceptionMessage = ex.getMessage();
                     Platform.runLater(() -> {
                         Alert alert = new Alert(Alert.AlertType.ERROR);
-                        alert.setTitle("Error. ");
-                        alert.setHeaderText("Exception Caught. Cannot perform the current script.");
-                        alert.setContentText("Please ensure the Internet Connection is correct. For detail, please refer to the stacktrace:\t\n" + ex.getMessage());
+                        alert.setTitle("Error: ");
+                        alert.setHeaderText("Exception Caught. Cannot execute the test case");
+                        alert.setContentText("Please refer to the stacktrace:\t\n\n" + ex.getMessage());
+                        if (ex.getMessage().contains("SSH")) {
+                            alert.setTitle("Error: The server (IP: " + exceptionMessage.substring(exceptionMessage.indexOf("IP: ")) + " ) cannot be reached.");
+                            alert.setContentText("The server (IP: " + exceptionMessage.substring(exceptionMessage.indexOf("IP: ")) + " ) cannot be reached.\n" + "Please refer to the stacktrace:\t\n\n" + ex.getMessage());
+                        }
                         Optional<ButtonType> result = alert.showAndWait();
                         th.resume();
                         try {

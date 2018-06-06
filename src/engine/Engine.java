@@ -153,7 +153,7 @@ public class Engine {
                         ScriptExecutions currentScript = itScripts.next();
                         currentParameters = new ArrayList<>(currentScript.getParametersExecutions());
                         scriptExecutionHandler.getScriptFromScriptExecution(currentScript);
-                        if (currentScript.getScript().getIsMacro() == 1) {
+                        if (currentScript.getScript().getIsMacro() == 1) {      //Script is a Macro
                             macroHandler.getAllFromMacro(currentScript.getScript());
                             Iterator<Macro> itMacro = currentScript.getScript().getMacrosForScriptIdScript().iterator();
                             paramToTake = 0;
@@ -182,8 +182,7 @@ public class Engine {
                                             param.setParamOrder(paramScMacro.getScriptHasParameters().getParamOrder());
                                             paramScriptMacro.add(param);
                                         } else {
-                                            //if current ParamScript does not include more paramscripts
-
+                                            //if current ParamScript does not include more paramscript.
                                             try {
                                                 param.setValue(paramScMacro.getParamScriptMacro().getValue());
                                                 System.out.println("param.getValue: " + paramScMacro.getParamScriptMacro().getValue());
@@ -201,51 +200,58 @@ public class Engine {
                                         paramScriptMacro.add(param);
                                         paramToTake++;
                                     }
-                                }
-                                if (mac.getScriptByScriptIdScript1().getIsStimuli() == 1) {
-                                    tempsDebut3 = System.currentTimeMillis();
-                                    runStimuliScript(scriptName, paramScriptMacro, hashMap);
-                                    tempsFin3 = System.currentTimeMillis();
-                                    seconds3 = (tempsFin3 - tempsDebut3) / 1000F;
-                                    setMacroComment("Exec", "", currentScript, mac.getScriptByScriptIdScript1());
-                                    //setScriptCommentAndResult("Exec", "", currentScript);
-                                } else if (mac.getScriptByScriptIdScript1().getIsStimuli() == 0) {
-                                    checkInMacro++;
-                                    if (!count) {
-                                        scriptNumber++;
-                                        count = true;
+                                }      //Catch exception occured in Script. Only focus on InvocationTargetException. 
+
+                                try {
+                                    if (mac.getScriptByScriptIdScript1().getIsStimuli() == 1) {
+                                        tempsDebut3 = System.currentTimeMillis();
+                                        runStimuliScript(scriptName, paramScriptMacro, hashMap);
+                                        tempsFin3 = System.currentTimeMillis();
+                                        seconds3 = (tempsFin3 - tempsDebut3) / 1000F;
+                                        setMacroComment("Exec", "", currentScript, mac.getScriptByScriptIdScript1());
+                                        //setScriptCommentAndResult("Exec", "", currentScript);
+                                    } else if (mac.getScriptByScriptIdScript1().getIsStimuli() == 0) {
+                                        checkInMacro++;
+                                        if (!count) {
+                                            scriptNumber++;
+                                            count = true;
+                                        }
+                                        tempsDebut3 = System.currentTimeMillis();
+                                        System.out.println("ScriptName : " + scriptName.toString());
+                                        System.out.println("paramScriptMacro : " + paramScriptMacro.toString());
+                                        //This line might cause exception. Catch the error here.
+
+                                        testResult = runCheckScript(scriptName, paramScriptMacro, hashMap);
+                                        tempsFin3 = System.currentTimeMillis();
+                                        seconds3 = (tempsFin3 - tempsDebut3) / 1000F;
+                                        System.out.println("SCRIPT = " + scriptName);
+                                        //System.out.println("Script = " + scriptName + " effectue en : " + Float.toString(seconds3));
+                                        System.out.println("RESULT SCRIPT MACRO = " + testResult.getResult());
+
+                                        hashMapNumberResultMacro.put(testResult.getResult(), hashMapNumberResultMacro.get(testResult.getResult()) + 1);
+                                        setMacroComment(testResult.getResult(), testResult.getComment(), currentScript, mac.getScriptByScriptIdScript1());
                                     }
-                                    tempsDebut3 = System.currentTimeMillis();
-                                    System.out.println("ScriptName : " + scriptName.toString());
-                                    System.out.println("paramScriptMacro : " + paramScriptMacro.toString());
-                                    //This line might cause exception. Catch the error here.
+                                } catch (Exception ex) {
+                                    String stackTrace = Throwables.getStackTraceAsString(ex);
+                                    currentTestCase.setCaseExecutionResult("Not testable");
                                     testResult = new Result();
                                     testResult.setResult("Not testable");  //Only will use this value when proper testResult cannot be obtained from checkScript.
-                                    try {
-                                        testResult = runCheckScript(scriptName, paramScriptMacro, hashMap);
-                                    } catch (Exception ex) {
-                                        String stackTrace = Throwables.getStackTraceAsString(ex);
-                                        currentTestCase.setCaseExecutionResult("Not testable");
-
-                                        //Finish remaining execusion steps for properly updating controller.
-                                        averageTimeCase = exceptionCausedExecutionTerminator(hashMapNumberResultMacro, testResult, currentScript, mac, checkInMacro, hashMapNumberResultScript, scriptNumber, currentStep, hashMapNumberResultSteps, tempsDebut1, averageTimeCase, i, set, stepsNumber, currentTestCase);
-
-                                        throw new Exception(ex.getMessage() + stackTrace, ex);    //Go to PopUpRunController.java
-                                    }
-                                    tempsFin3 = System.currentTimeMillis();
-                                    seconds3 = (tempsFin3 - tempsDebut3) / 1000F;
-                                    System.out.println("SCRIPT = " + scriptName);
-                                    //System.out.println("Script = " + scriptName + " effectue en : " + Float.toString(seconds3));
-                                    System.out.println("RESULT SCRIPT MACRO = " + testResult.getResult());
-
+                                    //Finish remaining execusion steps for properly updating controller.
                                     hashMapNumberResultMacro.put(testResult.getResult(), hashMapNumberResultMacro.get(testResult.getResult()) + 1);
-                                    setMacroComment(testResult.getResult(), testResult.getComment(), currentScript, mac.getScriptByScriptIdScript1());
+                                    if (mac.getScriptByScriptIdScript1().getIsStimuli() == 0) {        //Without Stimuli, need to use extra two steps.
+                                        setMacroComment(testResult.getResult(), testResult.getComment(), currentScript, mac.getScriptByScriptIdScript1());
+                                    } else if (mac.getScriptByScriptIdScript1().getIsStimuli() == 1) {        //With Stimuli, three extra steps.
+                                        setMacroComment("Exec", "", currentScript, mac.getScriptByScriptIdScript1());
+                                    }
+                                    averageTimeCase = exceptionCausedExecutionTerminator(hashMapNumberResultMacro, testResult, currentScript, mac, checkInMacro, hashMapNumberResultScript, scriptNumber, currentStep, hashMapNumberResultSteps, tempsDebut1, averageTimeCase, i, set, stepsNumber, currentTestCase);
+
+                                    throw new Exception(stackTrace.substring(stackTrace.indexOf("Caused by:") + 11), ex);    //Go to PopUpRunController.java
                                 }
                             }
                             this.stateMachineMacro(hashMapNumberResultMacro, checkInMacro);
                             setMacroResult(macroResult, currentScript);
                             hashMapNumberResultScript.put(macroResult, hashMapNumberResultScript.get(macroResult) + 1);
-                        } else {
+                        } else {        //Script is not a macro.
                             scriptName = currentScript.getScript().getCallName();
                             set.add(scriptName);
                             if (currentScript.getIsStimuli() == 1) {
@@ -287,8 +293,8 @@ public class Engine {
             //Thread.sleep(1000);
             endCaseSetResultChartAndDB(currentTestCase, caseHandler, averageTimeCase);
         }
-        this.stateMachineIterationResult(nbCaseOK, nbCaseNOK, nbCaseOKWC, nbCaseNtestable, nbCaseIncomplete, nbCaseOS, this.toExecute.size());
 
+        this.stateMachineIterationResult(nbCaseOK, nbCaseNOK, nbCaseOKWC, nbCaseNtestable, nbCaseIncomplete, nbCaseOS, this.toExecute.size());
         //this.toExecute.get(0).getStepsExecutionsAndScripts().get(0).getStepExecution().setIterationResult(iterationResult);
         //stepExecutionHandler.setIterationResultInDB(this.toExecute.get(0).getStepsExecutionsAndScripts().get(0).getStepExecution());
         this.closeAllScripts(set);
@@ -299,8 +305,6 @@ public class Engine {
         long tempsFin1;
         float seconds1;
         Double iterationResultPercentage;
-        hashMapNumberResultMacro.put(testResult.getResult(), hashMapNumberResultMacro.get(testResult.getResult()) + 1);
-        setMacroComment(testResult.getResult(), testResult.getComment(), currentScript, mac.getScriptByScriptIdScript1());
         this.stateMachineMacro(hashMapNumberResultMacro, checkInMacro);
         setMacroResult(macroResult, currentScript);
         hashMapNumberResultScript.put(macroResult, hashMapNumberResultScript.get(macroResult) + 1);
