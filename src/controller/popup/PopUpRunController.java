@@ -57,6 +57,7 @@ import model.TestCasesExecution;
 import model.initColumn;
 import java.io.File;
 import java.io.InputStream;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Optional;
 import javafx.scene.control.ButtonType;
 import javax.sound.sampled.AudioInputStream;
@@ -272,8 +273,8 @@ public class PopUpRunController implements Initializable {
                     Platform.runLater(() -> {
                         Alert alert = new Alert(Alert.AlertType.ERROR);
                         alert.setTitle("Error. ");
-                        alert.setHeaderText("InvocationTarget Exception Caught. Cannot perform script: ");
-                        alert.setContentText("Please ensure the Internet connection is correct.");
+                        alert.setHeaderText("Exception Caught. Cannot perform the current script.");
+                        alert.setContentText("Please ensure the Internet Connection is correct. For detail, please refer to the stacktrace:\t\n" + ex.getMessage());
                         Optional<ButtonType> result = alert.showAndWait();
                         th.resume();
                         try {

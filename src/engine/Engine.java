@@ -12,6 +12,7 @@ import DBcontroller.ScriptExecutionDB;
 import DBcontroller.TestCaseDB;
 import DBcontroller.TestExecution;
 import DBcontroller.TestStepDB;
+import com.google.common.base.Throwables;
 import configuration.settings;
 import controller.popup.PopUpRunController;
 import java.io.File;
@@ -189,7 +190,6 @@ public class Engine {
                                                 param.setParamOrder(paramScMacro.getScriptHasParameters().getParamOrder());
                                                 paramScriptMacro.add(param);
                                             } catch (Exception e) {
-
                                                 System.out.println("EXCEPTION macro" + e);
                                                 System.out.println("ParamScMacro ID: " + paramScMacro.getMacro().getIdmacro());
                                             }
@@ -223,22 +223,23 @@ public class Engine {
                                     testResult.setResult("Not testable");  //Only will use this value when proper testResult cannot be obtained from checkScript.
                                     try {
                                         testResult = runCheckScript(scriptName, paramScriptMacro, hashMap);
-                                    } catch (InvocationTargetException ex){
+                                    } catch (Exception ex) {
+                                        String stackTrace = Throwables.getStackTraceAsString(ex);
                                         currentTestCase.setCaseExecutionResult("Not testable");
-                                    } finally {
-                                        tempsFin3 = System.currentTimeMillis();
-                                        seconds3 = (tempsFin3 - tempsDebut3) / 1000F;
-                                        System.out.println("SCRIPT = " + scriptName);
-                                        //System.out.println("Script = " + scriptName + " effectue en : " + Float.toString(seconds3));
-                                        System.out.println("RESULT SCRIPT MACRO = " + testResult.getResult());
 
-                                        hashMapNumberResultMacro.put(testResult.getResult(), hashMapNumberResultMacro.get(testResult.getResult()) + 1);
-                                        setMacroComment(testResult.getResult(), testResult.getComment(), currentScript, mac.getScriptByScriptIdScript1());
-                                        if (currentTestCase.getCaseExecutionResult().equals("Not testable")) {      //Exit loop when this step generates exception.
-                                            break;
-                                        }
-                                        //setScriptCommentAndResult(testResult.getResult(), testResult.getComment(), currentScript);
+                                        //Finish remaining execusion steps for properly updating controller.
+                                        averageTimeCase = exceptionCausedExecutionTerminator(hashMapNumberResultMacro, testResult, currentScript, mac, checkInMacro, hashMapNumberResultScript, scriptNumber, currentStep, hashMapNumberResultSteps, tempsDebut1, averageTimeCase, i, set, stepsNumber, currentTestCase);
+
+                                        throw new Exception(ex.getMessage() + stackTrace, ex);    //Go to PopUpRunController.java
                                     }
+                                    tempsFin3 = System.currentTimeMillis();
+                                    seconds3 = (tempsFin3 - tempsDebut3) / 1000F;
+                                    System.out.println("SCRIPT = " + scriptName);
+                                    //System.out.println("Script = " + scriptName + " effectue en : " + Float.toString(seconds3));
+                                    System.out.println("RESULT SCRIPT MACRO = " + testResult.getResult());
+
+                                    hashMapNumberResultMacro.put(testResult.getResult(), hashMapNumberResultMacro.get(testResult.getResult()) + 1);
+                                    setMacroComment(testResult.getResult(), testResult.getComment(), currentScript, mac.getScriptByScriptIdScript1());
                                 }
                             }
                             this.stateMachineMacro(hashMapNumberResultMacro, checkInMacro);
@@ -292,6 +293,43 @@ public class Engine {
         //stepExecutionHandler.setIterationResultInDB(this.toExecute.get(0).getStepsExecutionsAndScripts().get(0).getStepExecution());
         this.closeAllScripts(set);
         this.popUpRunController.executionFinished();
+    }
+
+    private float exceptionCausedExecutionTerminator(HashMap<String, Integer> hashMapNumberResultMacro, Result testResult, ScriptExecutions currentScript, Macro mac, int checkInMacro, HashMap<String, Integer> hashMapNumberResultScript, int scriptNumber, StepExecutions currentStep, HashMap<String, Integer> hashMapNumberResultSteps, long tempsDebut1, float averageTimeCase, int i, Set<String> set, int stepsNumber, CaseExecutions currentTestCase) throws Exception, ClassNotFoundException, InvocationTargetException, MalformedURLException, InstantiationException, IllegalAccessException, NoSuchMethodException, IllegalArgumentException {
+        long tempsFin1;
+        float seconds1;
+        Double iterationResultPercentage;
+        hashMapNumberResultMacro.put(testResult.getResult(), hashMapNumberResultMacro.get(testResult.getResult()) + 1);
+        setMacroComment(testResult.getResult(), testResult.getComment(), currentScript, mac.getScriptByScriptIdScript1());
+        this.stateMachineMacro(hashMapNumberResultMacro, checkInMacro);
+        setMacroResult(macroResult, currentScript);
+        hashMapNumberResultScript.put(macroResult, hashMapNumberResultScript.get(macroResult) + 1);
+        System.out.println("SCRIPT NUMBER = " + scriptNumber);
+        stateMachineStepResult(hashMapNumberResultScript, scriptNumber);
+        currentStep.setStepExecutionResult(stepResult);
+        System.out.println("RESULT STEP = " + stepResult);
+        hashMapNumberResultSteps.put(stepResult, hashMapNumberResultSteps.get(stepResult) + 1);
+        // stateMachineCaseResult(hashMapNumberResultSteps, stepsNumber);
+        // //Thread.sleep(1000);
+        // endCaseSetResultChartAndDB(currentTestCase, caseHandler, averageTimeCase);
+        tempsFin1 = System.currentTimeMillis();
+        seconds1 = (tempsFin1 - tempsDebut1) / 1000;
+        //System.out.println("Case execution in = " + seconds1);
+        //System.out.println("1ere part= " + (1 - 1 / (i + 1)) * averageTimeCase + " 2eme part= " + (1 / (i + 1)) * seconds1);
+        averageTimeCase = ((1 - 1 / ((float) i + 1)) * averageTimeCase + (1 / ((float) i + 1)) * seconds1);
+        //System.out.println("Average Time Case = " + averageTimeCase);
+        iterationResultPercentage = ((double) nbCaseOK / (double) this.toExecute.size()) * 100;
+        System.out.println("ITERATION RESULT = " + iterationResultPercentage);
+        this.popUpRunController.setIterationPercentage(iterationResultPercentage);
+        this.stateMachineIterationResult(nbCaseOK, nbCaseNOK, nbCaseOKWC, nbCaseNtestable, nbCaseIncomplete, nbCaseOS, this.toExecute.size());
+        this.closeAllScripts(set);
+        this.popUpRunController.executionFinished();
+        stateMachineCaseResult(hashMapNumberResultSteps, stepsNumber);
+        System.out.println("Case result = " + caseResult);
+        currentTestCase.setCaseExecutionResult(caseResult);
+        popUpRunController.setNumberNotExecuted(nbCaseOK, nbCaseOKWC, nbCaseNOK, nbCaseNtestable, nbCaseIncomplete, nbCaseOS, nbCaseNT);
+        popUpRunController.updateAverageTimeCase(averageTimeCase, averageTimeCase * (float) nbCaseNT);
+        return averageTimeCase;
     }
 
     /**
@@ -500,35 +538,28 @@ public class Engine {
      * @throws SecurityException
      * @throws IllegalArgumentException
      */
-    public void runStimuliScript(String script, ArrayList<ParametersExecution> parameters, HashMap hashMap) {
-        try {
-            //get the name of the class of the script
-            File root = new File(settings.scriptsPaht + "\\" + script + ".jar");
-            Class<?> cls = null;
-            if (root.exists()) {
-                URLClassLoader classLoader = URLClassLoader.newInstance(new URL[]{root.toURI().toURL()});
-                cls = Class.forName(script, true, classLoader);
-            } else {
-                cls = Class.forName("script." + script);
-            }
+    public void runStimuliScript(String script, ArrayList<ParametersExecution> parameters, HashMap hashMap)
+            throws MalformedURLException, ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+        //get the name of the class of the script
+        File root = new File(settings.scriptsPaht + "\\" + script + ".jar");
+        Class<?> cls = null;
+        if (root.exists()) {
+            URLClassLoader classLoader = URLClassLoader.newInstance(new URL[]{root.toURI().toURL()});
+            cls = Class.forName(script, true, classLoader);
+        } else {
+            cls = Class.forName("script." + script);
+        }
 
-            final Constructor<?> constructor = cls.getConstructor();
-            final Object o = constructor.newInstance();
-            java.lang.reflect.Method method;
-            method = o.getClass().getMethod("run", ArrayList.class, HashMap.class);
-            if (parameters != null) {
-                //if there is parameters for the test, execute the scripts with the parameters
-                try {
-                    method.invoke(o, parameters, hashMap);
-                } catch (InvocationTargetException e) {
-                    Throwable t = e.getTargetException();
-                }
-            } else {
-                //if there is no parameters for the test, execute the scripts without parameters
-                method.invoke(o, "");
-            }
-        } catch (NoSuchMethodException | SecurityException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | ClassNotFoundException | MalformedURLException ex) {
-            Logger.getLogger(Engine.class.getName()).log(Level.SEVERE, null, ex);
+        final Constructor<?> constructor = cls.getConstructor();
+        final Object o = constructor.newInstance();
+        java.lang.reflect.Method method;
+        method = o.getClass().getMethod("run", ArrayList.class, HashMap.class);
+        if (parameters != null) {
+            //if there is parameters for the test, execute the scripts with the parameters
+            method.invoke(o, parameters, hashMap);
+        } else {
+            //if there is no parameters for the test, execute the scripts without parameters
+            method.invoke(o, "");
         }
     }
 
