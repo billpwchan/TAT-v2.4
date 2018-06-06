@@ -218,16 +218,27 @@ public class Engine {
                                     tempsDebut3 = System.currentTimeMillis();
                                     System.out.println("ScriptName : " + scriptName.toString());
                                     System.out.println("paramScriptMacro : " + paramScriptMacro.toString());
-                                    testResult = runCheckScript(scriptName, paramScriptMacro, hashMap);
-                                    tempsFin3 = System.currentTimeMillis();
-                                    seconds3 = (tempsFin3 - tempsDebut3) / 1000F;
-                                    System.out.println("SCRIPT = " + scriptName);
-                                    //System.out.println("Script = " + scriptName + " effectue en : " + Float.toString(seconds3));
-                                    System.out.println("RESULT SCRIPT MACRO = " + testResult.getResult());
+                                    //This line might cause exception. Catch the error here.
+                                    testResult = new Result();
+                                    testResult.setResult("Not testable");  //Only will use this value when proper testResult cannot be obtained from checkScript.
+                                    try {
+                                        testResult = runCheckScript(scriptName, paramScriptMacro, hashMap);
+                                    } catch (InvocationTargetException ex){
+                                        currentTestCase.setCaseExecutionResult("Not testable");
+                                    } finally {
+                                        tempsFin3 = System.currentTimeMillis();
+                                        seconds3 = (tempsFin3 - tempsDebut3) / 1000F;
+                                        System.out.println("SCRIPT = " + scriptName);
+                                        //System.out.println("Script = " + scriptName + " effectue en : " + Float.toString(seconds3));
+                                        System.out.println("RESULT SCRIPT MACRO = " + testResult.getResult());
 
-                                    hashMapNumberResultMacro.put(testResult.getResult(), hashMapNumberResultMacro.get(testResult.getResult()) + 1);
-                                    setMacroComment(testResult.getResult(), testResult.getComment(), currentScript, mac.getScriptByScriptIdScript1());
-                                    //setScriptCommentAndResult(testResult.getResult(), testResult.getComment(), currentScript);
+                                        hashMapNumberResultMacro.put(testResult.getResult(), hashMapNumberResultMacro.get(testResult.getResult()) + 1);
+                                        setMacroComment(testResult.getResult(), testResult.getComment(), currentScript, mac.getScriptByScriptIdScript1());
+                                        if (currentTestCase.getCaseExecutionResult().equals("Not testable")) {      //Exit loop when this step generates exception.
+                                            break;
+                                        }
+                                        //setScriptCommentAndResult(testResult.getResult(), testResult.getComment(), currentScript);
+                                    }
                                 }
                             }
                             this.stateMachineMacro(hashMapNumberResultMacro, checkInMacro);
@@ -429,7 +440,7 @@ public class Engine {
      * @param averageTimeCase
      */
     public void endCaseSetResultChartAndDB(CaseExecutions currentTestCase, TestCaseDB caseHandler, float averageTimeCase) {
-        System.out.println("Case result= " + caseResult);
+        System.out.println("Case result = " + caseResult);
         currentTestCase.setCaseExecutionResult(caseResult);
         popUpRunController.setNumberNotExecuted(nbCaseOK, nbCaseOKWC, nbCaseNOK, nbCaseNtestable, nbCaseIncomplete, nbCaseOS, nbCaseNT);
         popUpRunController.updateAverageTimeCase(averageTimeCase, averageTimeCase * (float) nbCaseNT);
@@ -557,6 +568,7 @@ public class Engine {
             System.out.println("Parameters is not null");
             //Should not use catch here, but catch in PopUpRnController.java: 261
             return (Result) method.invoke(o, parameters, hashMap);
+
         }
         //if there is no parameters for the test, execute the scripts without parameters
         return (Result) method.invoke(o, "");

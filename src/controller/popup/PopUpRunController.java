@@ -266,17 +266,23 @@ public class PopUpRunController implements Initializable {
                 try {
                     engine.run();
                 } catch (Exception ex) {
-                    
-                    
+                    //Default Logger Event
+                    Logger.getLogger(PopUpRunController.class.getName()).log(Level.SEVERE, null, ex);
+                    //Can be specified to different types of exception. 
                     Platform.runLater(() -> {
                         Alert alert = new Alert(Alert.AlertType.ERROR);
                         alert.setTitle("Error. ");
-                        alert.setHeaderText("InvocationTarget Exception Caught. Cannot perform script: "  + ex.getMessage());
+                        alert.setHeaderText("InvocationTarget Exception Caught. Cannot perform script: ");
                         alert.setContentText("Please ensure the Internet connection is correct.");
                         Optional<ButtonType> result = alert.showAndWait();
+                        th.resume();
+                        try {
+                            thisController.executionFinished();
+                        } catch (Exception e) {
+                            Logger.getLogger(PopUpRunController.class.getName()).log(Level.SEVERE, null, e);
+                        }
                     });
                     //Logger.getLogger(PopUpRunController.class.getName()).log(Level.SEVERE, null, ex);
-                    System.out.println("Get the exception. Now check receive or not");
                     Thread.currentThread().interrupt();
                 }
                 return null;
@@ -415,7 +421,7 @@ public class PopUpRunController implements Initializable {
     }
 
     public void setNumberNotExecuted(int nbCaseOK, int nbCaseOKWC, int nbCaseNOK, int nbCaseNtestable, int nbCaseIncomplete, int nbCaseOS, int nbCaseNT) {
-
+        //Pie Chart UI & Statistics Related.
         pieChartData.get(0).setPieValue(nbCaseNT);
         pieChartData.get(1).setPieValue(nbCaseOK);
         pieChartData.get(2).setPieValue(nbCaseOKWC);
@@ -490,6 +496,7 @@ public class PopUpRunController implements Initializable {
         stopButton.setDisable(true);
 
         runButton.setOnAction((ActionEvent e) -> {
+            // Control the button behavior. 
             if (ready == true && th.getState() == Thread.State.NEW) {
                 //playSound("go");
                 th.start();
@@ -507,7 +514,7 @@ public class PopUpRunController implements Initializable {
 
         });
 
-        autoExecutionDisplay.setVisible(false);
+        autoExecutionDisplay.setVisible(false); //Button for showing autoexecution result. Unsure the function of it (Jump to first step). 
         autoExecutionDisplay.setOnAction((ActionEvent e) -> {
             autoExecutionDisplay.setDisable(true);
             caseSelected = false;
@@ -530,6 +537,7 @@ public class PopUpRunController implements Initializable {
         });
 
         stopButton.setOnAction((ActionEvent e) -> {
+            //The Stop button is not working at this stage. Only UI responds, but the algorithm will keep running till encountering exceptions / Finished.
             if (suspended) {
                 th.resume();
             }
@@ -538,6 +546,7 @@ public class PopUpRunController implements Initializable {
             runButton.setDisable(true);
             autoExecutionDisplay.setDisable(true);
             try {
+                //Change the state of testCaseInExecution to "Not tested."
                 this.executionFinished();
             } catch (Exception ex) {
                 Logger.getLogger(PopUpRunController.class.getName()).log(Level.SEVERE, null, ex);
