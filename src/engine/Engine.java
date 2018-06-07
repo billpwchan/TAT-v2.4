@@ -200,8 +200,7 @@ public class Engine {
                                         paramScriptMacro.add(param);
                                         paramToTake++;
                                     }
-                                }      //Catch exception occured in Script. Only focus on InvocationTargetException. 
-
+                                }      //Catch exception occured in Script. Only focus on InvocationTargetException now. 
                                 try {
                                     if (mac.getScriptByScriptIdScript1().getIsStimuli() == 1) {
                                         tempsDebut3 = System.currentTimeMillis();
@@ -301,6 +300,7 @@ public class Engine {
         this.popUpRunController.executionFinished();
     }
 
+    //Default method for handling remaining operations when an exception is encountered during the execution of a macro/script.
     private float exceptionCausedExecutionTerminator(HashMap<String, Integer> hashMapNumberResultMacro, Result testResult, ScriptExecutions currentScript, Macro mac, int checkInMacro, HashMap<String, Integer> hashMapNumberResultScript, int scriptNumber, StepExecutions currentStep, HashMap<String, Integer> hashMapNumberResultSteps, long tempsDebut1, float averageTimeCase, int i, Set<String> set, int stepsNumber, CaseExecutions currentTestCase) throws Exception, ClassNotFoundException, InvocationTargetException, MalformedURLException, InstantiationException, IllegalAccessException, NoSuchMethodException, IllegalArgumentException {
         long tempsFin1;
         float seconds1;

@@ -37,7 +37,6 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -56,8 +55,6 @@ import javafx.stage.WindowEvent;
 import model.TestCasesExecution;
 import model.initColumn;
 import java.io.File;
-import java.io.InputStream;
-import java.lang.reflect.InvocationTargetException;
 import java.util.Optional;
 import javafx.scene.control.ButtonType;
 import javax.sound.sampled.AudioInputStream;
@@ -66,7 +63,6 @@ import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javafx.scene.control.Alert.AlertType;
-import main.Main;
 
 /**
  * FXML Controller class
@@ -276,9 +272,9 @@ public class PopUpRunController implements Initializable {
                         alert.setTitle("Error: ");
                         alert.setHeaderText("Exception Caught. Cannot execute the test case");
                         alert.setContentText("Please refer to the stacktrace:\t\n\n" + ex.getMessage());
-                        if (ex.getMessage().contains("SSH")) {
+                        if (ex.getMessage().contains("SSH")) {      //Customized Content for Exceptions from SSHCommand Script
                             alert.setTitle("Error: The server (IP: " + exceptionMessage.substring(exceptionMessage.indexOf("IP: ")) + " ) cannot be reached.");
-                            alert.setContentText("The server (IP: " + exceptionMessage.substring(exceptionMessage.indexOf("IP: ")) + " ) cannot be reached.\n" + "Please refer to the stacktrace:\t\n\n" + ex.getMessage());
+                            alert.setContentText("The server (IP: " + exceptionMessage.replace("//n", " ").replace("    ", " ").substring(exceptionMessage.indexOf("IP: "), exceptionMessage.indexOf("at")) + " ) cannot be reached.\n" + "Please refer to the stacktrace:\t\n\n" + ex.getMessage());
                         }
                         Optional<ButtonType> result = alert.showAndWait();
                         th.resume();
@@ -288,7 +284,6 @@ public class PopUpRunController implements Initializable {
                             Logger.getLogger(PopUpRunController.class.getName()).log(Level.SEVERE, null, e);
                         }
                     });
-                    //Logger.getLogger(PopUpRunController.class.getName()).log(Level.SEVERE, null, ex);
                     Thread.currentThread().interrupt();
                 }
                 return null;
@@ -507,11 +502,13 @@ public class PopUpRunController implements Initializable {
                 //playSound("go");
                 th.start();
                 suspended = false;
+                runButton.setDisable(true);
                 pauseButton.setDisable(false);
                 stopButton.setDisable(false);
             } else if (suspended) {
                 th.resume();
                 suspended = false;
+                runButton.setDisable(true);
                 pauseButton.setDisable(false);
                 stopButton.setDisable(false);
             } else {
@@ -536,6 +533,7 @@ public class PopUpRunController implements Initializable {
             if (suspended == false) {
                 th.suspend();
                 suspended = true;
+                runButton.setDisable(false);
                 pauseButton.setDisable(true);
             } else {
                 e.consume();
@@ -554,6 +552,9 @@ public class PopUpRunController implements Initializable {
             try {
                 //Change the state of testCaseInExecution to "Not tested."
                 this.executionFinished();
+                //Need to stop the currentThread now. 
+                th.interrupt();
+//              Thread.currentThread().interrupt();
             } catch (Exception ex) {
                 Logger.getLogger(PopUpRunController.class.getName()).log(Level.SEVERE, null, ex);
             }

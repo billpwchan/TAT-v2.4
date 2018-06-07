@@ -11,6 +11,7 @@ import DBcontroller.TestCampaignDB;
 import DBcontroller.TestCaseDB;
 import controller.popup.PopUpCaseSelectionController;
 import controller.tabtestcase.TabTestCaseNewController;
+import static controller.tabtestexecution.TabTestCampaignExecutionBaselineCampaignController.alert;
 import controller.tabtestexecution.TabTestCampaignExecutionRepositoryBaselineController;
 import java.io.IOException;
 import java.net.URL;
@@ -18,6 +19,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -31,7 +33,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
@@ -135,12 +139,21 @@ public class TabTestCampaignNewController implements Initializable {
 
     private Stage dialogStage;
 
-    //index of the current test case selected
+    // index of the current test case selected
     private int index;
 
     private boolean popUpOpen = false;
 
     private boolean canBeValidate = false;
+    
+    private Alert alert;
+
+    //TextField Max Length
+    private int textfieldReferenceCampaignMaxLength = 11;
+    private int textfieldSystemCampaignMaxLength = 20;
+    private int textfieldWriterCampaignMaxLength = 20;
+    private int textfieldSUTReleaseCampaignMaxLength = 20;
+    private int textfieldWritermailCampaignMaxLength = 50;
 
     /**
      * Initializes the controller class.
@@ -150,28 +163,31 @@ public class TabTestCampaignNewController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //System.out.println("init");
+        // System.out.println("init");
         this.initButtons();
         this.fillNonEditableFields();
         this.loadCSS();
         this.initContextMenu();
         this.jtextfieldWriterAddCampaign.setText(Main.currentUser.getName());
         this.jtextfieldWriterMailAddCampaign.setText(Main.currentUser.getEmail());
-        //init  of the TableView
+        // init of the TableView
         initColumn campaignColumnInit = new initColumn();
         campaignColumnInit.initColumnCase(TableViewTestCasesAdded);
         TableViewTestCasesAdded.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         TableViewTestCasesAdded.setTableMenuButtonVisible(true);
         TableViewTestCasesAdded.setItems(observableListTestCase);
 
-//        Label label1 = new Label();
-//        this.TableViewTestCasesAdded.getSelectionModel().getSelectedCells().addListener((ListChangeListener.Change<? extends TablePosition> c) -> {
-//            label1.setText(String.valueOf(c.getList().get(0).getRow()));
-//        });
+        // Label label1 = new Label();
+        // this.TableViewTestCasesAdded.getSelectionModel().getSelectedCells().addListener((ListChangeListener.Change<?
+        // extends TablePosition> c) -> {
+        // label1.setText(String.valueOf(c.getList().get(0).getRow()));
+        // });
 
-        /* Listener in order to perform actions after mousePressed on the table view test cases
-         * if only 1click, get the index of the case selected and Disable/Enable the buttons up and down if needed
-         * if 2 click, open the test case selected in a view tab
+        /*
+         * Listener in order to perform actions after mousePressed on the table view
+         * test cases if only 1click, get the index of the case selected and
+         * Disable/Enable the buttons up and down if needed if 2 click, open the test
+         * case selected in a view tab
          */
         this.TableViewTestCasesAdded.setOnMousePressed((MouseEvent event) -> {
             if (event.getClickCount() == 1 && TableViewTestCasesAdded.getSelectionModel().getSelectedItem() != null) {
@@ -179,18 +195,75 @@ public class TabTestCampaignNewController implements Initializable {
                 buttonDeleteCase.setDisable(false);
                 buttonUpDownManagement();
 
-            } else if (event.getClickCount() == 2 && TableViewTestCasesAdded.getSelectionModel().getSelectedItem() != null) {
+            } else if (event.getClickCount() == 2
+                    && TableViewTestCasesAdded.getSelectionModel().getSelectedItem() != null) {
                 viewTestCase(TableViewTestCasesAdded.getSelectionModel().getSelectedItem());
             }
         });
 
-        this.jtextfieldReferenceAddCampaign.textProperty().addListener((final ObservableValue<? extends String> observable, final String oldValue, final String newValue) -> {
-            changeColorLabel(labelReferenceAddCampaign, newValue);
-        });
+        this.jtextfieldReferenceAddCampaign.textProperty().addListener(
+                (final ObservableValue<? extends String> observable, final String oldValue, final String newValue) -> {
+                    if (displayWarningIncorrectInputFormat("Campaign ID", textfieldReferenceCampaignMaxLength,
+                            newValue.length() > textfieldReferenceCampaignMaxLength)) {
+                        this.jtextfieldReferenceAddCampaign.setText(oldValue);
+                    }
+                    changeColorLabel(labelReferenceAddCampaign, newValue);
+                });
+            
+        
+        this.jtextfieldSystemAddCampaign.textProperty().addListener(
+                (final ObservableValue<? extends String> observable, final String oldValue, final String newValue) -> {
+                    if (displayWarningIncorrectInputFormat("System", textfieldSystemCampaignMaxLength,
+                            newValue.length() > textfieldSystemCampaignMaxLength)) {
+                        this.jtextfieldSystemAddCampaign.setText(oldValue);
+                    }
+                });
 
-        //Define a new cursor when an action is available for the user
+    
+        this.jtextfieldWriterAddCampaign.textProperty().addListener(
+            (final ObservableValue<? extends String> observable, final String oldValue, final String newValue) -> {
+                if (displayWarningIncorrectInputFormat("Writer", textfieldWriterCampaignMaxLength,
+                        newValue.length() > textfieldWriterCampaignMaxLength)) {
+                    this.jtextfieldWriterAddCampaign.setText(oldValue);
+                }
+            });
+            
+        this.jtextfieldSUTReleaseAddCampaign.textProperty().addListener(
+            (final ObservableValue<? extends String> observable, final String oldValue, final String newValue) -> {
+                if (displayWarningIncorrectInputFormat("SUT Release", textfieldSUTReleaseCampaignMaxLength,
+                        newValue.length() > textfieldSUTReleaseCampaignMaxLength)) {
+                    this.jtextfieldSUTReleaseAddCampaign.setText(oldValue);
+                }
+            });
+        
+        this.jtextfieldWriterMailAddCampaign.textProperty().addListener(
+            (final ObservableValue<? extends String> observable, final String oldValue, final String newValue) -> {
+                if (displayWarningIncorrectInputFormat("Writer Email", textfieldWritermailCampaignMaxLength,
+                        newValue.length() > textfieldWritermailCampaignMaxLength)) {
+                    this.jtextfieldWriterMailAddCampaign.setText(oldValue);
+                }
+            });
+
+        // Define a new cursor when an action is available for the user
         defineCursor();
 
+    }
+
+    private boolean displayWarningIncorrectInputFormat(String fieldName, Integer maxLength, boolean identifier) {
+        if (!identifier) {
+            return false;
+        }
+        boolean ok = false;
+        alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Warning. ");
+        alert.setHeaderText("Incorect Input Format in Field \"" + fieldName + "\": ");
+        alert.setContentText(fieldName + " exceeds maximum characters allowed (" + maxLength.toString()
+                + " characters). Please use another value, or only part of your input will be recorded.");
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK) {
+            ok = true;
+        }
+        return ok;
     }
 
     /**
@@ -198,9 +271,11 @@ public class TabTestCampaignNewController implements Initializable {
      */
     private void addCases() {
         try {
-            ObservableList<TestCase> CasesInDB = FXCollections.observableArrayList(new ArrayList<TestCase>(testCaseHandler.getAllTestCases()));
+            ObservableList<TestCase> CasesInDB = FXCollections
+                    .observableArrayList(new ArrayList<TestCase>(testCaseHandler.getAllTestCases()));
             FXMLLoader fxmlLoader = new FXMLLoader();
-            AnchorPane editPane = fxmlLoader.load(getClass().getResource("/view/popup/popUpCaseSelection.fxml").openStream());
+            AnchorPane editPane = fxmlLoader
+                    .load(getClass().getResource("/view/popup/popUpCaseSelection.fxml").openStream());
             dialogStage = new Stage();
             dialogStage.setTitle("Case Selection");
             dialogStage.initOwner(Main.primaryStage);
@@ -217,19 +292,25 @@ public class TabTestCampaignNewController implements Initializable {
             });
             dialogStage.show();
             dialogStage.setX(Main.primaryStage.getX() + Main.primaryStage.getWidth() / 2 - dialogStage.getWidth() / 2);
-            dialogStage.setY(Main.primaryStage.getY() + Main.primaryStage.getHeight() / 2 - dialogStage.getHeight() / 2);
-//            dialogStage.setX(main.getMainController().getPrimaryStage().getX() + main.getMainController().getPrimaryStage().getWidth() / 2 - dialogStage.getWidth() / 2);
-//            dialogStage.setY(main.getMainController().getPrimaryStage().getY() + main.getMainController().getPrimaryStage().getHeight() / 2 - dialogStage.getHeight() / 2);
+            dialogStage
+                    .setY(Main.primaryStage.getY() + Main.primaryStage.getHeight() / 2 - dialogStage.getHeight() / 2);
+            // dialogStage.setX(main.getMainController().getPrimaryStage().getX() +
+            // main.getMainController().getPrimaryStage().getWidth() / 2 -
+            // dialogStage.getWidth() / 2);
+            // dialogStage.setY(main.getMainController().getPrimaryStage().getY() +
+            // main.getMainController().getPrimaryStage().getHeight() / 2 -
+            // dialogStage.getHeight() / 2);
             popUpOpen = true;
 
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseNewController.class
-                    .getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabTestCaseNewController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     /*
-     * Action performed after closing the popUp to add a case. The actions are: Adding the cases selected in the tableView case and update the number of cases in the right field.
+     * Action performed after closing the popUp to add a case. The actions are:
+     * Adding the cases selected in the tableView case and update the number of
+     * cases in the right field.
      */
     public void setAction(ObservableList<TestCase> CasesSelected) {
         CasesSelected.stream().forEach((CasesSelected1) -> {
@@ -281,8 +362,7 @@ public class TabTestCampaignNewController implements Initializable {
     }
 
     /**
-     * management in order to management the disable/enable of up and down
-     * buttons
+     * management in order to management the disable/enable of up and down buttons
      */
     public void buttonUpDownManagement() {
         if (observableListTestCase.size() == 1 || index == -2) {
@@ -319,7 +399,7 @@ public class TabTestCampaignNewController implements Initializable {
      */
     public void createNewCampaign() {
         TestCampaign newTestCampaign = new TestCampaign();
-        newTestCampaign.setReference(this.jtextfieldReferenceAddCampaign.getText()); //CHANGE IN STRING
+        newTestCampaign.setReference(this.jtextfieldReferenceAddCampaign.getText()); // CHANGE IN STRING
         newTestCampaign.setSystem(this.jtextfieldSystemAddCampaign.getText());
         newTestCampaign.setWritter(this.jtextfieldWriterAddCampaign.getText());
         newTestCampaign.setCampaignVersion(1);
@@ -345,10 +425,10 @@ public class TabTestCampaignNewController implements Initializable {
 
     /**
      * change the color of the label put in parameter regarding the value of
-     * newValue if new value is empty, label will be displayed in red. Otherwise
-     * the label will be displayed in black
+     * newValue if new value is empty, label will be displayed in red. Otherwise the
+     * label will be displayed in black
      *
-     * @param label the label for which change the color
+     * @param label    the label for which change the color
      * @param newValue the string to check
      */
     private void changeColorLabel(Label label, String newValue) {
