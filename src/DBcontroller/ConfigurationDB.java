@@ -45,14 +45,16 @@ public class ConfigurationDB {
      * Default constructor of this class.
      */
     public ConfigurationDB() {
-        //init();
+        // init();
     }
 
     private void init() {
     }
 
-    public int configureTestCase(Iterations iteration, TestCase testCase, File exceFile, int range, String sheetNumber, int caseNumber, String excelCategoryInstantiation, String excelLocationInstantiation) throws FileNotFoundException, IOException, InterruptedException {
-        //final Stage dialog2 = dialog;
+    public int configureTestCase(Iterations iteration, TestCase testCase, File exceFile, int range, String sheetNumber,
+            int caseNumber, String excelCategoryInstantiation, String excelLocationInstantiation)
+            throws FileNotFoundException, IOException, InterruptedException {
+        // final Stage dialog2 = dialog;
         SessionFactory factory = sessionFactorySingleton.getInstance();
         String splitOn = ((char) 007) + "";
         Session session = factory.openSession();
@@ -76,22 +78,39 @@ public class ConfigurationDB {
         } else {
 
         }
-        Short caseOrder =(short) caseNumber;
+        Short caseOrder = (short) caseNumber;
         Byte stepOrder = 0;
         Byte scriptOrder = 0;
         Byte paramOrder = 0;
-        //HSSFSheet sheet = workbook.getSheet(sheetName);
+        // HSSFSheet sheet = workbook.getSheet(sheetName);
         int indexLine = 0;
         String value = null;
+
+        // Add preliminary Check before invoking range checking. Need to implement
+        // Try-Catch just like later.
+        
+   
+        ScriptHasBeenConfigured ParamTemp = (ScriptHasBeenConfigured)(((TestStepHasScript)(((TestStep)(testCase.getTestSteps().iterator().next())).getTestStepHasScripts().iterator().next())).getScriptHasBeenConfigureds().iterator().next());
+        int inputLastRow = Integer.parseInt(ParamTemp.getValue().split(splitOn)[4]) + range - 1;
+        if (ParamTemp.getValuePath().equals("Excel file") && sheet.getLastRowNum() > inputLastRow) { // Shall not proceed further. Need to exit loop now.
+            session.beginTransaction().commit();
+            session.close();
+            Platform.runLater(() -> {
+        });
+            return -1;
+        }
+
         while (range > 0 || range == -1) {
             CaseExecutions caseExecution = new CaseExecutions(iteration, testCase, caseOrder);
             if (excelCategoryInstantiation != null) {
                 String[] category = excelCategoryInstantiation.split(splitOn);
-                caseExecution.setTestCategory(this.getExcelValue(sheet, Integer.parseInt(category[0]), Integer.parseInt(category[1]), indexLine));
+                caseExecution.setTestCategory(this.getExcelValue(sheet, Integer.parseInt(category[0]),
+                        Integer.parseInt(category[1]), indexLine));
             }
             if (excelLocationInstantiation != null) {
                 String[] location = excelLocationInstantiation.split(splitOn);
-                caseExecution.setLocation(this.getExcelValue(sheet, Integer.parseInt(location[0]), Integer.parseInt(location[1]), indexLine));
+                caseExecution.setLocation(this.getExcelValue(sheet, Integer.parseInt(location[0]),
+                        Integer.parseInt(location[1]), indexLine));
             }
             Iterator<TestStep> itSteps = testCase.getTestSteps().iterator();
             stepOrder = 0;
@@ -103,19 +122,23 @@ public class ConfigurationDB {
                 scriptOrder = 0;
                 while (itTestStepHasScript.hasNext()) {
                     TestStepHasScript testStepHasScriptObject = itTestStepHasScript.next();
-                    ScriptExecutions scriptExecution = new ScriptExecutions(testStepHasScriptObject.getScript(), stepExecutions, scriptOrder, testStepHasScriptObject.getScript().getIsStimuli());
+                    ScriptExecutions scriptExecution = new ScriptExecutions(testStepHasScriptObject.getScript(),
+                            stepExecutions, scriptOrder, testStepHasScriptObject.getScript().getIsStimuli());
                     stepExecutions.getScriptExecutionses().add(scriptExecution);
-                    Iterator<ScriptHasBeenConfigured> itScHasBeenConfigured = testStepHasScriptObject.getScriptHasBeenConfigureds().iterator();
+                    Iterator<ScriptHasBeenConfigured> itScHasBeenConfigured = testStepHasScriptObject
+                            .getScriptHasBeenConfigureds().iterator();
                     paramOrder = 0;
                     while (itScHasBeenConfigured.hasNext()) {
                         ScriptHasBeenConfigured Param = itScHasBeenConfigured.next();
                         if (Param.getValuePath().equals("Excel file")) {
-                            caseExecution.setExcelPath(settings.scriptsPaht + "\\" + iteration.getTestCampaign().getReference() + "\\" + iteration.getBaselineId() + "\\" + exceFile.toPath().getFileName());
+                            caseExecution.setExcelPath(
+                                    settings.scriptsPaht + "\\" + iteration.getTestCampaign().getReference() + "\\"
+                                            + iteration.getBaselineId() + "\\" + exceFile.toPath().getFileName());
                             String[] params = Param.getValue().split(splitOn);
                             int x = Integer.parseInt(params[3]);
                             int y = Integer.parseInt(params[4]);
                             try {
-                                //System.out.println("HERE AVANT BUG");
+                                // System.out.println("HERE AVANT BUG");
                                 sheet.getRow(y + indexLine - 1).getCell(x - 1).getCellType();
                             } catch (Exception e) {
                                 Platform.runLater(() -> {
@@ -123,21 +146,23 @@ public class ConfigurationDB {
                                 });
 
                                 return -1;
-                                
+
                             }
                             value = this.getExcelValue(sheet, x, y, indexLine);
-                        } else if (Param.getValuePath().equals("Constant") || Param.getValuePath().equals("Buffer list")|| Param.getValuePath().equals("HMI")|| Param.getValuePath().equals("Classes")) {
+                        } else if (Param.getValuePath().equals("Constant") || Param.getValuePath().equals("Buffer list")
+                                || Param.getValuePath().equals("HMI") || Param.getValuePath().equals("Classes")) {
                             String subString = Param.getValue();
-                            System.out.println("JE SUIS DANS BASELINE ET CONFIG= "+subString);
+                            System.out.println("JE SUIS DANS BASELINE ET CONFIG= " + subString);
                             subString = subString.substring(1, subString.length() - 1);
                             value = subString;
-                            System.out.println("JE SUIS DANS BASELINE ET CONFIG= "+value);
+                            System.out.println("JE SUIS DANS BASELINE ET CONFIG= " + value);
                         } else if (Param.getValuePath().equals("Property")) {
                             String[] property = Param.getValue().split(splitOn);
-                            //System.out.println("VALUE = "+property);
-                            value=property[4];
+                            // System.out.println("VALUE = "+property);
+                            value = property[4];
                         }
-                        ParametersExecution paramExecution = new ParametersExecution(Param.getParameters(), scriptExecution, value, paramOrder);
+                        ParametersExecution paramExecution = new ParametersExecution(Param.getParameters(),
+                                scriptExecution, value, paramOrder);
                         scriptExecution.getParametersExecutions().add(paramExecution);
                         paramOrder++;
                     }
@@ -145,7 +170,7 @@ public class ConfigurationDB {
                 }
                 stepOrder++;
             }
-            //System.out.println("JE VAIS SAVE");
+            // System.out.println("JE VAIS SAVE");
             try {
                 session.save(caseExecution);
             } catch (Exception e) {
@@ -155,12 +180,12 @@ public class ConfigurationDB {
             indexLine++;
             caseOrder++;
             range--;
-            System.out.println("CASE NUMBER = "+caseOrder);
+            System.out.println("CASE NUMBER = " + caseOrder);
         }
         session.beginTransaction().commit();
         session.close();
         Platform.runLater(() -> {
-            //TabTestCampaignExecutionBaselineCampaignController.closeAlert();
+            // Not tested yet. Need to check.
         });
         return caseNumber;
     }
@@ -199,25 +224,26 @@ public class ConfigurationDB {
     public String getExcelValue(HSSFSheet sheet, int x, int y, int indexLine) {
         String value = null;
         switch (sheet.getRow(y + indexLine - 1).getCell(x - 1).getCellType()) {
-            case Cell.CELL_TYPE_STRING:
-                value = sheet.getRow(y + indexLine - 1).getCell(x - 1).getRichStringCellValue().getString();
-                //System.out.println(sheet.getRow(y + indexLine - 1).getCell(x - 1).getRichStringCellValue().getString());
-                //System.out.println("VALUE = " + value);
-                break;
-            case Cell.CELL_TYPE_NUMERIC:
-                value = String.valueOf(sheet.getRow(y + indexLine - 1).getCell(x - 1).getNumericCellValue());
-                break;
-            case Cell.CELL_TYPE_FORMULA:
-                try {
+        case Cell.CELL_TYPE_STRING:
+            value = sheet.getRow(y + indexLine - 1).getCell(x - 1).getRichStringCellValue().getString();
+            // System.out.println(sheet.getRow(y + indexLine - 1).getCell(x -
+            // 1).getRichStringCellValue().getString());
+            // System.out.println("VALUE = " + value);
+            break;
+        case Cell.CELL_TYPE_NUMERIC:
+            value = String.valueOf(sheet.getRow(y + indexLine - 1).getCell(x - 1).getNumericCellValue());
+            break;
+        case Cell.CELL_TYPE_FORMULA:
+            try {
 
-                    value = String.valueOf(sheet.getRow(y + indexLine - 1).getCell(x - 1).getStringCellValue());
-                } catch (Exception e) {
-                    value = String.valueOf(sheet.getRow(y + indexLine - 1).getCell(x - 1).getNumericCellValue());
-                }
-                //System.out.println("VALUE = " + value);
-                break;
-            default:
-                value = String.valueOf(0);
+                value = String.valueOf(sheet.getRow(y + indexLine - 1).getCell(x - 1).getStringCellValue());
+            } catch (Exception e) {
+                value = String.valueOf(sheet.getRow(y + indexLine - 1).getCell(x - 1).getNumericCellValue());
+            }
+            // System.out.println("VALUE = " + value);
+            break;
+        default:
+            value = String.valueOf(0);
         }
         return value;
     }

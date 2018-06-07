@@ -84,6 +84,7 @@ import main.Main;
 
 /**
  * FXML Controller class
+ * For Baseline Creation ====> Validate campaign steps and generate validated baseline.
  *
  * @author tmorin
  */
@@ -235,6 +236,7 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
 
         prepareDisplayButtonsAndLabels();
 
+        //Baseline Name will not be changed after validate one test case. Set Text Field to disabled.
         this.baselineName.textProperty()
                 .addListener((observable, oldValue, newValue) -> {
                     if (selected != null) {
@@ -243,6 +245,7 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
                 }
                 );
 
+        //If user decides to skip this one test case, pop-up this window to notify.
         this.tableViewCases.getSelectionModel()
                 .selectedItemProperty().addListener((ObservableValue<? extends TestCase> observable, TestCase oldValue, TestCase newValue) -> {
                     //System.out.println("NEW VALUE = " + newValue + "OLD VALUE = " + oldValue);
@@ -267,7 +270,6 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
                     } catch (ParseException ex) {
                         Logger.getLogger(TabTestCampaignExecutionBaselineCampaignController.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                    //this.notificationBaseline();
                     TabTestCampaignExecutionRepositoryBaselineController execController = new TabTestCampaignExecutionRepositoryBaselineController();
                     execController.runCampaign(BaselineName);
                     this.main.closeTab(this.campaignToBaseline.getIdtestCampaign());
@@ -308,12 +310,21 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
                             }
                             if (excelChoose == true) {
                                 alertBox2();
+                                //Connect to Database for operation. Intended to add an additional layer of validation upfront.
                                 task = new Task<Void>() {
                                     @Override
                                     public Void call() throws IOException, FileNotFoundException, InterruptedException {
                                         util.startTime();
                                         try {
                                             numberOfCases = configDB.configureTestCase(baseline, selected, excelFile, range, sheetNumber, numberOfCases, excelCategoryInstantiation, excelLocationInstantiation);
+                                            while (numberOfCases == -1){
+                                                System.out.println("SUccessful GET -1 RETURN!!!");
+                                                File excelFiletemp = selectExcelFile();
+                                                if (excelFiletemp != null){
+                                                    storeExcel(excelFiletemp);
+                                                }
+                                                numberOfCases = configDB.configureTestCase(baseline, selected, excelFile, range, sheetNumber, numberOfCases, excelCategoryInstantiation, excelLocationInstantiation);
+                                            }
                                         } catch (Exception e) {
                                             System.out.println("EXCEPTION e= " + e);
                                         }

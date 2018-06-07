@@ -54,6 +54,7 @@ import model.WriteReport;
 
 /**
  * FXML Controller class
+ * To validate a particular test case (With prompt window if excel is provided)
  *
  * @author Thomas M.
  */
