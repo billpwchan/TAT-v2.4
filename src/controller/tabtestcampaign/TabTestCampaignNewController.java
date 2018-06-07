@@ -145,7 +145,7 @@ public class TabTestCampaignNewController implements Initializable {
     private boolean popUpOpen = false;
 
     private boolean canBeValidate = false;
-    
+
     private Alert alert;
 
     //TextField Max Length
@@ -209,8 +209,7 @@ public class TabTestCampaignNewController implements Initializable {
                     }
                     changeColorLabel(labelReferenceAddCampaign, newValue);
                 });
-            
-        
+
         this.jtextfieldSystemAddCampaign.textProperty().addListener(
                 (final ObservableValue<? extends String> observable, final String oldValue, final String newValue) -> {
                     if (displayWarningIncorrectInputFormat("System", textfieldSystemCampaignMaxLength,
@@ -219,30 +218,29 @@ public class TabTestCampaignNewController implements Initializable {
                     }
                 });
 
-    
         this.jtextfieldWriterAddCampaign.textProperty().addListener(
-            (final ObservableValue<? extends String> observable, final String oldValue, final String newValue) -> {
-                if (displayWarningIncorrectInputFormat("Writer", textfieldWriterCampaignMaxLength,
-                        newValue.length() > textfieldWriterCampaignMaxLength)) {
-                    this.jtextfieldWriterAddCampaign.setText(oldValue);
-                }
-            });
-            
+                (final ObservableValue<? extends String> observable, final String oldValue, final String newValue) -> {
+                    if (displayWarningIncorrectInputFormat("Writer", textfieldWriterCampaignMaxLength,
+                            newValue.length() > textfieldWriterCampaignMaxLength)) {
+                        this.jtextfieldWriterAddCampaign.setText(oldValue);
+                    }
+                });
+
         this.jtextfieldSUTReleaseAddCampaign.textProperty().addListener(
-            (final ObservableValue<? extends String> observable, final String oldValue, final String newValue) -> {
-                if (displayWarningIncorrectInputFormat("SUT Release", textfieldSUTReleaseCampaignMaxLength,
-                        newValue.length() > textfieldSUTReleaseCampaignMaxLength)) {
-                    this.jtextfieldSUTReleaseAddCampaign.setText(oldValue);
-                }
-            });
-        
+                (final ObservableValue<? extends String> observable, final String oldValue, final String newValue) -> {
+                    if (displayWarningIncorrectInputFormat("SUT Release", textfieldSUTReleaseCampaignMaxLength,
+                            newValue.length() > textfieldSUTReleaseCampaignMaxLength)) {
+                        this.jtextfieldSUTReleaseAddCampaign.setText(oldValue);
+                    }
+                });
+
         this.jtextfieldWriterMailAddCampaign.textProperty().addListener(
-            (final ObservableValue<? extends String> observable, final String oldValue, final String newValue) -> {
-                if (displayWarningIncorrectInputFormat("Writer Email", textfieldWritermailCampaignMaxLength,
-                        newValue.length() > textfieldWritermailCampaignMaxLength)) {
-                    this.jtextfieldWriterMailAddCampaign.setText(oldValue);
-                }
-            });
+                (final ObservableValue<? extends String> observable, final String oldValue, final String newValue) -> {
+                    if (displayWarningIncorrectInputFormat("Writer Email", textfieldWritermailCampaignMaxLength,
+                            newValue.length() > textfieldWritermailCampaignMaxLength)) {
+                        this.jtextfieldWriterMailAddCampaign.setText(oldValue);
+                    }
+                });
 
         // Define a new cursor when an action is available for the user
         defineCursor();
@@ -362,7 +360,8 @@ public class TabTestCampaignNewController implements Initializable {
     }
 
     /**
-     * management in order to management the disable/enable of up and down buttons
+     * management in order to management the disable/enable of up and down
+     * buttons
      */
     public void buttonUpDownManagement() {
         if (observableListTestCase.size() == 1 || index == -2) {
@@ -425,10 +424,10 @@ public class TabTestCampaignNewController implements Initializable {
 
     /**
      * change the color of the label put in parameter regarding the value of
-     * newValue if new value is empty, label will be displayed in red. Otherwise the
-     * label will be displayed in black
+     * newValue if new value is empty, label will be displayed in red. Otherwise
+     * the label will be displayed in black
      *
-     * @param label    the label for which change the color
+     * @param label the label for which change the color
      * @param newValue the string to check
      */
     private void changeColorLabel(Label label, String newValue) {
