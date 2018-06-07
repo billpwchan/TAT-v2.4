@@ -11,12 +11,14 @@ import controller.macroActions.PreviewMacro;
 import controller.macroActions.ScriptLineTableMacroController;
 import controller.macroActions.TableActionCreationController;
 import controller.tabtestcase.TabTestCaseNewController;
+import static controller.tabtestexecution.TabTestCampaignExecutionBaselineCampaignController.alert;
 import java.io.IOException;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -31,6 +33,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -106,6 +109,8 @@ public class TabMacroNewController implements Initializable {
     
     DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
 
+    private int textfieldMacroNameMaxLength = 60;
+
     /**
      * Initializes the controller class.
      *
@@ -123,6 +128,9 @@ public class TabMacroNewController implements Initializable {
         jtextfieldMacroName.textProperty().addListener((observable, oldValue, newValue) -> {
             changeColorTextMacroName(newValue.trim().isEmpty());
             activationValidButton();
+            if (displayWarningIncorrectInputFormat("Macro name", textfieldMacroNameMaxLength, newValue.length()>textfieldMacroNameMaxLength)){
+                jtextfieldMacroName.setText(oldValue);
+            }
         });
 
         jtextareaObjectivesMacro.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -136,6 +144,22 @@ public class TabMacroNewController implements Initializable {
                 activationValidButton();
             }
         });
+    }
+
+    private boolean displayWarningIncorrectInputFormat(String fieldName, Integer maxLength, boolean identifier) {
+        if (!identifier) {
+            return false;
+        }
+        boolean ok = false;
+        alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Warning. ");
+        alert.setHeaderText("Incorect Input Format in Field \"" + fieldName + "\": ");
+        alert.setContentText(fieldName + " exceeds maximum characters allowed (" + maxLength.toString() + " characters). Please use another value, or only part of your input will be recorded.");
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK) {
+            ok = true;
+        }
+        return ok;
     }
 
     public void init(TabMacroMainViewController mainController) {
