@@ -563,7 +563,11 @@ public class TabTestCaseLibraryController implements Initializable {
                 @Override
                 public Void call() throws IOException, FileNotFoundException, InterruptedException {
                     util.startTime();
-                    configDB.configureTestCase(baseline, currentTestCaseSelected, excelFile, range, tabBaseline.getSheetNumber(), 0, null, null);
+                    try {
+                        configDB.configureTestCase(baseline, currentTestCaseSelected, excelFile, range, tabBaseline.getSheetNumber(), 0, null, null);
+                    } catch (Exception ex) {
+                        Logger.getLogger(TabTestCaseLibraryController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                     util.endTime();
                     return null;
                 }

@@ -316,18 +316,28 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
                                     public Void call() throws IOException, FileNotFoundException, InterruptedException {
                                         util.startTime();
                                         try {
+                                            // while (numberOfCases == -1){
+                                            //     System.out.println("SUccessful GET -1 RETURN!!!");
+                                            //     File excelFiletemp = selectExcelFile();
+                                            //     if (excelFiletemp != null){
+                                            //         storeExcel(excelFiletemp);
+                                            //     }
                                             numberOfCases = configDB.configureTestCase(baseline, selected, excelFile, range, sheetNumber, numberOfCases, excelCategoryInstantiation, excelLocationInstantiation);
-                                            while (numberOfCases == -1){
-                                                System.out.println("SUccessful GET -1 RETURN!!!");
-                                                File excelFiletemp = selectExcelFile();
-                                                if (excelFiletemp != null){
-                                                    storeExcel(excelFiletemp);
-                                                }
-                                                numberOfCases = configDB.configureTestCase(baseline, selected, excelFile, range, sheetNumber, numberOfCases, excelCategoryInstantiation, excelLocationInstantiation);
-                                            }
+                                            
                                         } catch (Exception e) {
                                             System.out.println("EXCEPTION e= " + e);
+                                            System.out.println(e.getMessage());
+                                            File excelFiletemp = selectExcelFile();
+                                            if (excelFiletemp != null) {
+                                                storeExcel(excelFiletemp);
+                                            }
+                                            try {
+                                                numberOfCases = configDB.configureTestCase(baseline, selected, excelFile, range, sheetNumber, numberOfCases, excelCategoryInstantiation, excelLocationInstantiation);
+                                            } catch (Exception ex) {
+                                                Logger.getLogger(TabTestCampaignExecutionBaselineCampaignController.class.getName()).log(Level.SEVERE, null, ex);
+                                            }
                                         }
+                                        
                                         util.endTime();
                                         return null;
                                     }

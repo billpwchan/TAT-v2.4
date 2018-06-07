@@ -53,7 +53,7 @@ public class ConfigurationDB {
 
     public int configureTestCase(Iterations iteration, TestCase testCase, File exceFile, int range, String sheetNumber,
             int caseNumber, String excelCategoryInstantiation, String excelLocationInstantiation)
-            throws FileNotFoundException, IOException, InterruptedException {
+            throws FileNotFoundException, IOException, InterruptedException, Exception {
         // final Stage dialog2 = dialog;
         SessionFactory factory = sessionFactorySingleton.getInstance();
         String splitOn = ((char) 007) + "";
@@ -90,15 +90,15 @@ public class ConfigurationDB {
         // Try-Catch just like later.
         
    
-        ScriptHasBeenConfigured ParamTemp = (ScriptHasBeenConfigured)(((TestStepHasScript)(((TestStep)(testCase.getTestSteps().iterator().next())).getTestStepHasScripts().iterator().next())).getScriptHasBeenConfigureds().iterator().next());
-        int inputLastRow = Integer.parseInt(ParamTemp.getValue().split(splitOn)[4]) + range - 1;
-        if (ParamTemp.getValuePath().equals("Excel file") && sheet.getLastRowNum() > inputLastRow) { // Shall not proceed further. Need to exit loop now.
-            session.beginTransaction().commit();
-            session.close();
-            Platform.runLater(() -> {
-        });
-            return -1;
-        }
+        // ScriptHasBeenConfigured ParamTemp = (ScriptHasBeenConfigured)(((TestStepHasScript)(((TestStep)(testCase.getTestSteps().iterator().next())).getTestStepHasScripts().iterator().next())).getScriptHasBeenConfigureds().iterator().next());
+        // int inputLastRow = Integer.parseInt(ParamTemp.getValue().split(splitOn)[4]) + range - 1;
+        // if (ParamTemp.getValuePath().equals("Excel file") && sheet.getLastRowNum() > inputLastRow) { // Shall not proceed further. Need to exit loop now.
+        //     session.beginTransaction().commit();
+        //     session.close();
+        //     Platform.runLater(() -> {
+        // });
+        //     return -1;
+        // }
 
         while (range > 0 || range == -1) {
             CaseExecutions caseExecution = new CaseExecutions(iteration, testCase, caseOrder);
@@ -137,6 +137,9 @@ public class ConfigurationDB {
                             String[] params = Param.getValue().split(splitOn);
                             int x = Integer.parseInt(params[3]);
                             int y = Integer.parseInt(params[4]);
+                            if (sheet.getLastRowNum() > y - 1){
+                                throw new Exception("Wrong row range number. Please change configuration. ");
+                            }
                             try {
                                 // System.out.println("HERE AVANT BUG");
                                 sheet.getRow(y + indexLine - 1).getCell(x - 1).getCellType();
