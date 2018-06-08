@@ -352,6 +352,7 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
                                     this.setButtonAndLabelsVisible(false, true, true);
                                     validConfiguration(numberValidatedCase++);  //Enable ValidateBaseline button when consists enough cases
                                     controllerTableStep.disableConfiguration();
+                                    numberOfCases = 0;
                                 } else {
                                     numberOfCases = 0;  //To restore numOfCases back to origina state (If exception is encountered)
                                 }
@@ -817,11 +818,13 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
     public void deleteFolderConfiguration() {
         File index = new File(settings.scriptsPaht + "\\" + baseline.getTestCampaign().getReference() + "\\" + baseline.getBaselineId());
         String[] entries = index.list();
-        for (String s : entries) {
-            File currentFile = new File(index.getPath(), s);
-            currentFile.delete();
+        if (entries != null){
+            for (String s : entries) {
+                File currentFile = new File(index.getPath(), s);
+                currentFile.delete();
+            }
+            index.delete();
         }
-        index.delete();
     }
 
     private void showWizard() {

@@ -212,9 +212,11 @@ public class ConfigurationDB {
     public void deleteConfiguration(Iterations baseline) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
-        Query qry = session.createQuery("delete Iterations IT where IT.baselineId=:baselineID");
-        qry.setString("baselineID", baseline.getBaselineId());
-        qry.executeUpdate();
+//        if (checkConfigurationExistence(baseline.getBaselineId()) > 0) {
+            Query qry = session.createQuery("DELETE FROM Iterations WHERE baseline_id=:baselineID");    //The syntax originally is wrong. Didn't use IT in this query.
+            qry.setString("baselineID", baseline.getBaselineId());
+            qry.executeUpdate();
+//        }
         session.beginTransaction().commit();
         session.close();
     }
