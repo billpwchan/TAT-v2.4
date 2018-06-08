@@ -313,29 +313,24 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
                                 //Connect to Database for operation. Intended to add an additional layer of validation upfront.
                                 task = new Task<Void>() {
                                     @Override
-                                    public Void call() throws IOException, FileNotFoundException, InterruptedException {
+                                    public Void call() throws IOException, FileNotFoundException, InterruptedException, Exception {
                                         util.startTime();
                                         try {
-                                            // while (numberOfCases == -1){
-                                            //     System.out.println("SUccessful GET -1 RETURN!!!");
-                                            //     File excelFiletemp = selectExcelFile();
-                                            //     if (excelFiletemp != null){
-                                            //         storeExcel(excelFiletemp);
-                                            //     }
                                             numberOfCases = configDB.configureTestCase(baseline, selected, excelFile, range, sheetNumber, numberOfCases, excelCategoryInstantiation, excelLocationInstantiation);
-                                            
                                         } catch (Exception e) {
                                             System.out.println("EXCEPTION e= " + e);
                                             System.out.println(e.getMessage());
-                                            File excelFiletemp = selectExcelFile();
-                                            if (excelFiletemp != null) {
-                                                storeExcel(excelFiletemp);
-                                            }
-                                            try {
-                                                numberOfCases = configDB.configureTestCase(baseline, selected, excelFile, range, sheetNumber, numberOfCases, excelCategoryInstantiation, excelLocationInstantiation);
-                                            } catch (Exception ex) {
-                                                Logger.getLogger(TabTestCampaignExecutionBaselineCampaignController.class.getName()).log(Level.SEVERE, null, ex);
-                                            }
+                                            // displayAlert("Incorrect Excel Range", e.getMessage());
+                                            throw new Exception(e.getMessage());
+                                            // File excelFiletemp = selectExcelFile(); //This line will cause thread related exception.
+                                            // if (excelFiletemp != null) {
+                                            //     storeExcel(excelFiletemp);
+                                            // }
+                                            // try {
+                                            //     numberOfCases = configDB.configureTestCase(baseline, selected, excelFile, range, sheetNumber, numberOfCases, excelCategoryInstantiation, excelLocationInstantiation);
+                                            // } catch (Exception ex) {
+                                            //     Logger.getLogger(TabTestCampaignExecutionBaselineCampaignController.class.getName()).log(Level.SEVERE, null, ex);
+                                            // }
                                         }
                                         
                                         util.endTime();
@@ -349,7 +344,7 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
                                     th.join();
                                 } catch (InterruptedException ex) {
                                     Logger.getLogger(TabTestCampaignExecutionBaselineCampaignController.class.getName()).log(Level.SEVERE, null, ex);
-                                }
+                                } 
                                 closeAlert(alert);
                                 //this.notificationBaselinCase();
                                 if (numberOfCases != -1) {
@@ -759,6 +754,14 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
         alert.setTitle("Error Dialog");
         alert.setHeaderText("The cell x= " + x + " y= " + y + " has a problem");
         alert.setContentText("Click on OK, check your excel File and try again");
+        alert.showAndWait();
+    }
+
+    public static void errorBox(String errorTitle, String errorHeaderText, String errorMessage){
+        Alert alert = new Alert(AlertType.ERROR);
+        alert.setTitle(errorTitle);
+        alert.setHeaderText(errorHeaderText);
+        alert.setContentText(errorMessage);
         alert.showAndWait();
     }
 

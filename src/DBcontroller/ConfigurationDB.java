@@ -85,6 +85,7 @@ public class ConfigurationDB {
         // HSSFSheet sheet = workbook.getSheet(sheetName);
         int indexLine = 0;
         String value = null;
+        System.out.println("Sheet Last Row Num: " + sheet.getLastRowNum());
 
         // Add preliminary Check before invoking range checking. Need to implement
         // Try-Catch just like later.
@@ -137,8 +138,13 @@ public class ConfigurationDB {
                             String[] params = Param.getValue().split(splitOn);
                             int x = Integer.parseInt(params[3]);
                             int y = Integer.parseInt(params[4]);
-                            if (sheet.getLastRowNum() > y - 1){
-                                throw new Exception("Wrong row range number. Please change configuration. ");
+                            final int lastRowNum = sheet.getLastRowNum();
+                            if (sheet.getLastRowNum() < y + range - 2){     //Because getLastRowNum is Zero-based. Both y and range are 1-based. 
+                                Platform.runLater(() -> {
+                                    TabTestCampaignExecutionBaselineCampaignController.errorBox("Configuration Error", "Number of row input is too large", "The input Excel file counts only "+ lastRowNum + " rows.");
+                                });
+
+                                return -1;
                             }
                             try {
                                 // System.out.println("HERE AVANT BUG");
