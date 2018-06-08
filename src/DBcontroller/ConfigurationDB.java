@@ -85,12 +85,10 @@ public class ConfigurationDB {
         // HSSFSheet sheet = workbook.getSheet(sheetName);
         int indexLine = 0;
         String value = null;
-        System.out.println("Sheet Last Row Num: " + sheet.getLastRowNum());
+//        System.out.println("Sheet Last Row Num: " + sheet.getLastRowNum());
 
         // Add preliminary Check before invoking range checking. Need to implement
         // Try-Catch just like later.
-        
-   
         // ScriptHasBeenConfigured ParamTemp = (ScriptHasBeenConfigured)(((TestStepHasScript)(((TestStep)(testCase.getTestSteps().iterator().next())).getTestStepHasScripts().iterator().next())).getScriptHasBeenConfigureds().iterator().next());
         // int inputLastRow = Integer.parseInt(ParamTemp.getValue().split(splitOn)[4]) + range - 1;
         // if (ParamTemp.getValuePath().equals("Excel file") && sheet.getLastRowNum() > inputLastRow) { // Shall not proceed further. Need to exit loop now.
@@ -100,7 +98,6 @@ public class ConfigurationDB {
         // });
         //     return -1;
         // }
-
         while (range > 0 || range == -1) {
             CaseExecutions caseExecution = new CaseExecutions(iteration, testCase, caseOrder);
             if (excelCategoryInstantiation != null) {
@@ -129,34 +126,36 @@ public class ConfigurationDB {
                     Iterator<ScriptHasBeenConfigured> itScHasBeenConfigured = testStepHasScriptObject
                             .getScriptHasBeenConfigureds().iterator();
                     paramOrder = 0;
+                    ParametersExecution paramExecutionLast = null;
                     while (itScHasBeenConfigured.hasNext()) {
                         ScriptHasBeenConfigured Param = itScHasBeenConfigured.next();
                         if (Param.getValuePath().equals("Excel file")) {
-                            caseExecution.setExcelPath(
-                                    settings.scriptsPaht + "\\" + iteration.getTestCampaign().getReference() + "\\"
-                                            + iteration.getBaselineId() + "\\" + exceFile.toPath().getFileName());
                             String[] params = Param.getValue().split(splitOn);
                             int x = Integer.parseInt(params[3]);
                             int y = Integer.parseInt(params[4]);
-                            final int lastRowNum = sheet.getLastRowNum();
-                            if (sheet.getLastRowNum() < y + range - 2){     //Because getLastRowNum is Zero-based. Both y and range are 1-based. 
+                            final int lastRowNum = sheet.getLastRowNum() + 1;
+                            if (sheet.getLastRowNum() < y + range - 2) {     //Because getLastRowNum is Zero-based. Both y and range are 1-based. 
                                 Platform.runLater(() -> {
-                                    TabTestCampaignExecutionBaselineCampaignController.errorBox("Configuration Error", "Number of row input is too large", "The input Excel file counts only "+ lastRowNum + " rows.");
+                                    TabTestCampaignExecutionBaselineCampaignController.errorBox("Configuration Error", "Number of row input is too large", "The input Excel file counts only " + lastRowNum + " rows.");
                                 });
-
+                                if (paramExecutionLast != null) {
+                                    scriptExecution.getParametersExecutions().remove(paramExecutionLast);
+                                }
                                 return -1;
                             }
-                            try {
-                                // System.out.println("HERE AVANT BUG");
-                                sheet.getRow(y + indexLine - 1).getCell(x - 1).getCellType();
+                            final int updatedY = y + indexLine - 1;
+                            final int updatedX = x - 1;
+                            try {       //Detecting Blank cell, or unsupported cell. Will catch exception.
+                                sheet.getRow(updatedY).getCell(updatedX).getCellType();
                             } catch (Exception e) {
                                 Platform.runLater(() -> {
-                                    TabTestCampaignExecutionBaselineCampaignController.errorBox(x, y);
+                                    TabTestCampaignExecutionBaselineCampaignController.errorBox("Configuration Error", "Blank cell detected", "Please check cell: Row " + (updatedY + 1) + " Column " + (updatedX + 1) + ".");
                                 });
-
                                 return -1;
-
                             }
+                            caseExecution.setExcelPath(
+                                    settings.scriptsPaht + "\\" + iteration.getTestCampaign().getReference() + "\\"
+                                    + iteration.getBaselineId() + "\\" + exceFile.toPath().getFileName());
                             value = this.getExcelValue(sheet, x, y, indexLine);
                         } else if (Param.getValuePath().equals("Constant") || Param.getValuePath().equals("Buffer list")
                                 || Param.getValuePath().equals("HMI") || Param.getValuePath().equals("Classes")) {
@@ -173,6 +172,7 @@ public class ConfigurationDB {
                         ParametersExecution paramExecution = new ParametersExecution(Param.getParameters(),
                                 scriptExecution, value, paramOrder);
                         scriptExecution.getParametersExecutions().add(paramExecution);
+                        paramExecutionLast = paramExecution;
                         paramOrder++;
                     }
                     scriptOrder++;
@@ -233,26 +233,26 @@ public class ConfigurationDB {
     public String getExcelValue(HSSFSheet sheet, int x, int y, int indexLine) {
         String value = null;
         switch (sheet.getRow(y + indexLine - 1).getCell(x - 1).getCellType()) {
-        case Cell.CELL_TYPE_STRING:
-            value = sheet.getRow(y + indexLine - 1).getCell(x - 1).getRichStringCellValue().getString();
-            // System.out.println(sheet.getRow(y + indexLine - 1).getCell(x -
-            // 1).getRichStringCellValue().getString());
-            // System.out.println("VALUE = " + value);
-            break;
-        case Cell.CELL_TYPE_NUMERIC:
-            value = String.valueOf(sheet.getRow(y + indexLine - 1).getCell(x - 1).getNumericCellValue());
-            break;
-        case Cell.CELL_TYPE_FORMULA:
-            try {
-
-                value = String.valueOf(sheet.getRow(y + indexLine - 1).getCell(x - 1).getStringCellValue());
-            } catch (Exception e) {
+            case Cell.CELL_TYPE_STRING:
+                value = sheet.getRow(y + indexLine - 1).getCell(x - 1).getRichStringCellValue().getString();
+                // System.out.println(sheet.getRow(y + indexLine - 1).getCell(x -
+                // 1).getRichStringCellValue().getString());
+                // System.out.println("VALUE = " + value);
+                break;
+            case Cell.CELL_TYPE_NUMERIC:
                 value = String.valueOf(sheet.getRow(y + indexLine - 1).getCell(x - 1).getNumericCellValue());
-            }
-            // System.out.println("VALUE = " + value);
-            break;
-        default:
-            value = String.valueOf(0);
+                break;
+            case Cell.CELL_TYPE_FORMULA:
+                try {
+
+                    value = String.valueOf(sheet.getRow(y + indexLine - 1).getCell(x - 1).getStringCellValue());
+                } catch (Exception e) {
+                    value = String.valueOf(sheet.getRow(y + indexLine - 1).getCell(x - 1).getNumericCellValue());
+                }
+                // System.out.println("VALUE = " + value);
+                break;
+            default:
+                value = String.valueOf(0);
         }
         return value;
     }

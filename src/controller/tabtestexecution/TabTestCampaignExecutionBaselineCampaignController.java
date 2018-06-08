@@ -350,11 +350,13 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
                                 if (numberOfCases != -1) {
                                     this.selected.setConfigured("configured");
                                     this.setButtonAndLabelsVisible(false, true, true);
-                                    validConfiguration(numberValidatedCase++);
+                                    validConfiguration(numberValidatedCase++);  //Enable ValidateBaseline button when consists enough cases
                                     controllerTableStep.disableConfiguration();
+                                } else {
+                                    numberOfCases = 0;  //To restore numOfCases back to origina state (If exception is encountered)
                                 }
                                 //closeAlertBox(dialog);
-
+                                
                             }
                         } else {
                             event.consume();
