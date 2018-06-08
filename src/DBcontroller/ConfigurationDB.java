@@ -193,9 +193,7 @@ public class ConfigurationDB {
         }
         session.beginTransaction().commit();
         session.close();
-        Platform.runLater(() -> {
-            // Not tested yet. Need to check.
-        });
+
         return caseNumber;
     }
 
@@ -215,7 +213,7 @@ public class ConfigurationDB {
 //        if (checkConfigurationExistence(baseline.getBaselineId()) > 0) {
             Query qry = session.createQuery("DELETE FROM Iterations WHERE baseline_id=:baselineID");    //The syntax originally is wrong. Didn't use IT in this query.
             qry.setString("baselineID", baseline.getBaselineId());
-            qry.executeUpdate();
+            System.out.println(""+ qry.executeUpdate());
 //        }
         session.beginTransaction().commit();
         session.close();
