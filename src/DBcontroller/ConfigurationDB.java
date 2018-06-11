@@ -210,15 +210,24 @@ public class ConfigurationDB {
     public void deleteConfiguration(Iterations baseline) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
-//        if (checkConfigurationExistence(baseline.getBaselineId()) > 0) {
-            Query qry = session.createQuery("DELETE FROM Iterations WHERE baseline_id=:baselineID");    //The syntax originally is wrong. Didn't use IT in this query.
-            qry.setString("baselineID", baseline.getBaselineId());
-            System.out.println(""+ qry.executeUpdate());
-//        }
+
+        //Remember to delete CaseExecutions before Iterations. Otherwise it will throw exception. 
+        Query qry = session.createQuery("DELETE FROM CaseExecutions WHERE iterations_iditerations=:iterationsID");
+        qry.setParameter("iterationsID", baseline.getIditerations());
+        int result = qry.executeUpdate();
+        System.out.println("Rows affected: " + result);
+
+        qry = session.createQuery("DELETE FROM Iterations WHERE baseline_id=:baselineID");    //The syntax originally is wrong. Didn't use IT in this query.
+        qry.setParameter("baselineID", baseline.getBaselineId());
+         result = qry.executeUpdate();
+        System.out.println(baseline.getIditerations());
+        System.out.println("Rows affected: "+ result);
+
         session.beginTransaction().commit();
         session.close();
     }
 
+    //Baseline has something wrong. Records are not deleted. 
     public Iterations createBaseline(String baselineId, TestCampaign campaignToBaseline) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();

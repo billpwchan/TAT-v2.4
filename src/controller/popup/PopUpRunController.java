@@ -262,6 +262,8 @@ public class PopUpRunController implements Initializable {
                 Engine engine = new Engine(caseExecutions, thisController, baselineId, iterationNumber);
                 try {
                     engine.run();
+                } catch (InterruptedException ex) {
+                    System.out.println("Break the current session.");
                 } catch (Exception ex) {
                     //Default Logger Event
                     Logger.getLogger(PopUpRunController.class.getName()).log(Level.SEVERE, null, ex);
@@ -542,18 +544,19 @@ public class PopUpRunController implements Initializable {
 
         stopButton.setOnAction((ActionEvent e) -> {
             //The Stop button is not working at this stage. Only UI responds, but the algorithm will keep running till encountering exceptions / Finished.
-            if (suspended) {
-                th.resume();
-            }
+//            if (suspended) {
+//                th.resume();
+//            }
             stopButton.setDisable(true);
             pauseButton.setDisable(true);
             runButton.setDisable(true);
             autoExecutionDisplay.setDisable(true);
             try {
+                th.interrupt();
+
                 //Change the state of testCaseInExecution to "Not tested."
                 this.executionFinished();
                 //Need to stop the currentThread now. 
-                th.interrupt();
 //              Thread.currentThread().interrupt();
             } catch (Exception ex) {
                 Logger.getLogger(PopUpRunController.class.getName()).log(Level.SEVERE, null, ex);

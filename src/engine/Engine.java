@@ -230,7 +230,7 @@ public class Engine {
                                         hashMapNumberResultMacro.put(testResult.getResult(), hashMapNumberResultMacro.get(testResult.getResult()) + 1);
                                         setMacroComment(testResult.getResult(), testResult.getComment(), currentScript, mac.getScriptByScriptIdScript1());
                                     }
-                                } catch (Exception ex) {
+                                } catch (MalformedURLException | ClassNotFoundException | NoSuchMethodException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
                                     String stackTrace = Throwables.getStackTraceAsString(ex);
                                     currentTestCase.setCaseExecutionResult("Not testable");
                                     testResult = new Result();

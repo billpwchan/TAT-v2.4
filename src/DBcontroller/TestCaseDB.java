@@ -124,25 +124,24 @@ public class TestCaseDB {
         Iterations iteration = (Iterations) qry2.list().get(0);
         caseExecutions = new ArrayList<>(iteration.getCaseExecutionses());
         Query qry = session.createQuery("from CaseExecutionsResult CER where CER.id.caseExecutionsIdcaseExecutions=:idCase and CER.id.iterationNumber=:iterationNumber");
-        for (int i = 0; i < caseExecutions.size(); i++) {
-            Hibernate.initialize(caseExecutions.get(i).getTestCase());
+        for (CaseExecutions caseExecution : caseExecutions) {
+            Hibernate.initialize(caseExecution.getTestCase());
             if (iterationNumber == 0) {
-
-                caseExecutions.get(i).setCaseExecutionResult("");
-                caseExecutions.get(i).setCaseExecutionComment("");
+                caseExecution.setCaseExecutionResult("");
+                caseExecution.setCaseExecutionComment("");
             } else {
-                qry.setInteger("idCase", caseExecutions.get(i).getIdcaseExecutions());
+                qry.setInteger("idCase", caseExecution.getIdcaseExecutions());
                 qry.setInteger("iterationNumber", iterationNumber);
                 List l = qry.list();
                 if (!l.isEmpty()) {
                     CaseExecutionsResult caseResult = (CaseExecutionsResult) l.get(0);
-                    caseExecutions.get(i).setCaseExecutionResult(caseResult.getResult());
-                    caseExecutions.get(i).setCaseExecutionComment(caseResult.getComment());
-                    caseExecutions.get(i).setOriginalResult(caseResult.getResult());
-                    caseExecutions.get(i).setCaseExecutionResultObj(caseResult);
+                    caseExecution.setCaseExecutionResult(caseResult.getResult());
+                    caseExecution.setCaseExecutionComment(caseResult.getComment());
+                    caseExecution.setOriginalResult(caseResult.getResult());
+                    caseExecution.setCaseExecutionResultObj(caseResult);
                 } else {
-                    caseExecutions.get(i).setCaseExecutionResult("NExec");
-                    caseExecutions.get(i).setCaseExecutionComment("");
+                    caseExecution.setCaseExecutionResult("NExec");
+                    caseExecution.setCaseExecutionComment("");
                 }
             }
         }
