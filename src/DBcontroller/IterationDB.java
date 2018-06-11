@@ -103,6 +103,19 @@ public class IterationDB {
         return (Iterations) q.get(0);
     }
     
+    public void deleteIterationFromIterationNum(Iterations ite){
+        SessionFactory factory = sessionFactorySingleton.getInstance();
+        Session session = factory.openSession();
+        Query qry = session.createQuery("Delete from Iterations IT where IT.baselineId=:baseline_id and IT.iterationNumber=:iteration_num");
+        qry.setParameter("baseline_id", ite.getBaselineId());
+        qry.setInteger("iteration_num", ite.getIterationNumber());
+        qry.executeUpdate();
+        session.delete(ite);
+        session.beginTransaction().commit();
+        session.close();
+        System.out.println("DELETE FINISHED");        
+    }
+    
 //    public void getIterations(String baselineID){
 //        SessionFactory factory=sessionFactorySingleton.getInstance();
 //        Session session = factory.openSession();

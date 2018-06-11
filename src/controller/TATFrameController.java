@@ -359,6 +359,7 @@ public class TATFrameController implements Initializable {
             public void handle(WindowEvent event) {
                 setting.readSettings();
                 popUpSettingsStage.close();
+                
             }
         });
 

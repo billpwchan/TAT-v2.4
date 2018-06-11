@@ -51,11 +51,7 @@ public class TestCaseDB {
         qry.setParameter("testCaseID", testCase.getIdtestCase());
         List l = qry.list();
         session.close();
-        if (l.isEmpty()) {
-            return false;
-        } else {
-            return true;
-        }
+        return !l.isEmpty();
     }
 
     public void getCaseAndStepExecutionsFromCaseExecution(CaseExecutions caseExecution) {
@@ -168,41 +164,39 @@ public class TestCaseDB {
         Query query = session.createQuery("Select tctc.id.testCampaignIdtestCampaign from TestCampaignTestCase tctc where tctc.id.testCaseIdtestCase = :testCaseID group by tctc.id.testCampaignIdtestCampaign");
         query.setInteger("testCaseID", testCaseID);
         ArrayList<Integer> campaignID = (ArrayList) query.list();
-        for (int i = 0; i < campaignID.size(); i++) {
+        for (Integer campaignID1 : campaignID) {
             query = session.createQuery("delete from ScriptParameters SHP where SHP.id.scriptExecutionStepExecutionCampaignIdtestCampaign=:campaignID");
-            query.setInteger("campaignID", campaignID.get(i));
+            query.setInteger("campaignID", campaignID1);
             query.executeUpdate();
             query = session.createQuery("delete from ScriptExecution SE where SE.id.stepExecutionCampaignIdtestCampaign=:campaignID");
-            query.setInteger("campaignID", campaignID.get(i));
+            query.setInteger("campaignID", campaignID1);
             query.executeUpdate();
             query = session.createQuery("delete from StepExecution SE where SE.id.campaignIdtestCampaign=:campaignID");
-            query.setInteger("campaignID", campaignID.get(i));
+            query.setInteger("campaignID", campaignID1);
             query.executeUpdate();
             query = session.createQuery("delete from StepExecution SE where SE.id.campaignIdtestCampaign=:campaignID");
-            query.setInteger("campaignID", campaignID.get(i));
+            query.setInteger("campaignID", campaignID1);
             query.executeUpdate();
             query = session.createQuery("delete from TestCampaignTestCase TCTC where TCTC.id.testCampaignIdtestCampaign=:campaignID");
-            query.setInteger("campaignID", campaignID.get(i));
+            query.setInteger("campaignID", campaignID1);
             query.executeUpdate();
             query = session.createQuery("delete from TestCampaign TC where TC.id=:campaignID");
-            query.setInteger("campaignID", campaignID.get(i));
+            query.setInteger("campaignID", campaignID1);
             query.executeUpdate();
             query = session.createQuery("delete from TestCampaign TC where TC.id=:campaignID");
-            query.setInteger("campaignID", campaignID.get(i));
+            query.setInteger("campaignID", campaignID1);
             query.executeUpdate();
         }
 
-        for (int i = 0; i < testSteps.size(); i++) {
+        for (TestStep testStep : testSteps) {
             query = session.createQuery("delete from ScriptHasParametersConfigured SHPC where SHPC.id.testStepHasScriptTestStepIdtestStep=:stepID");
-            query.setInteger("stepID", testSteps.get(i).getIdtestStep());
+            query.setInteger("stepID", testStep.getIdtestStep());
             query.executeUpdate();
-
             query = session.createQuery("delete from TestStepHasScript TSHS where TSHS.id.testStepIdtestStep=:stepID");
-            query.setInteger("stepID", testSteps.get(i).getIdtestStep());
+            query.setInteger("stepID", testStep.getIdtestStep());
             query.executeUpdate();
-
             query = session.createQuery("delete from TestStep TS where TS.id=:stepID");
-            query.setInteger("stepID", testSteps.get(i).getIdtestStep());
+            query.setInteger("stepID", testStep.getIdtestStep());
             query.executeUpdate();
         }
 

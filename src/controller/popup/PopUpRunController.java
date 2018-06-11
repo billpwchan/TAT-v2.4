@@ -275,8 +275,8 @@ public class PopUpRunController implements Initializable {
                         alert.setHeaderText("Exception Caught. Cannot execute the test case");
                         alert.setContentText("Please refer to the stacktrace:\t\n\n" + ex.getMessage());
                         if (ex.getMessage().contains("SSH")) {      //Customized Content for Exceptions from SSHCommand Script
-                            alert.setTitle("Error: The server (IP: " + exceptionMessage.substring(exceptionMessage.indexOf("IP: ")) + " ) cannot be reached.");
-                            alert.setContentText("The server (IP: " + exceptionMessage.replace("//n", " ").replace("    ", " ").substring(exceptionMessage.indexOf("IP: "), exceptionMessage.indexOf("at")) + " ) cannot be reached.\n" + "Please refer to the stacktrace:\t\n\n" + ex.getMessage());
+                            alert.setTitle("Error: The server (IP: " + exceptionMessage.substring(exceptionMessage.indexOf("IP: ")).trim() + " ) cannot be reached.");
+                            alert.setContentText("The server (IP: " + exceptionMessage.replace("//n", " ").replace("    ", " ").substring(exceptionMessage.indexOf("IP: "), exceptionMessage.indexOf("at")).trim() + " ) cannot be reached.\n" + "Please refer to the stacktrace:\t\n\n" + ex.getMessage());
                         }
                         Optional<ButtonType> result = alert.showAndWait();
                         th.resume();
@@ -547,15 +547,18 @@ public class PopUpRunController implements Initializable {
 //            if (suspended) {
 //                th.resume();
 //            }
-            stopButton.setDisable(true);
-            pauseButton.setDisable(true);
-            runButton.setDisable(true);
-            autoExecutionDisplay.setDisable(true);
-            try {
-                th.interrupt();
 
+            try {
+                //Need to delete one record in Iterations database. Provide iteration_number and baseline_id
+                th.suspend();
+//                th.interrupt();
+                this.executionInterrupted();
+                th.resume();
+                th.stop();
+
+//                Thread.currentThread().interrupt();
                 //Change the state of testCaseInExecution to "Not tested."
-                this.executionFinished();
+//                this.executionFinished();
                 //Need to stop the currentThread now. 
 //              Thread.currentThread().interrupt();
             } catch (Exception ex) {
@@ -564,6 +567,16 @@ public class PopUpRunController implements Initializable {
         });
     }
 
+    public void executionInterrupted() throws Exception {
+        IterationDB iterationHandler = new IterationDB();
+        iterationHandler.deleteIterationFromIterationNum(iteration);
+        Update();
+        stopButton.setDisable(true);
+        pauseButton.setDisable(true);
+        runButton.setDisable(true);
+        autoExecutionDisplay.setDisable(true);
+    }
+    
     public void executionFinished() throws Exception {
         //this.playSound("finish");
         IterationDB iterationHandler = new IterationDB();

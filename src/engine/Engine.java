@@ -534,13 +534,19 @@ public class Engine {
     }
 
     /**
-     * Method wich run the stimuli of the step.
+     * Method which run the stimuli of the step.
      *
      * @param script script to run
      * @param parameters parameters of the script
      * @param hashMap
+     * @throws java.net.MalformedURLException
+     * @throws java.lang.ClassNotFoundException
+     * @throws java.lang.NoSuchMethodException
+     * @throws java.lang.InstantiationException
+     * @throws java.lang.IllegalAccessException
      * @throws SecurityException
      * @throws IllegalArgumentException
+     * @throws java.lang.reflect.InvocationTargetException
      */
     public void runStimuliScript(String script, ArrayList<ParametersExecution> parameters, HashMap hashMap)
             throws MalformedURLException, ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
