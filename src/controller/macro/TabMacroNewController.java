@@ -89,8 +89,6 @@ public class TabMacroNewController implements Initializable {
     @FXML
     private TextArea jtextareaObjectivesMacro;
     @FXML
-    private AnchorPane anchorPanePreview;
-    @FXML
     private ScrollPane scrollPanePreview;
     @FXML
     private CheckBox stimuliCheckBox;
@@ -110,6 +108,8 @@ public class TabMacroNewController implements Initializable {
     DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
 
     private int textfieldMacroNameMaxLength = 60;
+    @FXML
+    private Text labelPreview;
 
     /**
      * Initializes the controller class.
