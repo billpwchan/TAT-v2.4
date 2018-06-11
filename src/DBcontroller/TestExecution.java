@@ -129,14 +129,31 @@ public class TestExecution {
         session.beginTransaction().commit();
         session.close();
     }
-//        public void deleteIteration(Iterations iteration,int iterationNumber) {
-//        SessionFactory factory = sessionFactorySingleton.getInstance();
-//        Session session = factory.openSession();
-//        session.update(iteration);
-//        session.delete(iteration);
-//        session.beginTransaction().commit();
-//        session.close();
-//    }
+    
+    public void resultInDBRemove(CaseExecutions caseExecution, int iterationNumber) {
+        SessionFactory factory = sessionFactorySingleton.getInstance();
+        Session session = factory.openSession();
+        CaseExecutionsResultId caseResultId = new CaseExecutionsResultId(caseExecution.getIdcaseExecutions(), (byte) iterationNumber);
+        CaseExecutionsResult caseResult = new CaseExecutionsResult(caseResultId, caseExecution, caseExecution.getCaseExecutionResult(), caseExecution.getCaseExecutionComment());
+        session.delete(caseResult);
+        Iterator<StepExecutions> itStepExecutions = caseExecution.getStepExecutionses().iterator();
+        while (itStepExecutions.hasNext()) {
+            StepExecutions stepExecution = itStepExecutions.next();
+            StepExecutionsResultId stepResultId = new StepExecutionsResultId(stepExecution.getIdstepExecutions(), (byte) iterationNumber);
+            StepExecutionsResult stepResult = new StepExecutionsResult(stepResultId, stepExecution, stepExecution.getStepExecutionResult(), stepExecution.getStepExecutionComment());
+            session.delete(stepResult);
+            Iterator<ScriptExecutions> itScriptExecutions = stepExecution.getScriptExecutionses().iterator();
+            while (itScriptExecutions.hasNext()) {
+                ScriptExecutions scriptExecution = itScriptExecutions.next();
+                ScriptExecutionResultId scriptResultId = new ScriptExecutionResultId(scriptExecution.getIdscriptExecutions(), (byte) iterationNumber);
+                ScriptExecutionResult scriptResult = new ScriptExecutionResult(scriptResultId, scriptExecution, scriptExecution.getScriptExecutionResult(), scriptExecution.getScriptExecutionComment());
+                session.delete(scriptResult);
+            }
+        }
+        session.beginTransaction().commit();
+        session.close();        
+    }
+
 
     public int getIterationNumber(Iterations iteration0) {
         SessionFactory factory = sessionFactorySingleton.getInstance();

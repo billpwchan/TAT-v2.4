@@ -569,7 +569,7 @@ public class PopUpRunController implements Initializable {
 
     public void executionInterrupted() throws Exception {
         IterationDB iterationHandler = new IterationDB();
-        iterationHandler.deleteIterationFromIterationNum(iteration);
+        iterationHandler.deleteExecution(iteration);
         Update();
         stopButton.setDisable(true);
         pauseButton.setDisable(true);

@@ -109,8 +109,9 @@ public class IterationDB {
         Query qry = session.createQuery("Delete from Iterations IT where IT.baselineId=:baseline_id and IT.iterationNumber=:iteration_num");
         qry.setParameter("baseline_id", ite.getBaselineId());
         qry.setInteger("iteration_num", ite.getIterationNumber());
-        qry.executeUpdate();
-        session.delete(ite);
+        int result = qry.executeUpdate();
+        System.out.println("Rows affected: "+ result);
+//        session.delete(ite);
         session.beginTransaction().commit();
         session.close();
         System.out.println("DELETE FINISHED");        
