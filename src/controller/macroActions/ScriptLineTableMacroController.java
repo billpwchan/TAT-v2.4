@@ -14,6 +14,7 @@ import java.util.HashSet;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.HashSet;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -210,9 +211,18 @@ public class ScriptLineTableMacroController implements Initializable {
         action.setCursorHand(nodeHand);
     }
     
-        void setScriptandParamAction(Macro macro) {
+    void setScriptandParamAction(Macro macro) {
         this.loadViewAction();
         scriptControllerAction.updateScriptViewDisplay(macro);
+    }
+    
+    void setScriptandParamActionEdit(Macro macro) {
+            this.loadViewAction();
+//        HashSet<Script> tempHashSet = new HashSet<Script>();
+//        tempHashSet.add(macro.getScriptByScriptIdScript());
+//        this.setScriptCreation(tempHashSet);
+        scriptControllerAction.updateScriptEditDisplay(macro);
+//        scriptControllerAction.updateGridPaneEdit(macro.getScriptByScriptIdScript());
     }
 
 }

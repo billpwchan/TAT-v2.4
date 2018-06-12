@@ -68,7 +68,7 @@ public class ViewScriptMacroController implements Initializable {
     private final ObservableList<String> nameCollection = FXCollections.observableArrayList();
 
     private Script currentScript = new Script();
-
+    
     private final GridPane gridPaneDisplayResults = new GridPane();
 
     private int numberOfParam = 0;
@@ -143,6 +143,7 @@ public class ViewScriptMacroController implements Initializable {
         scriptMacro.setScriptByScriptIdScript1(currentScript);
         updateGridPaneCreation(currentScript);
         controllerScriptFather.controllerViewGlobal().getControllerFather().getControllerPreview().updateGridPaneCreation(controllerScriptFather.controllerViewGlobal());
+        //Select a particular script should update all parameters involed.
         choiceBoxss.getSelectionModel().selectedIndexProperty().addListener((ObservableValue<? extends Number> observable, Number oldValue, Number newValue) -> {
             scriptMacro = new Macro();
             currentScript = scriptsArray.get(newValue.intValue());
@@ -199,6 +200,24 @@ public class ViewScriptMacroController implements Initializable {
 
     }
 
+    public void updateGridPaneEdit(Script currentSelectedScript) {
+        byte order = 0;
+        updateGridPaneModification(currentSelectedScript);
+        this.observableListParams.clear();
+        Iterator<ScriptHasParameters> itScriptParameters = currentSelectedScript.getScriptHasParameterses().iterator();
+        while (itScriptParameters.hasNext()) {
+            ScriptHasParameters scriptHasParameters = itScriptParameters.next();
+            ParamScriptMacro paramScriptsMacro = new ParamScriptMacro();
+            paramScriptsMacro.setScriptHasParameters(scriptHasParameters);
+            paramScriptsMacro.setToDisplay((byte) 1);
+            paramScriptsMacro.setParamOrder(order);
+            scriptMacro.addParamScriptMacro(paramScriptsMacro);
+            this.observableListParams.add(paramScriptsMacro);
+            order++;
+        }
+    }
+    
+    //This will show the popup configuration window for modification
     public void updateGridPaneCreation(Script currentSelectedScript) {
         byte order = 0;
         updateGridPaneModification(currentSelectedScript);
@@ -299,7 +318,7 @@ public class ViewScriptMacroController implements Initializable {
                 //Hyperlink toSet = (Hyperlink) getNodeByRowColumnIndex(i, 1, gridPaneDisplayResults);
                 if (null != observableListParamScripts.get(i).getValuePath()) {
                     toSet.setTextFill(Color.BLACK);
-                    switch (observableListParamScripts.get(i).getValuePath()) {
+                    switch (observableListParamScripts.get(i).getValuePath()) {     //ToolTip is for hover message.
                         case "Constant":
                             //System.out.println("");
                             toSet.setText(observableListParamScripts.get(i).getValue().replace(Separator, ""));
@@ -359,10 +378,18 @@ public class ViewScriptMacroController implements Initializable {
                         break;
                 }
             }
+            //Not yet configured parameters.
             if ("".equals(observableListParamScripts.get(i).getValuePath())) {
                 //System.out.println("LA VALUE POUR PARAM " + observableListParamScripts.get(i).getScriptHasParameters().getParameters().getName() + " est nulle");
                 toSet.setText("Configure " + observableListParamScripts.get(i).getScriptHasParameters().getParameters().getName());
+                toSet.setTooltip(new Tooltip("Not yet configured yet."));
             }
+            final int selectedRow = i;
+            toSet.setOnAction((ActionEvent e) -> {
+                //if (canBeConfigured) {
+                displayWizard(currentScript, selectedRow);
+                //}
+            });
         }
     }
 
@@ -375,11 +402,40 @@ public class ViewScriptMacroController implements Initializable {
         controllerScriptFather.controllerViewGlobal().getControllerFather().getControllerPreview().updateGridPaneCreation(controllerScriptFather.controllerViewGlobal());
     }
 
+    //Allow user to change content inside a sscript.
     public void updateScriptViewDisplay(Macro script) {
+//        this.currentScript = script.getScriptByScriptIdScript();
         constructGridPaneView(script.getScriptByScriptIdScript1());
         this.choiceBoxss.setVisible(false);
         this.labelNameOfScript.setVisible(true);
         this.labelNameOfScript.setText(script.getScriptByScriptIdScript1().getName());
         referParameters(new ArrayList(script.getParamScriptMacros()));
+    }
+    
+    public void updateScriptEditDisplay(Macro script) {
+        this.currentScript = script.getScriptByScriptIdScript();
+        constructGridPaneView(script.getScriptByScriptIdScript1());
+        this.choiceBoxss.setVisible(true);
+        this.labelNameOfScript.setVisible(true);
+        this.labelNameOfScript.setText(script.getScriptByScriptIdScript1().getName());
+        referParameters(new ArrayList(script.getParamScriptMacros()));        
+//        updateGridPaneModification(script.getScriptByScriptIdScript());
+//        byte order = 0;
+//        updateGridPaneModification(currentSelectedScript);
+//        this.observableListParams.clear();
+//        Iterator<ScriptHasParameters> itScriptParameters = currentSelectedScript.getScriptHasParameterses().iterator();
+//        while (itScriptParameters.hasNext()) {
+//            ScriptHasParameters scriptHasParameters = itScriptParameters.next();
+//            ParamScriptMacro paramScriptsMacro = new ParamScriptMacro();
+//            paramScriptsMacro.setScriptHasParameters(scriptHasParameters);
+//            paramScriptsMacro.setToDisplay((byte) 1);
+//            paramScriptsMacro.setParamOrder(order);
+//            scriptMacro.addParamScriptMacro(paramScriptsMacro);
+//            this.observableListParams.add(paramScriptsMacro);
+//            order++;
+//        }
+        
+        
+        
     }
 }

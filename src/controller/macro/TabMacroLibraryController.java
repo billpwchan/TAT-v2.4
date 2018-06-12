@@ -96,12 +96,6 @@ public class TabMacroLibraryController implements Initializable {
                 macroHandler.getAllFromMacro(currentMacroSelected);
                 displayMacro(currentMacroSelected);
             }
-            if (tableViewMacro.getSelectionModel().getSelectedItem() != null && event.getClickCount() == 1) {
-                currentMacroSelected = tableViewMacro.getSelectionModel().getSelectedItem();
-//                macroHandler.getAllFromMacro(currentMacroSelected);
-//                displayMacro(currentMacroSelected);
-                buttonEdit.setDisable(false);
-            }
         });
 
         /**
@@ -112,9 +106,9 @@ public class TabMacroLibraryController implements Initializable {
                 currentMacroSelected = newValue;
                 macroHandler.getAllFromMacro(currentMacroSelected);
                 preview.updateGridPaneCreationView(currentMacroSelected);
-                buttonEdit.setDisable(true);
-            } else {
                 buttonEdit.setDisable(false);
+            } else {
+                buttonEdit.setDisable(true);
             }
         });
 

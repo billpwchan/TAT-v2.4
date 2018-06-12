@@ -9,6 +9,7 @@ import DB.ParamScriptMacro;
 import DB.Parameters;
 import DB.Script;
 import DB.ScriptHasParameters;
+import controller.macroActions.PreviewMacro;
 import controller.macroActions.ScriptLineTableMacroController;
 import controller.macroActions.ViewScriptMacroController;
 import static controller.popup.PopUpWizardScriptController.autoSelectComboBoxValue;
@@ -120,6 +121,8 @@ public class PopUpWizardActionController implements Initializable {
     private Label textAreaDescriptionParameters;
 
     private static ViewScriptMacroController controller;
+    
+    private static PreviewMacro previewController;
 
     private final ObservableList<Parameters> observableListParam = FXCollections.observableArrayList();
 
@@ -221,6 +224,7 @@ public class PopUpWizardActionController implements Initializable {
     public void init(ViewScriptMacroController aThis) {
         controller = aThis;
     }
+    
 
     /**
      * This method is called by the class @see viewScript and refere the

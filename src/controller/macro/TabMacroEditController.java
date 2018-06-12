@@ -201,13 +201,13 @@ public class TabMacroEditController implements Initializable {
 
     private Script constructMacro() throws ParseException {
         Script editScript = new Script();
-//        newScript.setDesciption(jtextareaObjectivesMacroEdit.getText());
-//        newScript.setName(jtextfieldMacroNameEdit.getText());
-//        newScript.setScriptVersion(1);
-//        newScript.setCreationDate(df.format(new Date()));
+        editScript.setDesciption(jtextareaObjectivesMacroEdit.getText());
+        editScript.setName(jtextfieldMacroNameEdit.getText());
+        editScript.setScriptVersion(1);
+        editScript.setCreationDate(df.format(new Date()));
         editScript.setEditionDate(df.format(new Date()));
-//        newScript.setIsMacro((byte) (1));
-//        newScript.setIsStimuli((byte) (stimuliCheckBoxEdit.isSelected() ? 1 : 0));
+        editScript.setIsMacro((byte) (1));
+        editScript.setIsStimuli((byte) (stimuliCheckBoxEdit.isSelected() ? 1 : 0));
         return editScript;
     }
 
@@ -244,7 +244,7 @@ public class TabMacroEditController implements Initializable {
         jtextfieldTypeMacroEditionDateEdit.setText(script.getEditionDate());
         jtextfieldTypeMacroEditionDateEdit.setEditable(false);
         stimuliCheckBoxEdit.setSelected(script.getIsStimuli() != 0);
-        controllerTableAction.displayScriptAndStepView(script);
+        controllerTableAction.displayScriptAndStepEdit(script);     //Remember to CHNAGE THIS!!!!!
         controllerPreviewMacro.updateGridPaneCreationView(script);
     }
 

@@ -56,7 +56,7 @@ public class TableActionCreationController implements Initializable {
     private final ObservableList<Node> workingCollection = FXCollections.observableArrayList();
 
     private final HashSet<Script> scripts = new HashSet<>(0);
-
+ 
     private TabMacroNewController controllerNewMacro;
 
     private TabMacroEditController controllerEditMacro;
@@ -75,6 +75,7 @@ public class TableActionCreationController implements Initializable {
             updateAllChildren(newValue);
         });
     }
+    
 
     public void addAction() {
         addActioninVbox();
@@ -99,7 +100,7 @@ public class TableActionCreationController implements Initializable {
     }
 
     public void addActioninVbox() {
-
+        //Add an additional script to the vBox
         FXMLLoader fxmlLoader = new FXMLLoader();
         try {
             AnchorPane scriptPane;
@@ -149,6 +150,7 @@ public class TableActionCreationController implements Initializable {
         vBox.getChildren().setAll(workingCollection);
     }
 
+    //Load all existing scripts (Pre-defined) to a hashset
     private void loadScriptCheckAndStimuli() {
         //System.out.println("Je get tt les script");
         ScriptDB scriptDBHandler = new ScriptDB();
@@ -243,6 +245,19 @@ public class TableActionCreationController implements Initializable {
             Collections.swap(workingCollection, indexScriptInVbox, indexScriptInVbox + 1);
         }
         vBox.getChildren().setAll(workingCollection);
+    }
+    
+    public void displayScriptAndStepEdit(Script macro) {
+        clearTable();
+        Iterator<Macro> itScripts = macro.getMacrosForScriptIdScript().iterator();
+        while (itScripts.hasNext()) {
+            this.controllerScriptLine.setScriptCreation(scripts);
+
+            Macro macroScript = itScripts.next();
+            this.addActioninVbox();     //Create a place for this script.
+            this.controllerScriptLine.setScriptandParamActionEdit(macroScript);
+        }
+//        this.controllerScriptLine.setScriptandParamActionEdit(macro);
     }
 
     public void displayScriptAndStepView(Script macro) {
