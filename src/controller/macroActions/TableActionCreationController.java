@@ -8,6 +8,7 @@ package controller.macroActions;
 import DB.Macro;
 import DB.Script;
 import DBcontroller.ScriptDB;
+import controller.macro.TabMacroEditController;
 import controller.macro.TabMacroNewController;
 import controller.tablestep.TableStepScriptCreationController;
 import java.io.IOException;
@@ -58,6 +59,8 @@ public class TableActionCreationController implements Initializable {
 
     private TabMacroNewController controllerNewMacro;
 
+    private TabMacroEditController controllerEditMacro;
+
     /**
      * Initializes the controller class.
      *
@@ -81,8 +84,8 @@ public class TableActionCreationController implements Initializable {
     public TabMacroNewController getControllerFather() {
         return this.controllerNewMacro;
     }
-    
-    public ObservableList<ScriptLineTableMacroController> getCollectionControllerScript(){
+
+    public ObservableList<ScriptLineTableMacroController> getCollectionControllerScript() {
         return this.collectionControllerScript;
     }
 
@@ -169,9 +172,13 @@ public class TableActionCreationController implements Initializable {
      */
     public void initMacroNew(TabMacroNewController aThis) {
         controllerNewMacro = aThis;
-
         this.loadScriptCheckAndStimuli();
+    }
 
+    //Not sure it is implemented correctly or not
+    public void initMacroEdit(TabMacroEditController aThis) {
+        controllerEditMacro = aThis;
+        this.loadScriptCheckAndStimuli();
     }
 
     /**
@@ -248,7 +255,7 @@ public class TableActionCreationController implements Initializable {
             this.addActioninVbox();
             this.controllerScriptLine.setScriptandParamAction(macroScript);
             //ArrayList<TestStepHasScript> gogolito = new ArrayList<>(testStep.getTestStepHasScripts());
-           // int numberOfScript = gogolito.size();
+            // int numberOfScript = gogolito.size();
 
 //            for (int j = 0; j < numberOfScript; j++) {
 //                this.addScriptToStep(this.controllerStepLine);

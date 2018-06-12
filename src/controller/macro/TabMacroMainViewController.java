@@ -40,6 +40,8 @@ public class TabMacroMainViewController implements Initializable {
 
     private TabMacroNewController viewMacroController;
 
+    private TabMacroEditController editMacroController;
+
     /**
      * Initializes the controller class.
      *
@@ -70,6 +72,23 @@ public class TabMacroMainViewController implements Initializable {
 
     public void init(TATFrameController aThis) {
         // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    void displayEditMacro(Script macro) {
+        Tab editMacro = new Tab("edit Macro");
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        try {
+            AnchorPane addPane = fxmlLoader.load(getClass().getResource("/view/macro/TabMacroEdit.fxml").openStream());
+            editMacro.setContent(addPane);
+        } catch (IOException ex) {
+            Logger.getLogger(TabMacroMainViewController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        editMacroController = (TabMacroEditController) fxmlLoader.getController();
+        editMacroController.init(this);
+        editMacroController.displayMacro(macro);
+        this.tabPaneMacro.getTabs().add(editMacro);
+        editMacro.setClosable(true);
+        this.tabPaneMacro.getSelectionModel().select(editMacro);
     }
 
     void displayViewMacro(Script macro) {

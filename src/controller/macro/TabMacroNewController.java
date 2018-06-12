@@ -107,7 +107,8 @@ public class TabMacroNewController implements Initializable {
     
     DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
 
-    private int textfieldMacroNameMaxLength = 60;
+    private final int textfieldMacroNameMaxLength = 60;
+
     @FXML
     private Text labelPreview;
 
@@ -302,7 +303,7 @@ public class TabMacroNewController implements Initializable {
         jtextfieldMacroNew.setText(script.getScriptVersion().toString());
         jtextfieldMacroNew.setEditable(false);
         //jtextfieldMacroNew.setDisable(true);
-        jtextfieldMacroCreationDate.setText(script.getCreationDate().toString());
+        jtextfieldMacroCreationDate.setText(script.getCreationDate());
         jtextfieldMacroCreationDate.setEditable(false);
         //jtextfieldMacroCreationDate.setDisable(true);
         //jtextfieldTypeMacroEditionDate.setDisable(true);
