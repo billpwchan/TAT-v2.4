@@ -192,14 +192,14 @@ public class ViewScriptController implements Initializable {
                 }
                 if (null != valuePath) {
                     switch (valuePath) {
-                        
+
                         case "HMI":
-                            System.out.println("HMI value : "+scriptHBC.getValue());
+                            System.out.println("HMI value : " + scriptHBC.getValue());
                             toSet.setText(scriptHBC.getValue().replace(Separator, ""));
                             toSet.setTooltip(new Tooltip(scriptHBC.getValue().replace(Separator, "")));
                             break;
                         case "Classes":
-                            System.out.println("Classe value : "+scriptHBC.getValue());
+                            System.out.println("Classe value : " + scriptHBC.getValue());
                             toSet.setText(scriptHBC.getValue().replace(Separator, ""));
                             toSet.setTooltip(new Tooltip(scriptHBC.getValue().replace(Separator, "")));
                             break;
@@ -240,7 +240,7 @@ public class ViewScriptController implements Initializable {
 //                            System.out.println("Param Order of current scriptHBC: " + scriptHBC.getParamOrder() + " and ID: " + scriptHBC.getIdscriptHasBeenConfigured());
 //                            System.out.println(" ref  shbc ID: " +scriptHBC.getRefScriptHasBeenConfigured().getIdscriptHasBeenConfigured());
                             //System.out.println("ID: "+ scriptHBC.getIdscriptHasBeenConfigured() + ", ID of ref: " + scriptHBC.getRefScriptHasBeenConfigured().getIdscriptHasBeenConfigured());
-                            
+
                             if (scriptHBC.getRefScriptHasBeenConfigured().getValue().isEmpty()) {
                                 toSet.setText("Linked to Parameter " + " of Script " + scriptHBC.getValuePath());
                                 toSet.setTooltip(new Tooltip("Linked to Parameter " + " of Script " + scriptHBC.getValuePath()));
@@ -249,10 +249,10 @@ public class ViewScriptController implements Initializable {
                                 toSet.setTooltip(new Tooltip(scriptHBC.getRefScriptHasBeenConfigured().getValue().replace(Separator, "")));
                             }
                             break;
-                        
+
                     }
                 } else {
-                    
+
                 }
             }
             i++;
@@ -351,16 +351,15 @@ public class ViewScriptController implements Initializable {
                 teststephasscript = null;
             } else {
                 //teststephasscript = new TestStepHasScript();
-                teststephasscript = new TestStepHasScript(currentScript, currTestStep, (byte)0);
+                teststephasscript = new TestStepHasScript(currentScript, currTestStep, (byte) 0);
                 currTestStep.addTestStephasScript(teststephasscript);
                 System.out.println("Created new TestStepHasScript in ViewScriptController");
                 currentScript = scriptsArray.get(newValue.intValue());
                 teststephasscript.setScript(currentScript);
                 System.out.println("            TEST STEP ADDED currTestStep: " + currTestStep);
                 //teststephasscript.setTestStep(currTestStep);
-                
-                //System.out.println("SCRIPT HASP.SIZE " + teststephasscript.getScript().getScriptHasParameterses().size());
 
+                //System.out.println("SCRIPT HASP.SIZE " + teststephasscript.getScript().getScriptHasParameterses().size());
                 updateGridPaneCreation(teststephasscript);
             }
         });
@@ -533,10 +532,10 @@ public class ViewScriptController implements Initializable {
             test.setParamOrder((byte) j);
             test.setParameters(scriptHasParameters.getParameters());
             teststephasscript.addScripthasBeenConfigured(test);
-                            System.out.println("            TEST STEP ADDED currentSelectedScript: " + currentSelectedScript.getTestStep());
+            System.out.println("            TEST STEP ADDED currentSelectedScript: " + currentSelectedScript.getTestStep());
             //teststephasscript.setTestStep(currentSelectedScript.getTestStep());
             test.setTestStepHasScript(teststephasscript);
-            
+
             this.observableListScript.add(test);
             j++;
 //            }
@@ -566,7 +565,7 @@ public class ViewScriptController implements Initializable {
             ScriptHasBeenConfigured currentSHBC = iteTSHS.next();
             System.out.println("get order = " + currentSHBC.getParamOrder());
             teststephasscript.addScripthasBeenConfigured(currentSHBC);
-                            System.out.println("            TEST STEP ADDED: currentSelectedScript " + currentSelectedScript.getTestStep());
+            System.out.println("            TEST STEP ADDED: currentSelectedScript " + currentSelectedScript.getTestStep());
             //teststephasscript.setTestStep(currentSelectedScript.getTestStep());
         }
         //teststephasscript.setScriptHasBeenConfigureds(this.observableListScript);
@@ -574,7 +573,7 @@ public class ViewScriptController implements Initializable {
     }
 
     public void updateGridPaneBaseline(TestStepHasScript currentSelectedScript) {
-        
+
 //        Script macr = currentSelectedScript.getScript();
 //        macroHandler.getAllFromMacro(macr);
         //constructGridPaneView(currentSelectedScript);
@@ -587,11 +586,11 @@ public class ViewScriptController implements Initializable {
         //System.out.println("NUMBERO OF PARAM SELECTED = "+currentSelectedScript.getScriptHasBeenConfigureds().size());
         referParameters(new ArrayList(currentSelectedScript.getScriptHasBeenConfigureds()));
         updateImage();
-        
+
     }
 
     public void updateScriptViewDisplay(TestStepHasScript testStephasScript) {
-        
+
         // currentScript = testStephasScript
         Script macr = testStephasScript.getScript();
         macroHandler.getAllFromMacro(macr);
@@ -616,13 +615,13 @@ public class ViewScriptController implements Initializable {
         while (itScriptParameters.hasNext()) {
             ParametersExecution paramExecution = itScriptParameters.next();
             Label labelToSet;
-            if(currentTSHS.getScript().getIsMacro()==1){
-                if(paramExecution.getPurpose()!=null && paramExecution.getPurpose()!=""){
-                    labelToSet = new Label(paramExecution.getPurpose()+" "+paramExecution.getParameters().getName());
-                }else{
+            if (currentTSHS.getScript().getIsMacro() == 1) {
+                if (paramExecution.getPurpose() != null && paramExecution.getPurpose() != "") {
+                    labelToSet = new Label(paramExecution.getPurpose() + " " + paramExecution.getParameters().getName());
+                } else {
                     labelToSet = new Label(paramExecution.getParameters().getName());
                 }
-            }else{
+            } else {
                 labelToSet = new Label(paramExecution.getParameters().getName());
             }
             //Label labelToSet = new Label(paramExecution.getParameters().getName());

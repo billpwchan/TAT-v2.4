@@ -9,6 +9,7 @@ import DB.ParamScriptMacro;
 import DB.Parameters;
 import DB.Script;
 import DB.ScriptHasParameters;
+import DBcontroller.sessionFactorySingleton;
 import controller.macroActions.PreviewMacro;
 import controller.macroActions.ScriptLineTableMacroController;
 import controller.macroActions.ViewScriptMacroController;
@@ -61,6 +62,8 @@ import model.HMI;
 import model.Properties;
 import model.StateClasse;
 import model.TextFieldWithFormat;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
 /**
  * FXML Controller class
@@ -240,6 +243,7 @@ public class PopUpWizardActionController implements Initializable {
         this.descriptionScript.setText(script.getDesciption());
         this.choiceBoxScript.setItems(FXCollections.observableArrayList(script.getName()));
         this.choiceBoxScript.getSelectionModel().selectFirst();
+        
 
         this.observableListParams = new ArrayList<>(paramScriptMacro);
         Collections.sort(this.observableListParams, (ParamScriptMacro o1, ParamScriptMacro o2) -> Integer.compare(o1.getScriptHasParameters().getParamOrder(), o2.getScriptHasParameters().getParamOrder()));
@@ -247,7 +251,6 @@ public class PopUpWizardActionController implements Initializable {
         while (itScriptHasParameters.hasNext()) {
             ScriptHasParameters scriptHasParameters = itScriptHasParameters.next();
             this.observableListParam.add(scriptHasParameters.getParameters());
-
         }
         this.tableParameters.getSelectionModel().select(selectedParam);
 

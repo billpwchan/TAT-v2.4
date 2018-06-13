@@ -134,8 +134,9 @@ public class ScriptLineTableMacroController implements Initializable {
         constructInformation(id);
     }
 
+    
     public void setScriptCreation(HashSet<Script> actions) {
-
+        HashSet<Script> thisActions = new HashSet<>(actions);
         this.loadViewAction();
         this.imageDown.setImage(imd);
         this.imageUp.setImage(imu);
@@ -155,8 +156,34 @@ public class ScriptLineTableMacroController implements Initializable {
             controllerViewGlobal.deleteSelectedAction(ScriptLineTableMacroController.this);
             event.consume();
         });
-        //System.out.println("SCRIPT = " + actions.size());
-        scriptControllerAction.loadScripts(actions);
+        System.out.println("SCRIPT = " + actions.size());
+        scriptControllerAction.loadScripts(thisActions);        //Load all available scripts in the checkbox.
+        defineCursor();
+    }
+    
+    public void setScriptCreationEdit(HashSet<Script> actions) {
+        HashSet<Script> thisActions = new HashSet<>(actions);
+        this.loadViewAction();
+        this.imageDown.setImage(imd);
+        this.imageUp.setImage(imu);
+        this.imageViewTrash.setImage(delete);
+
+        imageUp.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent event) -> {
+            controllerViewGlobal.goUp(ScriptLineTableMacroController.this);
+            event.consume();
+        });
+
+        imageDown.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent event) -> {
+            controllerViewGlobal.goDown(ScriptLineTableMacroController.this);
+            event.consume();
+        });
+
+        this.imageViewTrash.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent event) -> {
+            controllerViewGlobal.deleteSelectedAction(ScriptLineTableMacroController.this);
+            event.consume();
+        });
+//        System.out.println("SCRIPT = " + actions.size());
+        scriptControllerAction.loadScriptsEdit(thisActions);        //Load all available scripts in the checkbox.
         defineCursor();
     }
 
@@ -217,7 +244,7 @@ public class ScriptLineTableMacroController implements Initializable {
     }
     
     void setScriptandParamActionEdit(Macro macro) {
-            this.loadViewAction();
+        this.loadViewAction();
 //        HashSet<Script> tempHashSet = new HashSet<Script>();
 //        tempHashSet.add(macro.getScriptByScriptIdScript());
 //        this.setScriptCreation(tempHashSet);

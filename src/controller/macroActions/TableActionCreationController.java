@@ -6,8 +6,11 @@
 package controller.macroActions;
 
 import DB.Macro;
+import DB.ParamScriptMacro;
 import DB.Script;
+import DBcontroller.MacroDB;
 import DBcontroller.ScriptDB;
+import DBcontroller.sessionFactorySingleton;
 import controller.macro.TabMacroEditController;
 import controller.macro.TabMacroNewController;
 import controller.tablestep.TableStepScriptCreationController;
@@ -30,6 +33,9 @@ import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import org.hibernate.Hibernate;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
 /**
  * FXML Controller class
@@ -56,10 +62,14 @@ public class TableActionCreationController implements Initializable {
     private final ObservableList<Node> workingCollection = FXCollections.observableArrayList();
 
     private final HashSet<Script> scripts = new HashSet<>(0);
+    
+    private HashSet<Script> allScript = new HashSet<>(0);
  
     private TabMacroNewController controllerNewMacro;
 
     private TabMacroEditController controllerEditMacro;
+    
+    private MacroDB macroDBController = new MacroDB();
 
     /**
      * Initializes the controller class.
@@ -81,9 +91,18 @@ public class TableActionCreationController implements Initializable {
         addActioninVbox();
         controllerScriptLine.setScriptCreation(scripts);
     }
+    
+    public void addActionEdit() {
+        addActioninVboxEdit();
+        controllerScriptLine.setScriptCreationEdit(scripts);
+    }
 
     public TabMacroNewController getControllerFather() {
         return this.controllerNewMacro;
+    }
+    
+    public TabMacroEditController getControllerFatherEdit() {
+        return this.controllerEditMacro;
     }
 
     public ObservableList<ScriptLineTableMacroController> getCollectionControllerScript() {
@@ -114,7 +133,37 @@ public class TableActionCreationController implements Initializable {
             if (this.selectedScriptController == null) {
                 collectionControllerScript.add(controllerScriptLine);
                 workingCollection.add(scriptPane);
+            } else {
+                int idVbox = workingCollection.indexOf(this.selectedScriptController.getAnchorPane());
+                workingCollection.add(idVbox, scriptPane);
+                int indexController = this.selectedScriptController.getIDScript() - 1;
+                indexController += 1;
+                collectionControllerScript.add(indexController, controllerScriptLine);
+                updateScriptId(indexController);
+            }
+            scriptPane.setPrefWidth(vBox.getPrefWidth());
+        } catch (IOException ex) {
+            Logger.getLogger(TableStepScriptCreationController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        scriptID++;
+        displayVbox();
+    }
+    
+        public void addActioninVboxEdit() {
+        //Add an additional script to the vBox
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        try {
+            AnchorPane scriptPane;
+            try (InputStream streamViewScript = getClass().getResource("/view/macroActions/scriptLineTableMacro.fxml").openStream()) {
+                scriptPane = fxmlLoader.load(streamViewScript);
+                controllerScriptLine = (ScriptLineTableMacroController) fxmlLoader.getController();
+            }
+            controllerScriptLine.initControllerTable(this);
+            controllerScriptLine.constructInformation(scriptID);
 
+            if (this.selectedScriptController == null) {
+                collectionControllerScript.add(controllerScriptLine);
+                workingCollection.add(scriptPane);
             } else {
                 int idVbox = workingCollection.indexOf(this.selectedScriptController.getAnchorPane());
                 workingCollection.add(idVbox, scriptPane);
@@ -154,8 +203,8 @@ public class TableActionCreationController implements Initializable {
     private void loadScriptCheckAndStimuli() {
         //System.out.println("Je get tt les script");
         ScriptDB scriptDBHandler = new ScriptDB();
-        HashSet<Script> allScript = scriptDBHandler.getScriptListWithParameters();
-
+        allScript = scriptDBHandler.getScriptListWithParameters();
+        
         Iterator<Script> itScript = allScript.iterator();
         while (itScript.hasNext()) {
             Script script = itScript.next();
@@ -247,16 +296,19 @@ public class TableActionCreationController implements Initializable {
         vBox.getChildren().setAll(workingCollection);
     }
     
-    public void displayScriptAndStepEdit(Script macro) {
+    public void displayScriptAndStepEdit(Script macro) {    //This macro is selected macro by user (Click event)
         clearTable();
-        Iterator<Macro> itScripts = macro.getMacrosForScriptIdScript().iterator();
-        while (itScripts.hasNext()) {
-            this.controllerScriptLine.setScriptCreation(scripts);
-
-            Macro macroScript = itScripts.next();
-            this.addActioninVbox();     //Create a place for this script.
+//        this.loadScriptCheckAndStimuli();
+        Iterator<Macro> itScriptsMacro = macro.getMacrosForScriptIdScript().iterator();
+        while (itScriptsMacro.hasNext()) {
+//            System.out.println(scripts.toString());
+            Macro macroScript = itScriptsMacro.next();
+            this.addActioninVboxEdit();     //Create a place for this script.
+            this.controllerScriptLine.setScriptCreationEdit(scripts); //Need to be after addActionVBox (Controller not defined). Global var "scripts" contain all the existing scripts (Jar only)
             this.controllerScriptLine.setScriptandParamActionEdit(macroScript);
         }
+//        session.close();
+
 //        this.controllerScriptLine.setScriptandParamActionEdit(macro);
     }
 

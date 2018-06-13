@@ -5,12 +5,12 @@
  */
 package controller.macro;
 
+import DB.ParamScriptMacro;
 import DB.Script;
 import DBcontroller.sessionFactorySingleton;
 import controller.macroActions.PreviewMacro;
 import controller.macroActions.ScriptLineTableMacroController;
 import controller.macroActions.TableActionCreationController;
-import controller.tabtestcase.TabTestCaseNewController;
 import java.net.URL;
 import java.text.DateFormat;
 import java.util.ResourceBundle;
@@ -23,6 +23,8 @@ import java.util.Date;
 import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static javafx.collections.FXCollections.observableList;
+import static javafx.collections.FXCollections.observableList;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -97,7 +99,7 @@ public class TabMacroEditController implements Initializable {
     private AnchorPane anchorHeader;
     @FXML
     private Text labelPreview;
-    
+
     private Alert alert;
 
     private static TabMacroMainViewController mainController;
@@ -109,9 +111,8 @@ public class TabMacroEditController implements Initializable {
     private final boolean canBeValidate = false;
 
     DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
-    
-    private final int textfieldMacroNameMaxLength = 60;
 
+    private final int textfieldMacroNameMaxLength = 60;
 
     /**
      * Initializes the controller class.
@@ -124,20 +125,20 @@ public class TabMacroEditController implements Initializable {
         this.initButtons();
         this.constructTableStep();
         this.loadPreviewMacro();
-        
+
         jtextfieldMacroNameEdit.textProperty().addListener((observable, oldValue, newValue) -> {
             changeColorTextMacroName(newValue.trim().isEmpty());
             activationValidButton();
-            if (displayWarningIncorrectInputFormat("Macro name", textfieldMacroNameMaxLength, newValue.length()>textfieldMacroNameMaxLength)){
+            if (displayWarningIncorrectInputFormat("Macro name", textfieldMacroNameMaxLength, newValue.length() > textfieldMacroNameMaxLength)) {
                 jtextfieldMacroNameEdit.setText(oldValue);
-            }  
+            }
         });
-        
+
         jtextareaObjectivesMacroEdit.textProperty().addListener((obsevable, oldValue, newValue) -> {
             changeColorTextDescription(newValue.trim().isEmpty());
             activationValidButton();
         });
-        
+
         this.controllerTableAction.collectionControllerScript.addListener(new ListChangeListener() {
             @Override
             public void onChanged(ListChangeListener.Change c) {
@@ -167,16 +168,25 @@ public class TabMacroEditController implements Initializable {
 
     }
 
+    public PreviewMacro getControllerPreview() {
+        return this.controllerPreviewMacro;
+    }
+
     private void editMacro() throws ParseException {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
         ObservableList<ScriptLineTableMacroController> observableScripts = controllerTableAction.getCollectionControllerScript();
         int numberScript = observableScripts.size();
+        System.out.println("Size of ObservableScripts Object: " + numberScript);
         Script macro = constructMacro();
         session.save(macro);
         int i = 0;
         boolean missingPurpose = false;
         while (i < numberScript && missingPurpose == false) {
+            System.out.println(observableScripts.get(i).toString());
+            System.out.println(observableScripts.get(i).getScriptControllerAction().toString());
+            ObservableList<ParamScriptMacro> temp = observableScripts.get(i).getScriptControllerAction().getHashParamScriptMacro();
+
             if ("".equals(observableScripts.get(i).getScriptControllerAction().getHashParamScriptMacro().get(0).getValue())) {   //Each script should has purpose.
                 this.displayAlert();
                 missingPurpose = true;
@@ -186,17 +196,18 @@ public class TabMacroEditController implements Initializable {
                 observableScripts.get(i).getScriptControllerAction().getScriptMacro().setScriptOrder((byte) i);
                 session.save(observableScripts.get(i).getScriptControllerAction().getScriptMacro());
                 i++;
+//            }
             }
-        }
-        if (!missingPurpose) {
-            session.beginTransaction().commit();
-            mainController.updateRepository();
-            mainController.closeTab();
-            mainController.focusLibrary();
-        }
+            if (!missingPurpose) {
+                session.beginTransaction().commit();
+                mainController.updateRepository();
+                mainController.closeTab();
+                mainController.focusLibrary();
+            }
 
-        session.close();
+            session.close();
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
     }
 
     private Script constructMacro() throws ParseException {
@@ -258,7 +269,7 @@ public class TabMacroEditController implements Initializable {
 
     private void loadPreviewMacro() {
         System.out.println("Here Edit header load");
-        
+
         FXMLLoader fxmlLoader2 = new FXMLLoader();
         try {
             AnchorPane paneTest = (AnchorPane) fxmlLoader2.load(getClass().getResource("/view/macroActions/headerPreviewMacro.fxml").openStream());
@@ -279,7 +290,7 @@ public class TabMacroEditController implements Initializable {
             System.out.println("exception tab marco = " + e);
         }
     }
-    
+
     private void changeColorTextMacroName(boolean color) {
         if (color) {
             labelMacroNameEdit.setTextFill(Color.RED);
@@ -303,7 +314,7 @@ public class TabMacroEditController implements Initializable {
             this.buttonValid.setDisable(true);
         }
     }
-    
+
     private boolean displayWarningIncorrectInputFormat(String fieldName, Integer maxLength, boolean identifier) {
         if (!identifier) {
             return false;
