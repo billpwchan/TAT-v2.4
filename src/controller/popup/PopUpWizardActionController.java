@@ -241,7 +241,7 @@ public class PopUpWizardActionController implements Initializable {
     public void constructInformation(Script script, ObservableList<ParamScriptMacro> paramScriptMacro, int selectedParam) {
 
         this.descriptionScript.setText(script.getDesciption());
-        this.choiceBoxScript.setItems(FXCollections.observableArrayList(script.getName()));
+        this.choiceBoxScript.setItems(FXCollections.observableArrayList(script.getName()));     //Allow only to show one Script name in the Display Wizzard.
         this.choiceBoxScript.getSelectionModel().selectFirst();
         
 

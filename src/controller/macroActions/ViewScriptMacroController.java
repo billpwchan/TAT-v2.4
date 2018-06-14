@@ -43,6 +43,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.scene.paint.Color;
 import main.Main;
+import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
@@ -184,16 +185,19 @@ public class ViewScriptMacroController implements Initializable {
         scriptMacro.setScriptByScriptIdScript1(currentScript);
         updateGridPaneEdit(currentScript);
 
-        if (controllerScriptFather.controllerViewGlobal().getControllerFather() != null) {
-            controllerScriptFather.controllerViewGlobal().getControllerFather().getControllerPreview().updateGridPaneCreation(controllerScriptFather.controllerViewGlobal());
-        } else {
-            controllerScriptFather.controllerViewGlobal().getControllerFatherEdit().getControllerPreview().updateGridPaneCreation(controllerScriptFather.controllerViewGlobal());
-        }        //Select a particular script should update all parameters involed.
+//        For the edit part, I don't think need to updateGridPaneCreation at first...?
+//        if (controllerScriptFather.controllerViewGlobal().getControllerFather() != null) {
+//            controllerScriptFather.controllerViewGlobal().getControllerFather().getControllerPreview().updateGridPaneCreation(controllerScriptFather.controllerViewGlobal());
+//        } else {
+//            controllerScriptFather.controllerViewGlobal().getControllerFatherEdit().getControllerPreview().updateGridPaneCreation(controllerScriptFather.controllerViewGlobal());
+//        }        
+        //Select a particular script should update all parameters involed.
         choiceBoxss.getSelectionModel().selectedIndexProperty().addListener((ObservableValue<? extends Number> observable, Number oldValue, Number newValue) -> {
             scriptMacro = new Macro();
             currentScript = scriptsArray.get(newValue.intValue());
             scriptMacro.setScriptByScriptIdScript1(currentScript);
-            updateGridPaneCreation(currentScript);
+            updateGridPaneEdit(currentScript);
+//            updateGridPaneCreation(currentScript);
             if (controllerScriptFather.controllerViewGlobal().getControllerFather() != null) {
                 controllerScriptFather.controllerViewGlobal().getControllerFather().getControllerPreview().updateGridPaneCreation(controllerScriptFather.controllerViewGlobal());
             } else {
@@ -249,30 +253,83 @@ public class ViewScriptMacroController implements Initializable {
 
     }
 
-    public void updateGridPaneEdit(Script currentSelectedScript) {
+    public void updateGridPaneEdit(Script currentSelectedScript) {  //This is for update script's parameter. 
         constructGridPaneView(currentSelectedScript);  //Place occupied by "Click on Equipment"
         byte order = 0;
 //        updateGridPaneModification(currentSelectedScript);
 //        this.observableListParams.clear();
         Iterator<ScriptHasParameters> itScriptParameters = currentSelectedScript.getScriptHasParameterses().iterator();
-        int i = 0;
+//        int i = 0;
         while (itScriptParameters.hasNext()) {
-            Hyperlink toSet = (Hyperlink) getNodeByRowColumnIndex(i, 1, gridPaneDisplayResults);
+//            Hyperlink toSet = (Hyperlink) getNodeByRowColumnIndex(i, 1, gridPaneDisplayResults);
             ScriptHasParameters scriptHasParameters = itScriptParameters.next();
-            ParamScriptMacro paramScriptsMacro = new ParamScriptMacro();
-            paramScriptsMacro.setScriptHasParameters(scriptHasParameters);
-            paramScriptsMacro.setToDisplay((byte) 0);       //Changed this line from 1 to 0. Need to understand the meaning of (Set toDisplay)
-            paramScriptsMacro.setParamOrder(order);
-            paramScriptsMacro.setValue(Separator);      //This line needs to be chagned. currentSelectedScript
+                        System.out.println("Scrip Has parameters: " + scriptHasParameters.getIdscriptHasParameters());
+
+//            ParamScriptMacro paramScriptsMacro = new ParamScriptMacro();
+//            paramScriptsMacro = scriptHasParameters.getParamScriptMacros();
+//            Hibernate.initialize(order);
+            
+            Iterator<ParamScriptMacro> itParamScriptMacro = scriptHasParameters.getParamScriptMacros().iterator();
+            while (itParamScriptMacro.hasNext()){
+                this.observableListParams.add(0,itParamScriptMacro.next());
+            }
+//            paramScriptsMacro.setScriptHasParameters(scriptHasParameters);
+//            paramScriptsMacro.setToDisplay((byte) 0);       //Changed this line from 1 to 0. Need to understand the meaning of (Set toDisplay)
+//            paramScriptsMacro.setParamOrder(order);
+//            paramScriptsMacro.setValue(scriptHasParameters.getParameters().getDescription());
+//            paramScriptsMacro.setValuePath(scriptHasParameters.getParamScriptMacros());
+//            paramScriptsMacro.setScriptHasParameters(scriptHasParameters);
+//            paramScriptsMacro.setValue(scriptHasParameters.getParamScriptMacros());      //This line needs to be chagned. currentSelectedScript
 //            scriptMacro.addParamScriptMacro(paramScriptsMacro);
-            this.observableListParams.add(paramScriptsMacro);
-            final int selectedRow = i;
-            toSet.setOnAction((ActionEvent e) -> {
-                displayWizard(currentScript, selectedRow);
-            });
+//            this.observableListParams.add(paramScriptsMacro);
+//            final int selectedRow = i;
+//            toSet.setOnAction((ActionEvent e) -> {
+//                displayWizard(currentScript, selectedRow);
+//            });
             order++;
-            i++;
+//            i++;
         }
+    }
+     public void updateGridPaneEditNew(Macro currentSelectedMacro) {  //This is for update script's parameter. 
+        constructGridPaneView(currentSelectedMacro.getScriptByScriptIdScript1());  //Place occupied by "Click on Equipment"
+        byte order = 0;        
+            ArrayList<ParamScriptMacro> temp = new ArrayList(currentSelectedMacro.getParamScriptMacros());
+            for (int i = 0; i < temp.size(); i++){
+                this.observableListParams.add(temp.get(i));
+            }
+//        updateGridPaneModification(currentSelectedScript);
+//        this.observableListParams.clear();
+//        Iterator<ScriptHasParameters> itScriptParameters = currentSelectedScript.getScriptHasParameterses().iterator();
+////        int i = 0;
+//        while (itScriptParameters.hasNext()) {
+////            Hyperlink toSet = (Hyperlink) getNodeByRowColumnIndex(i, 1, gridPaneDisplayResults);
+//            ScriptHasParameters scriptHasParameters = itScriptParameters.next();
+//                        System.out.println("Scrip Has parameters: " + scriptHasParameters.getIdscriptHasParameters());
+//
+////            ParamScriptMacro paramScriptsMacro = new ParamScriptMacro();
+////            paramScriptsMacro = scriptHasParameters.getParamScriptMacros();
+////            Hibernate.initialize(order);
+//            
+//            Iterator<ParamScriptMacro> itParamScriptMacro = scriptHasParameters.getParamScriptMacros().iterator();
+//            while (itParamScriptMacro.hasNext()){
+//                this.observableListParams.add(0,itParamScriptMacro.next());
+//            }
+////            paramScriptsMacro.setScriptHasParameters(scriptHasParameters);
+////            paramScriptsMacro.setToDisplay((byte) 0);       //Changed this line from 1 to 0. Need to understand the meaning of (Set toDisplay)
+////            paramScriptsMacro.setParamOrder(order);
+////            paramScriptsMacro.setValue(scriptHasParameters.getParameters().getDescription());
+////            paramScriptsMacro.setValuePath(scriptHasParameters.getParamScriptMacros());
+////            paramScriptsMacro.setScriptHasParameters(scriptHasParameters);
+////            paramScriptsMacro.setValue(scriptHasParameters.getParamScriptMacros());      //This line needs to be chagned. currentSelectedScript
+////            scriptMacro.addParamScriptMacro(paramScriptsMacro);
+////            this.observableListParams.add(paramScriptsMacro);
+////            final int selectedRow = i;
+////            toSet.setOnAction((ActionEvent e) -> {
+////                displayWizard(currentScript, selectedRow);
+////            });
+//            order++;
+////            i++;
+//        }
     }
 
     //This will show the popup configuration window for modification
@@ -413,6 +470,7 @@ public class ViewScriptMacroController implements Initializable {
 
             }
             if (observableListParamScripts.get(i).getParamScriptMacro() != null) {
+//                this.observableListParams.add(0, observableListParamScripts.get(i).getParamScriptMacro());   //Trial
                 switch (observableListParamScripts.get(i).getParamScriptMacro().getValuePath()) {
                     case "Constant":
                         toSet.setText(observableListParamScripts.get(i).getParamScriptMacro().getValue().replace(Separator, ""));
@@ -448,6 +506,7 @@ public class ViewScriptMacroController implements Initializable {
             }
             final int selectedRow = i;
             toSet.setOnAction((ActionEvent e) -> {
+//                updateGridPaneEdit(currentScript);
                 displayWizard(currentScript, selectedRow);
             });
         }
@@ -475,18 +534,18 @@ public class ViewScriptMacroController implements Initializable {
         referParameters(new ArrayList(script.getParamScriptMacros()));
     }
 
-    public void updateScriptEditDisplay(Macro script) {
+    public void updateScriptEditDisplay(Macro script) {     //if have six scripts in this macro, will run this function again.cc
         this.currentScript = script.getScriptByScriptIdScript1();  //It it necessary to update the currentScript for the displayWizzard to reference. 
 
 //        constructGridPaneView(script.getScriptByScriptIdScript1());
-        updateGridPaneEdit(currentScript);      //Problem. Should use this to initialize ObservableListParams.
+        updateGridPaneEditNew(script);      //Problem. Should use this to initialize ObservableListParams.
 
         this.choiceBoxss.setVisible(true);
         this.labelNameOfScript.setVisible(true);
         this.labelNameOfScript.setText(script.getScriptByScriptIdScript1().getName());
 
-        this.observableListParams.clear();
-        Iterator<ScriptHasParameters> itScriptParameters = currentScript.getScriptHasParameterses().iterator();
+//        this.observableListParams.clear();
+//        Iterator<ScriptHasParameters> itScriptParameters = currentScript.getScriptHasParameterses().iterator();
 //        byte order = 0;
 //        while (itScriptParameters.hasNext()) {
 //            ScriptHasParameters scriptHasParameters = itScriptParameters.next();

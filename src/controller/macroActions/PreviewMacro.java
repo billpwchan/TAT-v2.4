@@ -114,7 +114,7 @@ public class PreviewMacro {
 
     public void constructGridPaneView(TableActionCreationController controllerActions) {
         gridPaneDisplayResults.getChildren().clear();
-        //System.out.println("askdjf0 " + controllerScriptFather);
+        System.out.println("askdjf0 " + controllerScriptFather);
         controllerActions.getCollectionControllerScript().stream().forEach((collectionControllerScript) -> {
             for (int j = 1; j < collectionControllerScript.getScriptControllerAction().getHashParamScriptMacro().size(); j++) {
                 if (collectionControllerScript.getScriptControllerAction().getHashParamScriptMacro().get(j).getToDisplay() == 1) {
