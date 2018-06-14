@@ -7,6 +7,7 @@ package controller.macro;
 
 import DB.ParamScriptMacro;
 import DB.Script;
+import DB.TestCase;
 import DBcontroller.sessionFactorySingleton;
 import controller.macroActions.PreviewMacro;
 import controller.macroActions.ScriptLineTableMacroController;
@@ -45,6 +46,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+import model.ObjectCopy;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
@@ -186,28 +188,31 @@ public class TabMacroEditController implements Initializable {
             System.out.println(observableScripts.get(i).toString());
             System.out.println(observableScripts.get(i).getScriptControllerAction().toString());
             ObservableList<ParamScriptMacro> temp = observableScripts.get(i).getScriptControllerAction().getHashParamScriptMacro();
-
-            if ("".equals(observableScripts.get(i).getScriptControllerAction().getHashParamScriptMacro().get(0).getValue())) {   //Each script should has purpose.
+            System.out.println(observableScripts.get(i).getScriptControllerAction().getHashParamScriptMacro().get(0).getValue());  //This will give the i script in this macro's parameter 0 value.
+            if ("".equals(observableScripts.get(i).getScriptControllerAction().getHashParamScriptMacro().get(0).getValue())) {   //Each script should has purpose. First parameter of each script. If satisfied, save it.
                 this.displayAlert();
                 missingPurpose = true;
             } else {
                 //Save each script to sesson. Set parameters of each observableScript.
                 observableScripts.get(i).getScriptControllerAction().getScriptMacro().setScriptByScriptIdScript(macro);
                 observableScripts.get(i).getScriptControllerAction().getScriptMacro().setScriptOrder((byte) i);
+                observableScripts.get(i).getScriptControllerAction().getScriptMacro().setScriptByScriptIdScript1(observableScripts.get(i).getScriptControllerAction().getCurrentScript());
+//                observableScripts.get(i).getScriptControllerAction().getScriptMacro().setScriptByScriptIdScript1(observableScripts.get(i).getScriptControllerAction().get);
                 session.save(observableScripts.get(i).getScriptControllerAction().getScriptMacro());
                 i++;
 //            }
             }
-            if (!missingPurpose) {
-                session.beginTransaction().commit();
-                mainController.updateRepository();
-                mainController.closeTab();
-                mainController.focusLibrary();
-            }
 
-            session.close();
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
+        if (!missingPurpose) {
+            session.beginTransaction().commit();
+            mainController.updateRepository();
+            mainController.closeTab();
+            mainController.focusLibrary();
+        }
+        session.close();
+
     }
 
     private Script constructMacro() throws ParseException {
@@ -240,23 +245,28 @@ public class TabMacroEditController implements Initializable {
     }
 
     public void displayMacro(Script script) {
-        this.anchorPanelEditMacro.getStylesheets().add("/view/testcampaign/cssViewCampaign.css");
         buttonAddAction.setVisible(true);
         buttonValid.setVisible(true);
-        //MacroDB macroHandler=new MacroDB();
-        //macroHandler.getAllFromMacro(script);
+
         jtextareaObjectivesMacroEdit.setText(script.getDesciption());
         jtextfieldMacroNameEdit.setText(script.getName());
+        jtextfieldMacroNameEdit.setDisable(false);
         jtextfieldMacroNameEdit.setEditable(true);
         jtextfieldMacroEdit.setText(script.getScriptVersion().toString());
         jtextfieldMacroEdit.setDisable(false);
+        jtextfieldMacroEdit.setEditable(true);
         jtextfieldMacroCreationDateEdit.setText(script.getCreationDate());
-        //jtextfieldMacroCreationDate.setDisable(true);
+        jtextfieldMacroCreationDateEdit.setDisable(false);
+        jtextfieldMacroCreationDateEdit.setEditable(true);
         jtextfieldTypeMacroEditionDateEdit.setText(script.getEditionDate());
-        jtextfieldTypeMacroEditionDateEdit.setEditable(false);
+        jtextfieldTypeMacroEditionDateEdit.setDisable(false);
+        jtextfieldTypeMacroEditionDateEdit.setEditable(true);
         stimuliCheckBoxEdit.setSelected(script.getIsStimuli() != 0);
-        controllerTableAction.displayScriptAndStepEdit(script);     //Remember to CHNAGE THIS!!!!!
+          
+        controllerTableAction.displayScriptAndStepEdit(script);     //Contruct most of the view. 
         controllerPreviewMacro.updateGridPaneCreationView(script);
+        this.anchorPanelEditMacro.getStylesheets().add("/view/testcampaign/cssViewCampaign.css");
+
     }
 
     private void displayAlert() {

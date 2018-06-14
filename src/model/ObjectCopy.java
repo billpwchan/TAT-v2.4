@@ -5,13 +5,16 @@
  */
 package model;
 
+import DB.Macro;
 import DB.Requirement;
+import DB.Script;
 import DB.ScriptHasBeenConfigured;
 import java.util.HashSet;
 import java.util.Set;
 import DB.TestCase;
 import DB.TestStep;
 import DB.TestStepHasScript;
+import java.text.ParseException;
 import java.util.Iterator;
 import java.util.Comparator;
 import java.util.SortedSet;
@@ -28,6 +31,28 @@ public class ObjectCopy {
         newTestCase.setTestSteps(copyHashStep(newTestCase.getTestSteps()));
         return newTestCase;
     }
+    
+    public Macro copyCompleteMacro(Macro macro) throws ParseException {
+        Macro newMacro = new Macro();
+//        Script scriptByScriptIdScript = new Script();
+//        scriptByScriptIdScript.setCallName(macro.getScriptByScriptIdScript().getCallName());
+//        scriptByScriptIdScript.setCreationDate(macro.getScriptByScriptIdScript().getCreationDate());
+//        scriptByScriptIdScript.setDesciption(macro.getScriptByScriptIdScript().getDesciption());
+//        scriptByScriptIdScript.setEditionDate(macro.getScriptByScriptIdScript().getEditionDate());
+//        scriptByScriptIdScript.setName(macro.getScriptByScriptIdScript().getName());
+        newMacro.setScriptByScriptIdScript(macro.getScriptByScriptIdScript());
+        newMacro.setScriptByScriptIdScript1(macro.getScriptByScriptIdScript1());
+        newMacro.setParamScriptMacros(macro.getParamScriptMacros());
+        newMacro.setScriptOrder(macro.getScriptOrder());
+        
+        return newMacro;
+    }
+    
+    public Script copyCompleteScript(Script script) {
+        Script newScript = new Script(script);
+        return newScript;
+    }
+    
 
     public Set copyHashStep(Set<TestStep> setSteps) {
         Set<TestStep> hashStep = new TreeSet<>(Comparator.comparing(TestStep::getStepOrder));

@@ -19,6 +19,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
+import model.ObjectCopy;
 
 /**
  * FXML Controller class
@@ -85,6 +86,9 @@ public class TabMacroMainViewController implements Initializable {
         }
         editMacroController = (TabMacroEditController) fxmlLoader.getController();
         editMacroController.init(this);
+        
+//        ObjectCopy copyHandler = new ObjectCopy();
+//        Script sc = copyHandler.copyCompleteScript(macro);
         editMacroController.displayMacro(macro);
         this.tabPaneMacro.getTabs().add(editMacro);
         editMacro.setClosable(true);

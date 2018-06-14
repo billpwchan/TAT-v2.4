@@ -29,7 +29,7 @@
         <property name="paramOrder" type="java.lang.Byte">
             <column name="param_order" />
         </property>
-        <set name="paramScriptMacros" table="param_script_macro" inverse="true" lazy="true" fetch="select" order-by="param_order ASC">
+        <set name="paramScriptMacros" table="param_script_macro" inverse="true" lazy="false" fetch="select" order-by="param_order ASC">
             <key>
                 <column name="param_script_macro_param_script_macrocol" />
             </key>
