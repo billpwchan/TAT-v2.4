@@ -193,12 +193,18 @@ public class TabMacroEditController implements Initializable {
                 this.displayAlert();
                 missingPurpose = true;
             } else {
-                //Save each script to sesson. Set parameters of each observableScript.
+                //Save each script to sesson. Set parameters of each observableScript. 
+                //To duplicate (Previous Macro still working), have to save a copy of ParamScriptMacro object. 
                 observableScripts.get(i).getScriptControllerAction().getScriptMacro().setScriptByScriptIdScript(macro);
                 observableScripts.get(i).getScriptControllerAction().getScriptMacro().setScriptOrder((byte) i);
                 observableScripts.get(i).getScriptControllerAction().getScriptMacro().setScriptByScriptIdScript1(observableScripts.get(i).getScriptControllerAction().getCurrentScript());
 //                observableScripts.get(i).getScriptControllerAction().getScriptMacro().setScriptByScriptIdScript1(observableScripts.get(i).getScriptControllerAction().get);
                 session.save(observableScripts.get(i).getScriptControllerAction().getScriptMacro());
+                
+
+//                session.evict(observableScripts.get(i).getScriptControllerAction().getScriptMacro());
+//                observableScripts.get(i).getScriptControllerAction().getScriptMacro().setIdmacro(i);
+//                session.save(observableScripts.get(i).getScriptControllerAction().getScriptMacro());
                 i++;
 //            }
             }
@@ -262,7 +268,7 @@ public class TabMacroEditController implements Initializable {
         jtextfieldTypeMacroEditionDateEdit.setDisable(false);
         jtextfieldTypeMacroEditionDateEdit.setEditable(true);
         stimuliCheckBoxEdit.setSelected(script.getIsStimuli() != 0);
-          
+
         controllerTableAction.displayScriptAndStepEdit(script);     //Contruct most of the view. 
         controllerPreviewMacro.updateGridPaneCreationView(script);
         this.anchorPanelEditMacro.getStylesheets().add("/view/testcampaign/cssViewCampaign.css");
