@@ -21,7 +21,6 @@ public class ScriptExecutions implements java.io.Serializable {
     private String result;
     private String comment;
 
-
     public ScriptExecutions() {
     }
 
@@ -46,6 +45,18 @@ public class ScriptExecutions implements java.io.Serializable {
         this.macroExecutionsForScriptExecutionsIdscriptExecutions1 = macroExecutionsForScriptExecutionsIdscriptExecutions1;
         this.parametersExecutions = parametersExecutions;
         this.scriptExecutionResults = scriptExecutionResults;
+    }
+
+    public ScriptExecutions(ScriptExecutions scriptExecutions) {
+
+        this.script = scriptExecutions.getScript();
+        this.stepExecutions = scriptExecutions.getStepExecutions();
+        this.scriptOrder = scriptExecutions.getScriptOrder();
+        this.isStimuli = scriptExecutions.getIsStimuli();
+        this.macroExecutionsForScriptExecutionsIdscriptExecutions = scriptExecutions.getMacroExecutionsForScriptExecutionsIdscriptExecutions();
+        this.macroExecutionsForScriptExecutionsIdscriptExecutions1 = scriptExecutions.getMacroExecutionsForScriptExecutionsIdscriptExecutions1();
+        this.parametersExecutions = scriptExecutions.getParametersExecutions();
+        this.scriptExecutionResults = scriptExecutions.getScriptExecutionResults();
     }
 
     public Integer getIdscriptExecutions() {

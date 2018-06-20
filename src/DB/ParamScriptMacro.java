@@ -39,6 +39,18 @@ public class ParamScriptMacro  implements java.io.Serializable {
        this.paramOrder = paramOrder;
        this.paramScriptMacros = paramScriptMacros;
     }
+    
+    public ParamScriptMacro(ParamScriptMacro PSM) {
+        this.macro = PSM.getMacro();
+        this.paramScriptMacro = PSM.getParamScriptMacro();
+        this.scriptHasParameters = PSM.getScriptHasParameters();
+        this.toDisplay = PSM.getToDisplay();
+        this.valuePath = PSM.getValuePath();
+        this.value = PSM.getValue();
+        this.paramOrder = PSM.getParamOrder();
+        this.paramScriptMacros = PSM.getParamScriptMacros();
+        
+    }
    
     public Integer getParamScriptMacrocol() {
         return this.paramScriptMacrocol;

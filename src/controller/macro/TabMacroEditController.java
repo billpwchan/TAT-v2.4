@@ -7,7 +7,7 @@ package controller.macro;
 
 import DB.ParamScriptMacro;
 import DB.Script;
-import DB.TestCase;
+import DBcontroller.MacroDB;
 import DBcontroller.sessionFactorySingleton;
 import controller.macroActions.PreviewMacro;
 import controller.macroActions.ScriptLineTableMacroController;
@@ -24,8 +24,6 @@ import java.util.Date;
 import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import static javafx.collections.FXCollections.observableList;
-import static javafx.collections.FXCollections.observableList;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -46,7 +44,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
-import model.ObjectCopy;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
@@ -115,6 +112,8 @@ public class TabMacroEditController implements Initializable {
     DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
 
     private final int textfieldMacroNameMaxLength = 60;
+    
+    private MacroDB controllerMacroDB = new MacroDB();
 
     /**
      * Initializes the controller class.
@@ -198,9 +197,8 @@ public class TabMacroEditController implements Initializable {
                 observableScripts.get(i).getScriptControllerAction().getScriptMacro().setScriptByScriptIdScript(macro);
                 observableScripts.get(i).getScriptControllerAction().getScriptMacro().setScriptOrder((byte) i);
                 observableScripts.get(i).getScriptControllerAction().getScriptMacro().setScriptByScriptIdScript1(observableScripts.get(i).getScriptControllerAction().getCurrentScript());
-//                observableScripts.get(i).getScriptControllerAction().getScriptMacro().setScriptByScriptIdScript1(observableScripts.get(i).getScriptControllerAction().get);
+//              observableScripts.get(i).getScriptControllerAction().getScriptMacro().setScriptByScriptIdScript1(observableScripts.get(i).getScriptControllerAction().get);
                 session.save(observableScripts.get(i).getScriptControllerAction().getScriptMacro());
-                
 
 //                session.evict(observableScripts.get(i).getScriptControllerAction().getScriptMacro());
 //                observableScripts.get(i).getScriptControllerAction().getScriptMacro().setIdmacro(i);

@@ -23,6 +23,13 @@ public class Macro implements java.io.Serializable {
         this.scriptByScriptIdScript1 = scriptByScriptIdScript1;
     }
 
+    public Macro(Macro macro){
+        this.scriptByScriptIdScript = macro.getScriptByScriptIdScript();
+        this.scriptByScriptIdScript1 = macro.getScriptByScriptIdScript1();
+        this.scriptOrder = macro.getScriptOrder();
+        this.paramScriptMacros = macro.getParamScriptMacros();
+    }
+
     public Macro(Script scriptByScriptIdScript, Script scriptByScriptIdScript1, Byte scriptOrder, Set paramScriptMacros) {
         this.scriptByScriptIdScript = scriptByScriptIdScript;
         this.scriptByScriptIdScript1 = scriptByScriptIdScript1;

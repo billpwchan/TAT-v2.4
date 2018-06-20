@@ -5,11 +5,15 @@
  */
 package controller.macro;
 
+import DB.Macro;
 import DB.Script;
+import DBcontroller.MacroDB;
 import controller.TATFrameController;
 import controller.requirements.TabRequirementMainViewController;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -76,7 +80,7 @@ public class TabMacroMainViewController implements Initializable {
     }
 
     void displayEditMacro(Script macro) {
-        Tab editMacro = new Tab("edit Macro");
+        Tab editMacro = new Tab("Edit Macro");
         FXMLLoader fxmlLoader = new FXMLLoader();
         try {
             AnchorPane addPane = fxmlLoader.load(getClass().getResource("/view/macro/TabMacroEdit.fxml").openStream());
@@ -86,10 +90,20 @@ public class TabMacroMainViewController implements Initializable {
         }
         editMacroController = (TabMacroEditController) fxmlLoader.getController();
         editMacroController.init(this);
+
+        ObjectCopy copyHandler = new ObjectCopy();
+        Script sc = copyHandler.copyCompleteScript(macro);
         
-//        ObjectCopy copyHandler = new ObjectCopy();
-//        Script sc = copyHandler.copyCompleteScript(macro);
-        editMacroController.displayMacro(macro);
+        Iterator<Macro> itScriptMacro = macro.getMacrosForScriptIdScript().iterator();
+        Macro macroScript = new Macro();
+        MacroDB controllerMacroDB = new MacroDB();
+
+        while (itScriptMacro.hasNext()) {
+            macroScript = itScriptMacro.next();
+            controllerMacroDB.makeDuplicateParamScriptMacro(macroScript.getIdmacro());
+        }
+
+        editMacroController.displayMacro(sc);
         this.tabPaneMacro.getTabs().add(editMacro);
         editMacro.setClosable(true);
         this.tabPaneMacro.getSelectionModel().select(editMacro);

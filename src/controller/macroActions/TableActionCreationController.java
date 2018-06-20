@@ -62,13 +62,13 @@ public class TableActionCreationController implements Initializable {
     private final ObservableList<Node> workingCollection = FXCollections.observableArrayList();
 
     private final HashSet<Script> scripts = new HashSet<>(0);
-    
+
     private HashSet<Script> allScript = new HashSet<>(0);
- 
+
     private TabMacroNewController controllerNewMacro;
 
     private TabMacroEditController controllerEditMacro;
-    
+
     private MacroDB macroDBController = new MacroDB();
 
     /**
@@ -85,13 +85,12 @@ public class TableActionCreationController implements Initializable {
             updateAllChildren(newValue);
         });
     }
-    
 
     public void addAction() {
         addActioninVbox();
         controllerScriptLine.setScriptCreation(scripts);
     }
-    
+
     public void addActionEdit() {
         addActioninVboxEdit();
         controllerScriptLine.setScriptCreationEdit(scripts);
@@ -100,7 +99,7 @@ public class TableActionCreationController implements Initializable {
     public TabMacroNewController getControllerFather() {
         return this.controllerNewMacro;
     }
-    
+
     public TabMacroEditController getControllerFatherEdit() {
         return this.controllerEditMacro;
     }
@@ -148,8 +147,8 @@ public class TableActionCreationController implements Initializable {
         scriptID++;
         displayVbox();
     }
-    
-        public void addActioninVboxEdit() {
+
+    public void addActioninVboxEdit() {
         //Add an additional script to the vBox
         FXMLLoader fxmlLoader = new FXMLLoader();
         try {
@@ -204,7 +203,7 @@ public class TableActionCreationController implements Initializable {
         //System.out.println("Je get tt les script");
         ScriptDB scriptDBHandler = new ScriptDB();
         allScript = scriptDBHandler.getScriptListWithParameters();
-        
+
         Iterator<Script> itScript = allScript.iterator();
         while (itScript.hasNext()) {
             Script script = itScript.next();
@@ -276,7 +275,12 @@ public class TableActionCreationController implements Initializable {
             updateScriptId(0);
             displayVbox();
         }
-        this.controllerScriptLine.controllerViewGlobal().getControllerFather().getControllerPreview().updateGridPaneCreation(this);
+
+        if (this.controllerScriptLine.controllerViewGlobal().getControllerFather() != null) {
+            this.controllerScriptLine.controllerViewGlobal().getControllerFather().getControllerPreview().updateGridPaneCreation(this);
+        } else {
+            this.controllerScriptLine.controllerViewGlobal().getControllerFatherEdit().getControllerPreview().updateGridPaneCreation(this);
+        }
     }
 
     /**
@@ -295,7 +299,7 @@ public class TableActionCreationController implements Initializable {
         }
         vBox.getChildren().setAll(workingCollection);
     }
-    
+
     public void displayScriptAndStepEdit(Script macro) {    //This macro is selected macro by user (Click event)
         clearTable();
 //        this.loadScriptCheckAndStimuli();

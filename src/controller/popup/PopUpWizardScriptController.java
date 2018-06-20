@@ -525,7 +525,7 @@ public class PopUpWizardScriptController implements Initializable {
         ObservableList<String> options = getFXCollectionFromParamtersType(paramFromLine.getParameterType());
         comboBoxDefinitionValue.getItems().setAll(options);
         //System.out.println("Taille de mon array list = "+observableListScriptMartinth.size());
-        System.out.println("OBSERVABLE LIST SIZE = " + this.observableListScriptMartinth);
+        System.out.println("OBSERVABLE LIST SIZE = " + this.observableListScriptMartinth.size());
 
         String comboValue = this.observableListScriptMartinth.get(this.tableParameters.getSelectionModel().getSelectedIndex()).getValuePath();
 

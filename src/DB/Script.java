@@ -45,36 +45,40 @@ public class Script implements java.io.Serializable {
         this.editionDate = script.getEditionDate();
         this.isStimuli = script.getIsStimuli();
         this.isMacro = script.getIsMacro();
-
-        HashSet<Script> newSet = new HashSet<>();
-        for (Object sc : (Set) script.getScriptExecutionses()) {
-            newSet.add((Script) sc);
-        }
-        this.scriptExecutionses = newSet;
-
-        HashSet<Macro> newSetMacro = new HashSet<>();
-        for (Object sc : script.getMacrosForScriptIdScript()) {
-            newSetMacro.add((Macro) sc);
-        }
-        this.macrosForScriptIdScript = newSetMacro;
-
-        newSet = new HashSet<>();
-        for (Object sc : script.getTestStepHasScripts()) {
-            newSet.add((Script) sc);
-        }
-        this.testStepHasScripts = newSet;
-
-        newSet = new HashSet<>();
-        for (Object sc : script.getMacrosForScriptIdScript1()) {
-            newSet.add((Script) sc);
-        }
-        this.macrosForScriptIdScript1 = newSet;
-
-        newSet = new HashSet<>();
-        for (Object sc : script.getScriptHasParameterses()) {
-            newSet.add((Script) sc);
-        }
-        this.scriptHasParameterses = newSet;
+        this.scriptExecutionses = script.getScriptExecutionses();
+        this.macrosForScriptIdScript = script.getMacrosForScriptIdScript();
+        this.macrosForScriptIdScript1 = script.getMacrosForScriptIdScript1();
+        this.testStepHasScripts = script.getTestStepHasScripts();
+        this.scriptHasParameterses = script.getScriptHasParameterses();
+//        HashSet<Script> newSet = new HashSet<>();
+//        for (Object sc :  script.getScriptExecutionses()) {
+//            newSet.add((Script) sc);
+//        }
+//        this.scriptExecutionses = newSet;
+//
+//        HashSet<Macro> newSetMacro = new HashSet<>();
+//        for (Object sc : script.getMacrosForScriptIdScript()) {
+//            newSetMacro.add((Macro) sc);
+//        }
+//        this.macrosForScriptIdScript = newSetMacro;
+//
+//        newSet = new HashSet<>();
+//        for (Object sc : script.getTestStepHasScripts()) {
+//            newSet.add((Script) sc);
+//        }
+//        this.testStepHasScripts = newSet;
+//
+//        newSet = new HashSet<>();
+//        for (Object sc : script.getMacrosForScriptIdScript1()) {
+//            newSet.add((Script) sc);
+//        }
+//        this.macrosForScriptIdScript1 = newSet;
+//
+//        newSet = new HashSet<>();
+//        for (Object sc : script.getScriptHasParameterses()) {
+//            newSet.add((Script) sc);
+//        }
+//        this.scriptHasParameterses = newSet;
     }
 
     public Script(int idScript, String name, String desciption, Integer scriptVersion, String creationDate, String editionDate, Byte isStimuli, Byte isMacro, Set scriptExecutionses, Set macrosForScriptIdScript, Set testStepHasScripts, Set macrosForScriptIdScript1, Set scriptHasParameterses) throws ParseException {
