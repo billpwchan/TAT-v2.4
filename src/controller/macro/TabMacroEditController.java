@@ -183,6 +183,7 @@ public class TabMacroEditController implements Initializable {
         session.save(macro);
         int i = 0;
         boolean missingPurpose = false;
+        //Need to remove extra scripts.
         while (i < numberScript && missingPurpose == false) {
             System.out.println(observableScripts.get(i).toString());
             System.out.println(observableScripts.get(i).getScriptControllerAction().toString());
@@ -199,7 +200,6 @@ public class TabMacroEditController implements Initializable {
                 observableScripts.get(i).getScriptControllerAction().getScriptMacro().setScriptByScriptIdScript1(observableScripts.get(i).getScriptControllerAction().getCurrentScript());
 //              observableScripts.get(i).getScriptControllerAction().getScriptMacro().setScriptByScriptIdScript1(observableScripts.get(i).getScriptControllerAction().get);
                 session.save(observableScripts.get(i).getScriptControllerAction().getScriptMacro());
-
 //                session.evict(observableScripts.get(i).getScriptControllerAction().getScriptMacro());
 //                observableScripts.get(i).getScriptControllerAction().getScriptMacro().setIdmacro(i);
 //                session.save(observableScripts.get(i).getScriptControllerAction().getScriptMacro());
@@ -215,6 +215,8 @@ public class TabMacroEditController implements Initializable {
             mainController.closeTab();
             mainController.focusLibrary();
         }
+        
+        //Need to remove duplicate records in the database (paramScriptMacro).
         session.close();
 
     }

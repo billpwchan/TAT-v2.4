@@ -15,7 +15,6 @@ import DBcontroller.ConfigurationDB;
 import DBcontroller.TestCaseDB;
 import java.nio.file.Files;
 import configuration.settings;
-import controller.popup.PopUpRunController;
 import controller.popup.PopUpcaseExcelValidationController;
 import controller.tablestep.HeaderTableStepController;
 import controller.tablestep.TableStepScriptCreationController;
@@ -29,7 +28,6 @@ import java.nio.file.Paths;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -38,7 +36,6 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -54,7 +51,6 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.TreeTableView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -67,24 +63,14 @@ import javafx.util.Duration;
 import model.initColumn;
 import model.util;
 import org.controlsfx.control.Notifications;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.ToggleGroup;
-import model.TextFieldWithFormat;
-import org.controlsfx.dialog.Wizard;
-import org.controlsfx.dialog.WizardPane;
-import org.controlsfx.dialog.Wizard.LinearFlow;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.*;
-import javafx.scene.control.*;
 import javafx.stage.Modality;
 import main.Main;
 
 /**
- * FXML Controller class
- * For Baseline Creation ====> Validate campaign steps and generate validated baseline.
+ * FXML Controller class For Baseline Creation ====> Validate campaign steps and
+ * generate validated baseline.
  *
  * @author tmorin
  */
@@ -222,8 +208,8 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
     private PopUpcaseExcelValidationController popUpChooseExcel;
 
     private Stage instantiateCase;
-    
-    private boolean closePopUp=false;
+
+    private boolean closePopUp = false;
 
     /**
      * Initializes the controller class.
@@ -332,7 +318,7 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
                                             //     Logger.getLogger(TabTestCampaignExecutionBaselineCampaignController.class.getName()).log(Level.SEVERE, null, ex);
                                             // }
                                         }
-                                        
+
                                         util.endTime();
                                         return null;
                                     }
@@ -344,7 +330,7 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
                                     th.join();
                                 } catch (InterruptedException ex) {
                                     Logger.getLogger(TabTestCampaignExecutionBaselineCampaignController.class.getName()).log(Level.SEVERE, null, ex);
-                                } 
+                                }
                                 closeAlert(alert);
                                 //this.notificationBaselinCase();
                                 if (numberOfCases != -1) {
@@ -357,7 +343,7 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
                                     numberOfCases = 0;  //To restore numOfCases back to origina state (If exception is encountered)
                                 }
                                 //closeAlertBox(dialog);
-                                
+
                             }
                         } else {
                             event.consume();
@@ -536,7 +522,7 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
      * @return the excel file
      */
     public File selectExcelFile() {
-        File excelFile=null;
+        File excelFile = null;
         showWizard();
 //        TextInputDialog dialog = new TextInputDialog("range");
 //        dialog.setTitle("Excel file required");
@@ -548,7 +534,7 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
 //        if (result.isPresent()) {
 //            range = Integer.parseInt(result.get());
 //        }
-        
+
         System.out.println("showWizard is done");
         System.out.println("closePopUp = " + closePopUp);
         if (closePopUp) { // was if (closePopUp = true) ---->making it always true
@@ -556,8 +542,8 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
             excelFile = FileChooser(save);
             //popUpChooseExcel
         }
-        
-        this.closePopUp=false;
+
+        this.closePopUp = false;
         return excelFile;
     }
 
@@ -746,7 +732,6 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
         try {
             alert.close();
             alert.hide();
-
         } catch (Exception e) {
             System.out.println("Exception close alerte = " + e);
         }
@@ -760,7 +745,7 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
         alert.showAndWait();
     }
 
-    public static void errorBox(String errorTitle, String errorHeaderText, String errorMessage){
+    public static void errorBox(String errorTitle, String errorHeaderText, String errorMessage) {
         Alert alert = new Alert(AlertType.ERROR);
         alert.setTitle(errorTitle);
         alert.setHeaderText(errorHeaderText);
@@ -818,7 +803,7 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
     public void deleteFolderConfiguration() {
         File index = new File(settings.scriptsPaht + "\\" + baseline.getTestCampaign().getReference() + "\\" + baseline.getBaselineId());
         String[] entries = index.list();
-        if (entries != null){
+        if (entries != null) {
             for (String s : entries) {
                 File currentFile = new File(index.getPath(), s);
                 currentFile.delete();
@@ -864,13 +849,13 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
 
     public void setOnAction() {
         this.instantiateCase.close();
-        this.closePopUp=true; //added this to get ExcelFile when user presses "ButtonOK" in PopUpExcelValidationController
+        this.closePopUp = true; //added this to get ExcelFile when user presses "ButtonOK" in PopUpExcelValidationController
     }
-    
-    public void cancelPopUp(){
+
+    public void cancelPopUp() {
         this.instantiateCase.close();
-        this.closePopUp=false; //was true before, changing this to false and adding true for the OK button
-       
+        this.closePopUp = false; //was true before, changing this to false and adding true for the OK button
+
         System.out.println("CancelPopUp was accessed and closePopup=false");
         System.out.println("close popUp in void cancelPopUp = " + this.closePopUp);
     }

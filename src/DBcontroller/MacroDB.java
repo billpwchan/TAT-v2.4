@@ -61,6 +61,19 @@ public class MacroDB {
         session.close();
         return macros;
     }
+    
+    
+    //Assumption of this function: A record is deleted on a reversed order.
+    public void removePSMGivenId(int macroID) {
+        SessionFactory factory = sessionFactorySingleton.getInstance();
+        Session session = factory.openSession();
+        Query qry = session.createQuery("delete from ParamScriptMacro psm where psm.paramScriptMacrocol=:macro_id");
+        qry.setInteger("macro_id", macroID); //Remove based on PSM ID.
+        qry.executeUpdate();
+        session.beginTransaction().commit();
+        session.close();
+        
+    }
 
     public void makeDuplicateParamScriptMacro(int macroID) {
         SessionFactory factory = sessionFactorySingleton.getInstance();

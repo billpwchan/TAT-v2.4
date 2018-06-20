@@ -271,11 +271,17 @@ public class TableActionCreationController implements Initializable {
         if (aThis != null) {
             workingCollection.remove(aThis.getAnchorPane());
             this.collectionControllerScript.remove(aThis);
+            ObservableList<ParamScriptMacro> temp = aThis.getScriptControllerAction().getHashParamScriptMacro();
+            //Assume macroID are inversed presented in here.
+            temp.stream().forEach((ParamScriptMacro PSM) -> {
+                macroDBController.removePSMGivenId(PSM.getParamScriptMacrocol());
+            });
             scriptID--;
             updateScriptId(0);
             displayVbox();
         }
 
+        //UI Update
         if (this.controllerScriptLine.controllerViewGlobal().getControllerFather() != null) {
             this.controllerScriptLine.controllerViewGlobal().getControllerFather().getControllerPreview().updateGridPaneCreation(this);
         } else {
