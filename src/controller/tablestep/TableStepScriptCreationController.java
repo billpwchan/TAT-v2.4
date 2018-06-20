@@ -192,6 +192,7 @@ public class TableStepScriptCreationController implements Initializable {
 
         if (controllerStepLine != null) {
             int VboxIDSelectedStep = workingCollection.indexOf(controllerStepLine.getAnchorPane()) + controllerStepLine.getNumberOdScript();
+            System.out.println("VboxIDSelectedStep = " + VboxIDSelectedStep);
             FXMLLoader fxmlLoader = new FXMLLoader();
             AnchorPane scriptPane = new AnchorPane();
             try {
@@ -206,7 +207,8 @@ public class TableStepScriptCreationController implements Initializable {
                         .getName()).log(Level.SEVERE, null, ex);
             }
             controllerStepLine.addScript(controllerScriptLine, 1);
-            workingCollection.add(VboxIDSelectedStep + 1, scriptPane);
+//            workingCollection.add(VboxIDSelectedStep + 1, scriptPane);        //Cause IndexOutOfBoundException
+            workingCollection.add(scriptPane);
             //controllerStepLine.setExpandTrue();
             displayVbox();
 

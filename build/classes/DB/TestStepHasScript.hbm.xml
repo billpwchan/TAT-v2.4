@@ -11,7 +11,7 @@
         <many-to-one name="script" class="DB.Script" fetch="select">
             <column name="script_idScript" not-null="true" />
         </many-to-one>
-        <many-to-one name="testStep" class="DB.TestStep" fetch="select">
+        <many-to-one name="testStep" class="DB.TestStep" fetch="select" >
             <column name="test_step_idtest_step" not-null="true" />
         </many-to-one>
         <property name="executionOrder" type="byte">

@@ -272,7 +272,7 @@ public class TabTestCaseEditController implements Initializable {
         this.buttonAddScript.setDisable(true);
     }
 
-   private void initializeFieldListener() {
+    private void initializeFieldListener() {
         this.jtextfieldCaseIDEdit.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(final ObservableValue<? extends String> observable, final String oldValue, final String newValue) {
@@ -304,15 +304,15 @@ public class TabTestCaseEditController implements Initializable {
         this.jtextfieldCaseTitleEdit.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(final ObservableValue<? extends String> observable, final String oldValue, final String newValue) {
-                if (displayWarningIncorrectInputFormat("Test Title", textfieldCaseTitleMaxLength, newValue.length() > textfieldCaseTitleMaxLength)){
+                if (displayWarningIncorrectInputFormat("Test Title", textfieldCaseTitleMaxLength, newValue.length() > textfieldCaseTitleMaxLength)) {
                     jtextfieldCaseTitleEdit.setText(oldValue);
-            }
+                }
             }
         });
         this.jtextfieldCaseVersionEdit.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(final ObservableValue<? extends String> observable, final String oldValue, final String newValue) {
-                if (displayWarningIncorrectInputFormat("Test Case Version", textfieldCaseVersionMaxLength, newValue.length() > textfieldCaseVersionMaxLength)){
+                if (displayWarningIncorrectInputFormat("Test Case Version", textfieldCaseVersionMaxLength, newValue.length() > textfieldCaseVersionMaxLength)) {
                     jtextfieldCaseVersionEdit.setText(oldValue);
                 }
             }
@@ -320,15 +320,15 @@ public class TabTestCaseEditController implements Initializable {
         this.jtextfieldProjectCaseEdit.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(final ObservableValue<? extends String> observable, final String oldValue, final String newValue) {
-               if (displayWarningIncorrectInputFormat("Project", textfieldProjectMaxLength, newValue.length() > textfieldProjectMaxLength)){
-                   jtextfieldProjectCaseEdit.setText(oldValue);
-               }
+                if (displayWarningIncorrectInputFormat("Project", textfieldProjectMaxLength, newValue.length() > textfieldProjectMaxLength)) {
+                    jtextfieldProjectCaseEdit.setText(oldValue);
+                }
             }
         });
         this.jtextfieldTypeTestCaseEdit.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(final ObservableValue<? extends String> observable, final String oldValue, final String newValue) {
-                if (displayWarningIncorrectInputFormat("Project", textfieldTypeTestMaxLength, newValue.length() > textfieldTypeTestMaxLength)){
+                if (displayWarningIncorrectInputFormat("Project", textfieldTypeTestMaxLength, newValue.length() > textfieldTypeTestMaxLength)) {
                     jtextfieldTypeTestCaseEdit.setText(oldValue);
                 }
             }
@@ -337,7 +337,7 @@ public class TabTestCaseEditController implements Initializable {
             @Override
             public void changed(final ObservableValue<? extends String> observable, final String oldValue, final String newValue) {
                 changeColorLabel(labelTestCategoryCaseNew, newValue);
-                if (displayWarningIncorrectInputFormat("Test Category", textfieldTestCategoryMaxLength, newValue.length() > textfieldTestCategoryMaxLength)){
+                if (displayWarningIncorrectInputFormat("Test Category", textfieldTestCategoryMaxLength, newValue.length() > textfieldTestCategoryMaxLength)) {
                     jtextfieldTestCategoryCaseEdit.setText(oldValue);
                 }
             }
@@ -345,7 +345,7 @@ public class TabTestCaseEditController implements Initializable {
         this.jtextfieldLocationCaseEdit.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(final ObservableValue<? extends String> observable, final String oldValue, final String newValue) {
-                if (displayWarningIncorrectInputFormat("Location", textfieldLocationMaxLength, newValue.length() > textfieldLocationMaxLength)){
+                if (displayWarningIncorrectInputFormat("Location", textfieldLocationMaxLength, newValue.length() > textfieldLocationMaxLength)) {
                     jtextfieldLocationCaseEdit.setText(oldValue);
                 }
             }
@@ -353,7 +353,7 @@ public class TabTestCaseEditController implements Initializable {
         this.jtextfieldWriterCaseEdit.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(final ObservableValue<? extends String> observable, final String oldValue, final String newValue) {
-                if (displayWarningIncorrectInputFormat("Writer", textfieldWriterMaxLength, newValue.length() > textfieldWriterMaxLength)){
+                if (displayWarningIncorrectInputFormat("Writer", textfieldWriterMaxLength, newValue.length() > textfieldWriterMaxLength)) {
                     jtextfieldWriterCaseEdit.setText(oldValue);
                 }
             }
@@ -361,7 +361,7 @@ public class TabTestCaseEditController implements Initializable {
         this.jtextfieldWriterEmailCaseEdit.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(final ObservableValue<? extends String> observable, final String oldValue, final String newValue) {
-                if (displayWarningIncorrectInputFormat("Writer Email", textfieldWriterEmailMaxLength, newValue.length() > textfieldWriterEmailMaxLength)){
+                if (displayWarningIncorrectInputFormat("Writer Email", textfieldWriterEmailMaxLength, newValue.length() > textfieldWriterEmailMaxLength)) {
                     jtextfieldWriterEmailCaseEdit.setText(oldValue);
                 }
             }
@@ -369,12 +369,13 @@ public class TabTestCaseEditController implements Initializable {
         this.jtextfieldCaseSourceEdit.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(final ObservableValue<? extends String> observable, final String oldValue, final String newValue) {
-                if (displayWarningIncorrectInputFormat("Case Source", textfieldCaseSourceMaxLength, newValue.length() > textfieldCaseSourceMaxLength)){
+                if (displayWarningIncorrectInputFormat("Case Source", textfieldCaseSourceMaxLength, newValue.length() > textfieldCaseSourceMaxLength)) {
                     jtextfieldCaseSourceEdit.setText(oldValue);
                 }
             }
         });
     }
+
     /**
      * Change the color of the label depending on if the string is empty or not.
      *
@@ -504,6 +505,8 @@ public class TabTestCaseEditController implements Initializable {
         ObservableList<StepLineTableStepController> observableTestStep = controllerTableStep.getCollectionTestStep();
         int numberOfTestStep = observableTestStep.size();
         TestCase thisTestCase = null;
+        SessionFactory factory = sessionFactorySingleton.getInstance();
+        Session session = factory.openSession();
         try {
             thisTestCase = this.constructTestCase();
         } catch (ParseException ex) {
@@ -514,12 +517,15 @@ public class TabTestCaseEditController implements Initializable {
             TestStep step = current.getTestStep();//new TestStep(current.getTestStep());
             step.setStepOrder((byte) i);
             System.out.println("StepID: " + step.getIdtestStep() + " , Steporder: " + step.getStepOrder());
-            thisTestCase.addStep(step);
+            if (thisTestCase != null) {
+                thisTestCase.addStep(step);
+            }
             int numberOfScript = current.getCollectionScript().size();
             int executionOrderScript = 0;
             //System.out.println("NUMBER OF SCRIPT = "+numberOfScript);
 
             for (int j = 0; j < numberOfScript; j++) {
+                //This for-loop is for the Step description (Left part of the Test steps). Only consider isScript = 1 case.
                 ScriptLineTableStepController currentScript = current.getCollectionScript().get(j);
                 if (currentScript.getScriptAction() != null) {
                     currentScript.getScriptAction().setExecutionOrder((byte) executionOrderScript);
@@ -535,6 +541,7 @@ public class TabTestCaseEditController implements Initializable {
 //                    System.out.println("currentScript = " + currentScript.getScriptAction().getScript().getName());
 
                 }
+                //This for-loop is for Expected result (Right part of the Test steps). Onlye consider isMacro = 1 case.
                 if (currentScript.getScriptVerif() != null) {
                     currentScript.getScriptVerif().setExecutionOrder((byte) executionOrderScript);
                     executionOrderScript++;
@@ -544,6 +551,7 @@ public class TabTestCaseEditController implements Initializable {
                     Iterator<ScriptHasBeenConfigured> itScriptHBC = currentScript.getScriptVerif().getScriptHasBeenConfigureds().iterator();
                     while (itScriptHBC.hasNext()) {
                         System.out.println("SCRIPT HAS BEEN CONFIGURED :" + itScriptHBC.next().getTestStepHasScript());
+//                        session.save(itScriptHBC);
                     }
                     System.out.println("Script has been configured set : " + currentScript.getScriptVerif().getScriptHasBeenConfigureds());
 //                     System.out.println("Number of parameters : "+currentScript.getScriptVerif().getScriptHasBeenConfigureds().size());
@@ -551,12 +559,21 @@ public class TabTestCaseEditController implements Initializable {
                 }
 
             }
-            //session.save(step);
+//            session.save(step);
         }
-        SessionFactory factory = sessionFactorySingleton.getInstance();
-        Session session = factory.openSession();
+        //Trying to overcome TransientObjectException. Need to save DB.TestStepHasScript before saving thisTestCase.
+//        Iterator<TestStep> itTS = thisTestCase.getTestSteps().iterator();
+//        while(itTS.hasNext()){
+//            TestStep setTestStep= itTS.next();
+//            Iterator<TestStepHasScript> itTSHS = setTestStep.getTestStepHasScripts().iterator();
+//            while(itTSHS.hasNext()){
+//                TestStepHasScript setTSHS = itTSHS.next();
+//                session.save(setTSHS);
+//            }
+//        }
+        
         session.save(thisTestCase);
-        session.beginTransaction().commit();
+        session.beginTransaction().commit();        //Cause TestStepHasScript exception (need to save it before commit). 
         session.close();
 //        ObservableList<StepLineTableStepController> observableTestStep = controllerTableStep.getCollectionTestStep();
 //        ObservableList<ScriptLineTableStepController> observableScript;

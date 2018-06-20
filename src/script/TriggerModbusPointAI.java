@@ -50,7 +50,7 @@ public class TriggerModbusPointAI {
 
     }
 
-    public String run(ArrayList<ParametersExecution> parameters,  HashMap hashMap) {
+    public String run(ArrayList<ParametersExecution> parameters, HashMap hashMap) {
         //WARNING ! inverse values
 
         //this.typeOfPoint = (String) parameters.get(0).getParameter();
@@ -63,11 +63,11 @@ public class TriggerModbusPointAI {
         int newInt = randInt(lowValue, maxValue);
         //System.out.println("Scaling factor is :" + scalingFactor + "\n scaling factor by 1 is : " + scalingFactor * 1);
         //double formatInt =Math.round(((newInt * scalingFactor)*100)/100);
-        
-        double formatIntTest =(newInt * scalingFactor);
+
+        double formatIntTest = (newInt * scalingFactor);
         DecimalFormat df = new DecimalFormat("#####0.00");
-        
-       // round(formatInt,2);
+
+        // round(formatInt,2);
         //System.out.println(" new int value is : " + newInt + "\n value with format is : " + formatInt);
         //String toReturn = String.format("%1.6e", formatInt);
         String toReturn = String.valueOf(df.format(formatIntTest));

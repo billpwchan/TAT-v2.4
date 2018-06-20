@@ -50,14 +50,12 @@ public class ObjectCopy {
     }
     
     public Set copyHashPSM(Set<ParamScriptMacro> setPSM){
-        
         Set<ParamScriptMacro> hashPSM = new TreeSet<>(Comparator.comparing(ParamScriptMacro::getParamOrder));
         Iterator<ParamScriptMacro> itPSM = setPSM.iterator();
         while (itPSM.hasNext()){
             ParamScriptMacro currPSM = itPSM.next();
             ParamScriptMacro newPSM = new ParamScriptMacro(currPSM);
             hashPSM.add(newPSM);
-            
         }
         return hashPSM;
     }
