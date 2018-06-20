@@ -5,6 +5,8 @@
  */
 package model;
 
+import DB.Macro;
+import DB.ParamScriptMacro;
 import DB.Requirement;
 import DB.Script;
 import DB.ScriptHasBeenConfigured;
@@ -30,9 +32,34 @@ public class ObjectCopy {
 
     public Script copyCompleteScript(Script script) {
         Script newScript = new Script(script);
-//        newScript.se
-//        newScript.setMacrosForScriptIdScript(null);
+        newScript.setMacrosForScriptIdScript(copyHashMacro(newScript.getMacrosForScriptIdScript()));
         return newScript;
+    }
+    
+    public Set copyHashMacro(Set<Macro> setMacros){
+        Set<Macro> hashMacro = new TreeSet<>(Comparator.comparing(Macro::getScriptOrder));
+        Iterator<Macro> itMacro = setMacros.iterator();
+        while(itMacro.hasNext()){
+            Macro currMacro = itMacro.next();
+            Macro newMacro = new Macro(currMacro);
+            Set PSM = copyHashPSM(newMacro.getParamScriptMacros());
+            newMacro.setParamScriptMacros(PSM);
+            hashMacro.add(newMacro);
+        }
+        return hashMacro;
+    }
+    
+    public Set copyHashPSM(Set<ParamScriptMacro> setPSM){
+        
+        Set<ParamScriptMacro> hashPSM = new TreeSet<>(Comparator.comparing(ParamScriptMacro::getParamOrder));
+        Iterator<ParamScriptMacro> itPSM = setPSM.iterator();
+        while (itPSM.hasNext()){
+            ParamScriptMacro currPSM = itPSM.next();
+            ParamScriptMacro newPSM = new ParamScriptMacro(currPSM);
+            hashPSM.add(newPSM);
+            
+        }
+        return hashPSM;
     }
 
 

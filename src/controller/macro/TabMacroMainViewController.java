@@ -94,14 +94,15 @@ public class TabMacroMainViewController implements Initializable {
         ObjectCopy copyHandler = new ObjectCopy();
         Script sc = copyHandler.copyCompleteScript(macro);
         
-        Iterator<Macro> itScriptMacro = macro.getMacrosForScriptIdScript().iterator();
-        Macro macroScript = new Macro();
-        MacroDB controllerMacroDB = new MacroDB();
-
-        while (itScriptMacro.hasNext()) {
-            macroScript = itScriptMacro.next();
-            controllerMacroDB.makeDuplicateParamScriptMacro(macroScript.getIdmacro());
-        }
+        //Make duplicate records in the database manually.
+//        Iterator<Macro> itScriptMacro = macro.getMacrosForScriptIdScript().iterator();
+//        Macro macroScript = new Macro();
+//        MacroDB controllerMacroDB = new MacroDB();
+//
+//        while (itScriptMacro.hasNext()) {
+//            macroScript = itScriptMacro.next();
+//            controllerMacroDB.makeDuplicateParamScriptMacro(macroScript.getIdmacro());
+//        }
 
         editMacroController.displayMacro(sc);
         this.tabPaneMacro.getTabs().add(editMacro);

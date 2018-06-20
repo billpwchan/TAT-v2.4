@@ -92,6 +92,7 @@ public class MacroDB {
             count++;
             System.out.println("Current database records: "+ count);
             qry = session.createSQLQuery("INSERT INTO param_script_macro (param_script_macrocol, macro_idmacro, param_script_macro_param_script_macrocol, script_has_parameters_idscript_has_parameters, to_display, value_path, value, param_order) values (:inParamScriptMacrocol, :inMacro, :inParamScriptMacro, :inScriptHasParameters, :inToDisplay, :inValuePath, :inValue, :inParameterOrder)");
+//            qry.setParameter("inParamScriptMacrocol", 0);       //Should generae a new unique id by default.
             qry.setParameter("inMacro", PSM.getMacro().getIdmacro());
             System.out.println("Curent IdMacro: "+ PSM.getMacro().getIdmacro());
             qry.setParameter("inParamScriptMacro", PSM.getParamScriptMacro());
@@ -103,31 +104,9 @@ public class MacroDB {
             System.out.println("currentParameterorder: "+ PSM.getParamOrder());
             qry.executeUpdate();
             session.beginTransaction().commit();
-//            session.evict(PSM);
-//            session.save(PSM);
 
-//            qry = session.createSQLQuery("INSERT INTO `param_script_macro`(`param_script_macrocol`,`macro_idmacro`,`param_script_macro_param_script_macrocol`,`script_has_parameters_idscript_has_parameters`,`to_display`,`value_path`,`value`,`param_order`) VALUES (NULL,0,NULL,0,NULL,NULL,NULL,NULL)");
-//            qry.executeUpdate();
-//            qry = session.createSQLQuery("UPDATE `param_script_macro` SET `macro_idmacro`='" + count + "' WHERE _rowid_='" + count + "'");
-//            qry.executeUpdate();
-//            qry = session.createSQLQuery("UPDATE `param_script_macro` SET `script_has_parameters_idscript_has_parameters`='" + PSM.get + "' WHERE _rowid_='" + count + "'");
-//            qry.executeUpdate();
         }
         session.close();
-
-//            UPDATE `param_script_macro` SET `script_has_parameters_idscript_has_parameters
-//        `=? WHERE _rowid_ ='230';
-//            UPDATE `param_script_macro` SET `to_display
-//        `=? WHERE _rowid_ ='230';
-//            UPDATE `param_script_macro` SET `value_path
-//        `=? WHERE _rowid_ ='230';
-//            UPDATE `param_script_macro` SET `value
-//        `=? WHERE _rowid_ ='230';
-//            UPDATE `param_script_macro` SET `param_order
-//        `=? WHERE _rowid_ =
-//    
-//
-//'230';
 
     }
 }

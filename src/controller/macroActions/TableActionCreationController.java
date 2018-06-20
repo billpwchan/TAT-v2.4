@@ -272,10 +272,15 @@ public class TableActionCreationController implements Initializable {
             workingCollection.remove(aThis.getAnchorPane());
             this.collectionControllerScript.remove(aThis);
             ObservableList<ParamScriptMacro> temp = aThis.getScriptControllerAction().getHashParamScriptMacro();
+            SessionFactory factory = sessionFactorySingleton.getInstance();
+            Session session = factory.openSession();            
             //Assume macroID are inversed presented in here.
             temp.stream().forEach((ParamScriptMacro PSM) -> {
-                macroDBController.removePSMGivenId(PSM.getParamScriptMacrocol());
+//                macroDBController.removePSMGivenId(PSM.getParamScriptMacrocol());
+                session.delete(PSM);
             });
+            session.beginTransaction().commit();
+            session.close();
             scriptID--;
             updateScriptId(0);
             displayVbox();

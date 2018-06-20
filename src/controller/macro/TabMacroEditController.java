@@ -183,7 +183,7 @@ public class TabMacroEditController implements Initializable {
         session.save(macro);
         int i = 0;
         boolean missingPurpose = false;
-        //Need to remove extra scripts.
+        //Need to remove extra scripts. This part is responsible for saving new macro object. Correct. 
         while (i < numberScript && missingPurpose == false) {
             System.out.println(observableScripts.get(i).toString());
             System.out.println(observableScripts.get(i).getScriptControllerAction().toString());
