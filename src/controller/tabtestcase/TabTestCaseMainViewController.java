@@ -20,8 +20,12 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
 import DB.TestCase;
+import DBcontroller.sessionFactorySingleton;
 import model.currentTab;
 import controller.TATFrameController;
+import model.ObjectCopy;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
 /**
  * FXML Controller class
@@ -56,6 +60,9 @@ public class TabTestCaseMainViewController implements Initializable {
 
     /**
      * Initializes the controller class.
+     *
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -135,7 +142,18 @@ public class TabTestCaseMainViewController implements Initializable {
                 editController.init(this);
                 edit.setText("Edit " + testcaseEdit.getTestCaseIdentification());
                 this.tabPaneTestCase.getTabs().add(edit);
-                editController.constructInformation(testcaseEdit);
+
+                ObjectCopy copyHandler = new ObjectCopy();      //Copy content before constructing object.
+                TestCase tc = copyHandler.copyCompleteTestCase(testcaseEdit);
+
+               //Experiment
+//                SessionFactory factory = sessionFactorySingleton.getInstance();
+//                Session session = factory.openSession();
+//                session.save(tc);
+//                session.beginTransaction().commit();
+//                session.close();
+
+                editController.constructInformation(tc);
                 edit.setClosable(true);
                 currentTab editCurrent = new currentTab(testcaseEdit.getIdtestCase(), edit);
                 currentEditTab.add(editCurrent);

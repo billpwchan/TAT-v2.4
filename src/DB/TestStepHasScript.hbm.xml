@@ -17,7 +17,7 @@
         <property name="executionOrder" type="byte">
             <column name="execution_order" not-null="true" />
         </property>
-        <set name="scriptHasBeenConfigureds" table="script_has_been_configured" inverse="true" lazy="true" fetch="select" cascade = "all" order-by="param_order ASC">
+        <set name="scriptHasBeenConfigureds" table="script_has_been_configured" inverse="true" lazy="false" fetch="select" cascade = "all" order-by="param_order ASC">
             <key>
                 <column name="test_step_has_script_idtest_step_has_script" not-null="true" />
             </key>

@@ -223,12 +223,9 @@ public class TabTestCaseEditController implements Initializable {
         this.jtextfieldCaseSourceEdit.setText(testCase.getTestCaseSource());
 
         initializeFieldListener();
-        ObjectCopy copyHandler = new ObjectCopy();
+ 
 
-        //constructTableStep();
-        TestCase tc = copyHandler.copyCompleteTestCase(testCase);
-
-        controllerTableStep.displayScriptAndStepEdit(tc);
+        controllerTableStep.displayScriptAndStepEdit(testCase);
 
         /**
          * Query the DB and get all the test step and script of this particular
@@ -563,6 +560,7 @@ public class TabTestCaseEditController implements Initializable {
 //                session.saveOrUpdate(step);
             }
 //            session.save(step);
+//            session.evict(step);
 
         }
         //Trying to overcome TransientObjectException. Need to save DB.TestStepHasScript before saving thisTestCase.
@@ -582,8 +580,7 @@ public class TabTestCaseEditController implements Initializable {
             Logger.getLogger(TabTestCaseEditController.class.getName()).log(Level.SEVERE, null, ex);
         }
         session.close();
-        
-        
+
 //                ObservableList<StepLineTableStepController> observableTestStep = controllerTableStep.getCollectionTestStep();
 //        int numberOfTestStep = observableTestStep.size();
 //        TestCase thisTestCase = constructTestCase();

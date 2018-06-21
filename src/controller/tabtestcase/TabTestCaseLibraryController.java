@@ -369,7 +369,7 @@ public class TabTestCaseLibraryController implements Initializable {
      */
     private void editTestCase(TestCase person) {
         if (popUpEditCase(person)) {
-            this.main.displayEditTab(person);
+            TabTestCaseLibraryController.main.displayEditTab(person);
         }
     }
 
@@ -377,7 +377,7 @@ public class TabTestCaseLibraryController implements Initializable {
      * @see TabTestCaseMainViewController
      */
     private void newTestCase() {
-        this.main.displayNewTestCase();
+        TabTestCaseLibraryController.main.displayNewTestCase();
 
     }
 
@@ -385,7 +385,7 @@ public class TabTestCaseLibraryController implements Initializable {
      * @see TabTestCaseMainViewController
      */
     private void deleteTestCase() {
-        this.main.deleteTestCase();
+        TabTestCaseLibraryController.main.deleteTestCase();
     }
 
     /**
