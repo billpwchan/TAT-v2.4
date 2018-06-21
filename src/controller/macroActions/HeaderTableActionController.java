@@ -17,7 +17,7 @@ import javafx.scene.layout.GridPane;
 /**
  * FXML Controller class
  *
- * @author T0155041
+ * @author T0155041, Bill Chan
  */
 public class HeaderTableActionController implements Initializable {
 
@@ -30,6 +30,8 @@ public class HeaderTableActionController implements Initializable {
 
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {

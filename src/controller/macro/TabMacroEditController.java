@@ -112,7 +112,7 @@ public class TabMacroEditController implements Initializable {
     DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
 
     private final int textfieldMacroNameMaxLength = 60;
-    
+
     private MacroDB controllerMacroDB = new MacroDB();
 
     /**
@@ -198,16 +198,9 @@ public class TabMacroEditController implements Initializable {
                 observableScripts.get(i).getScriptControllerAction().getScriptMacro().setScriptByScriptIdScript(macro);
                 observableScripts.get(i).getScriptControllerAction().getScriptMacro().setScriptOrder((byte) i);
                 observableScripts.get(i).getScriptControllerAction().getScriptMacro().setScriptByScriptIdScript1(observableScripts.get(i).getScriptControllerAction().getCurrentScript());
-//              observableScripts.get(i).getScriptControllerAction().getScriptMacro().setScriptByScriptIdScript1(observableScripts.get(i).getScriptControllerAction().get);
                 session.save(observableScripts.get(i).getScriptControllerAction().getScriptMacro());
-//                session.evict(observableScripts.get(i).getScriptControllerAction().getScriptMacro());
-//                observableScripts.get(i).getScriptControllerAction().getScriptMacro().setIdmacro(i);
-//                session.save(observableScripts.get(i).getScriptControllerAction().getScriptMacro());
                 i++;
-//            }
             }
-
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
         if (!missingPurpose) {
             session.beginTransaction().commit();
@@ -215,7 +208,7 @@ public class TabMacroEditController implements Initializable {
             mainController.closeTab();
             mainController.focusLibrary();
         }
-        
+
         //Need to remove duplicate records in the database (paramScriptMacro).
         session.close();
 

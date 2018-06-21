@@ -188,7 +188,7 @@ public class ViewScriptMacroController implements Initializable {
         } else {
             System.out.println("Edit Father");
             controllerScriptFather.controllerViewGlobal().getControllerFatherEdit().getControllerPreview().updateGridPaneCreation(controllerScriptFather.controllerViewGlobal());
-        }        
+        }
         //Select a particular script should update all parameters involed.
         choiceBoxss.getSelectionModel().selectedIndexProperty().addListener((ObservableValue<? extends Number> observable, Number oldValue, Number newValue) -> {
             scriptMacro = new Macro();
@@ -292,14 +292,16 @@ public class ViewScriptMacroController implements Initializable {
         constructGridPaneView(currentSelectedMacro.getScriptByScriptIdScript1());
         this.observableListParams.clear();
         byte order = 0;
-        if (this.scriptMacro == null){
+        if (this.scriptMacro == null) {
             scriptMacro = new Macro();
         }
         ArrayList<ParamScriptMacro> paramScriptMacro = new ArrayList(currentSelectedMacro.getParamScriptMacros());
-        for (ParamScriptMacro PSM : paramScriptMacro) {
+        paramScriptMacro.stream().map((PSM) -> {
             this.observableListParams.add(PSM);
+            return PSM;
+        }).forEach((PSM) -> {
             scriptMacro.addParamScriptMacro(PSM);
-        }
+        });
     }
 
     //This will show the popup configuration window for modification

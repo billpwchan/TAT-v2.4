@@ -5,7 +5,6 @@
  */
 package controller.popup;
 
-import main.Main;
 import configuration.settings;
 import controller.TATFrameController;
 import java.io.File;
@@ -37,6 +36,7 @@ public class PopUpConfigurationController implements Initializable {
 
     /**
      * Initializes the controller class.
+     *
      * @param url
      * @param rb
      */

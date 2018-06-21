@@ -18,7 +18,6 @@ import controller.tablestep.ScriptLineTableStepController;
 import controller.tablestep.StepLineTableStepController;
 import model.*;
 import controller.tablestep.ViewScriptController;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -33,7 +32,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
-import javafx.geometry.Pos;
 import javafx.geometry.VPos;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -60,9 +58,6 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.image.ImageView;
 import java.nio.file.Paths;
 import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import model.equipment;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.ToggleGroup;
@@ -74,7 +69,6 @@ import model.Properties.Type;
 import model.StateClasse;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
-import javafx.scene.control.ListView;
 import javafx.stage.Modality;
 import static main.Main.HMIs;
 
@@ -383,67 +377,68 @@ public class PopUpWizardScriptController implements Initializable {
         } else {
             //If the format is good, then save the parameters in the observable list.
             toBeSet.setValuePath(pathToVariable);
-            if (pathToVariable.equals("Buffer list")) {
-                value = value.replace(Separator, "");
-                toBeSet.setValue(Separator + "@&Buffer_" + value + Separator);
-            } else if (pathToVariable.equals(("Excel file"))) {
-                if (textFieldList.get(0).getId().equals("SheetName")) {
-                    toBeSet.setValue(Separator + "@&Name_" + value);
-                } else {
-                    toBeSet.setValue(Separator + "@&Number_" + value);
-                }
-            } else if (pathToVariable.equals("Property")) {
-                toBeSet.setValue(Property);
-
-            } else if (pathToVariable.equals("HMI")) {
-                toBeSet.setValue(Separator + HMI + Separator);
-            } else if (pathToVariable.equals("Classes")) {
-                toBeSet.setValue(Separator + Classe + Separator);
-            } else if (pathToVariable.equals("From Other Script")) {
-                //This needs to be done: deleteReferenceToParam
-                if (toBeSet.getRefScriptHasBeenConfigured() != null) {
-                    deleteReferenceToParam(toBeSet);
-                }
-                //int index = this.paramToDisplay.indexOf(this.paramStringToLink);
-
-                int index = 0;
-                if (isMacro) {
-                    //ParamScriptMacro paramScMacro = this.parametersListtoLink.get(index);
-                    index = this.currentParamScMacro.indexOf(this.paramStringToLink);
-                } else {
-                    index = this.currentParam.indexOf(this.paramStringToLink);
-                }
-
-                System.out.println("Index: " + index);
-
-                int count = 0;
-                Iterator<ScriptHasBeenConfigured> itSHBC = this.toLinkTestStepHasScript.getScriptHasBeenConfigureds().iterator();
-                while (itSHBC.hasNext()) {
-                    ScriptHasBeenConfigured currSHBC = itSHBC.next();
-                    if (currSHBC.getParamOrder() == index) {
-                        this.paramToLink = currSHBC;
+            switch (pathToVariable) {
+                case "Buffer list":
+                    value = value.replace(Separator, "");
+                    toBeSet.setValue(Separator + "@&Buffer_" + value + Separator);
+                    break;
+                case "Excel file":
+                    if (textFieldList.get(0).getId().equals("SheetName")) {
+                        toBeSet.setValue(Separator + "@&Name_" + value);
+                    } else {
+                        toBeSet.setValue(Separator + "@&Number_" + value);
                     }
-                    count++;
-                }
-
-                toBeSet.setRefScriptHasBeenConfigured(this.paramToLink);
-                this.paramToLink.addScriptHasBeenConfiguredToMe(toBeSet);
-
-                toBeSet.setValuePath(Separator + scriptChose);
-                //if (!this.paramToLink.getValue().equals(null)) {
-                toBeSet.setValue(this.paramToLink.getValue());
-//                } else {
+                    break;
+                case "Property":
+                    toBeSet.setValue(Property);
+                    break;
+                case "HMI":
+                    toBeSet.setValue(Separator + HMI + Separator);
+                    break;
+                case "Classes":
+                    toBeSet.setValue(Separator + Classe + Separator);
+                    break;
+                case "From Other Script":
+                    //This needs to be done: deleteReferenceToParam
+                    if (toBeSet.getRefScriptHasBeenConfigured() != null) {
+                        deleteReferenceToParam(toBeSet);
+                    }
+                    //int index = this.paramToDisplay.indexOf(this.paramStringToLink);
+                    int index = 0;
+                    if (isMacro) {
+                        //ParamScriptMacro paramScMacro = this.parametersListtoLink.get(index);
+                        index = this.currentParamScMacro.indexOf(this.paramStringToLink);
+                    } else {
+                        index = this.currentParam.indexOf(this.paramStringToLink);
+                    }
+                    System.out.println("Index: " + index);
+                    int count = 0;
+                    Iterator<ScriptHasBeenConfigured> itSHBC = this.toLinkTestStepHasScript.getScriptHasBeenConfigureds().iterator();
+                    while (itSHBC.hasNext()) {
+                        ScriptHasBeenConfigured currSHBC = itSHBC.next();
+                        if (currSHBC.getParamOrder() == index) {
+                            this.paramToLink = currSHBC;
+                        }
+                        count++;
+                    }
+                    toBeSet.setRefScriptHasBeenConfigured(this.paramToLink);
+                    this.paramToLink.addScriptHasBeenConfiguredToMe(toBeSet);
+                    toBeSet.setValuePath(Separator + scriptChose);
+                    //if (!this.paramToLink.getValue().equals(null)) {
+                    toBeSet.setValue(this.paramToLink.getValue());
+                    //                } else {
 //                    System.out.println("ENTERED: LINKED TO PARAMETER");
 //                    toBeSet.setValue("Linked to the Parameter " + scriptChose);
 //                }
-                System.out.println("paramtoLink.value: " + this.paramToLink.getValue());
-                //System.out.println("PARAM = " + toBeSet.getParamScriptMacro().getValue());
-                //byte configured = 0;
-                //toBeSet.setToDisplay(configured);
-
-            } else {
-                //System.out.println("Value is : " + value);
-                toBeSet.setValue(value);
+                    System.out.println("paramtoLink.value: " + this.paramToLink.getValue());
+                    //System.out.println("PARAM = " + toBeSet.getParamScriptMacro().getValue());
+                    //byte configured = 0;
+                    //toBeSet.setToDisplay(configured);
+                    break;
+                default:
+                    //System.out.println("Value is : " + value);
+                    toBeSet.setValue(value);
+                    break;
             }
             byte configured = 1;
             toBeSet.setIsConfigured(configured);
@@ -980,7 +975,7 @@ public class PopUpWizardScriptController implements Initializable {
                         ObservableList<ScriptLineTableStepController> scCont = itStep.next().getCollectionScript();
                         System.out.println("size of scriptLineTableStepContr: " + scCont.size());
                         Iterator<ScriptLineTableStepController> itScript = scCont.iterator();
-                        
+
                         scriptLineCount = 0;
                         while (itScript.hasNext()) {
                             ScriptLineTableStepController currScriptLine = itScript.next();
@@ -1006,7 +1001,7 @@ public class PopUpWizardScriptController implements Initializable {
                         stepCount++;
                     }
                     //int numScriptInStep = controller.getControllerScriptFather().getControllerStepParent().getNumberOdScript();
-                    try { 
+                    try {
                         if (controller.getTestStepHasScript().getScript().getIsStimuli() == 0 && controller.getControllerScriptFather().getScriptAction() != null) {
                             scriptsCollection.add((stepCount) + "." + (scriptLinenum + 1) + " (" + controller.getControllerScriptFather().getScriptAction().getScript().getName() + ")");
                         }
@@ -1057,7 +1052,6 @@ public class PopUpWizardScriptController implements Initializable {
                         ArrayList<ScriptHasBeenConfigured> currSHBC = new ArrayList(currTestStepHasScript.getScriptHasBeenConfigureds());
                         Collections.sort(currSHBC, (ScriptHasBeenConfigured o1, ScriptHasBeenConfigured o2) -> Integer.compare(o1.getParamOrder(), o2.getParamOrder()));
 
-                        
                         //Gettting the parameters
                         if (currScript.getIsMacro() != 0) { //is a macro
                             this.currentParamScMacro = new ArrayList<String>();
@@ -1447,12 +1441,9 @@ public class PopUpWizardScriptController implements Initializable {
     }
 
     public static <T> void autoSelectComboBoxValue(ComboBox<T> comboBox, String value, Func<T, String> f) {
-        for (T t : comboBox.getItems()) {
-            if (f.compare(t, value)) {
-                comboBox.getSelectionModel().select(t);
-
-            }
-        }
+        comboBox.getItems().stream().filter((t) -> (f.compare(t, value))).forEach((t) -> {
+            comboBox.getSelectionModel().select(t);
+        });
     }
 
     public interface Func<T, V> {

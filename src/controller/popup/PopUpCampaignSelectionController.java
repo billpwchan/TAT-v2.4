@@ -12,14 +12,12 @@ import controller.tabtestexecution.TabTestCampaignExecutionRepositoryBaselineCon
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
@@ -142,11 +140,11 @@ public class PopUpCampaignSelectionController implements Initializable {
                     return true; // Filter matches first name.
                 } else if (tCampaign.getComments() != null && tCampaign.getComments().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
-                } else if (tCampaign.getCreationDate() != null && tCampaign.getCreationDate().toString().toLowerCase().contains(lowerCaseFilter)) {
+                } else if (tCampaign.getCreationDate() != null && tCampaign.getCreationDate().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
                 } else if (tCampaign.getDescription() != null && tCampaign.getDescription().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
-                } else if (tCampaign.getEditionDate() != null && tCampaign.getEditionDate().toString().toLowerCase().contains(lowerCaseFilter)) {
+                } else if (tCampaign.getEditionDate() != null && tCampaign.getEditionDate().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
                 } else if (tCampaign.getIdtestCampaign() != null && tCampaign.getIdtestCampaign().toString().toLowerCase().contains(lowerCaseFilter)) {
                     return true;

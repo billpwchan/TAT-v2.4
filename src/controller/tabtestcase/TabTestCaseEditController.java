@@ -1,13 +1,9 @@
 package controller.tabtestcase;
 
 import main.Main;
-import DB.Script;
 import DB.ScriptHasBeenConfigured;
-import DB.ScriptHasParameters;
 import DB.TestCase;
 import DB.TestStep;
-import DB.TestStepHasScript;
-import DBcontroller.ParametersDB;
 import DBcontroller.TestCaseDB;
 import DBcontroller.sessionFactorySingleton;
 import controller.tablestep.HeaderTableStepController;
@@ -20,7 +16,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -51,11 +46,9 @@ import javafx.stage.Stage;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import model.ObjectCopy;
-import model.paramsForScript;
 import model.setCursorOnComponent;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 
 /**
  * FXML Controller class
@@ -517,9 +510,7 @@ public class TabTestCaseEditController implements Initializable {
             TestStep step = current.getTestStep();//new TestStep(current.getTestStep());
             step.setStepOrder((byte) i);
             System.out.println("StepID: " + step.getIdtestStep() + " , Steporder: " + step.getStepOrder());
-            if (thisTestCase != null) {
-                thisTestCase.addStep(step);
-            }
+
             int numberOfScript = current.getCollectionScript().size();
             int executionOrderScript = 0;
             //System.out.println("NUMBER OF SCRIPT = "+numberOfScript);
@@ -533,9 +524,10 @@ public class TabTestCaseEditController implements Initializable {
                     //System.out.println("ScriptAction, TSHS ID: " + currentScript.getScriptAction().getIdtestStepHasScript());
                     step.addTestStephasScript(currentScript.getScriptAction());
                     Iterator<ScriptHasBeenConfigured> itScriptHBC = currentScript.getScriptAction().getScriptHasBeenConfigureds().iterator();
-                    while (itScriptHBC.hasNext()) {
-                        System.out.println("SCRIPT HAS BEEN CONFIGURED :" + itScriptHBC.next().getTestStepHasScript());
-                    }
+//                    while (itScriptHBC.hasNext()) {
+//                        System.out.println("SCRIPT HAS BEEN CONFIGURED :" + itScriptHBC.next().getTestStepHasScript());
+//                        session.save(itScriptHBC.next().getTestStepHasScript());
+//                    }
                     System.out.println("Script has been configured set : " + currentScript.getScriptAction().getScriptHasBeenConfigureds());
 //                    System.out.println("Number of parameters : "+currentScript.getScriptAction().getScriptHasBeenConfigureds().size());
 //                    System.out.println("currentScript = " + currentScript.getScriptAction().getScript().getName());
@@ -549,10 +541,10 @@ public class TabTestCaseEditController implements Initializable {
                     step.addTestStephasScript(currentScript.getScriptVerif());
                     System.out.println("ID TEST STEP HAS SCRIPT = " + currentScript.getScriptVerif().getIdtestStepHasScript());
                     Iterator<ScriptHasBeenConfigured> itScriptHBC = currentScript.getScriptVerif().getScriptHasBeenConfigureds().iterator();
-                    while (itScriptHBC.hasNext()) {
-                        System.out.println("SCRIPT HAS BEEN CONFIGURED :" + itScriptHBC.next().getTestStepHasScript());
-//                        session.save(itScriptHBC);
-                    }
+//                    while (itScriptHBC.hasNext()) {
+//                        System.out.println("SCRIPT HAS BEEN CONFIGURED :" + itScriptHBC.next().getTestStepHasScript());
+//                        session.save(itScriptHBC.next().getTestStepHasScript());
+//                    }
                     System.out.println("Script has been configured set : " + currentScript.getScriptVerif().getScriptHasBeenConfigureds());
 //                     System.out.println("Number of parameters : "+currentScript.getScriptVerif().getScriptHasBeenConfigureds().size());
 //                    System.out.println("currentScript = " + currentScript.getScriptVerif().getScript().getName());
@@ -560,6 +552,9 @@ public class TabTestCaseEditController implements Initializable {
 
             }
 //            session.save(step);
+            if (thisTestCase != null) {
+                thisTestCase.addStep(step);
+            }
         }
         //Trying to overcome TransientObjectException. Need to save DB.TestStepHasScript before saving thisTestCase.
 //        Iterator<TestStep> itTS = thisTestCase.getTestSteps().iterator();
@@ -571,7 +566,7 @@ public class TabTestCaseEditController implements Initializable {
 //                session.save(setTSHS);
 //            }
 //        }
-        
+
         session.save(thisTestCase);
         session.beginTransaction().commit();        //Cause TestStepHasScript exception (need to save it before commit). 
         session.close();

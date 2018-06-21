@@ -60,22 +60,22 @@ public class PopUPRequirementSelectionController implements Initializable {
         buttonValidationReq.setDisable(false);
         this.gridPanePopUpRequirement.add(view, 0, 0, 1, 1);
         this.view.setCellFactory(listView -> {
-                    ListCell<Requirement> cell = new ListCell<Requirement>() {
-                        @Override
-                        public void updateItem(Requirement item, boolean empty) {
-                            super.updateItem(item, empty);
+            ListCell<Requirement> cell = new ListCell<Requirement>() {
+                @Override
+                public void updateItem(Requirement item, boolean empty) {
+                    super.updateItem(item, empty);
 
-                            if (empty) {
-                                setText(null);
-                                setGraphic(null);
-                            } else {
-                                setText(item.getRequirementID());
-                                setGraphic(null);
-                            }
-                        }
-                    };
-                    return cell;
-                });
+                    if (empty) {
+                        setText(null);
+                        setGraphic(null);
+                    } else {
+                        setText(item.getRequirementID());
+                        setGraphic(null);
+                    }
+                }
+            };
+            return cell;
+        });
 //        System.out.println(view.lookupAll(".button"));
 //        //System.out.println("this.anchorPane.lookupAll("#button").size()");
         //this.view.set;
@@ -119,7 +119,7 @@ public class PopUPRequirementSelectionController implements Initializable {
         controllerNewStep = controllerNewCampaign;
     }
 
-    public void setTable(ObservableList<Requirement> casesInDB,ObservableList<Requirement> requirementInStep) {
+    public void setTable(ObservableList<Requirement> casesInDB, ObservableList<Requirement> requirementInStep) {
         casesInDB.removeAll(requirementInStep);
         view.getSourceItems().addAll(casesInDB);
         view.getTargetItems().addAll(requirementInStep);

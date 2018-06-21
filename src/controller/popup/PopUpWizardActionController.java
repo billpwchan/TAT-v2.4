@@ -9,11 +9,9 @@ import DB.ParamScriptMacro;
 import DB.Parameters;
 import DB.Script;
 import DB.ScriptHasParameters;
-import DBcontroller.sessionFactorySingleton;
 import controller.macroActions.PreviewMacro;
 import controller.macroActions.ScriptLineTableMacroController;
 import controller.macroActions.ViewScriptMacroController;
-import static controller.popup.PopUpWizardScriptController.autoSelectComboBoxValue;
 import java.net.URL;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -62,8 +60,6 @@ import model.HMI;
 import model.Properties;
 import model.StateClasse;
 import model.TextFieldWithFormat;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 
 /**
  * FXML Controller class

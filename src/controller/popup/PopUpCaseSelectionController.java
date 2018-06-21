@@ -140,7 +140,7 @@ public class PopUpCaseSelectionController implements Initializable {
                     return true;
                 } else if (tCase.getWritter() != null && tCase.getWritter().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
-                } else if (tCase.getCreationDate() != null && tCase.getCreationDate().toString().toLowerCase().contains(lowerCaseFilter)) {
+                } else if (tCase.getCreationDate() != null && tCase.getCreationDate().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
                 } else if (tCase.getTestObjective() != null && tCase.getTestObjective().toLowerCase().contains(lowerCaseFilter)) {
                     return true;

@@ -22,8 +22,6 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -45,7 +43,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import javafx.scene.layout.HBox;
 
 /**
  * FXML Controller class
@@ -104,7 +101,7 @@ public class TabMacroNewController implements Initializable {
     private final PreviewMacro controllerPreviewMacro = new PreviewMacro();
 
     private final boolean canBeValidate = false;
-    
+
     DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
 
     private final int textfieldMacroNameMaxLength = 60;
@@ -129,7 +126,7 @@ public class TabMacroNewController implements Initializable {
         jtextfieldMacroName.textProperty().addListener((observable, oldValue, newValue) -> {
             changeColorTextMacroName(newValue.trim().isEmpty());
             activationValidButton();
-            if (displayWarningIncorrectInputFormat("Macro name", textfieldMacroNameMaxLength, newValue.length()>textfieldMacroNameMaxLength)){
+            if (displayWarningIncorrectInputFormat("Macro name", textfieldMacroNameMaxLength, newValue.length() > textfieldMacroNameMaxLength)) {
                 jtextfieldMacroName.setText(oldValue);
             }
         });
@@ -252,7 +249,7 @@ public class TabMacroNewController implements Initializable {
         newScript.setScriptVersion(1);
         newScript.setCreationDate(df.format(new Date()));
         newScript.setIsMacro((byte) 1);
-        newScript.setIsStimuli((byte) (stimuliCheckBox.isSelected()? 1 : 0));
+        newScript.setIsStimuli((byte) (stimuliCheckBox.isSelected() ? 1 : 0));
         return newScript;
     }
 
@@ -293,20 +290,14 @@ public class TabMacroNewController implements Initializable {
         this.anchorPanelNewTestCase.getStylesheets().add("/view/testcampaign/cssViewCampaign.css");
         buttonAddAction.setVisible(false);
         buttonValid.setVisible(false);
-        //MacroDB macroHandler=new MacroDB();
-        //macroHandler.getAllFromMacro(script);
         jtextareaObjectivesMacro.setText(script.getDesciption());
         jtextareaObjectivesMacro.setDisable(true);
         jtextfieldMacroName.setText(script.getName());
         jtextfieldMacroName.setEditable(false);
-        //jtextfieldMacroName.setDisable(true);
         jtextfieldMacroNew.setText(script.getScriptVersion().toString());
         jtextfieldMacroNew.setEditable(false);
-        //jtextfieldMacroNew.setDisable(true);
         jtextfieldMacroCreationDate.setText(script.getCreationDate());
         jtextfieldMacroCreationDate.setEditable(false);
-        //jtextfieldMacroCreationDate.setDisable(true);
-        //jtextfieldTypeMacroEditionDate.setDisable(true);
         stimuliCheckBox.setSelected(script.getIsStimuli() != 0);
         stimuliCheckBox.setDisable(true);
         controllerTableAction.displayScriptAndStepView(script);

@@ -35,11 +35,11 @@ public class ObjectCopy {
         newScript.setMacrosForScriptIdScript(copyHashMacro(newScript.getMacrosForScriptIdScript()));
         return newScript;
     }
-    
-    public Set copyHashMacro(Set<Macro> setMacros){
+
+    public Set copyHashMacro(Set<Macro> setMacros) {
         Set<Macro> hashMacro = new TreeSet<>(Comparator.comparing(Macro::getScriptOrder));
         Iterator<Macro> itMacro = setMacros.iterator();
-        while(itMacro.hasNext()){
+        while (itMacro.hasNext()) {
             Macro currMacro = itMacro.next();
             Macro newMacro = new Macro(currMacro);
             Set PSM = copyHashPSM(newMacro.getParamScriptMacros());
@@ -48,18 +48,17 @@ public class ObjectCopy {
         }
         return hashMacro;
     }
-    
-    public Set copyHashPSM(Set<ParamScriptMacro> setPSM){
+
+    public Set copyHashPSM(Set<ParamScriptMacro> setPSM) {
         Set<ParamScriptMacro> hashPSM = new TreeSet<>(Comparator.comparing(ParamScriptMacro::getParamOrder));
         Iterator<ParamScriptMacro> itPSM = setPSM.iterator();
-        while (itPSM.hasNext()){
+        while (itPSM.hasNext()) {
             ParamScriptMacro currPSM = itPSM.next();
             ParamScriptMacro newPSM = new ParamScriptMacro(currPSM);
             hashPSM.add(newPSM);
         }
         return hashPSM;
     }
-
 
     public Set copyHashStep(Set<TestStep> setSteps) {
         Set<TestStep> hashStep = new TreeSet<>(Comparator.comparing(TestStep::getStepOrder));
@@ -95,8 +94,8 @@ public class ObjectCopy {
         while (itStepHasScripts.hasNext()) {
             TestStepHasScript tshs = new TestStepHasScript(itStepHasScripts.next());
             tshs.setScriptHasBeenConfigureds(copyHashScriptHasBeenConfigured(tshs.getScriptHasBeenConfigureds(), tshs));
-            hashStepHasScripts.add(tshs);
             tshs.setTestStep(newStep);
+            hashStepHasScripts.add(tshs);
 //            /HashSet<ScriptHasBeenConfigured> shbc=(HashSet) tshs.getScriptHasBeenConfigureds();
 
         }

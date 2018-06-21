@@ -33,7 +33,6 @@ import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
-import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
@@ -323,7 +322,6 @@ public class TableActionCreationController implements Initializable {
             this.controllerScriptLine.setScriptandParamActionEdit(macroScript);
         }
 //        session.close();
-
 //        this.controllerScriptLine.setScriptandParamActionEdit(macro);
     }
 

@@ -5,15 +5,11 @@
  */
 package controller.macro;
 
-import DB.Macro;
 import DB.Script;
-import DBcontroller.MacroDB;
 import controller.TATFrameController;
 import controller.requirements.TabRequirementMainViewController;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -93,8 +89,8 @@ public class TabMacroMainViewController implements Initializable {
 
         ObjectCopy copyHandler = new ObjectCopy();
         Script sc = copyHandler.copyCompleteScript(macro);
-        
-        //Make duplicate records in the database manually.
+
+        //Make duplicate records in the database manually. Degraded
 //        Iterator<Macro> itScriptMacro = macro.getMacrosForScriptIdScript().iterator();
 //        Macro macroScript = new Macro();
 //        MacroDB controllerMacroDB = new MacroDB();
@@ -103,7 +99,6 @@ public class TabMacroMainViewController implements Initializable {
 //            macroScript = itScriptMacro.next();
 //            controllerMacroDB.makeDuplicateParamScriptMacro(macroScript.getIdmacro());
 //        }
-
         editMacroController.displayMacro(sc);
         this.tabPaneMacro.getTabs().add(editMacro);
         editMacro.setClosable(true);
@@ -158,7 +153,7 @@ public class TabMacroMainViewController implements Initializable {
     }
 
     public void updateRepository() {
-        this.libraryController.updateLibrary();
+        TabMacroMainViewController.libraryController.updateLibrary();
     }
 
 }
