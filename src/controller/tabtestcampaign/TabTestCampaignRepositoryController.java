@@ -66,8 +66,14 @@ public class TabTestCampaignRepositoryController implements Initializable {
     @FXML
     private TextField fieldFilter;
 
+    /**
+     *
+     */
     public static TabTestCampaignMainViewController main;
 
+    /**
+     *
+     */
     public static final ObservableList<TestCampaign> observableListTestCampaign = FXCollections.observableArrayList();
 
     private final ObservableList<TestCase> observableListTestCase = FXCollections.observableArrayList();

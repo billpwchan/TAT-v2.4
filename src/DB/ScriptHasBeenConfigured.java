@@ -20,14 +20,30 @@ public class ScriptHasBeenConfigured implements java.io.Serializable,Comparable<
     private ScriptHasBeenConfigured refScriptHasBeenConfigured = null;
     private Set scriptHasBeenConfiguredToMe = new HashSet(0);
 
+    /**
+     *
+     */
     public ScriptHasBeenConfigured() {
     }
 
+    /**
+     *
+     * @param testStepHasScript
+     * @param paramOrder
+     */
     public ScriptHasBeenConfigured(TestStepHasScript testStepHasScript, byte paramOrder) {
         this.testStepHasScript = testStepHasScript;
         this.paramOrder = paramOrder;
     }
 
+    /**
+     *
+     * @param testStepHasScript
+     * @param paramOrder
+     * @param isConfigured
+     * @param value
+     * @param valuePath
+     */
     public ScriptHasBeenConfigured(TestStepHasScript testStepHasScript, byte paramOrder, Byte isConfigured, String value, String valuePath) {
         this.testStepHasScript = testStepHasScript;
         this.paramOrder = paramOrder;
@@ -36,6 +52,11 @@ public class ScriptHasBeenConfigured implements java.io.Serializable,Comparable<
         this.valuePath = valuePath;
     }
     
+    /**
+     *
+     * @param shbc
+     * @param tshs
+     */
     public ScriptHasBeenConfigured(ScriptHasBeenConfigured shbc,TestStepHasScript tshs){
         this.idscriptHasBeenConfigured = shbc.getIdscriptHasBeenConfigured();
         this.parameters=shbc.getParameters();
@@ -47,67 +68,131 @@ public class ScriptHasBeenConfigured implements java.io.Serializable,Comparable<
         this.refScriptHasBeenConfigured = shbc.getRefScriptHasBeenConfigured();
     }
 
+    /**
+     *
+     * @return
+     */
     public Integer getIdscriptHasBeenConfigured() {
         return this.idscriptHasBeenConfigured;
     }
 
+    /**
+     *
+     * @param idscriptHasBeenConfigured
+     */
     public void setIdscriptHasBeenConfigured(Integer idscriptHasBeenConfigured) {
         this.idscriptHasBeenConfigured = idscriptHasBeenConfigured;
     }
 
+    /**
+     *
+     * @return
+     */
     public TestStepHasScript getTestStepHasScript() {
         return this.testStepHasScript;
     }
 
+    /**
+     *
+     * @param testStepHasScript
+     */
     public void setTestStepHasScript(TestStepHasScript testStepHasScript) {
         this.testStepHasScript = testStepHasScript;
     }
 
+    /**
+     *
+     * @return
+     */
     public byte getParamOrder() {
         return this.paramOrder;
     }
 
+    /**
+     *
+     * @param paramOrder
+     */
     public void setParamOrder(byte paramOrder) {
         this.paramOrder = paramOrder;
     }
 
+    /**
+     *
+     * @return
+     */
     public Byte getIsConfigured() {
         return this.isConfigured;
     }
 
+    /**
+     *
+     * @param isConfigured
+     */
     public void setIsConfigured(Byte isConfigured) {
         this.isConfigured = isConfigured;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getValue() {
         return this.value;
     }
 
+    /**
+     *
+     * @param value
+     */
     public void setValue(String value) {
         this.value = value;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getValuePath() {
         return this.valuePath;
     }
 
+    /**
+     *
+     * @param valuePath
+     */
     public void setValuePath(String valuePath) {
         this.valuePath = valuePath;
     }
 
+    /**
+     *
+     * @return
+     */
     public Parameters getParameters() {
         return this.parameters;
     }
 
+    /**
+     *
+     * @param parameters
+     */
     public void setParameters(Parameters parameters) {
         this.parameters = parameters;
 
     }
     
+    /**
+     *
+     * @param ref
+     */
     public void setRefScriptHasBeenConfigured(ScriptHasBeenConfigured ref) {
         this.refScriptHasBeenConfigured = ref;
     }
     
+    /**
+     *
+     * @return
+     */
     public ScriptHasBeenConfigured getRefScriptHasBeenConfigured() {
         return this.refScriptHasBeenConfigured;
     }
@@ -117,14 +202,26 @@ public class ScriptHasBeenConfigured implements java.io.Serializable,Comparable<
         return Integer.compare(this.getParamOrder(), o.getParamOrder());
     }
     
+    /**
+     *
+     * @return
+     */
     public Set getScriptHasBeenConfiguredToMe() {
         return this.scriptHasBeenConfiguredToMe;
     }
     
+    /**
+     *
+     * @param set
+     */
     public void setScriptHasBeenConfiguredToMe(Set set) {
         this.scriptHasBeenConfiguredToMe = set;
     }
     
+    /**
+     *
+     * @param shbc
+     */
     public void addScriptHasBeenConfiguredToMe(ScriptHasBeenConfigured shbc) {
         this.scriptHasBeenConfiguredToMe.add(shbc);
     }

@@ -21,9 +21,19 @@ public class Iterations implements java.io.Serializable {
     private Double iterationRestult;
     private String user;
 
+    /**
+     *
+     */
     public Iterations() {
     }
 
+    /**
+     *
+     * @param testCampaign
+     * @param baselineId
+     * @param iterationNumber
+     * @param date
+     */
     public Iterations(TestCampaign testCampaign, String baselineId, int iterationNumber, String date) {
         this.date = date;
         this.testCampaign = testCampaign;
@@ -31,6 +41,13 @@ public class Iterations implements java.io.Serializable {
         this.iterationNumber = iterationNumber;
     }
 
+    /**
+     *
+     * @param iditerations
+     * @param testCampaign
+     * @param baselineId
+     * @param iterationNumber
+     */
     public Iterations(int iditerations, TestCampaign testCampaign, String baselineId, int iterationNumber) {
         this.iditerations = iditerations;
         this.testCampaign = testCampaign;
@@ -38,6 +55,16 @@ public class Iterations implements java.io.Serializable {
         this.iterationNumber = iterationNumber;
     }
 
+    /**
+     *
+     * @param iditerations
+     * @param testCampaign
+     * @param baselineId
+     * @param iterationNumber
+     * @param date
+     * @param caseExecutionses
+     * @param user
+     */
     public Iterations(int iditerations, TestCampaign testCampaign, String baselineId, int iterationNumber, String date, Set caseExecutionses,String user) {
         this.iditerations = iditerations;
         this.testCampaign = testCampaign;
@@ -47,74 +74,146 @@ public class Iterations implements java.io.Serializable {
         this.caseExecutionses = caseExecutionses;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getIditerations() {
         return this.iditerations;
     }
 
+    /**
+     *
+     * @param iditerations
+     */
     public void setIditerations(int iditerations) {
         this.iditerations = iditerations;
     }
 
+    /**
+     *
+     * @return
+     */
     public TestCampaign getTestCampaign() {
         return this.testCampaign;
     }
 
+    /**
+     *
+     * @param testCampaign
+     */
     public void setTestCampaign(TestCampaign testCampaign) {
         this.testCampaign = testCampaign;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getBaselineId() {
         return this.baselineId;
     }
 
+    /**
+     *
+     * @param baselineId
+     */
     public void setBaselineId(String baselineId) {
         this.baselineId = baselineId;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getIterationNumber() {
         return this.iterationNumber;
     }
 
+    /**
+     *
+     * @param iterationNumber
+     */
     public void setIterationNumber(int iterationNumber) {
         this.iterationNumber = iterationNumber;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getDate() {
         return this.date;
     }
 
+    /**
+     *
+     * @param date
+     */
     public void setDate(String date) {
         this.date = date;
     }
 
+    /**
+     *
+     * @return
+     */
     public Set getCaseExecutionses() {
         return this.caseExecutionses;
     }
 
+    /**
+     *
+     * @param caseExecutionses
+     */
     public void setCaseExecutionses(Set caseExecutionses) {
         this.caseExecutionses = caseExecutionses;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getResult() {
         return this.result;
     }
 
+    /**
+     *
+     * @param result
+     */
     public void setResult(String result) {
         this.result = result;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getType() {
         return this.type;
     }
 
+    /**
+     *
+     * @param type
+     */
     public void setType(String type) {
         this.type = type;
     }
 
+    /**
+     *
+     * @param iterationResult
+     */
     public void setIterationResult(Double iterationResult) {
         this.iterationRestult = iterationResult;
     }
 
+    /**
+     *
+     * @return
+     */
     public Double getIterationResult() {
         return this.iterationRestult;
     }

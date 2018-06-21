@@ -21,10 +21,19 @@ import org.hibernate.SessionFactory;
  */
 public class UserDB {
 
+    /**
+     *
+     */
     public UserDB() {
 
     }
 
+    /**
+     *
+     * @param login
+     * @param password
+     * @return
+     */
     public User getUser(String login, String password) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();

@@ -24,36 +24,69 @@ public class Position {
 
     ;
 
+    /**
+     *
+     * @param sr
+     * @param loc
+     */
     public Position(ScreenRegion sr, Path loc) {
         this.sc = sr;
         this.emplacement = loc;
         //checked.set(false);
     }
 
+    /**
+     *
+     * @return
+     */
     public Path getPath() {
         return this.emplacement;
     }
 
+    /**
+     *
+     * @param loc
+     */
     public void setPath(Path loc) {
         this.emplacement = loc;
     }
 
+    /**
+     *
+     * @return
+     */
     public ScreenRegion getScreenRegion() {
         return this.sc;
     }
 
+    /**
+     *
+     * @param sr
+     */
     public void setScreenRegion(ScreenRegion sr) {
         this.sc = sr;
     }
 
+    /**
+     *
+     * @param checked
+     */
     public void setChecked(boolean checked) {
         this.checked.set(checked);
     }
 
+    /**
+     *
+     * @return
+     */
     public BooleanProperty checkedProperty() {
         return checked;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isChecked() {
         return checked.get();
     }

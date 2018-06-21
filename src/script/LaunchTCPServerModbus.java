@@ -138,6 +138,12 @@ import static script.LaunchSerialSeverModbus.listener;
 //	}
 //    }
 /* The important instances and variables */
+
+/**
+ *
+ * @author tmartinez
+ */
+
 public class LaunchTCPServerModbus {
 
     static ModbusTCPListener listener = null;
@@ -146,12 +152,23 @@ public class LaunchTCPServerModbus {
     //private String ip;
 
     private String ip;
+
+    /**
+     *
+     */
     public static String serverType;
     private int port, slave;
 
     private static String oldServerType, oldIp;
     private static int oldPort;
 
+    /**
+     *
+     * @param parameters
+     * @param test
+     * @return
+     * @throws InterruptedException
+     */
     public String run(ArrayList<ParametersExecution> parameters, HashMap<String, Object> test) throws InterruptedException {
 
         this.ip = (String) parameters.get(1).getValue().trim();
@@ -171,6 +188,13 @@ public class LaunchTCPServerModbus {
         return null;
     }
 
+    /**
+     *
+     * @param ip
+     * @param portDeServer
+     * @param SlaveID
+     * @param serString
+     */
     public void launchServer(String ip, int portDeServer, int SlaveID, String serString) {
 
 //2. Prepare a process image
@@ -219,6 +243,9 @@ public class LaunchTCPServerModbus {
         return instance;
     }
 
+    /**
+     *
+     */
     public static void close() {
         System.out.println("Je suis dans la method close");
         if (listener != null) {

@@ -73,6 +73,10 @@ public class PreviewMacro {
         controllerScriptFather = aThis;
     }
 
+    /**
+     *
+     * @return
+     */
     public ScriptLineTableMacroController getControllerScriptFather() {
         return this.controllerScriptFather;
     }
@@ -108,10 +112,18 @@ public class PreviewMacro {
         constructGridPaneView(controllerActions);
     }
 
+    /**
+     *
+     * @param controllerActions
+     */
     public void updateGridPaneCreation(TableActionCreationController controllerActions) {
         updateGridPaneModification(controllerActions);
     }
 
+    /**
+     *
+     * @param controllerActions
+     */
     public void constructGridPaneView(TableActionCreationController controllerActions) {
         gridPaneDisplayResults.getChildren().clear();
         System.out.println("askdjf0 " + controllerScriptFather);
@@ -207,11 +219,19 @@ public class PreviewMacro {
         constructGridPaneViewView(script);
     }
 
+    /**
+     *
+     * @param script
+     */
     public void updateGridPaneCreationView(Script script) {
         updateGridPaneModificationView(script);
 
     }
 
+    /**
+     *
+     * @param script
+     */
     public void constructGridPaneViewView(Script script) {
         gridPaneDisplayResults.getChildren().clear();
         int i = 0;

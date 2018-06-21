@@ -136,6 +136,12 @@ import net.wimpi.modbus.procimg.SimpleRegister;
 //	}
 //    }
 /* The important instances and variables */
+
+/**
+ *
+ * @author tmartinez
+ */
+
 public class LaunchSerialSeverModbus {
 
     static ModbusTCPListener listener = null;
@@ -144,9 +150,20 @@ public class LaunchSerialSeverModbus {
     //private String ip;
 
     private String ip;
+
+    /**
+     *
+     */
     public static String serverType;
     private int port, slave;
 
+    /**
+     *
+     * @param parameters
+     * @param test
+     * @return
+     * @throws InterruptedException
+     */
     public String run(ArrayList<ParametersExecution> parameters, HashMap<String, Object> test) throws InterruptedException {
 
         this.ip = (String) parameters.get(1).getValue();
@@ -159,6 +176,13 @@ public class LaunchSerialSeverModbus {
         return null;
     }
 
+    /**
+     *
+     * @param ip
+     * @param portDeServer
+     * @param SlaveID
+     * @param serString
+     */
     public void launchServer(String ip, int portDeServer, int SlaveID, String serString) {
 
 //2. Prepare a process image
@@ -207,6 +231,9 @@ public class LaunchSerialSeverModbus {
         return instance;
     }
 
+    /**
+     *
+     */
     public static void close() {
         listener.stop();
         instance = null;

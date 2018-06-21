@@ -43,7 +43,17 @@ public class ExecuteSSHCommand {
 //    public ArrayList<ParametersScript> getParametersType() {
 //        return null;
 //    }
-    public String run(ArrayList<ParametersExecution> parameters, HashMap hashMap) throws JSchException, IOException, Exception {
+
+    /**
+     *
+     * @param parameters
+     * @param hashMap
+     * @return
+     * @throws JSchException
+     * @throws IOException
+     * @throws Exception
+     */
+        public String run(ArrayList<ParametersExecution> parameters, HashMap hashMap) throws JSchException, IOException, Exception {
         Session session;
 //        this.station = "WCH";
 //        this.equipmentCode = "ACG1";
@@ -100,6 +110,10 @@ public class ExecuteSSHCommand {
         
     }
 
+    /**
+     *
+     * @throws JSchException
+     */
     public void close() throws JSchException {
         Session session;
         session = ServerConnection.getInstance("", "", "");

@@ -12,25 +12,50 @@ public class ScriptExecutionResultId  implements java.io.Serializable {
      private int scriptExecutionsIdscriptExecutions;
      private byte iterationNumber;
 
+    /**
+     *
+     */
     public ScriptExecutionResultId() {
     }
 
+    /**
+     *
+     * @param scriptExecutionsIdscriptExecutions
+     * @param iterationNumber
+     */
     public ScriptExecutionResultId(int scriptExecutionsIdscriptExecutions, byte iterationNumber) {
        this.scriptExecutionsIdscriptExecutions = scriptExecutionsIdscriptExecutions;
        this.iterationNumber = iterationNumber;
     }
    
+    /**
+     *
+     * @return
+     */
     public int getScriptExecutionsIdscriptExecutions() {
         return this.scriptExecutionsIdscriptExecutions;
     }
     
+    /**
+     *
+     * @param scriptExecutionsIdscriptExecutions
+     */
     public void setScriptExecutionsIdscriptExecutions(int scriptExecutionsIdscriptExecutions) {
         this.scriptExecutionsIdscriptExecutions = scriptExecutionsIdscriptExecutions;
     }
+
+    /**
+     *
+     * @return
+     */
     public byte getIterationNumber() {
         return this.iterationNumber;
     }
     
+    /**
+     *
+     * @param iterationNumber
+     */
     public void setIterationNumber(byte iterationNumber) {
         this.iterationNumber = iterationNumber;
     }

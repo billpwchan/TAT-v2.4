@@ -30,13 +30,24 @@ public class Script implements java.io.Serializable {
     private Set scriptHasParameterses = new HashSet(0);
     private String callName;
 
+    /**
+     *
+     */
     public Script() {
     }
 
+    /**
+     *
+     * @param idScript
+     */
     public Script(int idScript) {
         this.idScript = idScript;
     }
 
+    /**
+     *
+     * @param script
+     */
     public Script(Script script) {
         this.name = script.getName();
         this.desciption = script.getDesciption();
@@ -81,6 +92,23 @@ public class Script implements java.io.Serializable {
 //        this.scriptHasParameterses = newSet;
     }
 
+    /**
+     *
+     * @param idScript
+     * @param name
+     * @param desciption
+     * @param scriptVersion
+     * @param creationDate
+     * @param editionDate
+     * @param isStimuli
+     * @param isMacro
+     * @param scriptExecutionses
+     * @param macrosForScriptIdScript
+     * @param testStepHasScripts
+     * @param macrosForScriptIdScript1
+     * @param scriptHasParameterses
+     * @throws ParseException
+     */
     public Script(int idScript, String name, String desciption, Integer scriptVersion, String creationDate, String editionDate, Byte isStimuli, Byte isMacro, Set scriptExecutionses, Set macrosForScriptIdScript, Set testStepHasScripts, Set macrosForScriptIdScript1, Set scriptHasParameterses) throws ParseException {
         this.idScript = idScript;
         this.name = name;
@@ -97,50 +125,100 @@ public class Script implements java.io.Serializable {
         this.scriptHasParameterses = scriptHasParameterses;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getIdScript() {
         return this.idScript;
     }
 
+    /**
+     *
+     * @param idScript
+     */
     public void setIdScript(int idScript) {
         this.idScript = idScript;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getName() {
         return this.name;
     }
 
+    /**
+     *
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getDesciption() {
         return this.desciption;
     }
 
+    /**
+     *
+     * @param desciption
+     */
     public void setDesciption(String desciption) {
         this.desciption = desciption;
     }
 
+    /**
+     *
+     * @return
+     */
     public Integer getScriptVersion() {
         return this.scriptVersion;
     }
 
+    /**
+     *
+     * @param scriptVersion
+     */
     public void setScriptVersion(Integer scriptVersion) {
         this.scriptVersion = scriptVersion;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getCreationDate() {
         return this.creationDate;
     }
 
+    /**
+     *
+     * @param creationDate
+     * @throws ParseException
+     */
     public void setCreationDate(String creationDate) throws ParseException {
         this.creationDate = creationDate;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getEditionDate() {
         return this.editionDate;
     }
 
+    /**
+     *
+     * @param editionDate
+     * @throws ParseException
+     */
     public void setEditionDate(String editionDate) throws ParseException {
         if (editionDate != null) {
             this.editionDate = editionDate;
@@ -149,58 +227,114 @@ public class Script implements java.io.Serializable {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public Byte getIsStimuli() {
         return this.isStimuli;
     }
 
+    /**
+     *
+     * @param isStimuli
+     */
     public void setIsStimuli(Byte isStimuli) {
         this.isStimuli = isStimuli;
     }
 
+    /**
+     *
+     * @return
+     */
     public Byte getIsMacro() {
         return this.isMacro;
     }
 
+    /**
+     *
+     * @param isMacro
+     */
     public void setIsMacro(Byte isMacro) {
         this.isMacro = isMacro;
     }
 
+    /**
+     *
+     * @return
+     */
     public Set getScriptExecutionses() {
         return this.scriptExecutionses;
     }
 
+    /**
+     *
+     * @param scriptExecutionses
+     */
     public void setScriptExecutionses(Set scriptExecutionses) {
         this.scriptExecutionses = scriptExecutionses;
     }
 
+    /**
+     *
+     * @return
+     */
     public Set getMacrosForScriptIdScript() {
         return this.macrosForScriptIdScript;
     }
 
+    /**
+     *
+     * @param macrosForScriptIdScript
+     */
     public void setMacrosForScriptIdScript(Set macrosForScriptIdScript) {
         this.macrosForScriptIdScript = macrosForScriptIdScript;
     }
 
+    /**
+     *
+     * @return
+     */
     public Set getTestStepHasScripts() {
         return this.testStepHasScripts;
     }
 
+    /**
+     *
+     * @param testStepHasScripts
+     */
     public void setTestStepHasScripts(Set testStepHasScripts) {
         this.testStepHasScripts = testStepHasScripts;
     }
 
+    /**
+     *
+     * @return
+     */
     public Set getMacrosForScriptIdScript1() {
         return this.macrosForScriptIdScript1;
     }
 
+    /**
+     *
+     * @param macrosForScriptIdScript1
+     */
     public void setMacrosForScriptIdScript1(Set macrosForScriptIdScript1) {
         this.macrosForScriptIdScript1 = macrosForScriptIdScript1;
     }
 
+    /**
+     *
+     * @return
+     */
     public Set getScriptHasParameterses() {
         return this.scriptHasParameterses;
     }
 
+    /**
+     *
+     * @param scriptHasParameterses
+     */
     public void setScriptHasParameterses(Set scriptHasParameterses) {
         this.scriptHasParameterses = scriptHasParameterses;
     }

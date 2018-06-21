@@ -63,14 +63,26 @@ public class PopUpCampaignCreationController implements Initializable {
         });
     }
 
+    /**
+     *
+     * @param mainController
+     */
     public void init(TabTestCaseLibraryController mainController) {
         this.mainController = mainController;
     }
 
+    /**
+     *
+     * @param stage
+     */
     public void setPrimaryStage(Stage stage) {
         this.dialogStage = stage;
     }
 
+    /**
+     *
+     * @param campaigID
+     */
     public void getCampaignExistance(String campaigID) {
         TestCampaignDB testCampaignHandler = new TestCampaignDB();
         if (testCampaignHandler.checkCampaignExistence(campaigID) >= 1) {

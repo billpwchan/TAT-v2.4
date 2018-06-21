@@ -129,6 +129,9 @@ public class TabTestCampaignNewController implements Initializable {
     @FXML
     private Button buttonDown;
 
+    /**
+     *
+     */
     public TabTestCampaignMainViewController main;
 
     private final ObservableList<TestCase> observableListTestCase = FXCollections.observableArrayList();
@@ -310,6 +313,12 @@ public class TabTestCampaignNewController implements Initializable {
      * Adding the cases selected in the tableView case and update the number of
      * cases in the right field.
      */
+
+    /**
+     *
+     * @param CasesSelected
+     */
+    
     public void setAction(ObservableList<TestCase> CasesSelected) {
         CasesSelected.stream().forEach((CasesSelected1) -> {
             observableListTestCase.add(CasesSelected1);

@@ -103,6 +103,9 @@ public class Screen {
         this.name = name;
     }
 
+    /**
+     *
+     */
     public void close() {
 
     }

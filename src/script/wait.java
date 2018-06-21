@@ -29,6 +29,14 @@ public class wait {
     ArrayList<String> arrayToSearchIn;
     int timeToWait;
 
+    /**
+     *
+     * @param parameters
+     * @param hashMap
+     * @return
+     * @throws IOException
+     * @throws InterruptedException
+     */
     public String run(ArrayList<ParametersExecution> parameters, HashMap hashMap) throws IOException, InterruptedException {
         //System.out.println("IN WAIT  dans le TAT !!!");
 
@@ -53,10 +61,18 @@ public class wait {
         return null;
     }
 
+    /**
+     *
+     */
     public void close() {
 
     }
 
+    /**
+     *
+     * @param i
+     * @return
+     */
     public ArrayList<Parameters> parameters(int i) {
         ArrayList<Parameters> params = new ArrayList<>();
         Parameters paramTimer = new Parameters();

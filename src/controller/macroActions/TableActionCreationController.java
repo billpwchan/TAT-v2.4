@@ -54,6 +54,9 @@ public class TableActionCreationController implements Initializable {
 
     private ScriptLineTableMacroController selectedScriptController;
 
+    /**
+     *
+     */
     public final ObservableList<ScriptLineTableMacroController> collectionControllerScript = FXCollections.observableArrayList();
 
     private int scriptID = 1;
@@ -85,24 +88,42 @@ public class TableActionCreationController implements Initializable {
         });
     }
 
+    /**
+     *
+     */
     public void addAction() {
         addActioninVbox();
         controllerScriptLine.setScriptCreation(scripts);
     }
 
+    /**
+     *
+     */
     public void addActionEdit() {
         addActioninVboxEdit();
         controllerScriptLine.setScriptCreationEdit(scripts);
     }
 
+    /**
+     *
+     * @return
+     */
     public TabMacroNewController getControllerFather() {
         return this.controllerNewMacro;
     }
 
+    /**
+     *
+     * @return
+     */
     public TabMacroEditController getControllerFatherEdit() {
         return this.controllerEditMacro;
     }
 
+    /**
+     *
+     * @return
+     */
     public ObservableList<ScriptLineTableMacroController> getCollectionControllerScript() {
         return this.collectionControllerScript;
     }
@@ -116,6 +137,9 @@ public class TableActionCreationController implements Initializable {
         }
     }
 
+    /**
+     *
+     */
     public void addActioninVbox() {
         //Add an additional script to the vBox
         FXMLLoader fxmlLoader = new FXMLLoader();
@@ -147,6 +171,9 @@ public class TableActionCreationController implements Initializable {
         displayVbox();
     }
 
+    /**
+     *
+     */
     public void addActioninVboxEdit() {
         //Add an additional script to the vBox
         FXMLLoader fxmlLoader = new FXMLLoader();
@@ -225,7 +252,12 @@ public class TableActionCreationController implements Initializable {
     }
 
     //Not sure it is implemented correctly or not
-    public void initMacroEdit(TabMacroEditController aThis) {
+
+    /**
+     *
+     * @param aThis
+     */
+        public void initMacroEdit(TabMacroEditController aThis) {
         controllerEditMacro = aThis;
         this.loadScriptCheckAndStimuli();
     }
@@ -310,6 +342,10 @@ public class TableActionCreationController implements Initializable {
         vBox.getChildren().setAll(workingCollection);
     }
 
+    /**
+     *
+     * @param macro
+     */
     public void displayScriptAndStepEdit(Script macro) {    //This macro is selected macro by user (Click event)
         clearTable();
 //        this.loadScriptCheckAndStimuli();
@@ -325,6 +361,10 @@ public class TableActionCreationController implements Initializable {
 //        this.controllerScriptLine.setScriptandParamActionEdit(macro);
     }
 
+    /**
+     *
+     * @param macro
+     */
     public void displayScriptAndStepView(Script macro) {
         clearTable();
         Iterator<Macro> itScripts = macro.getMacrosForScriptIdScript().iterator();

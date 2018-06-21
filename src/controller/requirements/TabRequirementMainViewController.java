@@ -64,6 +64,10 @@ public class TabRequirementMainViewController implements Initializable {
         this.tabPaneRequirement.setTabClosingPolicy(TabPane.TabClosingPolicy.SELECTED_TAB);
     }
 
+    /**
+     *
+     * @param aThis
+     */
     public void init(TATFrameController aThis) {
         // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -86,6 +90,9 @@ public class TabRequirementMainViewController implements Initializable {
         this.tabPaneRequirement.getSelectionModel().select(newRequirement);
     }
 
+    /**
+     *
+     */
     public void updateRepository() {
         TabRequirementMainViewController.libraryController.updateRepository();
     }

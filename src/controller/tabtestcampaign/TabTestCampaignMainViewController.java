@@ -229,6 +229,9 @@ public class TabTestCampaignMainViewController implements Initializable {
         return this.mainFrameController;
     }
     
+    /**
+     *
+     */
     public void focusRepository(){
         this.tabPaneTestCampaign.getSelectionModel().select(0);
     }

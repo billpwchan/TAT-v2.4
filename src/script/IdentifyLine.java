@@ -32,6 +32,13 @@ public class IdentifyLine {
     public void IdentifyLine() {
     }
 
+    /**
+     *
+     * @param parameters
+     * @param hashMap
+     * @return
+     * @throws JSchException
+     */
     public String run(ArrayList<ParametersExecution> parameters, HashMap hashMap) throws JSchException {
         ArrayList<String> toReturn = new ArrayList<>();
         this.toCompare = parameters.get(1).getValue().trim();
@@ -88,6 +95,9 @@ public class IdentifyLine {
         return null;
     }
 
+    /**
+     *
+     */
     public void close() {
 
     }

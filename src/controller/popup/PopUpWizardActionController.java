@@ -816,6 +816,11 @@ public class PopUpWizardActionController implements Initializable {
         }
     }
 
+    /**
+     *
+     * @param str
+     * @return
+     */
     public static boolean isNumeric(String str) {
         try {
             double d = Double.parseDouble(str);
@@ -825,6 +830,10 @@ public class PopUpWizardActionController implements Initializable {
         return true;
     }
 
+    /**
+     *
+     * @param param
+     */
     public void deleteReferenceToParam(ParamScriptMacro param) {
         for (ScriptLineTableMacroController collectionControllerScript : controller.getControllerScriptFather().controllerViewGlobal().getCollectionControllerScript()) {
             ArrayList<ParamScriptMacro> paramsScriptMacro = new ArrayList<>(collectionControllerScript.getScriptControllerAction().getHashParamScriptMacro());
@@ -843,6 +852,13 @@ public class PopUpWizardActionController implements Initializable {
         }
     }
 
+    /**
+     *
+     * @param <T>
+     * @param comboBox
+     * @param value
+     * @param f
+     */
     public static <T> void autoSelectComboBoxValue(ComboBox<T> comboBox, String value, Func<T, String> f) {
         for (T t : comboBox.getItems()) {
             if (f.compare(t, value)) {
@@ -851,8 +867,19 @@ public class PopUpWizardActionController implements Initializable {
         }
     }
 
+    /**
+     *
+     * @param <T>
+     * @param <V>
+     */
     public interface Func<T, V> {
 
+        /**
+         *
+         * @param t
+         * @param v
+         * @return
+         */
         boolean compare(T t, V v);
     }
 
@@ -997,6 +1024,10 @@ public class PopUpWizardActionController implements Initializable {
         });
     }
 
+    /**
+     *
+     * @param path
+     */
     public void displayPreview(String path) {
         Stage primaryStage = new Stage();
         primaryStage.setTitle("Load Image");

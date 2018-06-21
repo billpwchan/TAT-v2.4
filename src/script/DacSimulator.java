@@ -42,7 +42,16 @@ public class DacSimulator {
 //    public ArrayList<ParametersScript> getParametersType() {
 //        return null;
 //    }
-    public String run(ArrayList<ParametersExecution> parameters, HashMap hashMap) throws JSchException, IOException {
+
+    /**
+     *
+     * @param parameters
+     * @param hashMap
+     * @return
+     * @throws JSchException
+     * @throws IOException
+     */
+        public String run(ArrayList<ParametersExecution> parameters, HashMap hashMap) throws JSchException, IOException {
         Session session;
 //        this.station = "WCH";
 //        this.equipmentCode = "ACG1";
@@ -85,6 +94,10 @@ public class DacSimulator {
         return null;
     }
 
+    /**
+     *
+     * @throws JSchException
+     */
     public void close() throws JSchException {
         Session session;
         session = ServerConnection.getInstance("", "", "");

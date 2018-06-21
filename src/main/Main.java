@@ -61,23 +61,55 @@ import org.controlsfx.dialog.LoginDialog;
  * @author tmartinez
  */
 public class Main extends Application {
+
+    /**
+     *
+     */
     public static DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
 
+    /**
+     *
+     */
     public static Scene scene;
+
+    /**
+     *
+     */
     public static Stage primaryStage;
 
+    /**
+     *
+     */
     public TATFrameController tatFrameController;
 
+    /**
+     *
+     */
     public static String pathForFunctional;
 
+    /**
+     *
+     */
     public static boolean isSet = false;
 
+    /**
+     *
+     */
     public static User currentUser = null;
 
+    /**
+     *
+     */
     public boolean tryAgain = true;
 
+    /**
+     *
+     */
     public static ObservableList<Classe> classFound = FXCollections.observableArrayList();
 
+    /**
+     *
+     */
     public static ArrayList<HMI> HMIs = new ArrayList<>();
 
     ;//=  
@@ -192,10 +224,18 @@ public class Main extends Application {
         Iterations iterationT = new Iterations();
     }
 
+    /**
+     *
+     * @return
+     */
     public Stage getPrimaryStage() {
         return Main.primaryStage;
     }
 
+    /**
+     *
+     * @param scene
+     */
     public void getMainString(Scene scene) {
 
         Image image = new Image("/images/valid.png");  //pass in the image path

@@ -23,10 +23,17 @@ import org.controlsfx.control.Notifications;
  */
 public class ResultsDB {
 
+    /**
+     *
+     */
     public ResultsDB() {
 
     }
 
+    /**
+     *
+     * @param ite
+     */
     public void initializeIteration(Iterations ite) {
         System.out.println("Start time to construct object : " + System.currentTimeMillis());
         ArrayList<CaseExecutions> caseExecutions = new TestCaseDB().getTestCasesAndResults(ite.getBaselineId(), ite.getIterationNumber());
@@ -44,6 +51,10 @@ public class ResultsDB {
         System.out.println("End time to construct object : " + System.currentTimeMillis());
     }
 
+    /**
+     *
+     * @param casesChanges
+     */
     public void validCaseResultsChange(ObservableList<CaseExecutions> casesChanges) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();

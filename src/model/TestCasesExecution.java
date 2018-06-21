@@ -28,10 +28,18 @@ import javafx.concurrent.Task;
  */
 public class TestCasesExecution {
 
+    /**
+     *
+     */
     public TestCasesExecution() {
 
     }
 
+    /**
+     *
+     * @param caseExecution
+     * @return
+     */
     public CaseExecutions getStepsScriptsParametersFromCaseExecution(CaseExecutions caseExecution) {
         CaseExecutions caseExecutions = new CaseExecutions();
         TestStepDB testStepHandler = new TestStepDB();
@@ -39,6 +47,10 @@ public class TestCasesExecution {
         return caseExecutions;
     }
 
+    /**
+     *
+     * @param caseToDisplay
+     */
     public void prepareCaseDisplay(CaseExecutions caseToDisplay) {
         TestCaseDB testCaseHandler = new TestCaseDB();
         TestStepDB testStepHandler = new TestStepDB();
@@ -197,6 +209,11 @@ public class TestCasesExecution {
         return caseExecutions;
     }
 
+    /**
+     *
+     * @param caseExecution
+     * @param currentIteration
+     */
     public void PrepareStepsScriptsParametersDisplayResults(CaseExecutions caseExecution, Iterations currentIteration) {
         TestStepDB testStepHandler = new TestStepDB();
         testStepHandler.getStepExecutionAndScriptsResults(caseExecution, currentIteration);

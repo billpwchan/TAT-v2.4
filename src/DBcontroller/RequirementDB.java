@@ -23,10 +23,17 @@ import org.hibernate.SessionFactory;
  */
 public class RequirementDB {
 
+    /**
+     *
+     */
     public RequirementDB() {
 
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<Requirement> getAllRequirement() {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
@@ -40,6 +47,10 @@ public class RequirementDB {
         return requirement;
     }
 
+    /**
+     *
+     * @param HashRequirement
+     */
     public void updateRequirement(HashSet<Requirement> HashRequirement) {
 
         SessionFactory factory = sessionFactorySingleton.getInstance();

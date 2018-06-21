@@ -77,6 +77,9 @@ public class TabTestCampaignExecutionRepositoryBaselineController implements Ini
 
     private static final TestCampaignDB testCampaignHandler = new TestCampaignDB();
 
+    /**
+     *
+     */
     public static TabTestCampaignExecutionMainViewController main;
 
     private Stage popUpCampaignStage;
@@ -85,6 +88,9 @@ public class TabTestCampaignExecutionRepositoryBaselineController implements Ini
 
     private PopUpRunController runController;
 
+    /**
+     *
+     */
     public int notExecuted;
 
     private Iterations selected;
@@ -466,6 +472,9 @@ public class TabTestCampaignExecutionRepositoryBaselineController implements Ini
         this.anchorPaneTestExecution.getStylesheets().add("/view/testexecution/cssLibraryTestCase.css");
     }
 
+    /**
+     *
+     */
     public void selectDirectoryForReport() {
 
         DirectoryChooser directoryChooser = new DirectoryChooser();
@@ -502,6 +511,9 @@ public class TabTestCampaignExecutionRepositoryBaselineController implements Ini
 
     }
 
+    /**
+     *
+     */
     public void setBaselineButtonEnable() {
 
         this.runButton.setDisable(false);

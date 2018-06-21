@@ -23,9 +23,16 @@ import org.hibernate.*;
  */
 public class TestStepDB {
 
+    /**
+     *
+     */
     public TestStepDB() {
     }
 
+    /**
+     *
+     * @param stepExecution
+     */
     public void getStepAndScriptsFromStepExecution(StepExecutions stepExecution) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
@@ -35,6 +42,11 @@ public class TestStepDB {
         session.close();
     }
 
+    /**
+     *
+     * @param CaseID
+     * @return
+     */
     public ArrayList<TestStep> getStepsFromCases(int CaseID) {  
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
@@ -48,6 +60,11 @@ public class TestStepDB {
         return testSteps;
     }
 
+    /**
+     *
+     * @param caseExecution
+     * @return
+     */
     public CaseExecutions getStepsScriptsParametersFromCaseExecution(CaseExecutions caseExecution) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
@@ -67,6 +84,10 @@ public class TestStepDB {
         return caseExecution;
     }
 
+    /**
+     *
+     * @param stepExecution
+     */
     public void getStepFromStepExecution(StepExecutions stepExecution) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
@@ -75,6 +96,11 @@ public class TestStepDB {
         session.close();
     }
 
+    /**
+     *
+     * @param caseExecution
+     * @param iteration
+     */
     public void getStepExecutionAndScriptsResults(CaseExecutions caseExecution, Iterations iteration) {
         ScriptDB scriptHandler = new ScriptDB();
         SessionFactory factory = sessionFactorySingleton.getInstance();
@@ -109,6 +135,11 @@ public class TestStepDB {
         session.close();
     }
 
+    /**
+     *
+     * @param caseExecution
+     * @return
+     */
     public ArrayList<StepExecutions> getStepExecutionsAndStepsFromCaseExecution(CaseExecutions caseExecution) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();

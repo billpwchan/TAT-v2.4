@@ -36,6 +36,14 @@ public class ServerConnection {
 
     }
 
+    /**
+     *
+     * @param ip
+     * @param user
+     * @param password
+     * @return
+     * @throws JSchException
+     */
     public static Session getInstance(String ip, String user, String password) throws JSchException {
         if (session == null) {
             new ServerConnection(ip, user, password);
@@ -49,6 +57,9 @@ public class ServerConnection {
         return session;
     }
 
+    /**
+     *
+     */
     public static void closeInstance() {
         if (session != null) {
             session.disconnect();

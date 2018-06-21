@@ -26,10 +26,17 @@ import org.hibernate.SessionFactory;
  */
 public class MacroDB {
 
+    /**
+     *
+     */
     public MacroDB() {
 
     }
 
+    /**
+     *
+     * @param macro
+     */
     public void getAllFromMacro(Script macro) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
@@ -52,6 +59,10 @@ public class MacroDB {
         session.close();
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<Script> getMacros() {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
@@ -64,7 +75,12 @@ public class MacroDB {
     
     
     //Assumption of this function: A record is deleted on a reversed order.
-    public void removePSMGivenId(int macroID) {
+
+    /**
+     *
+     * @param macroID
+     */
+        public void removePSMGivenId(int macroID) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
         Query qry = session.createQuery("delete from ParamScriptMacro psm where psm.paramScriptMacrocol=:macro_id");
@@ -75,6 +91,10 @@ public class MacroDB {
         
     }
 
+    /**
+     *
+     * @param macroID
+     */
     public void makeDuplicateParamScriptMacro(int macroID) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();

@@ -17,9 +17,16 @@ public class Parameters implements java.io.Serializable {
     private Set parametersExecutions = new HashSet(0);
     private Set scriptHasParameterses = new HashSet(0);
 
+    /**
+     *
+     */
     public Parameters() {
     }
 
+    /**
+     *
+     * @param param
+     */
     public Parameters(Parameters param) {
         this.idparameters = param.getIdparameters();
         this.name = param.getName();
@@ -27,6 +34,15 @@ public class Parameters implements java.io.Serializable {
         this.description = param.getDescription();
     }
 
+    /**
+     *
+     * @param name
+     * @param parameterType
+     * @param description
+     * @param scriptHasBeenConfigureds
+     * @param parametersExecutions
+     * @param scriptHasParameterses
+     */
     public Parameters(String name, String parameterType, String description, Set scriptHasBeenConfigureds, Set parametersExecutions, Set scriptHasParameterses) {
         this.name = name;
         this.parameterType = parameterType;
@@ -36,58 +52,114 @@ public class Parameters implements java.io.Serializable {
         this.scriptHasParameterses = scriptHasParameterses;
     }
 
+    /**
+     *
+     * @return
+     */
     public Integer getIdparameters() {
         return this.idparameters;
     }
 
+    /**
+     *
+     * @param idparameters
+     */
     public void setIdparameters(Integer idparameters) {
         this.idparameters = idparameters;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getName() {
         return this.name;
     }
 
+    /**
+     *
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getParameterType() {
         return this.parameterType;
     }
 
+    /**
+     *
+     * @param parameterType
+     */
     public void setParameterType(String parameterType) {
         this.parameterType = parameterType;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getDescription() {
         return this.description;
     }
 
+    /**
+     *
+     * @param description
+     */
     public void setDescription(String description) {
         this.description = description;
     }
 
+    /**
+     *
+     * @return
+     */
     public Set getScriptHasBeenConfigureds() {
         return this.scriptHasBeenConfigureds;
     }
 
+    /**
+     *
+     * @param scriptHasBeenConfigureds
+     */
     public void setScriptHasBeenConfigureds(Set scriptHasBeenConfigureds) {
         this.scriptHasBeenConfigureds = scriptHasBeenConfigureds;
     }
 
+    /**
+     *
+     * @return
+     */
     public Set getParametersExecutions() {
         return this.parametersExecutions;
     }
 
+    /**
+     *
+     * @param parametersExecutions
+     */
     public void setParametersExecutions(Set parametersExecutions) {
         this.parametersExecutions = parametersExecutions;
     }
 
+    /**
+     *
+     * @return
+     */
     public Set getScriptHasParameterses() {
         return this.scriptHasParameterses;
     }
 
+    /**
+     *
+     * @param scriptHasParameterses
+     */
     public void setScriptHasParameterses(Set scriptHasParameterses) {
         this.scriptHasParameterses = scriptHasParameterses;
     }

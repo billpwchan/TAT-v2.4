@@ -35,9 +35,18 @@ import org.hibernate.criterion.Restrictions;
  */
 public class TestExecution {
 
+    /**
+     *
+     */
     public TestExecution() {
     }
 
+    /**
+     *
+     * @param campaign
+     * @return
+     * @throws ParseException
+     */
     public ArrayList<Iterations> getBaselinesFromCampaign(TestCampaign campaign) throws ParseException {
         ArrayList<Iterations> baselines = new ArrayList<>();
         SessionFactory factory = sessionFactorySingleton.getInstance();
@@ -57,6 +66,11 @@ public class TestExecution {
         return baselines;
     }
 
+    /**
+     *
+     * @param baseline
+     * @return
+     */
     public ArrayList<Iterations> getExecutionsFromBaseline(Iterations baseline) {
         ArrayList<Iterations> executions;
         SessionFactory factory = sessionFactorySingleton.getInstance();
@@ -80,7 +94,13 @@ public class TestExecution {
 //        session.close();
 //    }
 //
-    public Iterations prepareIteration(String baselineName) {
+
+    /**
+     *
+     * @param baselineName
+     * @return
+     */
+        public Iterations prepareIteration(String baselineName) {
         Iterations iterationCreated = new Iterations();
         Iterations iteration0 = this.getIterationFromBaselineName(baselineName);
         int Iteration = this.getIterationNumber(iteration0) + 1;
@@ -97,6 +117,10 @@ public class TestExecution {
         return iterationCreated;
     }
 
+    /**
+     *
+     * @param iteration
+     */
     public void deleteIteration(Iterations iteration) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
@@ -106,6 +130,11 @@ public class TestExecution {
         session.close();
     }
 
+    /**
+     *
+     * @param caseExecution
+     * @param iterationNumber
+     */
     public void resultInDB(CaseExecutions caseExecution, int iterationNumber) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
@@ -130,6 +159,11 @@ public class TestExecution {
         session.close();
     }
     
+    /**
+     *
+     * @param caseExecution
+     * @param iterationNumber
+     */
     public void resultInDBRemove(CaseExecutions caseExecution, int iterationNumber) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
@@ -154,7 +188,11 @@ public class TestExecution {
         session.close();        
     }
 
-
+    /**
+     *
+     * @param iteration0
+     * @return
+     */
     public int getIterationNumber(Iterations iteration0) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
@@ -165,6 +203,11 @@ public class TestExecution {
         return (int) q.get(0);
     }
 
+    /**
+     *
+     * @param baselineName
+     * @return
+     */
     public Iterations getIterationFromBaselineName(String baselineName) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
@@ -175,6 +218,10 @@ public class TestExecution {
         return (Iterations) q.get(0);
     }
 
+    /**
+     *
+     * @param currCaseEx
+     */
     public void initializeStepEx(CaseExecutions currCaseEx) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();

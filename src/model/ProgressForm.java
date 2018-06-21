@@ -26,6 +26,9 @@ public class ProgressForm {
     private final Stage dialogStage;
     private final ProgressIndicator pin = new ProgressIndicator();
 
+    /**
+     *
+     */
     public ProgressForm() {
         //System.out.println("HERE2");
         dialogStage = new Stage();
@@ -54,15 +57,27 @@ public class ProgressForm {
         dialogStage.setScene(scene);
     }
 
+    /**
+     *
+     * @param task
+     */
     public void activateProgressBar(final Task<?> task) {
         pin.progressProperty().bind(task.progressProperty());
         dialogStage.show();
     }
 
+    /**
+     *
+     * @return
+     */
     public Stage getDialogStage() {
         return dialogStage;
     }
     
+    /**
+     *
+     * @return
+     */
     public ProgressIndicator getProgressBar(){
         return this.pin;
     }

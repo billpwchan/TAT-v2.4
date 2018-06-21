@@ -167,6 +167,10 @@ public class TabScriptsLibraryController implements Initializable {
 
     }
 
+    /**
+     *
+     * @param aThis
+     */
     public void init(TabScriptsMainViewController aThis) {
         TabScriptsLibraryController.scriptMainViewController = aThis;
     }
@@ -194,6 +198,9 @@ public class TabScriptsLibraryController implements Initializable {
         TabScriptsLibraryController.scriptMainViewController.displayNewScript();
     }
 
+    /**
+     *
+     */
     public void updateLibrary() {
         this.observableListScripts.setAll(this.scriptHandler.getScriptListAndParameters());
         //this.tableViewScript.setItems(observableListScripts);

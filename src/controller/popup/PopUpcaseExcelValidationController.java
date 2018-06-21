@@ -88,10 +88,17 @@ public class PopUpcaseExcelValidationController implements Initializable {
 
     }
 
+    /**
+     *
+     * @param mainController
+     */
     public void init(TabTestCampaignExecutionBaselineCampaignController mainController) {
         this.mainController = mainController;
     }
 
+    /**
+     *
+     */
     public void start() {
         fieldRange.textProperty().addListener((observable, oldValue, newValue) -> {
             buttonOk.setDisable(newValue.trim().isEmpty());

@@ -22,6 +22,12 @@ public class StepExecutionDB {
         //init();
     }
 
+    /**
+     *
+     * @param campaignID
+     * @param baselineID
+     * @param iteration
+     */
     public void deleteStepExecution(int campaignID, String baselineID, int iteration) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();

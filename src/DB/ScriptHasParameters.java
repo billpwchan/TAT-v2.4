@@ -17,18 +17,39 @@ public class ScriptHasParameters  implements java.io.Serializable {
      private byte paramOrder;
      private Set paramScriptMacros = new HashSet(0);
 
+    /**
+     *
+     */
     public ScriptHasParameters() {
     }
 
+    /**
+     *
+     * @param schp
+     */
     public ScriptHasParameters(ScriptHasParameters schp){
         this.parameters=new Parameters(schp.getParameters());
     }
     
+    /**
+     *
+     * @param parameters
+     * @param script
+     * @param paramOrder
+     */
     public ScriptHasParameters(Parameters parameters, Script script, byte paramOrder) {
         this.parameters = parameters;
         this.script = script;
         this.paramOrder = paramOrder;
     }
+
+    /**
+     *
+     * @param parameters
+     * @param script
+     * @param paramOrder
+     * @param paramScriptMacros
+     */
     public ScriptHasParameters(Parameters parameters, Script script, byte paramOrder, Set paramScriptMacros) {
        this.parameters = parameters;
        this.script = script;
@@ -36,38 +57,82 @@ public class ScriptHasParameters  implements java.io.Serializable {
        this.paramScriptMacros = paramScriptMacros;
     }
    
+    /**
+     *
+     * @return
+     */
     public Integer getIdscriptHasParameters() {
         return this.idscriptHasParameters;
     }
     
+    /**
+     *
+     * @param idscriptHasParameters
+     */
     public void setIdscriptHasParameters(Integer idscriptHasParameters) {
         this.idscriptHasParameters = idscriptHasParameters;
     }
+
+    /**
+     *
+     * @return
+     */
     public Parameters getParameters() {
         return this.parameters;
     }
     
+    /**
+     *
+     * @param parameters
+     */
     public void setParameters(Parameters parameters) {
         this.parameters = parameters;
     }
+
+    /**
+     *
+     * @return
+     */
     public Script getScript() {
         return this.script;
     }
     
+    /**
+     *
+     * @param script
+     */
     public void setScript(Script script) {
         this.script = script;
     }
+
+    /**
+     *
+     * @return
+     */
     public byte getParamOrder() {
         return this.paramOrder;
     }
     
+    /**
+     *
+     * @param paramOrder
+     */
     public void setParamOrder(byte paramOrder) {
         this.paramOrder = paramOrder;
     }
+
+    /**
+     *
+     * @return
+     */
     public Set getParamScriptMacros() {
         return this.paramScriptMacros;
     }
     
+    /**
+     *
+     * @param paramScriptMacros
+     */
     public void setParamScriptMacros(Set paramScriptMacros) {
         this.paramScriptMacros = paramScriptMacros;
     }

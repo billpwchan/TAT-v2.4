@@ -26,10 +26,18 @@ import org.hibernate.*;
 public class TestCaseDB {
     //private Configuration cfg=new Configuration();
 
+    /**
+     *
+     */
+    
     public TestCaseDB() {
         //this.cfg.configure("hibernate.cfg.xml");
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<TestCase> getAllTestCases() {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
@@ -43,6 +51,11 @@ public class TestCaseDB {
         return testCases;
     }
 
+    /**
+     *
+     * @param testCase
+     * @return
+     */
     public boolean getTestCaseUsed(TestCase testCase) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
@@ -54,6 +67,10 @@ public class TestCaseDB {
         return !l.isEmpty();
     }
 
+    /**
+     *
+     * @param caseExecution
+     */
     public void getCaseAndStepExecutionsFromCaseExecution(CaseExecutions caseExecution) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
@@ -63,6 +80,11 @@ public class TestCaseDB {
         session.close();
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     public TestCase getTestCaseFromID(int id) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
@@ -74,6 +96,10 @@ public class TestCaseDB {
         return testCase;
     }
 
+    /**
+     *
+     * @param testCase
+     */
     public void deleteTestCase(TestCase testCase) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
@@ -82,6 +108,10 @@ public class TestCaseDB {
         session.close();
     }
 
+    /**
+     *
+     * @param testcase
+     */
     public void getAllFromCase(TestCase testcase) {
         //System.out.println("1");
         SessionFactory factory = sessionFactorySingleton.getInstance();
@@ -111,6 +141,12 @@ public class TestCaseDB {
         session.close();
     }
 
+    /**
+     *
+     * @param baselineID
+     * @param iterationNumber
+     * @return
+     */
     public ArrayList<CaseExecutions> getTestCasesAndResults(String baselineID, int iterationNumber) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
@@ -145,6 +181,11 @@ public class TestCaseDB {
         return caseExecutions;
     }
 
+    /**
+     *
+     * @param campaignID
+     * @return
+     */
     public long numberoOfCasesInCampaign(int campaignID) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
@@ -155,6 +196,10 @@ public class TestCaseDB {
         return count;
     }
 
+    /**
+     *
+     * @param testCaseID
+     */
     public void deleteCase(int testCaseID) {
         ArrayList<TestStep> testSteps;
         TestStepDB testStepHandler = new TestStepDB();
@@ -209,7 +254,13 @@ public class TestCaseDB {
 
 //
 //    @SuppressWarnings("empty-statement")
-    public ArrayList<TestCase> getTestCasesFromTestCampaign(TestCampaign testCampaign) {
+
+    /**
+     *
+     * @param testCampaign
+     * @return
+     */
+        public ArrayList<TestCase> getTestCasesFromTestCampaign(TestCampaign testCampaign) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
         ArrayList<TestCase> testCases = new ArrayList<>();

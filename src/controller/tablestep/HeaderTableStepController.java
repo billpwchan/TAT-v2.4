@@ -59,21 +59,34 @@ public class HeaderTableStepController implements Initializable {
         this.anchorPanInVbox.getStyleClass().add("header-custom2");
     }
 
+    /**
+     *
+     */
     public void setRestults() {
         this.labelReadyAction.setText("Results");
         this.labelReadyVerif.setText("Results");
     }
 
+    /**
+     *
+     */
     public void loadImageExpand() {
         this.expand = false;
         this.imageExpand.setImage(ime);
         this.imageExpand.setRotate(-90);
     }
 
+    /**
+     *
+     * @param controllerTableStep
+     */
     public void init(TableStepScriptCreationController controllerTableStep) {
         this.controllerTableStep = controllerTableStep;
     }
 
+    /**
+     *
+     */
     public void expandChildren() {
         for (int i = 0; i < controllerTableStep.getCollectionTestStep().size(); i++) {
             if (controllerTableStep.getCollectionTestStep().get(i).getIsExpand() == this.expand) {
@@ -82,6 +95,9 @@ public class HeaderTableStepController implements Initializable {
         }
     }
 
+    /**
+     *
+     */
     public void verifyExpand() {
         //System.out.println("verify expand");
         boolean same = true;

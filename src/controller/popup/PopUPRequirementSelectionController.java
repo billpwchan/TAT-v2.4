@@ -38,6 +38,9 @@ public class PopUPRequirementSelectionController implements Initializable {
     @FXML
     private Button buttonValidationReq;
 
+    /**
+     *
+     */
     public static TableStepScriptCreationController controllerNewStep;
 
     private StepLineTableStepController stepLineController;
@@ -114,11 +117,21 @@ public class PopUPRequirementSelectionController implements Initializable {
 //        });
     }
 
+    /**
+     *
+     * @param controllerNewCampaign
+     * @param stepLine
+     */
     public void init(TableStepScriptCreationController controllerNewCampaign, StepLineTableStepController stepLine) {
         stepLineController = stepLine;
         controllerNewStep = controllerNewCampaign;
     }
 
+    /**
+     *
+     * @param casesInDB
+     * @param requirementInStep
+     */
     public void setTable(ObservableList<Requirement> casesInDB, ObservableList<Requirement> requirementInStep) {
         casesInDB.removeAll(requirementInStep);
         view.getSourceItems().addAll(casesInDB);

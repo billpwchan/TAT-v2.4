@@ -24,18 +24,34 @@ import java.util.TreeSet;
  */
 public class ObjectCopy {
 
+    /**
+     *
+     * @param testCase
+     * @return
+     */
     public TestCase copyCompleteTestCase(TestCase testCase) {
         TestCase newTestCase = new TestCase(testCase);
         newTestCase.setTestSteps(copyHashStep(newTestCase.getTestSteps()));
+        
         return newTestCase;
     }
 
+    /**
+     *
+     * @param script
+     * @return
+     */
     public Script copyCompleteScript(Script script) {
         Script newScript = new Script(script);
         newScript.setMacrosForScriptIdScript(copyHashMacro(newScript.getMacrosForScriptIdScript()));
         return newScript;
     }
 
+    /**
+     *
+     * @param setMacros
+     * @return
+     */
     public Set copyHashMacro(Set<Macro> setMacros) {
         Set<Macro> hashMacro = new TreeSet<>(Comparator.comparing(Macro::getScriptOrder));
         Iterator<Macro> itMacro = setMacros.iterator();
@@ -49,6 +65,11 @@ public class ObjectCopy {
         return hashMacro;
     }
 
+    /**
+     *
+     * @param setPSM
+     * @return
+     */
     public Set copyHashPSM(Set<ParamScriptMacro> setPSM) {
         Set<ParamScriptMacro> hashPSM = new TreeSet<>(Comparator.comparing(ParamScriptMacro::getParamOrder));
         Iterator<ParamScriptMacro> itPSM = setPSM.iterator();
@@ -60,6 +81,11 @@ public class ObjectCopy {
         return hashPSM;
     }
 
+    /**
+     *
+     * @param setSteps
+     * @return
+     */
     public Set copyHashStep(Set<TestStep> setSteps) {
         Set<TestStep> hashStep = new TreeSet<>(Comparator.comparing(TestStep::getStepOrder));
         Iterator<TestStep> itSteps = setSteps.iterator();
@@ -73,10 +99,16 @@ public class ObjectCopy {
             System.out.println(newStep.getStepOrder());
             newStep.setTestStepHasScripts(copyHashStepHasScripts(newStep));
             hashStep.add(newStep);
+            
         }
         return hashStep;
     }
 
+    /**
+     *
+     * @param requirements
+     * @return
+     */
     public Set copyHashRequirement(Set<Requirement> requirements) {
         Set<Requirement> hashReq = new TreeSet<>();
         Iterator<Requirement> itRequirements = requirements.iterator();
@@ -87,13 +119,18 @@ public class ObjectCopy {
         return hashReq;
     }
 
+    /**
+     *
+     * @param newStep
+     * @return
+     */
     public Set copyHashStepHasScripts(TestStep newStep) {
-        Set<TestStepHasScript> stepHasScripts = newStep.getTestStepHasScripts();
         Set<TestStepHasScript> hashStepHasScripts = new TreeSet<>(Comparator.comparing(TestStepHasScript::getExecutionOrder));
-        Iterator<TestStepHasScript> itStepHasScripts = stepHasScripts.iterator();
+        Iterator<TestStepHasScript> itStepHasScripts = newStep.getTestStepHasScripts().iterator();
         while (itStepHasScripts.hasNext()) {
             TestStepHasScript tshs = new TestStepHasScript(itStepHasScripts.next());
             tshs.setScriptHasBeenConfigureds(copyHashScriptHasBeenConfigured(tshs.getScriptHasBeenConfigureds(), tshs));
+            
             tshs.setTestStep(newStep);
             hashStepHasScripts.add(tshs);
 //            /HashSet<ScriptHasBeenConfigured> shbc=(HashSet) tshs.getScriptHasBeenConfigureds();
@@ -102,6 +139,12 @@ public class ObjectCopy {
         return hashStepHasScripts;
     }
 
+    /**
+     *
+     * @param shbc
+     * @param tshs
+     * @return
+     */
     public Set copyHashScriptHasBeenConfigured(Set<ScriptHasBeenConfigured> shbc, TestStepHasScript tshs) {
         Set<ScriptHasBeenConfigured> hashScriptHasBeenConfigured = new TreeSet<>(Comparator.comparing(ScriptHasBeenConfigured::getParamOrder));
         Iterator<ScriptHasBeenConfigured> itShbc = shbc.iterator();

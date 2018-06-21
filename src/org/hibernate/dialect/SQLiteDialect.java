@@ -20,8 +20,16 @@ import org.hibernate.dialect.function.StandardSQLFunction;
 import org.hibernate.dialect.function.VarArgsSQLFunction;
 import org.hibernate.type.StandardBasicTypes;
 
+/**
+ *
+ * @author tmartinez
+ */
 public class SQLiteDialect extends Dialect {
-  public SQLiteDialect() {
+
+    /**
+     *
+     */
+    public SQLiteDialect() {
     registerColumnType(Types.BIT, "boolean");
     registerColumnType(Types.TINYINT, "tinyint");
     registerColumnType(Types.SMALLINT, "smallint");
@@ -87,7 +95,11 @@ public class SQLiteDialect extends Dialect {
     //registerFunction( "upper", new StandardSQLFunction("upper") );
   }
 
-  public boolean supportsIdentityColumns() {
+    /**
+     *
+     * @return
+     */
+    public boolean supportsIdentityColumns() {
     return true;
   }
 
@@ -96,6 +108,12 @@ public class SQLiteDialect extends Dialect {
     return true; // As specify in NHibernate dialect
   }
   */
+
+    /**
+     *
+     * @return
+     */
+    
 
   public boolean hasDataTypeInIdentityColumn() {
     return false; // As specify in NHibernate dialect
@@ -110,63 +128,123 @@ public class SQLiteDialect extends Dialect {
   }
   */
 
+    /**
+     *
+     * @return
+     */
+    
+
   public String getIdentityColumnString() {
     // return "integer primary key autoincrement";
     return "integer";
   }
 
-  public String getIdentitySelectString() {
+    /**
+     *
+     * @return
+     */
+    public String getIdentitySelectString() {
     return "select last_insert_rowid()";
   }
 
-  public boolean supportsLimit() {
+    /**
+     *
+     * @return
+     */
+    public boolean supportsLimit() {
     return true;
   }
 
-  public boolean bindLimitParametersInReverseOrder() {
+    /**
+     *
+     * @return
+     */
+    public boolean bindLimitParametersInReverseOrder() {
     return true;
   }
 
-  protected String getLimitString(String query, boolean hasOffset) {
+    /**
+     *
+     * @param query
+     * @param hasOffset
+     * @return
+     */
+    protected String getLimitString(String query, boolean hasOffset) {
     return new StringBuffer(query.length()+20).
       append(query).
       append(hasOffset ? " limit ? offset ?" : " limit ?").
       toString();
   }
 
-  public boolean supportsTemporaryTables() {
+    /**
+     *
+     * @return
+     */
+    public boolean supportsTemporaryTables() {
     return true;
   }
 
-  public String getCreateTemporaryTableString() {
+    /**
+     *
+     * @return
+     */
+    public String getCreateTemporaryTableString() {
     return "create temporary table if not exists";
   }
 
-  public boolean dropTemporaryTableAfterUse() {
+    /**
+     *
+     * @return
+     */
+    public boolean dropTemporaryTableAfterUse() {
     return true; // TODO Validate
   }
 
-  public boolean supportsCurrentTimestampSelection() {
+    /**
+     *
+     * @return
+     */
+    public boolean supportsCurrentTimestampSelection() {
     return true;
   }
 
-  public boolean isCurrentTimestampSelectStringCallable() {
+    /**
+     *
+     * @return
+     */
+    public boolean isCurrentTimestampSelectStringCallable() {
     return false;
   }
 
-  public String getCurrentTimestampSelectString() {
+    /**
+     *
+     * @return
+     */
+    public String getCurrentTimestampSelectString() {
     return "select current_timestamp";
   }
 
-  public boolean supportsUnionAll() {
+    /**
+     *
+     * @return
+     */
+    public boolean supportsUnionAll() {
     return true;
   }
 
-  public boolean hasAlterTable() {
+    /**
+     *
+     * @return
+     */
+    public boolean hasAlterTable() {
     return false; // As specify in NHibernate dialect
   }
 
-  public boolean dropConstraints() {
+    /**
+     *
+     * @return
+     */
+    public boolean dropConstraints() {
     return false;
   }
 
@@ -176,33 +254,69 @@ public class SQLiteDialect extends Dialect {
   }
   */
 
+    /**
+     *
+     * @return
+     */
+    
+
   public String getForUpdateString() {
     return "";
   }
 
-  public boolean supportsOuterJoinForUpdate() {
+    /**
+     *
+     * @return
+     */
+    public boolean supportsOuterJoinForUpdate() {
     return false;
   }
 
-  public String getDropForeignKeyString() {
+    /**
+     *
+     * @return
+     */
+    public String getDropForeignKeyString() {
     throw new UnsupportedOperationException("No drop foreign key syntax supported by SQLiteDialect");
   }
 
-  public String getAddForeignKeyConstraintString(String constraintName,
+    /**
+     *
+     * @param constraintName
+     * @param foreignKey
+     * @param referencedTable
+     * @param primaryKey
+     * @param referencesPrimaryKey
+     * @return
+     */
+    public String getAddForeignKeyConstraintString(String constraintName,
       String[] foreignKey, String referencedTable, String[] primaryKey,
       boolean referencesPrimaryKey) {
     throw new UnsupportedOperationException("No add foreign key syntax supported by SQLiteDialect");
   }
 
-  public String getAddPrimaryKeyConstraintString(String constraintName) {
+    /**
+     *
+     * @param constraintName
+     * @return
+     */
+    public String getAddPrimaryKeyConstraintString(String constraintName) {
     throw new UnsupportedOperationException("No add primary key syntax supported by SQLiteDialect");
   }
 
-  public boolean supportsIfExistsBeforeTableName() {
+    /**
+     *
+     * @return
+     */
+    public boolean supportsIfExistsBeforeTableName() {
     return true;
   }
 
-  public boolean supportsCascadeDelete() {
+    /**
+     *
+     * @return
+     */
+    public boolean supportsCascadeDelete() {
     return true;
   }
 
@@ -212,11 +326,21 @@ public class SQLiteDialect extends Dialect {
   }
   */
 
+    /**
+     *
+     * @return
+     */
+    
+
   public boolean supportsTupleDistinctCounts() {
     return false;
   }
 
-  public String getSelectGUIDString() {
+    /**
+     *
+     * @return
+     */
+    public String getSelectGUIDString() {
     return "select hex(randomblob(16))";
   }
 }

@@ -18,21 +18,42 @@ public class StateClasse {
 
     ObservableList<Properties> stateclasse = FXCollections.observableArrayList();
     
+    /**
+     *
+     * @param name
+     */
     public StateClasse(String name){
         this.name = name;
     }
     
+    /**
+     *
+     * @param name
+     */
     public void setStateName(String name){
         this.name = name;
     }
+
+    /**
+     *
+     * @return
+     */
     public String getStateName(){
         return this.name;
     }
     
+    /**
+     *
+     * @param aThis
+     */
     public void addProperties(Properties aThis){
         this.stateclasse.add(aThis);
     }
     
+    /**
+     *
+     * @return
+     */
     public ObservableList<Properties> getProperties(){
         return this.stateclasse;
     }

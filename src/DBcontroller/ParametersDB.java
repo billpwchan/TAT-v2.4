@@ -19,10 +19,17 @@ import org.hibernate.SessionFactory;
  */
 public class ParametersDB {
 
+    /**
+     *
+     */
     public ParametersDB() {
 
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<Parameters> getAllParams() {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();

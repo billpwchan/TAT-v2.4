@@ -14,6 +14,11 @@ public class Coordinate {
     private final int x;
     private final int y;
     
+    /**
+     *
+     * @param int1
+     * @param int2
+     */
     public Coordinate (int int1, int int2) {
         this.x = int1;
         this.y = int2;

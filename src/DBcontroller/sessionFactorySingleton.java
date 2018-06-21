@@ -35,6 +35,10 @@ public class sessionFactorySingleton {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public static SessionFactory getInstance() {
         if (cfg == null) {
             new sessionFactorySingleton();
@@ -53,6 +57,11 @@ public class sessionFactorySingleton {
         factory = cfg.buildSessionFactory();
     }
 
+    /**
+     *
+     * @param DatabasePath
+     * @return
+     */
     public static SessionFactory newInstance(String DatabasePath) {
         new sessionFactorySingleton(DatabasePath);
         return factory;

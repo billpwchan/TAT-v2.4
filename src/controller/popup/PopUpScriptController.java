@@ -53,8 +53,14 @@ public class PopUpScriptController implements Initializable {
     @FXML
     private Button buttonValid;
 
+    /**
+     *
+     */
     public static TabTestCaseNewController controllerNewCase;
 
+    /**
+     *
+     */
     public boolean isStimuli;
 
     private Script scriptSelected;
@@ -91,20 +97,36 @@ public class PopUpScriptController implements Initializable {
 
     }
 
+    /**
+     *
+     * @param scriptInDB
+     */
     public void setTable(ObservableList<Script> scriptInDB) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         tableViewScript.setItems(scriptInDB);
     }
 
+    /**
+     *
+     * @param Stimuli
+     */
     public void setIsStimuli(boolean Stimuli) {
         this.isStimuli = Stimuli;
     }
 
+    /**
+     *
+     * @param controllerNewCase
+     */
     public void init(TabTestCaseNewController controllerNewCase) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         PopUpScriptController.controllerNewCase = controllerNewCase;
     }
 
+    /**
+     *
+     * @param newValue
+     */
     public void displayCurrentScript(Script newValue) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 

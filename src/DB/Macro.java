@@ -15,14 +15,26 @@ public class Macro implements java.io.Serializable {
     private Byte scriptOrder;
     private Set paramScriptMacros = new HashSet(0);
 
+    /**
+     *
+     */
     public Macro() {
     }
 
+    /**
+     *
+     * @param scriptByScriptIdScript
+     * @param scriptByScriptIdScript1
+     */
     public Macro(Script scriptByScriptIdScript, Script scriptByScriptIdScript1) {
         this.scriptByScriptIdScript = scriptByScriptIdScript;
         this.scriptByScriptIdScript1 = scriptByScriptIdScript1;
     }
 
+    /**
+     *
+     * @param macro
+     */
     public Macro(Macro macro){
         this.scriptByScriptIdScript = macro.getScriptByScriptIdScript();
         this.scriptByScriptIdScript1 = macro.getScriptByScriptIdScript1();
@@ -30,6 +42,13 @@ public class Macro implements java.io.Serializable {
         this.paramScriptMacros = macro.getParamScriptMacros();
     }
 
+    /**
+     *
+     * @param scriptByScriptIdScript
+     * @param scriptByScriptIdScript1
+     * @param scriptOrder
+     * @param paramScriptMacros
+     */
     public Macro(Script scriptByScriptIdScript, Script scriptByScriptIdScript1, Byte scriptOrder, Set paramScriptMacros) {
         this.scriptByScriptIdScript = scriptByScriptIdScript;
         this.scriptByScriptIdScript1 = scriptByScriptIdScript1;
@@ -37,46 +56,90 @@ public class Macro implements java.io.Serializable {
         this.paramScriptMacros = paramScriptMacros;
     }
 
+    /**
+     *
+     * @return
+     */
     public Integer getIdmacro() {
         return this.idmacro;
     }
 
+    /**
+     *
+     * @param idmacro
+     */
     public void setIdmacro(Integer idmacro) {
         this.idmacro = idmacro;
     }
 
+    /**
+     *
+     * @return
+     */
     public Script getScriptByScriptIdScript() {
         return this.scriptByScriptIdScript;
     }
 
+    /**
+     *
+     * @param scriptByScriptIdScript
+     */
     public void setScriptByScriptIdScript(Script scriptByScriptIdScript) {
         this.scriptByScriptIdScript = scriptByScriptIdScript;
     }
 
+    /**
+     *
+     * @return
+     */
     public Script getScriptByScriptIdScript1() {
         return this.scriptByScriptIdScript1;
     }
 
+    /**
+     *
+     * @param scriptByScriptIdScript1
+     */
     public void setScriptByScriptIdScript1(Script scriptByScriptIdScript1) {
         this.scriptByScriptIdScript1 = scriptByScriptIdScript1;
     }
 
+    /**
+     *
+     * @return
+     */
     public Byte getScriptOrder() {
         return this.scriptOrder;
     }
 
+    /**
+     *
+     * @param scriptOrder
+     */
     public void setScriptOrder(Byte scriptOrder) {
         this.scriptOrder = scriptOrder;
     }
 
+    /**
+     *
+     * @return
+     */
     public Set getParamScriptMacros() {
         return this.paramScriptMacros;
     }
 
+    /**
+     *
+     * @param paramScriptMacros
+     */
     public void setParamScriptMacros(Set paramScriptMacros) {
         this.paramScriptMacros = paramScriptMacros;
     }
 
+    /**
+     *
+     * @param paramScriptMacro
+     */
     public void addParamScriptMacro(ParamScriptMacro paramScriptMacro) {
         paramScriptMacro.setMacro(this);
         this.paramScriptMacros.add(paramScriptMacro);

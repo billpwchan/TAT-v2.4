@@ -26,7 +26,6 @@ import controller.tablestep.ScriptLineTableStepController;
 import controller.tablestep.StepLineTableStepController;
 import controller.tablestep.TableStepScriptCreationController;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
@@ -156,7 +155,7 @@ public class TabTestCaseNewController implements Initializable {
 
     private Alert alert;
     //Maximum Allowed TextField Length
-    final int textfieldCaseIDMaxLength = 11;
+    final int textfieldCaseIDMaxLength = 30;
     final int textfieldCaseVersionMaxLength = 10;
     final int textfieldProjectMaxLength = 10;
     final int textfieldTypeTestMaxLength = 20;
@@ -363,6 +362,10 @@ public class TabTestCaseNewController implements Initializable {
         action.setCursorHand(nodeHand);
     }
 
+    /**
+     *
+     * @param b
+     */
     public void setStateButtonScript(boolean b) {
         this.buttonAddScript.setDisable(b);
     }
@@ -535,8 +538,11 @@ public class TabTestCaseNewController implements Initializable {
         return ok;
     }
 
+    /**
+     *
+     */
     public void updateListRequirement() {
-        HashSet<Requirement> requirementsCase = new HashSet<Requirement>();
+        HashSet<Requirement> requirementsCase = new HashSet<>();
         for (int i = 0; i < this.controllerTableStep.getCollectionTestStep().size(); i++) {
             requirementsCase.addAll(this.controllerTableStep.getCollectionTestStep().get(i).getRequirements());
         }
@@ -546,6 +552,10 @@ public class TabTestCaseNewController implements Initializable {
         listViewRequirementCaseNew.setItems(FXCollections.observableArrayList(requirementsCase));
     }
 
+    /**
+     *
+     * @return
+     */
     public AnchorPane getAnchorPane() {
         return this.anchorPanelNewTestCase;
     }

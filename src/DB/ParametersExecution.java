@@ -13,14 +13,29 @@ public class ParametersExecution implements java.io.Serializable {
     private Byte paramOrder;
     private String purpose;
 
+    /**
+     *
+     */
     public ParametersExecution() {
     }
 
+    /**
+     *
+     * @param parameters
+     * @param scriptExecutions
+     */
     public ParametersExecution(Parameters parameters, ScriptExecutions scriptExecutions) {
         this.parameters = parameters;
         this.scriptExecutions = scriptExecutions;
     }
 
+    /**
+     *
+     * @param parameters
+     * @param scriptExecutions
+     * @param value
+     * @param paramOrder
+     */
     public ParametersExecution(Parameters parameters, ScriptExecutions scriptExecutions, String value, Byte paramOrder) {
         this.parameters = parameters;
         this.scriptExecutions = scriptExecutions;
@@ -28,50 +43,98 @@ public class ParametersExecution implements java.io.Serializable {
         this.paramOrder = paramOrder;
     }
 
+    /**
+     *
+     * @return
+     */
     public Integer getIdparameters() {
         return this.idparameters;
     }
 
+    /**
+     *
+     * @param idparameters
+     */
     public void setIdparameters(Integer idparameters) {
         this.idparameters = idparameters;
     }
 
+    /**
+     *
+     * @return
+     */
     public Parameters getParameters() {
         return this.parameters;
     }
 
+    /**
+     *
+     * @param parameters
+     */
     public void setParameters(Parameters parameters) {
         this.parameters = parameters;
     }
 
+    /**
+     *
+     * @return
+     */
     public ScriptExecutions getScriptExecutions() {
         return this.scriptExecutions;
     }
 
+    /**
+     *
+     * @param scriptExecutions
+     */
     public void setScriptExecutions(ScriptExecutions scriptExecutions) {
         this.scriptExecutions = scriptExecutions;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getValue() {
         return this.value;
     }
 
+    /**
+     *
+     * @param value
+     */
     public void setValue(String value) {
         this.value = value;
     }
 
+    /**
+     *
+     * @return
+     */
     public Byte getParamOrder() {
         return this.paramOrder;
     }
 
+    /**
+     *
+     * @param paramOrder
+     */
     public void setParamOrder(Byte paramOrder) {
         this.paramOrder = paramOrder;
             }
     
+    /**
+     *
+     * @param purpose
+     */
     public void setPurpose(String purpose){
         this.purpose=purpose;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getPurpose(){
         return this.purpose;
     }

@@ -87,6 +87,9 @@ public class TabTestCaseLibraryController implements Initializable {
     @FXML
     private TextField fieldFilter;
 
+    /**
+     *
+     */
     public static TabTestCaseMainViewController main;
 
     private Stage popUpCampaignID;
@@ -433,6 +436,9 @@ public class TabTestCaseLibraryController implements Initializable {
         action.setCursorHand(nodeHand);
     }
 
+    /**
+     *
+     */
     public void focusOnLast() {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         this.tableViewTestCase.getSelectionModel().selectLast();
@@ -483,6 +489,10 @@ public class TabTestCaseLibraryController implements Initializable {
         //popUpBaselineOpen = false;
     }
 
+    /**
+     *
+     * @param campaignID
+     */
     public void setOnActionCampaignID(String campaignID) {
         TestCampaign newTestCampaign = new TestCampaign();
         newTestCampaign.setReference(campaignID);
@@ -533,6 +543,10 @@ public class TabTestCaseLibraryController implements Initializable {
         }
     }
 
+    /**
+     *
+     * @param baselineID
+     */
     public void setOnActionBaselineID(String baselineID) {
         closePopUpBaseline();
         TabTestCampaignExecutionRepositoryBaselineController execController = new TabTestCampaignExecutionRepositoryBaselineController();
@@ -592,11 +606,19 @@ public class TabTestCaseLibraryController implements Initializable {
         execController.runCampaign(baselineID);
     }
 
+    /**
+     *
+     */
     public void deleteCampaign() {
         testCampaignHandler.deleteCampaignNotExecuted(campaignToBaseline);
         TabTestCampaignRepositoryController.updateRepository();
     }
 
+    /**
+     *
+     * @param testCase
+     * @return
+     */
     public boolean popUpEditCase(TestCase testCase) {
         if (testCaseHandler.getTestCaseUsed(testCase)) {
             Alert alert = new Alert(AlertType.CONFIRMATION);

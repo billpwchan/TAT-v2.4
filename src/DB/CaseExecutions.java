@@ -27,20 +27,45 @@ public class CaseExecutions implements java.io.Serializable, Comparable<CaseExec
     private String originalResult;
     private CaseExecutionsResult caseExecutionResult;
 
+    /**
+     *
+     */
     public CaseExecutions() {
     }
 
+    /**
+     *
+     * @param iterations
+     * @param testCase
+     */
     public CaseExecutions(Iterations iterations, TestCase testCase) {
         this.iterations = iterations;
         this.testCase = testCase;
     }
 
+    /**
+     *
+     * @param iterations
+     * @param testCase
+     * @param caseOrder
+     */
     public CaseExecutions(Iterations iterations, TestCase testCase, Short caseOrder) {
         this.iterations = iterations;
         this.testCase = testCase;
         this.caseOrder = caseOrder;
     }
 
+    /**
+     *
+     * @param iterations
+     * @param testCase
+     * @param caseOrder
+     * @param location
+     * @param testCategory
+     * @param caseInstance
+     * @param caseExecutionsResults
+     * @param stepExecutionses
+     */
     public CaseExecutions(Iterations iterations, TestCase testCase, Short caseOrder, String location, String testCategory, String caseInstance, Set caseExecutionsResults, Set stepExecutionses) {
         this.iterations = iterations;
         this.testCase = testCase;
@@ -52,95 +77,187 @@ public class CaseExecutions implements java.io.Serializable, Comparable<CaseExec
         this.stepExecutionses = stepExecutionses;
     }
 
+    /**
+     *
+     * @return
+     */
     public Integer getIdcaseExecutions() {
         return this.idcaseExecutions;
     }
 
+    /**
+     *
+     * @param idcaseExecutions
+     */
     public void setIdcaseExecutions(Integer idcaseExecutions) {
         this.idcaseExecutions = idcaseExecutions;
     }
 
+    /**
+     *
+     * @return
+     */
     public Iterations getIterations() {
         return this.iterations;
     }
 
+    /**
+     *
+     * @param iterations
+     */
     public void setIterations(Iterations iterations) {
         this.iterations = iterations;
     }
 
+    /**
+     *
+     * @return
+     */
     public TestCase getTestCase() {
         return this.testCase;
     }
 
+    /**
+     *
+     * @param testCase
+     */
     public void setTestCase(TestCase testCase) {
         this.testCase = testCase;
     }
 
+    /**
+     *
+     * @return
+     */
     public Short getCaseOrder() {
         return this.caseOrder;
     }
 
+    /**
+     *
+     * @param caseOrder
+     */
     public void setCaseOrder(Short caseOrder) {
         this.caseOrder = caseOrder;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getLocation() {
         return this.location;
     }
 
+    /**
+     *
+     * @param location
+     */
     public void setLocation(String location) {
         this.location = location;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getTestCategory() {
         return this.testCategory;
     }
 
+    /**
+     *
+     * @param testCategory
+     */
     public void setTestCategory(String testCategory) {
         this.testCategory = testCategory;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getCaseInstance() {
         return this.caseInstance;
     }
 
+    /**
+     *
+     * @param caseInstance
+     */
     public void setCaseInstance(String caseInstance) {
         this.caseInstance = caseInstance;
     }
 
+    /**
+     *
+     * @return
+     */
     public Set getCaseExecutionsResults() {
         return this.caseExecutionsResults;
     }
 
+    /**
+     *
+     * @param caseExecutionsResults
+     */
     public void setCaseExecutionsResults(Set caseExecutionsResults) {
         this.caseExecutionsResults = caseExecutionsResults;
     }
 
+    /**
+     *
+     * @return
+     */
     public Set getStepExecutionses() {
         return this.stepExecutionses;
     }
 
+    /**
+     *
+     * @param stepExecutionses
+     */
     public void setStepExecutionses(Set stepExecutionses) {
         this.stepExecutionses = stepExecutionses;
     }
 
+    /**
+     *
+     * @param comment
+     */
     public void setCaseExecutionComment(String comment) {
         this.comment = comment;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getCaseExecutionComment() {
         return this.comment;
     }
 
+    /**
+     *
+     * @param result
+     */
     public void setCaseExecutionResult(String result) {
         simpleStringResultProperty().set(result);
         this.result = result;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getSimpleStringResultProperty() {
         return simpleStringResultProperty().get();
     }
 
+    /**
+     *
+     * @return
+     */
     public StringProperty simpleStringResultProperty() {
         if (simpleStringResult == null) {
             simpleStringResult = new SimpleStringProperty(this, "result");
@@ -148,6 +265,10 @@ public class CaseExecutions implements java.io.Serializable, Comparable<CaseExec
         return simpleStringResult;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getCaseExecutionResult() {
         return this.result;
     }
@@ -157,27 +278,51 @@ public class CaseExecutions implements java.io.Serializable, Comparable<CaseExec
         return Integer.compare(this.getCaseOrder(), o.getCaseOrder());
     }
 
+    /**
+     *
+     * @param excelPath
+     */
     public void setExcelPath(String excelPath) {
         this.ExcelPath = excelPath;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getExcelPath() {
         return this.ExcelPath;
     }
 
+    /**
+     *
+     * @param originalResult
+     */
     public void setOriginalResult(String originalResult) {
         this.originalResult = originalResult;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getOriginalResult() {
         return this.originalResult;
     }
     
+    /**
+     *
+     * @return
+     */
     public CaseExecutionsResult getCaseExecutionResultObj(){
         return this.caseExecutionResult;
     }
     
-        public void setCaseExecutionResultObj(CaseExecutionsResult caseExecutionResult){
+    /**
+     *
+     * @param caseExecutionResult
+     */
+    public void setCaseExecutionResultObj(CaseExecutionsResult caseExecutionResult){
         this.caseExecutionResult=caseExecutionResult;
     }
 

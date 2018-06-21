@@ -65,14 +65,26 @@ public class PopUpBaselineCreationController implements Initializable {
         });
     }
 
+    /**
+     *
+     * @param mainController
+     */
     public void init(TabTestCaseLibraryController mainController) {
         this.mainController = mainController;
     }
 
+    /**
+     *
+     * @param stage
+     */
     public void setPrimaryStage(Stage stage) {
         this.dialogStage = stage;
     }
 
+    /**
+     *
+     * @param baselineID
+     */
     public void getBaselineExistance(String baselineID) {
         ConfigurationDB configurationHandler = new ConfigurationDB();
         if (configurationHandler.checkConfigurationExistence(baselineID) >= 1) {

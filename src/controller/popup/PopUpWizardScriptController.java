@@ -1414,6 +1414,11 @@ public class PopUpWizardScriptController implements Initializable {
         }
     }
 
+    /**
+     *
+     * @param str
+     * @return
+     */
     public static boolean isNumeric(String str) {
         try {
             double d = Double.parseDouble(str);
@@ -1440,14 +1445,32 @@ public class PopUpWizardScriptController implements Initializable {
         }
     }
 
+    /**
+     *
+     * @param <T>
+     * @param comboBox
+     * @param value
+     * @param f
+     */
     public static <T> void autoSelectComboBoxValue(ComboBox<T> comboBox, String value, Func<T, String> f) {
         comboBox.getItems().stream().filter((t) -> (f.compare(t, value))).forEach((t) -> {
             comboBox.getSelectionModel().select(t);
         });
     }
 
+    /**
+     *
+     * @param <T>
+     * @param <V>
+     */
     public interface Func<T, V> {
 
+        /**
+         *
+         * @param t
+         * @param v
+         * @return
+         */
         boolean compare(T t, V v);
     }
 
@@ -1592,6 +1615,10 @@ public class PopUpWizardScriptController implements Initializable {
         });
     }
 
+    /**
+     *
+     * @param path
+     */
     public void displayPreview(String path) {
         Stage primaryStage = new Stage();
         primaryStage.setTitle("Load Image");
@@ -1609,6 +1636,10 @@ public class PopUpWizardScriptController implements Initializable {
         primaryStage.show();
     }
 
+    /**
+     *
+     * @param param
+     */
     public void deleteReferenceToParam(ScriptHasBeenConfigured param) {
         //for (ScriptLineTableStepController collectionControllerScript : controller.getControllerScriptFather().controllerViewGlobal().getCollectionControllerScript()) {
         for (ScriptLineTableStepController collectionControllerScript : controller.getControllerScriptFather().getControllerStepParent().getCollectionScript()) {

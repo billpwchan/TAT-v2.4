@@ -200,6 +200,9 @@ public class TabMacroLibraryController implements Initializable {
         }
     }
 
+    /**
+     *
+     */
     public void updateLibrary() {
         this.observableListMacro.setAll(this.macroHandler.getMacros());
         //this.tableViewMacro.setItems(observableListMacro);

@@ -25,10 +25,28 @@ public class TestStep implements java.io.Serializable,Comparable<TestStep> {
     private Set requirements = new HashSet(0);
     private Set testStepHasScripts = new HashSet(0);
 
+    /**
+     *
+     */
     public TestStep() {
         
     }
 
+    /**
+     *
+     * @param testCase
+     * @param writer
+     * @param humanStimuli
+     * @param humanCheck
+     * @param creationDate
+     * @param editionDate
+     * @param stepOrder
+     * @param blockingStep
+     * @param stepCondition
+     * @param stepExecutionses
+     * @param requirements
+     * @param testStepHasScripts
+     */
     public TestStep(TestCase testCase, String writer, String humanStimuli, String humanCheck, String creationDate, String editionDate, Byte stepOrder, Boolean blockingStep, Boolean stepCondition, Set stepExecutionses, Set requirements, Set testStepHasScripts) {
         this.testCase = testCase;
         this.writer = writer;
@@ -44,6 +62,10 @@ public class TestStep implements java.io.Serializable,Comparable<TestStep> {
         this.testStepHasScripts = testStepHasScripts;
     }
 
+    /**
+     *
+     * @param step
+     */
     public TestStep(TestStep step) {
         this.testCase = step.getTestCase();
         this.idtestStep = step.getIdtestStep();
@@ -59,106 +81,210 @@ public class TestStep implements java.io.Serializable,Comparable<TestStep> {
         this.testStepHasScripts = step.getTestStepHasScripts();
     }
 
+    /**
+     *
+     * @return
+     */
     public Integer getIdtestStep() {
         return this.idtestStep;
     }
 
+    /**
+     *
+     * @param idtestStep
+     */
     public void setIdtestStep(Integer idtestStep) {
         this.idtestStep = idtestStep;
     }
 
+    /**
+     *
+     * @return
+     */
     public TestCase getTestCase() {
         return this.testCase;
     }
 
+    /**
+     *
+     * @param testCase
+     */
     public void setTestCase(TestCase testCase) {
         this.testCase = testCase;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getWriter() {
         return this.writer;
     }
 
+    /**
+     *
+     * @param writer
+     */
     public void setWriter(String writer) {
         this.writer = writer;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getHumanStimuli() {
         return this.humanStimuli;
     }
 
+    /**
+     *
+     * @param humanStimuli
+     */
     public void setHumanStimuli(String humanStimuli) {
         this.humanStimuli = humanStimuli;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getHumanCheck() {
         return this.humanCheck;
     }
 
+    /**
+     *
+     * @param humanCheck
+     */
     public void setHumanCheck(String humanCheck) {
         this.humanCheck = humanCheck;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getCreationDate() {
         return this.creationDate;
     }
 
+    /**
+     *
+     * @param creationDate
+     */
     public void setCreationDate(String creationDate) {
         this.creationDate = creationDate;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getEditionDate() {
         return this.editionDate;
     }
 
+    /**
+     *
+     * @param editionDate
+     */
     public void setEditionDate(String editionDate) {
         this.editionDate = editionDate;
     }
 
+    /**
+     *
+     * @return
+     */
     public Byte getStepOrder() {
         return this.stepOrder;
     }
 
+    /**
+     *
+     * @param stepOrder
+     */
     public void setStepOrder(Byte stepOrder) {
         this.stepOrder = stepOrder;
     }
 
+    /**
+     *
+     * @return
+     */
     public Boolean getBlockingStep() {
         return this.blockingStep;
     }
 
+    /**
+     *
+     * @param blockingStep
+     */
     public void setBlockingStep(Boolean blockingStep) {
         this.blockingStep = blockingStep;
     }
 
+    /**
+     *
+     * @return
+     */
     public Boolean getStepCondition() {
         return this.stepCondition;
     }
 
+    /**
+     *
+     * @param stepCondition
+     */
     public void setStepCondition(Boolean stepCondition) {
         this.stepCondition = stepCondition;
     }
 
+    /**
+     *
+     * @return
+     */
     public Set getStepExecutionses() {
         return this.stepExecutionses;
     }
 
+    /**
+     *
+     * @param stepExecutionses
+     */
     public void setStepExecutionses(Set stepExecutionses) {
         this.stepExecutionses = stepExecutionses;
     }
 
+    /**
+     *
+     * @return
+     */
     public Set getRequirements() {
         return this.requirements;
     }
 
+    /**
+     *
+     * @param requirements
+     */
     public void setRequirements(Set requirements) {
         this.requirements = requirements;
     }
 
+    /**
+     *
+     * @return
+     */
     public Set getTestStepHasScripts() {
         return this.testStepHasScripts;
     }
 
+    /**
+     *
+     * @param testStepHasScripts
+     */
     public void setTestStepHasScripts(Set<TestStepHasScript> testStepHasScripts) {
         this.testStepHasScripts = testStepHasScripts;
         Iterator<TestStepHasScript> it = testStepHasScripts.iterator();
@@ -167,6 +293,10 @@ public class TestStep implements java.io.Serializable,Comparable<TestStep> {
         }
     }
 
+    /**
+     *
+     * @param testStepHasScript
+     */
     public void addTestStephasScript(TestStepHasScript testStepHasScript) {
         testStepHasScript.setTestStep(this);
         this.testStepHasScripts.add(testStepHasScript);

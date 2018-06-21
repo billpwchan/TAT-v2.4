@@ -44,6 +44,13 @@ public class TriggerModbusPointDI implements InterfaceScript {
      */
     String result = "Failed";
 
+    /**
+     *
+     * @param processImage
+     * @param register
+     * @param newValue
+     * @throws InterruptedException
+     */
     public void updateHoldingRegister(SimpleProcessImage processImage, int register, double newValue) throws InterruptedException {
 
         processImage.setRegister((int) register, new SimpleRegister((int) newValue));
@@ -64,6 +71,9 @@ public class TriggerModbusPointDI implements InterfaceScript {
         Thread.sleep(500);
     }
 
+    /**
+     *
+     */
     public void treatParameters() {
         final String[] parameter = this.params.split(",");
         this.value = Integer.parseInt(parameter[0]);
@@ -72,6 +82,9 @@ public class TriggerModbusPointDI implements InterfaceScript {
 //        System.out.println("register = "+this.register);
     }
 
+    /**
+     *
+     */
     public void result() {
         this.result = "success";
     }

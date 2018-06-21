@@ -55,6 +55,9 @@ public class TriggerEquipment implements InterfaceScript {
 
     private final static double minScore = 0.999;
 
+    /**
+     *
+     */
     public ArrayList<String> pathUtilitise = new ArrayList<>(Arrays.asList("", "", "", "", "", "", "", "", "", "", ""));
 
     // private boolean lookAndFeelExist = false;

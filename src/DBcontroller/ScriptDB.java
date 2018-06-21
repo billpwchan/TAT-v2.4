@@ -30,9 +30,17 @@ import org.hibernate.SessionFactory;
 public class ScriptDB {
     //private Configuration cfg=new Configuration();
 
+    /**
+     *
+     */
+    
     public ScriptDB() {
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<Script> getAllScripts() {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
@@ -43,6 +51,11 @@ public class ScriptDB {
         return scripts;
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     public Script getTestScriptFromID(int id) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
@@ -54,6 +67,10 @@ public class ScriptDB {
         return script;
     }
 
+    /**
+     *
+     * @param scriptExecution
+     */
     public void getScriptAndParametersExecutionFromScriptExecution(ScriptExecutions scriptExecution) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
@@ -63,6 +80,12 @@ public class ScriptDB {
         session.close();
     }
 
+    /**
+     *
+     * @param session
+     * @param stepExecution
+     * @param iteration
+     */
     public void getScriptParametersAndResults(Session session, StepExecutions stepExecution, Iterations iteration) {
         Query qryStep = session.createQuery("from ScriptExecutionResult SER where SER.id.scriptExecutionsIdscriptExecutions=:idScript and SER.id.iterationNumber=:iterationNumber");
         Iterator<ScriptExecutions> itScriptExecutions = stepExecution.getScriptExecutionses().iterator();
@@ -93,6 +116,10 @@ public class ScriptDB {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public HashSet<Script> getScriptListWithParameters() {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
@@ -113,6 +140,10 @@ public class ScriptDB {
         return scripts;
     }
 
+    /**
+     *
+     * @return
+     */
     public HashSet<Script> getScriptListAndParameters() {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
@@ -133,6 +164,10 @@ public class ScriptDB {
         return scripts;
     }
 
+    /**
+     *
+     * @param script
+     */
     public void getAllFromScript(Script script) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
@@ -145,6 +180,10 @@ public class ScriptDB {
         session.close();
     }
     
+    /**
+     *
+     * @param script
+     */
     public void getAllFromParamScriptMacro(Script script) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
@@ -157,6 +196,9 @@ public class ScriptDB {
         session.close();
     }
 
+    /**
+     *
+     */
     public void fillDB() {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();

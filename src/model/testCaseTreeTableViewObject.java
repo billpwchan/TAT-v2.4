@@ -72,6 +72,10 @@ public class testCaseTreeTableViewObject {
 
     }
 
+    /**
+     *
+     * @return
+     */
     public SimpleStringProperty checkProperty() {
         if (check == null) {
             check = new SimpleStringProperty(this, "check");
@@ -79,6 +83,10 @@ public class testCaseTreeTableViewObject {
         return check;
     }
 
+    /**
+     *
+     * @return
+     */
     public SimpleStringProperty stimuliProperty() {
         if (stimuli == null) {
             stimuli = new SimpleStringProperty(this, "stimuli");

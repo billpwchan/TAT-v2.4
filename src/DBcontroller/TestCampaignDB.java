@@ -27,6 +27,10 @@ import org.hibernate.criterion.Restrictions;
 // * @author tmorin
 // */
 
+/**
+ *
+ * @author tmartinez
+ */
 public class TestCampaignDB {
 //
 //    private Object assessmentsSearch;
@@ -37,6 +41,11 @@ public class TestCampaignDB {
 //    }
 //
 
+    /**
+     *
+     * @return
+     */
+    
     public ArrayList<TestCampaign> getAllCampaigns() {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
@@ -50,6 +59,12 @@ public class TestCampaignDB {
     }
 //
 
+    /**
+     *
+     * @param testCampaign
+     * @param testCases
+     * @return
+     */
     public TestCampaign CreateCampaign(TestCampaign testCampaign, ArrayList<TestCase> testCases) {
         TestCase testCaseToAdd = new TestCase();
         SessionFactory factory = sessionFactorySingleton.getInstance();
@@ -81,6 +96,11 @@ public class TestCampaignDB {
         //factory.close();
     }
 
+    /**
+     *
+     * @return
+     * @throws ParseException
+     */
     public ArrayList<Iterations> getBaselinedCampaignsTree() throws ParseException {
         ArrayList<Iterations> baselinedCampaigns = new ArrayList<>();
         SessionFactory factory = sessionFactorySingleton.getInstance();
@@ -101,6 +121,11 @@ public class TestCampaignDB {
         return iterations;
     }
 
+    /**
+     *
+     * @param campaignID
+     * @return
+     */
     public TestCampaign getTestCampaignFromID(int campaignID) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
@@ -109,6 +134,11 @@ public class TestCampaignDB {
         return testCampaign;
     }
 
+    /**
+     *
+     * @param campaignName
+     * @return
+     */
     public long checkCampaignExistence(String campaignName) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
@@ -119,6 +149,10 @@ public class TestCampaignDB {
         return count;
     }
 
+    /**
+     *
+     * @param campaign
+     */
     public void deleteCampaignNotExecuted(TestCampaign campaign) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
@@ -130,7 +164,12 @@ public class TestCampaignDB {
         session.close();
     }
     
-        public ArrayList<TestCampaign> getCampaignsFromCases(TestCase testCase){
+    /**
+     *
+     * @param testCase
+     * @return
+     */
+    public ArrayList<TestCampaign> getCampaignsFromCases(TestCase testCase){
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
         ArrayList<TestCampaign> TestCampaigns= new ArrayList<>();

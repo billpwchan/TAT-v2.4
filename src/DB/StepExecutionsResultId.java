@@ -12,25 +12,50 @@ public class StepExecutionsResultId  implements java.io.Serializable {
      private int stepExecutionsIdstepExecutions;
      private byte iterationNumber;
 
+    /**
+     *
+     */
     public StepExecutionsResultId() {
     }
 
+    /**
+     *
+     * @param stepExecutionsIdstepExecutions
+     * @param iterationNumber
+     */
     public StepExecutionsResultId(int stepExecutionsIdstepExecutions, byte iterationNumber) {
        this.stepExecutionsIdstepExecutions = stepExecutionsIdstepExecutions;
        this.iterationNumber = iterationNumber;
     }
    
+    /**
+     *
+     * @return
+     */
     public int getStepExecutionsIdstepExecutions() {
         return this.stepExecutionsIdstepExecutions;
     }
     
+    /**
+     *
+     * @param stepExecutionsIdstepExecutions
+     */
     public void setStepExecutionsIdstepExecutions(int stepExecutionsIdstepExecutions) {
         this.stepExecutionsIdstepExecutions = stepExecutionsIdstepExecutions;
     }
+
+    /**
+     *
+     * @return
+     */
     public byte getIterationNumber() {
         return this.iterationNumber;
     }
     
+    /**
+     *
+     * @param iterationNumber
+     */
     public void setIterationNumber(byte iterationNumber) {
         this.iterationNumber = iterationNumber;
     }

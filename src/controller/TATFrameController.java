@@ -306,11 +306,19 @@ public class TATFrameController implements Initializable {
         });
     }
 
+    /**
+     *
+     * @param testCase
+     */
     public void callViewToTestCase(TestCase testCase) {
         this.tabPaneHMI.getSelectionModel().select(this.tabViewCase);
         this.mainControllerCase.displayViewTab(testCase);
     }
 
+    /**
+     *
+     * @param testCampaign
+     */
     public void callViewToTestCampaign(TestCampaign testCampaign) {
         this.tabPaneHMI.getSelectionModel().select(this.tabViewCampaign);
         this.mainControllerCampaign.displayViewTab(testCampaign);
@@ -319,10 +327,19 @@ public class TATFrameController implements Initializable {
 //    public void manageBaselineButton(int size){
 //        this.mainControllerCampaignExecution.buttonBaselineManagement(size);
 //    }
-    public void setPrimaryStage(Stage primaryStage) {
+
+    /**
+     *
+     * @param primaryStage
+     */
+        public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
 
+    /**
+     *
+     * @return
+     */
     public Stage getPrimaryStage() {
         return this.primaryStage;
     }
@@ -369,11 +386,17 @@ public class TATFrameController implements Initializable {
 
     }
 
+    /**
+     *
+     */
     public void setOnValidParams() {
         setting.saveSettings();
         popUpSettingsStage.close();
     }
 
+    /**
+     *
+     */
     public void focusOnSettings() {
         popUpSettingsStage.requestFocus();
     }

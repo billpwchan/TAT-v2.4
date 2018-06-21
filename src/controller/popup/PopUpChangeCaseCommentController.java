@@ -56,10 +56,18 @@ public class PopUpChangeCaseCommentController implements Initializable {
 
     }
 
+    /**
+     *
+     * @param mainController
+     */
     public void init(TabViewResultsController mainController) {
         this.mainController = mainController;
     }
 
+    /**
+     *
+     * @param caseExecu
+     */
     public void setComment(CaseExecutions caseExecu) {
         this.caseExecu = caseExecu;
         if (!caseExecu.getCaseExecutionResultObj().getComment().contains(caseExecu.getCaseExecutionResultObj().getSimpleStringCommentProperty())) {

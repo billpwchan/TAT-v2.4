@@ -51,6 +51,22 @@ public class ConfigurationDB {
     private void init() {
     }
 
+    /**
+     *
+     * @param iteration
+     * @param testCase
+     * @param exceFile
+     * @param range
+     * @param sheetNumber
+     * @param caseNumber
+     * @param excelCategoryInstantiation
+     * @param excelLocationInstantiation
+     * @return
+     * @throws FileNotFoundException
+     * @throws IOException
+     * @throws InterruptedException
+     * @throws Exception
+     */
     public int configureTestCase(Iterations iteration, TestCase testCase, File exceFile, int range, String sheetNumber,
             int caseNumber, String excelCategoryInstantiation, String excelLocationInstantiation)
             throws FileNotFoundException, IOException, InterruptedException, Exception {
@@ -197,6 +213,11 @@ public class ConfigurationDB {
         return caseNumber;
     }
 
+    /**
+     *
+     * @param baselineName
+     * @return
+     */
     public long checkConfigurationExistence(String baselineName) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
@@ -207,6 +228,10 @@ public class ConfigurationDB {
         return count;
     }
 
+    /**
+     *
+     * @param baseline
+     */
     public void deleteConfiguration(Iterations baseline) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
@@ -228,7 +253,14 @@ public class ConfigurationDB {
     }
 
     //Baseline has something wrong. Records are not deleted. 
-    public Iterations createBaseline(String baselineId, TestCampaign campaignToBaseline) {
+
+    /**
+     *
+     * @param baselineId
+     * @param campaignToBaseline
+     * @return
+     */
+        public Iterations createBaseline(String baselineId, TestCampaign campaignToBaseline) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
 
@@ -239,6 +271,14 @@ public class ConfigurationDB {
         return baseline;
     }
 
+    /**
+     *
+     * @param sheet
+     * @param x
+     * @param y
+     * @param indexLine
+     * @return
+     */
     public String getExcelValue(HSSFSheet sheet, int x, int y, int indexLine) {
         String value = null;
         switch (sheet.getRow(y + indexLine - 1).getCell(x - 1).getCellType()) {

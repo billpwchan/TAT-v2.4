@@ -152,6 +152,10 @@ public class TabScriptNewController implements Initializable {
 
     }
 
+    /**
+     *
+     * @param mainController
+     */
     public void init(TabScriptsMainViewController mainController) {
         TabScriptNewController.mainController = mainController;
         controllerTableParam.initScriptNew(this);
@@ -204,6 +208,9 @@ public class TabScriptNewController implements Initializable {
 
     }
 
+    /**
+     *
+     */
     public void initButtons() {
 
         this.buttonValid.setDisable(true);
@@ -222,6 +229,10 @@ public class TabScriptNewController implements Initializable {
 
     }
 
+    /**
+     *
+     * @throws ParseException
+     */
     public void createScript() throws ParseException {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
@@ -238,6 +249,11 @@ public class TabScriptNewController implements Initializable {
         session.close();
     }
 
+    /**
+     *
+     * @return
+     * @throws ParseException
+     */
     public Script constructScript() throws ParseException {
         Script newScript = new Script();
         newScript.setName(jtextfieldScriptName.getText());
@@ -250,6 +266,9 @@ public class TabScriptNewController implements Initializable {
         return newScript;
     }
 
+    /**
+     *
+     */
     public void initNewScript() {
         this.loadCSS();
         this.jtextfieldScriptCreationDate.setText(String.valueOf(df.format(new Date())));
@@ -372,10 +391,17 @@ public class TabScriptNewController implements Initializable {
         mainController.focusLibrary();
     }
 
+    /**
+     *
+     * @param param
+     */
     public void prefillParam(ArrayList<Parameters> param) {
         controllerTableParam.PrefilParams(param);
     }
 
+    /**
+     *
+     */
     public void scriptCopy() {
         ArrayList<Parameters> params = new ArrayList<>();
         try {

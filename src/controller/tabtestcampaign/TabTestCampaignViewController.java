@@ -92,8 +92,14 @@ public class TabTestCampaignViewController implements Initializable {
     @FXML
     private CheckBox CheckboxRegressionThreadCampaignView;
 
+    /**
+     *
+     */
     public TestCaseDB testCaseHandler = new TestCaseDB();
 
+    /**
+     *
+     */
     public static TabTestCampaignMainViewController main;
 
     private final ObservableList<TestCase> observableListTestCase = FXCollections.observableArrayList();

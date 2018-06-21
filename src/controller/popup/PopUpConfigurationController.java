@@ -45,6 +45,10 @@ public class PopUpConfigurationController implements Initializable {
         // TODO
     }
 
+    /**
+     *
+     * @param mainController
+     */
     public void init(TATFrameController mainController) {
         maincontroller = mainController;
 
@@ -59,10 +63,16 @@ public class PopUpConfigurationController implements Initializable {
 
     }
 
+    /**
+     *
+     */
     public void constructInformation() {
         textFieldPath.setText(settings.scriptsPaht);
     }
 
+    /**
+     *
+     */
     public void directoryChooserPathScripts() {
         DirectoryChooser chooser = new DirectoryChooser();
         chooser.setTitle("Directory Scripts");

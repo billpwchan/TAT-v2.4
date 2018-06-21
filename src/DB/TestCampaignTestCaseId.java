@@ -13,33 +13,68 @@ public class TestCampaignTestCaseId  implements java.io.Serializable {
      private int testCaseIdtestCase;
      private byte caseOrder;
 
+    /**
+     *
+     */
     public TestCampaignTestCaseId() {
     }
 
+    /**
+     *
+     * @param testCampaignIdtestCampaign
+     * @param testCaseIdtestCase
+     * @param caseOrder
+     */
     public TestCampaignTestCaseId(int testCampaignIdtestCampaign, int testCaseIdtestCase, byte caseOrder) {
        this.testCampaignIdtestCampaign = testCampaignIdtestCampaign;
        this.testCaseIdtestCase = testCaseIdtestCase;
        this.caseOrder = caseOrder;
     }
    
+    /**
+     *
+     * @return
+     */
     public int getTestCampaignIdtestCampaign() {
         return this.testCampaignIdtestCampaign;
     }
     
+    /**
+     *
+     * @param testCampaignIdtestCampaign
+     */
     public void setTestCampaignIdtestCampaign(int testCampaignIdtestCampaign) {
         this.testCampaignIdtestCampaign = testCampaignIdtestCampaign;
     }
+
+    /**
+     *
+     * @return
+     */
     public int getTestCaseIdtestCase() {
         return this.testCaseIdtestCase;
     }
     
+    /**
+     *
+     * @param testCaseIdtestCase
+     */
     public void setTestCaseIdtestCase(int testCaseIdtestCase) {
         this.testCaseIdtestCase = testCaseIdtestCase;
     }
+
+    /**
+     *
+     * @return
+     */
     public byte getCaseOrder() {
         return this.caseOrder;
     }
     
+    /**
+     *
+     * @param caseOrder
+     */
     public void setCaseOrder(byte caseOrder) {
         this.caseOrder = caseOrder;
     }

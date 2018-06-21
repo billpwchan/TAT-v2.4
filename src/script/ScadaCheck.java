@@ -64,7 +64,15 @@ public class ScadaCheck {
 //    public ArrayList<ParametersScript> getParametersType() {
 //        return null;
 //    }
-    public String run(ArrayList<ParametersExecution> parameters) throws JSchException, IOException {
+
+    /**
+     *
+     * @param parameters
+     * @return
+     * @throws JSchException
+     * @throws IOException
+     */
+        public String run(ArrayList<ParametersExecution> parameters) throws JSchException, IOException {
         Session session;
         boolean highLevelFound = false;
         boolean lowLevelFound = false;
@@ -119,10 +127,17 @@ public class ScadaCheck {
         return this.result;
     }
 
+    /**
+     *
+     */
     public void result() {
         this.result = "success";
     }
 
+    /**
+     *
+     * @param msg
+     */
     public void lineDecoder(String msg) {
         int index1;
         int index2;
@@ -149,6 +164,10 @@ public class ScadaCheck {
         //System.out.println("DESCRIPTION "+ equipmentDescriptionFound+" state= "+stateFound+" equipment code= "+equipmentCodeFound+" equipmentNumber= "+equipmentNumberFound+" Station= "+stationFound);
     }
 
+    /**
+     *
+     * @param state
+     */
     public void comparison(String state) {
         if (!this.equipmentCodeFound.equals(this.equipmentCode)) {
             this.result = this.result + "Problem with the equipment code of the " + state + "\n";
@@ -168,6 +187,10 @@ public class ScadaCheck {
         
     }
 
+    /**
+     *
+     * @throws JSchException
+     */
     public void close() throws JSchException {
         Session session;
         session = ServerConnection.getInstance("", "", "");

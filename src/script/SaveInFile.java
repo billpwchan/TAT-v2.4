@@ -25,6 +25,13 @@ public class SaveInFile {
     private String path;
     private String fileName;
 
+    /**
+     *
+     * @param parameters
+     * @param hashMap
+     * @return
+     * @throws Exception
+     */
     public String run(ArrayList<ParametersExecution> parameters, HashMap hashMap) throws Exception {
         int Arraylist = 0;
         int buffer = 0;
@@ -87,6 +94,9 @@ public class SaveInFile {
         return null;
     }
 
+    /**
+     *
+     */
     public void close() {
 
     }

@@ -15,10 +15,17 @@ public class settings {
 
     //private String configPath = "settings.properties";
 
+    /**
+     *
+     */
+    
     public static String scriptsPaht;
     
     private Preferences prefs;
 
+    /**
+     *
+     */
     public void readSettings() {
         prefs = Preferences.userRoot().node(this.getClass().getName());
         scriptsPaht=prefs.get("scriptPath", "");
@@ -37,6 +44,9 @@ public class settings {
 //        scriptsPaht = properties.getProperty("scriptPath");
     }
 
+    /**
+     *
+     */
     public void saveSettings() {
         prefs.put("scriptPath", scriptsPaht);
     }

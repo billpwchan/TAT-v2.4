@@ -48,6 +48,9 @@ public class PopUpCaseSelectionController implements Initializable {
     @FXML
     private TextField fieldFilter;
 
+    /**
+     *
+     */
     public static TabTestCampaignNewController controllerNewCampaign;
 
     private ObservableList<TestCase> observableListTestCase = FXCollections.observableArrayList();
@@ -154,10 +157,18 @@ public class PopUpCaseSelectionController implements Initializable {
         });
     }
 
+    /**
+     *
+     * @param controllerNewCampaign
+     */
     public void init(TabTestCampaignNewController controllerNewCampaign) {
         PopUpCaseSelectionController.controllerNewCampaign = controllerNewCampaign;
     }
 
+    /**
+     *
+     * @param casesInDB
+     */
     public void setTable(ObservableList<TestCase> casesInDB) {
         observableListTestCase = casesInDB;
         System.out.println("observable size =  " + observableListTestCase.size());

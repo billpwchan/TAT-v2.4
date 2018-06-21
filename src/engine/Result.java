@@ -18,7 +18,11 @@ public class Result {
     private String comment;
 
     //constructor of a result
-    public Result() {
+
+    /**
+     *
+     */
+        public Result() {
         this.result = "";
         this.comment = "";
     }

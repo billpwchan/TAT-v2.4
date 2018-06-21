@@ -127,6 +127,10 @@ public class ScriptLineParameterController implements Initializable {
         this.personalID = scriptID;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getIDParam() {
         return this.personalID;
     }
@@ -149,6 +153,10 @@ public class ScriptLineParameterController implements Initializable {
         constructInformation(id);
     }
 
+    /**
+     *
+     * @param params
+     */
     public void setParamsCreation(ArrayList<Parameters> params) {
 
         //this.loadViewAction();
@@ -241,6 +249,10 @@ public class ScriptLineParameterController implements Initializable {
         this.comboBoxParam.getSelectionModel().select(0);
     }
 
+    /**
+     *
+     * @return
+     */
     public Parameters constructParam() {
         Parameters param = new Parameters();
         if (paramSelected.getName().equals("Add new parameter")) {
@@ -254,6 +266,10 @@ public class ScriptLineParameterController implements Initializable {
         return param;
     }
 
+    /**
+     *
+     * @param param
+     */
     public void setParam(Parameters param) {
         this.textFieldName2.setVisible(true);
         this.textFieldType.setVisible(true);
@@ -270,6 +286,10 @@ public class ScriptLineParameterController implements Initializable {
         description.setOpacity(0.95);
     }
 
+    /**
+     *
+     * @param param
+     */
     public void setPreFilledParams(Parameters param) {
         int found = -1;
         for (int i = 0; i < this.comboBoxParam.getItems().size(); i++) {
@@ -288,6 +308,9 @@ public class ScriptLineParameterController implements Initializable {
         }
     }
 
+    /**
+     *
+     */
     public void initComboBox() {
         comboBoxParam.setCellFactory(new Callback<ListView<Parameters>, ListCell<Parameters>>() {
             @Override
@@ -321,6 +344,9 @@ public class ScriptLineParameterController implements Initializable {
         });
     }
 
+    /**
+     *
+     */
     public void setScriptPurpose() {
         for (int i = 0; i < this.comboBoxParam.getItems().size(); i++) {
             if (paramToDisplay.get(i).getName().equals("Script purpose")) {

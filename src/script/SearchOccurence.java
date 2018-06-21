@@ -36,6 +36,14 @@ public class SearchOccurence {
     public void SearchOccurence() {
     }
 
+    /**
+     *
+     * @param parameters
+     * @param hashMap
+     * @return
+     * @throws JSchException
+     * @throws IOException
+     */
     public Result run(ArrayList<ParametersExecution> parameters, HashMap hashMap) throws JSchException, IOException {
         Result result = new Result();
         result.setResult("NOK");
@@ -108,6 +116,11 @@ public class SearchOccurence {
         return result;
     }
 
+    /**
+     *
+     * @param s
+     * @return
+     */
     public static boolean isInteger(String s) {
         try {
             Integer.parseInt(s);
@@ -117,6 +130,9 @@ public class SearchOccurence {
         return true;
     }
 
+    /**
+     *
+     */
     public void close() {
 
     }

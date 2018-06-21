@@ -45,6 +45,15 @@ public class popUpCheck {
     public void popUpStimuli() {
     }
 
+    /**
+     *
+     * @param parameters
+     * @param hashMap
+     * @return
+     * @throws IOException
+     * @throws InterruptedException
+     * @throws ExecutionException
+     */
     public Result run(ArrayList<ParametersExecution> parameters, HashMap hashMap) throws IOException, InterruptedException, ExecutionException {
         System.out.println("JE RENTRE DANS POPUP");
         this.humanCheck = parameters.get(1).getValue().trim();
@@ -197,6 +206,9 @@ public class popUpCheck {
 
     }
 
+    /**
+     *
+     */
     public void close() {
 
     }

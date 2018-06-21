@@ -71,6 +71,10 @@ public class TabMacroMainViewController implements Initializable {
         this.tabPaneMacro.setTabClosingPolicy(TabPane.TabClosingPolicy.SELECTED_TAB);
     }
 
+    /**
+     *
+     * @param aThis
+     */
     public void init(TATFrameController aThis) {
         // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -148,10 +152,16 @@ public class TabMacroMainViewController implements Initializable {
         this.tabPaneMacro.getTabs().remove(this.tabPaneMacro.getSelectionModel().getSelectedItem());
     }
 
+    /**
+     *
+     */
     public void focusLibrary() {
         this.tabPaneMacro.getSelectionModel().select(0);
     }
 
+    /**
+     *
+     */
     public void updateRepository() {
         TabMacroMainViewController.libraryController.updateLibrary();
     }

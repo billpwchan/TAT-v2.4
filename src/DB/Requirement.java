@@ -20,9 +20,23 @@ public class Requirement implements java.io.Serializable {
     private String iadt;
     private Set testSteps = new HashSet(0);
 
+    /**
+     *
+     */
     public Requirement() {
     }
 
+    /**
+     *
+     * @param idRequirement
+     * @param category
+     * @param writer
+     * @param requirementText
+     * @param coverage
+     * @param comment
+     * @param testSteps
+     * @param iadt
+     */
     public Requirement(String idRequirement, String category, String writer, String requirementText, Short coverage, String comment, Set testSteps, String iadt) {
         this.requirementID = idRequirement;
         this.category = category;
@@ -34,6 +48,10 @@ public class Requirement implements java.io.Serializable {
         this.iadt = iadt;
     }
 
+    /**
+     *
+     * @param req
+     */
     public Requirement(Requirement req) {
         this.category = req.getCategory();
         this.writer = req.getWriter();
@@ -44,74 +62,146 @@ public class Requirement implements java.io.Serializable {
         this.iadt = req.getIadt();
     }
 
+    /**
+     *
+     * @return
+     */
     public Integer getIdrequirement() {
         return this.idrequirement;
     }
 
+    /**
+     *
+     * @param idrequirement
+     */
     public void setIdrequirement(Integer idrequirement) {
         this.idrequirement = idrequirement;
     }
 
+    /**
+     *
+     * @return
+     */
     public Byte getVersion() {
         return this.version;
     }
 
+    /**
+     *
+     * @param version
+     */
     public void setVersion(Byte version) {
         this.version = version;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getCategory() {
         return this.category;
     }
 
+    /**
+     *
+     * @param category
+     */
     public void setCategory(String category) {
         this.category = category;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getRequirementID() {
         return this.requirementID;
     }
 
+    /**
+     *
+     * @param name
+     */
     public void setRequirementID(String name) {
         this.requirementID = name;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getWriter() {
         return this.writer;
     }
 
+    /**
+     *
+     * @param writer
+     */
     public void setWriter(String writer) {
         this.writer = writer;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getRequirementText() {
         return this.requirementText;
     }
 
+    /**
+     *
+     * @param requirementText
+     */
     public void setRequirementText(String requirementText) {
         this.requirementText = requirementText;
     }
 
+    /**
+     *
+     * @return
+     */
     public Short getCoverage() {
         return this.coverage;
     }
 
+    /**
+     *
+     * @param coverage
+     */
     public void setCoverage(Short coverage) {
         this.coverage = coverage;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getComment() {
         return this.comment;
     }
 
+    /**
+     *
+     * @param comment
+     */
     public void setComment(String comment) {
         this.comment = comment;
     }
 
+    /**
+     *
+     * @return
+     */
     public Set getTestSteps() {
         return this.testSteps;
     }
 
+    /**
+     *
+     * @param testSteps
+     */
     public void setTestSteps(Set testSteps) {
         this.testSteps = testSteps;
     }

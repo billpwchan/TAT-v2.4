@@ -148,11 +148,18 @@ public class TabMacroEditController implements Initializable {
         });
     }
 
+    /**
+     *
+     * @param mainController
+     */
     public void init(TabMacroMainViewController mainController) {
         TabMacroEditController.mainController = mainController;
         controllerTableAction.initMacroEdit(this);
     }
 
+    /**
+     *
+     */
     public void initButtons() {
         this.buttonValid.setDisable(true);
         this.buttonAddAction.setOnAction((ActionEvent e) -> {
@@ -169,6 +176,10 @@ public class TabMacroEditController implements Initializable {
 
     }
 
+    /**
+     *
+     * @return
+     */
     public PreviewMacro getControllerPreview() {
         return this.controllerPreviewMacro;
     }
@@ -243,6 +254,10 @@ public class TabMacroEditController implements Initializable {
         }
     }
 
+    /**
+     *
+     * @param script
+     */
     public void displayMacro(Script script) {
         buttonAddAction.setVisible(true);
         buttonValid.setVisible(true);

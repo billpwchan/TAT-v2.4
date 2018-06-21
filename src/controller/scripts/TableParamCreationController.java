@@ -50,6 +50,9 @@ public class TableParamCreationController implements Initializable {
 
     private ScriptLineParameterController selectedParamController;
 
+    /**
+     *
+     */
     public final ObservableList<ScriptLineParameterController> collectionControllerParam = FXCollections.observableArrayList();
 
     private int scriptID = 1;
@@ -77,15 +80,26 @@ public class TableParamCreationController implements Initializable {
 
     }
 
+    /**
+     *
+     */
     public void addParam() {
         addParaminVbox();
         controllerParamLine.setParamsCreation(params);
     }
 
+    /**
+     *
+     * @return
+     */
     public TabScriptNewController getControllerFather() {
         return this.controllerNewScript;
     }
 
+    /**
+     *
+     * @return
+     */
     public ObservableList<ScriptLineParameterController> getCollectionControllerParam() {
         return this.collectionControllerParam;
     }
@@ -99,6 +113,9 @@ public class TableParamCreationController implements Initializable {
         }
     }
 
+    /**
+     *
+     */
     public void addParaminVbox() {
         FXMLLoader fxmlLoader = new FXMLLoader();
         try {
@@ -239,6 +256,10 @@ public class TableParamCreationController implements Initializable {
         vBox.getChildren().setAll(workingCollection);
     }
 
+    /**
+     *
+     * @param script
+     */
     public void displayParams(Script script) {
         clearTable();
         Iterator<ScriptHasParameters> itParams = script.getScriptHasParameterses().iterator();
@@ -285,6 +306,10 @@ public class TableParamCreationController implements Initializable {
         this.scriptID = 1;
     }
 
+    /**
+     *
+     * @param params
+     */
     public void PrefilParams(ArrayList<Parameters> params) {
         clearTable();
         this.addParaminVbox();

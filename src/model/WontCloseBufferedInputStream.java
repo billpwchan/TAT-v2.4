@@ -15,7 +15,10 @@ import java.io.InputStream;
  */
 public class WontCloseBufferedInputStream extends BufferedInputStream {
 
-    
+    /**
+     *
+     * @param in
+     */
     public WontCloseBufferedInputStream(InputStream in) {
         super(in);
     }
@@ -26,6 +29,10 @@ public class WontCloseBufferedInputStream extends BufferedInputStream {
         // Do nothing.
     }
 
+    /**
+     *
+     * @throws IOException
+     */
     public void reallyClose() throws IOException {
         super.close();
     }

@@ -390,6 +390,10 @@ public class ViewScriptController implements Initializable {
         return this.numberOfParam;
     }
 
+    /**
+     *
+     * @param currentSelectedScript
+     */
     public void constructGridPaneView(TestStepHasScript currentSelectedScript) {
         currentScript = currentSelectedScript.getScript();
         gridPaneDisplayResults.getChildren().clear();
@@ -498,6 +502,10 @@ public class ViewScriptController implements Initializable {
         updateImage();
     }
 
+    /**
+     *
+     * @param currentSelectedScript
+     */
     public void updateGridPaneCreation(TestStepHasScript currentSelectedScript) {
         updateGridPaneModification(currentSelectedScript);
         this.observableListScript.clear();
@@ -552,6 +560,10 @@ public class ViewScriptController implements Initializable {
 //        }
     }
 
+    /**
+     *
+     * @param currentSelectedScript
+     */
     public void updateGridPaneEdit(TestStepHasScript currentSelectedScript) {
         //constructGridPaneView(currentSelectedScript);
         constructGridPaneView(currentSelectedScript);
@@ -572,6 +584,10 @@ public class ViewScriptController implements Initializable {
         updateImage();
     }
 
+    /**
+     *
+     * @param currentSelectedScript
+     */
     public void updateGridPaneBaseline(TestStepHasScript currentSelectedScript) {
 
 //        Script macr = currentSelectedScript.getScript();
@@ -589,6 +605,10 @@ public class ViewScriptController implements Initializable {
 
     }
 
+    /**
+     *
+     * @param testStephasScript
+     */
     public void updateScriptViewDisplay(TestStepHasScript testStephasScript) {
 
         // currentScript = testStephasScript
@@ -696,7 +716,12 @@ public class ViewScriptController implements Initializable {
 //        this.numberOfParam = currentSelectedScript.getScript().getScriptHasParameterses().size();
 //        //controllerScriptFather.updateSizeGrid();
 //    }
-    public ScriptLineTableStepController getControllerScriptFather() {
+
+    /**
+     *
+     * @return
+     */
+        public ScriptLineTableStepController getControllerScriptFather() {
         return this.controllerScriptFather;
     }
 }

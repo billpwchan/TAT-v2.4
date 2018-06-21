@@ -160,11 +160,18 @@ public class TabMacroNewController implements Initializable {
         return ok;
     }
 
+    /**
+     *
+     * @param mainController
+     */
     public void init(TabMacroMainViewController mainController) {
         TabMacroNewController.mainController = mainController;
         controllerTableAction.initMacroNew(this);
     }
 
+    /**
+     *
+     */
     public void initNewMacro() {
         this.loadCSS();
         this.jtextfieldMacroCreationDate.setText(df.format(new Date()));
@@ -174,6 +181,9 @@ public class TabMacroNewController implements Initializable {
         this.jtextfieldTypeMacroEditionDate.setId("displayStyle");
     }
 
+    /**
+     *
+     */
     public void initButtons() {
         this.buttonValid.setDisable(true);
         this.buttonAddAction.setOnAction((ActionEvent e) -> {
@@ -189,6 +199,10 @@ public class TabMacroNewController implements Initializable {
         });
     }
 
+    /**
+     *
+     * @return
+     */
     public PreviewMacro getControllerPreview() {
         return this.controllerPreviewMacro;
     }
@@ -286,6 +300,10 @@ public class TabMacroNewController implements Initializable {
         alert.showAndWait();
     }
 
+    /**
+     *
+     * @param script
+     */
     public void displayMacro(Script script) {
         this.anchorPanelNewTestCase.getStylesheets().add("/view/testcampaign/cssViewCampaign.css");
         buttonAddAction.setVisible(false);

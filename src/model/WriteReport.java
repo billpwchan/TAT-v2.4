@@ -81,6 +81,9 @@ public class WriteReport {
     /** HashMap that maps Cell Coordinates to CellStyle. */
     private HashMap<Coordinate, CellStyle> styleMap = new HashMap<Coordinate, CellStyle>();
     
+    /**
+     *
+     */
     public WriteReport() {
         this.workbook = new XSSFWorkbook();
         
@@ -88,6 +91,12 @@ public class WriteReport {
 
     }
     
+    /**
+     *
+     * @param it
+     * @throws FileNotFoundException
+     * @throws IOException
+     */
     public void readTemplateReport(Iterations it) throws FileNotFoundException, IOException {
         
         String template = "Report_Temp.xlsx";
@@ -105,13 +114,10 @@ public class WriteReport {
                 
     }
     
-    
-    
-    
-    
-    
-    
-    
+    /**
+     *
+     * @param it
+     */
     public void createReport(Iterations it) {
         
         this.FILE_NAME = "./Reports/" + it.getBaselineId() + "_Report_Iteration_" + it.getIterationNumber() + ".xlsx";
@@ -137,12 +143,19 @@ public class WriteReport {
         
     }
     
+    /**
+     *
+     * @param iteration
+     */
     public void getStepExecutions(Iterations iteration) {
         
         Iterator<CaseExecutions> itCaseExecutions = iteration.getCaseExecutionses().iterator();   
         
     }
     
+    /**
+     *
+     */
     public void setHeaderFileRows() {
         
         //XSSFSheet sheet = this.workbook.createSheet("Report");
@@ -163,8 +176,10 @@ public class WriteReport {
         
     }
         
-    
-    
+    /**
+     *
+     * @param iteration
+     */
     public void set(Iterations iteration) {
         
         TestExecution testExecHandler = new TestExecution();
@@ -465,6 +480,12 @@ public class WriteReport {
          
     }
     
+    /**
+     *
+     * @param paramSearch
+     * @param comment
+     * @return
+     */
     public static List<String> getParamFound(List<String> paramSearch, String comment) {
         
         String[] split = comment.split("\n");
@@ -496,6 +517,11 @@ public class WriteReport {
         
     }
     
+    /**
+     *
+     * @param workbook
+     * @return
+     */
     public static CellStyle getRedCellStyle(XSSFWorkbook workbook) {
         CellStyle style = workbook.createCellStyle();
         style.setFillForegroundColor(IndexedColors.RED.getIndex());
@@ -503,6 +529,10 @@ public class WriteReport {
         return style;
     }
     
+    /**
+     *
+     * @return
+     */
     public String getFileName() {
         return FILE_NAME;
     }

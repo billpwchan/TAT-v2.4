@@ -163,6 +163,9 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
 
     private TestCase selected;
 
+    /**
+     *
+     */
     public TabTestCampaignExecutionMainViewController main;
 
     private TestCampaign campaignToBaseline = new TestCampaign();
@@ -173,6 +176,9 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
 
     private Stage dialogStage;
 
+    /**
+     *
+     */
     public boolean save;
 
     private TableStepScriptCreationController controllerTableStep;
@@ -193,8 +199,14 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
 
     Task<Void> task;
 
+    /**
+     *
+     */
     public static Stage dialog;
 
+    /**
+     *
+     */
     public static Alert alert;
 
     private HeaderTableStepController controllerHeaderTableStep;
@@ -711,6 +723,9 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
         }
     }
 
+    /**
+     *
+     */
     public void alertBox2() {
         alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Please wait");
@@ -728,6 +743,10 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
         alert.show();
     }
 
+    /**
+     *
+     * @param alert
+     */
     public static void closeAlert(Alert alert) {
         try {
             alert.close();
@@ -737,6 +756,11 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
         }
     }
 
+    /**
+     *
+     * @param x
+     * @param y
+     */
     public static void errorBox(int x, int y) {
         Alert alert = new Alert(AlertType.ERROR);
         alert.setTitle("Error Dialog");
@@ -745,6 +769,12 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
         alert.showAndWait();
     }
 
+    /**
+     *
+     * @param errorTitle
+     * @param errorHeaderText
+     * @param errorMessage
+     */
     public static void errorBox(String errorTitle, String errorHeaderText, String errorMessage) {
         Alert alert = new Alert(AlertType.ERROR);
         alert.setTitle(errorTitle);
@@ -753,6 +783,9 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
         alert.showAndWait();
     }
 
+    /**
+     *
+     */
     public void notificationBaselinCase() {
         Notifications notificationBuilder = Notifications.create()
                 .title("Baseline")
@@ -766,6 +799,9 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
         notificationBuilder.showInformation();
     }
 
+    /**
+     *
+     */
     public void notificationBaseline() {
         Notifications notificationBuilder = Notifications.create()
                 .title("Baseline")
@@ -776,14 +812,26 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
         notificationBuilder.showInformation();
     }
 
+    /**
+     *
+     * @return
+     */
     public int getRange() {
         return this.range;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getSheetNumber() {
         return this.sheetNumber;
     }
 
+    /**
+     *
+     * @return
+     */
     public Alert getAlert() {
         return TabTestCampaignExecutionBaselineCampaignController.alert;
     }
@@ -800,6 +848,9 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
         }
     }
 
+    /**
+     *
+     */
     public void deleteFolderConfiguration() {
         File index = new File(settings.scriptsPaht + "\\" + baseline.getTestCampaign().getReference() + "\\" + baseline.getBaselineId());
         String[] entries = index.list();
@@ -835,23 +886,41 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
         }
     }
 
+    /**
+     *
+     * @param excelLocationInstantiation
+     */
     public void setExcelLocationInstantiation(String excelLocationInstantiation) {
         this.excelLocationInstantiation = excelLocationInstantiation;
     }
 
+    /**
+     *
+     * @param excelCategoryInstantiation
+     */
     public void setExcelCategoryInstantiation(String excelCategoryInstantiation) {
         this.excelCategoryInstantiation = excelCategoryInstantiation;
     }
 
+    /**
+     *
+     * @param range
+     */
     public void setRange(int range) {
         this.range = range;
     }
 
+    /**
+     *
+     */
     public void setOnAction() {
         this.instantiateCase.close();
         this.closePopUp = true; //added this to get ExcelFile when user presses "ButtonOK" in PopUpExcelValidationController
     }
 
+    /**
+     *
+     */
     public void cancelPopUp() {
         this.instantiateCase.close();
         this.closePopUp = false; //was true before, changing this to false and adding true for the OK button

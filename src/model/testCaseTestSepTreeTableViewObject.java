@@ -26,9 +26,16 @@ public class testCaseTestSepTreeTableViewObject {
 
     private boolean hasBeenConfiguredCase;
 
+    /**
+     *
+     */
     public testCaseTestSepTreeTableViewObject() {
     }
 
+    /**
+     *
+     * @param isCase
+     */
     public testCaseTestSepTreeTableViewObject(boolean isCase) {
 
         this.hasBeenConfiguredCase = false;
@@ -38,6 +45,12 @@ public class testCaseTestSepTreeTableViewObject {
 
     }
 
+    /**
+     *
+     * @param name
+     * @param user_ID
+     * @param isCase
+     */
     public testCaseTestSepTreeTableViewObject(String name, String user_ID, boolean isCase) {
 
         this.hasBeenConfiguredCase = false;
@@ -47,6 +60,10 @@ public class testCaseTestSepTreeTableViewObject {
         this.isCase = isCase;
     }
 
+    /**
+     *
+     * @return
+     */
     public SimpleStringProperty NameProperty() {
         if (Name == null) {
             Name = new SimpleStringProperty(this, "Name");
@@ -54,6 +71,10 @@ public class testCaseTestSepTreeTableViewObject {
         return Name;
     }
 
+    /**
+     *
+     * @return
+     */
     public SimpleStringProperty userIDProperty() {
         if (User_ID == null) {
             User_ID = new SimpleStringProperty(this, "User_ID");
@@ -61,42 +82,82 @@ public class testCaseTestSepTreeTableViewObject {
         return User_ID;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setIDCase(int id) {
         this.idCase = id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setIDStep(int id) {
         this.idStep = id;
     }
 
+    /**
+     *
+     * @param Name
+     */
     public void setName(String Name) {
         this.Name.set(Name);
     }
 
+    /**
+     *
+     * @param user_ID
+     */
     public void setUser_ID(String user_ID) {
         this.User_ID.set(user_ID);
     }
 
+    /**
+     *
+     * @param configured
+     */
     public void setHasBeenConfiguredCase(boolean configured) {
         this.hasBeenConfiguredCase = configured;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean getType() {
         return this.isCase;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getName() {
         return this.Name.get();
     }
 
+    /**
+     *
+     * @return
+     */
     public int getCaseID() {
         return this.idCase;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getUserID() {
         return this.User_ID.get();
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean getHasBeenConfiguredCase() {
         return this.hasBeenConfiguredCase;
     }

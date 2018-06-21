@@ -126,10 +126,18 @@ public class TableStepScriptCreationController implements Initializable {
                 );
     }
 
+    /**
+     *
+     * @param headerController
+     */
     public void setControllerHeader(HeaderTableStepController headerController) {
         this.controllerHeader = headerController;
     }
 
+    /**
+     *
+     * @return
+     */
     public HeaderTableStepController getControllerHeader() {
         return this.controllerHeader;
     }
@@ -446,6 +454,10 @@ public class TableStepScriptCreationController implements Initializable {
         this.stepID = 1;
     }
 
+    /**
+     *
+     * @param testCase
+     */
     public void displayScriptAndStepView(TestCase testCase) {
         clearTable();
         Iterator<TestStep> itSteps = testCase.getTestSteps().iterator();
@@ -489,6 +501,10 @@ public class TableStepScriptCreationController implements Initializable {
         displayVbox();
     }
 
+    /**
+     *
+     * @param testCase
+     */
     public void displayScriptAndStepEdit(TestCase testCase) {
         clearTable();
         Iterator<TestStep> itSteps = testCase.getTestSteps().iterator();
@@ -529,6 +545,10 @@ public class TableStepScriptCreationController implements Initializable {
         displayVbox();
     }
 
+    /**
+     *
+     * @param testCase
+     */
     public void displayScriptAndStepBaseline(TestCase testCase) {
         globalTestCase = testCase;
         clearTable();
@@ -569,6 +589,10 @@ public class TableStepScriptCreationController implements Initializable {
         displayVbox();
     }
 
+    /**
+     *
+     * @param testCase
+     */
     public void displayScriptAndStepExecution(CaseExecutions testCase) {
         clearTable();
         Iterator<StepExecutions> itSteps = testCase.getStepExecutionses().iterator();
@@ -702,6 +726,10 @@ public class TableStepScriptCreationController implements Initializable {
 
     }
 
+    /**
+     *
+     * @param aThis
+     */
     public void initTestCaseEdit(TabTestCaseEditController aThis) {
         controllerEditCase = aThis;
 
@@ -738,10 +766,18 @@ public class TableStepScriptCreationController implements Initializable {
         });
     }
 
+    /**
+     *
+     * @return
+     */
     public static int getExcelRank() {
         return excelRank;
     }
 
+    /**
+     *
+     * @param rank
+     */
     public static void setExcelRank(int rank) {
         excelRank = rank;
     }
@@ -770,6 +806,10 @@ public class TableStepScriptCreationController implements Initializable {
         allReq = requirementHandler.getAllRequirement();
     }
 
+    /**
+     *
+     * @param test
+     */
     public void addRequirement(StepLineTableStepController test) {
         try {
             ObservableList<Requirement> CasesInDB = FXCollections.observableArrayList(allReq);
@@ -803,11 +843,18 @@ public class TableStepScriptCreationController implements Initializable {
         }
     }
 
+    /**
+     *
+     * @param requirementsSelected
+     */
     public void setAction(ObservableList<Requirement> requirementsSelected) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 
     }
 
+    /**
+     *
+     */
     public void closePopUp() {
 
         if (popUpOpen == true) {
@@ -830,6 +877,10 @@ public class TableStepScriptCreationController implements Initializable {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public TestCase getTestCase() {
         return this.globalTestCase;
     }

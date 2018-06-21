@@ -421,6 +421,10 @@ public class TabViewResultsController implements Initializable {
         });
     }
 
+    /**
+     *
+     * @param caseExecModified
+     */
     public void addModifiedCaseExecution(CaseExecutions caseExecModified) {
         if (this.casesExecutionModified.contains(caseExecModified)) {
             this.casesExecutionModified.remove(caseExecModified);
@@ -463,6 +467,10 @@ public class TabViewResultsController implements Initializable {
         return comment;
     }
 
+    /**
+     *
+     * @param caseExecu
+     */
     public void popUpChangeComment(CaseExecutions caseExecu) {
         try {
             //toto.set(p.getValue().getCaseExecutionResultObj().getComment() + "\n");
@@ -494,15 +502,27 @@ public class TabViewResultsController implements Initializable {
         }
     }
 
+    /**
+     *
+     */
     public void closePopUp() {
         this.dialogStage.close();
     }
 
+    /**
+     *
+     * @param caseExecu
+     * @param comment
+     */
     public void validCommentChange(CaseExecutions caseExecu, String comment) {
         caseExecu.getCaseExecutionResultObj().setComment(comment);
         this.addCaseCommentModified(caseExecu);
     }
 
+    /**
+     *
+     * @param caseExecu
+     */
     public void addCaseCommentModified(CaseExecutions caseExecu) {
         if (this.casesExecutionModified.contains(caseExecu)) {
             this.casesExecutionModified.remove(caseExecu);

@@ -22,10 +22,17 @@ import org.hibernate.SessionFactory;
  */
 public class IterationDB {
 
+    /**
+     *
+     */
     public IterationDB() {
 
     }
 
+    /**
+     *
+     * @param ite
+     */
     public void initializeIteration(Iterations ite) {
         System.out.println("Start time to construct object : " + System.currentTimeMillis());
         ArrayList<CaseExecutions> caseExecutions = new TestCaseDB().getTestCasesAndResults(ite.getBaselineId(), ite.getIterationNumber());
@@ -43,6 +50,11 @@ public class IterationDB {
         System.out.println("End time to construct object : " + System.currentTimeMillis());
     }
 
+    /**
+     *
+     * @param ite
+     * @param iterationResult
+     */
     public void setIterationResult(Iterations ite, Double iterationResult) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
@@ -53,6 +65,10 @@ public class IterationDB {
         session.close();
     }
 
+    /**
+     *
+     * @param ite
+     */
     public void deleteExecution(Iterations ite) {
         System.out.println("ENTER IN DELETE");
         SessionFactory factory = sessionFactorySingleton.getInstance();
@@ -72,6 +88,11 @@ public class IterationDB {
         System.out.println("DELETE FINISHED");
     }
     
+    /**
+     *
+     * @param tCampaign
+     * @return
+     */
     public ArrayList<Iterations> getIterationsFromCampaign(TestCampaign tCampaign){
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
@@ -83,6 +104,11 @@ public class IterationDB {
         return Iterations;
     }
     
+    /**
+     *
+     * @param id
+     * @return
+     */
     public Iterations getIterationFromBaselineID(String id) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
@@ -93,6 +119,11 @@ public class IterationDB {
         return (Iterations) q.get(0);
     }
     
+    /**
+     *
+     * @param id
+     * @return
+     */
     public Iterations getIterationFromID(int id) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
@@ -103,6 +134,10 @@ public class IterationDB {
         return (Iterations) q.get(0);
     }
     
+    /**
+     *
+     * @param ite
+     */
     public void deleteIterationFromIterationNum(Iterations ite){
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();

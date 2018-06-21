@@ -21,14 +21,29 @@ public class ScriptExecutions implements java.io.Serializable {
     private String result;
     private String comment;
 
+    /**
+     *
+     */
     public ScriptExecutions() {
     }
 
+    /**
+     *
+     * @param script
+     * @param stepExecutions
+     */
     public ScriptExecutions(Script script, StepExecutions stepExecutions) {
         this.script = script;
         this.stepExecutions = stepExecutions;
     }
 
+    /**
+     *
+     * @param script
+     * @param stepExecutions
+     * @param scriptOrder
+     * @param isStimuli
+     */
     public ScriptExecutions(Script script, StepExecutions stepExecutions, Byte scriptOrder, Byte isStimuli) {
         this.script = script;
         this.stepExecutions = stepExecutions;
@@ -36,6 +51,17 @@ public class ScriptExecutions implements java.io.Serializable {
         this.isStimuli = isStimuli;
     }
 
+    /**
+     *
+     * @param script
+     * @param stepExecutions
+     * @param scriptOrder
+     * @param isStimuli
+     * @param macroExecutionsForScriptExecutionsIdscriptExecutions
+     * @param macroExecutionsForScriptExecutionsIdscriptExecutions1
+     * @param parametersExecutions
+     * @param scriptExecutionResults
+     */
     public ScriptExecutions(Script script, StepExecutions stepExecutions, Byte scriptOrder, Byte isStimuli, Set macroExecutionsForScriptExecutionsIdscriptExecutions, Set macroExecutionsForScriptExecutionsIdscriptExecutions1, Set parametersExecutions, Set scriptExecutionResults) {
         this.script = script;
         this.stepExecutions = stepExecutions;
@@ -47,6 +73,10 @@ public class ScriptExecutions implements java.io.Serializable {
         this.scriptExecutionResults = scriptExecutionResults;
     }
 
+    /**
+     *
+     * @param scriptExecutions
+     */
     public ScriptExecutions(ScriptExecutions scriptExecutions) {
 
         this.script = scriptExecutions.getScript();
@@ -59,90 +89,178 @@ public class ScriptExecutions implements java.io.Serializable {
         this.scriptExecutionResults = scriptExecutions.getScriptExecutionResults();
     }
 
+    /**
+     *
+     * @return
+     */
     public Integer getIdscriptExecutions() {
         return this.idscriptExecutions;
     }
 
+    /**
+     *
+     * @param idscriptExecutions
+     */
     public void setIdscriptExecutions(Integer idscriptExecutions) {
         this.idscriptExecutions = idscriptExecutions;
     }
 
+    /**
+     *
+     * @return
+     */
     public Script getScript() {
         return this.script;
     }
 
+    /**
+     *
+     * @param script
+     */
     public void setScript(Script script) {
         this.script = script;
     }
 
+    /**
+     *
+     * @return
+     */
     public StepExecutions getStepExecutions() {
         return this.stepExecutions;
     }
 
+    /**
+     *
+     * @param stepExecutions
+     */
     public void setStepExecutions(StepExecutions stepExecutions) {
         this.stepExecutions = stepExecutions;
     }
 
+    /**
+     *
+     * @return
+     */
     public Byte getScriptOrder() {
         return this.scriptOrder;
     }
 
+    /**
+     *
+     * @param scriptOrder
+     */
     public void setScriptOrder(Byte scriptOrder) {
         this.scriptOrder = scriptOrder;
     }
 
+    /**
+     *
+     * @return
+     */
     public Byte getIsStimuli() {
         return this.isStimuli;
     }
 
+    /**
+     *
+     * @param isStimuli
+     */
     public void setIsStimuli(Byte isStimuli) {
         this.isStimuli = isStimuli;
     }
 
+    /**
+     *
+     * @return
+     */
     public Set getMacroExecutionsForScriptExecutionsIdscriptExecutions() {
         return this.macroExecutionsForScriptExecutionsIdscriptExecutions;
     }
 
+    /**
+     *
+     * @param macroExecutionsForScriptExecutionsIdscriptExecutions
+     */
     public void setMacroExecutionsForScriptExecutionsIdscriptExecutions(Set macroExecutionsForScriptExecutionsIdscriptExecutions) {
         this.macroExecutionsForScriptExecutionsIdscriptExecutions = macroExecutionsForScriptExecutionsIdscriptExecutions;
     }
 
+    /**
+     *
+     * @return
+     */
     public Set getMacroExecutionsForScriptExecutionsIdscriptExecutions1() {
         return this.macroExecutionsForScriptExecutionsIdscriptExecutions1;
     }
 
+    /**
+     *
+     * @param macroExecutionsForScriptExecutionsIdscriptExecutions1
+     */
     public void setMacroExecutionsForScriptExecutionsIdscriptExecutions1(Set macroExecutionsForScriptExecutionsIdscriptExecutions1) {
         this.macroExecutionsForScriptExecutionsIdscriptExecutions1 = macroExecutionsForScriptExecutionsIdscriptExecutions1;
     }
 
+    /**
+     *
+     * @return
+     */
     public Set getParametersExecutions() {
         return this.parametersExecutions;
     }
 
+    /**
+     *
+     * @param parametersExecutions
+     */
     public void setParametersExecutions(Set parametersExecutions) {
         this.parametersExecutions = parametersExecutions;
     }
 
+    /**
+     *
+     * @return
+     */
     public Set getScriptExecutionResults() {
         return this.scriptExecutionResults;
     }
 
+    /**
+     *
+     * @param scriptExecutionResults
+     */
     public void setScriptExecutionResults(Set scriptExecutionResults) {
         this.scriptExecutionResults = scriptExecutionResults;
     }
 
+    /**
+     *
+     * @param result
+     */
     public void setScriptExecutionResult(String result) {
         this.result = result;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getScriptExecutionResult() {
         return this.result;
     }
 
+    /**
+     *
+     * @param comment
+     */
     public void setScriptExecutionComment(String comment) {
         this.comment = comment;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getScriptExecutionComment() {
         return this.comment;
     }

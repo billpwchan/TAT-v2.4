@@ -124,10 +124,19 @@ public class createOrchestra {
     long start = System.nanoTime();
     long end;
 
+    /**
+     *
+     */
     public createOrchestra() {
 
     }
 
+    /**
+     *
+     * @param iteration
+     * @param file
+     * @param pathOrche
+     */
     public void generateExcelRapport(Iterations iteration, File file,String pathOrche) {
         
         //System.out.println("Start excel generation file");

@@ -26,15 +26,28 @@ public class equipment implements Serializable {
 
     private int mappedNumber=0;
 
+    /**
+     *
+     */
     public equipment() {
        // hasBeenConfigured = false;
     }
 
+    /**
+     *
+     * @param name
+     */
     public equipment(String name) {
         this.name = name;
         this.hasBeenConfigured = false;
     }
 
+    /**
+     *
+     * @param name
+     * @param sr
+     * @param path
+     */
     public equipment(String name, ScreenRegion sr, Path path) {
         this.name = name;
         this.inFolder.add(new Position(sr, path));
@@ -42,36 +55,68 @@ public class equipment implements Serializable {
         mappedNumber++;
     }
 
+    /**
+     *
+     * @param name
+     */
     public void setEquipmentName(String name) {
         this.name = name;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getEquipmentName() {
         return this.name;
     }
 
+    /**
+     *
+     * @param sr
+     */
     public void setPosition(Position sr) {
         this.inFolder.add(sr);
         this.hasBeenConfigured=true;
         mappedNumber++;
     }
 
+    /**
+     *
+     * @return
+     */
     public Set<Position> getPositions() {
         return this.inFolder;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isConfigured() {
         return this.hasBeenConfigured;
     }
     
+    /**
+     *
+     * @param b
+     */
     public void setConfigured(boolean b){
         this.hasBeenConfigured = b;
     }
     
+    /**
+     *
+     * @return
+     */
     public int getMappedNumber(){
         return this.mappedNumber;
     }
 
+    /**
+     *
+     * @param eqpPosition
+     */
     public void setAllPosition(ObservableList<Position> eqpPosition) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         this.inFolder.clear();
@@ -79,6 +124,10 @@ public class equipment implements Serializable {
         this.mappedNumber=eqpPosition.size();
     }
     
+    /**
+     *
+     * @param pos
+     */
     public void removePosition(Position pos){
         this.inFolder.remove(pos);
         this.hasBeenConfigured = false;

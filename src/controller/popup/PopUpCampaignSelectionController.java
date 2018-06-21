@@ -50,6 +50,9 @@ public class PopUpCampaignSelectionController implements Initializable {
     @FXML
     private TextField fieldFilter;
 
+    /**
+     *
+     */
     public static TabTestCampaignExecutionRepositoryBaselineController executionMainViewController;
 
     private Stage dialogStage;
@@ -115,10 +118,19 @@ public class PopUpCampaignSelectionController implements Initializable {
 //        alert.setX(this.dialogStage.getX() + this.dialogStage.getWidth() / 2 - alert.getWidth() / 2);
 //        alert.setY(this.dialogStage.getY() + this.dialogStage.getHeight() / 2 - alert.getHeight() / 2);
 //    }
-    public void init(TabTestCampaignExecutionRepositoryBaselineController controllerBaselineCampaign) {
+
+    /**
+     *
+     * @param controllerBaselineCampaign
+     */
+        public void init(TabTestCampaignExecutionRepositoryBaselineController controllerBaselineCampaign) {
         PopUpCampaignSelectionController.executionMainViewController = controllerBaselineCampaign;
     }
 
+    /**
+     *
+     * @param campaignInDB
+     */
     public void setTable(ObservableList<TestCampaign> campaignInDB) {
         //tableViewCampaignPopUpAddCampaign.setItems(campaignInDB);
         initColumn campaignColumnInit = new initColumn();
@@ -172,6 +184,10 @@ public class PopUpCampaignSelectionController implements Initializable {
 
     }
 
+    /**
+     *
+     * @param stage
+     */
     public void setPrimaryStage(Stage stage) {
         this.dialogStage = stage;
     }

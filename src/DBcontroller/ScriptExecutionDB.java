@@ -24,6 +24,10 @@ public class ScriptExecutionDB {
         //init();
     }
 
+    /**
+     *
+     * @param scriptExecutions
+     */
     public void getScriptFromScriptExecution(ScriptExecutions scriptExecutions) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();

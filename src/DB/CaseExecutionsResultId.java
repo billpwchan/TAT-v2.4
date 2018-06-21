@@ -12,25 +12,50 @@ public class CaseExecutionsResultId  implements java.io.Serializable {
      private int caseExecutionsIdcaseExecutions;
      private byte iterationNumber;
 
+    /**
+     *
+     */
     public CaseExecutionsResultId() {
     }
 
+    /**
+     *
+     * @param caseExecutionsIdcaseExecutions
+     * @param iterationNumber
+     */
     public CaseExecutionsResultId(int caseExecutionsIdcaseExecutions, byte iterationNumber) {
        this.caseExecutionsIdcaseExecutions = caseExecutionsIdcaseExecutions;
        this.iterationNumber = iterationNumber;
     }
    
+    /**
+     *
+     * @return
+     */
     public int getCaseExecutionsIdcaseExecutions() {
         return this.caseExecutionsIdcaseExecutions;
     }
     
+    /**
+     *
+     * @param caseExecutionsIdcaseExecutions
+     */
     public void setCaseExecutionsIdcaseExecutions(int caseExecutionsIdcaseExecutions) {
         this.caseExecutionsIdcaseExecutions = caseExecutionsIdcaseExecutions;
     }
+
+    /**
+     *
+     * @return
+     */
     public byte getIterationNumber() {
         return this.iterationNumber;
     }
     
+    /**
+     *
+     * @param iterationNumber
+     */
     public void setIterationNumber(byte iterationNumber) {
         this.iterationNumber = iterationNumber;
     }

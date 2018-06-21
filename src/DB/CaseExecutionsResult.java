@@ -17,14 +17,29 @@ public class CaseExecutionsResult implements java.io.Serializable {
     private SimpleStringProperty simpleStringComment;
     private SimpleStringProperty OldCommentStringProperty;
 
+    /**
+     *
+     */
     public CaseExecutionsResult() {
     }
 
+    /**
+     *
+     * @param id
+     * @param caseExecutions
+     */
     public CaseExecutionsResult(CaseExecutionsResultId id, CaseExecutions caseExecutions) {
         this.id = id;
         this.caseExecutions = caseExecutions;
     }
 
+    /**
+     *
+     * @param id
+     * @param caseExecutions
+     * @param result
+     * @param comment
+     */
     public CaseExecutionsResult(CaseExecutionsResultId id, CaseExecutions caseExecutions, String result, String comment) {
         this.id = id;
         this.caseExecutions = caseExecutions;
@@ -32,53 +47,100 @@ public class CaseExecutionsResult implements java.io.Serializable {
         this.comment = comment;
     }
 
+    /**
+     *
+     * @return
+     */
     public CaseExecutionsResultId getId() {
         return this.id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(CaseExecutionsResultId id) {
         this.id = id;
     }
 
+    /**
+     *
+     * @return
+     */
     public CaseExecutions getCaseExecutions() {
         return this.caseExecutions;
     }
 
+    /**
+     *
+     * @param caseExecutions
+     */
     public void setCaseExecutions(CaseExecutions caseExecutions) {
         this.caseExecutions = caseExecutions;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getResult() {
         return this.result;
     }
 
+    /**
+     *
+     * @param result
+     */
     public void setResult(String result) {
         this.result = result;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getComment() {
         return this.comment;
     }
 
+    /**
+     *
+     * @param comment
+     */
     public void setComment(String comment) {
         this.comment = comment;
         OldCommentStringProperty().set(comment);
     }
 
+    /**
+     *
+     * @param comment
+     */
     public void setNewComment(String comment) {
         simpleStringCommentProperty().set(comment);
         this.newComment = comment;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getNewComment() {
         return this.newComment;
     }
     
-
+    /**
+     *
+     * @return
+     */
     public String getSimpleStringCommentProperty() {
         return simpleStringCommentProperty().get();
     }
 
+    /**
+     *
+     * @return
+     */
     public StringProperty simpleStringCommentProperty() {
         if (simpleStringComment == null) {
             simpleStringComment = new SimpleStringProperty(this, "comment");
@@ -88,10 +150,18 @@ public class CaseExecutionsResult implements java.io.Serializable {
         return simpleStringComment;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getOldCommentStringProperty() {
         return OldCommentStringProperty().get();
     }
 
+    /**
+     *
+     * @return
+     */
     public StringProperty OldCommentStringProperty() {
         if (OldCommentStringProperty == null) {
             OldCommentStringProperty = new SimpleStringProperty(this, "comment");

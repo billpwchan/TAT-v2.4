@@ -55,14 +55,25 @@ public class initColumn {
 
     ObservableList<String> testlist = FXCollections.observableArrayList("NOK", "OKWC", "OK", "Not testable", "Incomplete", "OS", "NExec");
 
+    /**
+     *
+     */
     public initColumn() {
 
     }
 
+    /**
+     *
+     * @param mainViewResultController
+     */
     public void setMainController(TabViewResultsController mainViewResultController) {
         this.mainViewResultController = mainViewResultController;
     }
 
+    /**
+     *
+     * @param tableViewTestCase
+     */
     public void initColumnCase(TableView<TestCase> tableViewTestCase) {
 
         /*
@@ -217,6 +228,10 @@ public class initColumn {
 //        });
     }
 
+    /**
+     *
+     * @param tableViewTestCampaign
+     */
     public void initColumnCampaign(TableView<TestCampaign> tableViewTestCampaign) {
         TableColumn reference = new TableColumn();
         TableColumn system = new TableColumn();
@@ -303,6 +318,10 @@ public class initColumn {
         });
     }
 
+    /**
+     *
+     * @param tableViewTestCase
+     */
     public void initColumnCaseToExecute(TableView<CaseExecutions> tableViewTestCase) {
 
         TableColumn<CaseExecutions, String> caseID = new TableColumn<>("CaseID");
@@ -602,6 +621,10 @@ public class initColumn {
 //        });
     }
 
+    /**
+     *
+     * @param tableViewTestScript
+     */
     public void initScriptToExecute(TableView<Script> tableViewTestScript) {
 
         TableColumn scriptName = new TableColumn();
@@ -624,6 +647,10 @@ public class initColumn {
                 result);
     }
 
+    /**
+     *
+     * @param tableViewTestStep
+     */
     public void initColumnStepToExecute(TableView<TestStep> tableViewTestStep) {
 
         TableColumn humanStimuli = new TableColumn();
@@ -647,6 +674,10 @@ public class initColumn {
                 result);
     }
 
+    /**
+     *
+     * @param campaignBaselineAndExecution
+     */
     public void prepareTreeViewTabTestExecution(TreeTableView<Iterations> campaignBaselineAndExecution) {
         TreeTableColumn<Iterations, String> typeCol
                 = new TreeTableColumn<>("Type");
@@ -811,6 +842,10 @@ public class initColumn {
 //        });
     }
 
+    /**
+     *
+     * @param tableViewTestCase
+     */
     public void initColumnCaseForBaseline(TableView<TestCase> tableViewTestCase) {
         tableViewTestCase.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         TableColumn caseID = new TableColumn();
@@ -853,6 +888,10 @@ public class initColumn {
 
     }
 
+    /**
+     *
+     * @param tableViewRequirements
+     */
     public void initColumnRequirement(TableView<Requirement> tableViewRequirements) {
         TableColumn requirementID = new TableColumn();
         TableColumn requirementCategory = new TableColumn();
@@ -904,6 +943,11 @@ public class initColumn {
                 requirementComment);
     }
 
+    /**
+     *
+     * @param tableViewScripts
+     * @param isScript
+     */
     public void initColumnMacros(TableView<Script> tableViewScripts, boolean isScript) {
         TableColumn macroName = new TableColumn();
         TableColumn macroVersion = new TableColumn();
@@ -933,6 +977,10 @@ public class initColumn {
 
     }
 
+    /**
+     *
+     * @param requirements
+     */
     public static void initTableViewRequirement(ListView requirements) {
         requirements.setCellFactory(listView -> {
             ListCell<Requirement> cell = new ListCell<Requirement>() {

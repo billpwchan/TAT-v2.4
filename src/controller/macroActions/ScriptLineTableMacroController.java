@@ -86,10 +86,18 @@ public class ScriptLineTableMacroController implements Initializable {
         controllerViewGlobal = controllerGLobal;
     }
 
+    /**
+     *
+     * @return
+     */
     public TableActionCreationController controllerViewGlobal() {
         return this.controllerViewGlobal;
     }
 
+    /**
+     *
+     * @return
+     */
     public ViewScriptMacroController getScriptControllerAction() {
         return this.scriptControllerAction;
     }
@@ -133,7 +141,10 @@ public class ScriptLineTableMacroController implements Initializable {
         constructInformation(id);
     }
 
-    
+    /**
+     *
+     * @param actions
+     */
     public void setScriptCreation(HashSet<Script> actions) {
         HashSet<Script> thisActions = new HashSet<>(actions);
         this.loadViewAction();
@@ -160,6 +171,10 @@ public class ScriptLineTableMacroController implements Initializable {
         defineCursor();
     }
     
+    /**
+     *
+     * @param actions
+     */
     public void setScriptCreationEdit(HashSet<Script> actions) {
         HashSet<Script> thisActions = new HashSet<>(actions);
         this.loadViewAction();
@@ -199,6 +214,9 @@ public class ScriptLineTableMacroController implements Initializable {
         scriptControllerAction.init(this);
     }
 
+    /**
+     *
+     */
     public void updateSizeGrid() {
 
         int NbrParamAction = 0;

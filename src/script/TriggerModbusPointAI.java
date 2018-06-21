@@ -50,6 +50,12 @@ public class TriggerModbusPointAI {
 
     }
 
+    /**
+     *
+     * @param parameters
+     * @param hashMap
+     * @return
+     */
     public String run(ArrayList<ParametersExecution> parameters, HashMap hashMap) {
         //WARNING ! inverse values
 
@@ -99,6 +105,13 @@ public class TriggerModbusPointAI {
         return "";
     }
 
+    /**
+     *
+     * @param processImage
+     * @param value
+     * @param register
+     * @throws InterruptedException
+     */
     public void updateHoldingRegister(SimpleProcessImage processImage, int value, int register) throws InterruptedException {
 
         processImage.setRegister((int) register, new SimpleRegister((int) value));
@@ -114,19 +127,34 @@ public class TriggerModbusPointAI {
         Thread.sleep(500);
     }
 
+    /**
+     *
+     */
     public void treatParameters() {
         final String[] parameter = this.params.split(",");
         //this.value = Integer.parseInt(parameter[0]);
         this.register = Integer.parseInt(parameter[1]);
     }
 
+    /**
+     *
+     */
     public void result() {
         this.result = "success";
     }
 
+    /**
+     *
+     */
     public void close() {
     }
 
+    /**
+     *
+     * @param min
+     * @param max
+     * @return
+     */
     public static int randInt(int min, int max) {
 
         Random rand = new Random();

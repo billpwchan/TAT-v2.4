@@ -13,14 +13,23 @@ public class util {
 
     static long tempsDebut,tempsFin;
 
+    /**
+     *
+     */
     protected util() {
 
     }
 
+    /**
+     *
+     */
     public static void startTime() {
         tempsDebut = System.currentTimeMillis();
     }
 
+    /**
+     *
+     */
     public static void endTime() {
         tempsFin = System.currentTimeMillis();
         float seconds = (tempsFin - tempsDebut) / 1000F;

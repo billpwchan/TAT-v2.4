@@ -108,18 +108,34 @@ public class ViewScriptMacroController implements Initializable {
         controllerScriptFather = aThis;
     }
 
+    /**
+     *
+     * @return
+     */
     public ScriptLineTableMacroController getControllerScriptFather() {
         return this.controllerScriptFather;
     }
 
+    /**
+     *
+     * @return
+     */
     public Script getCurrentScript() {
         return this.currentScript;
     }
 
+    /**
+     *
+     * @return
+     */
     public ObservableList<ParamScriptMacro> getHashParamScriptMacro() {
         return this.observableListParams;
     }
 
+    /**
+     *
+     * @return
+     */
     public Macro getScriptMacro() {
         return this.scriptMacro;
     }
@@ -251,6 +267,10 @@ public class ViewScriptMacroController implements Initializable {
 
     }
 
+    /**
+     *
+     * @param currentSelectedScript
+     */
     public void updateGridPaneEdit(Script currentSelectedScript) {  //This is for update script's parameter. 
         constructGridPaneView(currentSelectedScript);  //Place occupied by "Click on Equipment"
         byte order = 0;
@@ -288,6 +308,10 @@ public class ViewScriptMacroController implements Initializable {
         }
     }
 
+    /**
+     *
+     * @param currentSelectedMacro
+     */
     public void updateGridPaneEditNew(Macro currentSelectedMacro) {  //To update observableListParams object (For display wizzard)
         constructGridPaneView(currentSelectedMacro.getScriptByScriptIdScript1());
         this.observableListParams.clear();
@@ -305,7 +329,12 @@ public class ViewScriptMacroController implements Initializable {
     }
 
     //This will show the popup configuration window for modification
-    public void updateGridPaneCreation(Script currentSelectedScript) {
+
+    /**
+     *
+     * @param currentSelectedScript
+     */
+        public void updateGridPaneCreation(Script currentSelectedScript) {
         byte order = 0;
         updateGridPaneModification(currentSelectedScript);
         this.observableListParams.clear();
@@ -322,6 +351,10 @@ public class ViewScriptMacroController implements Initializable {
         }
     }
 
+    /**
+     *
+     * @param currentSelectedScript
+     */
     public void constructGridPaneView(Script currentSelectedScript) {
         gridPaneDisplayResults.getChildren().clear();
         ScriptDB scriptHandler = new ScriptDB();
@@ -497,6 +530,10 @@ public class ViewScriptMacroController implements Initializable {
         }
     }
 
+    /**
+     *
+     * @param script
+     */
     public void updateScriptViewDisplay(Macro script) {
 //        this.currentScript = script.getScriptByScriptIdScript();
         constructGridPaneView(script.getScriptByScriptIdScript1());
@@ -506,6 +543,10 @@ public class ViewScriptMacroController implements Initializable {
         referParameters(new ArrayList(script.getParamScriptMacros()));
     }
 
+    /**
+     *
+     * @param script
+     */
     public void updateScriptEditDisplay(Macro script) {     //if have six scripts in this macro, will run this function again.cc
         this.currentScript = script.getScriptByScriptIdScript1();  //It it necessary to update the currentScript for the displayWizzard to reference. 
 

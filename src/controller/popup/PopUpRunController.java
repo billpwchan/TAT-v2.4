@@ -146,6 +146,9 @@ public class PopUpRunController implements Initializable {
     @FXML
     private Button autoExecutionDisplay;
 
+    /**
+     *
+     */
     public TabTestCampaignExecutionRepositoryBaselineController executionMainViewController;
 
     ArrayList<TestCase> testCasesToDisplay = new ArrayList();
@@ -297,10 +300,18 @@ public class PopUpRunController implements Initializable {
         this.loadCss();
     }
 
+    /**
+     *
+     * @param controllerBaselineCampaign
+     */
     public void init(TabTestCampaignExecutionRepositoryBaselineController controllerBaselineCampaign) {
         executionMainViewController = controllerBaselineCampaign;
     }
 
+    /**
+     *
+     * @param stage
+     */
     public void setPrimaryStage(Stage stage) {
         //System.out.println("HERE STAGE");
         this.dialogStage = stage;
@@ -329,6 +340,11 @@ public class PopUpRunController implements Initializable {
         });
     }
 
+    /**
+     *
+     * @param baselineName
+     * @param repositoryConroller
+     */
     public void setParameters(String baselineName, TabTestCampaignExecutionRepositoryBaselineController repositoryConroller) {
         Platform.runLater(() -> {
             this.alertBox2();
@@ -379,6 +395,11 @@ public class PopUpRunController implements Initializable {
         });
     }
 
+    /**
+     *
+     * @param caseExecution
+     * @throws InterruptedException
+     */
     public void DisplaySteps(CaseExecutions caseExecution) throws InterruptedException {
         TestCasesExecution testCaseExecution = new TestCasesExecution();
         long tempsDebut3 = System.currentTimeMillis();
@@ -419,10 +440,24 @@ public class PopUpRunController implements Initializable {
         controllerHeader.setRestults();
     }
 
+    /**
+     *
+     * @return
+     */
     public TabTestCampaignExecutionRepositoryBaselineController getController() {
         return executionMainViewController;
     }
 
+    /**
+     *
+     * @param nbCaseOK
+     * @param nbCaseOKWC
+     * @param nbCaseNOK
+     * @param nbCaseNtestable
+     * @param nbCaseIncomplete
+     * @param nbCaseOS
+     * @param nbCaseNT
+     */
     public void setNumberNotExecuted(int nbCaseOK, int nbCaseOKWC, int nbCaseNOK, int nbCaseNtestable, int nbCaseIncomplete, int nbCaseOS, int nbCaseNT) {
         //Pie Chart UI & Statistics Related.
         pieChartData.get(0).setPieValue(nbCaseNT);
@@ -444,6 +479,11 @@ public class PopUpRunController implements Initializable {
         );
     }
 
+    /**
+     *
+     * @param averageTimeCase
+     * @param timeRemaining
+     */
     public void updateAverageTimeCase(float averageTimeCase, float timeRemaining) {
         final int MINUTES_IN_AN_HOUR = 60;
         final int SECONDS_IN_A_MINUTE = 60;
@@ -461,6 +501,10 @@ public class PopUpRunController implements Initializable {
         );
     }
 
+    /**
+     *
+     * @param currentTestCaseExecution
+     */
     public void callDisplaySteps(CaseExecutions currentTestCaseExecution) {
         testCaseSelected = currentTestCaseExecution;
         testCaseInExecution = currentTestCaseExecution;
@@ -478,6 +522,11 @@ public class PopUpRunController implements Initializable {
         }
     }
 
+    /**
+     *
+     * @param currentTestCaseExecution
+     * @throws InterruptedException
+     */
     public void automaticCasesDisplay(CaseExecutions currentTestCaseExecution) throws InterruptedException {
         tableViewCampaignPopUpRun.getSelectionModel().select(currentTestCaseExecution);
         DisplaySteps(currentTestCaseExecution);
@@ -487,12 +536,18 @@ public class PopUpRunController implements Initializable {
         this.mainAnchorPopUp.getStylesheets().add("/view/popup/tablestep.css");
     }
 
+    /**
+     *
+     */
     public void initPieChart() {
         pieChartData = FXCollections.observableArrayList(new PieChart.Data("Not tested", 0), new PieChart.Data("OK", 0), new PieChart.Data("OKWC", 0), new PieChart.Data("NOK", 0), new PieChart.Data("Not Testable", 0), new PieChart.Data("Incomplete", 0), new PieChart.Data("OS", 0), new PieChart.Data("Total", 0));
         pieChart.setData(pieChartData);
         pieChart.setLegendVisible(true);
     }
 
+    /**
+     *
+     */
     public void initButtons() {
         runButton.setDisable(true);
         pauseButton.setDisable(true);
@@ -567,6 +622,10 @@ public class PopUpRunController implements Initializable {
         });
     }
 
+    /**
+     *
+     * @throws Exception
+     */
     public void executionInterrupted() throws Exception {
         IterationDB iterationHandler = new IterationDB();
         iterationHandler.deleteExecution(iteration);
@@ -577,6 +636,10 @@ public class PopUpRunController implements Initializable {
         autoExecutionDisplay.setDisable(true);
     }
     
+    /**
+     *
+     * @throws Exception
+     */
     public void executionFinished() throws Exception {
         //this.playSound("finish");
         IterationDB iterationHandler = new IterationDB();
@@ -587,10 +650,18 @@ public class PopUpRunController implements Initializable {
         runButton.setDisable(true);
     }
 
+    /**
+     *
+     * @throws ParseException
+     */
     public void Update() throws ParseException {
         executionMainViewController.updateRepository();
     }
 
+    /**
+     *
+     * @param campaignID
+     */
     public void constructCampaignInformation(int campaignID) {
         TestCampaignDB testCampaignHandler = new TestCampaignDB();
         TestCampaign testCampaign = testCampaignHandler.getTestCampaignFromID(campaignID);
@@ -608,6 +679,9 @@ public class PopUpRunController implements Initializable {
         this.jtextareaCommentsCampaignView.setText(testCampaign.getComments());
     }
 
+    /**
+     *
+     */
     public void alertBox2() {
         dlg = new Alert(AlertType.INFORMATION);
         dlg.setTitle("Please wait");
@@ -634,6 +708,9 @@ public class PopUpRunController implements Initializable {
 
     }
 
+    /**
+     *
+     */
     public void closeAlert() {
         try {
 //            alert.setOnCloseRequest(new EventHandler<DialogEvent>() {
@@ -648,6 +725,10 @@ public class PopUpRunController implements Initializable {
         }
     }
 
+    /**
+     *
+     * @param type
+     */
     public void playSound(String type) {
         File finish = new File("src/sounds/Finish.wav");
         File go = new File("src/sounds/Go.wav");
@@ -668,6 +749,10 @@ public class PopUpRunController implements Initializable {
 
     }
 
+    /**
+     *
+     * @param iterationPercentage
+     */
     public void setIterationPercentage(Double iterationPercentage) {
         this.iterationPercentage = iterationPercentage;
     }

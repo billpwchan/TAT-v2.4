@@ -21,14 +21,33 @@ public class ParamScriptMacro  implements java.io.Serializable {
      private Byte paramOrder;
      private Set paramScriptMacros = new HashSet(0);
 
+    /**
+     *
+     */
     public ParamScriptMacro() {
     }
 
-	
+    /**
+     *
+     * @param macro
+     * @param scriptHasParameters
+     */
     public ParamScriptMacro(Macro macro, ScriptHasParameters scriptHasParameters) {
         this.macro = macro;
         this.scriptHasParameters = scriptHasParameters;
     }
+
+    /**
+     *
+     * @param macro
+     * @param paramScriptMacro
+     * @param scriptHasParameters
+     * @param toDisplay
+     * @param valuePath
+     * @param value
+     * @param paramOrder
+     * @param paramScriptMacros
+     */
     public ParamScriptMacro(Macro macro, ParamScriptMacro paramScriptMacro, ScriptHasParameters scriptHasParameters, Byte toDisplay, String valuePath, String value, Byte paramOrder, Set paramScriptMacros) {
        this.macro = macro;
        this.paramScriptMacro = paramScriptMacro;
@@ -40,6 +59,10 @@ public class ParamScriptMacro  implements java.io.Serializable {
        this.paramScriptMacros = paramScriptMacros;
     }
     
+    /**
+     *
+     * @param PSM
+     */
     public ParamScriptMacro(ParamScriptMacro PSM) {
         this.macro = PSM.getMacro();
         this.paramScriptMacro = PSM.getParamScriptMacro();
@@ -52,66 +75,146 @@ public class ParamScriptMacro  implements java.io.Serializable {
         
     }
    
+    /**
+     *
+     * @return
+     */
     public Integer getParamScriptMacrocol() {
         return this.paramScriptMacrocol;
     }
     
+    /**
+     *
+     * @param paramScriptMacrocol
+     */
     public void setParamScriptMacrocol(Integer paramScriptMacrocol) {
         this.paramScriptMacrocol = paramScriptMacrocol;
     }
+
+    /**
+     *
+     * @return
+     */
     public Macro getMacro() {
         return this.macro;
     }
     
+    /**
+     *
+     * @param macro
+     */
     public void setMacro(Macro macro) {
         this.macro = macro;
     }
+
+    /**
+     *
+     * @return
+     */
     public ParamScriptMacro getParamScriptMacro() {
         return this.paramScriptMacro;
     }
     
+    /**
+     *
+     * @param paramScriptMacro
+     */
     public void setParamScriptMacro(ParamScriptMacro paramScriptMacro) {
         this.paramScriptMacro = paramScriptMacro;
     }
+
+    /**
+     *
+     * @return
+     */
     public ScriptHasParameters getScriptHasParameters() {
         return this.scriptHasParameters;
     }
     
+    /**
+     *
+     * @param scriptHasParameters
+     */
     public void setScriptHasParameters(ScriptHasParameters scriptHasParameters) {
         this.scriptHasParameters = scriptHasParameters;
     }
+
+    /**
+     *
+     * @return
+     */
     public Byte getToDisplay() {
         return this.toDisplay;
     }
     
+    /**
+     *
+     * @param toDisplay
+     */
     public void setToDisplay(Byte toDisplay) {
         this.toDisplay = toDisplay;
     }
+
+    /**
+     *
+     * @return
+     */
     public String getValuePath() {
         return this.valuePath;
     }
     
+    /**
+     *
+     * @param valuePath
+     */
     public void setValuePath(String valuePath) {
         this.valuePath = valuePath;
     }
+
+    /**
+     *
+     * @return
+     */
     public String getValue() {
         return this.value;
     }
     
+    /**
+     *
+     * @param value
+     */
     public void setValue(String value) {
         this.value = value;
     }
+
+    /**
+     *
+     * @return
+     */
     public Byte getParamOrder() {
         return this.paramOrder;
     }
     
+    /**
+     *
+     * @param paramOrder
+     */
     public void setParamOrder(Byte paramOrder) {
         this.paramOrder = paramOrder;
     }
+
+    /**
+     *
+     * @return
+     */
     public Set getParamScriptMacros() {
         return this.paramScriptMacros;
     }
     
+    /**
+     *
+     * @param paramScriptMacros
+     */
     public void setParamScriptMacros(Set paramScriptMacros) {
         this.paramScriptMacros = paramScriptMacros;
     }

@@ -49,6 +49,8 @@ import model.ObjectCopy;
 import model.setCursorOnComponent;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.TransientObjectException;
+import org.hibernate.exception.GenericJDBCException;
 
 /**
  * FXML Controller class
@@ -165,7 +167,7 @@ public class TabTestCaseEditController implements Initializable {
     private Alert alert;
 
     //Maximum Allowed TextField Length
-    final int textfieldCaseIDMaxLength = 11;
+    final int textfieldCaseIDMaxLength = 30;
     final int textfieldCaseVersionMaxLength = 10;
     final int textfieldProjectMaxLength = 10;
     final int textfieldTypeTestMaxLength = 20;
@@ -412,6 +414,10 @@ public class TabTestCaseEditController implements Initializable {
         action.setCursorHand(nodeHand);
     }
 
+    /**
+     *
+     * @param b
+     */
     public void setStateButtonScript(boolean b) {
         this.buttonAddScript.setDisable(b);
     }
@@ -495,66 +501,69 @@ public class TabTestCaseEditController implements Initializable {
      * steps linked to the his set of script.
      */
     private void createUpdateTestCase() {
+        SessionFactory factory = sessionFactorySingleton.getInstance();
+        Session session = factory.openSession();
         ObservableList<StepLineTableStepController> observableTestStep = controllerTableStep.getCollectionTestStep();
         int numberOfTestStep = observableTestStep.size();
         TestCase thisTestCase = null;
-        SessionFactory factory = sessionFactorySingleton.getInstance();
-        Session session = factory.openSession();
+
         try {
-            thisTestCase = this.constructTestCase();
+            thisTestCase = this.constructTestCase();        //Construct a new test case with info inside textarea & Combo boxes.
         } catch (ParseException ex) {
             Logger.getLogger(TabTestCaseEditController.class.getName()).log(Level.SEVERE, null, ex);
         }
         for (int i = 0; i < numberOfTestStep; i++) {
             StepLineTableStepController current = observableTestStep.get(i);
-            TestStep step = current.getTestStep();//new TestStep(current.getTestStep());
+            TestStep step = current.getTestStep();
             step.setStepOrder((byte) i);
             System.out.println("StepID: " + step.getIdtestStep() + " , Steporder: " + step.getStepOrder());
+            if (thisTestCase != null) {
+                thisTestCase.addStep(step);
+            }
 
             int numberOfScript = current.getCollectionScript().size();
             int executionOrderScript = 0;
             //System.out.println("NUMBER OF SCRIPT = "+numberOfScript);
 
             for (int j = 0; j < numberOfScript; j++) {
-                //This for-loop is for the Step description (Left part of the Test steps). Only consider isScript = 1 case.
+                //This while-loop is for the Step description (Left part of the Test steps). Only consider isScript = 1 case.
                 ScriptLineTableStepController currentScript = current.getCollectionScript().get(j);
                 if (currentScript.getScriptAction() != null) {
                     currentScript.getScriptAction().setExecutionOrder((byte) executionOrderScript);
                     executionOrderScript++;
                     //System.out.println("ScriptAction, TSHS ID: " + currentScript.getScriptAction().getIdtestStepHasScript());
                     step.addTestStephasScript(currentScript.getScriptAction());
-                    Iterator<ScriptHasBeenConfigured> itScriptHBC = currentScript.getScriptAction().getScriptHasBeenConfigureds().iterator();
+
+//                    Iterator<ScriptHasBeenConfigured> itScriptHBC = currentScript.getScriptAction().getScriptHasBeenConfigureds().iterator();
 //                    while (itScriptHBC.hasNext()) {
+//                        currentScript.getScriptAction().setScriptHasBeenConfigureds(itScriptHBC.next());
 //                        System.out.println("SCRIPT HAS BEEN CONFIGURED :" + itScriptHBC.next().getTestStepHasScript());
 //                        session.save(itScriptHBC.next().getTestStepHasScript());
 //                    }
                     System.out.println("Script has been configured set : " + currentScript.getScriptAction().getScriptHasBeenConfigureds());
-//                    System.out.println("Number of parameters : "+currentScript.getScriptAction().getScriptHasBeenConfigureds().size());
-//                    System.out.println("currentScript = " + currentScript.getScriptAction().getScript().getName());
-
+                    System.out.println("Number of parameters : " + currentScript.getScriptAction().getScriptHasBeenConfigureds().size());
+                    System.out.println("currentScript = " + currentScript.getScriptAction().getScript().getName());
                 }
-                //This for-loop is for Expected result (Right part of the Test steps). Onlye consider isMacro = 1 case.
+                //This while-loop is for Expected result (Right part of the Test steps). Onlye consider isMacro = 1 case.
                 if (currentScript.getScriptVerif() != null) {
                     currentScript.getScriptVerif().setExecutionOrder((byte) executionOrderScript);
                     executionOrderScript++;
                     //System.out.println("ScriptVerif, TSHS ID: " + currentScript.getScriptAction().getIdtestStepHasScript() + currentScript.getScriptAction());
                     step.addTestStephasScript(currentScript.getScriptVerif());
                     System.out.println("ID TEST STEP HAS SCRIPT = " + currentScript.getScriptVerif().getIdtestStepHasScript());
-                    Iterator<ScriptHasBeenConfigured> itScriptHBC = currentScript.getScriptVerif().getScriptHasBeenConfigureds().iterator();
+//                    Iterator<ScriptHasBeenConfigured> itScriptHBC = currentScript.getScriptVerif().getScriptHasBeenConfigureds().iterator();
 //                    while (itScriptHBC.hasNext()) {
 //                        System.out.println("SCRIPT HAS BEEN CONFIGURED :" + itScriptHBC.next().getTestStepHasScript());
 //                        session.save(itScriptHBC.next().getTestStepHasScript());
 //                    }
                     System.out.println("Script has been configured set : " + currentScript.getScriptVerif().getScriptHasBeenConfigureds());
-//                     System.out.println("Number of parameters : "+currentScript.getScriptVerif().getScriptHasBeenConfigureds().size());
-//                    System.out.println("currentScript = " + currentScript.getScriptVerif().getScript().getName());
+                    System.out.println("Number of parameters : " + currentScript.getScriptVerif().getScriptHasBeenConfigureds().size());
+                    System.out.println("currentScript = " + currentScript.getScriptVerif().getScript().getName());
                 }
-
+//                session.saveOrUpdate(step);
             }
 //            session.save(step);
-            if (thisTestCase != null) {
-                thisTestCase.addStep(step);
-            }
+
         }
         //Trying to overcome TransientObjectException. Need to save DB.TestStepHasScript before saving thisTestCase.
 //        Iterator<TestStep> itTS = thisTestCase.getTestSteps().iterator();
@@ -566,10 +575,42 @@ public class TabTestCaseEditController implements Initializable {
 //                session.save(setTSHS);
 //            }
 //        }
-
-        session.save(thisTestCase);
-        session.beginTransaction().commit();        //Cause TestStepHasScript exception (need to save it before commit). 
+        try {
+            session.save(thisTestCase);
+            session.beginTransaction().commit();        //Cause TestStepHasScript exception (need to save it before commit). 
+        } catch (TransientObjectException ex) {     //Need to close the session regardless the exception occured.
+            Logger.getLogger(TabTestCaseEditController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         session.close();
+        
+        
+//                ObservableList<StepLineTableStepController> observableTestStep = controllerTableStep.getCollectionTestStep();
+//        int numberOfTestStep = observableTestStep.size();
+//        TestCase thisTestCase = constructTestCase();
+//        for (int i = 0; i < numberOfTestStep; i++) {
+//            StepLineTableStepController current = observableTestStep.get(i);
+//            TestStep step = current.getTestStep();
+//            step.setStepOrder((byte) i);
+//            thisTestCase.addStep(step);
+//            int numberOfScript = current.getCollectionScript().size();
+//            int executionOrderScript = 0;
+//
+//            for (int j = 0; j < numberOfScript; j++) {
+//                ScriptLineTableStepController currentScript = current.getCollectionScript().get(j);
+//                if (currentScript.getScriptAction() != null) {
+//                    currentScript.getScriptAction().setExecutionOrder((byte) executionOrderScript);
+//                    executionOrderScript++;
+//                    step.addTestStephasScript(currentScript.getScriptAction());
+//
+//                }
+//                if (currentScript.getScriptVerif() != null) {
+//                    currentScript.getScriptVerif().setExecutionOrder((byte) executionOrderScript);
+//                    executionOrderScript++;
+//                    step.addTestStephasScript(currentScript.getScriptVerif());
+//                }
+//            }
+//
+//        }
 //        ObservableList<StepLineTableStepController> observableTestStep = controllerTableStep.getCollectionTestStep();
 //        ObservableList<ScriptLineTableStepController> observableScript;
 //        int numberOfTestStep = observableTestStep.size();
@@ -711,6 +752,9 @@ public class TabTestCaseEditController implements Initializable {
         return ok;
     }
 
+    /**
+     *
+     */
     public void closeAlert() {
         try {
             alert.setOnCloseRequest(new EventHandler<DialogEvent>() {
@@ -725,6 +769,9 @@ public class TabTestCaseEditController implements Initializable {
         }
     }
 
+    /**
+     *
+     */
     public void alertBox2() {
         alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Please wait");
@@ -740,6 +787,10 @@ public class TabTestCaseEditController implements Initializable {
         alert.show();
     }
 
+    /**
+     *
+     * @return
+     */
     public AnchorPane getAnchorPane() {
         return this.anchorPanelNewTestCase;
     }

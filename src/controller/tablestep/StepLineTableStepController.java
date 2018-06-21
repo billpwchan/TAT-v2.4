@@ -107,6 +107,9 @@ public class StepLineTableStepController implements Initializable {
 
     private boolean isExpand = true;
 
+    /**
+     *
+     */
     public int numberOfScript = 0;
 
     private final TestStep personalTespStep = new TestStep();
@@ -171,6 +174,10 @@ public class StepLineTableStepController implements Initializable {
 
     }
 
+    /**
+     *
+     * @param testStep
+     */
     public void setStepView(TestStep testStep) {
         
         this.loadImagesView();
@@ -226,6 +233,10 @@ public class StepLineTableStepController implements Initializable {
 
     }
 
+    /**
+     *
+     * @param allReq
+     */
     public void setStepCreation(ArrayList<Requirement> allReq) {
         System.out.println("HERE scroll");
         this.allReq = allReq;
@@ -678,6 +689,9 @@ public class StepLineTableStepController implements Initializable {
         }
     };
 
+    /**
+     *
+     */
     public void initStep() {
 
         while (scrollBarv == null && scrollBarverif == null) {
@@ -821,7 +835,12 @@ public class StepLineTableStepController implements Initializable {
 //    public void closePopUp() {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 //    }
-    public void setAction(ObservableList<Requirement> requirementsSelected) {
+
+    /**
+     *
+     * @param requirementsSelected
+     */
+        public void setAction(ObservableList<Requirement> requirementsSelected) {
         requirementsLinked.clear();
         requirementsLinked.setAll(requirementsSelected);
         requirementLinked.clear();
@@ -834,6 +853,10 @@ public class StepLineTableStepController implements Initializable {
         controllerViewGlobal.updateRequirementTestCase();
     }
 
+    /**
+     *
+     * @return
+     */
     public ObservableList<Requirement> getRequirements() {
         return this.requirementsLinked;
     }
@@ -852,22 +875,42 @@ public class StepLineTableStepController implements Initializable {
         this.imageExpand.setVisible(false);
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean getIsExpand() {
         return this.isExpand;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean getIsSelected() {
         return this.isSelected;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean getIsClicked() {
         return this.clicked;
     }
 
+    /**
+     *
+     * @param clicked
+     */
     public void setIsClicker(boolean clicked) {
         this.clicked = clicked;
     }
 
+    /**
+     *
+     * @return
+     */
     public TableStepScriptCreationController getControllerViewGlobal() {
         return this.controllerViewGlobal;
     }

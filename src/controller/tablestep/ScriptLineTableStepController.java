@@ -104,10 +104,18 @@ public class ScriptLineTableStepController implements Initializable {
 
     }
 
+    /**
+     *
+     */
     public void setScriptView() {
 
     }
 
+    /**
+     *
+     * @param scriptStimuli
+     * @param scriptCheck
+     */
     public void setScriptCreation(HashSet<Script> scriptStimuli, HashSet<Script> scriptCheck) {
 
         this.loadViewCheck();
@@ -186,10 +194,18 @@ public class ScriptLineTableStepController implements Initializable {
         return temp;
     }
 
+    /**
+     *
+     * @return
+     */
     public ViewScriptController getScriptActionController() {
         return this.scriptControllerAction;
     }
 
+    /**
+     *
+     * @return
+     */
     public ViewScriptController getScriptVerifController() {
         return this.scriptControllerVerif;
     }
@@ -286,6 +302,9 @@ public class ScriptLineTableStepController implements Initializable {
         this.paramVerif.setImage(image);
     }
 
+    /**
+     *
+     */
     public void updateSizeGrid() {
         int NbrParamAction = 0;
         int nbrParamVerif = 0;
@@ -527,10 +546,18 @@ public class ScriptLineTableStepController implements Initializable {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**
+     *
+     * @return
+     */
     public StepLineTableStepController getControllerStepParent() {
         return this.controllerStepParent;
     }
 
+    /**
+     *
+     * @return
+     */
     public ViewScriptController getScriptView() {
         return this.scriptControllerAction;
     }

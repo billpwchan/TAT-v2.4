@@ -46,6 +46,9 @@ public class Engine {
      */
     public ArrayList<CaseExecutions> toExecute;
 
+    /**
+     *
+     */
     public PopUpRunController popUpRunController;
     String stepResult = null, resultOKWC = "OKWC", resultOK = "OK", resultNOK = "NOK", resultNotTestable = "Not testable", resultOutOfScope = "OS", resultIncomplete = "Incomplete";
     int nbCaseOK = 0, nbCaseOKWC = 0, nbCaseNOK = 0, nbCaseNtestable = 0, nbCaseIncomplete = 0, nbCaseOS = 0, nbCaseNT = 0;

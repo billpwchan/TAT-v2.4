@@ -19,9 +19,19 @@ public class TestStepHasScript implements java.io.Serializable,Comparable<TestSt
     //@Cascade({CascadeType.MERGE})
     private Set scriptHasBeenConfigureds = new HashSet(0);
 
+    /**
+     *
+     */
     public TestStepHasScript() {
     }
 
+    /**
+     *
+     * @param idtestStepHasScript
+     * @param script
+     * @param testStep
+     * @param executionOrder
+     */
     public TestStepHasScript(int idtestStepHasScript, Script script, TestStep testStep, byte executionOrder) {
         this.idtestStepHasScript = idtestStepHasScript;
         this.script = script;
@@ -29,12 +39,22 @@ public class TestStepHasScript implements java.io.Serializable,Comparable<TestSt
         this.executionOrder = executionOrder;
     }
 
+    /**
+     *
+     * @param script
+     * @param testStep
+     * @param executionOrder
+     */
     public TestStepHasScript(Script script, TestStep testStep, byte executionOrder) {
         this.script = script;
         this.testStep = testStep;
         this.executionOrder = executionOrder;
     }
 
+    /**
+     *
+     * @param tshs
+     */
     public TestStepHasScript(TestStepHasScript tshs) {
         this.script = tshs.getScript();
         this.testStep = tshs.getTestStep();
@@ -42,6 +62,14 @@ public class TestStepHasScript implements java.io.Serializable,Comparable<TestSt
         this.scriptHasBeenConfigureds = tshs.getScriptHasBeenConfigureds();
     }
 
+    /**
+     *
+     * @param idtestStepHasScript
+     * @param script
+     * @param testStep
+     * @param executionOrder
+     * @param scriptHasBeenConfigureds
+     */
     public TestStepHasScript(int idtestStepHasScript, Script script, TestStep testStep, byte executionOrder, Set scriptHasBeenConfigureds) {
         this.idtestStepHasScript = idtestStepHasScript;
         this.script = script;
@@ -59,46 +87,90 @@ public class TestStepHasScript implements java.io.Serializable,Comparable<TestSt
         return str;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getIdtestStepHasScript() {
         return this.idtestStepHasScript;
     }
 
+    /**
+     *
+     * @param idtestStepHasScript
+     */
     public void setIdtestStepHasScript(int idtestStepHasScript) {
         this.idtestStepHasScript = idtestStepHasScript;
     }
 
+    /**
+     *
+     * @return
+     */
     public Script getScript() {
         return this.script;
     }
 
+    /**
+     *
+     * @param script
+     */
     public void setScript(Script script) {
         this.script = script;
     }
 
+    /**
+     *
+     * @return
+     */
     public TestStep getTestStep() {
         return this.testStep;
     }
 
+    /**
+     *
+     * @param testStep
+     */
     public void setTestStep(TestStep testStep) {
         this.testStep = testStep;
     }
 
+    /**
+     *
+     * @return
+     */
     public byte getExecutionOrder() {
         return this.executionOrder;
     }
 
+    /**
+     *
+     * @param executionOrder
+     */
     public void setExecutionOrder(byte executionOrder) {
         this.executionOrder = executionOrder;
     }
 
+    /**
+     *
+     * @return
+     */
     public Set getScriptHasBeenConfigureds() {
         return this.scriptHasBeenConfigureds;
     }
 
+    /**
+     *
+     * @param scriptHasBeenConfigureds
+     */
     public void setScriptHasBeenConfigureds(Set scriptHasBeenConfigureds) {
         this.scriptHasBeenConfigureds = scriptHasBeenConfigureds;
     }
 
+    /**
+     *
+     * @param scriptHasBeenConf
+     */
     public void addScripthasBeenConfigured(ScriptHasBeenConfigured scriptHasBeenConf) {
         scriptHasBeenConf.setTestStepHasScript(this);
         this.scriptHasBeenConfigureds.add(scriptHasBeenConf);
