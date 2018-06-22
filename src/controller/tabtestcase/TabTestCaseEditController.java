@@ -4,6 +4,7 @@ import main.Main;
 import DB.ScriptHasBeenConfigured;
 import DB.TestCase;
 import DB.TestStep;
+import DB.TestStepHasScript;
 import DBcontroller.TestCaseDB;
 import DBcontroller.sessionFactorySingleton;
 import controller.tablestep.HeaderTableStepController;
@@ -16,9 +17,11 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.Set;
 import javafx.beans.value.ChangeListener;
 import javafx.collections.ListChangeListener;
 import javafx.fxml.FXML;
@@ -223,7 +226,6 @@ public class TabTestCaseEditController implements Initializable {
         this.jtextfieldCaseSourceEdit.setText(testCase.getTestCaseSource());
 
         initializeFieldListener();
- 
 
         controllerTableStep.displayScriptAndStepEdit(testCase);
 
@@ -509,15 +511,21 @@ public class TabTestCaseEditController implements Initializable {
         } catch (ParseException ex) {
             Logger.getLogger(TabTestCaseEditController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        session.save(thisTestCase);
+        session.beginTransaction().commit();        //This can generate a new ID for reference.
         for (int i = 0; i < numberOfTestStep; i++) {
             StepLineTableStepController current = observableTestStep.get(i);
-            TestStep step = current.getTestStep();
+            TestStep step = new TestStep(current.getTestStep());
             step.setStepOrder((byte) i);
+            step.setTestCase(thisTestCase); //At this stage, the problem is TestStep's ScriptHasBeenConfigured Object is not yet saved. As well as TestStepHasScripts
+            step.setTestStepHasScripts(new HashSet<>());    //Cuz the TestStephasSripts is not yet saved.
+            session.save(step);
+            session.beginTransaction().commit();
+
             System.out.println("StepID: " + step.getIdtestStep() + " , Steporder: " + step.getStepOrder());
             if (thisTestCase != null) {
                 thisTestCase.addStep(step);
             }
-
             int numberOfScript = current.getCollectionScript().size();
             int executionOrderScript = 0;
             //System.out.println("NUMBER OF SCRIPT = "+numberOfScript);
@@ -525,43 +533,60 @@ public class TabTestCaseEditController implements Initializable {
             for (int j = 0; j < numberOfScript; j++) {
                 //This while-loop is for the Step description (Left part of the Test steps). Only consider isScript = 1 case.
                 ScriptLineTableStepController currentScript = current.getCollectionScript().get(j);
+
                 if (currentScript.getScriptAction() != null) {
                     currentScript.getScriptAction().setExecutionOrder((byte) executionOrderScript);
+                    TestStepHasScript newTSHS = new TestStepHasScript(currentScript.getScriptAction());
+                    newTSHS.setTestStep(step);
+
                     executionOrderScript++;
                     //System.out.println("ScriptAction, TSHS ID: " + currentScript.getScriptAction().getIdtestStepHasScript());
-                    step.addTestStephasScript(currentScript.getScriptAction());
 
-//                    Iterator<ScriptHasBeenConfigured> itScriptHBC = currentScript.getScriptAction().getScriptHasBeenConfigureds().iterator();
-//                    while (itScriptHBC.hasNext()) {
+                    step.addTestStephasScript(newTSHS);
+
+                    Iterator<ScriptHasBeenConfigured> itScriptHBC = currentScript.getScriptAction().getScriptHasBeenConfigureds().iterator();
+                    Set<ScriptHasBeenConfigured> setSHBC = new HashSet<>();
+                    while (itScriptHBC.hasNext()) {
+                        ScriptHasBeenConfigured nextSHBC = new ScriptHasBeenConfigured(itScriptHBC.next(), newTSHS);
+                        setSHBC.add(nextSHBC);
+//                        session.save(nextSHBC);
+
 //                        currentScript.getScriptAction().setScriptHasBeenConfigureds(itScriptHBC.next());
 //                        System.out.println("SCRIPT HAS BEEN CONFIGURED :" + itScriptHBC.next().getTestStepHasScript());
 //                        session.save(itScriptHBC.next().getTestStepHasScript());
-//                    }
-                    System.out.println("Script has been configured set : " + currentScript.getScriptAction().getScriptHasBeenConfigureds());
-                    System.out.println("Number of parameters : " + currentScript.getScriptAction().getScriptHasBeenConfigureds().size());
-                    System.out.println("currentScript = " + currentScript.getScriptAction().getScript().getName());
+                    }
+                    newTSHS.setScriptHasBeenConfigureds(setSHBC);
+//                    session.save(newTSHS);
                 }
                 //This while-loop is for Expected result (Right part of the Test steps). Onlye consider isMacro = 1 case.
                 if (currentScript.getScriptVerif() != null) {
                     currentScript.getScriptVerif().setExecutionOrder((byte) executionOrderScript);
+                    TestStepHasScript newTSHS = new TestStepHasScript(currentScript.getScriptVerif());
+                    newTSHS.setTestStep(step);
+
+//                            session.beginTransaction().commit();
                     executionOrderScript++;
                     //System.out.println("ScriptVerif, TSHS ID: " + currentScript.getScriptAction().getIdtestStepHasScript() + currentScript.getScriptAction());
                     step.addTestStephasScript(currentScript.getScriptVerif());
-                    System.out.println("ID TEST STEP HAS SCRIPT = " + currentScript.getScriptVerif().getIdtestStepHasScript());
-//                    Iterator<ScriptHasBeenConfigured> itScriptHBC = currentScript.getScriptVerif().getScriptHasBeenConfigureds().iterator();
-//                    while (itScriptHBC.hasNext()) {
+//                    System.out.println("ID TEST STEP HAS SCRIPT = " + currentScript.getScriptVerif().getIdtestStepHasScript());
+                    Iterator<ScriptHasBeenConfigured> itScriptHBC = currentScript.getScriptVerif().getScriptHasBeenConfigureds().iterator();
+                    Set<ScriptHasBeenConfigured> setSHBC = new HashSet<>();
+
+                    while (itScriptHBC.hasNext()) {
+                        ScriptHasBeenConfigured nextSHBC = new ScriptHasBeenConfigured(itScriptHBC.next(), newTSHS);
+                        setSHBC.add(nextSHBC);
+//                        session.save(nextSHBC);
+//                                session.beginTransaction().commit();
+
 //                        System.out.println("SCRIPT HAS BEEN CONFIGURED :" + itScriptHBC.next().getTestStepHasScript());
 //                        session.save(itScriptHBC.next().getTestStepHasScript());
-//                    }
-                    System.out.println("Script has been configured set : " + currentScript.getScriptVerif().getScriptHasBeenConfigureds());
-                    System.out.println("Number of parameters : " + currentScript.getScriptVerif().getScriptHasBeenConfigureds().size());
-                    System.out.println("currentScript = " + currentScript.getScriptVerif().getScript().getName());
+                    }
+                    newTSHS.setScriptHasBeenConfigureds(setSHBC);
+//                    session.save(newTSHS);
                 }
-//                session.saveOrUpdate(step);
             }
 //            session.save(step);
-//            session.evict(step);
-
+//            session.beginTransaction().commit();
         }
         //Trying to overcome TransientObjectException. Need to save DB.TestStepHasScript before saving thisTestCase.
 //        Iterator<TestStep> itTS = thisTestCase.getTestSteps().iterator();
@@ -574,7 +599,7 @@ public class TabTestCaseEditController implements Initializable {
 //            }
 //        }
         try {
-            session.save(thisTestCase);
+//            session.save(thisTestCase);
             session.beginTransaction().commit();        //Cause TestStepHasScript exception (need to save it before commit). 
         } catch (TransientObjectException ex) {     //Need to close the session regardless the exception occured.
             Logger.getLogger(TabTestCaseEditController.class.getName()).log(Level.SEVERE, null, ex);

@@ -52,13 +52,15 @@ public class ScriptHasBeenConfigured implements java.io.Serializable,Comparable<
         this.valuePath = valuePath;
     }
     
+    
+    
     /**
      *
      * @param shbc
      * @param tshs
      */
     public ScriptHasBeenConfigured(ScriptHasBeenConfigured shbc,TestStepHasScript tshs){
-        this.idscriptHasBeenConfigured = shbc.getIdscriptHasBeenConfigured();
+//        this.idscriptHasBeenConfigured = shbc.getIdscriptHasBeenConfigured();
         this.parameters=shbc.getParameters();
         this.testStepHasScript=tshs;
         this.isConfigured=shbc.getIsConfigured();

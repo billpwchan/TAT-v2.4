@@ -68,7 +68,7 @@ public class TestStep implements java.io.Serializable,Comparable<TestStep> {
      */
     public TestStep(TestStep step) {
         this.testCase = step.getTestCase();
-        this.idtestStep = step.getIdtestStep();
+//        this.idtestStep = step.getIdtestStep();
         this.writer = step.getWriter();
         this.humanStimuli = step.getHumanStimuli();
         this.humanCheck = step.getHumanCheck();

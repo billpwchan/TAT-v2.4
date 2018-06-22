@@ -35,11 +35,11 @@ public class ObjectCopy {
     public TestCase copyCompleteTestCase(TestCase testCase) {
         TestCase newTestCase = new TestCase(testCase);
 
-        SessionFactory factory = sessionFactorySingleton.getInstance();
-        Session session = factory.openSession();
-        session.save(newTestCase);
-        session.beginTransaction().commit();
-        session.close();
+//        SessionFactory factory = sessionFactorySingleton.getInstance();
+//        Session session = factory.openSession();
+//        session.save(newTestCase);
+//        session.beginTransaction().commit();
+//        session.close();
 
         newTestCase.setTestSteps(copyHashStep(newTestCase.getTestSteps(), newTestCase));
 
@@ -117,11 +117,11 @@ public class ObjectCopy {
             newStep.setTestStepHasScripts(setStepHasScripts);
             hashStep.add(newStep);
             
-            SessionFactory factory = sessionFactorySingleton.getInstance();
-            Session session = factory.openSession();
-            session.save(newStep);
-            session.beginTransaction().commit();
-            session.close();
+//            SessionFactory factory = sessionFactorySingleton.getInstance();
+//            Session session = factory.openSession();
+//            session.save(newStep);
+//            session.beginTransaction().commit();
+//            session.close();
         }
         return hashStep;
     }
@@ -151,16 +151,17 @@ public class ObjectCopy {
         Iterator<TestStepHasScript> itStepHasScripts = newStep.getTestStepHasScripts().iterator();
         while (itStepHasScripts.hasNext()) {
             TestStepHasScript tshs = new TestStepHasScript(itStepHasScripts.next());
-            tshs.setScriptHasBeenConfigureds(copyHashScriptHasBeenConfigured(tshs.getScriptHasBeenConfigureds(), tshs));
+            Set<ScriptHasBeenConfigured> setSHBC = copyHashScriptHasBeenConfigured(tshs.getScriptHasBeenConfigureds(), tshs);
+            tshs.setScriptHasBeenConfigureds(setSHBC);
 
             tshs.setTestStep(newStep);
             hashStepHasScripts.add(tshs);
             
-            SessionFactory factory = sessionFactorySingleton.getInstance();
-            Session session = factory.openSession();
-            session.save(tshs);
-            session.beginTransaction().commit();
-            session.close();
+//            SessionFactory factory = sessionFactorySingleton.getInstance();
+//            Session session = factory.openSession();
+//            session.save(tshs);
+//            session.beginTransaction().commit();
+//            session.close();
         }
         return hashStepHasScripts;
     }
