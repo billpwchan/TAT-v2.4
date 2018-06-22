@@ -33,7 +33,6 @@ public class ScriptDB {
     /**
      *
      */
-    
     public ScriptDB() {
     }
 
@@ -79,6 +78,8 @@ public class ScriptDB {
         Hibernate.initialize(scriptExecution.getParametersExecutions());
         session.close();
     }
+
+
 
     /**
      *
@@ -179,7 +180,7 @@ public class ScriptDB {
         }
         session.close();
     }
-    
+
     /**
      *
      * @param script
@@ -220,7 +221,6 @@ public class ScriptDB {
 
 //        q = session.createSQLQuery("INSERT INTO `param_script_macro` VALUES (1,1,NULL,25,0,'Constant','Send SSHLine',0),(2,1,NULL,27,0,'Constant','scada',2),(3,1,NULL,30,0,'Buffer list','@&Buffer_Buffer_A',5),(4,1,NULL,29,0,'Constant','scsolsshow -lEventList -r | tail -f -n 1',4),(5,1,NULL,26,0,'Constant','128.59.8.206',1),(6,1,NULL,28,0,'Constant','scada',3),(7,2,NULL,46,1,'','',1),(8,2,NULL,48,0,'Buffer list','@&Buffer_Buffer_A',3),(9,2,NULL,45,0,'Constant','Search EQP number',0),(10,2,NULL,47,0,'Constant','(?:\\|(^$|([^\\|]*))){14}',2),(11,3,NULL,48,0,'Buffer list','@&Buffer_Buffer_A',3),(12,3,NULL,45,0,'Constant','Search Attibute description',0),(13,3,NULL,47,0,'Constant','(?:\\|(^$|([^\\|]*))){7}',2),(14,3,NULL,46,1,'','',1),(15,4,NULL,45,0,'Constant','Search State',0),(16,4,NULL,47,0,'Constant','(?:\\|(^$|([^\\|]*))){8}',2),(17,4,NULL,48,0,'Buffer list','@&Buffer_Buffer_A',3),(18,4,NULL,46,1,'','',1),(19,5,NULL,47,0,'Constant','(?:\\|(^$|([^\\|]*))){6}',2),(20,5,NULL,45,0,'Constant','Search EQP description',0),(21,5,NULL,48,0,'Buffer list','@&Buffer_Buffer_A',3),(22,5,NULL,46,1,'','',1),(23,6,NULL,45,0,'Constant','Search EQP code',0),(24,6,NULL,46,1,'','',1),(25,6,NULL,48,0,'Buffer list','@&Buffer_Buffer_A',3),(26,6,NULL,47,0,'Constant','(?:\\|(^$|([^\\|]*))){12}',2),(27,7,NULL,45,0,'Constant','Search station',0),(28,7,NULL,47,0,'Constant',':(.+?):',2),(29,7,NULL,48,0,'Buffer list','@&Buffer_Buffer_A',3),(30,7,NULL,46,1,'','',1),(31,8,NULL,90,1,'','',1),(32,8,NULL,89,0,'Constant','Click on given EQP',0),(33,9,NULL,66,0,'Constant','Wait',0),(34,9,NULL,67,0,'Constant','1',1),(35,10,NULL,68,0,'Constant','Click on image given',0),(36,10,NULL,69,0,'Constant','C:\\Users\\tmartinez\\Desktop\\inspectoPanel\\advance.png',1),(37,11,34,67,0,'2 (Pause time)','Time to pause',1),(38,11,33,66,0,'2 (Pause time)','Script purpose',0),(39,12,NULL,68,0,'Constant','Click on image',0),(40,12,NULL,69,1,'','',1),(41,13,33,66,0,'2 (Pause time)','Script purpose',0),(42,13,NULL,67,0,'Constant','1',1),(43,14,35,68,0,'3 (Move cursor to image)','Script purpose',0),(44,14,NULL,69,0,'Constant','C:\\Users\\tmartinez\\Desktop\\inspectoPanel\\apply.png',1),(45,15,33,66,0,'2 (Pause time)','Script purpose',0),(46,15,NULL,67,0,'Constant','1',1),(47,16,NULL,69,0,'Constant','C:\\Users\\tmartinez\\Desktop\\inspectoPanel\\information.png',1),(48,16,35,68,0,'3 (Move cursor to image)','Script purpose',0),(49,17,NULL,67,0,'Constant','1',1),(50,17,NULL,66,0,'Constant','Wait',0),(51,18,NULL,69,0,'Constant','C:\\Users\\tmartinez\\Desktop\\inspectoPanel\\alarmack.png',1),(52,18,NULL,68,0,'Constant','Click on image',0),(53,19,NULL,67,0,'Constant','1',1),(54,19,NULL,66,0,'Constant','Wait',0),(55,20,NULL,68,0,'Constant','Click on image',0),(56,20,NULL,69,0,'Constant','C:\\Users\\tmartinez\\Desktop\\inspectoPanel\\close2.png',1),(57,21,NULL,61,0,'Constant','Click',0),(58,22,NULL,61,0,'Constant','Click',0),(59,23,NULL,61,0,'Constant','Click',0),(60,24,NULL,61,0,'Constant','Click',0),(61,25,NULL,61,0,'Constant','Click',0),(62,26,NULL,61,0,'Constant','Click',0);");
 //        q.executeUpdate();
-
         session.beginTransaction().commit();
         session.close();
     }

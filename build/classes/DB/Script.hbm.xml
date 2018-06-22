@@ -50,7 +50,7 @@
             </key>
             <one-to-many class="DB.TestStepHasScript" />
         </set>
-        <set name="macrosForScriptIdScript1" table="macro" inverse="true" lazy="false" fetch="select" cascade="save-update">
+        <set name="macrosForScriptIdScript1" table="macro" inverse="true" lazy="false" fetch="select" cascade="all">
             <key>
                 <column name="script_idScript1" not-null="true" />
             </key>

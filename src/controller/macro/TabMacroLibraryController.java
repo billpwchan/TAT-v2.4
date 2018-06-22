@@ -6,12 +6,16 @@
 package controller.macro;
 
 import DB.Script;
+import DB.TestCase;
 import DBcontroller.MacroDB;
+import DBcontroller.ScriptDB;
+import DBcontroller.TestCaseDB;
 import controller.macroActions.PreviewMacro;
 import controller.macroActions.TableActionCreationController;
 import controller.tabtestcase.TabTestCaseNewController;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,6 +28,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableView;
@@ -54,7 +59,7 @@ public class TabMacroLibraryController implements Initializable {
     private GridPane gridPaneMacroLibrary;
     @FXML
     private ScrollPane scrollPanePreview;
-    @FXML 
+    @FXML
     private TextField fieldFilter;
 
     private static TabMacroMainViewController macroMainViewController;
@@ -64,6 +69,8 @@ public class TabMacroLibraryController implements Initializable {
     private Script currentMacroSelected = new Script();
 
     private final MacroDB macroHandler = new MacroDB();
+
+    private final TestCaseDB testCaseHandler = new TestCaseDB();
 
     private final ObservableList<Script> observableListMacro = FXCollections.observableArrayList();
 
@@ -85,7 +92,7 @@ public class TabMacroLibraryController implements Initializable {
          * Init the column of the tableVIewMacro
          */
         initColumn columnInitialisation = new initColumn();
-        columnInitialisation.initColumnMacros(this.tableViewMacro,false);
+        columnInitialisation.initColumnMacros(this.tableViewMacro, false);
 
         constructTableMacro();
         initButtons();
@@ -157,7 +164,7 @@ public class TabMacroLibraryController implements Initializable {
 
     @SuppressWarnings("empty-statement")
     private void initButtons() {
-        this.buttonDelete.setDisable(true);
+        this.buttonDelete.setDisable(false);
         this.buttonEdit.setDisable(true);
 
         buttonAdd.setOnAction((ActionEvent e) -> {
@@ -168,6 +175,35 @@ public class TabMacroLibraryController implements Initializable {
             editMacro(currentMacroSelected);
         });
         buttonDelete.setOnAction((ActionEvent e) -> {
+            System.out.println("Test Case selected : ");
+            if (this.currentMacroSelected != null) {
+                ArrayList<TestCase> testCases = testCaseHandler.getTestCasesFromMacros(this.currentMacroSelected);
+                if (testCases.size() > 0) {
+                    String testCaseNames = "Test Case to Delete : \n";
+                    for (int i = 0; i < testCases.size(); i++) {
+                        testCaseNames += "\t--> " + testCases.get(i).getTestCaseTitle() + "\n";
+                    }
+                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                    alert.setTitle("Warning");
+                    alert.setHeaderText("Impossible to delete, the test case has already created. Please delete these test cases first : ");
+                    alert.setContentText(testCaseNames);
+                    alert.showAndWait();
+                    e.consume();
+                } else {
+                    macroHandler.deleteMacro(this.currentMacroSelected);        //Need to also delete in ParamScriptMacro & Macro database.
+                    this.updateLibrary();
+                    currentMacroSelected = this.observableListMacro.get(0) == null ? null : this.observableListMacro.get(0);    //If there's no macro left. Need to consider the case! 
+                    tableViewMacro.getSelectionModel().select(currentMacroSelected);
+                }
+            }
+
+//                } else {
+//                    testCaseHandler.deleteTestCase(currentTestCaseSelected);
+//                    this.updateLibrary();
+//                    currentTestCaseSelected = this.observableListTestCase.get(0);
+//                    tableViewTestCase.getSelectionModel().select(currentTestCaseSelected);
+//                }
+//            }
         });
 
     }
@@ -175,7 +211,7 @@ public class TabMacroLibraryController implements Initializable {
     private void newMacro() {
         TabMacroLibraryController.macroMainViewController.displayNewMacro();
     }
-    
+
     private void editMacro(Script script) {
         TabMacroLibraryController.macroMainViewController.displayEditMacro(script);
     }

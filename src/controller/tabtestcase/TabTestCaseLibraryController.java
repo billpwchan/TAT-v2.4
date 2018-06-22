@@ -60,7 +60,6 @@ import java.util.Optional;
 import javafx.scene.control.ButtonType;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
-import javassist.compiler.TokenId;
 import javafx.scene.control.TextField;
 
 /**
@@ -328,6 +327,7 @@ public class TabTestCaseLibraryController implements Initializable {
                     controllerTableStep.displayScriptAndStepView(currentTestCaseSelected);
                     tableViewTestCase.getSelectionModel().select(currentTestCaseSelected);
                     buttonEdit.setDisable(false);
+
                     if (controllerTableStep.isFullyConfigured()) {
                         executeButton.setDisable(false);
                     } else {

@@ -8,6 +8,7 @@ package DBcontroller;
 import DB.CaseExecutions;
 import DB.CaseExecutionsResult;
 import DB.Iterations;
+import DB.Script;
 import DB.ScriptHasBeenConfigured;
 import DB.ScriptHasParameters;
 import DB.TestCampaign;
@@ -47,6 +48,18 @@ public class TestCaseDB {
         ArrayList<TestCase> testCases = (ArrayList) l;
         session.getTransaction().commit();
         //EntityManager.persist
+        session.close();
+        return testCases;
+    }
+    
+    public ArrayList<TestCase> getTestCasesFromMacros(Script Macro) {
+        SessionFactory factory = sessionFactorySingleton.getInstance();
+        Session session = factory.openSession();
+        ArrayList<TestCase> testCases= new ArrayList<>();
+//        Query qry = session.createQuery("select tc from TestCase as tc left join tc.testSteps as tctc where tctc.testStepHasScripts.script.idScript=:idScript");
+        Query qry = session.createQuery("select tc from TestCase as tc left join tc.testSteps as tctc left join tctc.testStepHasScripts as tctctc where tctctc.script.idScript=:idScript");
+        qry.setParameter("idScript", Macro.getIdScript());
+        testCases = (ArrayList) qry.list();
         session.close();
         return testCases;
     }
