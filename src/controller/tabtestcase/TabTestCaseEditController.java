@@ -563,8 +563,6 @@ public class TabTestCaseEditController implements Initializable {
                     currentScript.getScriptVerif().setExecutionOrder((byte) executionOrderScript);
                     TestStepHasScript newTSHS = new TestStepHasScript(currentScript.getScriptVerif());
                     newTSHS.setTestStep(step);
-
-//                            session.beginTransaction().commit();
                     executionOrderScript++;
                     //System.out.println("ScriptVerif, TSHS ID: " + currentScript.getScriptAction().getIdtestStepHasScript() + currentScript.getScriptAction());
                     step.addTestStephasScript(currentScript.getScriptVerif());
@@ -576,8 +574,7 @@ public class TabTestCaseEditController implements Initializable {
                         ScriptHasBeenConfigured nextSHBC = new ScriptHasBeenConfigured(itScriptHBC.next(), newTSHS);
                         setSHBC.add(nextSHBC);
 //                        session.save(nextSHBC);
-//                                session.beginTransaction().commit();
-
+//                        session.beginTransaction().commit();
 //                        System.out.println("SCRIPT HAS BEEN CONFIGURED :" + itScriptHBC.next().getTestStepHasScript());
 //                        session.save(itScriptHBC.next().getTestStepHasScript());
                     }
@@ -588,161 +585,12 @@ public class TabTestCaseEditController implements Initializable {
 //            session.save(step);
 //            session.beginTransaction().commit();
         }
-        //Trying to overcome TransientObjectException. Need to save DB.TestStepHasScript before saving thisTestCase.
-//        Iterator<TestStep> itTS = thisTestCase.getTestSteps().iterator();
-//        while(itTS.hasNext()){
-//            TestStep setTestStep= itTS.next();
-//            Iterator<TestStepHasScript> itTSHS = setTestStep.getTestStepHasScripts().iterator();
-//            while(itTSHS.hasNext()){
-//                TestStepHasScript setTSHS = itTSHS.next();
-//                session.save(setTSHS);
-//            }
-//        }
         try {
-//            session.save(thisTestCase);
             session.beginTransaction().commit();        //Cause TestStepHasScript exception (need to save it before commit). 
         } catch (TransientObjectException ex) {     //Need to close the session regardless the exception occured.
             Logger.getLogger(TabTestCaseEditController.class.getName()).log(Level.SEVERE, null, ex);
         }
         session.close();
-
-//                ObservableList<StepLineTableStepController> observableTestStep = controllerTableStep.getCollectionTestStep();
-//        int numberOfTestStep = observableTestStep.size();
-//        TestCase thisTestCase = constructTestCase();
-//        for (int i = 0; i < numberOfTestStep; i++) {
-//            StepLineTableStepController current = observableTestStep.get(i);
-//            TestStep step = current.getTestStep();
-//            step.setStepOrder((byte) i);
-//            thisTestCase.addStep(step);
-//            int numberOfScript = current.getCollectionScript().size();
-//            int executionOrderScript = 0;
-//
-//            for (int j = 0; j < numberOfScript; j++) {
-//                ScriptLineTableStepController currentScript = current.getCollectionScript().get(j);
-//                if (currentScript.getScriptAction() != null) {
-//                    currentScript.getScriptAction().setExecutionOrder((byte) executionOrderScript);
-//                    executionOrderScript++;
-//                    step.addTestStephasScript(currentScript.getScriptAction());
-//
-//                }
-//                if (currentScript.getScriptVerif() != null) {
-//                    currentScript.getScriptVerif().setExecutionOrder((byte) executionOrderScript);
-//                    executionOrderScript++;
-//                    step.addTestStephasScript(currentScript.getScriptVerif());
-//                }
-//            }
-//
-//        }
-//        ObservableList<StepLineTableStepController> observableTestStep = controllerTableStep.getCollectionTestStep();
-//        ObservableList<ScriptLineTableStepController> observableScript;
-//        int numberOfTestStep = observableTestStep.size();
-//
-//        SessionFactory factory = sessionFactorySingleton.getInstance();
-//        Session session = factory.openSession();
-//        Transaction tx;
-//        HashSet setStep = new HashSet();
-//        HashSet setStepHasScript = new HashSet();
-//        HashSet setScrHasBeenConfigured = new HashSet();
-//        setScrHasBeenConfigured.clone()
-//
-//        //Loop on all test step
-//        for (int i = 0; i < numberOfTestStep; i++) {
-//            StepLineTableStepController current = observableTestStep.get(i);
-//            observableScript = current.getCollectionScript();
-//
-//            //Create test step number i
-//            TestStep step = new TestStep(current.getTestStep());
-//            System.out.println("Check is :" + current.getTestStep().getHumanCheck());
-//            System.out.println("Stimuli is :" + current.getTestStep().getHumanStimuli());
-//            step.setStepOrder((byte) i);
-//            step.setCreationDate(new java.util.Date());
-//            setStep.add(step);
-//            //Add it to the collection
-//            //Create arraylist of testStepHasScriptID for all of the script in the next step
-//            HashSet setScript = new HashSet();
-//            //Loop on all script of this test step
-//            byte executionOrderScript = 0;
-//            for (ScriptLineTableStepController observableScript1 : observableScript) {
-//                // System.out.println("Is script null " + observableScript1.getScriptAction());
-//                if (observableScript1.getScriptAction() != null) {
-//                    Script testScriptTGetFromDB = (Script) session.get(Script.class, observableScript1.getScriptAction().getScript().getIdScript());
-//                    //testScriptTGetFromDB = 
-//                    tx = session.beginTransaction();
-//                    //TestStepHasScriptId stepHasScriptID = new TestStepHasScriptId(observableScript1.getScriptAction().getIdScript(), step.getIdtestStep(), executionOrderScript, true);
-//                    TestStepHasScript stepHasScript = new TestStepHasScript(testScriptTGetFromDB, step, executionOrderScript);
-//                    setScript.add(stepHasScript);
-//                    session.save(stepHasScript);
-//                    tx.commit();
-//                    executionOrderScript++;
-//                    HashSet setConf = new HashSet();
-//                    for (int index = 0; index < observableScript1.getParamControllerAction().getParams().size(); index++) {
-//                        paramsForScript params = observableScript1.getParamControllerAction().getParams().get(index);
-//                       // if (params.getConfigured()) {
-//
-//                        //System.out.println("Script ID :" + stepHasScript.getScript().getIdScript() + "Script ID in ID :" + stepHasScript.getId().getScriptIdScript());
-//                        //System.out.println("Test Step ID :" + stepHasScript.getTestStep().getIdtestStep() + "Test Step ID in ID :" + stepHasScript.getId().getTestStepIdtestStep());
-//                        paramsForScript currentParamForScript = observableScript1.getParamControllerAction().getParams().get(index);
-//                        tx = session.beginTransaction();
-//                        //ScriptHasParameters script = new ScriptHasParameters();
-//                        ParametersDB paramHandler = new ParametersDB();
-//                        ArrayList<ScriptHasParameters> ParametersFromScript = paramHandler.getParametersFromScript(params.getScript().getIdScript());
-//                        ScriptHasParametersConfiguredId test2 = new ScriptHasParametersConfiguredId(ParametersFromScript.get(index), stepHasScript);
-//                        ScriptHasParametersConfigured shpc = new ScriptHasParametersConfigured(test2, ParametersFromScript.get(index), stepHasScript,
-//                                currentParamForScript.getConfigured(), currentParamForScript.getValue(), currentParamForScript.getPathToVariable());
-////                        for(int k = 0;k<ParametersFromScript.size();k++){
-////                            shpc.getScriptHasParameters().getScriptHasParametersConfigureds();
-////                        }
-//                        //System.out.println("The order is " + shpc.getOrder() + "test parameter value is " + shpc.getValue());
-//                        setConf.add(shpc);
-//                        session.save(shpc);
-//                        tx.commit();
-//                        //}
-//                    }
-//                    stepHasScript.setScriptHasParametersConfigureds(setConf);
-//                }
-//                if (observableScript1.getScriptrVerif() != null) {
-//                    tx = session.beginTransaction();
-//                    TestStepHasScriptId stepHasScriptID = new TestStepHasScriptId(observableScript1.getScriptrVerif().getIdScript(), step.getIdtestStep(), executionOrderScript, false);
-//                    TestStepHasScript stepHasScript = new TestStepHasScript(stepHasScriptID, observableScript1.getScriptrVerif(), step);
-//                    setScript.add(stepHasScript);
-//                    session.save(stepHasScript);
-//                    tx.commit();
-//                    executionOrderScript++;
-//                    HashSet setConf = new HashSet();
-//                    for (int index = 0; index < observableScript1.getParamControllerVerif().getParams().size(); index++) {
-//                        paramsForScript params = observableScript1.getParamControllerVerif().getParams().get(index);
-//                        //if (params.getConfigured()) {
-//                        paramsForScript currentParamForScript = observableScript1.getParamControllerVerif().getParams().get(index);
-//                        tx = session.beginTransaction();
-//                        //ScriptHasParameters script = new ScriptHasParameters();
-//                        ParametersDB paramHandler = new ParametersDB();
-//                        ArrayList<ScriptHasParameters> ParametersFromScript = paramHandler.getParametersFromScript(params.getScript().getIdScript());
-//                        ScriptHasParametersConfiguredId test2 = new ScriptHasParametersConfiguredId(ParametersFromScript.get(index), stepHasScript);
-//                        ScriptHasParametersConfigured shpc = new ScriptHasParametersConfigured(test2, ParametersFromScript.get(index), stepHasScript,
-//                                currentParamForScript.getConfigured(), currentParamForScript.getValue(), currentParamForScript.getPathToVariable());
-//                        setConf.add(shpc);
-//                        session.save(shpc);
-//                        tx.commit();
-//                        // }
-//                    }
-//                    stepHasScript.setScriptHasParametersConfigureds(setConf);
-//                }
-//
-//            }
-//            step.setTestStepHasScripts(setScript);
-//        }
-//        TestCase thisTestCase = new TestCase();
-//
-//        try {
-//            thisTestCase = constructTestCase();
-//        } catch (ParseException ex) {
-//            Logger.getLogger(TabTestCaseEditController.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        thisTestCase.setTestSteps(setStep);
-//        tx = session.beginTransaction();
-//        session.save(thisTestCase);
-//        tx.commit();
-//        session.close();
     }
 
     private boolean displayWarningDeleteCase() {

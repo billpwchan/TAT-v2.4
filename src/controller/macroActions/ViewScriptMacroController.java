@@ -272,7 +272,7 @@ public class ViewScriptMacroController implements Initializable {
      * @param currentSelectedScript
      */
     public void updateGridPaneEdit(Script currentSelectedScript) {  //This is for update script's parameter. 
-        constructGridPaneView(currentSelectedScript);  //Place occupied by "Click on Equipment"
+//        constructGridPaneView(currentSelectedScript);  //Place occupied by "Click on Equipment"
         byte order = 0;
 //        updateGridPaneModification(currentSelectedScript);
 //        this.observableListParams.clear();
