@@ -76,6 +76,7 @@ public class MacroDB {
         session.close();
     }
     
+    //Delete in Macro database based on certain ID
     private void deleteMacroGivenMacroId(int macroId){
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
@@ -86,6 +87,7 @@ public class MacroDB {
         session.close();
     }
     
+    //Delete in ParamScriptmacro database based on certain ID.
     public void deletePSMGivenMacroId(Macro macro){
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();

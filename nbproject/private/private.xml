@@ -3,8 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/tmartinez/Documents/NetBeansProjects/TAT_V2.2/src/controller/tabtestcase/TabTestCaseEditController.java</file>
-            <file>file:/C:/Users/tmartinez/Documents/NetBeansProjects/TAT_V2.2/src/controller/macro/TabMacroEditController.java</file>
+            <file>file:/C:/Users/tmartinez/Documents/NetBeansProjects/TAT_V2.2/src/DB/TestCase.hbm.xml</file>
+            <file>file:/C:/Users/tmartinez/Documents/NetBeansProjects/TAT_V2.2/src/DBcontroller/TestCampaignDB.java</file>
+            <file>file:/C:/Users/tmartinez/Documents/NetBeansProjects/TAT_V2.2/src/controller/tabtestcase/TabTestCaseLibraryController.java</file>
+            <file>file:/C:/Users/tmartinez/Documents/NetBeansProjects/TAT_V2.2/src/DBcontroller/TestCaseDB.java</file>
+            <file>file:/C:/Users/tmartinez/Documents/NetBeansProjects/TAT_V2.2/src/DBcontroller/MacroDB.java</file>
+            <file>file:/C:/Users/tmartinez/Documents/NetBeansProjects/TAT_V2.2/src/controller/macro/TabMacroLibraryController.java</file>
         </group>
     </open-files>
 </project-private>
