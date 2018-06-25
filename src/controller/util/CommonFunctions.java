@@ -5,14 +5,12 @@
  */
 package controller.util;
 
-import java.util.Optional;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.ButtonType;
 
 /**
  *
- * @author tmartinez
+ * @author billpwchan
  */
 public class CommonFunctions {
 
@@ -20,7 +18,6 @@ public class CommonFunctions {
         if (!identifier) {
             return false;
         }
-        boolean ok = false;
         CommonFunctions.displayAlert(AlertType.WARNING, "Warning. ", "Incorect Input Format in Field \"" + fieldName + "\": ", fieldName + " exceeds maximum characters allowed (" + maxLength.toString() + " characters). Please use another value, or only part of your input will be recorded.");
         return true;
     }

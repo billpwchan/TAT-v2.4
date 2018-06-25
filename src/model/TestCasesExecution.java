@@ -8,19 +8,13 @@ package model;
 
 import DB.CaseExecutions;
 import DB.Iterations;
-import DB.Script;
 import DB.ScriptExecutions;
 import DB.StepExecutions;
-import DB.TestCase;
-import DB.TestStep;
-import DBcontroller.ParametersDB;
 import DBcontroller.ScriptDB;
 import DBcontroller.TestCaseDB;
 import DBcontroller.TestStepDB;
 import java.util.ArrayList;
 import java.util.Iterator;
-import javafx.application.Platform;
-import javafx.concurrent.Task;
 
 /**
  *
@@ -185,6 +179,7 @@ public class TestCasesExecution {
     /**
      * Get all the scripts of a particular step to display
      *
+     * @param baselineID
      * @param testCasesAndSteps an arrayList of testCaseAndStep to search in
      * @param testStepID the ID of the case from which get the scritp
      * @param testStepOrder the order of the step

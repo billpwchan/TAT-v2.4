@@ -14,6 +14,7 @@ import controller.popup.PopUpCampaignSelectionController;
 import controller.popup.PopUpRunController;
 import controller.tabtestcampaign.TabTestCampaignRepositoryController;
 import controller.tabtestcase.TabTestCaseNewController;
+import controller.util.CommonFunctions;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -46,15 +47,14 @@ import static main.Main.primaryStage;
 import model.createOrchestra;
 import model.initColumn;
 import model.util;
-import java.awt.*;
 import javafx.collections.ListChangeListener;
 import javafx.scene.control.Alert;
 import javafx.stage.FileChooser;
 import model.WriteReport;
 
 /**
- * FXML Controller class
- * To validate a particular test case (With prompt window if excel is provided)
+ * FXML Controller class To validate a particular test case (With prompt window
+ * if excel is provided)
  *
  * @author Thomas M.
  */
@@ -445,21 +445,17 @@ public class TabTestCampaignExecutionRepositoryBaselineController implements Ini
             if (selected == null) {
                 e.consume();
             } else if (this.selected.getType().equals("baseline") || this.selected.getType().equals("execution")) {
-                //selectDirectoryForReport();
                 try {
                     WriteReport newReport = new WriteReport();
                     newReport.createReport(selected);
-                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                        alert.setTitle("Report generated");
-                        alert.setHeaderText("Report generated, named: " + newReport.getFileName());
-                        alert.showAndWait();
+                    CommonFunctions.displayAlert(Alert.AlertType.INFORMATION, "Report generated", "Report generated, named: " + newReport.getFileName(), null);
                 } catch (Exception ex) {
-                        ex.printStackTrace();
-                        Alert alert = new Alert(Alert.AlertType.ERROR);
-                        alert.setTitle("Error in generating Report");
-                        alert.setHeaderText("The TAT can only generate a report based on successfully executed baselines");
-                        alert.setContentText("Please choose a successfully executed baseline to report");
-                        alert.showAndWait();
+                    Logger.getLogger(TabTestCampaignExecutionRepositoryBaselineController.class.getName()).log(Level.SEVERE, null, ex);
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Error in generating Report");
+                    alert.setHeaderText("The TAT can only generate a report based on successfully executed baselines");
+                    alert.setContentText("Please choose a successfully executed baseline to report");
+                    alert.showAndWait();
                 }
             }
         });

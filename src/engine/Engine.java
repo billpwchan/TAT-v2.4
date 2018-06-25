@@ -25,12 +25,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.Optional;
 import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import model.TestCasesExecution;
 
 /**
@@ -588,6 +583,7 @@ public class Engine {
      * @throws SecurityException
      * @throws InstantiationException
      * @throws IllegalAccessException
+     * @throws java.net.MalformedURLException
      * @throws IllegalArgumentException
      * @throws InvocationTargetException
      */
@@ -629,6 +625,7 @@ public class Engine {
      * @throws IllegalAccessException
      * @throws IllegalArgumentException
      * @throws InvocationTargetException
+     * @throws java.net.MalformedURLException
      */
     public void closeScript(String script) throws ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, MalformedURLException {
         File root = new File(settings.scriptsPaht + "\\" + script + ".jar");

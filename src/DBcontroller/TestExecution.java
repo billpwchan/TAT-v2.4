@@ -54,13 +54,13 @@ public class TestExecution {
         Query qry = session.createQuery("select IT from Iterations IT where IT.testCampaign.idtestCampaign=:campaignId  group by IT.baselineId");
         qry.setInteger("campaignId", campaign.getIdtestCampaign());
         baselines = (ArrayList) qry.list();
-        for (int i = 0; i < baselines.size(); i++) {
+        for (Iterations baseline : baselines) {
             Criteria query = session.createCriteria(Iterations.class);
-            query.add(Restrictions.eq("baselineId", baselines.get(i).getBaselineId()));
+            query.add(Restrictions.eq("baselineId", baseline.getBaselineId()));
             query.setProjection(Projections.max("date"));
             String maxDate = (String) query.uniqueResult();
-            baselines.get(i).setDate(maxDate);
-            baselines.get(i).setType("baseline");
+            baseline.setDate(maxDate);
+            baseline.setType("baseline");
         }
         session.close();
         return baselines;
@@ -79,9 +79,9 @@ public class TestExecution {
         qry.setInteger("campaignId", baseline.getTestCampaign().getIdtestCampaign());
         qry.setString("baselineId", baseline.getBaselineId());
         executions = (ArrayList) qry.list();
-        for (int i = 0; i < executions.size(); i++) {
-            executions.get(i).setType("execution");
-        }
+        executions.stream().forEach((execution) -> {
+            execution.setType("execution");
+        });
         session.close();
         return executions;
     }
