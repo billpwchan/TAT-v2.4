@@ -8,7 +8,6 @@ package controller.macro;
 import DB.Script;
 import DB.TestCase;
 import DBcontroller.MacroDB;
-import DBcontroller.ScriptDB;
 import DBcontroller.TestCaseDB;
 import controller.macroActions.PreviewMacro;
 import controller.macroActions.TableActionCreationController;
@@ -28,6 +27,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
@@ -37,6 +37,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import model.initColumn;
 import javafx.scene.control.TextField;
+import model.setCursorOnComponent;
 
 /**
  * FXML Controller class
@@ -89,16 +90,17 @@ public class TabMacroLibraryController implements Initializable {
         //this.tableViewMacro.setItems(observableListMacro);
         this.tableViewMacro.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         /**
-         * Init the column of the tableVIewMacro
+         * Init the column of the tableViewMacro
          */
         initColumn columnInitialisation = new initColumn();
         columnInitialisation.initColumnMacros(this.tableViewMacro, false);
 
         constructTableMacro();
         initButtons();
+        defineCursor();
 
         this.tableViewMacro.setOnMousePressed((MouseEvent event) -> {
-            if (tableViewMacro.getSelectionModel().getSelectedItem() != null && event.getClickCount() == 2) {
+            if (tableViewMacro.getSelectionModel().getSelectedItem() != null && event.getClickCount() == 2) {   //Open View Tab.
                 currentMacroSelected = tableViewMacro.getSelectionModel().getSelectedItem();
                 macroHandler.getAllFromMacro(currentMacroSelected);
                 displayMacro(currentMacroSelected);
@@ -146,7 +148,6 @@ public class TabMacroLibraryController implements Initializable {
             });
         });
 
-        //System.out.println("filtered data= " + filteredData.size());
         // 3. Wrap the FilteredList in a SortedList. 
         SortedList<Script> sortedData = new SortedList<>(filteredData);
 
@@ -180,14 +181,8 @@ public class TabMacroLibraryController implements Initializable {
                 ArrayList<TestCase> testCases = testCaseHandler.getTestCasesFromMacros(this.currentMacroSelected);
                 if (testCases.size() > 0) {
                     String testCaseNames = "Test Case to Delete : \n";
-                    for (int i = 0; i < testCases.size(); i++) {
-                        testCaseNames += "\t--> " + testCases.get(i).getTestCaseTitle() + "\n";
-                    }
-                    Alert alert = new Alert(Alert.AlertType.WARNING);
-                    alert.setTitle("Warning");
-                    alert.setHeaderText("Impossible to delete, the test case has already created. Please delete these test cases first : ");
-                    alert.setContentText(testCaseNames);
-                    alert.showAndWait();
+                    testCaseNames = testCases.stream().map((testCase) -> "\t--> " + testCase.getTestCaseTitle() + "\n").reduce(testCaseNames, String::concat);
+                    displayWarning(testCaseNames);
                     e.consume();
                 } else {
                     macroHandler.deleteMacro(this.currentMacroSelected);        //Need to also delete in ParamScriptMacro & Macro database.
@@ -196,16 +191,16 @@ public class TabMacroLibraryController implements Initializable {
                     tableViewMacro.getSelectionModel().select(currentMacroSelected);
                 }
             }
-
-//                } else {
-//                    testCaseHandler.deleteTestCase(currentTestCaseSelected);
-//                    this.updateLibrary();
-//                    currentTestCaseSelected = this.observableListTestCase.get(0);
-//                    tableViewTestCase.getSelectionModel().select(currentTestCaseSelected);
-//                }
-//            }
         });
 
+    }
+
+    private void displayWarning(String testCaseNames) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Warning");
+        alert.setHeaderText("Impossible to delete, the test case has already created. Please delete these test cases first : ");
+        alert.setContentText(testCaseNames);
+        alert.showAndWait();
     }
 
     private void newMacro() {
@@ -223,8 +218,8 @@ public class TabMacroLibraryController implements Initializable {
     private void constructTableMacro() {
         try {
             this.preview.initialize(scrollPanePreview);
-        } catch (Exception e) {
-            System.out.println("exception e = " + e);
+        } catch (Exception ex) {
+            Logger.getLogger(TabMacroLibraryController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         FXMLLoader fxmlLoader2 = new FXMLLoader();
@@ -242,6 +237,15 @@ public class TabMacroLibraryController implements Initializable {
     public void updateLibrary() {
         this.observableListMacro.setAll(this.macroHandler.getMacros());
         //this.tableViewMacro.setItems(observableListMacro);
+    }
+
+    private void defineCursor() {
+        ArrayList<Node> nodeHand = new ArrayList<>();
+        nodeHand.add(this.buttonAdd);
+        nodeHand.add(this.buttonEdit);
+        nodeHand.add(this.buttonDelete);
+        setCursorOnComponent action = new setCursorOnComponent();
+        action.setCursorHand(nodeHand);
     }
 
 }

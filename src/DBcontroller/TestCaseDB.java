@@ -52,6 +52,11 @@ public class TestCaseDB {
         return testCases;
     }
     
+    /**
+     *
+     * @param Macro
+     * @return
+     */
     public ArrayList<TestCase> getTestCasesFromMacros(Script Macro) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();

@@ -11,6 +11,7 @@ import controller.tablestep.HeaderTableStepController;
 import controller.tablestep.ScriptLineTableStepController;
 import controller.tablestep.StepLineTableStepController;
 import controller.tablestep.TableStepScriptCreationController;
+import controller.util.CommonFunctions;
 import java.io.IOException;
 import java.net.URL;
 import java.text.ParseException;
@@ -19,7 +20,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.Set;
 import javafx.beans.value.ChangeListener;
@@ -42,18 +42,15 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DialogEvent;
 import javafx.stage.Stage;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
-import model.ObjectCopy;
 import model.setCursorOnComponent;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.TransientObjectException;
-import org.hibernate.exception.GenericJDBCException;
 
 /**
  * FXML Controller class
@@ -176,7 +173,7 @@ public class TabTestCaseEditController implements Initializable {
     final int textfieldTypeTestMaxLength = 20;
     final int textfieldTestCategoryMaxLength = 20;
     final int textfieldLocationMaxLength = 20;
-    final int textfieldCaseTitleMaxLength = 30;
+    final int textfieldCaseTitleMaxLength = 60;
     final int textfieldWriterMaxLength = 20;
     final int textfieldWriterEmailMaxLength = 50;
     final int textfieldCaseSourceMaxLength = 50;
@@ -190,11 +187,8 @@ public class TabTestCaseEditController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
         initializeHeaderInformationCase();
-
         defineCursor();
-
         initializeButtonAction();
     }
 
@@ -271,7 +265,7 @@ public class TabTestCaseEditController implements Initializable {
             @Override
             public void changed(final ObservableValue<? extends String> observable, final String oldValue, final String newValue) {
                 changeColorLabel(labelCaseIDNew, newValue);
-                if (displayWarningIncorrectInputFormat("Case ID", textfieldCaseIDMaxLength, newValue.length() > textfieldCaseIDMaxLength)) {
+                if (CommonFunctions.displayWarningIncorrectInputFormat("Case ID", textfieldCaseIDMaxLength, newValue.length() > textfieldCaseIDMaxLength)) {
                     jtextfieldCaseIDEdit.setText(oldValue);
                 }
             }
@@ -280,7 +274,7 @@ public class TabTestCaseEditController implements Initializable {
             @Override
             public void changed(final ObservableValue<? extends String> observable, final String oldValue, final String newValue) {
                 changeColorLabel(labelTestCategoryCaseNew, newValue);
-                if (displayWarningIncorrectInputFormat("Test Category", textfieldTestCategoryMaxLength, newValue.length() > textfieldTestCategoryMaxLength)) {
+                if (CommonFunctions.displayWarningIncorrectInputFormat("Test Category", textfieldTestCategoryMaxLength, newValue.length() > textfieldTestCategoryMaxLength)) {
                     jtextfieldTestCategoryCaseEdit.setText(oldValue);
                 }
             }
@@ -290,7 +284,7 @@ public class TabTestCaseEditController implements Initializable {
             @Override
             public void changed(final ObservableValue<? extends String> observable, final String oldValue, final String newValue) {
                 changeColorLabel(labelTestEnvironementCaseNew, newValue);
-                if (displayWarningIncorrectInputFormat("Test Environement", textfieldTestEnvironementMaxLength, newValue.length() > textfieldTestCategoryMaxLength)) {
+                if (CommonFunctions.displayWarningIncorrectInputFormat("Test Environement", textfieldTestEnvironementMaxLength, newValue.length() > textfieldTestCategoryMaxLength)) {
                     jtextfieldTestEnvironementCaseEdit.setText(oldValue);
                 }
             }
@@ -298,7 +292,7 @@ public class TabTestCaseEditController implements Initializable {
         this.jtextfieldCaseTitleEdit.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(final ObservableValue<? extends String> observable, final String oldValue, final String newValue) {
-                if (displayWarningIncorrectInputFormat("Test Title", textfieldCaseTitleMaxLength, newValue.length() > textfieldCaseTitleMaxLength)) {
+                if (CommonFunctions.displayWarningIncorrectInputFormat("Test Title", textfieldCaseTitleMaxLength, newValue.length() > textfieldCaseTitleMaxLength)) {
                     jtextfieldCaseTitleEdit.setText(oldValue);
                 }
             }
@@ -306,7 +300,7 @@ public class TabTestCaseEditController implements Initializable {
         this.jtextfieldCaseVersionEdit.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(final ObservableValue<? extends String> observable, final String oldValue, final String newValue) {
-                if (displayWarningIncorrectInputFormat("Test Case Version", textfieldCaseVersionMaxLength, newValue.length() > textfieldCaseVersionMaxLength)) {
+                if (CommonFunctions.displayWarningIncorrectInputFormat("Test Case Version", textfieldCaseVersionMaxLength, newValue.length() > textfieldCaseVersionMaxLength)) {
                     jtextfieldCaseVersionEdit.setText(oldValue);
                 }
             }
@@ -314,7 +308,7 @@ public class TabTestCaseEditController implements Initializable {
         this.jtextfieldProjectCaseEdit.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(final ObservableValue<? extends String> observable, final String oldValue, final String newValue) {
-                if (displayWarningIncorrectInputFormat("Project", textfieldProjectMaxLength, newValue.length() > textfieldProjectMaxLength)) {
+                if (CommonFunctions.displayWarningIncorrectInputFormat("Project", textfieldProjectMaxLength, newValue.length() > textfieldProjectMaxLength)) {
                     jtextfieldProjectCaseEdit.setText(oldValue);
                 }
             }
@@ -322,7 +316,7 @@ public class TabTestCaseEditController implements Initializable {
         this.jtextfieldTypeTestCaseEdit.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(final ObservableValue<? extends String> observable, final String oldValue, final String newValue) {
-                if (displayWarningIncorrectInputFormat("Project", textfieldTypeTestMaxLength, newValue.length() > textfieldTypeTestMaxLength)) {
+                if (CommonFunctions.displayWarningIncorrectInputFormat("Project", textfieldTypeTestMaxLength, newValue.length() > textfieldTypeTestMaxLength)) {
                     jtextfieldTypeTestCaseEdit.setText(oldValue);
                 }
             }
@@ -331,7 +325,7 @@ public class TabTestCaseEditController implements Initializable {
             @Override
             public void changed(final ObservableValue<? extends String> observable, final String oldValue, final String newValue) {
                 changeColorLabel(labelTestCategoryCaseNew, newValue);
-                if (displayWarningIncorrectInputFormat("Test Category", textfieldTestCategoryMaxLength, newValue.length() > textfieldTestCategoryMaxLength)) {
+                if (CommonFunctions.displayWarningIncorrectInputFormat("Test Category", textfieldTestCategoryMaxLength, newValue.length() > textfieldTestCategoryMaxLength)) {
                     jtextfieldTestCategoryCaseEdit.setText(oldValue);
                 }
             }
@@ -339,7 +333,7 @@ public class TabTestCaseEditController implements Initializable {
         this.jtextfieldLocationCaseEdit.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(final ObservableValue<? extends String> observable, final String oldValue, final String newValue) {
-                if (displayWarningIncorrectInputFormat("Location", textfieldLocationMaxLength, newValue.length() > textfieldLocationMaxLength)) {
+                if (CommonFunctions.displayWarningIncorrectInputFormat("Location", textfieldLocationMaxLength, newValue.length() > textfieldLocationMaxLength)) {
                     jtextfieldLocationCaseEdit.setText(oldValue);
                 }
             }
@@ -347,7 +341,7 @@ public class TabTestCaseEditController implements Initializable {
         this.jtextfieldWriterCaseEdit.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(final ObservableValue<? extends String> observable, final String oldValue, final String newValue) {
-                if (displayWarningIncorrectInputFormat("Writer", textfieldWriterMaxLength, newValue.length() > textfieldWriterMaxLength)) {
+                if (CommonFunctions.displayWarningIncorrectInputFormat("Writer", textfieldWriterMaxLength, newValue.length() > textfieldWriterMaxLength)) {
                     jtextfieldWriterCaseEdit.setText(oldValue);
                 }
             }
@@ -355,7 +349,7 @@ public class TabTestCaseEditController implements Initializable {
         this.jtextfieldWriterEmailCaseEdit.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(final ObservableValue<? extends String> observable, final String oldValue, final String newValue) {
-                if (displayWarningIncorrectInputFormat("Writer Email", textfieldWriterEmailMaxLength, newValue.length() > textfieldWriterEmailMaxLength)) {
+                if (CommonFunctions.displayWarningIncorrectInputFormat("Writer Email", textfieldWriterEmailMaxLength, newValue.length() > textfieldWriterEmailMaxLength)) {
                     jtextfieldWriterEmailCaseEdit.setText(oldValue);
                 }
             }
@@ -363,7 +357,7 @@ public class TabTestCaseEditController implements Initializable {
         this.jtextfieldCaseSourceEdit.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(final ObservableValue<? extends String> observable, final String oldValue, final String newValue) {
-                if (displayWarningIncorrectInputFormat("Case Source", textfieldCaseSourceMaxLength, newValue.length() > textfieldCaseSourceMaxLength)) {
+                if (CommonFunctions.displayWarningIncorrectInputFormat("Case Source", textfieldCaseSourceMaxLength, newValue.length() > textfieldCaseSourceMaxLength)) {
                     jtextfieldCaseSourceEdit.setText(oldValue);
                 }
             }
@@ -591,35 +585,6 @@ public class TabTestCaseEditController implements Initializable {
             Logger.getLogger(TabTestCaseEditController.class.getName()).log(Level.SEVERE, null, ex);
         }
         session.close();
-    }
-
-    private boolean displayWarningDeleteCase() {
-        boolean ok = false;
-        alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Warning");
-        alert.setHeaderText("Updating this test case will delete all related test campaigns and baselines !");
-        alert.setContentText("Do you want to edit ?");
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.get() == ButtonType.OK) {
-            ok = true;
-        }
-        return ok;
-    }
-
-    private boolean displayWarningIncorrectInputFormat(String fieldName, Integer maxLength, boolean identifier) {
-        if (!identifier) {
-            return false;
-        }
-        boolean ok = false;
-        alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle("Warning. ");
-        alert.setHeaderText("Incorect Input Format in Field \"" + fieldName + "\": ");
-        alert.setContentText(fieldName + " exceeds maximum characters allowed (" + maxLength.toString() + " characters). Please use another value, or only part of your input will be recorded.");
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.get() == ButtonType.OK) {
-            ok = true;
-        }
-        return ok;
     }
 
     /**

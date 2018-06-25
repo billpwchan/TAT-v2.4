@@ -61,12 +61,16 @@ public class MacroDB {
         session.close();
     }
 
+    /**
+     *
+     * @param macro
+     */
     public void deleteMacro(Script macro) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
         session.delete(macro);
         Set<Macro> deleteMacros = new HashSet<>(macro.getMacrosForScriptIdScript()); //Set of IDs.
-        for (Macro deleteMacro : deleteMacros){
+        for (Macro deleteMacro : deleteMacros) {
             deletePSMGivenMacroId(deleteMacro);
             deleteMacroGivenMacroId(deleteMacro.getIdmacro());
 //            removePSMGivenId(deleteMacro.getIdmacro());
@@ -75,9 +79,9 @@ public class MacroDB {
         session.beginTransaction().commit();
         session.close();
     }
-    
+
     //Delete in Macro database based on certain ID
-    private void deleteMacroGivenMacroId(int macroId){
+    private void deleteMacroGivenMacroId(int macroId) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
         Query qry = session.createQuery("delete from Macro mc where mc.idmacro=:macro_id");
@@ -86,9 +90,14 @@ public class MacroDB {
         session.beginTransaction().commit();
         session.close();
     }
-    
-    //Delete in ParamScriptmacro database based on certain ID.
-    public void deletePSMGivenMacroId(Macro macro){
+
+    //
+    /**
+     * Delete in ParamScriptmacro database based on certain ID.
+     *
+     * @param macro
+     */
+    private void deletePSMGivenMacroId(Macro macro) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
         Query qry = session.createQuery("delete from ParamScriptMacro psm where psm.macro=:macro_id");
@@ -99,8 +108,9 @@ public class MacroDB {
     }
 
     /**
+     * Get all Macros
      *
-     * @return
+     * @return All Scripts with isMacro property = 1
      */
     public ArrayList<Script> getMacros() {
         SessionFactory factory = sessionFactorySingleton.getInstance();
@@ -112,8 +122,8 @@ public class MacroDB {
         return macros;
     }
 
-    //Assumption of this function: A record is deleted on a reversed order.
     /**
+     * Assumption of this function: A record is deleted on a reversed order.
      *
      * @param macroID
      */
@@ -129,9 +139,11 @@ public class MacroDB {
     }
 
     /**
+     * Deprecated Method
      *
      * @param macroID
      */
+    @Deprecated
     public void makeDuplicateParamScriptMacro(int macroID) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
@@ -164,6 +176,5 @@ public class MacroDB {
 
         }
         session.close();
-
     }
 }

@@ -5,13 +5,13 @@
  */
 package controller.macro;
 
-import DB.ParamScriptMacro;
 import DB.Script;
 import DBcontroller.MacroDB;
 import DBcontroller.sessionFactorySingleton;
 import controller.macroActions.PreviewMacro;
 import controller.macroActions.ScriptLineTableMacroController;
 import controller.macroActions.TableActionCreationController;
+import controller.util.CommonFunctions;
 import java.net.URL;
 import java.text.DateFormat;
 import java.util.ResourceBundle;
@@ -21,7 +21,6 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.ListChangeListener;
@@ -34,7 +33,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -130,7 +128,7 @@ public class TabMacroEditController implements Initializable {
         jtextfieldMacroNameEdit.textProperty().addListener((observable, oldValue, newValue) -> {
             changeColorTextMacroName(newValue.trim().isEmpty());
             activationValidButton();
-            if (displayWarningIncorrectInputFormat("Macro name", textfieldMacroNameMaxLength, newValue.length() > textfieldMacroNameMaxLength)) {
+            if (CommonFunctions.displayWarningIncorrectInputFormat("Macro name", textfieldMacroNameMaxLength, newValue.length() > textfieldMacroNameMaxLength)) {
                 jtextfieldMacroNameEdit.setText(oldValue);
             }
         });
@@ -194,18 +192,16 @@ public class TabMacroEditController implements Initializable {
         session.save(macro);
         int i = 0;
         boolean missingPurpose = false;
-        //Need to remove extra scripts. This part is responsible for saving new macro object. Correct. 
+        //This part is responsible for saving new macro object. Correct. 
         while (i < numberScript && missingPurpose == false) {
             System.out.println(observableScripts.get(i).toString());
             System.out.println(observableScripts.get(i).getScriptControllerAction().toString());
-            ObservableList<ParamScriptMacro> temp = observableScripts.get(i).getScriptControllerAction().getHashParamScriptMacro();
             System.out.println(observableScripts.get(i).getScriptControllerAction().getHashParamScriptMacro().get(0).getValue());  //This will give the i script in this macro's parameter 0 value.
             if ("".equals(observableScripts.get(i).getScriptControllerAction().getHashParamScriptMacro().get(0).getValue())) {   //Each script should has purpose. First parameter of each script. If satisfied, save it.
-                this.displayAlert();
+                CommonFunctions.displayAlert(AlertType.ERROR, "Missing Purpose", "There is something wrong with script" + observableScripts.get(i).getScriptControllerAction().getCurrentScript().getName(), "A script purpose is missing in your macro");
                 missingPurpose = true;
             } else {
                 //Save each script to sesson. Set parameters of each observableScript. 
-                //To duplicate (Previous Macro still working), have to save a copy of ParamScriptMacro object. 
                 observableScripts.get(i).getScriptControllerAction().getScriptMacro().setScriptByScriptIdScript(macro);
                 observableScripts.get(i).getScriptControllerAction().getScriptMacro().setScriptOrder((byte) i);
                 observableScripts.get(i).getScriptControllerAction().getScriptMacro().setScriptByScriptIdScript1(observableScripts.get(i).getScriptControllerAction().getCurrentScript());
@@ -219,10 +215,7 @@ public class TabMacroEditController implements Initializable {
             mainController.closeTab();
             mainController.focusLibrary();
         }
-
-        //Need to remove duplicate records in the database (paramScriptMacro).
         session.close();
-
     }
 
     private Script constructMacro() throws ParseException {
@@ -242,7 +235,7 @@ public class TabMacroEditController implements Initializable {
         try {
             this.gridPaneTableAction.add((AnchorPane) fxmlLoader.load(getClass().getResource("/view/macroActions/tableActionCreation.fxml").openStream()), 0, 1, 1, 5);
         } catch (IOException ex) {
-            java.util.logging.Logger.getLogger(TabMacroEditController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabMacroEditController.class.getName()).log(Level.SEVERE, null, ex);
         }
         controllerTableAction = fxmlLoader.getController();
         FXMLLoader fxmlLoader2 = new FXMLLoader();
@@ -250,11 +243,12 @@ public class TabMacroEditController implements Initializable {
             AnchorPane paneTest = (AnchorPane) fxmlLoader2.load(getClass().getResource("/view/macroActions/headerTableAction.fxml").openStream());
             this.gridPaneTableAction.add(paneTest, 0, 0, 1, 1);
         } catch (IOException ex) {
-            java.util.logging.Logger.getLogger(TabMacroEditController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabMacroEditController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     /**
+     * Init settings for TextAreas & CheckBoxes
      *
      * @param script
      */
@@ -263,9 +257,11 @@ public class TabMacroEditController implements Initializable {
         buttonValid.setVisible(true);
 
         jtextareaObjectivesMacroEdit.setText(script.getDesciption());
+        jtextfieldMacroEdit.setId("displayStyle");
         jtextfieldMacroNameEdit.setText(script.getName());
         jtextfieldMacroNameEdit.setDisable(false);
         jtextfieldMacroNameEdit.setEditable(true);
+        jtextfieldMacroEdit.setId("displayStyle");
         jtextfieldMacroEdit.setText(script.getScriptVersion().toString());
         jtextfieldMacroEdit.setDisable(false);
         jtextfieldMacroEdit.setEditable(true);
@@ -281,14 +277,6 @@ public class TabMacroEditController implements Initializable {
         controllerPreviewMacro.updateGridPaneCreationView(script);
         this.anchorPanelEditMacro.getStylesheets().add("/view/testcampaign/cssViewCampaign.css");
 
-    }
-
-    private void displayAlert() {
-        alert = new Alert(AlertType.ERROR);
-        alert.setTitle("Missing Purpose");
-        alert.setHeaderText(null);
-        alert.setContentText("A script purpose is missing in your macro");
-        alert.showAndWait();
     }
 
     private void loadPreviewMacro() {
@@ -338,21 +326,4 @@ public class TabMacroEditController implements Initializable {
             this.buttonValid.setDisable(true);
         }
     }
-
-    private boolean displayWarningIncorrectInputFormat(String fieldName, Integer maxLength, boolean identifier) {
-        if (!identifier) {
-            return false;
-        }
-        boolean ok = false;
-        alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle("Warning. ");
-        alert.setHeaderText("Incorect Input Format in Field \"" + fieldName + "\": ");
-        alert.setContentText(fieldName + " exceeds maximum characters allowed (" + maxLength.toString() + " characters). Please use another value, or only part of your input will be recorded.");
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.get() == ButtonType.OK) {
-            ok = true;
-        }
-        return ok;
-    }
-
 }

@@ -43,6 +43,8 @@ public class TabMacroMainViewController implements Initializable {
 
     private TabMacroEditController editMacroController;
 
+    private TATFrameController mainFrameController;
+
     /**
      * Initializes the controller class.
      *
@@ -76,11 +78,11 @@ public class TabMacroMainViewController implements Initializable {
      * @param aThis
      */
     public void init(TATFrameController aThis) {
-        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.mainFrameController = aThis;
     }
 
     void displayEditMacro(Script macro) {
-        Tab editMacro = new Tab("Edit Macro");
+        Tab editMacro = new Tab("Edit Macro: " + macro.getName());
         FXMLLoader fxmlLoader = new FXMLLoader();
         try {
             AnchorPane addPane = fxmlLoader.load(getClass().getResource("/view/macro/TabMacroEdit.fxml").openStream());
@@ -94,15 +96,6 @@ public class TabMacroMainViewController implements Initializable {
         ObjectCopy copyHandler = new ObjectCopy();
         Script sc = copyHandler.copyCompleteScript(macro);
 
-        //Make duplicate records in the database manually. Degraded
-//        Iterator<Macro> itScriptMacro = macro.getMacrosForScriptIdScript().iterator();
-//        Macro macroScript = new Macro();
-//        MacroDB controllerMacroDB = new MacroDB();
-//
-//        while (itScriptMacro.hasNext()) {
-//            macroScript = itScriptMacro.next();
-//            controllerMacroDB.makeDuplicateParamScriptMacro(macroScript.getIdmacro());
-//        }
         editMacroController.displayMacro(sc);
         this.tabPaneMacro.getTabs().add(editMacro);
         editMacro.setClosable(true);
@@ -110,8 +103,7 @@ public class TabMacroMainViewController implements Initializable {
     }
 
     void displayViewMacro(Script macro) {
-
-        Tab viewMacro = new Tab("view Macro");
+        Tab viewMacro = new Tab("view Macro: " + macro.getName());
         FXMLLoader fxmlLoader = new FXMLLoader();
         try {
             AnchorPane addPane = fxmlLoader.load(getClass().getResource("/view/macro/TabMacroNew.fxml").openStream());
@@ -128,7 +120,6 @@ public class TabMacroMainViewController implements Initializable {
     }
 
     void displayNewMacro() {
-
         Tab newMacro = new Tab("New Macro");
         FXMLLoader fxmlLoader = new FXMLLoader();
         try {
@@ -149,18 +140,28 @@ public class TabMacroMainViewController implements Initializable {
      * Close the tab currently displayed to the user.
      */
     public void closeTab() {
-        this.tabPaneMacro.getTabs().remove(this.tabPaneMacro.getSelectionModel().getSelectedItem());
+        try {
+            this.tabPaneMacro.getTabs().remove(this.tabPaneMacro.getSelectionModel().getSelectedItem());
+        } catch (Exception ex) {
+            System.out.println("Cannot remove tab.");
+            Logger.getLogger(TabMacroMainViewController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
-     *
+     * Select first Macro displayed in the library.
      */
     public void focusLibrary() {
-        this.tabPaneMacro.getSelectionModel().select(0);
+        try {
+            this.tabPaneMacro.getSelectionModel().select(0);
+        } catch (Exception ex) {
+            System.out.println("No Macro exists in the library.");
+            Logger.getLogger(TabMacroMainViewController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
-     *
+     * Update Macros in Library.
      */
     public void updateRepository() {
         TabMacroMainViewController.libraryController.updateLibrary();

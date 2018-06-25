@@ -272,39 +272,16 @@ public class ViewScriptMacroController implements Initializable {
      * @param currentSelectedScript
      */
     public void updateGridPaneEdit(Script currentSelectedScript) {  //This is for update script's parameter. 
-//        constructGridPaneView(currentSelectedScript);  //Place occupied by "Click on Equipment"
         byte order = 0;
-//        updateGridPaneModification(currentSelectedScript);
-//        this.observableListParams.clear();
         Iterator<ScriptHasParameters> itScriptParameters = currentSelectedScript.getScriptHasParameterses().iterator();
-//        int i = 0;
         while (itScriptParameters.hasNext()) {
-//            Hyperlink toSet = (Hyperlink) getNodeByRowColumnIndex(i, 1, gridPaneDisplayResults);
             ScriptHasParameters scriptHasParameters = itScriptParameters.next();
             System.out.println("Scrip Has parameters: " + scriptHasParameters.getIdscriptHasParameters());
-
-//            ParamScriptMacro paramScriptsMacro = new ParamScriptMacro();
-//            paramScriptsMacro = scriptHasParameters.getParamScriptMacros();
-//            Hibernate.initialize(order);
             Iterator<ParamScriptMacro> itParamScriptMacro = scriptHasParameters.getParamScriptMacros().iterator();
             while (itParamScriptMacro.hasNext()) {
                 this.observableListParams.add(0, itParamScriptMacro.next());
             }
-//            paramScriptsMacro.setScriptHasParameters(scriptHasParameters);
-//            paramScriptsMacro.setToDisplay((byte) 0);       //Changed this line from 1 to 0. Need to understand the meaning of (Set toDisplay)
-//            paramScriptsMacro.setParamOrder(order);
-//            paramScriptsMacro.setValue(scriptHasParameters.getParameters().getDescription());
-//            paramScriptsMacro.setValuePath(scriptHasParameters.getParamScriptMacros());
-//            paramScriptsMacro.setScriptHasParameters(scriptHasParameters);
-//            paramScriptsMacro.setValue(scriptHasParameters.getParamScriptMacros());      //This line needs to be chagned. currentSelectedScript
-//            scriptMacro.addParamScriptMacro(paramScriptsMacro);
-//            this.observableListParams.add(paramScriptsMacro);
-//            final int selectedRow = i;
-//            toSet.setOnAction((ActionEvent e) -> {
-//                displayWizard(currentScript, selectedRow);
-//            });
             order++;
-//            i++;
         }
     }
 
@@ -315,7 +292,6 @@ public class ViewScriptMacroController implements Initializable {
     public void updateGridPaneEditNew(Macro currentSelectedMacro) {  //To update observableListParams object (For display wizzard)
         constructGridPaneView(currentSelectedMacro.getScriptByScriptIdScript1());
         this.observableListParams.clear();
-        byte order = 0;
         if (this.scriptMacro == null) {
             scriptMacro = new Macro();
         }
@@ -328,13 +304,12 @@ public class ViewScriptMacroController implements Initializable {
         });
     }
 
-    //This will show the popup configuration window for modification
-
     /**
+     * This will show the popup configuration window for modification
      *
      * @param currentSelectedScript
      */
-        public void updateGridPaneCreation(Script currentSelectedScript) {
+    public void updateGridPaneCreation(Script currentSelectedScript) {
         byte order = 0;
         updateGridPaneModification(currentSelectedScript);
         this.observableListParams.clear();
@@ -380,7 +355,7 @@ public class ViewScriptMacroController implements Initializable {
      *
      * @return
      */
-    int getNumberOfParam() {
+    public int getNumberOfParam() {
         return this.numberOfParam;
     }
 
@@ -398,14 +373,8 @@ public class ViewScriptMacroController implements Initializable {
             PopUpWizardActionController controller = new PopUpWizardActionController();
             fxmlLoader.setController(controller);
             popUpWizard = fxmlLoader.load();
-
             controller.init(this);
-//        SessionFactory factory = sessionFactorySingleton.getInstance();
-//        Session session = factory.openSession();
-//        session.save(script);
             controller.constructInformation(script, observableListParams, selectedParam);
-//        session.beginTransaction().commit();
-//        session.close();
         } catch (IOException ex) {
             Logger.getLogger(PopUpWizardScriptController.class
                     .getName()).log(Level.SEVERE, null, ex);
@@ -433,9 +402,7 @@ public class ViewScriptMacroController implements Initializable {
      * parameters.
      */
     public void referParameters(ArrayList<ParamScriptMacro> observableListParamScripts) {
-        //Iterator<ScriptHasBeenConfigured> itParametersConfigured = observableListScriptMartinth.iterator();
         for (int i = 0; i < observableListParamScripts.size(); i++) {
-            //ScriptHasBeenConfigured scriptHBC = itParametersConfigured.next();
             Hyperlink toSet = (Hyperlink) getNodeByRowColumnIndex(i, 1, gridPaneDisplayResults);
             toSet.setStyle(null);
             if (!"".equals(observableListParamScripts.get(i).getValuePath())) {
@@ -444,7 +411,6 @@ public class ViewScriptMacroController implements Initializable {
                     toSet.setTextFill(Color.BLACK);
                     switch (observableListParamScripts.get(i).getValuePath()) {     //ToolTip is for hover message.
                         case "Constant":
-                            //System.out.println("");
                             toSet.setText(observableListParamScripts.get(i).getValue().replace(Separator, ""));
                             toSet.setTooltip(new Tooltip(observableListParamScripts.get(i).getValue().replace(Separator, "")));
                             break;
@@ -460,7 +426,6 @@ public class ViewScriptMacroController implements Initializable {
                             toSet.setTooltip(new Tooltip(test));
                             break;
                         case "From Other Script":
-                            //System.out.println("From Other Script");
                             toSet.setText(observableListParamScripts.get(i).getParamScriptMacro().getValue());
                             break;
                         case "Property":
@@ -475,7 +440,6 @@ public class ViewScriptMacroController implements Initializable {
 
             }
             if (observableListParamScripts.get(i).getParamScriptMacro() != null) {
-//                this.observableListParams.add(0, observableListParamScripts.get(i).getParamScriptMacro());   //Trial
                 switch (observableListParamScripts.get(i).getParamScriptMacro().getValuePath()) {
                     case "Constant":
                         toSet.setText(observableListParamScripts.get(i).getParamScriptMacro().getValue().replace(Separator, ""));
@@ -505,7 +469,6 @@ public class ViewScriptMacroController implements Initializable {
             }
             //Not yet configured parameters.
             if ("".equals(observableListParamScripts.get(i).getValuePath())) {
-                //System.out.println("LA VALUE POUR PARAM " + observableListParamScripts.get(i).getScriptHasParameters().getParameters().getName() + " est nulle");
                 toSet.setText("Configure " + observableListParamScripts.get(i).getScriptHasParameters().getParameters().getName());
                 toSet.setTooltip(new Tooltip("Not yet configured yet."));
             }
@@ -547,16 +510,13 @@ public class ViewScriptMacroController implements Initializable {
      *
      * @param script
      */
-    public void updateScriptEditDisplay(Macro script) {     //if have six scripts in this macro, will run this function again.cc
+    public void updateScriptEditDisplay(Macro script) {     //if have six scripts in this macro, will run this function again 6 times
         this.currentScript = script.getScriptByScriptIdScript1();  //It it necessary to update the currentScript for the displayWizzard to reference. 
-
         updateGridPaneEditNew(script);
-
         this.choiceBoxss.setVisible(true);
+        this.choiceBoxss.setDisable(false);
         this.labelNameOfScript.setVisible(true);
         this.labelNameOfScript.setText(script.getScriptByScriptIdScript1().getName());
-
         referParameters(new ArrayList(script.getParamScriptMacros()));
-
     }
 }

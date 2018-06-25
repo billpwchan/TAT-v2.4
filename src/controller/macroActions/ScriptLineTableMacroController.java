@@ -7,6 +7,7 @@ package controller.macroActions;
 
 import DB.Macro;
 import DB.Script;
+import controller.util.CommonFunctions;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -20,6 +21,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -68,6 +70,7 @@ public class ScriptLineTableMacroController implements Initializable {
 
     /**
      * Initializes the controller class.
+     *
      * @param url
      * @param rb
      */
@@ -145,7 +148,7 @@ public class ScriptLineTableMacroController implements Initializable {
      *
      * @param actions
      */
-    public void setScriptCreation(HashSet<Script> actions) {
+    public void setScriptCreation(HashSet<Script> actions, String operationType) {
         HashSet<Script> thisActions = new HashSet<>(actions);
         this.loadViewAction();
         this.imageDown.setImage(imd);
@@ -167,37 +170,13 @@ public class ScriptLineTableMacroController implements Initializable {
             event.consume();
         });
         System.out.println("SCRIPT = " + actions.size());
-        scriptControllerAction.loadScripts(thisActions);        //Load all available scripts in the checkbox.
-        defineCursor();
-    }
-    
-    /**
-     *
-     * @param actions
-     */
-    public void setScriptCreationEdit(HashSet<Script> actions) {
-        HashSet<Script> thisActions = new HashSet<>(actions);
-        this.loadViewAction();
-        this.imageDown.setImage(imd);
-        this.imageUp.setImage(imu);
-        this.imageViewTrash.setImage(delete);
-
-        imageUp.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent event) -> {
-            controllerViewGlobal.goUp(ScriptLineTableMacroController.this);
-            event.consume();
-        });
-
-        imageDown.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent event) -> {
-            controllerViewGlobal.goDown(ScriptLineTableMacroController.this);
-            event.consume();
-        });
-
-        this.imageViewTrash.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent event) -> {
-            controllerViewGlobal.deleteSelectedAction(ScriptLineTableMacroController.this);
-            event.consume();
-        });
-//        System.out.println("SCRIPT = " + actions.size());
-        scriptControllerAction.loadScriptsEdit(thisActions);        //Load all available scripts in the checkbox.
+        if (operationType.equals("New")) {
+            scriptControllerAction.loadScripts(thisActions);        //Load all available scripts in the checkbox.
+        } else if (operationType.equals("Edit")) {
+            scriptControllerAction.loadScriptsEdit(thisActions);
+        } else {
+            CommonFunctions.displayAlert(Alert.AlertType.ERROR, "Unsupported Action", "This function is not yet supported.", "Plase choose another operation.");
+        }
         defineCursor();
     }
 
@@ -254,19 +233,14 @@ public class ScriptLineTableMacroController implements Initializable {
         setCursorOnComponent action = new setCursorOnComponent();
         action.setCursorHand(nodeHand);
     }
-    
+
     void setScriptandParamAction(Macro macro) {
         this.loadViewAction();
         scriptControllerAction.updateScriptViewDisplay(macro);
     }
-    
+
     void setScriptandParamActionEdit(Macro macro) {
         this.loadViewAction();
-//        HashSet<Script> tempHashSet = new HashSet<Script>();
-//        tempHashSet.add(macro.getScriptByScriptIdScript());
-//        this.setScriptCreation(tempHashSet);
         scriptControllerAction.updateScriptEditDisplay(macro);
-//        scriptControllerAction.updateGridPaneEdit(macro.getScriptByScriptIdScript());
     }
-
 }

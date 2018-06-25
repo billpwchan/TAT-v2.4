@@ -93,15 +93,15 @@ public class TableActionCreationController implements Initializable {
      */
     public void addAction() {
         addActioninVbox();
-        controllerScriptLine.setScriptCreation(scripts);
+        controllerScriptLine.setScriptCreation(scripts, "New");
     }
 
     /**
      *
      */
     public void addActionEdit() {
-        addActioninVboxEdit();
-        controllerScriptLine.setScriptCreationEdit(scripts);
+        addActioninVbox();
+        controllerScriptLine.setScriptCreation(scripts, "Edit");
     }
 
     /**
@@ -172,40 +172,6 @@ public class TableActionCreationController implements Initializable {
     }
 
     /**
-     *
-     */
-    public void addActioninVboxEdit() {
-        //Add an additional script to the vBox
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        try {
-            AnchorPane scriptPane;
-            try (InputStream streamViewScript = getClass().getResource("/view/macroActions/scriptLineTableMacro.fxml").openStream()) {
-                scriptPane = fxmlLoader.load(streamViewScript);
-                controllerScriptLine = (ScriptLineTableMacroController) fxmlLoader.getController();
-            }
-            controllerScriptLine.initControllerTable(this);
-            controllerScriptLine.constructInformation(scriptID);
-
-            if (this.selectedScriptController == null) {
-                collectionControllerScript.add(controllerScriptLine);
-                workingCollection.add(scriptPane);
-            } else {
-                int idVbox = workingCollection.indexOf(this.selectedScriptController.getAnchorPane());
-                workingCollection.add(idVbox, scriptPane);
-                int indexController = this.selectedScriptController.getIDScript() - 1;
-                indexController += 1;
-                collectionControllerScript.add(indexController, controllerScriptLine);
-                updateScriptId(indexController);
-            }
-            scriptPane.setPrefWidth(vBox.getPrefWidth());
-        } catch (IOException ex) {
-            Logger.getLogger(TableStepScriptCreationController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        scriptID++;
-        displayVbox();
-    }
-
-    /**
      * Update the id a each test step starting from the Id given in parameters
      *
      * @param startingID position of the test steps to start to modify the id
@@ -237,7 +203,6 @@ public class TableActionCreationController implements Initializable {
                 scripts.add(script);
             }
         }
-        //System.out.println("J ai " + scripts.size() + " script de stimuli");
     }
 
     /**
@@ -251,13 +216,11 @@ public class TableActionCreationController implements Initializable {
         this.loadScriptCheckAndStimuli();
     }
 
-    //Not sure it is implemented correctly or not
-
     /**
      *
      * @param aThis
      */
-        public void initMacroEdit(TabMacroEditController aThis) {
+    public void initMacroEdit(TabMacroEditController aThis) {
         controllerEditMacro = aThis;
         this.loadScriptCheckAndStimuli();
     }
@@ -304,7 +267,7 @@ public class TableActionCreationController implements Initializable {
             this.collectionControllerScript.remove(aThis);
             ObservableList<ParamScriptMacro> temp = aThis.getScriptControllerAction().getHashParamScriptMacro();
             SessionFactory factory = sessionFactorySingleton.getInstance();
-            Session session = factory.openSession();            
+            Session session = factory.openSession();
             //Assume macroID are inversed presented in here.
             temp.stream().forEach((ParamScriptMacro PSM) -> {
 //                macroDBController.removePSMGivenId(PSM.getParamScriptMacrocol());
@@ -332,7 +295,7 @@ public class TableActionCreationController implements Initializable {
      * @param b way to swap, if true go up, else go down.
      * @param aThis script to swap in the vbox.
      */
-    void swapScript(boolean b, ScriptLineTableMacroController aThis) {
+    private void swapScript(boolean b, ScriptLineTableMacroController aThis) {
         int indexScriptInVbox = workingCollection.indexOf(aThis.getAnchorPane());
         if (b) {
             Collections.swap(workingCollection, indexScriptInVbox, indexScriptInVbox - 1);
@@ -343,22 +306,19 @@ public class TableActionCreationController implements Initializable {
     }
 
     /**
+     * Display each Script in this Macro
      *
      * @param macro
      */
     public void displayScriptAndStepEdit(Script macro) {    //This macro is selected macro by user (Click event)
         clearTable();
-//        this.loadScriptCheckAndStimuli();
         Iterator<Macro> itScriptsMacro = macro.getMacrosForScriptIdScript().iterator();
         while (itScriptsMacro.hasNext()) {
-//            System.out.println(scripts.toString());
             Macro macroScript = itScriptsMacro.next();
-            this.addActioninVboxEdit();     //Create a place for this script.
-            this.controllerScriptLine.setScriptCreationEdit(scripts); //Need to be after addActionVBox (Controller not defined). Global var "scripts" contain all the existing scripts (Jar only)
+            this.addActioninVbox();     //Create a place for this script.
+            this.controllerScriptLine.setScriptCreation(scripts, "Edit"); //Need to be after addActionVBox (Controller not defined). Global var "scripts" contain all the existing scripts (Jar only)
             this.controllerScriptLine.setScriptandParamActionEdit(macroScript);
         }
-//        session.close();
-//        this.controllerScriptLine.setScriptandParamActionEdit(macro);
     }
 
     /**
@@ -368,37 +328,10 @@ public class TableActionCreationController implements Initializable {
     public void displayScriptAndStepView(Script macro) {
         clearTable();
         Iterator<Macro> itScripts = macro.getMacrosForScriptIdScript().iterator();
-        //System.out.println("AFFICHAGE");
         while (itScripts.hasNext()) {
-            //System.out.println("HERE");
             Macro macroScript = itScripts.next();
             this.addActioninVbox();
             this.controllerScriptLine.setScriptandParamAction(macroScript);
-            //ArrayList<TestStepHasScript> gogolito = new ArrayList<>(testStep.getTestStepHasScripts());
-            // int numberOfScript = gogolito.size();
-
-//            for (int j = 0; j < numberOfScript; j++) {
-//                this.addScriptToStep(this.controllerStepLine);
-//                TestStepHasScript currentTSHS = gogolito.get(j);
-//                if (j == numberOfScript - 1) {
-//                    if (currentTSHS.getScript().getIsStimuli() != 0) {
-//                        this.controllerScriptLine.setScriptandParamAction(currentTSHS);
-//                    } else {
-//                        this.controllerScriptLine.setScriptandParamVerif(currentTSHS);
-//                    }
-//                } else {
-//                    TestStepHasScript nextTSHS = gogolito.get(j + 1);
-//                    if (currentTSHS.getScript().getIsStimuli() != 0 && nextTSHS.getScript().getIsStimuli() == 0) {
-//                        this.controllerScriptLine.setScriptandParamAction(currentTSHS);
-//                        this.controllerScriptLine.setScriptandParamVerif(nextTSHS);
-//                        j++;
-//                    } else if (currentTSHS.getScript().getIsStimuli() != 0 && nextTSHS.getScript().getIsStimuli() != 0) {
-//                        this.controllerScriptLine.setScriptandParamAction(currentTSHS);
-//                    } else {
-//                        this.controllerScriptLine.setScriptandParamVerif(currentTSHS);
-//                    }
-//                }
-//            }
         }
         displayVbox();
     }

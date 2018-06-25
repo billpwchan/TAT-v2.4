@@ -11,14 +11,13 @@ import controller.macroActions.PreviewMacro;
 import controller.macroActions.ScriptLineTableMacroController;
 import controller.macroActions.TableActionCreationController;
 import controller.tabtestcase.TabTestCaseNewController;
-import static controller.tabtestexecution.TabTestCampaignExecutionBaselineCampaignController.alert;
+import controller.util.CommonFunctions;
 import java.io.IOException;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -28,10 +27,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -100,8 +97,6 @@ public class TabMacroNewController implements Initializable {
 
     private final PreviewMacro controllerPreviewMacro = new PreviewMacro();
 
-    private final boolean canBeValidate = false;
-
     DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
 
     private final int textfieldMacroNameMaxLength = 60;
@@ -126,7 +121,7 @@ public class TabMacroNewController implements Initializable {
         jtextfieldMacroName.textProperty().addListener((observable, oldValue, newValue) -> {
             changeColorTextMacroName(newValue.trim().isEmpty());
             activationValidButton();
-            if (displayWarningIncorrectInputFormat("Macro name", textfieldMacroNameMaxLength, newValue.length() > textfieldMacroNameMaxLength)) {
+            if (CommonFunctions.displayWarningIncorrectInputFormat("Macro name", textfieldMacroNameMaxLength, newValue.length() > textfieldMacroNameMaxLength)) {
                 jtextfieldMacroName.setText(oldValue);
             }
         });
@@ -142,22 +137,6 @@ public class TabMacroNewController implements Initializable {
                 activationValidButton();
             }
         });
-    }
-
-    private boolean displayWarningIncorrectInputFormat(String fieldName, Integer maxLength, boolean identifier) {
-        if (!identifier) {
-            return false;
-        }
-        boolean ok = false;
-        alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle("Warning. ");
-        alert.setHeaderText("Incorect Input Format in Field \"" + fieldName + "\": ");
-        alert.setContentText(fieldName + " exceeds maximum characters allowed (" + maxLength.toString() + " characters). Please use another value, or only part of your input will be recorded.");
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.get() == ButtonType.OK) {
-            ok = true;
-        }
-        return ok;
     }
 
     /**
@@ -237,7 +216,7 @@ public class TabMacroNewController implements Initializable {
         boolean missingPurpose = false;
         while (i < numberScript && missingPurpose == false) {
             if ("".equals(observableScripts.get(i).getScriptControllerAction().getHashParamScriptMacro().get(0).getValue())) {
-                this.displayAlert();
+                CommonFunctions.displayAlert(AlertType.ERROR, "Missing Purpose", "There is something wrong with script: " + observableScripts.get(i).getScriptControllerAction().getCurrentScript().getName(), "A script purpose is missing in your macro");
                 missingPurpose = true;
             } else {
                 observableScripts.get(i).getScriptControllerAction().getScriptMacro().setScriptByScriptIdScript(macro);
@@ -252,7 +231,6 @@ public class TabMacroNewController implements Initializable {
             mainController.closeTab();
             mainController.focusLibrary();
         }
-
         session.close();
     }
 
@@ -269,8 +247,7 @@ public class TabMacroNewController implements Initializable {
 
     private void loadPreviewMacro() {
         System.out.println("HERE header load");
-        //        System.out.println("SCROLLPANE = " + scrollPanePreview);
-        //        System.out.println("CONTROLLER MACRO = " + controllerPreviewMacro);
+
         FXMLLoader fxmlLoader2 = new FXMLLoader();
         try {
             AnchorPane paneTest = (AnchorPane) fxmlLoader2.load(getClass().getResource("/view/macroActions/headerPreviewMacro.fxml").openStream());
@@ -290,14 +267,6 @@ public class TabMacroNewController implements Initializable {
         } catch (Exception e) {
             System.out.println("exception tab marco = " + e);
         }
-    }
-
-    private void displayAlert() {
-        Alert alert = new Alert(AlertType.ERROR);
-        alert.setTitle("Missing Purpose");
-        alert.setHeaderText(null);
-        alert.setContentText("A script purpose is missing in your macro");
-        alert.showAndWait();
     }
 
     /**

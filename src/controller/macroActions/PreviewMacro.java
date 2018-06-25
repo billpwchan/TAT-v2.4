@@ -121,12 +121,12 @@ public class PreviewMacro {
     }
 
     /**
+     * Construct default view. "Click on Equipment"
      *
      * @param controllerActions
      */
     public void constructGridPaneView(TableActionCreationController controllerActions) {
         gridPaneDisplayResults.getChildren().clear();
-        System.out.println("askdjf0 " + controllerScriptFather);
         controllerActions.getCollectionControllerScript().stream().forEach((collectionControllerScript) -> {
             for (int j = 1; j < collectionControllerScript.getScriptControllerAction().getHashParamScriptMacro().size(); j++) {
                 if (collectionControllerScript.getScriptControllerAction().getHashParamScriptMacro().get(j).getToDisplay() == 1) {
@@ -155,13 +155,11 @@ public class PreviewMacro {
      */
     public void referParameters(ParamScriptMacro paramScriptMacros, Hyperlink toSet) {
         toSet.setStyle(null);
-//        System.out.println("get ValueP= " + paramScriptMacros.getValuePath());
-//        System.out.println("get ValuePath()= " + paramScriptMacros.getValuePath().equals(" "));
+
         if (!"".equals(paramScriptMacros.getValuePath()) && !" ".equals(paramScriptMacros.getValuePath())) {
             if (null != paramScriptMacros.getValuePath()) {
                 switch (paramScriptMacros.getValuePath()) {
                     case "Constant":
-                        System.out.println("");
                         toSet.setText(paramScriptMacros.getValue().replace(Separator, ""));
                         toSet.setTooltip(new Tooltip(paramScriptMacros.getValue().replace(Separator, "")));
                         break;
@@ -182,7 +180,6 @@ public class PreviewMacro {
                         break;
                 }
             }
-
         } else {
             toSet.setText("Configure " + paramScriptMacros.getScriptHasParameters().getParameters().getName());
         }
@@ -263,28 +260,4 @@ public class PreviewMacro {
             }
         }
     }
-
-//    public void updateGridPaneScriptView(Script script) {
-//        constructGridPaneViewScriptView(script);
-//
-//    }
-//
-//    public void constructGridPaneViewScriptView(Script script) {
-//        gridPaneDisplayResults.getChildren().clear();
-//        System.out.println("JE SUIS ICI POUR LES PARAMS");
-//        //String purpose = "";
-//        Iterator<ScriptHasParameters> itSCHP = script.getScriptHasParameterses().iterator();
-//        while (itSCHP.hasNext()) {
-//            ScriptHasParameters SCHP = itSCHP.next();
-//            Parameters param = SCHP.getParameters();
-//            Label labelToSet = new Label(param.getName());//controllerActions.collectionControllerScript.get(i).getScriptControllerAction().getHashParamScriptMacro().get(0).getValue() + " " + param.getName());
-//            gridPaneDisplayResults.addColumn(0, labelToSet);
-//            Hyperlink toSet = new Hyperlink(param.getDescription());
-//            toSet.wrapTextProperty();
-//            toSet.setTooltip(new Tooltip(param.getDescription()));
-//            gridPaneDisplayResults.addColumn(1, toSet);
-//            Label labelType = new Label(param.getParameterType());
-//            gridPaneDisplayResults.addColumn(2, labelType);
-//        }
-//    }
 }

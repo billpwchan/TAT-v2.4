@@ -432,6 +432,7 @@ public class TabTestCaseLibraryController implements Initializable {
         ArrayList<Node> nodeHand = new ArrayList<>();
         nodeHand.add(this.buttonAdd);
         nodeHand.add(this.buttonEdit);
+        nodeHand.add(this.buttonDelete);
         setCursorOnComponent action = new setCursorOnComponent();
         action.setCursorHand(nodeHand);
     }
