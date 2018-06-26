@@ -14,9 +14,6 @@ import DB.Script;
 import DB.ScriptExecutions;
 import DB.StepExecutions;
 import DBcontroller.ScriptDB;
-import DBcontroller.TestExecution;
-import DBcontroller.sessionFactorySingleton;
-import controller.tabtestexecution.TabTestCampaignExecutionRepositoryBaselineController;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -24,25 +21,24 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.poi.ss.util.CellRangeAddress;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.CreationHelper;
 import org.apache.poi.ss.usermodel.FillPatternType;
 import org.apache.poi.ss.usermodel.HorizontalAlignment;
+import org.apache.poi.ss.usermodel.Hyperlink;
 import org.apache.poi.ss.usermodel.IndexedColors;
 import org.apache.poi.ss.usermodel.Row;
 
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.hibernate.Hibernate;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 
 /**
  *
@@ -53,6 +49,10 @@ public class WriteReport {
     private XSSFWorkbook workbook;
 
     private XSSFSheet sheet;
+
+    private XSSFSheet reportSheet;
+
+    private XSSFSheet summarySheet;
 
     private int campaignID;
 
@@ -68,6 +68,8 @@ public class WriteReport {
      */
     private int currentRow = 0;
 
+    private int reportCurrentRow = 1;
+
     /**
      * Current Iteration.
      */
@@ -78,15 +80,52 @@ public class WriteReport {
      */
     private int numIt;
 
+    private CreationHelper createHelper;
+
     /**
      * Hard-coded Header for Excel Report.
      */
     private static final String[] tempHeader = {"Overall Result", "EventList Result", "Data Type", "Register", "Register Offset", "Triggering State"};
 
+    private static final String[] tempReportHeader = {"Register_Address/File", "Bit_offset", "Result", "Associated defect (PCR ID)", "Comment on result", "System version under test", "Date", "Tester"};
+
+    private static final HashMap<String, int[]> STRResults = new HashMap<>();
+
     /**
      * HashMap that maps Cell Coordinates to CellStyle.
      */
-    private HashMap<Coordinate, CellStyle> styleMap = new HashMap<Coordinate, CellStyle>();
+    private HashMap<Coordinate, CellStyle> styleMap = new HashMap<>();
+
+    private static final String[] scriptTypeName = {"DI2", "DI", "AI"};      //DI2 has to be the first element (It will iterate through each element)
+
+    private static final Integer[] scriptTypeMaxStep = {4, 2, 2};
+
+    private int reportMaxStep = 0;
+
+    //Initialize CCS.PSD Variables 
+    private final int colStation = 0;
+    private final int colEqpt_Description = 1;
+    private final int colEqpt_Identifier = 2;
+    private final int colAttribute_Description = 3;
+    private final int colDC_Data_Type = 4;
+    private final int colv0_label0 = 5;
+    private final int colv0_Severity = 6;
+    private final int colv0_State = 7;
+    private final int colRegister_Address = 8;
+    private final int colBit_offset = 9;
+    private final int colResult = 10;
+    private final int colAssociatedDefect = 11;
+    private final int colCommentOnResult = 12;
+    private final int colSystemVersionUnderTest = 13;
+    private final int colDate = 14;
+    private final int colTester = 15;
+
+    //Initialize Cell Styles
+    private CellStyle cellStyle1;
+    private CellStyle cellStyle2;
+    private CellStyle cellStyle3;
+    private CellStyle cellStyle4;
+    private CellStyle cellStyle5;
 
     /**
      *
@@ -106,7 +145,26 @@ public class WriteReport {
         FileInputStream inputStream = new FileInputStream(new File(template));
         this.workbook = new XSSFWorkbook(inputStream);
         this.workbook.getSheetAt(0).getRow(18).getCell(7).setCellValue(it.getDate());
-        this.sheet = this.workbook.createSheet("Report");
+        this.sheet = this.workbook.createSheet("Raw Result");       //It should be automatically put at the end.
+        this.reportSheet = this.workbook.getSheet("Report");
+        this.summarySheet = this.workbook.getSheet("Summary");
+        this.createHelper = this.workbook.getCreationHelper();
+
+        //Initialize Pre-defined CellStyle from Template
+        cellStyle1 = this.reportSheet.getRow(0).getCell(this.colStation).getCellStyle();
+        cellStyle2 = this.reportSheet.getRow(0).getCell(this.colAttribute_Description).getCellStyle();
+        cellStyle3 = this.reportSheet.getRow(0).getCell(this.colResult).getCellStyle();
+        cellStyle4 = this.reportSheet.getRow(1).getCell(this.colResult).getCellStyle();
+        cellStyle5 = this.reportSheet.getRow(1).getCell(this.colAssociatedDefect).getCellStyle();
+
+        //Initialize Summary Sheet's Specific Cell Place.
+        WriteReport.STRResults.put("Not Tested", new int[]{4, 26});
+        WriteReport.STRResults.put("OK", new int[]{4, 27});
+        WriteReport.STRResults.put("OKWC", new int[]{4, 28});
+        WriteReport.STRResults.put("NOK", new int[]{4, 29});
+        WriteReport.STRResults.put("Not Testable", new int[]{4, 30});
+        WriteReport.STRResults.put("Out Of Scope", new int[]{4, 31});
+        WriteReport.STRResults.put("Test case result", new int[]{4, 32});
     }
 
     /**
@@ -122,7 +180,9 @@ public class WriteReport {
         } catch (Exception ex) {
             Logger.getLogger(WriteReport.class.getName()).log(Level.SEVERE, null, ex);
         }
+        this.reportSheetOffsetInit(it);
         this.setHeaderFileRows();
+        this.setReportHeaderFileRows();
         this.set(it);
         try {
             FileOutputStream outputStream = new FileOutputStream(FILE_NAME);
@@ -150,23 +210,93 @@ public class WriteReport {
      *
      */
     public void setHeaderFileRows() {
-
-        //XSSFSheet sheet = this.workbook.createSheet("Report");
         //Fill in First Header Row
+        CellStyle style = this.workbook.createCellStyle();
+        style.setAlignment(HorizontalAlignment.CENTER);
         Row row = this.sheet.createRow(0);
         int colNum = 0;
         for (int i = 0; i < tempHeader.length; i++) {
             Cell cell = row.createCell(colNum);
             cell.setCellValue(tempHeader[i]);
-            CellStyle style = this.workbook.createCellStyle();
-            style.setAlignment(HorizontalAlignment.CENTER);
             cell.setCellStyle(style);
             colNum++;
             this.sheet.addMergedRegion(new CellRangeAddress(0, 1, i, i));
         }
-
         this.currentRow += 2; //because we merge cells
 
+        //this.reportMaxStep records the maximum step it contians. If it is 4, the we should add 3 * (4-1) columns to the worksheet.
+//        this.reportMaxStep;
+    }
+
+    public void setReportHeaderFileRows() {
+        Row row = this.reportSheet.getRow(0);
+//        this.cellStyle1.setAlignment(HorizontalAlignment.CENTER);
+        for (int i = 1; i <= this.reportMaxStep; i++) {
+            Cell cell = row.createCell(this.colv0_label0 + (i - 1) * 3);
+            cell.setCellValue("v" + i + "_label(" + i + ")");
+            cell.setCellStyle(this.cellStyle1);
+            cell = row.createCell(this.colv0_Severity + (i - 1) * 3);
+            cell.setCellValue("v" + i + "_Severity");
+            cell.setCellStyle(this.cellStyle1);
+            cell = row.createCell(this.colv0_State + (i - 1) * 3);
+            cell.setCellValue("v" + i + "_State");
+            cell.setCellStyle(this.cellStyle1);
+        }
+        for (int i = 0; i < tempReportHeader.length; i++) {
+            Cell cell = row.createCell(this.colRegister_Address + (this.reportMaxStep - 1) * 3 + i);
+            cell.setCellValue(tempReportHeader[i]);
+            if (i > 1) {     //If greater than 1, means it is after "Result" Column
+                cell.setCellStyle(cellStyle3);
+            } else {
+                cell.setCellStyle(cellStyle1);
+            }
+        }
+    }
+
+    /**
+     * Obtain the maximum step in this iterations.
+     *
+     * @param iteration
+     */
+    private  void reportSheetOffsetInit(Iterations iteration) {
+
+//        session.update(iteration);
+        TestCasesExecution testCaseExecution = new TestCasesExecution();
+        this.campaignID = iteration.getTestCampaign().getIdtestCampaign();
+        this.baselineID = iteration.getBaselineId();
+        ArrayList<CaseExecutions> caseExecutionsList = testCaseExecution.PrepareCaseDisplayResults(baselineID, iteration.getIterationNumber());
+        Iterator<CaseExecutions> itCaseEx = caseExecutionsList.listIterator();
+        while (itCaseEx.hasNext()) {
+            CaseExecutions currCaseEx = itCaseEx.next();
+
+            testCaseExecution.PrepareStepsScriptsParametersDisplayResults(currCaseEx, iteration);
+            testCaseExecution.prepareCaseDisplay(currCaseEx);
+
+            Set<StepExecutions> stepExSet = currCaseEx.getStepExecutionses();
+            Iterator<StepExecutions> itStepEx = stepExSet.iterator();
+            while (itStepEx.hasNext()) {
+                StepExecutions currStepEx = itStepEx.next();
+                Set<ScriptExecutions> scriptExSet = currStepEx.getScriptExecutionses();
+                Iterator<ScriptExecutions> itScriptEx = scriptExSet.iterator();
+                while (itScriptEx.hasNext()) {
+                    ScriptExecutions scriptEx = itScriptEx.next();
+
+                    Script script = scriptEx.getScript();
+                    for (int i = 0; i < scriptTypeName.length; i++) {
+                        if (script.getName().contains(scriptTypeName[i])) {
+                            this.reportMaxStep = scriptTypeMaxStep[i] > this.reportMaxStep ? scriptTypeMaxStep[i] : this.reportMaxStep;
+                        }
+                    }
+                }
+            }
+        }
+        System.out.println("Maximum Step: " + this.reportMaxStep);
+    }
+    
+    private void adjustSTRResultsColumn() {
+        Row row = this.summarySheet.getRow(STRResults.get("OK")[0]);
+        Cell cell;
+        
     }
 
     /**
@@ -175,7 +305,6 @@ public class WriteReport {
      */
     public void set(Iterations iteration) {
 
-        TestExecution testExecHandler = new TestExecution();
         ArrayList<CaseExecutions> caseExecutionsList;
         this.campaignID = iteration.getTestCampaign().getIdtestCampaign();
         this.baselineID = iteration.getBaselineId();
@@ -193,9 +322,9 @@ public class WriteReport {
 
         //number of Test Cases
         while (itCaseEx.hasNext()) {
+            Row reportRow = this.reportSheet.createRow(this.reportCurrentRow);
 
-            CaseExecutions currCaseEx = new CaseExecutions();
-            currCaseEx = itCaseEx.next();
+            CaseExecutions currCaseEx = itCaseEx.next();
 
             //List of Register and Regiser Offsets
             List<String> registerList = new ArrayList<>();
@@ -204,22 +333,46 @@ public class WriteReport {
             testCaseExecution.prepareCaseDisplay(currCaseEx);
 
             String res = currCaseEx.getSimpleStringResultProperty();
+            Cell cell;
+//            int parseInt;
+//            switch (res) {
+//                case "OK":
+//                    cell = this.summarySheet.getRow(STRResults.get("OK")[0]).createCell(STRResults.get("OK")[1]);
+//                    parseInt = cell.getStringCellValue().equals("") ? 0 : Integer.parseInt(cell.getStringCellValue());
+//                    cell.setCellValue(cell.getStringCellValue().equals("") ? "1" : "" + (parseInt + 1));
+//                    break;
+//                case "NOK":
+//                    cell = this.summarySheet.getRow(STRResults.get("NOK")[0]).createCell(STRResults.get("NOK")[1]);
+//                    parseInt = cell.getStringCellValue().equals("") ? 0 : Integer.parseInt(cell.getStringCellValue());
+//                    cell.setCellValue(cell.getStringCellValue().equals("") ? "1" : "" + (parseInt + 1));
+//                    break;
+//                case "OS":
+//                    System.out.println("" + STRResults.get("Out Of Scope")[0]);
+//                    cell = this.summarySheet.getRow(STRResults.get("Out Of Scope")[0]).createCell(STRResults.get("Out Of Scope")[1]);
+//                    parseInt = cell.getStringCellValue().equals("") ? 0 : Integer.parseInt(cell.getStringCellValue());
+//                    cell.setCellValue(cell.getStringCellValue().equals("") ? "1" : "" + (parseInt + 1));
+//                    break;
+//            }
             System.out.println("                            Overall Case Result: " + res + "\n");
-            if (caseNum != 0) {
+            if (caseNum != 0) {     //Manipulate result in both Report worksheet & Raw Result Worksheet.
                 Row row = this.sheet.createRow(this.currentRow);
-                Cell cell = row.createCell(0);
+                cell = row.createCell(0);
                 cell.setCellValue(res);
+                Cell reportCell = reportRow.createCell(this.colResult + (this.reportMaxStep - 1) * 3);
+                reportCell.setCellValue(res);
+                cellStyle4.setFillForegroundColor(IndexedColors.LIGHT_GREEN.getIndex());
+
+                reportCell.setCellStyle(cellStyle4);
+
                 if (res.equals("NOK")) {
-                    CellStyle red = getRedCellStyle(this.workbook);
-                    cell.setCellStyle(red);
+                    cell.setCellStyle(getRedCellStyle(this.workbook));
+                    reportCell.setCellStyle(getRedCellStyle(this.workbook));
                 }
                 System.out.println("OverallCase Result put in excel sheet at row: " + this.currentRow);
                 this.currentRow++;
-
             }
 
-            Set<StepExecutions> stepExSet = new HashSet<>();
-            stepExSet = currCaseEx.getStepExecutionses();
+            Set<StepExecutions> stepExSet = currCaseEx.getStepExecutionses();
 
             Iterator<StepExecutions> itStepEx = stepExSet.iterator();
 
@@ -265,39 +418,20 @@ public class WriteReport {
                     }
 
                     Script script = scriptEx.getScript();
-                    switch (script.getName()) {
-                        case "Trigger of DI (Modbus)":
-                            scriptType = "DI";
-                            maxStep = 2;
-                            break;
-                        case "Trigger Modbus (DI2)":
-                            scriptType = "DI2";
-                            maxStep = 4;
-                            break;
-                        case "Trigger of AI (Modbus)":
-                            scriptType = "AI";
-                            maxStep = 2;
-                            break;
+                    if (script.getName().contains("DI2")) {
+                        scriptType = "DI2";
+                        maxStep = 4;
+                    } else if (script.getName().contains("DI")) {
+                        scriptType = "DI";
+                        maxStep = 2;
+                    } else if (script.getName().contains("AI")) {
+                        scriptType = "AI";
+                        maxStep = 2;
                     }
+                    this.reportMaxStep = maxStep > this.reportMaxStep ? maxStep : this.reportMaxStep;
 
                     Set<ParametersExecution> paramExSet = scriptEx.getParametersExecutions();
                     Iterator<ParametersExecution> itParamEx = paramExSet.iterator();
-//                    Hibernate.initialize(script.getMacrosForScriptIdScript());
-//                    Iterator<Macro> itMacro = script.getMacrosForScriptIdScript().iterator();
-//                    Integer macroParameterIndex = 0;
-//                    ArrayList<Integer> tempIndex = new ArrayList<>();
-//                    while (itMacro.hasNext()) {
-//                        Macro setMacro = itMacro.next();
-//                        
-//                        Hibernate.initialize(setMacro.getScriptByScriptIdScript1());
-//                        
-//                        if (setMacro.getScriptByScriptIdScript1().getName().equalsIgnoreCase("Search occurrence")) {
-//                            System.out.println("Entered first: "+ macroParameterIndex);
-//                            tempIndex.add(macroParameterIndex);
-//                        }
-//                        macroParameterIndex++;
-//
-//                    }
                     int numParameter = 0;
 //                    macroParameterIndex = 0;
                     //number of parameters inputed in TAT on each script in one step
@@ -370,7 +504,7 @@ public class WriteReport {
                         scDB.getAllFromParamScriptMacro(script);
 
                         Iterator<Macro> it2 = scriptEx.getScript().getMacrosForScriptIdScript().iterator();
-                        ParamScriptMacro temp = new ParamScriptMacro();
+                        ParamScriptMacro temp;
                         int i = 0;
                         boolean enteredWhile = false;
                         while (it2.hasNext()) {
@@ -404,21 +538,66 @@ public class WriteReport {
                         CellStyle red = getRedCellStyle(this.workbook);
                         cellR.setCellStyle(red);
                     }
+                    cell = row.createCell(3);
+                    cell.setCellValue(registerList.get(0));         //Register
+                    if (reportDuplicateCheck(reportRow, this.colRegister_Address + (this.reportMaxStep - 1) * 3)) {
+                        cell = reportRow.createCell(this.colRegister_Address + (this.reportMaxStep - 1) * 3);
+                        cell.setCellValue(registerList.get(0));
 
-                    Cell cell = row.createCell(3);
-                    cell.setCellValue(registerList.get(0));         //Register Offset
+                    }
+
                     Cell cell2 = row.createCell(4);
-                    cell2.setCellValue(registerList.get(1));        //Register
+                    cell2.setCellValue(registerList.get(1));        //Register Offset
+                    if (reportDuplicateCheck(reportRow, this.colBit_offset + (this.reportMaxStep - 1) * 3)) {
+                        cell = reportRow.createCell(this.colBit_offset + (this.reportMaxStep - 1) * 3);
+                        cell.setCellValue(registerList.get(1));
+
+                    }
 
                     Cell cell3 = row.createCell(2);
                     cell3.setCellValue(scriptType);                 //Data Type
+                    if (reportDuplicateCheck(reportRow, this.colDC_Data_Type)) {
+                        cell = reportRow.createCell(this.colDC_Data_Type);
+                        cell.setCellValue(scriptType);
+
+                    }
 
                     Cell cell4 = row.createCell(5);
                     cell4.setCellValue(String.valueOf((stepNumber) % maxStep));         //Triggering State
 
-                    //write parameters
-                    for (int i = 0; i < paramSearchList.size(); i++) {
+                    if (reportDuplicateCheck(reportRow, this.colAssociatedDefect + (this.reportMaxStep - 1) * 3)) {       //Associated Defect
+                        cell = reportRow.createCell(this.colAssociatedDefect + (this.reportMaxStep - 1) * 3);
+                        cell.setCellStyle(cellStyle5);
+                    }
 
+                    if (reportDuplicateCheck(reportRow, this.colCommentOnResult + (this.reportMaxStep - 1) * 3)) {       //Comment on Result
+                        cell = reportRow.createCell(this.colCommentOnResult + (this.reportMaxStep - 1) * 3);
+                        cell.setCellStyle(cellStyle5);
+                        Hyperlink rawReportLink = createHelper.createHyperlink(Hyperlink.LINK_DOCUMENT);
+                        rawReportLink.setAddress("'Raw Result'!" + (this.currentRow) + ":" + (this.currentRow));
+                        cell.setHyperlink(rawReportLink);
+                        cell.setCellValue("Link to Raw Result");
+                    }
+
+                    if (reportDuplicateCheck(reportRow, this.colSystemVersionUnderTest + (this.reportMaxStep - 1) * 3)) {       //System Version Under Test
+                        cell = reportRow.createCell(this.colSystemVersionUnderTest + (this.reportMaxStep - 1) * 3);
+                        cell.setCellStyle(cellStyle5);
+                    }
+
+                    if (reportDuplicateCheck(reportRow, this.colDate + (this.reportMaxStep - 1) * 3)) {       //Operation Date
+                        cell = reportRow.createCell(this.colDate + (this.reportMaxStep - 1) * 3);
+                        cell.setCellValue(iteration.getDate());
+                        cell.setCellStyle(cellStyle5);
+                    }
+
+                    if (reportDuplicateCheck(reportRow, this.colTester + (this.reportMaxStep - 1) * 3)) {       //Tester
+                        cell = reportRow.createCell(this.colTester + (this.reportMaxStep - 1) * 3);
+                        cell.setCellValue("TAT");
+                        cell.setCellStyle(cellStyle5);
+                    }
+
+                    //write parameters in Raw Report
+                    for (int i = 0; i < paramSearchList.size(); i++) {
                         Cell cellS = row.createCell(tempHeader.length + 2 * i);
                         Cell cellF = row.createCell(tempHeader.length + 2 * i + 1);
                         String search = "";
@@ -436,20 +615,45 @@ public class WriteReport {
                             cellS.setCellStyle(red);
                             cellF.setCellStyle(red);
                         }
-
                     }
                     this.currentRow++;
+
+                    //write parameters in Report. Assume there's always 6 in paramSearchList.  These are before v0 columns.
+                    if (reportDuplicateCheck(reportRow, this.colStation)) {
+                        cell = reportRow.createCell(this.colStation);
+                        cell.setCellValue(paramSearchList.get(0));
+                    }
+                    if (reportDuplicateCheck(reportRow, this.colEqpt_Description)) {
+                        cell = reportRow.createCell(this.colEqpt_Description);
+                        cell.setCellValue(paramSearchList.get(1));
+                    }
+                    if (reportDuplicateCheck(reportRow, this.colEqpt_Identifier)) {
+                        cell = reportRow.createCell(this.colEqpt_Identifier);
+                        cell.setCellValue(paramSearchList.get(3));
+
+                    }
+                    if (reportDuplicateCheck(reportRow, this.colAttribute_Description)) {
+                        cell = reportRow.createCell(this.colAttribute_Description);
+                        cell.setCellValue(paramSearchList.get(4));
+
+                    }
+
+                    int offset = stepNumber % maxStep;  //In unit of 3
+                    cell = reportRow.createCell(this.colv0_label0 + offset * 3);
+                    cell.setCellValue(paramSearchList.get(5));
+                    cell = reportRow.createCell(this.colv0_Severity + offset * 3);
+                    Double severity = Double.parseDouble(paramSearchList.get(6));
+                    cell.setCellValue(severity.intValue());
+                    cell = reportRow.createCell(this.colv0_State + offset * 3);
+                    cell.setCellValue(severity > 0 ? "A" : "N");
 
                 }
 
                 System.out.println("Step result of above step:" + overallStepResult + "\n");
-
-                if (caseNum == 1 && stepNumber == 1) {
-
-                }
                 stepNumber++;
             }
             caseNum++;
+            this.reportCurrentRow++;
         }
 
         //Create Header with (Search & Found)
@@ -470,6 +674,10 @@ public class WriteReport {
 
     }
 
+    private boolean reportDuplicateCheck(Row sheetRow, int colNum) {
+        return (sheetRow.getCell(colNum) == null || sheetRow.getCell(colNum).getStringCellValue().equals(""));
+    }
+
     /**
      *
      * @param paramSearch
@@ -487,7 +695,7 @@ public class WriteReport {
             String[] words = split[i].split(" ");
             if (words[2].equalsIgnoreCase("NOK") && words.length > 3) {           //NOK Mismatch
                 i += 2;
-                paramFound.add(split[i].substring(split[i].indexOf("=")+1).trim());
+                paramFound.add(split[i].substring(split[i].indexOf("=") + 1).trim());
                 count++;
                 continue;
             }
@@ -509,9 +717,16 @@ public class WriteReport {
      * @param workbook
      * @return
      */
-    public static CellStyle getRedCellStyle(XSSFWorkbook workbook) {
+    private static CellStyle getRedCellStyle(XSSFWorkbook workbook) {
         CellStyle style = workbook.createCellStyle();
         style.setFillForegroundColor(IndexedColors.RED.getIndex());
+        style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+        return style;
+    }
+
+    private static CellStyle getGreenCellStyle(XSSFWorkbook workbook) {
+        CellStyle style = workbook.createCellStyle();
+        style.setFillForegroundColor(IndexedColors.GREEN.getIndex());
         style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
         return style;
     }

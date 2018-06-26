@@ -5,11 +5,6 @@
  */
 package DBcontroller;
 
-import controller.requirements.TabRequirementMainViewController;
-import java.sql.Connection;
-import javax.persistence.EntityManager;
-import org.hibernate.Query;
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
