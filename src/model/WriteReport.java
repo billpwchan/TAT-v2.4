@@ -13,7 +13,10 @@ import DB.ParametersExecution;
 import DB.Script;
 import DB.ScriptExecutions;
 import DB.StepExecutions;
+import DB.TestCampaign;
 import DBcontroller.ScriptDB;
+import DBcontroller.TestCampaignDB;
+import DBcontroller.sessionFactorySingleton;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -39,6 +42,9 @@ import org.apache.poi.ss.usermodel.Row;
 
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.hibernate.Hibernate;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
 /**
  *
@@ -54,9 +60,17 @@ public class WriteReport {
 
     private XSSFSheet summarySheet;
 
+    private TestCampaignDB testCampaignController = new TestCampaignDB();
+
     private int campaignID;
 
     private String baselineID;
+
+    private String campaignReference;
+
+    private String campainWriter;
+
+    private String campainCreationDate;
 
     /**
      * File Name to write to.
@@ -89,14 +103,15 @@ public class WriteReport {
 
     private static final String[] tempReportHeader = {"Register_Address/File", "Bit_offset", "Result", "Associated defect (PCR ID)", "Comment on result", "System version under test", "Date", "Tester"};
 
+    private static final HashMap<String, int[]> STDInformation = new HashMap<>();
+
+    private static final HashMap<String, int[]> authorInformation = new HashMap<>();
+
     private static final HashMap<String, int[]> STRResults = new HashMap<>();
 
-    private static final HashMap<String, Integer> caseExeResult = new HashMap<>();
+    private static final HashMap<String, int[]> STRInformation = new HashMap<>();
 
-    /**
-     * HashMap that maps Cell Coordinates to CellStyle.
-     */
-    private HashMap<Coordinate, CellStyle> styleMap = new HashMap<>();
+    private static final HashMap<String, Integer> caseExeResult = new HashMap<>();
 
     private static final String[] scriptTypeName = {"DI2", "DI", "AI"};      //DI2 has to be the first element (It will iterate through each element)
 
@@ -159,6 +174,14 @@ public class WriteReport {
         this.cellStyle4 = this.reportSheet.getRow(1).getCell(this.colResult).getCellStyle();
         this.cellStyle5 = this.reportSheet.getRow(1).getCell(this.colAssociatedDefect).getCellStyle();
 
+        WriteReport.STDInformation.put("STD ID", new int[]{4, 3 - 1});
+
+        WriteReport.authorInformation.put("Written by", new int[]{7, 3 - 1});
+        WriteReport.authorInformation.put("Writing date", new int[]{7, 5 - 1});
+
+        WriteReport.STRInformation.put("IO schedule version", new int[]{4, 20 - 1});
+        WriteReport.STRInformation.put("Total steps", new int[]{4, 23 - 1});
+
         //Initialize Summary Sheet's Specific Cell Place. (Zero-based coordinate)
         WriteReport.STRResults.put("Not Tested", new int[]{4, 26 - 1});
         WriteReport.STRResults.put("OK", new int[]{4, 27 - 1});
@@ -168,7 +191,7 @@ public class WriteReport {
         WriteReport.STRResults.put("Out Of Scope", new int[]{4, 31 - 1});
         WriteReport.STRResults.put("Test case result", new int[]{4, 32 - 1});
 
-        WriteReport.caseExeResult.put("Not Tested", 0);
+        WriteReport.caseExeResult.put("NExec", 0);
         WriteReport.caseExeResult.put("OK", 0);
         WriteReport.caseExeResult.put("OKWC", 0);
         WriteReport.caseExeResult.put("NOK", 0);
@@ -194,7 +217,11 @@ public class WriteReport {
         this.setHeaderFileRows();
         this.setReportHeaderFileRows();
         this.set(it);
+        this.updateSTDInformation();
+        this.updateAuthorInformation();
+        this.updateSTRInformation();
         this.updateSTRResults();
+
         try {
             FileOutputStream outputStream = new FileOutputStream(FILE_NAME);
             this.workbook.write(outputStream);
@@ -302,6 +329,10 @@ public class WriteReport {
 
         ArrayList<CaseExecutions> caseExecutionsList;
         this.campaignID = iteration.getTestCampaign().getIdtestCampaign();
+        TestCampaign testCampaign = testCampaignController.getTestCampaignFromID(this.campaignID);
+        this.campaignReference = testCampaign.getReference();
+        this.campainWriter = testCampaign.getWritter();
+        this.campainCreationDate = testCampaign.getCreationDate();
         this.baselineID = iteration.getBaselineId();
         TestCasesExecution testCaseExecution = new TestCasesExecution();
 
@@ -652,11 +683,46 @@ public class WriteReport {
             Cell cellFound = row2.createCell(tempHeader.length + 2 * i + 1);
             cellFound.setCellValue("Found");
         }
-
     }
 
     private boolean reportDuplicateCheck(Row sheetRow, int colNum) {
         return (sheetRow.getCell(colNum) == null || sheetRow.getCell(colNum).getStringCellValue().equals(""));
+    }
+
+    private void updateSTDInformation() {
+        Cell cell;
+        CellStyle cellStyle = this.summarySheet.getRow(STDInformation.get("STD ID")[1]).getCell(STDInformation.get("STD ID")[0]).getCellStyle();
+
+        cell = this.summarySheet.getRow(STDInformation.get("STD ID")[1]).getCell(STDInformation.get("STD ID")[0]);
+        cell.setCellValue(this.campaignReference);
+        cell.setCellStyle(cellStyle);
+    }
+
+    private void updateAuthorInformation() {
+        Cell cell;
+        CellStyle cellStyle = this.summarySheet.getRow(authorInformation.get("Written by")[1]).getCell(authorInformation.get("Written by")[0]).getCellStyle();
+
+        cell = this.summarySheet.getRow(authorInformation.get("Written by")[1]).getCell(authorInformation.get("Written by")[0]);
+        cell.setCellValue(this.campainWriter);
+        cell.setCellStyle(cellStyle);
+
+        cell = this.summarySheet.getRow(authorInformation.get("Writing date")[1]).getCell(authorInformation.get("Writing date")[0]);
+        cell.setCellValue(this.campainCreationDate);
+        cell.setCellStyle(cellStyle);
+    }
+
+    private void updateSTRInformation() {
+        Cell cell;
+        CellStyle cellStyle = this.summarySheet.getRow(STRInformation.get("IO schedule version")[1]).getCell(STRInformation.get("IO schedule version")[0]).getCellStyle();
+
+        cell = this.summarySheet.getRow(STRInformation.get("IO schedule version")[1]).createCell(STRInformation.get("IO schedule version")[0]);
+        cell.setCellValue(this.baselineID);
+        cell.setCellStyle(cellStyle);
+
+        cell = this.summarySheet.getRow(STRInformation.get("Total steps")[1]).createCell(STRInformation.get("Total steps")[0]);
+        cell.setCellValue(WriteReport.caseExeResult.get("Test case result"));
+        cell.setCellStyle(cellStyle);
+
     }
 
     private void updateSTRResults() {
@@ -677,6 +743,11 @@ public class WriteReport {
                     break;
                 case "OS":
                     cell = this.summarySheet.getRow(STRResults.get("Out Of Scope")[1]).createCell(STRResults.get("Out Of Scope")[0]);
+                    cell.setCellValue(WriteReport.caseExeResult.get(key));
+                    cell.setCellStyle(cellStyle);
+                    break;
+                case "NExec":
+                    cell = this.summarySheet.getRow(STRResults.get("Not Tested")[1]).createCell(STRResults.get("Not Tested")[0]);
                     cell.setCellValue(WriteReport.caseExeResult.get(key));
                     cell.setCellStyle(cellStyle);
                     break;
@@ -732,7 +803,7 @@ public class WriteReport {
         CellStyle style = workbook.createCellStyle();
         style.setFillForegroundColor(IndexedColors.RED.getIndex());
         style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
-        style.setAlignment(HorizontalAlignment.CENTER);
+        style.setAlignment(HorizontalAlignment.CENTER_SELECTION);
         return style;
     }
 
