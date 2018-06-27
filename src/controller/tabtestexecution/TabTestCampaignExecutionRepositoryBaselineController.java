@@ -48,9 +48,11 @@ import model.createOrchestra;
 import model.initColumn;
 import model.util;
 import javafx.collections.ListChangeListener;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.stage.FileChooser;
 import model.WriteReport;
+import model.setCursorOnComponent;
 
 /**
  * FXML Controller class To validate a particular test case (With prompt window
@@ -196,6 +198,7 @@ public class TabTestCampaignExecutionRepositoryBaselineController implements Ini
         });
 
         this.loadCSS();
+        this.defineCursor();
     }
 
     /**
@@ -513,5 +516,19 @@ public class TabTestCampaignExecutionRepositoryBaselineController implements Ini
     public void setBaselineButtonEnable() {
 
         this.runButton.setDisable(false);
+    }
+    
+        /**
+     * define a new cursor for buttons where an action is possible
+     */
+    private void defineCursor() {
+        ArrayList<Node> nodeHand = new ArrayList<>();
+        nodeHand.add(this.baselineButton);
+        //nodeHand.add(this.buttonRefreshCampaignRepository);
+        nodeHand.add(this.buttonDelete);
+        nodeHand.add(this.runButton);
+        nodeHand.add(this.buttonReport);
+        setCursorOnComponent action = new setCursorOnComponent();
+        action.setCursorHand(nodeHand);
     }
 }

@@ -11,11 +11,8 @@ import DBcontroller.TestCampaignDB;
 import DBcontroller.TestCaseDB;
 import controller.popup.PopUpCaseSelectionController;
 import controller.tabtestcase.TabTestCaseNewController;
-import static controller.tabtestexecution.TabTestCampaignExecutionBaselineCampaignController.alert;
-import controller.tabtestexecution.TabTestCampaignExecutionRepositoryBaselineController;
 import java.io.IOException;
 import java.net.URL;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -25,7 +22,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -40,7 +36,6 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
-import javafx.scene.control.TablePosition;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -227,6 +222,7 @@ public class TabTestCampaignNewController implements Initializable {
                             newValue.length() > textfieldWriterCampaignMaxLength)) {
                         this.jtextfieldWriterAddCampaign.setText(oldValue);
                     }
+                    changeColorLabel(this.labelWriterAddCampaign, newValue);
                 });
 
         this.jtextfieldSUTReleaseAddCampaign.textProperty().addListener(
@@ -312,13 +308,9 @@ public class TabTestCampaignNewController implements Initializable {
      * Action performed after closing the popUp to add a case. The actions are:
      * Adding the cases selected in the tableView case and update the number of
      * cases in the right field.
-     */
-
-    /**
      *
      * @param CasesSelected
      */
-    
     public void setAction(ObservableList<TestCase> CasesSelected) {
         CasesSelected.stream().forEach((CasesSelected1) -> {
             observableListTestCase.add(CasesSelected1);
@@ -427,7 +419,7 @@ public class TabTestCampaignNewController implements Initializable {
      * @return 0 is the reference field is empty
      */
     private boolean minimumInformationTestCampaign() {
-        canBeValidate = !jtextfieldReferenceAddCampaign.getText().isEmpty();
+        canBeValidate = !jtextfieldReferenceAddCampaign.getText().isEmpty() && !this.jtextfieldWriterAddCampaign.getText().isEmpty();
         return canBeValidate;
     }
 
@@ -517,6 +509,7 @@ public class TabTestCampaignNewController implements Initializable {
         this.jtextfieldEditionDateAddCampaign.setId("displayStyle");
 
         this.labelReferenceAddCampaign.setTextFill(Color.RED);
+        this.labelWriterAddCampaign.setTextFill(Color.RED);
     }
 
     /**

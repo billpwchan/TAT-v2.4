@@ -11,7 +11,6 @@ import DB.TestCase;
 import DBcontroller.IterationDB;
 import DBcontroller.TestCampaignDB;
 import DBcontroller.TestCaseDB;
-import DBcontroller.TestExecution;
 import controller.tabtestcase.TabTestCaseLibraryController;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -307,9 +306,9 @@ public class TabTestCampaignRepositoryController implements Initializable {
             if (this.campaignSelected != null) {
                 ArrayList<Iterations> baselines = iterationHandler.getIterationsFromCampaign(campaignSelected);
                 if (baselines.size() > 0) {
-                    String baselineNames="Baselines to delete : \n";
-                    for (int i=0;i<baselines.size();i++){
-                        baselineNames=baselineNames+"\t--> "+baselines.get(i).getBaselineId()+"\n";
+                    String baselineNames = "Baselines to delete : \n";
+                    for (int i = 0; i < baselines.size(); i++) {
+                        baselineNames = baselineNames + "\t--> " + baselines.get(i).getBaselineId() + "\n";
                     }
                     Alert alert = new Alert(AlertType.WARNING);
                     alert.setTitle("Warning");
@@ -317,7 +316,7 @@ public class TabTestCampaignRepositoryController implements Initializable {
                     alert.setContentText(baselineNames);
                     alert.showAndWait();
                     e.consume();
-                }else{
+                } else {
                     testCampaignHandler.deleteCampaignNotExecuted(campaignSelected);
                     this.updateRepository();
                     tableViewTestCase.setItems(null);

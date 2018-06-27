@@ -166,7 +166,9 @@ public class WriteReport {
         this.reportSheet = this.workbook.getSheet("Report");
         this.summarySheet = this.workbook.getSheet("Summary");
         this.createHelper = this.workbook.getCreationHelper();
+    }
 
+    private void initHashMaps() {
         //Initialize Pre-defined CellStyle from Template
         this.cellStyle1 = this.reportSheet.getRow(0).getCell(this.colStation).getCellStyle();
         this.cellStyle2 = this.reportSheet.getRow(0).getCell(this.colAttribute_Description).getCellStyle();
@@ -213,6 +215,7 @@ public class WriteReport {
         } catch (Exception ex) {
             Logger.getLogger(WriteReport.class.getName()).log(Level.SEVERE, null, ex);
         }
+        this.initHashMaps();
         this.reportSheetOffsetInit(it);
         this.setHeaderFileRows();
         this.setReportHeaderFileRows();
@@ -261,13 +264,13 @@ public class WriteReport {
 //        this.cellStyle1.setAlignment(HorizontalAlignment.CENTER);
         for (int i = 1; i <= this.reportMaxStep; i++) {
             Cell cell = row.createCell(this.colv0_label0 + (i - 1) * 3);
-            cell.setCellValue("v" + i + "_label(" + i + ")");
+            cell.setCellValue("v" + (i - 1) + "_label(" + i + ")");
             cell.setCellStyle(this.cellStyle1);
             cell = row.createCell(this.colv0_Severity + (i - 1) * 3);
-            cell.setCellValue("v" + i + "_Severity");
+            cell.setCellValue("v" + (i - 1) + "_Severity");
             cell.setCellStyle(this.cellStyle1);
             cell = row.createCell(this.colv0_State + (i - 1) * 3);
-            cell.setCellValue("v" + i + "_State");
+            cell.setCellValue("v" + (i - 1) + "_State");
             cell.setCellStyle(this.cellStyle1);
         }
         for (int i = 0; i < tempReportHeader.length; i++) {
