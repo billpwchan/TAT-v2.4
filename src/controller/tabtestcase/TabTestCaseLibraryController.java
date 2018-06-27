@@ -159,7 +159,7 @@ public class TabTestCaseLibraryController implements Initializable {
                     return true;
                 } else if (tCase.getWritter() != null && tCase.getWritter().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
-                } else if (tCase.getCreationDate() != null && tCase.getCreationDate().toString().toLowerCase().contains(lowerCaseFilter)) {
+                } else if (tCase.getCreationDate() != null && tCase.getCreationDate().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
                 } else if (tCase.getTestObjective() != null && tCase.getTestObjective().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
@@ -251,8 +251,8 @@ public class TabTestCaseLibraryController implements Initializable {
                 ArrayList<TestCampaign> campaigns = testCampaignHandler.getCampaignsFromCases(this.currentTestCaseSelected);
                 if (campaigns.size() > 0) {
                     String campaignNames = "Campaign to Delete : \n";
-                    for (int i = 0; i < campaigns.size(); i++) {
-                        campaignNames = campaignNames + "\t--> "+campaigns.get(i).getReference() + "\n";
+                    for (TestCampaign campaign : campaigns) {
+                        campaignNames = campaignNames + "\t--> " + campaign.getReference() + "\n";
                     }
                     Alert alert = new Alert(AlertType.WARNING);
                     alert.setTitle("Warning");
@@ -361,7 +361,7 @@ public class TabTestCaseLibraryController implements Initializable {
      * @see TabTestCaseMainViewController
      */
     private void viewTestCase(TestCase person) {
-        this.main.displayViewTab(person);
+        TabTestCaseLibraryController.main.displayViewTab(person);
     }
 
     /**
@@ -628,12 +628,7 @@ public class TabTestCaseLibraryController implements Initializable {
             alert.setContentText("Do you want to create a new one from it ?");
 
             Optional<ButtonType> result = alert.showAndWait();
-            if (result.get() == ButtonType.OK) {
-                return true;
-            } else {
-                return false;
-                // ... user chose CANCEL or closed the dialog
-            }
+            return result.get() == ButtonType.OK; // ... user chose CANCEL or closed the dialog
         } else {
             return true;
         }

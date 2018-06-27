@@ -16,7 +16,6 @@ import DB.StepExecutions;
 import DB.TestCampaign;
 import DBcontroller.ScriptDB;
 import DBcontroller.TestCampaignDB;
-import DBcontroller.sessionFactorySingleton;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -26,7 +25,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -42,9 +40,6 @@ import org.apache.poi.ss.usermodel.Row;
 
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.hibernate.Hibernate;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 
 /**
  *
@@ -83,11 +78,6 @@ public class WriteReport {
     private int currentRow = 0;
 
     private int reportCurrentRow = 1;
-
-    /**
-     * Current Iteration.
-     */
-    private static int currIt = 0;
 
     /**
      * Number of Iterations.
@@ -240,7 +230,7 @@ public class WriteReport {
     /**
      *
      */
-    public void setHeaderFileRows() {
+    private void setHeaderFileRows() {
         //Fill in First Header Row
         CellStyle style = this.workbook.createCellStyle();
         style.setAlignment(HorizontalAlignment.CENTER);
@@ -259,7 +249,7 @@ public class WriteReport {
 //        this.reportMaxStep;
     }
 
-    public void setReportHeaderFileRows() {
+    private void setReportHeaderFileRows() {
         Row row = this.reportSheet.getRow(0);
 //        this.cellStyle1.setAlignment(HorizontalAlignment.CENTER);
         for (int i = 1; i <= this.reportMaxStep; i++) {
@@ -374,9 +364,22 @@ public class WriteReport {
                 cell = row.createCell(0);
                 cell.setCellValue(res);
                 Cell reportCell = reportRow.createCell(this.colResult + (this.reportMaxStep - 1) * 3);
-                reportCell.setCellValue(res);
-                cellStyle4.setFillForegroundColor(IndexedColors.LIGHT_GREEN.getIndex());
+                reportCell.setCellValue(res.equals("NExec") ? "NT" : res);
 
+                switch (res) {
+                    case "OK":
+                        cellStyle4.setFillForegroundColor(IndexedColors.LIGHT_GREEN.getIndex());
+                        break;
+                    case "NExec":
+                        cellStyle4.setFillForegroundColor(IndexedColors.GREY_50_PERCENT.getIndex());
+                        break;
+                    case "NOK":
+                        cellStyle4.setFillForegroundColor(IndexedColors.RED.getIndex());
+                        break;
+                    case "OS":
+                        cellStyle4.setFillForegroundColor(IndexedColors.DARK_BLUE.getIndex());
+                        break;
+                }
                 reportCell.setCellStyle(cellStyle4);
 
                 if (res.equals("NOK")) {
@@ -412,7 +415,6 @@ public class WriteReport {
 //                List<String> parametersOfBufferScriptEx = new ArrayList<String>();
                 Set<ScriptExecutions> scriptExSet = currStepEx.getScriptExecutionses();
                 Iterator<ScriptExecutions> itScriptEx = scriptExSet.iterator();
-                boolean isFirstStimuliScript = true;
                 //either 1 or 2 script per step
                 int scriptNum = 0;
                 String scriptType = "";
@@ -426,11 +428,7 @@ public class WriteReport {
                     //if getIsStimuli = 1 ---> script on left side
                     //if getIsStimuli = 0 ---> script on right side
                     boolean isStimuli;
-                    if (scriptEx.getIsStimuli() == 0) {
-                        isStimuli = false;
-                    } else {
-                        isStimuli = true;
-                    }
+                    isStimuli = scriptEx.getIsStimuli() != 0;
 
                     Script script = scriptEx.getScript();
                     if (script.getName().contains("DI2")) {

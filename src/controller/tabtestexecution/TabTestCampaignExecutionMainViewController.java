@@ -124,7 +124,7 @@ public class TabTestCampaignExecutionMainViewController implements Initializable
     /**
      * Open a tab to view the result of an execution
      *
-     * @param stepExecution the Step Execution from which open results
+     * @param iteration
      */
     public void displayViewTab(Iterations iteration) {
 

@@ -97,7 +97,6 @@ public class TabTestCampaignRepositoryController implements Initializable {
         } catch (Exception ex) {
             Logger.getLogger(TabTestCaseLibraryController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        ;
 
         FilteredList<TestCampaign> filteredData = new FilteredList<>(observableListTestCampaign, p -> true);
 
@@ -115,11 +114,11 @@ public class TabTestCampaignRepositoryController implements Initializable {
                     return true; // Filter matches first name.
                 } else if (tCampaign.getComments() != null && tCampaign.getComments().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
-                } else if (tCampaign.getCreationDate() != null && tCampaign.getCreationDate().toString().toLowerCase().contains(lowerCaseFilter)) {
+                } else if (tCampaign.getCreationDate() != null && tCampaign.getCreationDate().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
                 } else if (tCampaign.getDescription() != null && tCampaign.getDescription().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
-                } else if (tCampaign.getEditionDate() != null && tCampaign.getEditionDate().toString().toLowerCase().contains(lowerCaseFilter)) {
+                } else if (tCampaign.getEditionDate() != null && tCampaign.getEditionDate().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
                 } else if (tCampaign.getIdtestCampaign() != null && tCampaign.getIdtestCampaign().toString().toLowerCase().contains(lowerCaseFilter)) {
                     return true;

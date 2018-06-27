@@ -41,9 +41,9 @@ public class TabTestCaseMainViewController implements Initializable {
 
     private Tab tabLibrary;
 
-    private ArrayList<currentTab> currentEditTab = new ArrayList<currentTab>();
+    private ArrayList<currentTab> currentEditTab = new ArrayList<>();
 
-    private ArrayList<currentTab> currentViewTab = new ArrayList<currentTab>();
+    private ArrayList<currentTab> currentViewTab = new ArrayList<>();
 
     private static TabTestCaseLibraryController libraryController;
 

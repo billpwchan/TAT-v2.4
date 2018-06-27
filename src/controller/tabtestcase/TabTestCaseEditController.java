@@ -543,11 +543,6 @@ public class TabTestCaseEditController implements Initializable {
                     while (itScriptHBC.hasNext()) {
                         ScriptHasBeenConfigured nextSHBC = new ScriptHasBeenConfigured(itScriptHBC.next(), newTSHS);
                         setSHBC.add(nextSHBC);
-//                        session.save(nextSHBC);
-
-//                        currentScript.getScriptAction().setScriptHasBeenConfigureds(itScriptHBC.next());
-//                        System.out.println("SCRIPT HAS BEEN CONFIGURED :" + itScriptHBC.next().getTestStepHasScript());
-//                        session.save(itScriptHBC.next().getTestStepHasScript());
                     }
                     newTSHS.setScriptHasBeenConfigureds(setSHBC);
 //                    session.save(newTSHS);
@@ -567,17 +562,10 @@ public class TabTestCaseEditController implements Initializable {
                     while (itScriptHBC.hasNext()) {
                         ScriptHasBeenConfigured nextSHBC = new ScriptHasBeenConfigured(itScriptHBC.next(), newTSHS);
                         setSHBC.add(nextSHBC);
-//                        session.save(nextSHBC);
-//                        session.beginTransaction().commit();
-//                        System.out.println("SCRIPT HAS BEEN CONFIGURED :" + itScriptHBC.next().getTestStepHasScript());
-//                        session.save(itScriptHBC.next().getTestStepHasScript());
                     }
                     newTSHS.setScriptHasBeenConfigureds(setSHBC);
-//                    session.save(newTSHS);
                 }
             }
-//            session.save(step);
-//            session.beginTransaction().commit();
         }
         try {
             session.beginTransaction().commit();        //Cause TestStepHasScript exception (need to save it before commit). 

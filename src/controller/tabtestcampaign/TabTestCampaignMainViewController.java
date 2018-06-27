@@ -100,7 +100,7 @@ public class TabTestCampaignMainViewController implements Initializable {
      */
     public void displayNewTestCampaign() {
         //Logger.getLogger(TabTestCaseMainViewController.class.getName()).log(Level.SEVERE, null, ex);
-        
+
         Tab newTestCampaign = new Tab("New Campaign");
         //System.out.println("HEERERERE");
         FXMLLoader fxmlLoader = new FXMLLoader();
@@ -228,11 +228,11 @@ public class TabTestCampaignMainViewController implements Initializable {
     public TATFrameController getMainController() {
         return this.mainFrameController;
     }
-    
+
     /**
      *
      */
-    public void focusRepository(){
+    public void focusRepository() {
         this.tabPaneTestCampaign.getSelectionModel().select(0);
     }
 }
