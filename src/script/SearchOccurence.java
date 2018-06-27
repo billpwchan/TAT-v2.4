@@ -61,7 +61,7 @@ public class SearchOccurence {
         if (this.arrayToSearchIn.isEmpty()) {
             result.setComment("No lines found");
         } else {
-            if (this.regularExpression != "") {
+            if (!"".equals(this.regularExpression) && !"null".equals(this.regularExpression)) {
                 String compare = "";
                 Pattern p = Pattern.compile(this.regularExpression);
                 Matcher m = p.matcher(this.arrayToSearchIn.get(0));

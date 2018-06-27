@@ -120,7 +120,7 @@ public class PopUpWizardActionController implements Initializable {
     private Label textAreaDescriptionParameters;
 
     private static ViewScriptMacroController controller;
-    
+
     private static PreviewMacro previewController;
 
     private final ObservableList<Parameters> observableListParam = FXCollections.observableArrayList();
@@ -150,7 +150,7 @@ public class PopUpWizardActionController implements Initializable {
     private Classe classChose;
 
     private String Property;
-    
+
     private HMI HMIChose;
 
     /**
@@ -223,7 +223,6 @@ public class PopUpWizardActionController implements Initializable {
     public void init(ViewScriptMacroController aThis) {
         controller = aThis;
     }
-    
 
     /**
      * This method is called by the class @see viewScript and refere the
@@ -239,7 +238,6 @@ public class PopUpWizardActionController implements Initializable {
         this.descriptionScript.setText(script.getDesciption());
         this.choiceBoxScript.setItems(FXCollections.observableArrayList(script.getName()));     //Allow only to show one Script name in the Display Wizzard.
         this.choiceBoxScript.getSelectionModel().selectFirst();
-        
 
         this.observableListParams = new ArrayList<>(paramScriptMacro);
         Collections.sort(this.observableListParams, (ParamScriptMacro o1, ParamScriptMacro o2) -> Integer.compare(o1.getScriptHasParameters().getParamOrder(), o2.getScriptHasParameters().getParamOrder()));
@@ -322,7 +320,7 @@ public class PopUpWizardActionController implements Initializable {
             controller.getControllerScriptFather().controllerViewGlobal().getCollectionControllerScript().stream().forEach((ScriptLineTableMacroController collectionControllerScript) -> {
                 ArrayList<ParamScriptMacro> params = new ArrayList<>(collectionControllerScript.getScriptControllerAction().getHashParamScriptMacro());
                 collectionControllerScript.getScriptControllerAction().referParameters(params);
-                
+
                 System.out.println("entered reconfigure of sc");
             });
             toBeSet.setToDisplay((byte) 0);
@@ -533,7 +531,7 @@ public class PopUpWizardActionController implements Initializable {
                                 i++;
                             }
                             if (!foundInComboBox && !t1.isEmpty()) {
-                                //System.out.println("New value is :" + t1);
+                                System.out.println("New value is :" + t1);
                                 BufferList.add(t1);
                             }
                             buttonSetParameters.setDisable(false);
@@ -600,7 +598,7 @@ public class PopUpWizardActionController implements Initializable {
                         String stringToAdd = i + 1 + " (" + controller.getControllerScriptFather().controllerViewGlobal().getCollectionControllerScript().get(i).getScriptControllerAction().getCurrentScript().getName() + ")";
                         scriptsCollection.add(stringToAdd);
                     }
-                    
+
                     choiceBoxss.setItems(scriptsCollection);
                     choiceBoxss.getSelectionModel().selectedIndexProperty().addListener((ObservableValue<? extends Number> observable, Number oldValue, Number newValue1) -> {
                         System.out.println("SCRIPT CHOOOSE");
@@ -708,7 +706,7 @@ public class PopUpWizardActionController implements Initializable {
                             gridPaneValue.getChildren().remove(labelPreview);
                             gridPaneValue.getChildren().remove(linkImg);
                             if (c1 != null) {
-                                Property = comboboxHMI.getSelectionModel().getSelectedItem().getName()+Separator+comboBoxClasse.getSelectionModel().getSelectedItem().getClasseName() + Separator + comboboxState.getSelectionModel().getSelectedItem().getStateName() + Separator + c1.getName() + Separator + c1.getValue();
+                                Property = comboboxHMI.getSelectionModel().getSelectedItem().getName() + Separator + comboBoxClasse.getSelectionModel().getSelectedItem().getClasseName() + Separator + comboboxState.getSelectionModel().getSelectedItem().getStateName() + Separator + c1.getName() + Separator + c1.getValue();
                                 buttonSetParameters.setDisable(false);
                                 if (Properties.Type.valueOf(tableParameters.getSelectionModel().getSelectedItem().getParameterType()) == Properties.Type.color) {
                                     preview.setFill(Color.web(c1.getValue()));
