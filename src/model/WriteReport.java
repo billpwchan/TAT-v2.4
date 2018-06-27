@@ -91,6 +91,8 @@ public class WriteReport {
 
     private static final HashMap<String, int[]> STRResults = new HashMap<>();
 
+    private static final HashMap<String, Integer> caseExeResult = new HashMap<>();
+
     /**
      * HashMap that maps Cell Coordinates to CellStyle.
      */
@@ -151,20 +153,28 @@ public class WriteReport {
         this.createHelper = this.workbook.getCreationHelper();
 
         //Initialize Pre-defined CellStyle from Template
-        cellStyle1 = this.reportSheet.getRow(0).getCell(this.colStation).getCellStyle();
-        cellStyle2 = this.reportSheet.getRow(0).getCell(this.colAttribute_Description).getCellStyle();
-        cellStyle3 = this.reportSheet.getRow(0).getCell(this.colResult).getCellStyle();
-        cellStyle4 = this.reportSheet.getRow(1).getCell(this.colResult).getCellStyle();
-        cellStyle5 = this.reportSheet.getRow(1).getCell(this.colAssociatedDefect).getCellStyle();
+        this.cellStyle1 = this.reportSheet.getRow(0).getCell(this.colStation).getCellStyle();
+        this.cellStyle2 = this.reportSheet.getRow(0).getCell(this.colAttribute_Description).getCellStyle();
+        this.cellStyle3 = this.reportSheet.getRow(0).getCell(this.colResult).getCellStyle();
+        this.cellStyle4 = this.reportSheet.getRow(1).getCell(this.colResult).getCellStyle();
+        this.cellStyle5 = this.reportSheet.getRow(1).getCell(this.colAssociatedDefect).getCellStyle();
 
-        //Initialize Summary Sheet's Specific Cell Place.
-        WriteReport.STRResults.put("Not Tested", new int[]{4, 26});
-        WriteReport.STRResults.put("OK", new int[]{4, 27});
-        WriteReport.STRResults.put("OKWC", new int[]{4, 28});
-        WriteReport.STRResults.put("NOK", new int[]{4, 29});
-        WriteReport.STRResults.put("Not Testable", new int[]{4, 30});
-        WriteReport.STRResults.put("Out Of Scope", new int[]{4, 31});
-        WriteReport.STRResults.put("Test case result", new int[]{4, 32});
+        //Initialize Summary Sheet's Specific Cell Place. (Zero-based coordinate)
+        WriteReport.STRResults.put("Not Tested", new int[]{4, 26 - 1});
+        WriteReport.STRResults.put("OK", new int[]{4, 27 - 1});
+        WriteReport.STRResults.put("OKWC", new int[]{4, 28 - 1});
+        WriteReport.STRResults.put("NOK", new int[]{4, 29 - 1});
+        WriteReport.STRResults.put("Not Testable", new int[]{4, 30 - 1});
+        WriteReport.STRResults.put("Out Of Scope", new int[]{4, 31 - 1});
+        WriteReport.STRResults.put("Test case result", new int[]{4, 32 - 1});
+
+        WriteReport.caseExeResult.put("Not Tested", 0);
+        WriteReport.caseExeResult.put("OK", 0);
+        WriteReport.caseExeResult.put("OKWC", 0);
+        WriteReport.caseExeResult.put("NOK", 0);
+        WriteReport.caseExeResult.put("Not Testable", 0);
+        WriteReport.caseExeResult.put("OS", 0);
+        WriteReport.caseExeResult.put("Test case result", 0);
     }
 
     /**
@@ -184,6 +194,7 @@ public class WriteReport {
         this.setHeaderFileRows();
         this.setReportHeaderFileRows();
         this.set(it);
+        this.updateSTRResults();
         try {
             FileOutputStream outputStream = new FileOutputStream(FILE_NAME);
             this.workbook.write(outputStream);
@@ -194,16 +205,6 @@ public class WriteReport {
             Logger.getLogger(WriteReport.class.getName()).log(Level.SEVERE, null, ex);
         }
         System.out.println("Report Created");
-    }
-
-    /**
-     *
-     * @param iteration
-     */
-    public void getStepExecutions(Iterations iteration) {
-
-        Iterator<CaseExecutions> itCaseExecutions = iteration.getCaseExecutionses().iterator();
-
     }
 
     /**
@@ -258,7 +259,7 @@ public class WriteReport {
      *
      * @param iteration
      */
-    private  void reportSheetOffsetInit(Iterations iteration) {
+    private void reportSheetOffsetInit(Iterations iteration) {
 
 //        session.update(iteration);
         TestCasesExecution testCaseExecution = new TestCasesExecution();
@@ -291,12 +292,6 @@ public class WriteReport {
             }
         }
         System.out.println("Maximum Step: " + this.reportMaxStep);
-    }
-    
-    private void adjustSTRResultsColumn() {
-        Row row = this.summarySheet.getRow(STRResults.get("OK")[0]);
-        Cell cell;
-        
     }
 
     /**
@@ -334,25 +329,11 @@ public class WriteReport {
 
             String res = currCaseEx.getSimpleStringResultProperty();
             Cell cell;
-//            int parseInt;
-//            switch (res) {
-//                case "OK":
-//                    cell = this.summarySheet.getRow(STRResults.get("OK")[0]).createCell(STRResults.get("OK")[1]);
-//                    parseInt = cell.getStringCellValue().equals("") ? 0 : Integer.parseInt(cell.getStringCellValue());
-//                    cell.setCellValue(cell.getStringCellValue().equals("") ? "1" : "" + (parseInt + 1));
-//                    break;
-//                case "NOK":
-//                    cell = this.summarySheet.getRow(STRResults.get("NOK")[0]).createCell(STRResults.get("NOK")[1]);
-//                    parseInt = cell.getStringCellValue().equals("") ? 0 : Integer.parseInt(cell.getStringCellValue());
-//                    cell.setCellValue(cell.getStringCellValue().equals("") ? "1" : "" + (parseInt + 1));
-//                    break;
-//                case "OS":
-//                    System.out.println("" + STRResults.get("Out Of Scope")[0]);
-//                    cell = this.summarySheet.getRow(STRResults.get("Out Of Scope")[0]).createCell(STRResults.get("Out Of Scope")[1]);
-//                    parseInt = cell.getStringCellValue().equals("") ? 0 : Integer.parseInt(cell.getStringCellValue());
-//                    cell.setCellValue(cell.getStringCellValue().equals("") ? "1" : "" + (parseInt + 1));
-//                    break;
-//            }
+
+            //Update Result Value
+            WriteReport.caseExeResult.put(res, WriteReport.caseExeResult.get(res) + 1);
+            WriteReport.caseExeResult.put("Test case result", WriteReport.caseExeResult.get("Test case result") + 1);
+
             System.out.println("                            Overall Case Result: " + res + "\n");
             if (caseNum != 0) {     //Manipulate result in both Report worksheet & Raw Result Worksheet.
                 Row row = this.sheet.createRow(this.currentRow);
@@ -678,6 +659,36 @@ public class WriteReport {
         return (sheetRow.getCell(colNum) == null || sheetRow.getCell(colNum).getStringCellValue().equals(""));
     }
 
+    private void updateSTRResults() {
+        Cell cell;
+        CellStyle cellStyle = this.summarySheet.getRow(STRResults.get("OK")[1]).getCell(STRResults.get("OK")[0]).getCellStyle();
+
+        for (String key : WriteReport.caseExeResult.keySet()) {
+            switch (key) {
+                case "OK":
+                    cell = this.summarySheet.getRow(STRResults.get("OK")[1]).createCell(STRResults.get("OK")[0]);
+                    cell.setCellValue(WriteReport.caseExeResult.get(key));
+                    cell.setCellStyle(cellStyle);
+                    break;
+                case "NOK":
+                    cell = this.summarySheet.getRow(STRResults.get("NOK")[1]).createCell(STRResults.get("NOK")[0]);
+                    cell.setCellValue(WriteReport.caseExeResult.get(key));
+                    cell.setCellStyle(cellStyle);
+                    break;
+                case "OS":
+                    cell = this.summarySheet.getRow(STRResults.get("Out Of Scope")[1]).createCell(STRResults.get("Out Of Scope")[0]);
+                    cell.setCellValue(WriteReport.caseExeResult.get(key));
+                    cell.setCellStyle(cellStyle);
+                    break;
+            }
+        }
+        //Update Test Case Result
+        cell = this.summarySheet.getRow(STRResults.get("Test case result")[1]).createCell(STRResults.get("Test case result")[0]);
+        cell.setCellValue(WriteReport.caseExeResult.get("Test case result"));
+        cell.setCellStyle(cellStyle);
+
+    }
+
     /**
      *
      * @param paramSearch
@@ -721,13 +732,7 @@ public class WriteReport {
         CellStyle style = workbook.createCellStyle();
         style.setFillForegroundColor(IndexedColors.RED.getIndex());
         style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
-        return style;
-    }
-
-    private static CellStyle getGreenCellStyle(XSSFWorkbook workbook) {
-        CellStyle style = workbook.createCellStyle();
-        style.setFillForegroundColor(IndexedColors.GREEN.getIndex());
-        style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+        style.setAlignment(HorizontalAlignment.CENTER);
         return style;
     }
 
