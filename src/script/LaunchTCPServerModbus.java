@@ -257,13 +257,12 @@ public class LaunchTCPServerModbus {
         oldServerType = "";
         Set<Thread> threadSet = Thread.getAllStackTraces().keySet();
         Thread[] threadArray = threadSet.toArray(new Thread[threadSet.size()]);
-        for (int i = 0; i < threadArray.length; i++) {
-
+        for (Thread threadArray1 : threadArray) {
             //System.out.println("Thread1 = " + threadArray[i]);
-            if (threadArray[i].getName().contains("Modbus_Pool")) {
-                System.out.println("J ai trouve le thread : " + threadArray[i].getName());
-                threadArray[i].stop();
-                threadArray[i].interrupt();
+            if (threadArray1.getName().contains("Modbus_Pool")) {
+                System.out.println("J ai trouve le thread : " + threadArray1.getName());
+                threadArray1.stop();
+                threadArray1.interrupt();
             }
         }
         

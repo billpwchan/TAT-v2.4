@@ -277,7 +277,7 @@ public class PopUpRunController implements Initializable {
                         alert.setTitle("Error: ");
                         alert.setHeaderText("Exception Caught. Cannot execute the test case");
                         alert.setContentText("Please refer to the stacktrace:\t\n\n" + ex.getMessage());
-                        if (ex.getMessage().contains("SSH")) {      //Customized Content for Exceptions from SSHCommand Script
+                        if (ex.getMessage() != null && ex.getMessage().contains("SSH")) {      //Customized Content for Exceptions from SSHCommand Script
                             alert.setTitle("Error: The server (IP: " + exceptionMessage.substring(exceptionMessage.indexOf("IP: ")).trim() + " ) cannot be reached.");
                             alert.setContentText("The server (IP: " + exceptionMessage.replace("//n", " ").replace("    ", " ").substring(exceptionMessage.indexOf("IP: "), exceptionMessage.indexOf("at")).trim() + " ) cannot be reached.\n" + "Please refer to the stacktrace:\t\n\n" + ex.getMessage());
                         }
@@ -635,7 +635,7 @@ public class PopUpRunController implements Initializable {
         runButton.setDisable(true);
         autoExecutionDisplay.setDisable(true);
     }
-    
+
     /**
      *
      * @throws Exception

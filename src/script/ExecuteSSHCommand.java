@@ -63,7 +63,6 @@ public class ExecuteSSHCommand {
 //        this.stateHighLevel = "Running";
         ArrayList<String> toReturn = new ArrayList<>();
         try{
-            System.out.println("HIHIHIHHIIHIHIH");
             this.ip = parameters.get(1).getValue().trim();
             System.out.println("ip =" + this.ip);
             this.user = parameters.get(2).getValue().trim();
