@@ -8,7 +8,6 @@ package controller.tablestep;
 import DB.Requirement;
 import DB.StepExecutions;
 import DB.TestStep;
-import controller.tabtestcase.TabTestCaseLibraryController;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -38,7 +37,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Background;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.util.Callback;
@@ -179,11 +177,10 @@ public class StepLineTableStepController implements Initializable {
      * @param testStep
      */
     public void setStepView(TestStep testStep) {
-        
+
         this.loadImagesView();
         this.defineCursorView();
         if (testStep != null) {
-            System.out.println("            testStep is not null");
             this.anchorPaneStep.getStylesheets().add("view/CustomeStyle.css");
             this.anchorPaneStep.setId("text-ar");
             this.textAreaAction.setText(testStep.getHumanStimuli());
@@ -195,20 +192,6 @@ public class StepLineTableStepController implements Initializable {
             this.textAreaAction.setEditable(false);
             this.labelActionArea.setVisible(false);
             this.labelVerifArea.setVisible(false);
-//            scrollBarv.visibleProperty().addListener((ObservableValue<? extends Boolean> source, Boolean wasVisible, Boolean isVisible) -> {
-//                if (isVisible && textAreaAction.getHeight() <= 180) {
-//                    //System.out.println("I am visible");
-//                    textAreaAction.setPrefRowCount(textAreaAction.getPrefRowCount() + 1);
-//                    anchorPaneStep.setMinHeight(textAreaAction.getHeight() + 25);
-//                    gridPaneStep.setMinHeight(textAreaAction.getHeight() + 25);
-//                } else {
-//                    scrollBarv.setOpacity(1.0);
-//                }
-//            });
-            // this.labelActionArea.setText(testStep.getHumanStimuli());
-            //this.labelVerifArea.setText(testStep.getHumanCheck());
-
-            //this.labelAction.setVisible(false);
             this.personalTespStep.setIdtestStep(testStep.getIdtestStep());
             this.personalTespStep.setHumanCheck(testStep.getHumanCheck());
             this.personalTespStep.setStepOrder(testStep.getStepOrder());
@@ -238,27 +221,15 @@ public class StepLineTableStepController implements Initializable {
      * @param allReq
      */
     public void setStepCreation(ArrayList<Requirement> allReq) {
-        System.out.println("HERE scroll");
         this.allReq = allReq;
         this.loadImageCreation();
         //Implement listenern on field which compose a test step.
         this.implementListenerTestStepField();
 
         this.defineCursorCreation();
-
-//        this.anchorPaneStep.setMouseTransparent(false);
-//        this.anchorPaneVerif.setMouseTransparent(false);
-//        this.textAreaAction.setMouseTransparent(false);
-//        this.listRequirement.setMouseTransparent(true);
-//        //this.anchorPaneStep.setPickOnBounds(false);
-//        this.anchorPaneAction.setMouseTransparent(false);
-//        //this.textAreaAction.setPickOnBounds(false);
-//        this.textAreaAction.setMouseTransparent(false);
-//        this.textAreaVerif.setMouseTransparent(false);
         this.anchorPaneStep.setOnMouseClicked((MouseEvent e) -> {
             clicked = true;
             if (!isSelected) {
-                //System.out.println("ANCHOR PANE STEP");
                 controllerViewGlobal.updateCurrentStep(StepLineTableStepController.this);
             }
         });
@@ -280,8 +251,7 @@ public class StepLineTableStepController implements Initializable {
 
         //Set the handler and listener for each compoent or node that need a listener, handler on this view.
         this.initializeHandler_Listener();
-        //System.out.println("test step cree");
-        //initStep();
+
     }
 
     /**
@@ -461,7 +431,7 @@ public class StepLineTableStepController implements Initializable {
     public TestStep getTestStep() {
         //System.out.println("this.personal TestStep="+this.personalID + "personefpdijfaldfjkas "+ this.personalTespStep.getIdtestStep());
         return this.personalTespStep;
-        
+
     }
 
     /**
@@ -517,23 +487,6 @@ public class StepLineTableStepController implements Initializable {
         this.labelVerif.setVisible(true);
         labelVerif.setText(result);
         changeColorCircle(paneVerif, result);
-//        step.resultProperty().addListener(new ChangeListener() {
-//            @Override
-//            public void changed(ObservableValue observable, Object oldValue, Object newValue) {
-//                Platform.runLater(() -> {
-//                    labelVerif.setText((String) newValue);
-//                    changeColorCircle(paneVerif, (String) newValue);
-//                }
-//                );
-//            }
-//        });
-
-//        labelCommentStep.textProperty().addListener(new ChangeListener<String>() {
-//            @Override
-//            public void changed(final ObservableValue<? extends String> observable, final String oldValue, final String newValue) {
-//                labelCommentStep.setText(newValue);
-//            }
-//        });
     }
 
     /**
@@ -570,19 +523,6 @@ public class StepLineTableStepController implements Initializable {
         }
     }
 
-//    /**
-//     * Make the expand image visible
-//     */
-//    void setExpandTrue() {
-//        this.imageExpand.setVisible(true);
-//    }
-//    /**
-//     * Remove form the view all the script of this step.
-//     */
-//    void removeExpandedLeaf() {
-//        isExpand = true;
-//        expandChildren();
-//    }
     /**
      * Control image and the list of script depending on if the image expand is
      * clicked or not
@@ -597,8 +537,6 @@ public class StepLineTableStepController implements Initializable {
         }
         controllerViewGlobal.expandChildren(StepLineTableStepController.this, isExpand);
 
-        //System.out.println("EXPAND");
-        //System.out.println("CONTROLLER VIEW GLOBAL = "+this.controllerViewGlobal.getControllerHeader());
         this.controllerViewGlobal.getControllerHeader().verifyExpand();
     }
 
@@ -821,34 +759,17 @@ public class StepLineTableStepController implements Initializable {
         listRek.getItems().add(manageRek);
         return listRek;
     }
-    //        anchorPaneStep.addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
-//            @Override
-//            public void handle(MouseEvent mouseEvent) {
-//                System.out.println("mouse click detected! in a step" + mouseEvent.getSource());
-//            }
-//        });
-
-//    public void setAction(ObservableList<Requirement> requirementsSelected) {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
-//
-//    public void closePopUp() {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
 
     /**
      *
      * @param requirementsSelected
      */
-        public void setAction(ObservableList<Requirement> requirementsSelected) {
+    public void setAction(ObservableList<Requirement> requirementsSelected) {
         requirementsLinked.clear();
         requirementsLinked.setAll(requirementsSelected);
         requirementLinked.clear();
         requirementLinked.addAll(requirementsSelected);
-//        HashSet<String> test1 = new HashSet<>(listRequirement.getItems());
-//        for (int i = 0; i < requirementsSelected.size(); i++) {
-//            test1.add(requirementsSelected.get(i).getRequirementID());
-//        }
+
         listRequirement.setItems(FXCollections.observableArrayList(requirementsSelected));
         controllerViewGlobal.updateRequirementTestCase();
     }
@@ -861,15 +782,6 @@ public class StepLineTableStepController implements Initializable {
         return this.requirementsLinked;
     }
 
-//    private HashSet<String> sortIDInRequirement(Set<Requirement> hahsRequirement) {
-//        HashSet<String> hashIDRequiremnt = new HashSet<>();
-//        Iterator<Requirement> itRequirement = hahsRequirement.iterator();
-//        while (itRequirement.hasNext()) {
-//            Requirement req = itRequirement.next();
-//            hashIDRequiremnt.add(req.getRequirementID());
-//        }
-//        return hashIDRequiremnt;
-//    }
     void hideArrow() {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         this.imageExpand.setVisible(false);

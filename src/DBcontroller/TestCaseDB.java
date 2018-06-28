@@ -131,7 +131,7 @@ public class TestCaseDB {
      * @param testcase
      */
     public void getAllFromCase(TestCase testcase) {
-        //System.out.println("1");
+
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
         session.update(testcase);
@@ -148,7 +148,6 @@ public class TestCaseDB {
                 while (itScriptHasBeenConfigured.hasNext()) {
                     Hibernate.initialize(itScriptHasBeenConfigured.next().getRefScriptHasBeenConfigured()); //Potential Bug. No row with the given identifier exists.
                 }
-                System.out.println("SCRIPT HAS BEEN CONFIGURE = "+ testStepHasScriptObject.getScriptHasBeenConfigureds());
                 Iterator<ScriptHasParameters> itScHasParameters = testStepHasScriptObject.getScript().getScriptHasParameterses().iterator();
                 while (itScHasParameters.hasNext()) {
                     ScriptHasParameters scHasParameters = itScHasParameters.next();

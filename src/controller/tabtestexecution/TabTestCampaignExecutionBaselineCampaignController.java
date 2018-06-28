@@ -536,19 +536,6 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
     public File selectExcelFile() {
         File excelFile = null;
         showWizard();
-//        TextInputDialog dialog = new TextInputDialog("range");
-//        dialog.setTitle("Excel file required");
-//        dialog.setHeaderText("An excel file required, please enter the number of lines of your excel file to import."+"\n"+"Then select the excel file");
-//        dialog.setContentText("Number of lines:");
-//
-//// Traditional way to get the response value.
-//        Optional<String> result = dialog.showAndWait();
-//        if (result.isPresent()) {
-//            range = Integer.parseInt(result.get());
-//        }
-
-        System.out.println("showWizard is done");
-        System.out.println("closePopUp = " + closePopUp);
         if (closePopUp) { // was if (closePopUp = true) ---->making it always true
             save = false;
             excelFile = FileChooser(save);

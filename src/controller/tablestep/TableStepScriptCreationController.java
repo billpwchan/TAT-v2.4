@@ -9,7 +9,6 @@ import DB.CaseExecutions;
 import DB.Requirement;
 import DB.Script;
 import DB.ScriptExecutions;
-import DB.ScriptHasBeenConfigured;
 import DB.StepExecutions;
 import DB.TestCase;
 import DB.TestStep;
@@ -200,7 +199,6 @@ public class TableStepScriptCreationController implements Initializable {
 
         if (controllerStepLine != null) {
             int VboxIDSelectedStep = workingCollection.indexOf(controllerStepLine.getAnchorPane()) + controllerStepLine.getNumberOdScript();
-            System.out.println("VboxIDSelectedStep = " + VboxIDSelectedStep);
             FXMLLoader fxmlLoader = new FXMLLoader();
             AnchorPane scriptPane = new AnchorPane();
             try {
@@ -471,12 +469,6 @@ public class TableStepScriptCreationController implements Initializable {
             for (int j = 0; j < numberOfScript; j++) {
                 this.addScriptToStep(this.controllerStepLine);
                 TestStepHasScript currentTSHS = gogolito.get(j);
-                Iterator<ScriptHasBeenConfigured> itScriptHasBeenConfigured = currentTSHS.getScriptHasBeenConfigureds().iterator();
-                while (itScriptHasBeenConfigured.hasNext()) {
-                    ScriptHasBeenConfigured test= itScriptHasBeenConfigured.next().getRefScriptHasBeenConfigured();
-                    if(test!=null)
-                    System.out.println("SCRIPT HAS BEEN CONFIGURED LINKED = "+test.getValue());
-                }
                 if (j == numberOfScript - 1) {
                     if (currentTSHS.getScript().getIsStimuli() != 0) {
                         this.controllerScriptLine.setScriptandParamAction(currentTSHS);
@@ -652,7 +644,6 @@ public class TableStepScriptCreationController implements Initializable {
         } else {
             workingCollection.remove(startIndex, finalIndex);
         }
-        //System.out.println("Vbox width is :"+vBox.getPrefWidth());
         displayVbox();
         updateAllChildren(vBox.getPrefWidth());
     }
@@ -703,13 +694,11 @@ public class TableStepScriptCreationController implements Initializable {
         this.loadScriptCheckAndStimuli();
 
         if (this.controllerNewCase != null) {
-            //System.out.println("CONTROLLEUR");
             this.controllerNewCase.getAnchorPane().addEventHandler(MouseEvent.MOUSE_CLICKED,
                     new EventHandler<MouseEvent>() {
 
                         @Override
                         public void handle(MouseEvent event) {
-                            //System.out.println("EVENT ANCHOR PANE");
                             for (int i = 0; i < collectionControllerStep.size(); i++) {
                                 if (collectionControllerStep.get(i).getIsClicked() == true) {
 
@@ -735,13 +724,12 @@ public class TableStepScriptCreationController implements Initializable {
 
         this.loadScriptCheckAndStimuli();
         if (this.controllerEditCase != null) {
-            //System.out.println("CONTROLLEUR");
             this.controllerEditCase.getAnchorPane().addEventHandler(MouseEvent.MOUSE_CLICKED,
                     new EventHandler<MouseEvent>() {
 
                         @Override
                         public void handle(MouseEvent event) {
-                            //System.out.println("EVENT ANCHOR PANE");
+
                             for (int i = 0; i < collectionControllerStep.size(); i++) {
                                 if (collectionControllerStep.get(i).getIsClicked() == true) {
 
@@ -801,7 +789,6 @@ public class TableStepScriptCreationController implements Initializable {
                 scriptCheck.add(script);
             }
         }
-        //System.out.println("J ai "+scriptStimuli.size()+" script de stimuli");
         RequirementDB requirementHandler = new RequirementDB();
         allReq = requirementHandler.getAllRequirement();
     }

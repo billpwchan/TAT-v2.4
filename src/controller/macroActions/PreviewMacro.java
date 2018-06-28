@@ -175,7 +175,6 @@ public class PreviewMacro {
                         toSet.setTooltip(new Tooltip(test));
                         break;
                     case "From Other Script":
-                        System.out.println("From Other Script");
                         toSet.setText(paramScriptMacros.getParamScriptMacro().getValue());
                         break;
                 }

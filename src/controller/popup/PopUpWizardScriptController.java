@@ -303,16 +303,11 @@ public class PopUpWizardScriptController implements Initializable {
                 }
             }
         }
-
         this.descriptionScript.setText(script.getDesciption());
         this.choiceBoxScript.setItems(FXCollections.observableArrayList(script.getName()));
         this.choiceBoxScript.getSelectionModel().selectFirst();
 
-        System.out.println("Creating new observaleListScriptMartinth with set in parameter: " + hashScriptHasBeenConfigured);
         this.observableListScriptMartinth = new ArrayList<>(hashScriptHasBeenConfigured);
-        System.out.println(" new observaleListScriptMartinth TSHS: " + this.observableListScriptMartinth.get(0).getTestStepHasScript());
-        System.out.println(" new observaleListScriptMartinth tshs.teststep " + this.observableListScriptMartinth.get(0).getTestStepHasScript().getTestStep());
-        //       System.out.println("OBSERVABLE LIST MARTINEZ = "+this.observableListScriptMartinth.size());
         Collections.sort(this.observableListScriptMartinth, (ScriptHasBeenConfigured o1, ScriptHasBeenConfigured o2) -> Integer.compare(o1.getParamOrder(), o2.getParamOrder()));
         //Update the table paramters by giving a new set of params t the linked observablelist.
         Iterator<ScriptHasParameters> itScriptHasParameters = script.getScriptHasParameterses().iterator();
@@ -323,8 +318,6 @@ public class PopUpWizardScriptController implements Initializable {
         }
         //Select the line corresponding of the clicked parameters on the view Case creation.
         this.tableParameters.getSelectionModel().select(selectedParam);
-        System.out.println("NOMBDE DE PARAM = " + this.observableListParam.size());
-
     }
 
     /**
@@ -349,7 +342,6 @@ public class PopUpWizardScriptController implements Initializable {
         boolean isFormat = true;
         //Take the paramsFOrScript in the observablelist corresponding to the slected row in the tableview parameters.
         ScriptHasBeenConfigured toBeSet = this.observableListScriptMartinth.get(this.tableParameters.getSelectionModel().getSelectedIndex());
-        //System.out.println("toBeSet order : " + toBeSet.getParamOrder());
         //Get the string selected in the comboBoxDefinitionValue
         String pathToVariable = comboBoxDefinitionValue.getSelectionModel().getSelectedItem();
         //Check is the format of each textField is good or not.
@@ -360,7 +352,6 @@ public class PopUpWizardScriptController implements Initializable {
             value = value + textFieldList.get(i).getText() + Separator;
             i++;
         }
-        System.out.println("scriptChose: " + scriptChose);
         //If the format is not good a popUp alert is shown.
         if (isFormat == false) {
             Alert alert = new Alert(AlertType.ERROR);
@@ -1048,7 +1039,7 @@ public class PopUpWizardScriptController implements Initializable {
 
                         //Gettting the parameters
                         if (currScript.getIsMacro() != 0) { //is a macro
-                            this.currentParamScMacro = new ArrayList<String>();
+                            this.currentParamScMacro = new ArrayList<>();
                             this.isMacro = true;
                             Set<Macro> macroSet = currScript.getMacrosForScriptIdScript();
                             Iterator<Macro> itMacro = macroSet.iterator();
@@ -1081,7 +1072,7 @@ public class PopUpWizardScriptController implements Initializable {
                             }
                             //if it's not a macro
                         } else {
-                            this.currentParam = new ArrayList<String>();
+                            this.currentParam = new ArrayList<>();
                             this.isMacro = false;
                             Iterator<ScriptHasParameters> itScHasParam = currScript.getScriptHasParameterses().iterator();
                             //Iterator<TestStepHasScript> itTestStepHasScript = currScript.getTestStepHasScripts().iterator();
@@ -1117,17 +1108,11 @@ public class PopUpWizardScriptController implements Initializable {
                     try {
                         if (this.observableListScriptMartinth.get(this.tableParameters.getSelectionModel().getSelectedIndex()).getValuePath().charAt(0) == Separator.charAt(0)) {
                             //if (!this.observableListScriptMartinth.get(this.tableParameters.getSelectionModel().getSelectedIndex()).getValuePath().isEmpty()) {
-                            System.out.println("entered hasbeenConfig");
                             if (!this.observableListScriptMartinth.get(this.tableParameters.getSelectionModel().getSelectedIndex()).getRefScriptHasBeenConfigured().getValue().isEmpty()) {
-                                System.out.println("enter ifstatement of hasbeenconfig");
-                                System.out.println("Value: " + this.observableListScriptMartinth.get(this.tableParameters.getSelectionModel().getSelectedIndex()).getValue());
                                 String refScript = this.observableListScriptMartinth.get(this.tableParameters.getSelectionModel().getSelectedIndex()).getValuePath();
                                 refScript = refScript.substring(1);
-                                System.out.println("refScript: " + refScript);
-                                //System.out.println("step: "+ step);
 
                                 String refParam = this.observableListScriptMartinth.get(this.tableParameters.getSelectionModel().getSelectedIndex()).getRefScriptHasBeenConfigured().getParameters().getName();
-                                System.out.println("refParam: " + refParam);
                                 choiceBoxss.getSelectionModel().select(refScript);
                                 comboBoxParam.getSelectionModel().select(refParam);
 
@@ -1141,8 +1126,6 @@ public class PopUpWizardScriptController implements Initializable {
 
                     break;
                 case "Classes":
-                    //this.setCellFactoryComboboxClass();
-
                     Label classeName = new Label("Classe name : ");
                     classeName.setTooltip(new Tooltip("Type : Classe"));
                     comboBoxClasse.setItems(FXCollections.observableArrayList(comboBoxHMI.getSelectionModel().getSelectedItem().getClasses()));
@@ -1204,49 +1187,6 @@ public class PopUpWizardScriptController implements Initializable {
                         }
                     }
                     break;
-//                case "Equipment":
-//                    Label equipmentName = new Label("Classe name : ");
-//                    equipmentName.setTooltip(new Tooltip("Type : Classe"));
-//                    final ComboBox<equipment> comboBoxEqp = new ComboBox();
-//                    comboBoxEqp.setItems(FXCollections.observableArrayList(comboBoxClasse.getSelectionModel().getSelectedItem().getEquipments()));
-//                    comboBoxEqp.setCellFactory(new Callback() {
-//                        @Override
-//                        public Object call(Object listView) {
-//                            ListCell<equipment> cell = new ListCell<equipment>() {
-//                                @Override
-//                                public void updateItem(equipment item, boolean empty) {
-//                                    super.updateItem(item, empty);
-//                                    if (empty) {
-//                                        setText(null);
-//                                        setGraphic(null);
-//                                    } else {
-//                                        setText(item.getEquipmentName());
-//                                        setGraphic(null);
-//                                    }
-//                                }
-//                            };
-//                            return cell;
-//                        }
-//                    });
-//
-//                    comboBoxEqp.setButtonCell(new ListCell<equipment>() {
-//                        @Override
-//                        protected void updateItem(equipment item, boolean bln) {
-//                            super.updateItem(item, bln);
-//                            if (bln) {
-//                                setText("");
-//                            } else {
-//                                setText(item.getEquipmentName());
-//                            }
-//
-//                        }
-//                    });
-//                    TextFieldWithFormat comboEqp = new TextFieldWithFormat("", false);
-//                    comboEqp.setTextField(comboBoxEqp.getEditor());
-//                    textFieldList.add(comboEqp);
-//                    this.gridPaneValue.add(equipmentName, 1, 1);
-//                    this.gridPaneValue.add(comboBoxEqp, 2, 1);
-//                    break;
                 case "Property":
                     Rectangle preview = new Rectangle(10, 10);
                     Hyperlink linkImg = new Hyperlink();
@@ -1332,7 +1272,6 @@ public class PopUpWizardScriptController implements Initializable {
                             ObservableList<Properties> choiceProperties = FXCollections.observableArrayList();
                             if (c2 != null && !c2.getProperties().isEmpty()) {
                                 for (int i = 0; i < c2.getProperties().size(); i++) {
-                                    //System.out.println("TYPE = " + c1.getProperties().get(i).getType().toString());
                                     if (c2.getProperties().get(i).getType().equals(Type.valueOf(tableParameters.getSelectionModel().getSelectedItem().getParameterType()))) {
                                         choiceProperties.add(c2.getProperties().get(i));
                                     }
@@ -1361,7 +1300,6 @@ public class PopUpWizardScriptController implements Initializable {
                     GridPane.setValignment(combobxProperty, VPos.CENTER);
                     this.gridPaneValue.add(previewText, 1, 5);
                     if ("Property".equals(this.observableListScriptMartinth.get(this.tableParameters.getSelectionModel().getSelectedIndex()).getValuePath())) {
-                        //System.out.println("VALUE - " + this.observableListScriptMartinth.get(this.tableParameters.getSelectionModel().getSelectedIndex()).getValue());
                         if (!this.observableListScriptMartinth.get(this.tableParameters.getSelectionModel().getSelectedIndex()).getValue().isEmpty()) {
                             String[] parts = this.observableListScriptMartinth.get(this.tableParameters.getSelectionModel().getSelectedIndex()).getValue().split("" + Separator);
                             autoSelectComboBoxValue(comboboxHMI, parts[0].trim(), (cmbProp, val) -> cmbProp.getName().equals(val));
@@ -1383,7 +1321,6 @@ public class PopUpWizardScriptController implements Initializable {
      */
     private void clearDisplayPanel() {
         this.gridPaneValue.getChildren().clear();
-        System.out.println("clear display panel");
     }
 
     /**
