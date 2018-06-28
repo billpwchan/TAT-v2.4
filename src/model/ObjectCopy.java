@@ -14,12 +14,9 @@ import java.util.Set;
 import DB.TestCase;
 import DB.TestStep;
 import DB.TestStepHasScript;
-import DBcontroller.sessionFactorySingleton;
 import java.util.Iterator;
 import java.util.Comparator;
 import java.util.TreeSet;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 
 /**
  *
@@ -34,16 +31,7 @@ public class ObjectCopy {
      */
     public TestCase copyCompleteTestCase(TestCase testCase) {
         TestCase newTestCase = new TestCase(testCase);
-
-//        SessionFactory factory = sessionFactorySingleton.getInstance();
-//        Session session = factory.openSession();
-//        session.save(newTestCase);
-//        session.beginTransaction().commit();
-//        session.close();
-
         newTestCase.setTestSteps(copyHashStep(newTestCase.getTestSteps(), newTestCase));
-
-//        session.save(newTestCase);
         return newTestCase;
     }
 
@@ -109,19 +97,11 @@ public class ObjectCopy {
             newStep.setTestCase(testCase);  //To align with the corret testCase number.           
             Set setRequirements = copyHashRequirement(newStep.getRequirements());
             newStep.setRequirements(setRequirements);
-            System.out.println("stepOrder: " + newStep.getStepOrder());
             newStep.setStepOrder(currStep.getStepOrder()); //i just added this just in case, still does not work
-            System.out.println(newStep.getStepOrder());
 
             Set setStepHasScripts = copyHashStepHasScripts(newStep);
             newStep.setTestStepHasScripts(setStepHasScripts);
             hashStep.add(newStep);
-            
-//            SessionFactory factory = sessionFactorySingleton.getInstance();
-//            Session session = factory.openSession();
-//            session.save(newStep);
-//            session.beginTransaction().commit();
-//            session.close();
         }
         return hashStep;
     }
@@ -156,12 +136,6 @@ public class ObjectCopy {
 
             tshs.setTestStep(newStep);
             hashStepHasScripts.add(tshs);
-            
-//            SessionFactory factory = sessionFactorySingleton.getInstance();
-//            Session session = factory.openSession();
-//            session.save(tshs);
-//            session.beginTransaction().commit();
-//            session.close();
         }
         return hashStepHasScripts;
     }

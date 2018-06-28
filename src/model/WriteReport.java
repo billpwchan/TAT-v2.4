@@ -77,6 +77,8 @@ public class WriteReport {
      */
     private int currentRow = 0;
 
+    private int currentRowGlobal = 0;
+
     private int reportCurrentRow = 1;
 
     /**
@@ -108,6 +110,8 @@ public class WriteReport {
     private static final Integer[] scriptTypeMaxStep = {4, 2, 2};
 
     private int reportMaxStep = 0;
+
+    private String scriptTypeGlobal = "";
 
     //Initialize CCS.PSD Variables 
     private final int colStation = 0;
@@ -281,7 +285,6 @@ public class WriteReport {
      */
     private void reportSheetOffsetInit(Iterations iteration) {
 
-//        session.update(iteration);
         TestCasesExecution testCaseExecution = new TestCasesExecution();
         this.campaignID = iteration.getTestCampaign().getIdtestCampaign();
         this.baselineID = iteration.getBaselineId();
@@ -360,12 +363,12 @@ public class WriteReport {
 
             System.out.println("                            Overall Case Result: " + res + "\n");
             if (caseNum != 0) {     //Manipulate result in both Report worksheet & Raw Result Worksheet.
+                this.currentRowGlobal = this.currentRow;
                 Row row = this.sheet.createRow(this.currentRow);
                 cell = row.createCell(0);
                 cell.setCellValue(res);
                 Cell reportCell = reportRow.createCell(this.colResult + (this.reportMaxStep - 1) * 3);
-                reportCell.setCellValue(res.equals("NExec") ? "NT" : res);
-
+                reportCell.setCellValue(res.equals("NExec") ? "NT" : res);      //Need to modify
                 switch (res) {
                     case "OK":
                         cellStyle4.setFillForegroundColor(IndexedColors.LIGHT_GREEN.getIndex());
@@ -393,6 +396,13 @@ public class WriteReport {
             Set<StepExecutions> stepExSet = currCaseEx.getStepExecutionses();
 
             Iterator<StepExecutions> itStepEx = stepExSet.iterator();
+
+            int totalSteps = 0;
+            while (itStepEx.hasNext()) {
+                StepExecutions currStepEx = itStepEx.next();
+                totalSteps++;
+            }
+            itStepEx = stepExSet.iterator();
 
             int stepNumber = 0;
 
@@ -433,12 +443,15 @@ public class WriteReport {
                     Script script = scriptEx.getScript();
                     if (script.getName().contains("DI2")) {
                         scriptType = "DI2";
+                        this.scriptTypeGlobal = "DI2";
                         maxStep = 4;
                     } else if (script.getName().contains("DI")) {
                         scriptType = "DI";
+                        this.scriptTypeGlobal = "DI";
                         maxStep = 2;
                     } else if (script.getName().contains("AI")) {
                         scriptType = "AI";
+                        this.scriptTypeGlobal = "AI";
                         maxStep = 2;
                     }
                     this.reportMaxStep = maxStep > this.reportMaxStep ? maxStep : this.reportMaxStep;
@@ -446,19 +459,17 @@ public class WriteReport {
                     Set<ParametersExecution> paramExSet = scriptEx.getParametersExecutions();
                     Iterator<ParametersExecution> itParamEx = paramExSet.iterator();
                     int numParameter = 0;
-//                    macroParameterIndex = 0;
                     //number of parameters inputed in TAT on each script in one step
                     while (itParamEx.hasNext()) {
                         ParametersExecution paramEx = itParamEx.next();
                         String paramSearched = paramEx.getValue();
                         System.out.println("numParameter: " + numParameter + " paramSearched: " + paramSearched);
-                        if (!isStimuli) {
+                        if (!isStimuli) {       //For verifying the result
                             System.out.println("Script is NOT stimuli, parameter " + paramSearched + " added in paramSearchList");
                             if (paramEx.getParameters().getName().equalsIgnoreCase("searched value")) {     //This specific scripts is only used in Search Occurance. 
                                 paramSearchList.add(paramSearched);
                             }
-                            //Parameters searched
-                        } else {
+                        } else {        //For Step Description (Stimuli only)
                             if ("DI".equals(scriptType) || "DI2".equals(scriptType)) {
                                 if (stepNumber == 0 && numParameter != 0) {
                                     double reg = Double.parseDouble(paramSearched);
@@ -493,9 +504,6 @@ public class WriteReport {
                         }
                         numParameter++;
                     }
-//                    if (isStimuli) {
-//                        parametersOfBufferScriptEx = paramSearchList;
-//                    }
 
                     //Only if isStimuli = 0
                     if (!isStimuli) {
@@ -508,7 +516,6 @@ public class WriteReport {
                         while (it.hasNext()) {
                             System.out.println("paramFoundList " + c++ + ": " + it.next());
                         }
-
                     }
 
                     //getting param script macro
@@ -542,8 +549,16 @@ public class WriteReport {
                     scriptNum++;
                 }
 
+                //Write Chcheck Number of Event if possible.
+                if (!scriptValidation(totalSteps, stepNumber) && res.equals("NOK")) {
+                    cell = this.sheet.getRow(this.currentRowGlobal).createCell(20);
+                    cell.setCellValue("Several events generated per trigger");
+                    cell = this.sheet.getRow(0).createCell(20);
+                    cell.setCellValue("Check Number of Event");
+                }
+
                 //write register and offset
-                if (caseNum != 0 && stepNumber != 0) { //
+                if (caseNum != 0 && stepNumber != 0 && scriptValidation(totalSteps, stepNumber)) { //
                     Row row = this.sheet.createRow(this.currentRow);
                     Cell cellR = row.createCell(1); //column = 1
                     cellR.setCellValue(overallStepResult);
@@ -688,6 +703,20 @@ public class WriteReport {
 
     private boolean reportDuplicateCheck(Row sheetRow, int colNum) {
         return (sheetRow.getCell(colNum) == null || sheetRow.getCell(colNum).getStringCellValue().equals(""));
+    }
+
+    /*
+     *To validate whether this Trigger DI/DI2/etc event contains SSH Commands for checking multi-event report
+     */
+    private boolean scriptValidation(int totalSteps, int currentStep) {
+        for (int i = 0; i < scriptTypeName.length; i++) {
+            if (this.scriptTypeGlobal.equals(scriptTypeName[i]) && scriptTypeMaxStep[i] < totalSteps - 2) {
+                if (currentStep == 1 || currentStep == (totalSteps - 1)) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     private void updateSTDInformation() {
