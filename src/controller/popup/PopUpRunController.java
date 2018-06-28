@@ -325,13 +325,11 @@ public class PopUpRunController implements Initializable {
                 testExecutionHandler.deleteIteration(this.iteration);
                 long tempsFin = System.currentTimeMillis();
                 float seconds = (tempsFin - tempsDebut) / 1000F;
-                //System.out.println("DELETE IN= " + Float.toString(seconds));
                 try {
                     long tempsDebut2 = System.currentTimeMillis();
                     Update();
                     long tempsFin2 = System.currentTimeMillis();
                     float seconds2 = (tempsFin2 - tempsDebut2) / 1000F;
-                    //System.out.println("update in= " + Float.toString(seconds2));
 
                 } catch (ParseException ex) {
                     Logger.getLogger(PopUpRunController.class.getName()).log(Level.SEVERE, null, ex);

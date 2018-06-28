@@ -192,7 +192,6 @@ public class TableActionCreationController implements Initializable {
 
     //Load all existing scripts (Pre-defined) to a hashset
     private void loadScriptCheckAndStimuli() {
-        //System.out.println("Je get tt les script");
         ScriptDB scriptDBHandler = new ScriptDB();
         allScript = scriptDBHandler.getScriptListWithParameters();
 
@@ -270,7 +269,6 @@ public class TableActionCreationController implements Initializable {
             Session session = factory.openSession();
             //Assume macroID are inversed presented in here.
             temp.stream().forEach((ParamScriptMacro PSM) -> {
-//                macroDBController.removePSMGivenId(PSM.getParamScriptMacrocol());
                 session.delete(PSM);
             });
             session.beginTransaction().commit();

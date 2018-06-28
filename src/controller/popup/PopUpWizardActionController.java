@@ -305,7 +305,6 @@ public class PopUpWizardActionController implements Initializable {
                     toBeSet.setParamScriptMacro(paramToLink);
                     toBeSet.setValuePath(scriptChose);
                     toBeSet.setValue(paramToLink.getScriptHasParameters().getParameters().getName());
-                    //System.out.println("PARAM = " + toBeSet.getParamScriptMacro().getValue());
                     byte configured = 0;
                     toBeSet.setToDisplay(configured);
                     break;

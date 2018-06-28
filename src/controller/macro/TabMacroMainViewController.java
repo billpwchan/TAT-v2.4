@@ -143,7 +143,6 @@ public class TabMacroMainViewController implements Initializable {
         try {
             this.tabPaneMacro.getTabs().remove(this.tabPaneMacro.getSelectionModel().getSelectedItem());
         } catch (Exception ex) {
-            System.out.println("Cannot remove tab.");
             Logger.getLogger(TabMacroMainViewController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -155,7 +154,6 @@ public class TabMacroMainViewController implements Initializable {
         try {
             this.tabPaneMacro.getSelectionModel().select(0);
         } catch (Exception ex) {
-            System.out.println("No Macro exists in the library.");
             Logger.getLogger(TabMacroMainViewController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

@@ -79,42 +79,11 @@ public class PopUPRequirementSelectionController implements Initializable {
             };
             return cell;
         });
-//        System.out.println(view.lookupAll(".button"));
-//        //System.out.println("this.anchorPane.lookupAll("#button").size()");
-        //this.view.set;
-//        tableViewRequirementPopUpAddRea.setPlaceholder(new Label(""));
-//        tableViewRequirementPopUpAddRea.setTableMenuButtonVisible(true);
-//        tableViewRequirementPopUpAddRea.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-//        tableViewRequirementPopUpAddRea.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-//        requirementsSelected = tableViewRequirementPopUpAddRea.getSelectionModel().getSelectedItems();
+
         buttonValidationReq.setOnAction((ActionEvent event) -> {
             stepLineController.setAction(this.view.getTargetItems());
             controllerNewStep.closePopUp();
         });
-
-//        tableViewRequirementPopUpAddRea.getSelectionModel().selectedItemProperty().addListener((ObservableValue<? extends Requirement> observable, Requirement oldValue, Requirement newValue) -> {
-//            buttonValidationReq.setDisable(false);
-//        });
-//        this.tableViewRequirementPopUpAddRea.setOnMousePressed(new EventHandler<MouseEvent>() {
-//            @Override
-//            public void handle(MouseEvent event) {
-//                if (event.getClickCount() == 2 && tableViewRequirementPopUpAddRea.getSelectionModel().getSelectedItem() != null) {
-//                    requirementsSelected = tableViewRequirementPopUpAddRea.getSelectionModel().getSelectedItems();
-//                    stepLineController.setAction(requirementsSelected);
-//                    controllerNewStep.closePopUp();
-//                }
-//            }
-//        });
-//        ContextMenu menu = new ContextMenu();
-//        MenuItem viewCase = new MenuItem("View");
-//        menu.getItems().add(viewCase);
-//        tableViewCasePopUpAddCase.setContextMenu(menu);
-//
-//        viewCase.setOnAction((ActionEvent event) -> {
-//            if (tableViewCasePopUpAddCase.getSelectionModel().getSelectedItem() != null && casesSelected.size() == 1) {
-//                controllerNewCampaign.viewTestCase(casesSelected.get(0));
-//            }
-//        });
     }
 
     /**
@@ -137,9 +106,6 @@ public class PopUPRequirementSelectionController implements Initializable {
         view.getSourceItems().addAll(casesInDB);
         view.getTargetItems().addAll(requirementInStep);
         this.tableViewRequirementPopUpAddRea.setVisible(false);
-        //tableViewRequirementPopUpAddRea.setItems(casesInDB);
-        //initColumn campaignColumnInit = new initColumn();
-        //campaignColumnInit.initColumnRequirement(tableViewRequirementPopUpAddRea);
     }
 
 }

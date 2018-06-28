@@ -5,14 +5,13 @@
  */
 package controller;
 
-import DB.Script;
 import DB.TestCampaign;
 import DB.TestCase;
 import DBcontroller.sessionFactorySingleton;
 import configuration.settings;
+import controller.macro.TabMacroEditController;
 import controller.macro.TabMacroMainViewController;
 import controller.popup.PopUpConfigurationController;
-import controller.popup.PopUpWizardActionController;
 import controller.popup.PopUpWizardScriptController;
 import controller.requirements.TabRequirementMainViewController;
 import controller.scripts.TabScriptsMainViewController;
@@ -69,7 +68,6 @@ import model.Position;
 import model.Properties;
 import model.StateClasse;
 import model.equipment;
-import org.hibernate.SessionFactory;
 import org.sikuli.api.DesktopScreenRegion;
 import org.sikuli.api.ScreenRegion;
 
@@ -301,7 +299,7 @@ public class TATFrameController implements Initializable {
                 } catch (ParseException ex) {
                     Logger.getLogger(TATFrameController.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                
+
             }
         });
     }
@@ -327,12 +325,11 @@ public class TATFrameController implements Initializable {
 //    public void manageBaselineButton(int size){
 //        this.mainControllerCampaignExecution.buttonBaselineManagement(size);
 //    }
-
     /**
      *
      * @param primaryStage
      */
-        public void setPrimaryStage(Stage primaryStage) {
+    public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
 
@@ -376,12 +373,9 @@ public class TATFrameController implements Initializable {
             public void handle(WindowEvent event) {
                 setting.readSettings();
                 popUpSettingsStage.close();
-                
+
             }
         });
-
-//        popUpStage.setX(main.getMainController().getPrimaryStage().getX() + main.getMainController().getPrimaryStage().getWidth() / 2 - popUpStage.getWidth() / 2);
-//        popUpStage.setY(main.getMainController().getPrimaryStage().getY() + main.getMainController().getPrimaryStage().getHeight() / 2 - popUpStage.getHeight() / 2);
         popUpSettingsStage.showAndWait();
 
     }
@@ -469,7 +463,6 @@ public class TATFrameController implements Initializable {
     }
 
     private ArrayList<Classe> preparesClasses(File classPath) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         ArrayList<Classe> classes = new ArrayList<>();
         File[] directories = new File(classPath.getPath() + "\\Classes").listFiles((File current, String name) -> new File(current, name).isDirectory());
         System.out.println(Arrays.toString(directories));
@@ -488,14 +481,8 @@ public class TATFrameController implements Initializable {
         try (BufferedReader br = new BufferedReader(new FileReader(fileInClass.getAbsolutePath() + "\\Equipment.txt"))) {
             String sCurrentLine;
             while ((sCurrentLine = br.readLine()) != null && !sCurrentLine.isEmpty()) {
-                //System.out.println(sCurrentLine);
-                //System.out.println("END LINE");
                 equipment eqp;
-                //if (!sCurrentLine.isEmpty()) {
                 String[] equipmentString = sCurrentLine.split("\\|\\|");
-//                for (String s : equipmentString) {
-//                    System.out.println("Value s " + s);
-//                }
                 eqp = new equipment(equipmentString[0]);
 
                 if (equipmentString.length > 1) {
@@ -530,14 +517,14 @@ public class TATFrameController implements Initializable {
                                     currentState.addProperties(new Properties(propertiesString[1], Properties.Type.valueOf(propertiesString[0]), propertiesString[2]));
                                 }
                             }
-                        } catch (IOException e) {
-                            e.printStackTrace();
+                        } catch (IOException ex) {
+                            Logger.getLogger(TATFrameController.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     }
                 }
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException ex) {
+            Logger.getLogger(TATFrameController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

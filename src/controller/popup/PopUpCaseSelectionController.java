@@ -82,8 +82,6 @@ public class PopUpCaseSelectionController implements Initializable {
         });
 
         tableViewCasePopUpAddCase.getSelectionModel().selectedItemProperty().addListener((ObservableValue<? extends TestCase> observable, TestCase oldValue, TestCase newValue) -> {
-            //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            //System.out.println("IN ");
             buttonValidationPopUpAddCase.setDisable(false);
         });
 
@@ -171,14 +169,11 @@ public class PopUpCaseSelectionController implements Initializable {
      */
     public void setTable(ObservableList<TestCase> casesInDB) {
         observableListTestCase = casesInDB;
-        System.out.println("observable size =  " + observableListTestCase.size());
         //tableViewCasePopUpAddCase.setItems(casesInDB);
         initColumn campaignColumnInit = new initColumn();
         campaignColumnInit.initColumnCase(tableViewCasePopUpAddCase);
-        System.out.println("SIEZE= " + tableViewCasePopUpAddCase.getItems().size());
 
         filteredData = new FilteredList<>(observableListTestCase, p -> true);
-        System.out.println("filtered data= " + filteredData.size());
 
         // 3. Wrap the FilteredList in a SortedList. 
         sortedData = new SortedList<>(filteredData);

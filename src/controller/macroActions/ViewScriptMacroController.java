@@ -195,14 +195,12 @@ public class ViewScriptMacroController implements Initializable {
         scriptMacro = new Macro();
         currentScript = scriptsArray.get(0);
         scriptMacro.setScriptByScriptIdScript1(currentScript);
-        System.out.println("scriptMacro initialized. ");
         updateGridPaneEdit(currentScript);
 
 //        For the edit part, I don't think need to updateGridPaneCreation at first...?
         if (controllerScriptFather.controllerViewGlobal().getControllerFather() != null) {
             controllerScriptFather.controllerViewGlobal().getControllerFather().getControllerPreview().updateGridPaneCreation(controllerScriptFather.controllerViewGlobal());
         } else {
-            System.out.println("Edit Father");
             controllerScriptFather.controllerViewGlobal().getControllerFatherEdit().getControllerPreview().updateGridPaneCreation(controllerScriptFather.controllerViewGlobal());
         }
         //Select a particular script should update all parameters involed.
@@ -272,16 +270,13 @@ public class ViewScriptMacroController implements Initializable {
      * @param currentSelectedScript
      */
     public void updateGridPaneEdit(Script currentSelectedScript) {  //This is for update script's parameter. 
-        byte order = 0;
         Iterator<ScriptHasParameters> itScriptParameters = currentSelectedScript.getScriptHasParameterses().iterator();
         while (itScriptParameters.hasNext()) {
             ScriptHasParameters scriptHasParameters = itScriptParameters.next();
-            System.out.println("Scrip Has parameters: " + scriptHasParameters.getIdscriptHasParameters());
             Iterator<ParamScriptMacro> itParamScriptMacro = scriptHasParameters.getParamScriptMacros().iterator();
             while (itParamScriptMacro.hasNext()) {
                 this.observableListParams.add(0, itParamScriptMacro.next());
             }
-            order++;
         }
     }
 

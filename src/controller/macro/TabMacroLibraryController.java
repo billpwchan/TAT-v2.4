@@ -176,7 +176,6 @@ public class TabMacroLibraryController implements Initializable {
             editMacro(currentMacroSelected);
         });
         buttonDelete.setOnAction((ActionEvent e) -> {
-            System.out.println("Test Case selected : ");
             if (this.currentMacroSelected != null) {
                 ArrayList<TestCase> testCases = testCaseHandler.getTestCasesFromMacros(this.currentMacroSelected);
                 if (testCases.size() > 0) {

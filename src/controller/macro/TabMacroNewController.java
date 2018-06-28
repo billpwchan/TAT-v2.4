@@ -246,8 +246,6 @@ public class TabMacroNewController implements Initializable {
     }
 
     private void loadPreviewMacro() {
-        System.out.println("HERE header load");
-
         FXMLLoader fxmlLoader2 = new FXMLLoader();
         try {
             AnchorPane paneTest = (AnchorPane) fxmlLoader2.load(getClass().getResource("/view/macroActions/headerPreviewMacro.fxml").openStream());
@@ -261,11 +259,10 @@ public class TabMacroNewController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(TabTestCaseNewController.class.getName()).log(Level.SEVERE, null, ex);
         }
-
         try {
             this.controllerPreviewMacro.initialize(scrollPanePreview);
-        } catch (Exception e) {
-            System.out.println("exception tab marco = " + e);
+        } catch (Exception ex) {
+            Logger.getLogger(TabMacroNewController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

@@ -194,9 +194,6 @@ public class TabMacroEditController implements Initializable {
         boolean missingPurpose = false;
         //This part is responsible for saving new macro object. Correct. 
         while (i < numberScript && missingPurpose == false) {
-            System.out.println(observableScripts.get(i).toString());
-            System.out.println(observableScripts.get(i).getScriptControllerAction().toString());
-            System.out.println(observableScripts.get(i).getScriptControllerAction().getHashParamScriptMacro().get(0).getValue());  //This will give the i script in this macro's parameter 0 value.
             if ("".equals(observableScripts.get(i).getScriptControllerAction().getHashParamScriptMacro().get(0).getValue())) {   //Each script should has purpose. First parameter of each script. If satisfied, save it.
                 CommonFunctions.displayAlert(AlertType.ERROR, "Missing Purpose", "There is something wrong with script" + observableScripts.get(i).getScriptControllerAction().getCurrentScript().getName(), "A script purpose is missing in your macro");
                 missingPurpose = true;
@@ -280,8 +277,6 @@ public class TabMacroEditController implements Initializable {
     }
 
     private void loadPreviewMacro() {
-        System.out.println("Here Edit header load");
-
         FXMLLoader fxmlLoader2 = new FXMLLoader();
         try {
             AnchorPane paneTest = (AnchorPane) fxmlLoader2.load(getClass().getResource("/view/macroActions/headerPreviewMacro.fxml").openStream());
@@ -298,8 +293,8 @@ public class TabMacroEditController implements Initializable {
 
         try {
             this.controllerPreviewMacro.initialize(scrollPanePreview);
-        } catch (Exception e) {
-            System.out.println("exception tab marco = " + e);
+        } catch (Exception ex) {
+            Logger.getLogger(TabTestCaseEditController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

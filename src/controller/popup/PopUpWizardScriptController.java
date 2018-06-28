@@ -227,15 +227,9 @@ public class PopUpWizardScriptController implements Initializable {
         comboBoxDefinitionValue.valueProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                //System.out.println("My old value is : "+oldValue+" and my new value is : "+newValue);
-                //if (oldValue != null) {
-                //System.out.println("DISPLAY PANEL");  
                 comboBoxClasse.getSelectionModel().clearSelection();
                 comboBoxClasse.setItems(null);
                 displayPanel(newValue);
-                System.out.println("newValue: " + newValue);
-                // }
-
             }
         });
 
