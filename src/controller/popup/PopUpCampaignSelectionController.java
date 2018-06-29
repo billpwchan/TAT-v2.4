@@ -118,12 +118,11 @@ public class PopUpCampaignSelectionController implements Initializable {
 //        alert.setX(this.dialogStage.getX() + this.dialogStage.getWidth() / 2 - alert.getWidth() / 2);
 //        alert.setY(this.dialogStage.getY() + this.dialogStage.getHeight() / 2 - alert.getHeight() / 2);
 //    }
-
     /**
      *
      * @param controllerBaselineCampaign
      */
-        public void init(TabTestCampaignExecutionRepositoryBaselineController controllerBaselineCampaign) {
+    public void init(TabTestCampaignExecutionRepositoryBaselineController controllerBaselineCampaign) {
         PopUpCampaignSelectionController.executionMainViewController = controllerBaselineCampaign;
     }
 

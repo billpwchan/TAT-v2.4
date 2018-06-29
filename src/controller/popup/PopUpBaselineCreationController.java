@@ -43,6 +43,7 @@ public class PopUpBaselineCreationController implements Initializable {
 
     /**
      * Initializes the controller class.
+     *
      * @param url
      * @param rb
      */
@@ -58,8 +59,8 @@ public class PopUpBaselineCreationController implements Initializable {
             this.buttonOk.setDisable(newValue.trim().isEmpty());
             this.labelBaselineAlreadyExists.setVisible(false);
         });
-        
-        this.buttonCancel.setOnAction((ActionEvent event)->{
+
+        this.buttonCancel.setOnAction((ActionEvent event) -> {
             this.mainController.deleteCampaign();
             this.mainController.closePopUpBaseline();
         });

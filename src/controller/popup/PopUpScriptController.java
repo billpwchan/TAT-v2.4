@@ -119,7 +119,6 @@ public class PopUpScriptController implements Initializable {
      * @param controllerNewCase
      */
     public void init(TabTestCaseNewController controllerNewCase) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         PopUpScriptController.controllerNewCase = controllerNewCase;
     }
 

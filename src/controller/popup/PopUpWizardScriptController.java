@@ -18,6 +18,7 @@ import controller.tablestep.ScriptLineTableStepController;
 import controller.tablestep.StepLineTableStepController;
 import model.*;
 import controller.tablestep.ViewScriptController;
+import controller.util.CommonFunctions;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -33,7 +34,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -354,11 +354,7 @@ public class PopUpWizardScriptController implements Initializable {
         }
         //If the format is not good a popUp alert is shown.
         if (isFormat == false) {
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.setTitle("ERROR CONFIGURATION");
-            alert.setHeaderText("The parameters types are wrong, please check what you have done");
-            alert.setContentText("The type of each parameter is available on the label name of your parameter (i.e : row position)");
-            alert.showAndWait();
+            CommonFunctions.displayAlert(AlertType.ERROR, "ERROR CONFIGURATION", "The parameters types are wrong, please check what you have done", "The type of each parameter is available on the label name of your parameter (i.e : row position)");
         } else {
             //If the format is good, then save the parameters in the observable list.
             toBeSet.setValuePath(pathToVariable);
@@ -454,39 +450,6 @@ public class PopUpWizardScriptController implements Initializable {
                     }
 
                 }
-
-//            Set toSet = toBeSet.getScriptHasBeenConfiguredToMe();
-//            System.out.println("toSet: " + toSet);
-//            Iterator<ScriptHasBeenConfigured> toUpdateSHBC = toSet.iterator();
-//            while (toUpdateSHBC.hasNext()) {
-//                System.out.println("toUpdateList.added: ");
-//                ScriptHasBeenConfigured toConf = toUpdateSHBC.next();
-//                System.out.println("toConf.getTestStepHasScript: " + toConf.getTestStepHasScript().toString());
-//                TestStep currTestStep = toConf.getTestStepHasScript().getTestStep();
-//                System.out.println("toConf.getTestStepHasScript.testStep: " + currTestStep);
-//                System.out.println("script: " + toConf.getTestStepHasScript().getScript());
-//                //currTestStep.setStepOrder((byte)1);
-//                Byte step = currTestStep.getStepOrder();
-//                System.out.println("TestCase: " + currTestStep.getTestCase());
-//
-//                System.out.println("TEST STEP ID: " + currTestStep.getIdtestStep() + ", human stim: " + currTestStep.getHumanStimuli() + ", human check: " + currTestStep.getHumanCheck());
-//                int scriptCount = toConf.getTestStepHasScript().getExecutionOrder();
-//                System.out.println("step: " + step + " scriptCount: " + scriptCount);
-//                //boolean doesTestStepHasScHaveToConf = controller.getControllerScriptFather().getControllerStepParent().getControllerViewGlobal().getCollectionTestStep().get(step).getTestStep().getTestStepHasScripts().contains(toConf.getTestStepHasScript());
-//                //System.out.println("doesTestStepHasScHaveToConf: " + doesTestStepHasScHaveToConf);
-//                //int scriptL = controller.getControllerScriptFather().getControllerStepParent().getControllerViewGlobal().getCollectionTestStep().get(step)
-//                ArrayList<ScriptHasBeenConfigured> toUpdateListAction, toUpdateListVerif;
-//                ScriptLineTableStepController sLController = controller.getControllerScriptFather().getControllerStepParent().getControllerViewGlobal().getCollectionTestStep().get((int) step).getCollectionScript().get(scriptCount);
-//                toUpdateListAction = new ArrayList(controller.getControllerScriptFather().getControllerStepParent().getControllerViewGlobal().getCollectionTestStep().get((int) step).getCollectionScript().get(scriptCount).getScriptActionController().getTestStepHasScript().getScriptHasBeenConfigureds());
-//                toUpdateListVerif = new ArrayList(controller.getControllerScriptFather().getControllerStepParent().getControllerViewGlobal().getCollectionTestStep().get((int) step).getCollectionScript().get(scriptCount).getScriptVerifController().getTestStepHasScript().getScriptHasBeenConfigureds());
-//                Collections.sort(toUpdateListVerif, (ScriptHasBeenConfigured o1, ScriptHasBeenConfigured o2) -> Integer.compare(o1.getParamOrder(), o2.getParamOrder()));
-//                Collections.sort(toUpdateListAction, (ScriptHasBeenConfigured o1, ScriptHasBeenConfigured o2) -> Integer.compare(o1.getParamOrder(), o2.getParamOrder()));
-//
-//                controller.getControllerScriptFather().getControllerStepParent().getControllerViewGlobal().getCollectionTestStep().get((int) step).getCollectionScript().get(scriptCount).getScriptActionController().referParameters(toUpdateListAction);
-//                controller.getControllerScriptFather().getControllerStepParent().getControllerViewGlobal().getCollectionTestStep().get((int) step).getCollectionScript().get(scriptCount).getScriptVerifController().referParameters(toUpdateListVerif);
-//
-//            }
-                //controller.referParameters(toUpdateList);
             }
 
         }
@@ -504,9 +467,6 @@ public class PopUpWizardScriptController implements Initializable {
         textAreaDescriptionParameters.setText(paramFromLine.getDescription());
         ObservableList<String> options = getFXCollectionFromParamtersType(paramFromLine.getParameterType());
         comboBoxDefinitionValue.getItems().setAll(options);
-        //System.out.println("Taille de mon array list = "+observableListScriptMartinth.size());
-        System.out.println("OBSERVABLE LIST SIZE = " + this.observableListScriptMartinth.size());
-
         String comboValue = this.observableListScriptMartinth.get(this.tableParameters.getSelectionModel().getSelectedIndex()).getValuePath();
 
         if (!comboValue.isEmpty() && (comboValue.charAt(0) == Separator.charAt(0))) {
@@ -781,26 +741,6 @@ public class PopUpWizardScriptController implements Initializable {
                     this.gridPaneValue.add(postXTextField.getTextField(), 2, 3);
                     this.gridPaneValue.add(positionY, 1, 4);
                     this.gridPaneValue.add(posYTextField.getTextField(), 2, 4);
-                    //this.gridPaneValue.add(rang, 1, 4);
-//                    int toto = TableStepScriptCreationController.getExcelRank();
-//                    rangTextField.getTextField().textProperty().addListener((observable, oldValue, new2Value) -> {
-//                        if (isNumeric(new2Value)) {
-//                            TableStepScriptCreationController.setExcelRank(Integer.valueOf(new2Value));
-//                            System.out.println("My new value is :" + new2Value);
-//                        }
-//                        if (!sheetTextField.getText().isEmpty()
-//                                && !postXTextField.getText().isEmpty()
-//                                && !posYTextField.getText().isEmpty()
-//                                && !rangTextField.getText().isEmpty()) {
-//                            buttonSetParameters.setDisable(false);
-//                        } else {
-//                            buttonSetParameters.setDisable(true);
-//                        }
-//                        changeColorLabel(rang, new2Value.trim().isEmpty());
-//                    });
-//                    rangTextField.setText(String.valueOf(toto));
-                    //this.gridPaneValue.add(rangTextField.getTextField(), 2, 4);
-
                     textFieldList.add(postXTextField);
                     textFieldList.add(posYTextField);
                     // textFieldList.add(rangTextField);
@@ -998,8 +938,6 @@ public class PopUpWizardScriptController implements Initializable {
 
                     choiceBoxss.getSelectionModel().selectedIndexProperty().addListener((ObservableValue<? extends Number> observable, Number oldValue, Number newValue1) -> {
                         //Label paramSelection = new Label("Select the parameter");
-                        System.out.println("SCRIPT CHOOOSE");
-
                         this.currScriptChosen = choiceBoxss.getSelectionModel().getSelectedItem();
 
                         scriptChose = scriptsCollection.get(newValue1.intValue());
@@ -1012,8 +950,6 @@ public class PopUpWizardScriptController implements Initializable {
 
                         //ScriptLine Number
                         int scriptLineNum = (int) Math.round((id - (double) step) * 10);
-
-                        System.out.println("ScriptName: " + scriptName + ", step: " + step + ", scriptLineNum: " + scriptLineNum);
 
                         StepLineTableStepController stepLine = controller.getControllerScriptFather().getControllerStepParent().getControllerViewGlobal().getCollectionTestStep().get(step - 1);
 
@@ -1370,8 +1306,6 @@ public class PopUpWizardScriptController implements Initializable {
             i++;
         }
         if (!foundInComboBox) {
-            System.out.println("BUFFER = " + buffer + " not found");
-            //System.out.println("New value is :" + t1);
             BufferList.add(buffer);
         }
     }
@@ -1589,142 +1523,4 @@ public class PopUpWizardScriptController implements Initializable {
 
     }
 
-    private int getTestStepHasScriptIndex(int scriptNum) {
-
-        return 0;
-    }
-
 }
-
-//        columnValue.setCellValueFactory(new Callback<CellDataFeatures<Parameters, Parameters>, ObservableValue<Parameters>>() {
-//
-//            @Override
-//            public ObservableValue<Parameters> call(CellDataFeatures<Parameters, Parameters> param) {
-//                return new ReadOnlyObjectWrapper(param.getValue());
-//            }
-//        });
-//
-//        columnValue.setCellFactory(new Callback<TableColumn<Parameters, Parameters>, TableCell<Parameters, Parameters>>() {
-//            @Override
-//            public TableCell<Parameters, Parameters> call(TableColumn<Parameters, Parameters> btnCol) {
-//                return new TableCell<Parameters, Parameters>() {
-//                    final ImageView buttonGraphic = new ImageView();
-//                    final Button button = new Button();
-//
-//                    final int numberButton = numberofbutton;
-//
-//                    {
-//                        button.setGraphic(buttonGraphic);
-//                        //button.setMinWidth(16);
-//                        button.setAlignment(Pos.CENTER);
-//                        button.setMaxSize(16, 16);
-//                    }
-//
-//                    @Override
-//                    public void updateItem(final Parameters person, boolean empty) {
-//                        super.updateItem(person, empty);
-//                        if (person != null) {
-//                            buttonGraphic.setImage(settingsImage);
-//                            setGraphic(button);
-//                            button.setOnAction(new EventHandler<ActionEvent>() {
-//                                @Override
-//                                public void handle(ActionEvent event) {
-//                                    //System.out.println("Number of this button : " + numberButton);
-//                                    rowSelection = numberButton - 1;
-//                                    //tableParameters.getSelectionModel().focus(row);
-//                                    // Row row = tableParameters.get
-//                                    Platform.runLater(new Runnable() {
-//                                        @Override
-//                                        public void run() {
-//                                            //System.out.println("Row selection :" + rowSelection);
-//                                            tableParameters.requestFocus();
-//                                            tableParameters.getSelectionModel().select(rowSelection);
-//                                            tableParameters.getFocusModel().focus(rowSelection);
-//                                           // System.out.println("Plateforme lance");
-//                                        }
-//                                    });
-//                                    //TO be changer !!!!!!!
-//                                    showStackPaneCOnfiguration();
-//                                    displaySavedInformation(observableListScriptMartinth.get(rowSelection));
-//                                    //actionTaken.setText("Bought " + person.getLikes().toLowerCase() + " for: " + person.getFirstName() + " " + person.getLastName());
-//                                }
-//
-//                                private void showStackPaneCOnfiguration() {
-//                                    //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//                                    stackPan.setVisible(true);
-//                                }
-//
-//                            });
-//                            numberofbutton++;
-//                        } else {
-//                            setGraphic(null);
-//                        }
-//                        //button.setText("Buy coffee");
-//
-//                    }
-//
-//                };
-//            }
-//        ;
-//        });
-//        
-//    private void displaySavedInformation(paramsForScript get) {
-//        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//        System.out.println("Paramforscript :"+get);
-//        if(get.getConfigured()){
-//             int typeOfVariable = get.getTypeofVariable();
-//        if (typeOfVariable == 1) {
-//            this.constantRadioButton.setSelected(true);
-//            this.variableRadioButton.setSelected(false);
-//            this.textFiledValueConstant.setText(get.getValue());
-//        } else if (typeOfVariable == 2) {
-//            this.constantRadioButton.setSelected(false);
-//            this.variableRadioButton.setSelected(true);
-//            this.choiceBoxVariable.getSelectionModel().select(get.getNumberVariableChoiceBox());
-//            this.textFiledValueConstant.setText(get.getValue());
-//        } 
-//        }else{
-//           //displayConfiguration(this.constantRadioButton);
-//           this.textFiledValueConstant.setText("");
-//        }
-//       
-//   }
-//    private void displayConfiguration(Toggle toogle) {
-//
-//        if (toogle == variableRadioButton) {
-//
-//            this.choiceBoxVariable.setVisible(true);
-//            this.labelSourceVariable.setVisible(true);
-//
-//            //this.stackPaneVariable.getChildren().setAll(this.stackPaneModel.get(0));
-//        } else if (toogle == constantRadioButton) {
-//
-//            this.choiceBoxVariable.setVisible(false);
-//            this.labelSourceVariable.setVisible(false);
-//
-//            //this.stackPaneVariable.getChildren().setAll(this.stackPaneModel.get(1));
-//        } else {
-//            System.out.println("j ai un souc");
-//        }
-//
-//    }
-//        ToggleGroup group = new ToggleGroup();
-//        variableRadioButton.setToggleGroup(group);
-//        constantRadioButton.setToggleGroup(group);
-//        constantRadioButton.setSelected(true);
-//        this.observableListVariableChoicebox.add("Excel column");
-//        this.observableListVariableChoicebox.add("Excel range");
-//        this.choiceBoxVariable.setVisible(false);
-//        this.labelSourceVariable.setVisible(false);
-//        this.choiceBoxVariable.setItems(this.observableListVariableChoicebox);
-//        this.stackPan.setVisible(false);
-//
-//        group.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
-//            public void changed(ObservableValue<? extends Toggle> ov,
-//                    Toggle old_toggle, Toggle new_toggle) {
-//                if (group.getSelectedToggle() != null) {
-//                    displayConfiguration(new_toggle);
-//                }
-//            }
-//
-//        });

@@ -281,7 +281,7 @@ public class PopUpRunController implements Initializable {
                             alert.setTitle("Error: The server (IP: " + exceptionMessage.substring(exceptionMessage.indexOf("IP: ")).trim() + " ) cannot be reached.");
                             alert.setContentText("The server (IP: " + exceptionMessage.replace("//n", " ").replace("    ", " ").substring(exceptionMessage.indexOf("IP: "), exceptionMessage.indexOf("at")).trim() + " ) cannot be reached.\n" + "Please refer to the stacktrace:\t\n\n" + ex.getMessage());
                         }
-                        Optional<ButtonType> result = alert.showAndWait();
+                        alert.showAndWait();
                         th.resume();
                         try {
                             thisController.executionFinished();

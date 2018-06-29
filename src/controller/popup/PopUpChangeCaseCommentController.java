@@ -41,6 +41,7 @@ public class PopUpChangeCaseCommentController implements Initializable {
 
     /**
      * Initializes the controller class.
+     *
      * @param url
      * @param rb
      */

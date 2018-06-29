@@ -42,6 +42,7 @@ public class PopUpCampaignCreationController implements Initializable {
 
     /**
      * Initializes the controller class.
+     *
      * @param url
      * @param rb
      */
@@ -57,7 +58,7 @@ public class PopUpCampaignCreationController implements Initializable {
             this.buttonOk.setDisable(newValue.trim().isEmpty());
             this.labelCampaignAlreadyExists.setVisible(false);
         });
-        
+
         this.buttonCancel.setOnAction((ActionEvent event) -> {
             this.mainController.closePopUpCampaign();
         });

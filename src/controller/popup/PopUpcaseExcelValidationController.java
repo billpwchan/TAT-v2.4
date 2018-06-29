@@ -69,6 +69,8 @@ public class PopUpcaseExcelValidationController implements Initializable {
 
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -201,8 +203,6 @@ public class PopUpcaseExcelValidationController implements Initializable {
             this.mainController.setRange(Integer.parseInt(this.fieldRange.getText())); //sets range
             this.mainController.setOnAction();
         }
-        //this.mainController.setRange(Integer.parseInt(this.fieldRange.getText())); //sets range
-        //this.mainController.setOnAction();
         
     }
 

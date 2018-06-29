@@ -513,7 +513,6 @@ public class PopUpWizardActionController implements Initializable {
                     break;
                 case "Buffer list":
                     Label bufferSelection = new Label("Select buffer");
-                    System.out.println("Selected Buffer List");
                     final ComboBox comboBox = new ComboBox();
                     comboBox.setEditable(true);
                     comboBox.setItems(BufferList);
@@ -526,11 +525,9 @@ public class PopUpWizardActionController implements Initializable {
                                 if ((t1).equals(BufferList.get(i))) {
                                     foundInComboBox = true;
                                 }
-                                System.out.println("inside buffer_changed");
                                 i++;
                             }
                             if (!foundInComboBox && !t1.isEmpty()) {
-                                System.out.println("New value is :" + t1);
                                 BufferList.add(t1);
                             }
                             buttonSetParameters.setDisable(false);
