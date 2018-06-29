@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 19, 2015 5:06:37 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="DB.TestCase" table="test_case" optimistic-lock="version">
+        <id name="idtestCase" type="java.lang.Integer">
+            <column name="idtest_case" />
+            <generator class="identity" />
+        </id>
+        <property name="testCaseTitle" type="string">
+            <column name="test_case_title" length="30" />
+        </property>
+        <property name="writter" type="string">
+            <column name="writter" length="20" />
+        </property>
+        <property name="caseInternalVersion" type="java.lang.Byte">
+            <column name="case_internal_version" />
+        </property>
+        <property name="creationDate" type="string">
+            <column name="creation_date" length="10" />
+        </property>
+        <property name="editionDate" type="string">
+            <column name="edition_date" length="10" />
+        </property>
+        <property name="testCaseIdentification" type="string">
+            <column name="test_case_identification" length="30" />
+        </property>
+        <property name="testCaseVersion" type="string">
+            <column name="test_case_version" length="10" />
+        </property>
+        <property name="project" type="string">
+            <column name="project" length="10" />
+        </property>
+        <property name="typeOfTest" type="string">
+            <column name="type_of_test" length="20" />
+        </property>
+        <property name="categoryOfTest" type="string">
+            <column name="category_of_test" length="20" />
+        </property>
+        <property name="location" type="string">
+            <column name="location" length="20" />
+        </property>
+        <property name="environment" type="string">
+            <column name="environment" length="20" />
+        </property>
+        <property name="testObjective" type="string">
+            <column name="test_objective" length="65535" />
+        </property>
+        <property name="totalSteps" type="java.lang.Byte">
+            <column name="total_steps" />
+        </property>
+        <property name="writterEmail" type="string">
+            <column name="writter_email" length="30" />
+        </property>
+        <property name="writingStatus" type="string">
+            <column name="writing_status" length="25" />
+        </property>
+        <property name="testMethodIadt" type="string">
+            <column name="test_method_iadt" length="15" />
+        </property>
+        <property name="blocking" type="java.lang.Byte">
+            <column name="blocking" />
+        </property>
+        <property name="internalComments" type="string">
+            <column name="internal_comments" length="65535" />
+        </property>
+        <property name="testCaseSource" type="string">
+            <column name="test_case_source" length="50" />
+        </property>
+        <set name="testSteps" table="test_step" inverse="true" lazy="false" fetch="select" cascade="all" order-by="step_order ASC" >
+            <key>
+                <column name="test_case_idtest_case" />
+            </key>
+            <one-to-many class="DB.TestStep" />
+        </set>
+        <set name="testCampaignTestCases" table="test_campaign_test_case" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="test_case_idtest_case" not-null="true" />
+            </key>
+            <one-to-many class="DB.TestCampaignTestCase" />
+        </set>
+        <set name="caseExecutionses" table="case_executions" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="test_case_idtest_case" />
+            </key>
+            <one-to-many class="DB.CaseExecutions" />
+        </set>
+    </class>
+</hibernate-mapping>
