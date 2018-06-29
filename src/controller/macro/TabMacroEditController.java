@@ -6,7 +6,6 @@
 package controller.macro;
 
 import DB.Script;
-import DBcontroller.MacroDB;
 import DBcontroller.sessionFactorySingleton;
 import controller.macroActions.PreviewMacro;
 import controller.macroActions.ScriptLineTableMacroController;
@@ -111,8 +110,6 @@ public class TabMacroEditController implements Initializable {
 
     private final int textfieldMacroNameMaxLength = 60;
 
-    private MacroDB controllerMacroDB = new MacroDB();
-
     /**
      * Initializes the controller class.
      *
@@ -187,7 +184,6 @@ public class TabMacroEditController implements Initializable {
         Session session = factory.openSession();
         ObservableList<ScriptLineTableMacroController> observableScripts = controllerTableAction.getCollectionControllerScript();
         int numberScript = observableScripts.size();
-        System.out.println("Size of ObservableScripts Object: " + numberScript);
         Script macro = constructMacro();
         session.save(macro);
         int i = 0;

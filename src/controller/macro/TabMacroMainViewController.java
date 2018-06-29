@@ -103,7 +103,7 @@ public class TabMacroMainViewController implements Initializable {
     }
 
     void displayViewMacro(Script macro) {
-        Tab viewMacro = new Tab("view Macro: " + macro.getName());
+        Tab viewMacro = new Tab("View Macro: " + macro.getName());
         FXMLLoader fxmlLoader = new FXMLLoader();
         try {
             AnchorPane addPane = fxmlLoader.load(getClass().getResource("/view/macro/TabMacroNew.fxml").openStream());
