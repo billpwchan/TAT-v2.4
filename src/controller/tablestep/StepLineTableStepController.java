@@ -578,7 +578,6 @@ public class StepLineTableStepController implements Initializable {
      * @param focusAction
      */
     private void muteActionStep(boolean focusAction) {
-        System.out.println("MUTE ACTION");
         if (focusAction) {
             this.textAreaAction.setVisible(true);
             this.labelActionArea.setVisible(false);
@@ -734,7 +733,6 @@ public class StepLineTableStepController implements Initializable {
          enable the textarea verif when it's clicked into and the step is currently selected, also disable the textarea action.
          */
         this.anchorPaneVerif.setOnMouseClicked((MouseEvent t) -> {
-            System.out.println("IS SELECTED ? = " + isSelected);
             if (isSelected) {
                 clicked = true;
                 Platform.runLater(() -> {

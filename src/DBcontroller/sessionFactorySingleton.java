@@ -20,7 +20,7 @@ public class sessionFactorySingleton {
 
     private sessionFactorySingleton() {
         cfg = new Configuration();
-        this.cfg.configure("hibernate.cfg.xml");
+        sessionFactorySingleton.cfg.configure("hibernate.cfg.xml");
         factory = cfg.buildSessionFactory();
         ScriptDB scriptHandler = new ScriptDB();
         if (!scriptHandler.getScriptListWithParameters().isEmpty()) {
@@ -45,8 +45,8 @@ public class sessionFactorySingleton {
     private sessionFactorySingleton(String DatabasePath) {
         factory.close();
         cfg = new Configuration();
-        this.cfg.configure("hibernate.cfg.xml");
-        this.cfg.setProperty("hibernate.connection.url", "jdbc:sqlite:" + DatabasePath);
+        sessionFactorySingleton.cfg.configure("hibernate.cfg.xml");
+        sessionFactorySingleton.cfg.setProperty("hibernate.connection.url", "jdbc:sqlite:" + DatabasePath);
 //        this.cfg.setProperty("hibernate.connection.username", "");
 //        this.cfg.setProperty("hibernate.connection.password", "");
         factory = cfg.buildSessionFactory();

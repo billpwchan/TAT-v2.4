@@ -25,14 +25,11 @@ import org.hibernate.*;
  * @author tmorin
  */
 public class TestCaseDB {
-    //private Configuration cfg=new Configuration();
 
     /**
-     *
+     * Default Constructor
      */
-    
     public TestCaseDB() {
-        //this.cfg.configure("hibernate.cfg.xml");
     }
 
     /**
@@ -51,7 +48,7 @@ public class TestCaseDB {
         session.close();
         return testCases;
     }
-    
+
     /**
      *
      * @param Macro
@@ -60,8 +57,7 @@ public class TestCaseDB {
     public ArrayList<TestCase> getTestCasesFromMacros(Script Macro) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
-        ArrayList<TestCase> testCases= new ArrayList<>();
-//        Query qry = session.createQuery("select tc from TestCase as tc left join tc.testSteps as tctc where tctc.testStepHasScripts.script.idScript=:idScript");
+        ArrayList<TestCase> testCases = new ArrayList<>();
         Query qry = session.createQuery("select tc from TestCase as tc left join tc.testSteps as tctc left join tctc.testStepHasScripts as tctctc where tctctc.script.idScript=:idScript");
         qry.setParameter("idScript", Macro.getIdScript());
         testCases = (ArrayList) qry.list();
@@ -269,15 +265,14 @@ public class TestCaseDB {
         session.close();
     }
 
-//
-//    @SuppressWarnings("empty-statement")
 
+//    @SuppressWarnings("empty-statement")
     /**
      *
      * @param testCampaign
      * @return
      */
-        public ArrayList<TestCase> getTestCasesFromTestCampaign(TestCampaign testCampaign) {
+    public ArrayList<TestCase> getTestCasesFromTestCampaign(TestCampaign testCampaign) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
         ArrayList<TestCase> testCases = new ArrayList<>();

@@ -35,7 +35,6 @@ public class ResultsDB {
      * @param ite
      */
     public void initializeIteration(Iterations ite) {
-        System.out.println("Start time to construct object : " + System.currentTimeMillis());
         ArrayList<CaseExecutions> caseExecutions = new TestCaseDB().getTestCasesAndResults(ite.getBaselineId(), ite.getIterationNumber());
         TestStepDB testStepDB = new TestStepDB();
         caseExecutions.stream().forEach((test1) -> {
@@ -48,7 +47,6 @@ public class ResultsDB {
         Hibernate.initialize(ite.getTestCampaign());
         session.close();
         ite.setCaseExecutionses(new TreeSet<>(caseExecutions));
-        System.out.println("End time to construct object : " + System.currentTimeMillis());
     }
 
     /**
@@ -59,13 +57,12 @@ public class ResultsDB {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
         session.beginTransaction();
-        for (int i = 0; i < casesChanges.size(); i++) {
-            casesChanges.get(i).getCaseExecutionResultObj().setResult(casesChanges.get(i).getCaseExecutionResult());
-            if (casesChanges.get(i).getCaseExecutionResultObj().getNewComment()!=null) {
-                System.out.println("NO NEW RESULT");
-                casesChanges.get(i).getCaseExecutionResultObj().setComment(casesChanges.get(i).getCaseExecutionResultObj().getComment().concat("\n" + casesChanges.get(i).getCaseExecutionResultObj().getNewComment()));
+        for (CaseExecutions casesChange : casesChanges) {
+            casesChange.getCaseExecutionResultObj().setResult(casesChange.getCaseExecutionResult());
+            if (casesChange.getCaseExecutionResultObj().getNewComment() != null) {
+                casesChange.getCaseExecutionResultObj().setComment(casesChange.getCaseExecutionResultObj().getComment().concat("\n" + casesChange.getCaseExecutionResultObj().getNewComment()));
             }
-            session.update(casesChanges.get(i).getCaseExecutionResultObj());
+            session.update(casesChange.getCaseExecutionResultObj());
         }
         session.getTransaction().commit();
         session.close();

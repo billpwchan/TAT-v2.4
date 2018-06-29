@@ -6,9 +6,7 @@
 package DBcontroller;
 
 import DB.Parameters;
-import DB.ScriptHasParameters;
 import java.util.ArrayList;
-import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

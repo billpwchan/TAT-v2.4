@@ -5,6 +5,7 @@
  * and open the template in the editor.
  */
 package DBcontroller;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -19,7 +20,6 @@ public class StepExecutionDB {
      * Default constructor of this class.
      */
     public StepExecutionDB() {
-        //init();
     }
 
     /**

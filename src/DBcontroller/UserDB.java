@@ -5,12 +5,7 @@
  */
 package DBcontroller;
 
-import DB.CaseExecutions;
-import DB.Iterations;
 import DB.User;
-import java.util.ArrayList;
-import java.util.TreeSet;
-import org.hibernate.Hibernate;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

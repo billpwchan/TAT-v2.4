@@ -86,14 +86,6 @@ public class TestExecution {
         return executions;
     }
 
-//    public void fakeQuery() {
-//        SessionFactory factory = sessionFactorySingleton.getInstance();
-//        Session session = factory.openSession();
-//        Query qry = session.createQuery("from Script");
-//        List l = qry.list();
-//        session.close();
-//    }
-//
 
     /**
      *

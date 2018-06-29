@@ -10,7 +10,6 @@ import DB.Iterations;
 import DB.ScriptExecutions;
 import DB.StepExecutions;
 import DB.StepExecutionsResult;
-import DB.TestCase;
 import DB.TestStep;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -47,7 +46,7 @@ public class TestStepDB {
      * @param CaseID
      * @return
      */
-    public ArrayList<TestStep> getStepsFromCases(int CaseID) {  
+    public ArrayList<TestStep> getStepsFromCases(int CaseID) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
         ArrayList<TestStep> testSteps = new ArrayList<>();
@@ -121,7 +120,6 @@ public class TestStepDB {
                 List l = qryStep.list();
                 if (!l.isEmpty()) {
                     StepExecutionsResult stepExecutionResult = (StepExecutionsResult) l.get(0);
-                    //System.out.println("RESULT STEP = " + stepExecutionResult.getResult());
                     stepExecution.setStepExecutionResult(stepExecutionResult.getResult());
                     stepExecution.setStepExecutionComment(stepExecutionResult.getComment());
                 } else {

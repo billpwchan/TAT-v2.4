@@ -5,18 +5,14 @@
  */
 package DBcontroller;
 
-import DB.CaseExecutions;
-import DB.Iterations;
 import DB.Macro;
 import DB.ParamScriptMacro;
 import DB.Script;
-import DB.ScriptHasParameters;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-import java.util.TreeSet;
 import org.hibernate.Hibernate;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -48,7 +44,6 @@ public class MacroDB {
             session.merge(macro);
         }
         Iterator<Macro> itScripts = macro.getMacrosForScriptIdScript().iterator();
-        //System.out.println("NUMBER OF SCRIPT INSIDE = " + macro.getMacrosForScriptIdScript().size());
         while (itScripts.hasNext()) {
             Macro mac = itScripts.next();
             Hibernate.initialize(mac.getScriptByScriptIdScript1());

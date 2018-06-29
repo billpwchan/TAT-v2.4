@@ -7,7 +7,6 @@
 package DBcontroller;
 import DB.ScriptExecutions;
 import org.hibernate.Hibernate;
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 

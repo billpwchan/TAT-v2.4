@@ -70,7 +70,6 @@ public class IterationDB {
      * @param ite
      */
     public void deleteExecution(Iterations ite) {
-        System.out.println("ENTER IN DELETE");
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
         Query query = session.createQuery("delete from CaseExecutionsResult CER where CER.id.iterationNumber=:iterationNumber");
@@ -85,15 +84,14 @@ public class IterationDB {
         session.delete(ite);
         session.beginTransaction().commit();
         session.close();
-        System.out.println("DELETE FINISHED");
     }
-    
+
     /**
      *
      * @param tCampaign
      * @return
      */
-    public ArrayList<Iterations> getIterationsFromCampaign(TestCampaign tCampaign){
+    public ArrayList<Iterations> getIterationsFromCampaign(TestCampaign tCampaign) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
         ArrayList<Iterations> Iterations = new ArrayList<>();
@@ -103,7 +101,7 @@ public class IterationDB {
         session.close();
         return Iterations;
     }
-    
+
     /**
      *
      * @param id
@@ -118,7 +116,7 @@ public class IterationDB {
         session.close();
         return (Iterations) q.get(0);
     }
-    
+
     /**
      *
      * @param id
@@ -133,29 +131,23 @@ public class IterationDB {
         session.close();
         return (Iterations) q.get(0);
     }
-    
+
     /**
      *
      * @param ite
      */
-    public void deleteIterationFromIterationNum(Iterations ite){
+    public void deleteIterationFromIterationNum(Iterations ite) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
         Query qry = session.createQuery("Delete from Iterations IT where IT.baselineId=:baseline_id and IT.iterationNumber=:iteration_num");
         qry.setParameter("baseline_id", ite.getBaselineId());
         qry.setInteger("iteration_num", ite.getIterationNumber());
         int result = qry.executeUpdate();
-        System.out.println("Rows affected: "+ result);
+        System.out.println("Rows affected: " + result);
 //        session.delete(ite);
         session.beginTransaction().commit();
         session.close();
-        System.out.println("DELETE FINISHED");        
+        System.out.println("DELETE FINISHED");
     }
-    
-//    public void getIterations(String baselineID){
-//        SessionFactory factory=sessionFactorySingleton.getInstance();
-//        Session session = factory.openSession();
-//        Query query= session.create
-//    }
 
 }

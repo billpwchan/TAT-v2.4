@@ -16,6 +16,7 @@ import DB.TestCase;
 import DB.TestStep;
 import DB.TestStepHasScript;
 import configuration.settings;
+import controller.tabtestcase.TabTestCaseMainViewController;
 import controller.tabtestexecution.TabTestCampaignExecutionBaselineCampaignController;
 import java.io.File;
 import java.io.FileInputStream;
@@ -23,6 +24,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Platform;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -45,10 +48,6 @@ public class ConfigurationDB {
      * Default constructor of this class.
      */
     public ConfigurationDB() {
-        // init();
-    }
-
-    private void init() {
     }
 
     /**
@@ -145,45 +144,48 @@ public class ConfigurationDB {
                     ParametersExecution paramExecutionLast = null;
                     while (itScHasBeenConfigured.hasNext()) {
                         ScriptHasBeenConfigured Param = itScHasBeenConfigured.next();
-                        if (Param.getValuePath().equals("Excel file")) {
-                            String[] params = Param.getValue().split(splitOn);
-                            int x = Integer.parseInt(params[3]);
-                            int y = Integer.parseInt(params[4]);
-                            final int lastRowNum = sheet.getLastRowNum() + 1;
-                            if (sheet.getLastRowNum() < y + range - 2) {     //Because getLastRowNum is Zero-based. Both y and range are 1-based. 
-                                Platform.runLater(() -> {
-                                    TabTestCampaignExecutionBaselineCampaignController.errorBox("Configuration Error", "Number of row input is too large", "The input Excel file counts only " + lastRowNum + " rows.");
-                                });
-                                if (paramExecutionLast != null) {
-                                    scriptExecution.getParametersExecutions().remove(paramExecutionLast);
+                        switch (Param.getValuePath()) {
+                            case "Excel file":
+                                String[] params = Param.getValue().split(splitOn);
+                                int x = Integer.parseInt(params[3]);
+                                int y = Integer.parseInt(params[4]);
+                                final int lastRowNum = sheet == null ? 0 : sheet.getLastRowNum() + 1;
+                                if (sheet.getLastRowNum() < y + range - 2) {     //Because getLastRowNum is Zero-based. Both y and range are 1-based.
+                                    Platform.runLater(() -> {
+                                        TabTestCampaignExecutionBaselineCampaignController.errorBox("Configuration Error", "Number of row input is too large", "The input Excel file counts only " + lastRowNum + " rows.");
+                                    });
+                                    if (paramExecutionLast != null) {
+                                        scriptExecution.getParametersExecutions().remove(paramExecutionLast);
+                                    }
+                                    return -1;
                                 }
-                                return -1;
-                            }
-                            final int updatedY = y + indexLine - 1;
-                            final int updatedX = x - 1;
-                            try {       //Detecting Blank cell, or unsupported cell. Will catch exception.
-                                sheet.getRow(updatedY).getCell(updatedX).getCellType();
-                            } catch (Exception e) {
-                                Platform.runLater(() -> {
-                                    TabTestCampaignExecutionBaselineCampaignController.errorBox("Configuration Error", "Blank cell detected", "Please check cell: Row " + (updatedY + 1) + " Column " + (updatedX + 1) + ".");
-                                });
-                                return -1;
-                            }
-                            caseExecution.setExcelPath(
-                                    settings.scriptsPaht + "\\" + iteration.getTestCampaign().getReference() + "\\"
-                                    + iteration.getBaselineId() + "\\" + exceFile.toPath().getFileName());
-                            value = this.getExcelValue(sheet, x, y, indexLine);
-                        } else if (Param.getValuePath().equals("Constant") || Param.getValuePath().equals("Buffer list")
-                                || Param.getValuePath().equals("HMI") || Param.getValuePath().equals("Classes")) {
-                            String subString = Param.getValue();
-                            System.out.println("JE SUIS DANS BASELINE ET CONFIG= " + subString);
-                            subString = subString.substring(1, subString.length() - 1);
-                            value = subString;
-                            System.out.println("JE SUIS DANS BASELINE ET CONFIG= " + value);
-                        } else if (Param.getValuePath().equals("Property")) {
-                            String[] property = Param.getValue().split(splitOn);
-                            // System.out.println("VALUE = "+property);
-                            value = property[4];
+                                final int updatedY = y + indexLine - 1;
+                                final int updatedX = x - 1;
+                                try {       //Detecting Blank cell, or unsupported cell. Will catch exception.
+                                    sheet.getRow(updatedY).getCell(updatedX).getCellType();
+                                } catch (Exception e) {
+                                    Platform.runLater(() -> {
+                                        TabTestCampaignExecutionBaselineCampaignController.errorBox("Configuration Error", "Blank cell detected", "Please check cell: Row " + (updatedY + 1) + " Column " + (updatedX + 1) + ".");
+                                    });
+                                    return -1;
+                                }
+                                caseExecution.setExcelPath(
+                                        settings.scriptsPaht + "\\" + iteration.getTestCampaign().getReference() + "\\"
+                                        + iteration.getBaselineId() + "\\" + exceFile.toPath().getFileName());
+                                value = this.getExcelValue(sheet, x, y, indexLine);
+                                break;
+                            case "Constant":
+                            case "Buffer list":
+                            case "HMI":
+                            case "Classes":
+                                String subString = Param.getValue();
+                                subString = subString.substring(1, subString.length() - 1);
+                                value = subString;
+                                break;
+                            case "Property":
+                                String[] property = Param.getValue().split(splitOn);
+                                value = property[4];
+                                break;
                         }
                         ParametersExecution paramExecution = new ParametersExecution(Param.getParameters(),
                                 scriptExecution, value, paramOrder);
@@ -195,17 +197,15 @@ public class ConfigurationDB {
                 }
                 stepOrder++;
             }
-            // System.out.println("JE VAIS SAVE");
             try {
                 session.save(caseExecution);
             } catch (Exception e) {
-                System.out.println("EXCEPTION in session.save = " + e);
+                Logger.getLogger(TabTestCaseMainViewController.class.getName()).log(Level.SEVERE, null, e);
             }
             caseNumber++;
             indexLine++;
             caseOrder++;
             range--;
-            System.out.println("CASE NUMBER = " + caseOrder);
         }
         session.beginTransaction().commit();
         session.close();
@@ -244,23 +244,22 @@ public class ConfigurationDB {
 
         qry = session.createQuery("DELETE FROM Iterations WHERE baseline_id=:baselineID");    //The syntax originally is wrong. Didn't use IT in this query.
         qry.setParameter("baselineID", baseline.getBaselineId());
-         result = qry.executeUpdate();
+        result = qry.executeUpdate();
         System.out.println(baseline.getIditerations());
-        System.out.println("Rows affected: "+ result);
+        System.out.println("Rows affected: " + result);
 
         session.beginTransaction().commit();
         session.close();
     }
 
     //Baseline has something wrong. Records are not deleted. 
-
     /**
      *
      * @param baselineId
      * @param campaignToBaseline
      * @return
      */
-        public Iterations createBaseline(String baselineId, TestCampaign campaignToBaseline) {
+    public Iterations createBaseline(String baselineId, TestCampaign campaignToBaseline) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
 

@@ -6,7 +6,6 @@
 package DBcontroller;
 
 import DB.Requirement;
-import DB.TestCampaign;
 import DB.TestStep;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -43,7 +42,7 @@ public class RequirementDB {
         ArrayList<Requirement> requirement = (ArrayList) l;
         session.getTransaction().commit();
         session.close();
-        System.out.println("SIZE requirement= "+requirement.size());
+        System.out.println("SIZE requirement= " + requirement.size());
         return requirement;
     }
 
@@ -55,13 +54,13 @@ public class RequirementDB {
 
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
-        
+
         Iterator<Requirement> iteRequirement = HashRequirement.iterator();
         while (iteRequirement.hasNext()) {
             Requirement currentRequirement = iteRequirement.next();
-            Iterator<TestStep> iteTestStepReq  = currentRequirement.getTestSteps().iterator();
-            
-            while(iteTestStepReq.hasNext()){
+            Iterator<TestStep> iteTestStepReq = currentRequirement.getTestSteps().iterator();
+
+            while (iteTestStepReq.hasNext()) {
                 TestStep currentStep = iteTestStepReq.next();
                 Hibernate.initialize(currentStep.getStepExecutionses());
             }

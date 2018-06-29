@@ -21,31 +21,21 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
-//
-///**
-// *
-// * @author tmorin
-// */
 
 /**
  *
  * @author tmartinez
  */
 public class TestCampaignDB {
-//
-//    private Object assessmentsSearch;
-//
-//    //private Configuration cfg = new Configuration();
-//    public TestCampaignDB() {
-//        //this.cfg.configure("hibernate.cfg.xml");
-//    }
-//
+
+    public TestCampaignDB() {
+
+    }
 
     /**
      *
      * @return
      */
-    
     public ArrayList<TestCampaign> getAllCampaigns() {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
@@ -93,13 +83,11 @@ public class TestCampaignDB {
         session.beginTransaction().commit();
         session.close();
         return testCampaign;
-        //factory.close();
     }
 
     /**
      *
-     * @return
-     * @throws ParseException
+     * @return @throws ParseException
      */
     public ArrayList<Iterations> getBaselinedCampaignsTree() throws ParseException {
         ArrayList<Iterations> baselinedCampaigns = new ArrayList<>();
@@ -108,14 +96,14 @@ public class TestCampaignDB {
         Query qry = session.createQuery("select IT from Iterations IT group by IT.testCampaign");
         List l = qry.list();
         ArrayList<Iterations> iterations = (ArrayList) l;
-        for (int i = 0; i < iterations.size(); i++) {
+        for (Iterations iteration : iterations) {
             Criteria query = session.createCriteria(Iterations.class);
-            query.add(Restrictions.eq("testCampaign.idtestCampaign", iterations.get(i).getTestCampaign().getIdtestCampaign()));
+            query.add(Restrictions.eq("testCampaign.idtestCampaign", iteration.getTestCampaign().getIdtestCampaign()));
             query.setProjection(Projections.max("date"));
-            String maxDate= (String) query.uniqueResult();
-            iterations.get(i).setDate(maxDate);
-            iterations.get(i).setType("campaign");
-            Hibernate.initialize(iterations.get(i).getTestCampaign());
+            String maxDate = (String) query.uniqueResult();
+            iteration.setDate(maxDate);
+            iteration.setType("campaign");
+            Hibernate.initialize(iteration.getTestCampaign());
         }
         session.close();
         return iterations;
@@ -163,22 +151,21 @@ public class TestCampaignDB {
         session.beginTransaction().commit();
         session.close();
     }
-    
+
     /**
      *
      * @param testCase
      * @return
      */
-    public ArrayList<TestCampaign> getCampaignsFromCases(TestCase testCase){
+    public ArrayList<TestCampaign> getCampaignsFromCases(TestCase testCase) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
-        ArrayList<TestCampaign> TestCampaigns= new ArrayList<>();
+        ArrayList<TestCampaign> TestCampaigns = new ArrayList<>();
         Query qry = session.createQuery("select tc from TestCampaign as tc left join tc.testCampaignTestCases as tctc where tctc.testCase.idtestCase=:idCase");
         qry.setParameter("idCase", testCase.getIdtestCase());
         TestCampaigns = (ArrayList) qry.list();
         session.close();
         return TestCampaigns;
     }
-    
-//
+
 }
