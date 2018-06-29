@@ -186,9 +186,8 @@ public class ScriptLineTableStepController implements Initializable {
         try {
             temp = this.scriptControllerAction.getTestStepHasScript();
             System.out.println("TEMP " + temp);
-        } catch (NullPointerException e) {
-            System.out.println("IT IS NULL");
-            e.printStackTrace();
+        } catch (NullPointerException ex) {
+            Logger.getLogger(ScriptLineTableStepController.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
         return temp;
@@ -220,9 +219,8 @@ public class ScriptLineTableStepController implements Initializable {
         try {
             temp = this.scriptControllerVerif.getTestStepHasScript();
             System.out.println("TEMP " + temp);
-        } catch (NullPointerException e) {
-            System.out.println("IT IS NULL");
-            e.printStackTrace();
+        } catch (NullPointerException ex) {
+            Logger.getLogger(ScriptLineTableStepController.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
         return temp;

@@ -696,17 +696,14 @@ public class TableStepScriptCreationController implements Initializable {
         if (this.controllerNewCase != null) {
             this.controllerNewCase.getAnchorPane().addEventHandler(MouseEvent.MOUSE_CLICKED,
                     new EventHandler<MouseEvent>() {
-
                         @Override
                         public void handle(MouseEvent event) {
-                            for (int i = 0; i < collectionControllerStep.size(); i++) {
-                                if (collectionControllerStep.get(i).getIsClicked() == true) {
-
+                            for (StepLineTableStepController collectionControllerStep1 : collectionControllerStep) {
+                                if (collectionControllerStep1.getIsClicked() == true) {
                                 } else {
-                                    collectionControllerStep.get(i).hideArea();
+                                    collectionControllerStep1.hideArea();
                                 }
-                                collectionControllerStep.get(i).setIsClicker(false);
-
+                                collectionControllerStep1.setIsClicker(false);
                             }
                         }
                     }
@@ -730,14 +727,12 @@ public class TableStepScriptCreationController implements Initializable {
                         @Override
                         public void handle(MouseEvent event) {
 
-                            for (int i = 0; i < collectionControllerStep.size(); i++) {
-                                if (collectionControllerStep.get(i).getIsClicked() == true) {
-
+                            for (StepLineTableStepController collectionControllerStep1 : collectionControllerStep) {
+                                if (collectionControllerStep1.getIsClicked() == true) {
                                 } else {
-                                    collectionControllerStep.get(i).hideArea();
+                                    collectionControllerStep1.hideArea();
                                 }
-                                collectionControllerStep.get(i).setIsClicker(false);
-
+                                collectionControllerStep1.setIsClicker(false);
                             }
                         }
                     }
@@ -835,7 +830,6 @@ public class TableStepScriptCreationController implements Initializable {
      * @param requirementsSelected
      */
     public void setAction(ObservableList<Requirement> requirementsSelected) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 
     }
 
@@ -852,12 +846,10 @@ public class TableStepScriptCreationController implements Initializable {
     }
 
     void updateRequirementTestCase() {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         controllerNewCase.updateListRequirement();
     }
 
     private void finishDisplayStep() {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         controllerStepLine.expandChildren();
         if (controllerStepLine.getNumberOdScript() == 0) {
             controllerStepLine.hideArrow();

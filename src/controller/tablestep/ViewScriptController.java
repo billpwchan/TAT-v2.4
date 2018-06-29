@@ -16,7 +16,6 @@ import DB.ScriptHasParameters;
 import DB.TestStep;
 import DB.TestStepHasScript;
 import DBcontroller.MacroDB;
-import com.sun.media.ui.ToolTip;
 import controller.popup.PopUpWizardScriptController;
 import java.io.IOException;
 import java.net.URL;
@@ -235,12 +234,6 @@ public class ViewScriptController implements Initializable {
                             }
                             break;
                         case "From Other Script":
-//                            System.out.println("entered viewscriptcontroller_switch");
-//                            System.out.println(scriptHBC.getValuePath());
-//                            System.out.println("Param Order of current scriptHBC: " + scriptHBC.getParamOrder() + " and ID: " + scriptHBC.getIdscriptHasBeenConfigured());
-//                            System.out.println(" ref  shbc ID: " +scriptHBC.getRefScriptHasBeenConfigured().getIdscriptHasBeenConfigured());
-                            //System.out.println("ID: "+ scriptHBC.getIdscriptHasBeenConfigured() + ", ID of ref: " + scriptHBC.getRefScriptHasBeenConfigured().getIdscriptHasBeenConfigured());
-
                             if (scriptHBC.getRefScriptHasBeenConfigured().getValue().isEmpty()) {
                                 toSet.setText("Linked to Parameter " + " of Script " + scriptHBC.getValuePath());
                                 toSet.setTooltip(new Tooltip("Linked to Parameter " + " of Script " + scriptHBC.getValuePath()));
@@ -332,6 +325,7 @@ public class ViewScriptController implements Initializable {
      * script stimuli or script check.
      *
      * @param script
+     * @param currTestStep
      */
     public void loadScripts(HashSet<Script> script, TestStep currTestStep) {
 
@@ -353,10 +347,8 @@ public class ViewScriptController implements Initializable {
                 //teststephasscript = new TestStepHasScript();
                 teststephasscript = new TestStepHasScript(currentScript, currTestStep, (byte) 0);
                 currTestStep.addTestStephasScript(teststephasscript);
-                System.out.println("Created new TestStepHasScript in ViewScriptController");
                 currentScript = scriptsArray.get(newValue.intValue());
                 teststephasscript.setScript(currentScript);
-                System.out.println("            TEST STEP ADDED currTestStep: " + currTestStep);
                 //teststephasscript.setTestStep(currTestStep);
 
                 //System.out.println("SCRIPT HASP.SIZE " + teststephasscript.getScript().getScriptHasParameterses().size());
@@ -577,7 +569,6 @@ public class ViewScriptController implements Initializable {
             ScriptHasBeenConfigured currentSHBC = iteTSHS.next();
             System.out.println("get order = " + currentSHBC.getParamOrder());
             teststephasscript.addScripthasBeenConfigured(currentSHBC);
-            System.out.println("            TEST STEP ADDED: currentSelectedScript " + currentSelectedScript.getTestStep());
             //teststephasscript.setTestStep(currentSelectedScript.getTestStep());
         }
         //teststephasscript.setScriptHasBeenConfigureds(this.observableListScript);
@@ -636,7 +627,7 @@ public class ViewScriptController implements Initializable {
             ParametersExecution paramExecution = itScriptParameters.next();
             Label labelToSet;
             if (currentTSHS.getScript().getIsMacro() == 1) {
-                if (paramExecution.getPurpose() != null && paramExecution.getPurpose() != "") {
+                if (paramExecution.getPurpose() != null && !"".equals(paramExecution.getPurpose())) {
                     labelToSet = new Label(paramExecution.getPurpose() + " " + paramExecution.getParameters().getName());
                 } else {
                     labelToSet = new Label(paramExecution.getParameters().getName());
@@ -692,30 +683,6 @@ public class ViewScriptController implements Initializable {
     public void disableParamConfiguration() {
         this.canBeConfigured = false;
     }
-
-//    public void constructGridPanePreview(TestStepHasScript currentSelectedScript) {
-//        System.out.println("UPDATE PREVIEW");
-//        this.anchorScript.getStylesheets().add("/view/testexecution/cssLibraryTestCase.css");
-//        this.choiceBoxss.
-//        //this.choiceBoxss.setId("displayStyle");
-//        currentScript = currentSelectedScript.getScript();
-//        gridPaneDisplayResults.getChildren().clear();
-//        Iterator<ScriptHasParameters> itScriptParameters = currentSelectedScript.getScript().getScriptHasParameterses().iterator();
-//        while (itScriptParameters.hasNext()) {
-//            System.out.println("ONE MORE PARAMETER");
-//            ScriptHasParameters scriptHasParameters = itScriptParameters.next();
-//            Parameters param = scriptHasParameters.getParameters();
-//            Label labelToSet = new Label(param.getName());
-//            labelToSet.setTooltip(new Tooltip(param.getName()));
-//            gridPaneDisplayResults.addColumn(0, labelToSet);
-//            Hyperlink toSet = new Hyperlink("");
-//            toSet.setTooltip(new Tooltip(""));
-//            gridPaneDisplayResults.addColumn(1, toSet);
-//
-//        }
-//        this.numberOfParam = currentSelectedScript.getScript().getScriptHasParameterses().size();
-//        //controllerScriptFather.updateSizeGrid();
-//    }
 
     /**
      *

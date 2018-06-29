@@ -313,7 +313,6 @@ public class StepLineTableStepController implements Initializable {
      * Method called when the test step is deselected in the table.
      */
     public void hideArea() {
-        System.out.println("HIDE AREA");
         isSelected = false;
         muteActionStep(false);
         muteVerifStep(false);
@@ -635,7 +634,7 @@ public class StepLineTableStepController implements Initializable {
             try {
                 scrollBarv = (ScrollBar) textAreaAction.lookup(".scroll-bar:vertical");
                 scrollBarverif = (ScrollBar) textAreaVerif.lookup(".scroll-bar:vertical");
-                Thread.sleep(2000);
+                Thread.sleep(2000);     //Not sure the reason why needs to stop for 2 seconds.
             } catch (InterruptedException ex) {
                 Logger.getLogger(StepLineTableStepController.class.getName()).log(Level.SEVERE, null, ex);
             }
