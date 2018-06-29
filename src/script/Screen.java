@@ -43,9 +43,6 @@ public class Screen {
     /**
      * Constructor of a screenshot. get the parameters and run the script.
      *
-     * @param parameters the parameters of the script
-     * @throws IOException
-     * @throws AWTException
      */
     public Screen() {
 
@@ -54,6 +51,8 @@ public class Screen {
     /**
      * Take a screenshot.
      *
+     * @param parameters
+     * @param hashmap
      * @throws IOException
      * @throws AWTException
      */
@@ -110,17 +109,4 @@ public class Screen {
 
     }
 
-    /**
-     * set the parameters of the screenshot.
-     *
-     * @param params the new parameters of the screenshot
-     */
-//	public void treatParam(int x,int y,String path,String name)
-//	{
-//		final String[] parameters=params.split(",");
-//		this.x=Integer.parseInt(parameters[0]);
-//		this.y=Integer.parseInt(parameters[1]);
-//		this.path=parameters[2];
-//		this.name=parameters[3];
-//	}
 }

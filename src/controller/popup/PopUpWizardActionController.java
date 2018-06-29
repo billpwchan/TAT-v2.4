@@ -12,6 +12,7 @@ import DB.ScriptHasParameters;
 import controller.macroActions.PreviewMacro;
 import controller.macroActions.ScriptLineTableMacroController;
 import controller.macroActions.ViewScriptMacroController;
+import controller.util.CommonFunctions;
 import java.net.URL;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -28,7 +29,6 @@ import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -284,11 +284,7 @@ public class PopUpWizardActionController implements Initializable {
         }
         //If the format is not good a popUp alert is shown.
         if (isFormat == false) {
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.setTitle("ERROR CONFIGURATION");
-            alert.setHeaderText("The parameters types are wrong, please check what you have done");
-            alert.setContentText("The type of each parameter is available on the label name of your parameter (i.e : row position)");
-            alert.showAndWait();
+            CommonFunctions.displayAlert(AlertType.ERROR, "Error Configuration", "The parameters types are wrong, please check your parameter input", "The type of each parameter is availabel on the label name of your parameter (i.e : row position)");
         } else {
             //If the format is good, then save the parameters in the observable list.
             toBeSet.setValuePath(pathToVariable);

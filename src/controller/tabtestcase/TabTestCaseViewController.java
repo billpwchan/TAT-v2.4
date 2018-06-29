@@ -122,7 +122,7 @@ public class TabTestCaseViewController implements Initializable {
     private static TabTestCaseMainViewController main;
 
     private TableStepScriptCreationController controllerTableStep;
-    
+
     private HeaderTableStepController controllerHeaderTableStep;
 
     /**
@@ -135,23 +135,23 @@ public class TabTestCaseViewController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         this.anchorPanelViewTestCase.getStylesheets().add("/view/stepcreation/cssScriptLine.css");
         constructTableStep();
-       this.listViewRequirementsCaseView.setCellFactory(listView -> {
-                    ListCell<Requirement> cell = new ListCell<Requirement>() {
-                        @Override
-                        public void updateItem(Requirement item, boolean empty) {
-                            super.updateItem(item, empty);
+        this.listViewRequirementsCaseView.setCellFactory(listView -> {
+            ListCell<Requirement> cell = new ListCell<Requirement>() {
+                @Override
+                public void updateItem(Requirement item, boolean empty) {
+                    super.updateItem(item, empty);
 
-                            if (empty) {
-                                setText(null);
-                                setGraphic(null);
-                            } else {
-                                setText(item.getRequirementID());
-                                setGraphic(null);
-                            }
-                        }
-                    };
-                    return cell;
-                });
+                    if (empty) {
+                        setText(null);
+                        setGraphic(null);
+                    } else {
+                        setText(item.getRequirementID());
+                        setGraphic(null);
+                    }
+                }
+            };
+            return cell;
+        });
 //        /**
 //         * Define the the cell factory of the table test step.
 //         */
@@ -264,11 +264,7 @@ public class TabTestCaseViewController implements Initializable {
         this.jtextareaInternalCommentsCaseView.setText(testCase.getInternalComments());
         this.checkBoxBlockingCaseView.setSelected(testCase.getBlocking() != 0);
         this.jtextfieldCaseSourceView.setText(testCase.getTestCaseSource());
-        if (String.valueOf(testCase.getEditionDate()).equals("null")) {
-            this.jtextfieldEditionDateCaseView.setText("");
-        } else {
-            this.jtextfieldEditionDateCaseView.setText(testCase.getEditionDate());
-        }
+        this.jtextfieldEditionDateCaseView.setText(String.valueOf(testCase.getEditionDate()).equals("null") ? "" : testCase.getEditionDate());
 
         /**
          * Query the D and get all the test step and script of this particular
@@ -279,13 +275,13 @@ public class TabTestCaseViewController implements Initializable {
         //System.out.println("Get All from case");
         testCaseHandler.getAllFromCase(testCase);
         controllerTableStep.displayScriptAndStepView(testCase);
-        HashSet<Requirement> requirementsCase = new HashSet<Requirement>();
+        HashSet<Requirement> requirementsCase = new HashSet<>();
         for (int i = 0; i < this.controllerTableStep.getCollectionTestStep().size(); i++) {
             requirementsCase.addAll(this.controllerTableStep.getCollectionTestStep().get(i).getRequirements());
         }
         this.listViewRequirementsCaseView.setItems(FXCollections.observableArrayList(requirementsCase));
     }
-        //    /**
+    //    /**
     //     * Display the script and step encapuslet in the arraylist.
     //     * @param displayTestStep 
     //     */
@@ -344,7 +340,7 @@ public class TabTestCaseViewController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(TabTestCaseNewController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        controllerHeaderTableStep=fxmlLoader2.getController();
+        controllerHeaderTableStep = fxmlLoader2.getController();
         controllerHeaderTableStep.init(controllerTableStep);
         controllerTableStep.setControllerHeader(controllerHeaderTableStep);
     }

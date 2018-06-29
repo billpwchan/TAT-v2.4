@@ -10,13 +10,6 @@ import DB.ParametersExecution;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.ButtonType;
-import javafx.application.Platform;
-import javafx.scene.Node;
 
 /**
  * Method to display text in the command line.
@@ -38,7 +31,6 @@ public class WaitW {
      * @throws InterruptedException
      */
     public String run(ArrayList<ParametersExecution> parameters, HashMap hashMap) throws IOException, InterruptedException {
-        //System.out.println("IN WAIT  dans le TAT !!!");
 
         this.timeToWait = (int) Double.parseDouble(parameters.get(1).getValue());
         this.timeToWait = this.timeToWait * 1000;

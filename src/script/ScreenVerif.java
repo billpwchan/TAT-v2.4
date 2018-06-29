@@ -46,9 +46,6 @@ public class ScreenVerif {
     /**
      * constructor of a screen verification.
      *
-     * @param params the parameters for the check
-     * @throws IOException
-     * @throws AWTException
      */
     public ScreenVerif() {
     }
@@ -56,11 +53,14 @@ public class ScreenVerif {
     /**
      * run method for the screen verification.
      *
+     * @param parameters
+     * @param hashmap
+     * @return
      * @throws IOException
      * @throws AWTException
      */
     public Result run(ArrayList<ParametersExecution> parameters, HashMap hashmap) throws IOException, AWTException {
-        this.result=new Result();
+        this.result = new Result();
         this.result.setResult("Failed");
         this.x = (int) Double.parseDouble(parameters.get(1).getValue());
         this.y = (int) Double.parseDouble(parameters.get(2).getValue());
@@ -85,7 +85,6 @@ public class ScreenVerif {
             }
 
         } catch (Exception e) {
-            System.out.println("EXCEPTION E = "+e);
             this.result.setResult("NOK");
             this.result.setComment("Failed, file not found");
         }

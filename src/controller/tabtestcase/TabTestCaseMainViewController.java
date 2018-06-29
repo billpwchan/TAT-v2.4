@@ -143,12 +143,6 @@ public class TabTestCaseMainViewController implements Initializable {
                 ObjectCopy copyHandler = new ObjectCopy();      //Copy content before constructing object.
                 TestCase tc = copyHandler.copyCompleteTestCase(testcaseEdit);
 
-               //Experiment
-//                SessionFactory factory = sessionFactorySingleton.getInstance();
-//                Session session = factory.openSession();
-//                session.save(tc);
-//                session.beginTransaction().commit();
-//                session.close();
                 editController.constructInformation(tc);
                 edit.setClosable(true);
                 currentTab editCurrent = new currentTab(testcaseEdit.getIdtestCase(), edit);
@@ -280,7 +274,6 @@ public class TabTestCaseMainViewController implements Initializable {
 
     void focusOnLast() {
         this.tabPaneTestCase.getSelectionModel().select(0);
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         libraryController.focusOnLast();
     }
 

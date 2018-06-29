@@ -12,6 +12,7 @@ import DBcontroller.IterationDB;
 import DBcontroller.TestCampaignDB;
 import DBcontroller.TestCaseDB;
 import controller.tabtestcase.TabTestCaseLibraryController;
+import controller.util.CommonFunctions;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -34,7 +35,6 @@ import java.util.ArrayList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.scene.Node;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import model.setCursorOnComponent;
 import javafx.scene.control.TextField;
@@ -291,7 +291,7 @@ public class TabTestCampaignRepositoryController implements Initializable {
         this.buttonEdit.setDisable(true);
         this.buttonRefreshCampaignRepository.setVisible(false);
         buttonRefreshCampaignRepository.setOnAction((ActionEvent e) -> {
-            this.updateRepository();
+            TabTestCampaignRepositoryController.updateRepository();
         });
 
         buttonNew.setOnAction((ActionEvent e) -> {
@@ -306,18 +306,14 @@ public class TabTestCampaignRepositoryController implements Initializable {
                 ArrayList<Iterations> baselines = iterationHandler.getIterationsFromCampaign(campaignSelected);
                 if (baselines.size() > 0) {
                     String baselineNames = "Baselines to delete : \n";
-                    for (int i = 0; i < baselines.size(); i++) {
-                        baselineNames = baselineNames + "\t--> " + baselines.get(i).getBaselineId() + "\n";
+                    for (Iterations baseline : baselines) {
+                        baselineNames = baselineNames + "\t--> " + baseline.getBaselineId() + "\n";
                     }
-                    Alert alert = new Alert(AlertType.WARNING);
-                    alert.setTitle("Warning");
-                    alert.setHeaderText("Impossible to delete, the campaign has already been baselined. Please delete these baselines and executions first :");
-                    alert.setContentText(baselineNames);
-                    alert.showAndWait();
+                    CommonFunctions.displayAlert(AlertType.WARNING, "Warning", "Impossible to delete, the campaign has already been baselines. Please delete these baslines and executions first: ", baselineNames);
                     e.consume();
                 } else {
                     testCampaignHandler.deleteCampaignNotExecuted(campaignSelected);
-                    this.updateRepository();
+                    TabTestCampaignRepositoryController.updateRepository();
                     tableViewTestCase.setItems(null);
                 }
             }

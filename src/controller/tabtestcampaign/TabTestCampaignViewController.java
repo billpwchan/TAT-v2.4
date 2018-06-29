@@ -155,13 +155,8 @@ public class TabTestCampaignViewController implements Initializable {
         this.jtextfieldSystemCampaignView.setText(testCampaign.getSystem());
         this.jtextfieldWriterCampaignView.setText(testCampaign.getWritter());
         this.jtextfieldVersionCampaignView.setText(String.valueOf(testCampaign.getCampaignVersion()));
-        //SimpleDateFormat sf=new SimpleDateFormat("dd-MM-yy");
         this.jtextfieldCreationDateCampaignView.setText(testCampaign.getCreationDate());
-        if (String.valueOf(testCampaign.getEditionDate()).equals("null")) {
-            this.jtextfieldEditionDateCampaignView.setText("");
-        } else {
-            this.jtextfieldEditionDateCampaignView.setText(testCampaign.getEditionDate());
-        }
+        this.jtextfieldEditionDateCampaignView.setText(String.valueOf(testCampaign.getEditionDate()).equals("null") ? "" : testCampaign.getEditionDate());
         this.jtextfieldSUTReleaseCampaignView.setText(testCampaign.getSoftwareSutRelease());
         this.jtextfieldNumberCasesCampaignView.setText(String.valueOf(testCampaign.getNumberTestCase()));
         this.CheckboxRegressionThreadCampaignView.setSelected(testCampaign.getRegressionThread() != 0);

@@ -168,7 +168,7 @@ public class TabTestCampaignMainViewController implements Initializable {
                     currentViewTab.remove(viewCurrent);
                 });
             } catch (IOException ex) {
-                //Logger.getLogger(TabTestCaseMainViewController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(TabTestCampaignMainViewController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
@@ -217,7 +217,7 @@ public class TabTestCampaignMainViewController implements Initializable {
      * Update of the campaign repository
      */
     public void updateRepository() {
-        TabTestCampaignMainViewController.RepositoryController.updateRepository();
+        TabTestCampaignRepositoryController.updateRepository();
     }
 
     /**

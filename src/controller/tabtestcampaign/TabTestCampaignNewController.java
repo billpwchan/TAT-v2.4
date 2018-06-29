@@ -11,12 +11,12 @@ import DBcontroller.TestCampaignDB;
 import DBcontroller.TestCaseDB;
 import controller.popup.PopUpCaseSelectionController;
 import controller.tabtestcase.TabTestCaseNewController;
+import controller.util.CommonFunctions;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
-import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -31,7 +31,6 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
@@ -201,7 +200,7 @@ public class TabTestCampaignNewController implements Initializable {
 
         this.jtextfieldReferenceAddCampaign.textProperty().addListener(
                 (final ObservableValue<? extends String> observable, final String oldValue, final String newValue) -> {
-                    if (displayWarningIncorrectInputFormat("Campaign ID", textfieldReferenceCampaignMaxLength,
+                    if (CommonFunctions.displayWarningIncorrectInputFormat("Campaign ID", textfieldReferenceCampaignMaxLength,
                             newValue.length() > textfieldReferenceCampaignMaxLength)) {
                         this.jtextfieldReferenceAddCampaign.setText(oldValue);
                     }
@@ -210,7 +209,7 @@ public class TabTestCampaignNewController implements Initializable {
 
         this.jtextfieldSystemAddCampaign.textProperty().addListener(
                 (final ObservableValue<? extends String> observable, final String oldValue, final String newValue) -> {
-                    if (displayWarningIncorrectInputFormat("System", textfieldSystemCampaignMaxLength,
+                    if (CommonFunctions.displayWarningIncorrectInputFormat("System", textfieldSystemCampaignMaxLength,
                             newValue.length() > textfieldSystemCampaignMaxLength)) {
                         this.jtextfieldSystemAddCampaign.setText(oldValue);
                     }
@@ -218,7 +217,7 @@ public class TabTestCampaignNewController implements Initializable {
 
         this.jtextfieldWriterAddCampaign.textProperty().addListener(
                 (final ObservableValue<? extends String> observable, final String oldValue, final String newValue) -> {
-                    if (displayWarningIncorrectInputFormat("Writer", textfieldWriterCampaignMaxLength,
+                    if (CommonFunctions.displayWarningIncorrectInputFormat("Writer", textfieldWriterCampaignMaxLength,
                             newValue.length() > textfieldWriterCampaignMaxLength)) {
                         this.jtextfieldWriterAddCampaign.setText(oldValue);
                     }
@@ -227,7 +226,7 @@ public class TabTestCampaignNewController implements Initializable {
 
         this.jtextfieldSUTReleaseAddCampaign.textProperty().addListener(
                 (final ObservableValue<? extends String> observable, final String oldValue, final String newValue) -> {
-                    if (displayWarningIncorrectInputFormat("SUT Release", textfieldSUTReleaseCampaignMaxLength,
+                    if (CommonFunctions.displayWarningIncorrectInputFormat("SUT Release", textfieldSUTReleaseCampaignMaxLength,
                             newValue.length() > textfieldSUTReleaseCampaignMaxLength)) {
                         this.jtextfieldSUTReleaseAddCampaign.setText(oldValue);
                     }
@@ -235,7 +234,7 @@ public class TabTestCampaignNewController implements Initializable {
 
         this.jtextfieldWriterMailAddCampaign.textProperty().addListener(
                 (final ObservableValue<? extends String> observable, final String oldValue, final String newValue) -> {
-                    if (displayWarningIncorrectInputFormat("Writer Email", textfieldWritermailCampaignMaxLength,
+                    if (CommonFunctions.displayWarningIncorrectInputFormat("Writer Email", textfieldWritermailCampaignMaxLength,
                             newValue.length() > textfieldWritermailCampaignMaxLength)) {
                         this.jtextfieldWriterMailAddCampaign.setText(oldValue);
                     }
@@ -244,23 +243,6 @@ public class TabTestCampaignNewController implements Initializable {
         // Define a new cursor when an action is available for the user
         defineCursor();
 
-    }
-
-    private boolean displayWarningIncorrectInputFormat(String fieldName, Integer maxLength, boolean identifier) {
-        if (!identifier) {
-            return false;
-        }
-        boolean ok = false;
-        alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle("Warning. ");
-        alert.setHeaderText("Incorect Input Format in Field \"" + fieldName + "\": ");
-        alert.setContentText(fieldName + " exceeds maximum characters allowed (" + maxLength.toString()
-                + " characters). Please use another value, or only part of your input will be recorded.");
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.get() == ButtonType.OK) {
-            ok = true;
-        }
-        return ok;
     }
 
     /**

@@ -25,11 +25,12 @@ import controller.tablestep.HeaderTableStepController;
 import controller.tablestep.ScriptLineTableStepController;
 import controller.tablestep.StepLineTableStepController;
 import controller.tablestep.TableStepScriptCreationController;
+import controller.util.CommonFunctions;
+import static controller.util.CommonFunctions.displayWarningIncorrectInputFormat;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
-import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.beans.value.ChangeListener;
@@ -39,7 +40,6 @@ import javafx.collections.ListChangeListener;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ListView;
@@ -436,7 +436,7 @@ public class TabTestCaseNewController implements Initializable {
             @Override
             public void changed(final ObservableValue<? extends String> observable, final String oldValue, final String newValue) {
                 changeColorLabel(labelTestEnvironementCaseNew, newValue);
-                if (displayWarningIncorrectInputFormat("Test Environement", textfieldTestEnvironementMaxLength, newValue.length() > textfieldTestCategoryMaxLength)) {
+                if (CommonFunctions.displayWarningIncorrectInputFormat("Test Environement", textfieldTestEnvironementMaxLength, newValue.length() > textfieldTestCategoryMaxLength)) {
                     jtextfieldTestEnvironementCaseNew.setText(oldValue);
                 }
             }
@@ -444,15 +444,15 @@ public class TabTestCaseNewController implements Initializable {
         this.jtextfieldCaseTitleNew.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(final ObservableValue<? extends String> observable, final String oldValue, final String newValue) {
-                if (displayWarningIncorrectInputFormat("Test Title", textfieldCaseTitleMaxLength, newValue.length() > textfieldCaseTitleMaxLength)){
+                if (CommonFunctions.displayWarningIncorrectInputFormat("Test Title", textfieldCaseTitleMaxLength, newValue.length() > textfieldCaseTitleMaxLength)) {
                     jtextfieldCaseTitleNew.setText(oldValue);
-            }
+                }
             }
         });
         this.jtextfieldCaseVersionNew.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(final ObservableValue<? extends String> observable, final String oldValue, final String newValue) {
-                if (displayWarningIncorrectInputFormat("Test Case Version", textfieldCaseVersionMaxLength, newValue.length() > textfieldCaseVersionMaxLength)){
+                if (CommonFunctions.displayWarningIncorrectInputFormat("Test Case Version", textfieldCaseVersionMaxLength, newValue.length() > textfieldCaseVersionMaxLength)) {
                     jtextfieldCaseVersionNew.setText(oldValue);
                 }
             }
@@ -460,15 +460,15 @@ public class TabTestCaseNewController implements Initializable {
         this.jtextfieldProjectCaseNew.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(final ObservableValue<? extends String> observable, final String oldValue, final String newValue) {
-               if (displayWarningIncorrectInputFormat("Project", textfieldProjectMaxLength, newValue.length() > textfieldProjectMaxLength)){
-                   jtextfieldProjectCaseNew.setText(oldValue);
-               }
+                if (CommonFunctions.displayWarningIncorrectInputFormat("Project", textfieldProjectMaxLength, newValue.length() > textfieldProjectMaxLength)) {
+                    jtextfieldProjectCaseNew.setText(oldValue);
+                }
             }
         });
         this.jtextfieldTypeTestCaseNew.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(final ObservableValue<? extends String> observable, final String oldValue, final String newValue) {
-                if (displayWarningIncorrectInputFormat("Project", textfieldTypeTestMaxLength, newValue.length() > textfieldTypeTestMaxLength)){
+                if (CommonFunctions.displayWarningIncorrectInputFormat("Project", textfieldTypeTestMaxLength, newValue.length() > textfieldTypeTestMaxLength)) {
                     jtextfieldTypeTestCaseNew.setText(oldValue);
                 }
             }
@@ -477,7 +477,7 @@ public class TabTestCaseNewController implements Initializable {
             @Override
             public void changed(final ObservableValue<? extends String> observable, final String oldValue, final String newValue) {
                 changeColorLabel(labelTestCategoryCaseNew, newValue);
-                if (displayWarningIncorrectInputFormat("Test Category", textfieldTestCategoryMaxLength, newValue.length() > textfieldTestCategoryMaxLength)){
+                if (CommonFunctions.displayWarningIncorrectInputFormat("Test Category", textfieldTestCategoryMaxLength, newValue.length() > textfieldTestCategoryMaxLength)) {
                     jtextfieldTestCategoryCaseNew.setText(oldValue);
                 }
             }
@@ -485,7 +485,7 @@ public class TabTestCaseNewController implements Initializable {
         this.jtextfieldLocationCaseNew.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(final ObservableValue<? extends String> observable, final String oldValue, final String newValue) {
-                if (displayWarningIncorrectInputFormat("Location", textfieldLocationMaxLength, newValue.length() > textfieldLocationMaxLength)){
+                if (CommonFunctions.displayWarningIncorrectInputFormat("Location", textfieldLocationMaxLength, newValue.length() > textfieldLocationMaxLength)) {
                     jtextfieldLocationCaseNew.setText(oldValue);
                 }
             }
@@ -493,7 +493,7 @@ public class TabTestCaseNewController implements Initializable {
         this.jtextfieldWriterCaseNew.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(final ObservableValue<? extends String> observable, final String oldValue, final String newValue) {
-                if (displayWarningIncorrectInputFormat("Writer", textfieldWriterMaxLength, newValue.length() > textfieldWriterMaxLength)){
+                if (CommonFunctions.displayWarningIncorrectInputFormat("Writer", textfieldWriterMaxLength, newValue.length() > textfieldWriterMaxLength)) {
                     jtextfieldWriterCaseNew.setText(oldValue);
                 }
             }
@@ -501,7 +501,7 @@ public class TabTestCaseNewController implements Initializable {
         this.jtextfieldWriterEmailCaseNew.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(final ObservableValue<? extends String> observable, final String oldValue, final String newValue) {
-                if (displayWarningIncorrectInputFormat("Writer Email", textfieldWriterEmailMaxLength, newValue.length() > textfieldWriterEmailMaxLength)){
+                if (CommonFunctions.displayWarningIncorrectInputFormat("Writer Email", textfieldWriterEmailMaxLength, newValue.length() > textfieldWriterEmailMaxLength)) {
                     jtextfieldWriterEmailCaseNew.setText(oldValue);
                 }
             }
@@ -509,7 +509,7 @@ public class TabTestCaseNewController implements Initializable {
         this.jtextfieldCaseSourceNew.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(final ObservableValue<? extends String> observable, final String oldValue, final String newValue) {
-                if (displayWarningIncorrectInputFormat("Case Source", textfieldCaseSourceMaxLength, newValue.length() > textfieldCaseSourceMaxLength)){
+                if (CommonFunctions.displayWarningIncorrectInputFormat("Case Source", textfieldCaseSourceMaxLength, newValue.length() > textfieldCaseSourceMaxLength)) {
                     jtextfieldCaseSourceNew.setText(oldValue);
                 }
             }
@@ -522,21 +522,6 @@ public class TabTestCaseNewController implements Initializable {
         });
     }
 
-    private boolean displayWarningIncorrectInputFormat(String fieldName, Integer maxLength, boolean identifier) {
-        if (!identifier) {
-            return false;
-        }
-        boolean ok = false;
-        alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle("Warning. ");
-        alert.setHeaderText("Incorect Input Format in Field \"" + fieldName + "\": ");
-        alert.setContentText(fieldName + " exceeds maximum characters allowed (" + maxLength.toString() + " characters). Please use another value, or only part of your input will be recorded.");
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.get() == ButtonType.OK) {
-            ok = true;
-        }
-        return ok;
-    }
 
     /**
      *

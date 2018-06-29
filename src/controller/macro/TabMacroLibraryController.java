@@ -12,6 +12,7 @@ import DBcontroller.TestCaseDB;
 import controller.macroActions.PreviewMacro;
 import controller.macroActions.TableActionCreationController;
 import controller.tabtestcase.TabTestCaseNewController;
+import controller.util.CommonFunctions;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -181,7 +182,7 @@ public class TabMacroLibraryController implements Initializable {
                 if (testCases.size() > 0) {
                     String testCaseNames = "Test Case to Delete : \n";
                     testCaseNames = testCases.stream().map((testCase) -> "\t--> " + testCase.getTestCaseTitle() + "\n").reduce(testCaseNames, String::concat);
-                    displayWarning(testCaseNames);
+                    CommonFunctions.displayAlert(Alert.AlertType.WARNING, "Warning", "Impossible to delete, the test case has already created. Please delete these test cases first: ", testCaseNames);
                     e.consume();
                 } else {
                     macroHandler.deleteMacro(this.currentMacroSelected);        //Need to also delete in ParamScriptMacro & Macro database.
@@ -192,14 +193,6 @@ public class TabMacroLibraryController implements Initializable {
             }
         });
 
-    }
-
-    private void displayWarning(String testCaseNames) {
-        Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle("Warning");
-        alert.setHeaderText("Impossible to delete, the test case has already created. Please delete these test cases first : ");
-        alert.setContentText(testCaseNames);
-        alert.showAndWait();
     }
 
     private void newMacro() {
