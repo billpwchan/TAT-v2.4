@@ -6,10 +6,7 @@
 package controller.scripts;
 
 import controller.TATFrameController;
-import controller.macro.TabMacroLibraryController;
-import controller.macro.TabMacroNewController;
 import controller.requirements.TabRequirementMainViewController;
-import controller.tabtestcampaign.TabTestCampaignMainViewController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -18,7 +15,6 @@ import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
@@ -43,13 +39,16 @@ public class TabScriptsMainViewController implements Initializable {
 
     /**
      * Initializes the controller class.
+     *
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         this.tabScriptsLibrary = new Tab("Library");
         this.tabScriptsLibrary.setStyle("-fx-background-color :  #ba68c8;"
                 + "-fx-background-insets : transparent;");
-        
+
         this.tabPaneMacro.getTabs().add(0, this.tabScriptsLibrary);
         this.tabScriptsLibrary.setClosable(false);
 
@@ -76,7 +75,6 @@ public class TabScriptsMainViewController implements Initializable {
     }
 
     void displayNewScript() {
-
         Tab newScript = new Tab("New Script");
         this.tabPaneMacro.getTabs().add(newScript);
         AnchorPane addPane = null;

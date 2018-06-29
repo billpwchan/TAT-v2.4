@@ -6,10 +6,8 @@
 package controller.scripts;
 
 import DB.Script;
-import DB.TestCampaign;
 import DBcontroller.ScriptDB;
 import controller.macroActions.PreviewMacro;
-import static controller.tabtestcampaign.TabTestCampaignRepositoryController.observableListTestCampaign;
 import controller.tabtestcase.TabTestCaseNewController;
 import java.io.IOException;
 import java.net.URL;
@@ -128,7 +126,7 @@ public class TabScriptsLibraryController implements Initializable {
                     return true; // Filter matches first name.
                 } else if (script.getEditionDate() != null && script.getEditionDate().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
-                } else if (script.getDesciption() != null && script.getDesciption().toString().toLowerCase().contains(lowerCaseFilter)) {
+                } else if (script.getDesciption() != null && script.getDesciption().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
                 } else if (script.getName() != null && script.getName().toLowerCase().contains(lowerCaseFilter)) {
                     return true;

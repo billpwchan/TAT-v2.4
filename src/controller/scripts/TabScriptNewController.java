@@ -8,7 +8,6 @@ package controller.scripts;
 import DB.Parameters;
 import DB.Script;
 import DB.ScriptHasParameters;
-import DB.TestStepHasScript;
 import DBcontroller.sessionFactorySingleton;
 import configuration.settings;
 import controller.tablestep.ViewScriptController;
@@ -251,8 +250,7 @@ public class TabScriptNewController implements Initializable {
 
     /**
      *
-     * @return
-     * @throws ParseException
+     * @return @throws ParseException
      */
     public Script constructScript() throws ParseException {
         Script newScript = new Script();

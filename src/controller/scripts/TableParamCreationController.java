@@ -5,7 +5,6 @@
  */
 package controller.scripts;
 
-import DB.Macro;
 import DB.Parameters;
 import DB.Script;
 import DB.ScriptHasParameters;
@@ -267,32 +266,6 @@ public class TableParamCreationController implements Initializable {
             Parameters param = itParams.next().getParameters();
             this.addParaminVbox();
             this.controllerParamLine.setParam(param);
-            //this.controllerScriptLine.setScriptandParamAction(macroScript);
-            //ArrayList<TestStepHasScript> gogolito = new ArrayList<>(testStep.getTestStepHasScripts());
-            // int numberOfScript = gogolito.size();
-
-//            for (int j = 0; j < numberOfScript; j++) {
-//                this.addScriptToStep(this.controllerStepLine);
-//                TestStepHasScript currentTSHS = gogolito.get(j);
-//                if (j == numberOfScript - 1) {
-//                    if (currentTSHS.getScript().getIsStimuli() != 0) {
-//                        this.controllerScriptLine.setScriptandParamAction(currentTSHS);
-//                    } else {
-//                        this.controllerScriptLine.setScriptandParamVerif(currentTSHS);
-//                    }
-//                } else {
-//                    TestStepHasScript nextTSHS = gogolito.get(j + 1);
-//                    if (currentTSHS.getScript().getIsStimuli() != 0 && nextTSHS.getScript().getIsStimuli() == 0) {
-//                        this.controllerScriptLine.setScriptandParamAction(currentTSHS);
-//                        this.controllerScriptLine.setScriptandParamVerif(nextTSHS);
-//                        j++;
-//                    } else if (currentTSHS.getScript().getIsStimuli() != 0 && nextTSHS.getScript().getIsStimuli() != 0) {
-//                        this.controllerScriptLine.setScriptandParamAction(currentTSHS);
-//                    } else {
-//                        this.controllerScriptLine.setScriptandParamVerif(currentTSHS);
-//                    }
-//                }
-//            }
         }
         displayVbox();
     }
@@ -315,39 +288,10 @@ public class TableParamCreationController implements Initializable {
         this.addParaminVbox();
         controllerParamLine.setParamsCreation(this.params);
         this.controllerParamLine.setScriptPurpose();
-        for (int i = 0; i < params.size(); i++) {
-
-            Parameters param = params.get(i);
+        for (Parameters param : params) {
             this.addParaminVbox();
             controllerParamLine.setParamsCreation(this.params);
-            //System.out.println("SIZE LIST PARAM = " + this.params.size());
             this.controllerParamLine.setPreFilledParams(param);
-            //this.controllerScriptLine.setScriptandParamAction(macroScript);
-            //ArrayList<TestStepHasScript> gogolito = new ArrayList<>(testStep.getTestStepHasScripts());
-            // int numberOfScript = gogolito.size();
-
-//            for (int j = 0; j < numberOfScript; j++) {
-//                this.addScriptToStep(this.controllerStepLine);
-//                TestStepHasScript currentTSHS = gogolito.get(j);
-//                if (j == numberOfScript - 1) {
-//                    if (currentTSHS.getScript().getIsStimuli() != 0) {
-//                        this.controllerScriptLine.setScriptandParamAction(currentTSHS);
-//                    } else {
-//                        this.controllerScriptLine.setScriptandParamVerif(currentTSHS);
-//                    }
-//                } else {
-//                    TestStepHasScript nextTSHS = gogolito.get(j + 1);
-//                    if (currentTSHS.getScript().getIsStimuli() != 0 && nextTSHS.getScript().getIsStimuli() == 0) {
-//                        this.controllerScriptLine.setScriptandParamAction(currentTSHS);
-//                        this.controllerScriptLine.setScriptandParamVerif(nextTSHS);
-//                        j++;
-//                    } else if (currentTSHS.getScript().getIsStimuli() != 0 && nextTSHS.getScript().getIsStimuli() != 0) {
-//                        this.controllerScriptLine.setScriptandParamAction(currentTSHS);
-//                    } else {
-//                        this.controllerScriptLine.setScriptandParamVerif(currentTSHS);
-//                    }
-//                }
-//            }
         }
         displayVbox();
     }

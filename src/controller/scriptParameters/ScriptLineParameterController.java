@@ -5,17 +5,11 @@
  */
 package controller.scriptParameters;
 
-import DB.Macro;
-import DB.ParamScriptMacro;
 import DB.Parameters;
 import DB.Script;
-import controller.macroActions.ScriptLineTableMacroController;
-import controller.macroActions.TableActionCreationController;
-import controller.macroActions.ViewScriptMacroController;
 import controller.scripts.TableParamCreationController;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -35,7 +29,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.util.Callback;
 
@@ -97,6 +90,8 @@ public class ScriptLineParameterController implements Initializable {
 
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -187,7 +182,7 @@ public class ScriptLineParameterController implements Initializable {
      * Load the corresponding script in the combobox depending on whether its a
      * script stimuli or script check.
      *
-     * @param script
+     * @param params
      */
     public void loadParams(ArrayList<Parameters> params) {
 
@@ -359,10 +354,6 @@ public class ScriptLineParameterController implements Initializable {
         this.imageDown.setVisible(false);
         this.imageUp.setVisible(false);
         this.imageViewTrash.setVisible(false);
-    }
-
-    private void constructScript() {
-        Script script = new Script();
     }
 
 }
