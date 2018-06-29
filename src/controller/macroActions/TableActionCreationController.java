@@ -8,7 +8,6 @@ package controller.macroActions;
 import DB.Macro;
 import DB.ParamScriptMacro;
 import DB.Script;
-import DBcontroller.MacroDB;
 import DBcontroller.ScriptDB;
 import DBcontroller.sessionFactorySingleton;
 import controller.macro.TabMacroEditController;
@@ -71,7 +70,6 @@ public class TableActionCreationController implements Initializable {
 
     private TabMacroEditController controllerEditMacro;
 
-    private MacroDB macroDBController = new MacroDB();
 
     /**
      * Initializes the controller class.

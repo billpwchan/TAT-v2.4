@@ -106,18 +106,10 @@ public class PreviewMacro {
      * Update the gridpane of the view depending on the script selected (view
      * View).
      *
-     * @param currentSelectedScript
-     */
-    private void updateGridPaneModification(TableActionCreationController controllerActions) {
-        constructGridPaneView(controllerActions);
-    }
-
-    /**
-     *
      * @param controllerActions
      */
     public void updateGridPaneCreation(TableActionCreationController controllerActions) {
-        updateGridPaneModification(controllerActions);
+        constructGridPaneView(controllerActions);
     }
 
     /**
@@ -206,22 +198,11 @@ public class PreviewMacro {
     }
 
     /**
-     * Update the gridpane of the view depending on the script selected (view
-     * View).
-     *
-     * @param currentSelectedScript
-     */
-    private void updateGridPaneModificationView(Script script) {
-        constructGridPaneViewView(script);
-    }
-
-    /**
      *
      * @param script
      */
     public void updateGridPaneCreationView(Script script) {
-        updateGridPaneModificationView(script);
-
+        constructGridPaneViewView(script);
     }
 
     /**

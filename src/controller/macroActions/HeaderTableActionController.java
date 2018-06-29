@@ -17,7 +17,7 @@ import javafx.scene.layout.GridPane;
 /**
  * FXML Controller class
  *
- * @author T0155041, Bill Chan
+ * @author T0155041
  */
 public class HeaderTableActionController implements Initializable {
 

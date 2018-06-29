@@ -147,6 +147,7 @@ public class ScriptLineTableMacroController implements Initializable {
     /**
      *
      * @param actions
+     * @param operationType
      */
     public void setScriptCreation(HashSet<Script> actions, String operationType) {
         HashSet<Script> thisActions = new HashSet<>(actions);
@@ -170,12 +171,16 @@ public class ScriptLineTableMacroController implements Initializable {
             event.consume();
         });
         System.out.println("SCRIPT = " + actions.size());
-        if (operationType.equals("New")) {
-            scriptControllerAction.loadScripts(thisActions);        //Load all available scripts in the checkbox.
-        } else if (operationType.equals("Edit")) {
-            scriptControllerAction.loadScriptsEdit(thisActions);
-        } else {
-            CommonFunctions.displayAlert(Alert.AlertType.ERROR, "Unsupported Action", "This function is not yet supported.", "Plase choose another operation.");
+        switch (operationType) {
+            case "New":
+                scriptControllerAction.loadScripts(thisActions);        //Load all available scripts in the checkbox.
+                break;
+            case "Edit":
+                scriptControllerAction.loadScriptsEdit(thisActions);
+                break;
+            default:
+                CommonFunctions.displayAlert(Alert.AlertType.ERROR, "Unsupported Action", "This function is not yet supported.", "Plase choose another operation.");
+                break;
         }
         defineCursor();
     }
