@@ -6,15 +6,10 @@
 package controller.requirements;
 
 import DB.Requirement;
-import DB.TestCampaign;
 import DB.TestCase;
 import DBcontroller.RequirementDB;
-import DBcontroller.TestCaseDB;
-import static controller.tabtestcampaign.TabTestCampaignRepositoryController.observableListTestCampaign;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -119,15 +114,15 @@ public class TabRequirementLibraryController implements Initializable {
                 // Compare first name and last name of every person with filter text.
                 String lowerCaseFilter = newValue.toLowerCase();
 
-                if (requirement.getRequirementID() != null && requirement.getRequirementID().toString().toLowerCase().contains(lowerCaseFilter)) {
+                if (requirement.getRequirementID() != null && requirement.getRequirementID().toLowerCase().contains(lowerCaseFilter)) {
                     return true; // Filter matches first name.
                 } else if (requirement.getCategory() != null && requirement.getCategory().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
-                } else if (requirement.getWriter() != null && requirement.getWriter().toString().toLowerCase().contains(lowerCaseFilter)) {
+                } else if (requirement.getWriter() != null && requirement.getWriter().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
                 } else if (requirement.getVersion() != null && requirement.getVersion().toString().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
-                } else if (requirement.getRequirementText() != null && requirement.getRequirementText().toString().toLowerCase().contains(lowerCaseFilter)) {
+                } else if (requirement.getRequirementText() != null && requirement.getRequirementText().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
                 } else if (requirement.getCoverage() != null && requirement.getCoverage().toString().toLowerCase().contains(lowerCaseFilter)) {
                     return true;

@@ -10,8 +10,6 @@ import DB.TestCase;
 import DBcontroller.sessionFactorySingleton;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -24,7 +22,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.scene.web.HTMLEditor;
-import model.initColumn;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import javafx.scene.control.ChoiceBox;
@@ -90,6 +87,8 @@ public class TabRequirementCreationController implements Initializable {
 
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -100,7 +99,7 @@ public class TabRequirementCreationController implements Initializable {
             main.updateRepository();
             main.closeTab();
         });
-        
+
     }
 
     void init(TabRequirementMainViewController aThis) {
@@ -108,13 +107,12 @@ public class TabRequirementCreationController implements Initializable {
     }
 
     private void createRequirement() {
-        Requirement toSave = new Requirement(this.jtextfieldIDRequirement.getText(), this.jtextfieldRequirementTitle.getText(), this.jtextfieldRquirementWriter.getText(), this.htmlEditor.getHtmlText(), (short) 0, this.textareaComments.getText(), null,(String) choiceBoxIADT.getSelectionModel().getSelectedItem());
+        Requirement toSave = new Requirement(this.jtextfieldIDRequirement.getText(), this.jtextfieldRequirementTitle.getText(), this.jtextfieldRquirementWriter.getText(), this.htmlEditor.getHtmlText(), (short) 0, this.textareaComments.getText(), null, (String) choiceBoxIADT.getSelectionModel().getSelectedItem());
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
         session.save(toSave);
         session.beginTransaction().commit();
         session.close();
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
