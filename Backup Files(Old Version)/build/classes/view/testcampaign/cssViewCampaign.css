@@ -1,0 +1,12 @@
+.text-field {
+    -fx-background-color: transparent;
+    -fx-text-fill : #9900CC;
+    -fx-font-weight: bold;
+}
+/*.text-area {
+    -fx-background-color: transparent;//rgba(53,89,119,0.4);
+    -fx-border-color: black;
+    -fx-border-width: 1;
+    //-fx-border-radius: 16;
+    -fx-text-fill : #9900CC;
+}*/

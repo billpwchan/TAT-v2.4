@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 7, 2015 10:16:27 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="DB.Macro" table="macro" optimistic-lock="version">
+        <id name="idmacro" type="java.lang.Integer">
+            <column name="idmacro" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="scriptByScriptIdScript" class="DB.Script" fetch="select" >
+            <column name="script_idScript" not-null="true" />
+        </many-to-one>
+        <many-to-one name="scriptByScriptIdScript1" class="DB.Script" fetch="select" >
+            <column name="script_idScript1" not-null="true" />
+        </many-to-one>
+        <property name="scriptOrder" type="java.lang.Byte">
+            <column name="script_order" />
+        </property>
+        <set name="paramScriptMacros" table="param_script_macro" inverse="true" lazy="false" fetch="select" cascade="save-update" order-by="param_order">
+            <key>
+                <column name="macro_idmacro"/>
+            </key>
+            <one-to-many class="DB.ParamScriptMacro" />
+        </set>
+    </class>
+</hibernate-mapping>

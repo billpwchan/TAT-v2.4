@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="anchorPanelViewTestCampaign" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.tabtestcampaign.TabTestCampaignViewController">
+    <children>
+        <GridPane fx:id="gridPaneCampaignView" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="10.0" minWidth="10.0" prefWidth="10.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="200.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="60.0" minHeight="0.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <TableView fx:id="tableViewTestCase" prefHeight="75.0" prefWidth="600.0" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.rowSpan="3" />
+                <GridPane fx:id="gridPaneLabelCampaignView" GridPane.columnIndex="1">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="160.0" />
+                        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="10.0" />
+                        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="160.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="10.0" />
+                        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="160.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="20.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="5.0" minWidth="5.0" prefWidth="5.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="5.0" prefWidth="125.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="5.0" minWidth="5.0" prefWidth="5.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="250.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="10.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label fx:id="labelReferenceCampaignView" text="Campaign ID" GridPane.halignment="LEFT" GridPane.rowIndex="1" />
+                        <Label fx:id="labelSystemCampaignView" text="System" GridPane.halignment="LEFT" GridPane.rowIndex="3" />
+                        <Label fx:id="labelWriterCampaignView" text="Writer" GridPane.halignment="LEFT" GridPane.rowIndex="4" />
+                        <Label fx:id="labelVersionCampaignView" text="Version" GridPane.halignment="LEFT" GridPane.rowIndex="2" />
+                        <Label fx:id="labelCreationDateCampaignView" text="Creation date" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="1" />
+                        <Label fx:id="labelEditionDateCampaignView" text="Edition date" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="2" />
+                        <Label fx:id="labelSUTReleaseCampaignView" text="SUT release" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="3" />
+                        <Label fx:id="labelNumberOfCaseCampaignView" text="Number of cases" GridPane.columnIndex="6" GridPane.halignment="LEFT" GridPane.rowIndex="1" />
+                        <Label fx:id="labelRegressionThreadCampaignView" text="Regression Thread" GridPane.columnIndex="6" GridPane.halignment="LEFT" GridPane.rowIndex="2" />
+                        <Label fx:id="labelWriterMailCampaignView" text="Writer email" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="4" />
+                        <Label fx:id="labelCommentsCampaignView" text="Internal comments" GridPane.columnIndex="12" GridPane.rowIndex="1" />
+                        <TextField fx:id="jtextfieldReferenceCampaignView" disable="true" editable="false" maxWidth="150.0" opacity="0.7" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="jtextfieldSystemCampaignView" disable="true" editable="false" maxWidth="150.0" opacity="0.7" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField fx:id="jtextfieldWriterCampaignView" disable="true" editable="false" maxWidth="150.0" opacity="0.7" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <TextField fx:id="jtextfieldVersionCampaignView" disable="true" editable="false" maxWidth="150.0" opacity="0.7" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="jtextfieldCreationDateCampaignView" disable="true" editable="false" maxWidth="150.0" opacity="0.7" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                        <TextField fx:id="jtextfieldEditionDateCampaignView" disable="true" editable="false" maxWidth="150.0" opacity="0.7" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                        <TextField fx:id="jtextfieldSUTReleaseCampaignView" disable="true" editable="false" maxWidth="150.0" opacity="0.7" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                        <TextField fx:id="jtextfieldNumberCasesCampaignView" disable="true" editable="false" maxWidth="150.0" opacity="0.7" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+                        <TextField fx:id="jtextfieldWriterEmailCampaignView" disable="true" editable="false" maxWidth="150.0" opacity="0.7" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+                        <TextArea fx:id="jtextareaCommentsCampaignView" disable="true" editable="false" maxWidth="240.0" opacity="0.7" GridPane.columnIndex="12" GridPane.rowIndex="2" GridPane.rowSpan="5" />
+                        <CheckBox fx:id="CheckboxRegressionThreadCampaignView" mnemonicParsing="false" GridPane.columnIndex="7" GridPane.halignment="LEFT" GridPane.rowIndex="2" />
+                  <ListView fx:id="listViewRequirementsCaseView" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="10" GridPane.rowIndex="2" GridPane.rowSpan="5" />
+                  <Label fx:id="labelRequirementsCaseView" text="Requirements" GridPane.columnIndex="10" GridPane.rowIndex="1" />
+                  <Text fx:id="textTestCaseAddCampaign1" strokeType="OUTSIDE" strokeWidth="0.0" text="Test campaign information" GridPane.halignment="LEFT">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Text>
+                    </children>
+                </GridPane>
+                <Text fx:id="textTestCaseAddCampaign" strokeType="OUTSIDE" strokeWidth="0.0" text="Test cases :" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                    <GridPane.margin>
+                        <Insets left="10.0" />
+                    </GridPane.margin>
+                </Text>
+            </children>
+        </GridPane>
+    </children>
+</AnchorPane>

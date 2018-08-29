@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 19, 2015 5:06:37 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="DB.TestStep" table="test_step" optimistic-lock="version">
+        <id name="idtestStep" type="java.lang.Integer">
+            <column name="idtest_step" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="testCase" class="DB.TestCase" fetch="select">
+            <column name="test_case_idtest_case" />
+        </many-to-one>
+        <property name="writer" type="string">
+            <column name="writer" length="20" />
+        </property>
+        <property name="humanStimuli" type="string">
+            <column name="human_stimuli" length="65535" />
+        </property>
+        <property name="humanCheck" type="string">
+            <column name="human_check" length="65535" />
+        </property>
+        <property name="creationDate" type="string">
+            <column name="creation_date" length="10" />
+        </property>
+        <property name="editionDate" type="string">
+            <column name="edition_date" length="10" />
+        </property>
+        <property name="stepOrder" type="java.lang.Byte">
+            <column name="step_order" />
+        </property>
+        <property name="blockingStep" type="java.lang.Boolean">
+            <column name="blocking_step" />
+        </property>
+        <property name="stepCondition" type="java.lang.Boolean">
+            <column name="step_condition" />
+        </property>
+        <set name="stepExecutionses" table="step_executions" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="test_step_idtest_step" />
+            </key>
+            <one-to-many class="DB.StepExecutions" />
+        </set>
+        <set name="requirements" table="test_step_has_requirement" inverse="false" lazy="true" fetch="select" cascade="all">
+            <key>
+                <column name="test_step_idtest_step" not-null="true" />
+            </key>
+            <many-to-many entity-name="DB.Requirement" class="DB.Requirement">
+                <column name="requirement_idrequirement" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="testStepHasScripts" table="test_step_has_script" inverse="true" lazy="false" fetch="select" order-by="execution_order ASC" cascade="all">
+            <key>
+                <column name="test_step_idtest_step" not-null="true" />
+            </key>
+            <one-to-many class="DB.TestStepHasScript" />
+        </set>
+    </class>
+</hibernate-mapping>
