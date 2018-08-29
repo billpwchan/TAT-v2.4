@@ -83,7 +83,6 @@ public class ConfigurationDB {
             if (sheetNumber.contains("@&Number_")) {
                 sheet = workbook.getSheetAt(Integer.parseInt(sheetNumber.replace("@&Number_", "").trim()) - 1);
             } else if (sheetNumber.contains("@&Name_")) {
-                System.out.println("HERE");
                 System.out.println("STRING = " + sheetNumber.replace("@&Name_", "").trim());
                 sheet = workbook.getSheet(sheetNumber.replace("@&Name_", "").trim());
                 System.out.println("sheetName= " + sheet.getSheetName());

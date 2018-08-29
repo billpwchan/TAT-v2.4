@@ -7,7 +7,6 @@ package main;
  */
 import DB.User;
 import DB.Iterations;
-import DBcontroller.IterationDB;
 import DBcontroller.UserDB;
 import DBcontroller.sessionFactorySingleton;
 import javafx.application.Application;
@@ -19,41 +18,24 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import org.hibernate.SessionFactory;
 import controller.TATFrameController;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Optional;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.ImageCursor;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.ButtonType;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
-import javafx.stage.DirectoryChooser;
 import javafx.stage.Screen;
 import model.Classe;
-import org.sikuli.api.DesktopScreenRegion;
-import org.sikuli.api.ScreenRegion;
 import java.text.SimpleDateFormat;
 import java.text.DateFormat;
-import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.paint.Color;
 import model.HMI;
-import model.Position;
-import model.Properties;
-import model.Properties.Type;
-import model.StateClasse;
-import model.equipment;
-import model.WriteReport;
 import org.controlsfx.dialog.LoginDialog;
 
 /**
@@ -119,12 +101,12 @@ public class Main extends Application {
         boolean askUser = false;
         if (!askUser) {
             User tom = new User();
-            tom.setName("");
-            tom.setEmail("");
+            tom.setName("AdminAcc");
+            tom.setEmail("AdminAcc@email.com");
             tom.setRight("Admin");
             currentUser = tom;
         }
-        //System.out.println(System.getProperty("java.version"));
+        
         UserDB userHandler = new UserDB();
         Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
         LoginDialog dlg = new LoginDialog(null, null);
@@ -150,9 +132,6 @@ public class Main extends Application {
         }
 
         if (currentUser != null) {
-            System.out.println("AVANT");
-
-            System.out.println("After");
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 Parent root = fxmlLoader.load(getClass().getResource("/view/TATFrame.fxml").openStream());

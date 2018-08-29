@@ -342,7 +342,6 @@ public class Engine {
      */
     public void stateMachineCaseResult(HashMap<String, Integer> hashMap, int numberSteps) {
         if (hashMap.get(resultOKWC) == 0 && hashMap.get(resultNOK) == 0 && hashMap.get(resultNotTestable) == 0 && hashMap.get(resultOutOfScope) != numberSteps) {
-            System.out.println("RESULT OK");
             caseResult = resultOK;
             nbCaseOK++;
         } else if (hashMap.get(resultNOK) > 0) {
@@ -374,22 +373,16 @@ public class Engine {
         System.out.println("RESULT MACRO");
         System.out.println("NUMBER OF SCRIPT IN MACRO = " + numberScripts);
         if (hashMap.get(resultOKWC) == 0 && hashMap.get(resultNOK) == 0 && hashMap.get(resultNotTestable) == 0 && hashMap.get(resultOutOfScope) != numberScripts) {
-            System.out.println("OK");
             macroResult = resultOK;
         } else if (hashMap.get(resultNOK) > 0) {
-            System.out.println("NOK");
             macroResult = resultNOK;
         } else if (hashMap.get(resultOKWC) > 0) {
-            System.out.println("OKWC");
             macroResult = resultOKWC;
         } else if (hashMap.get(resultOK) == 0 && hashMap.get(resultOKWC) == 0 && hashMap.get(resultNOK) == 0 && hashMap.get(resultNotTestable) > 0) {
-            System.out.println("NT");
             macroResult = resultNotTestable;
         } else if ((hashMap.get(resultOK) > 0 || hashMap.get(resultOKWC) > 0) && hashMap.get(resultNOK) == 0 && hashMap.get(resultNotTestable) > 0) {
-            System.out.println("INC");
             macroResult = resultIncomplete;
         } else if (hashMap.get(resultOK) == 0 && hashMap.get(resultOKWC) == 0 && hashMap.get(resultNOK) == 0 && hashMap.get(resultNotTestable) == 0 && hashMap.get(resultOutOfScope) == numberScripts) {
-            System.out.println("OS");
             macroResult = resultOutOfScope;
         }
     }

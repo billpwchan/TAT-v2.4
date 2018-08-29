@@ -1,11 +1,10 @@
 .customTab *.tab-label {
     -fx-rotate: 90;
-     text-align: center;
+    text-align: center;
 }
- 
+
 .customTab {
     -fx-pref-height: 90px;
-    //-fx-pref-width: 50px;
 }
 
 

@@ -1,5 +1,4 @@
 .customTab *.tab-label {
-    //-fx-rotate: 90;
     text-align: center;
     -fx-font-weight : bold;
     -fx-font-size : 13;

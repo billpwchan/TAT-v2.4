@@ -47,7 +47,6 @@ public class popUpStimuli implements InterfaceScript {
 
     @Override
     public Result run(ArrayList<ParametersExecution> parameters, HashMap hashMap) throws IOException, InterruptedException, ExecutionException {
-        //System.out.println("JE RENTRE DANS LA POPUP STIMULI");
         Optional<Result> result;
         this.humanStimuli = parameters.get(1).getValue().trim();
         if (this.humanStimuli.contains("@&Buffer_")) {
@@ -134,7 +133,6 @@ public class popUpStimuli implements InterfaceScript {
                     }
                 }
             });
-            //System.out.println("ATTENTION SHOW AND WAIT");
 
             Optional<Result> result = dialog.showAndWait();
             return result;
