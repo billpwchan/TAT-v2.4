@@ -83,18 +83,11 @@ public class ExecuteSSHCommand {
             String msg;
             //msg="-18622 1 13094 2142351 0 \":WCH:ECS:ACG10001\" \"1\" 0 0 0 0 0 \";0||||||Air Curtain Group|Running Status|Running||||ACG1||WCH_ACG_201|$$;:WCH:ECS:ACG10001:dciECS-RUNSTA:dal.valueAlarmVector\" 0 0 0 1430215853 835800 1430215853 835800 1 13 0 0 \"SILENV\" \"\" \"\" \"\"";
 
-    //        toReturn.add("1234");
-    //        toReturn.add("-18622 1 13094 2142351 0 \":WCH:ECS:ACG10001\" \"1\" 0 0 0 0 0 \";0||||||Air Curtain Group|Running Status|Running||||ACG1||WCH_ACG_201|$$;:WCH:ECS:ACG10001:dciECS-RUNSTA:dal.valueAlarmVector\" 0 0 0 1430215853 835800 1430215853 835800 1 13 0 0 \"SILENV\" \"\" \"\" \"\"");
-    //        toReturn.add("-18622 1 13094 2142351 0 \":WCH:ECS:ACG10001\" \"1\" 0 0 0 0 0 \";0||||||Air Curtain Group|Running Status|Running||||ACG1||WCH_ACG_202|$$;:WCH:ECS:ACG10001:dciECS-RUNSTA:dal.valueAlarmVector\" 0 0 0 1430215853 835800 1430215853 835800 1 13 0 0 \"SILENV\" \"\" \"\" \"\"");
-    //        toReturn.add("-18622 1 13094 2142351 0 \":WCH:ECS:ACG10001\" \"1.5\" 0 0 0 0 0 \";0||||||Air Curtain Group|Running Status|Stopped||||ACG1||WCH_ACG_201|$$;:WCH:ECS:ACG10001:dciECS-RUNSTA:dal.valueAlarmVector\" 0 0 0 1430215853 835800 1430215853 835800 1 13 0 0 \"SILENV\" \"\" \"\" \"\"");
-    //        toReturn.add("-18622 1 13094 2142351 0 \":WCH:ECS:ACG10001\" \"1.5\" 0 0 0 0 0 \";0||||||Air Curtain Group|Running Status|Running||||ACG1||WCH_ACG_202|$$;:WCH:ECS:ACG10001:dciECS-RUNSTA:dal.valueAlarmVector\" 0 0 0 1430215853 835800 1430215853 835800 1 13 0 0 \"SILENV\" \"\" \"\" \"\"");
             while ((msg = in.readLine()) != null) {
-                //System.out.println("READLINE : "+msg);
                 toReturn.add(msg);
-                System.out.println("msg = "+ msg);
             }
-            //msg="-37651 1 2588 2097923 0 \":ADM:ECS:ACB10001\" \"1\" 0 0 0 0 0 \";0||||||Air Circuit Breaker|Operating Status|Opened||||ACB1||ADM_ACB_4511|$$;:ADM:ECS:ACB10001:dciECS-OPERSTA:dal.valueAlarmVector\" 0 0 0 1496994719 368576 1496994719 368576 1 11 0 0 \"SILENV\" \"\" \"\" \"\"";
-            toReturn.add(msg);
+            System.out.println(msg);
+            toReturn.add(msg);       // Possibly msg = null / msg = ""
             channel.disconnect();
 
             hashMap.put(this.indexNameReturn, toReturn);
@@ -102,7 +95,6 @@ public class ExecuteSSHCommand {
             //System.out.println("RESULT = "+this.result);
             return null;
         } catch (JSchException | IOException ex) {
-            System.out.println("Went into SSH Command. Please check.");
             String stackTrace = Throwables.getStackTraceAsString(ex);
             throw new Exception("Exception in executing SSH command. (IP: " + this.ip + "; User: " + this.user + "; SSHCommand: "+ this.SSHCommand);
         }
