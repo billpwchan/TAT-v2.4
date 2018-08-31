@@ -333,7 +333,7 @@ public class TabTestCaseViewController implements Initializable {
         try {
             this.gridPaneCaseView.add((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream()), 0, 1, 1, 5);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseNewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabTestCaseNewController.class.getName()).error("", ex);
         }
         controllerTableStep = fxmlLoader.getController();
 
@@ -342,7 +342,7 @@ public class TabTestCaseViewController implements Initializable {
             AnchorPane paneTest = (AnchorPane) fxmlLoader2.load(getClass().getResource("/view/stepcreation/headerTableStep.fxml").openStream());
             this.gridPaneCaseView.add(paneTest, 0, 0, 1, 1);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseNewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabTestCaseNewController.class.getName()).error("", ex);
         }
         controllerHeaderTableStep=fxmlLoader2.getController();
         controllerHeaderTableStep.init(controllerTableStep);

@@ -514,7 +514,7 @@ public class Engine {
                 method.invoke(o, "");
             }
         } catch (NoSuchMethodException | SecurityException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | ClassNotFoundException | MalformedURLException ex) {
-            Logger.getLogger(Engine.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Engine.class.getName()).error("", ex);
         }
     }
 

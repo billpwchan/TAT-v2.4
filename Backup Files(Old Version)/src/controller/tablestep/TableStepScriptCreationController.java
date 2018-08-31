@@ -27,11 +27,10 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -39,6 +38,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
@@ -46,8 +46,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import main.Main;
-import javafx.scene.input.MouseEvent;
-import javafx.event.EventHandler;
+import org.apache.log4j.Logger;
 
 /**
  * FXML Controller class
@@ -207,15 +206,19 @@ public class TableStepScriptCreationController implements Initializable {
                     controllerScriptLine = (ScriptLineTableStepController) fxmlLoader.getController();
                 }
                 scriptPane.setPrefWidth(vBox.getPrefWidth());
-
             } catch (IOException ex) {
                 Logger.getLogger(TableStepScriptCreationController.class
-                        .getName()).log(Level.SEVERE, null, ex);
+                        .getName()).error("", ex);
             }
             controllerStepLine.addScript(controllerScriptLine, 1);
+            if (workingCollection.isEmpty()){
+                workingCollection.add(scriptPane);
+            } else {
+                workingCollection.add(VboxIDSelectedStep + 1, scriptPane);
+            }
 //            workingCollection.add(VboxIDSelectedStep + 1, scriptPane);        //Cause IndexOutOfBoundException
-            workingCollection.add(scriptPane);
-            //controllerStepLine.setExpandTrue();
+//            workingCollection.add(scriptPane);      //This will add the new script to the last position.
+//            controllerStepLine.setExpandTrue();
             displayVbox();
 
         }
@@ -252,7 +255,7 @@ public class TableStepScriptCreationController implements Initializable {
                 StepLineTableStepController targetedController = collectionControllerStep.get(collectionControllerStep.indexOf(indexToMove) + 1);
                 int indexControllerSelected = collectionControllerStep.indexOf(indexToMove);
 
-                int indexOfTargetedStep = workingCollection.indexOf(targetedController.getAnchorPane());
+                int indexOfTargetedStep = workingCollection.indexOf(targetedController.getAnchorPane());    //Selected Step Index (0-based)
 
                 Collections.swap(collectionControllerStep, indexControllerSelected, indexControllerSelected + 1);
                 for (int i = indexOfStep; i < (indexOfStep + indexToMove.numberOfScript) + 1; i++) {
@@ -316,7 +319,7 @@ public class TableStepScriptCreationController implements Initializable {
 
         } catch (IOException ex) {
             Logger.getLogger(TableStepScriptCreationController.class
-                    .getName()).log(Level.SEVERE, null, ex);
+                    .getName()).error("", ex);
         }
         stepID++;
         displayVbox();
@@ -696,20 +699,20 @@ public class TableStepScriptCreationController implements Initializable {
         if (this.controllerNewCase != null) {
             this.controllerNewCase.getAnchorPane().addEventHandler(MouseEvent.MOUSE_CLICKED,
                     new EventHandler<MouseEvent>() {
-                        @Override
-                        public void handle(MouseEvent event) {
-                            for (StepLineTableStepController collectionControllerStep1 : collectionControllerStep) {
-                                if (collectionControllerStep1.getIsClicked() == true) {
-                                } else {
-                                    collectionControllerStep1.hideArea();
-                                }
-                                collectionControllerStep1.setIsClicker(false);
-                            }
+                @Override
+                public void handle(MouseEvent event) {
+                    collectionControllerStep.stream().map((collectionControllerStep1) -> {
+                        if (!collectionControllerStep1.getIsClicked()) {
+                            collectionControllerStep1.hideArea();
                         }
-                    }
+                        return collectionControllerStep1;
+                    }).forEachOrdered((collectionControllerStep1) -> {
+                        collectionControllerStep1.setIsClicker(false);
+                    });
+                }
+            }
             );
         }
-
     }
 
     /**
@@ -724,18 +727,17 @@ public class TableStepScriptCreationController implements Initializable {
             this.controllerEditCase.getAnchorPane().addEventHandler(MouseEvent.MOUSE_CLICKED,
                     new EventHandler<MouseEvent>() {
 
-                        @Override
-                        public void handle(MouseEvent event) {
+                @Override
+                public void handle(MouseEvent event) {
 
-                            for (StepLineTableStepController collectionControllerStep1 : collectionControllerStep) {
-                                if (collectionControllerStep1.getIsClicked() == true) {
-                                } else {
-                                    collectionControllerStep1.hideArea();
-                                }
-                                collectionControllerStep1.setIsClicker(false);
-                            }
+                    for (StepLineTableStepController collectionControllerStep1 : collectionControllerStep) {
+                        if (!collectionControllerStep1.getIsClicked()) {
+                            collectionControllerStep1.hideArea();
                         }
+                        collectionControllerStep1.setIsClicker(false);
                     }
+                }
+            }
             );
         }
     }
@@ -821,7 +823,7 @@ public class TableStepScriptCreationController implements Initializable {
 
         } catch (IOException ex) {
             Logger.getLogger(TabTestCaseNewController.class
-                    .getName()).log(Level.SEVERE, null, ex);
+                    .getName()).error("", ex);
         }
     }
 

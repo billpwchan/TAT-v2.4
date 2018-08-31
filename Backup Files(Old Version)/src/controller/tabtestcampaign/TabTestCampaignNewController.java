@@ -18,8 +18,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+import org.apache.log4j.Logger;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -282,7 +282,7 @@ public class TabTestCampaignNewController implements Initializable {
             popUpOpen = true;
 
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseNewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabTestCaseNewController.class.getName()).error("", ex);
         }
     }
 

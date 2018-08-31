@@ -24,8 +24,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Date;
 import java.util.Iterator;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.apache.log4j.Logger;
 import javafx.application.Platform;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -198,8 +197,8 @@ public class ConfigurationDB {
             }
             try {
                 session.save(caseExecution);
-            } catch (Exception e) {
-                Logger.getLogger(TabTestCaseMainViewController.class.getName()).log(Level.SEVERE, null, e);
+            } catch (Exception ex) {
+                Logger.getLogger(TabTestCaseMainViewController.class.getName()).error("Exception in ConfigurationDB: ", ex);
             }
             caseNumber++;
             indexLine++;

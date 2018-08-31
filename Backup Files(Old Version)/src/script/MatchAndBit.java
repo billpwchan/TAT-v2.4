@@ -21,8 +21,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+import org.apache.log4j.Logger;
 import org.apache.poi.util.IOUtils;
 import org.opencv.core.Core;
 import org.opencv.core.CvType;
@@ -180,9 +180,9 @@ public class MatchAndBit implements InterfaceScript {
             System.load(temp.getAbsolutePath());
             System.out.println("String loaded");
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(MatchAndBit.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MatchAndBit.class.getName()).error("", ex);
         } catch (IOException ex) {
-            Logger.getLogger(MatchAndBit.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MatchAndBit.class.getName()).error("", ex);
         }
     }
 

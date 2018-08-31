@@ -29,8 +29,8 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+import org.apache.log4j.Logger;
 import javafx.beans.property.StringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -266,7 +266,7 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
                     try {
                         this.main.updateBaselineTree();
                     } catch (ParseException ex) {
-                        Logger.getLogger(TabTestCampaignExecutionBaselineCampaignController.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(TabTestCampaignExecutionBaselineCampaignController.class.getName()).error("", ex);
                     }
                     TabTestCampaignExecutionRepositoryBaselineController execController = new TabTestCampaignExecutionRepositoryBaselineController();
                     execController.runCampaign(BaselineName);
@@ -327,7 +327,7 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
                                             // try {
                                             //     numberOfCases = configDB.configureTestCase(baseline, selected, excelFile, range, sheetNumber, numberOfCases, excelCategoryInstantiation, excelLocationInstantiation);
                                             // } catch (Exception ex) {
-                                            //     Logger.getLogger(TabTestCampaignExecutionBaselineCampaignController.class.getName()).log(Level.SEVERE, null, ex);
+                                            //     Logger.getLogger(TabTestCampaignExecutionBaselineCampaignController.class.getName()).error("", ex);
                                             // }
                                         }
 
@@ -341,7 +341,7 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
                                 try {
                                     th.join();
                                 } catch (InterruptedException ex) {
-                                    Logger.getLogger(TabTestCampaignExecutionBaselineCampaignController.class.getName()).log(Level.SEVERE, null, ex);
+                                    Logger.getLogger(TabTestCampaignExecutionBaselineCampaignController.class.getName()).error("", ex);
                                 }
                                 closeAlert(alert);
                                 //this.notificationBaselinCase();
@@ -429,7 +429,7 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
         try {
             this.gridPane.add((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream()), 1, 1, 3, 1);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseNewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabTestCaseNewController.class.getName()).error("", ex);
         }
         controllerTableStep = fxmlLoader.getController();
 
@@ -438,7 +438,7 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
             AnchorPane paneTest = (AnchorPane) fxmlLoader2.load(getClass().getResource("/view/stepcreation/headerTableStep.fxml").openStream());
             this.gridPane.add(paneTest, 1, 0, 3, 1);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseNewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabTestCaseNewController.class.getName()).error("", ex);
         }
         controllerHeaderTableStep = fxmlLoader2.getController();
         controllerHeaderTableStep.init(controllerTableStep);
@@ -830,7 +830,7 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
             try {
                 Files.copy(excelFile.toPath(), pathToCopy);
             } catch (IOException ex) {
-                Logger.getLogger(TabTestCampaignExecutionBaselineCampaignController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(TabTestCampaignExecutionBaselineCampaignController.class.getName()).error("", ex);
             }
         }
     }
@@ -869,7 +869,7 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
             instantiateCase.setX(Main.primaryStage.getX() + Main.primaryStage.getWidth() / 2 - instantiateCase.getWidth() / 2);
             instantiateCase.setY(Main.primaryStage.getY() + Main.primaryStage.getHeight() / 2 - instantiateCase.getHeight() / 2);
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCampaignExecutionBaselineCampaignController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabTestCampaignExecutionBaselineCampaignController.class.getName()).error("", ex);
         }
     }
 

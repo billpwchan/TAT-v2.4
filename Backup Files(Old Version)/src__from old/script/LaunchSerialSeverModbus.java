@@ -189,7 +189,7 @@ public class LaunchSerialSeverModbus {
         try {
             localhost = InetAddress.getByName(ip);
         } catch (UnknownHostException ex) {
-            Logger.getLogger(LaunchTCPServerModbus.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LaunchTCPServerModbus.class.getName()).error("", ex);
         }
         listener.setAddress(localhost);
         listener.setPort(portDeServer);

@@ -12,8 +12,8 @@ import engine.Result;
 //import configuration.ParametersScript;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+import org.apache.log4j.Logger;
 import net.wimpi.modbus.procimg.SimpleProcessImage;
 import net.wimpi.modbus.procimg.SimpleRegister;
 import net.wimpi.modbus.procimg.SimpleInputRegister;
@@ -122,7 +122,7 @@ public class TriggerModbusPointDI implements InterfaceScript {
                         updateInputRegister(instance, register, 0);
                     }
                 } catch (Exception ex) {
-                    Logger.getLogger(TriggerModbusPointDI.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(TriggerModbusPointDI.class.getName()).error("", ex);
                 }
                 break;
             case "AI":
@@ -139,7 +139,7 @@ public class TriggerModbusPointDI implements InterfaceScript {
                 } catch (Exception ex) {
                     System.out.println("Exception caught.");
                     ex.printStackTrace();
-                    Logger.getLogger(TriggerModbusPointDI.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(TriggerModbusPointDI.class.getName()).error("", ex);
                 }
                 break;
             default:

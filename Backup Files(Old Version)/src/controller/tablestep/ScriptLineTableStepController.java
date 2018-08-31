@@ -15,8 +15,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -32,6 +30,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import model.setCursorOnComponent;
+import org.apache.log4j.Logger;
 
 /**
  * FXML Controller class
@@ -187,7 +186,7 @@ public class ScriptLineTableStepController implements Initializable {
             temp = this.scriptControllerAction.getTestStepHasScript();
             System.out.println("TEMP " + temp);
         } catch (NullPointerException ex) {
-            Logger.getLogger(ScriptLineTableStepController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ScriptLineTableStepController.class.getName()).error("", ex);
             return null;
         }
         return temp;
@@ -220,7 +219,7 @@ public class ScriptLineTableStepController implements Initializable {
             temp = this.scriptControllerVerif.getTestStepHasScript();
             System.out.println("TEMP " + temp);
         } catch (NullPointerException ex) {
-            Logger.getLogger(ScriptLineTableStepController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ScriptLineTableStepController.class.getName()).error("", ex);
             return null;
         }
         return temp;
@@ -491,7 +490,7 @@ public class ScriptLineTableStepController implements Initializable {
             }
             scriptControllerAction.init(this);
         } catch (IOException ex) {
-            Logger.getLogger(ScriptLineTableStepController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ScriptLineTableStepController.class.getName()).error("", ex);
             System.out.println(ex);
         }
 
@@ -507,7 +506,7 @@ public class ScriptLineTableStepController implements Initializable {
             }
             scriptControllerVerif.init(this);
         } catch (IOException ex) {
-            Logger.getLogger(ScriptLineTableStepController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ScriptLineTableStepController.class.getName()).error("", ex);
             System.out.println(ex);
         }
     }

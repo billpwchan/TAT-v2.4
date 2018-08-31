@@ -12,8 +12,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+import org.apache.log4j.Logger;
 import javafx.beans.value.ObservableValue;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -74,7 +74,7 @@ public class TabTestCampaignExecutionMainViewController implements Initializable
             repositoryBaselineController = (TabTestCampaignExecutionRepositoryBaselineController) fxmlLoader.getController();
             repositoryBaselineController.init(this);
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCampaignExecutionRepositoryBaselineController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabTestCampaignExecutionRepositoryBaselineController.class.getName()).error("", ex);
         }
         this.tabPaneTestCampaignExecution.setTabClosingPolicy(TabPane.TabClosingPolicy.SELECTED_TAB);
 
@@ -115,7 +115,7 @@ public class TabTestCampaignExecutionMainViewController implements Initializable
                     currentBaselineTab.remove(BaselineCurrent);
                 });
             } catch (IOException ex) {
-                Logger.getLogger(TabTestCaseMainViewController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(TabTestCaseMainViewController.class.getName()).error("", ex);
             }
         } else {
         }
@@ -143,7 +143,7 @@ public class TabTestCampaignExecutionMainViewController implements Initializable
         try {
             editPane = fxmlLoader.load(getClass().getResource("/view/testexecution/ViewResults.fxml").openStream());
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCampaignExecutionMainViewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabTestCampaignExecutionMainViewController.class.getName()).error("", ex);
         }
         view.setContent(editPane);
         viewController = (TabViewResultsController) fxmlLoader.getController();

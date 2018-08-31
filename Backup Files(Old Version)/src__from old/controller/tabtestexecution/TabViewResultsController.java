@@ -288,7 +288,7 @@ public class TabViewResultsController implements Initializable {
         try {
             this.gridPanePopUpCase.add((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream()), 1, 4, 3, 3);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseNewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabTestCaseNewController.class.getName()).error("", ex);
         }
         controllerTableStep = fxmlLoader.getController();
 
@@ -297,7 +297,7 @@ public class TabViewResultsController implements Initializable {
             AnchorPane paneTest = (AnchorPane) fxmlLoader2.load(getClass().getResource("/view/stepcreation/headerTableStep.fxml").openStream());
             this.gridPanePopUpCase.add(paneTest, 1, 3, 3, 1);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseNewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabTestCaseNewController.class.getName()).error("", ex);
         }
         controllerTableStep = fxmlLoader.getController();
         controllerHeader = fxmlLoader2.getController();
@@ -490,7 +490,7 @@ public class TabViewResultsController implements Initializable {
 //            dialogStage.setX(main.getMainController().getPrimaryStage().getX() + main.getMainController().getPrimaryStage().getWidth() / 2 - dialogStage.getWidth() / 2);
 //            dialogStage.setY(main.getMainController().getPrimaryStage().getY() + main.getMainController().getPrimaryStage().getHeight() / 2 - dialogStage.getHeight() / 2);
         } catch (IOException ex) {
-            Logger.getLogger(TabViewResultsController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabViewResultsController.class.getName()).error("", ex);
         }
     }
 

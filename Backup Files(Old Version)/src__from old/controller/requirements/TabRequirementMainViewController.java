@@ -58,7 +58,7 @@ public class TabRequirementMainViewController implements Initializable {
             libraryController = (TabRequirementLibraryController) fxmlLoader.getController();
             libraryController.init(this);
         } catch (IOException ex) {
-            Logger.getLogger(TabRequirementMainViewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabRequirementMainViewController.class.getName()).error("", ex);
         }
 
         this.tabPaneRequirement.setTabClosingPolicy(TabPane.TabClosingPolicy.SELECTED_TAB);
@@ -77,7 +77,7 @@ public class TabRequirementMainViewController implements Initializable {
             AnchorPane addPane = fxmlLoader.load(getClass().getResource("/view/requirements/TabRequirementCreation.fxml").openStream());
             newRequirement.setContent(addPane);
         } catch (IOException ex) {
-            Logger.getLogger(TabRequirementMainViewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabRequirementMainViewController.class.getName()).error("", ex);
         }
         newController = (TabRequirementCreationController) fxmlLoader.getController();
         newController.init(this);

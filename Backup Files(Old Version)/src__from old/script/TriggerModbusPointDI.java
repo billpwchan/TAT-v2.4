@@ -103,7 +103,7 @@ public class TriggerModbusPointDI implements InterfaceScript {
                     SimpleProcessImage instance = LaunchTCPServerModbus.getInstance();
                     updateHoldingRegister(instance, register, value);
                 } catch (Exception ex) {
-                    Logger.getLogger(TriggerModbusPointDI.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(TriggerModbusPointDI.class.getName()).error("", ex);
                 }
                 break;
             case "AI":
@@ -114,7 +114,7 @@ public class TriggerModbusPointDI implements InterfaceScript {
                 } catch (Exception ex) {
                     System.out.println("Exception caught.");
                     ex.printStackTrace();
-                    Logger.getLogger(TriggerModbusPointDI.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(TriggerModbusPointDI.class.getName()).error("", ex);
                 }
                 break;
             default:

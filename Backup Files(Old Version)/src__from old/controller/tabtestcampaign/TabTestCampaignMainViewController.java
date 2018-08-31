@@ -72,7 +72,7 @@ public class TabTestCampaignMainViewController implements Initializable {
             RepositoryController = (TabTestCampaignRepositoryController) fxmlLoader.getController();
             RepositoryController.init(this);
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCampaignMainViewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabTestCampaignMainViewController.class.getName()).error("", ex);
         }
         this.tabPaneTestCampaign.setTabClosingPolicy(TabPane.TabClosingPolicy.SELECTED_TAB);
 
@@ -99,7 +99,7 @@ public class TabTestCampaignMainViewController implements Initializable {
      * Method to open a tab in order to create a new campaign
      */
     public void displayNewTestCampaign() {
-        //Logger.getLogger(TabTestCaseMainViewController.class.getName()).log(Level.SEVERE, null, ex);
+        //Logger.getLogger(TabTestCaseMainViewController.class.getName()).error("", ex);
         
         Tab newTestCampaign = new Tab("New Campaign");
         //System.out.println("HEERERERE");
@@ -168,7 +168,7 @@ public class TabTestCampaignMainViewController implements Initializable {
                     currentViewTab.remove(viewCurrent);
                 });
             } catch (IOException ex) {
-                //Logger.getLogger(TabTestCaseMainViewController.class.getName()).log(Level.SEVERE, null, ex);
+                //Logger.getLogger(TabTestCaseMainViewController.class.getName()).error("", ex);
             }
         }
     }

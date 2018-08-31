@@ -12,8 +12,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+import org.apache.log4j.Logger;
 import java.util.HashSet;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -192,7 +192,7 @@ public class ScriptLineTableMacroController implements Initializable {
         try {
             anchorAction = fxmlLoader.load();
         } catch (IOException ex) {
-            Logger.getLogger(ScriptLineTableMacroController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ScriptLineTableMacroController.class.getName()).error("", ex);
         }
         this.gridPaneScript.add(anchorAction, 2, 0, 1, 1);
         scriptControllerAction.init(this);

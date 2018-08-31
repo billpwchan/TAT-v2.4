@@ -180,9 +180,9 @@ public class MatchAndBit implements InterfaceScript {
             System.load(temp.getAbsolutePath());
             System.out.println("String loaded");
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(MatchAndBit.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MatchAndBit.class.getName()).error("", ex);
         } catch (IOException ex) {
-            Logger.getLogger(MatchAndBit.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MatchAndBit.class.getName()).error("", ex);
         }
     }
 

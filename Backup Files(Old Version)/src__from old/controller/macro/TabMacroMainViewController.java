@@ -62,7 +62,7 @@ public class TabMacroMainViewController implements Initializable {
             libraryController = (TabMacroLibraryController) fxmlLoader.getController();
             libraryController.init(this);
         } catch (IOException ex) {
-            Logger.getLogger(TabRequirementMainViewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabRequirementMainViewController.class.getName()).error("", ex);
         }
 
         this.tabPaneMacro.setTabClosingPolicy(TabPane.TabClosingPolicy.SELECTED_TAB);
@@ -80,7 +80,7 @@ public class TabMacroMainViewController implements Initializable {
             AnchorPane addPane = fxmlLoader.load(getClass().getResource("/view/macro/TabMacroNew.fxml").openStream());
             viewMacro.setContent(addPane);
         } catch (IOException ex) {
-            Logger.getLogger(TabMacroMainViewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabMacroMainViewController.class.getName()).error("", ex);
         }
         viewMacroController = (TabMacroNewController) fxmlLoader.getController();
         viewMacroController.init(this);
@@ -98,7 +98,7 @@ public class TabMacroMainViewController implements Initializable {
             AnchorPane addPane = fxmlLoader.load(getClass().getResource("/view/macro/TabMacroNew.fxml").openStream());
             newMacro.setContent(addPane);
         } catch (IOException ex) {
-            Logger.getLogger(TabMacroMainViewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabMacroMainViewController.class.getName()).error("", ex);
         }
         newMacroController = (TabMacroNewController) fxmlLoader.getController();
         newMacroController.init(this);

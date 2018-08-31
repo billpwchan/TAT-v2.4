@@ -32,8 +32,8 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+import org.apache.log4j.Logger;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -158,7 +158,7 @@ public class TATFrameController implements Initializable {
             mainControllerRequirement = (TabRequirementMainViewController) fxmlLoaderRequirement.getController();
             mainControllerRequirement.init(this);
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseMainViewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabTestCaseMainViewController.class.getName()).error("", ex);
         }
 
         try {
@@ -174,7 +174,7 @@ public class TATFrameController implements Initializable {
             mainControllerScript = (TabScriptsMainViewController) fxmlLoaderScript.getController();
             mainControllerScript.init(this);
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseMainViewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabTestCaseMainViewController.class.getName()).error("", ex);
         }
 
         try {
@@ -190,7 +190,7 @@ public class TATFrameController implements Initializable {
             mainControllerMacro = (TabMacroMainViewController) fxmlLoaderMacro.getController();
             mainControllerMacro.init(this);
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseMainViewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabTestCaseMainViewController.class.getName()).error("", ex);
         }
 
         try {
@@ -206,7 +206,7 @@ public class TATFrameController implements Initializable {
             mainControllerCase = (TabTestCaseMainViewController) fxmlLoaderTestCase.getController();
             mainControllerCase.init(this);
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseMainViewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabTestCaseMainViewController.class.getName()).error("", ex);
         }
 
         try {
@@ -222,7 +222,7 @@ public class TATFrameController implements Initializable {
             mainControllerCampaign = (TabTestCampaignMainViewController) fxmlLoader2.getController();
             mainControllerCampaign.init(this);
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseMainViewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabTestCaseMainViewController.class.getName()).error("", ex);
         }
 
         try {
@@ -238,7 +238,7 @@ public class TATFrameController implements Initializable {
             mainControllerCampaignExecution = (TabTestCampaignExecutionMainViewController) fxmlLoaderExecution.getController();
             mainControllerCampaignExecution.init(this);
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseMainViewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabTestCaseMainViewController.class.getName()).error("", ex);
         }
 
         this.tabImgAndStyleInit();
@@ -297,7 +297,7 @@ public class TATFrameController implements Initializable {
                     mainControllerCampaign.updateRepository();
                     mainControllerCampaignExecution.updateBaselineTree();
                 } catch (ParseException ex) {
-                    Logger.getLogger(TATFrameController.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(TATFrameController.class.getName()).error("", ex);
                 }
 
             }
@@ -360,7 +360,7 @@ public class TATFrameController implements Initializable {
             controller.constructInformation();
         } catch (IOException ex) {
             Logger.getLogger(PopUpWizardScriptController.class
-                    .getName()).log(Level.SEVERE, null, ex);
+                    .getName()).error("", ex);
         }
         popUpSettingsStage = new Stage();
         popUpSettingsStage.setTitle("TAT Settings");
@@ -518,13 +518,13 @@ public class TATFrameController implements Initializable {
                                 }
                             }
                         } catch (IOException ex) {
-                            Logger.getLogger(TATFrameController.class.getName()).log(Level.SEVERE, null, ex);
+                            Logger.getLogger(TATFrameController.class.getName()).error("", ex);
                         }
                     }
                 }
             }
         } catch (IOException ex) {
-            Logger.getLogger(TATFrameController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TATFrameController.class.getName()).error("", ex);
         }
     }
 

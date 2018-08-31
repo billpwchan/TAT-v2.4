@@ -15,8 +15,8 @@ import controller.tabtestcase.TabTestCaseLibraryController;
 import controller.util.CommonFunctions;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+import org.apache.log4j.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -95,7 +95,7 @@ public class TabTestCampaignRepositoryController implements Initializable {
             //Fill the observable list of test campaign with all the campaign get from the DB
             observableListTestCampaign.setAll(testCampaignHandler.getAllCampaigns());
         } catch (Exception ex) {
-            Logger.getLogger(TabTestCaseLibraryController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabTestCaseLibraryController.class.getName()).error("", ex);
         }
 
         FilteredList<TestCampaign> filteredData = new FilteredList<>(observableListTestCampaign, p -> true);

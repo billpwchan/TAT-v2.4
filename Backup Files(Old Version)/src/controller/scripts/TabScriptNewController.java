@@ -30,8 +30,8 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+import org.apache.log4j.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -192,7 +192,7 @@ public class TabScriptNewController implements Initializable {
 
         } catch (IOException ex) {
             Logger.getLogger(TabTestCaseNewController.class
-                    .getName()).log(Level.SEVERE, null, ex);
+                    .getName()).error("", ex);
         }
         controllerTableParam = fxmlLoader.getController();
         FXMLLoader fxmlLoader2 = new FXMLLoader();
@@ -202,7 +202,7 @@ public class TabScriptNewController implements Initializable {
 
         } catch (IOException ex) {
             Logger.getLogger(TabTestCaseNewController.class
-                    .getName()).log(Level.SEVERE, null, ex);
+                    .getName()).error("", ex);
         }
 
     }
@@ -222,7 +222,7 @@ public class TabScriptNewController implements Initializable {
             try {
                 this.validScriptCreation();
             } catch (ParseException ex) {
-                Logger.getLogger(TabScriptNewController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(TabScriptNewController.class.getName()).error("", ex);
             }
         });
 
@@ -318,7 +318,7 @@ public class TabScriptNewController implements Initializable {
             }
         } catch (IOException ex) {
             Logger.getLogger(TabScriptNewController.class
-                    .getName()).log(Level.SEVERE, null, ex);
+                    .getName()).error("", ex);
         }
         return result;
     }
@@ -335,7 +335,7 @@ public class TabScriptNewController implements Initializable {
 
                 } catch (ClassNotFoundException | MalformedURLException ex) {
                     Logger.getLogger(TabScriptNewController.class
-                            .getName()).log(Level.SEVERE, null, ex);
+                            .getName()).error("", ex);
                 }
             }
 
@@ -347,7 +347,7 @@ public class TabScriptNewController implements Initializable {
 
         } catch (NoSuchMethodException | SecurityException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
             Logger.getLogger(TabScriptNewController.class
-                    .getName()).log(Level.SEVERE, null, ex);
+                    .getName()).error("", ex);
         }
         return params;
     }
@@ -364,7 +364,7 @@ public class TabScriptNewController implements Initializable {
 
                 } catch (ClassNotFoundException | MalformedURLException ex) {
                     Logger.getLogger(TabScriptNewController.class
-                            .getName()).log(Level.SEVERE, null, ex);
+                            .getName()).error("", ex);
                 }
             }
 
@@ -377,7 +377,7 @@ public class TabScriptNewController implements Initializable {
 
         } catch (NoSuchMethodException | SecurityException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
             Logger.getLogger(TabScriptNewController.class
-                    .getName()).log(Level.SEVERE, null, ex);
+                    .getName()).error("", ex);
         }
         return script;
     }
@@ -417,7 +417,7 @@ public class TabScriptNewController implements Initializable {
 
                     } catch (IOException ex) {
                         Logger.getLogger(TabScriptNewController.class
-                                .getName()).log(Level.SEVERE, null, ex);
+                                .getName()).error("", ex);
                     }
                     scriptInfo(this.getScriptInfos());
                     params = getParams();
@@ -434,7 +434,7 @@ public class TabScriptNewController implements Initializable {
             }
         } catch (InterruptedException ex) {
             Logger.getLogger(TabScriptNewController.class
-                    .getName()).log(Level.SEVERE, null, ex);
+                    .getName()).error("", ex);
         }
     }
 
@@ -458,7 +458,7 @@ public class TabScriptNewController implements Initializable {
 
             //this.gridPaneLabelScriptNew.add(paneTest, 5, 0, 1, 1);
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseNewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabTestCaseNewController.class.getName()).error("", ex);
         }
 
         try {
@@ -498,7 +498,7 @@ public class TabScriptNewController implements Initializable {
 //
 //            //this.gridPaneLabelScriptNew.add(paneTest, 5, 0, 1, 1);
 //        } catch (IOException ex) {
-//            Logger.getLogger(TabTestCaseNewController.class.getName()).log(Level.SEVERE, null, ex);
+//            Logger.getLogger(TabTestCaseNewController.class.getName()).error("", ex);
 //        }
 //
 //        try {

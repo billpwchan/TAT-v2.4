@@ -13,8 +13,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+import org.apache.log4j.Logger;
 import javafx.application.Platform;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -636,7 +636,7 @@ public class StepLineTableStepController implements Initializable {
                 scrollBarverif = (ScrollBar) textAreaVerif.lookup(".scroll-bar:vertical");
                 Thread.sleep(2000);     //Not sure the reason why needs to stop for 2 seconds.
             } catch (InterruptedException ex) {
-                Logger.getLogger(StepLineTableStepController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(StepLineTableStepController.class.getName()).error("", ex);
             }
         }
         scrollBarv.setOpacity(0.0);

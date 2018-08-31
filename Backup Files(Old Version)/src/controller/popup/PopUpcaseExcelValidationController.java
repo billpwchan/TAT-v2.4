@@ -10,8 +10,8 @@ import controller.tabtestexecution.TabTestCampaignExecutionRepositoryBaselineCon
 import java.net.URL;
 import java.text.ParseException;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+import org.apache.log4j.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;

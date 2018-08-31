@@ -176,7 +176,7 @@ public class TabScriptsLibraryController implements Initializable {
         try {
             this.gridPaneMacroLibrary.add((AnchorPane) fxmlLoader.load(getClass().getResource("/view/scriptmanagement/tableScriptCreation.fxml").openStream()), 0, 2, 1, 1);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseNewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabTestCaseNewController.class.getName()).error("", ex);
         }
         tableParamController = fxmlLoader.getController();
 
@@ -186,7 +186,7 @@ public class TabScriptsLibraryController implements Initializable {
             AnchorPane paneTest = (AnchorPane) fxmlLoader2.load(getClass().getResource("/view/scriptmanagement/headerParameters.fxml").openStream());
             this.gridPaneMacroLibrary.add(paneTest, 0, 1, 1, 1);
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseNewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabTestCaseNewController.class.getName()).error("", ex);
         }
     }
 

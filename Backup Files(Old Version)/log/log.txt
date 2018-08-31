@@ -1,42 +1,5 @@
-Logging Provider: org.jboss.logging.Log4jLoggerProvider
-HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
-MLog clients using log4j logging.
-Initializing c3p0-0.9.2.1 [built 20-March-2013 10:47:27 +0000; debug? true; trace: 10]
-MBean: com.mchange.v2.c3p0:type=PooledDataSource,identityToken=1hge9g29x1278yza1ung5yt|2c9e0145,name=1hge9g29x1278yza1ung5yt|2c9e0145 registered.
-MBean: com.mchange.v2.c3p0:type=PooledDataSource,identityToken=1hge9g29x1278yza1ung5yt|2c9e0145,name=1hge9g29x1278yza1ung5yt|2c9e0145 unregistered, in order to be reregistered after update.
-MBean: com.mchange.v2.c3p0:type=PooledDataSource,identityToken=1hge9g29x1278yza1ung5yt|2c9e0145,name=1hge9g29x1278yza1ung5yt|2c9e0145 registered.
-Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@146033c7 [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@a829e019 [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge9g29x1278yza1ung5yt|4125458d, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@b640636d [ description -> null, driverClass -> null, factoryClassLocation -> null, identityToken -> 1hge9g29x1278yza1ung5yt|5d283d2e, jdbcUrl -> jdbc:sqlite:mydb.db, properties -> {user=******, password=******} ], preferredTestQuery -> null, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, factoryClassLocation -> null, identityToken -> 1hge9g29x1278yza1ung5yt|2c9e0145, numHelperThreads -> 3 ]
-incremented pending_acquires: 1
-Starting acquisition series. Incremented pending_acquires [1],  attempts_remaining: 30
-com.mchange.v2.async.ThreadPoolAsynchronousRunner@57eed154: Adding task to queue -- com.mchange.v2.resourcepool.BasicResourcePool$ScatteredAcquireTask@45c32b28
-incremented pending_acquires: 2
-Starting acquisition series. Incremented pending_acquires [2],  attempts_remaining: 30
-com.mchange.v2.async.ThreadPoolAsynchronousRunner@57eed154: Adding task to queue -- com.mchange.v2.resourcepool.BasicResourcePool$ScatteredAcquireTask@1d313c47
-incremented pending_acquires: 3
-Starting acquisition series. Incremented pending_acquires [3],  attempts_remaining: 30
-com.mchange.v2.async.ThreadPoolAsynchronousRunner@57eed154: Adding task to queue -- com.mchange.v2.resourcepool.BasicResourcePool$ScatteredAcquireTask@42459095
-com.mchange.v2.resourcepool.BasicResourcePool@63008df8 config: [start -> 3; min -> 3; max -> 15; inc -> 3; num_acq_attempts -> 30; acq_attempt_delay -> 1000; check_idle_resources_delay -> 0; mox_resource_age -> 0; max_idle_time -> 0; excess_max_idle_time -> 0; destroy_unreturned_resc_time -> 0; expiration_enforcement_delay -> 0; break_on_acquisition_failure -> false; debug_store_checkout_exceptions -> false]
-Created new pool for auth, username (masked): ''.
-acquire test -- pool size: 0; target_pool_size: 3; desired target? 1
-awaitAvailable(): [unknown]
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 0, unused: 0, excluded: 0]
-com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@1c4f23a8.acquireResource() returning. 
-com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@1c4f23a8.acquireResource() returning. 
-com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@1c4f23a8.acquireResource() returning. 
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 1, unused: 1, excluded: 0]
-decremented pending_acquires: 2
-Acquisition series terminated successfully. Decremented pending_acquires [2],  attempts_remaining: 30
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 2, unused: 1, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-decremented pending_acquires: 1
-Acquisition series terminated successfully. Decremented pending_acquires [1],  attempts_remaining: 30
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-decremented pending_acquires: 0
-Acquisition series terminated successfully. Decremented pending_acquires [0],  attempts_remaining: 30
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-com.mchange.v2.async.ThreadPoolAsynchronousRunner@57eed154: Adding task to queue -- com.mchange.v2.resourcepool.BasicResourcePool$1RefurbishCheckinResourceTask@211f5a6e
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-HHH000299: Could not complete schema update
+2018-08-31 10:35:16 | JavaFX Application Thread | DEBUG | org.jboss.logging : Logging Provider: org.jboss.logging.Log4jLoggerProvider
+2018-08-31 10:35:17 | JavaFX Application Thread | ERROR | org.hibernate.tool.hbm2ddl.SchemaUpdate : HHH000299: Could not complete schema update
 java.lang.UnsupportedOperationException: No add column syntax supported by org.hibernate.dialect.SQLiteDialect
 	at org.hibernate.dialect.Dialect.getAddColumnString(Dialect.java:2024)
 	at org.hibernate.mapping.Table.sqlAlterStrings(Table.java:389)
@@ -68,213 +31,517 @@ java.lang.UnsupportedOperationException: No add column syntax supported by org.h
 	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
 	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
 	at java.lang.Thread.run(Thread.java:748)
-com.mchange.v2.async.ThreadPoolAsynchronousRunner@57eed154: Adding task to queue -- com.mchange.v2.resourcepool.BasicResourcePool$1RefurbishCheckinResourceTask@438ee5a3
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-com.mchange.v2.async.ThreadPoolAsynchronousRunner@57eed154: Adding task to queue -- com.mchange.v2.resourcepool.BasicResourcePool$1RefurbishCheckinResourceTask@582d0212
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-com.mchange.v2.async.ThreadPoolAsynchronousRunner@57eed154: Adding task to queue -- com.mchange.v2.resourcepool.BasicResourcePool$1RefurbishCheckinResourceTask@10d470b
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-com.mchange.v2.async.ThreadPoolAsynchronousRunner@57eed154: Adding task to queue -- com.mchange.v2.resourcepool.BasicResourcePool$1RefurbishCheckinResourceTask@1ab94712
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-com.mchange.v2.async.ThreadPoolAsynchronousRunner@57eed154: Adding task to queue -- com.mchange.v2.resourcepool.BasicResourcePool$1RefurbishCheckinResourceTask@2fb0a087
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-com.mchange.v2.async.ThreadPoolAsynchronousRunner@57eed154: Adding task to queue -- com.mchange.v2.resourcepool.BasicResourcePool$1RefurbishCheckinResourceTask@489bf359
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-com.mchange.v2.async.ThreadPoolAsynchronousRunner@57eed154: Adding task to queue -- com.mchange.v2.resourcepool.BasicResourcePool$1RefurbishCheckinResourceTask@2c76a415
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-com.mchange.v2.async.ThreadPoolAsynchronousRunner@57eed154: Adding task to queue -- com.mchange.v2.resourcepool.BasicResourcePool$1RefurbishCheckinResourceTask@28d814cd
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-com.mchange.v2.async.ThreadPoolAsynchronousRunner@57eed154: Adding task to queue -- com.mchange.v2.resourcepool.BasicResourcePool$1RefurbishCheckinResourceTask@634aced6
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-com.mchange.v2.async.ThreadPoolAsynchronousRunner@57eed154: Adding task to queue -- com.mchange.v2.resourcepool.BasicResourcePool$1RefurbishCheckinResourceTask@61153887
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-com.mchange.v2.async.ThreadPoolAsynchronousRunner@57eed154: Adding task to queue -- com.mchange.v2.resourcepool.BasicResourcePool$1RefurbishCheckinResourceTask@77aaa8d5
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-com.mchange.v2.async.ThreadPoolAsynchronousRunner@57eed154: Adding task to queue -- com.mchange.v2.resourcepool.BasicResourcePool$1RefurbishCheckinResourceTask@62157dc4
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-com.mchange.v2.async.ThreadPoolAsynchronousRunner@57eed154: Adding task to queue -- com.mchange.v2.resourcepool.BasicResourcePool$1RefurbishCheckinResourceTask@73c00a2e
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-com.mchange.v2.async.ThreadPoolAsynchronousRunner@57eed154: Adding task to queue -- com.mchange.v2.resourcepool.BasicResourcePool$1RefurbishCheckinResourceTask@1bacef90
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-com.mchange.v2.async.ThreadPoolAsynchronousRunner@57eed154: Adding task to queue -- com.mchange.v2.resourcepool.BasicResourcePool$1RefurbishCheckinResourceTask@2c952070
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-com.mchange.v2.async.ThreadPoolAsynchronousRunner@57eed154: Adding task to queue -- com.mchange.v2.resourcepool.BasicResourcePool$1RefurbishCheckinResourceTask@2b22a805
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-com.mchange.v2.async.ThreadPoolAsynchronousRunner@57eed154: Adding task to queue -- com.mchange.v2.resourcepool.BasicResourcePool$1RefurbishCheckinResourceTask@337ff7a8
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-com.mchange.v2.async.ThreadPoolAsynchronousRunner@57eed154: Adding task to queue -- com.mchange.v2.resourcepool.BasicResourcePool$1RefurbishCheckinResourceTask@4b0ecf70
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-com.mchange.v2.async.ThreadPoolAsynchronousRunner@57eed154: Adding task to queue -- com.mchange.v2.resourcepool.BasicResourcePool$1RefurbishCheckinResourceTask@73b093c2
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-com.mchange.v2.async.ThreadPoolAsynchronousRunner@57eed154: Adding task to queue -- com.mchange.v2.resourcepool.BasicResourcePool$1RefurbishCheckinResourceTask@24fb20e6
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-com.mchange.v2.async.ThreadPoolAsynchronousRunner@57eed154: Adding task to queue -- com.mchange.v2.resourcepool.BasicResourcePool$1RefurbishCheckinResourceTask@75e94d01
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-com.mchange.v2.async.ThreadPoolAsynchronousRunner@57eed154: Adding task to queue -- com.mchange.v2.resourcepool.BasicResourcePool$1RefurbishCheckinResourceTask@882e968
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-com.mchange.v2.async.ThreadPoolAsynchronousRunner@57eed154: Adding task to queue -- com.mchange.v2.resourcepool.BasicResourcePool$1RefurbishCheckinResourceTask@49e86ef6
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-com.mchange.v2.async.ThreadPoolAsynchronousRunner@57eed154: Adding task to queue -- com.mchange.v2.resourcepool.BasicResourcePool$1RefurbishCheckinResourceTask@5b375d5f
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-com.mchange.v2.async.ThreadPoolAsynchronousRunner@57eed154: Adding task to queue -- com.mchange.v2.resourcepool.BasicResourcePool$1RefurbishCheckinResourceTask@48186ca0
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-com.mchange.v2.async.ThreadPoolAsynchronousRunner@57eed154: Adding task to queue -- com.mchange.v2.resourcepool.BasicResourcePool$1RefurbishCheckinResourceTask@3402cca8
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-com.mchange.v2.async.ThreadPoolAsynchronousRunner@57eed154: Adding task to queue -- com.mchange.v2.resourcepool.BasicResourcePool$1RefurbishCheckinResourceTask@48e267a4
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-com.mchange.v2.async.ThreadPoolAsynchronousRunner@57eed154: Adding task to queue -- com.mchange.v2.resourcepool.BasicResourcePool$1RefurbishCheckinResourceTask@152e170e
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-com.mchange.v2.async.ThreadPoolAsynchronousRunner@57eed154: Adding task to queue -- com.mchange.v2.resourcepool.BasicResourcePool$1RefurbishCheckinResourceTask@75a7d68f
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-com.mchange.v2.async.ThreadPoolAsynchronousRunner@57eed154: Adding task to queue -- com.mchange.v2.resourcepool.BasicResourcePool$1RefurbishCheckinResourceTask@74b4c7c8
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-com.mchange.v2.async.ThreadPoolAsynchronousRunner@57eed154: Adding task to queue -- com.mchange.v2.resourcepool.BasicResourcePool$1RefurbishCheckinResourceTask@3e6aefe
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-com.mchange.v2.async.ThreadPoolAsynchronousRunner@57eed154: Adding task to queue -- com.mchange.v2.resourcepool.BasicResourcePool$1RefurbishCheckinResourceTask@1c31ec90
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-com.mchange.v2.async.ThreadPoolAsynchronousRunner@57eed154: Adding task to queue -- com.mchange.v2.resourcepool.BasicResourcePool$1RefurbishCheckinResourceTask@53561846
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-com.mchange.v2.async.ThreadPoolAsynchronousRunner@57eed154: Adding task to queue -- com.mchange.v2.resourcepool.BasicResourcePool$1RefurbishCheckinResourceTask@39e4169
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-com.mchange.v2.async.ThreadPoolAsynchronousRunner@57eed154: Adding task to queue -- com.mchange.v2.resourcepool.BasicResourcePool$1RefurbishCheckinResourceTask@37cf64c8
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-com.mchange.v2.async.ThreadPoolAsynchronousRunner@57eed154: Adding task to queue -- com.mchange.v2.resourcepool.BasicResourcePool$1RefurbishCheckinResourceTask@f58eeff
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-com.mchange.v2.async.ThreadPoolAsynchronousRunner@57eed154: Adding task to queue -- com.mchange.v2.resourcepool.BasicResourcePool$1RefurbishCheckinResourceTask@6176cff9
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-com.mchange.v2.async.ThreadPoolAsynchronousRunner@57eed154: Adding task to queue -- com.mchange.v2.resourcepool.BasicResourcePool$1RefurbishCheckinResourceTask@6cd2565
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-com.mchange.v2.async.ThreadPoolAsynchronousRunner@57eed154: Adding task to queue -- com.mchange.v2.resourcepool.BasicResourcePool$1RefurbishCheckinResourceTask@54b9d1d7
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-com.mchange.v2.async.ThreadPoolAsynchronousRunner@57eed154: Adding task to queue -- com.mchange.v2.resourcepool.BasicResourcePool$1RefurbishCheckinResourceTask@96bdadb
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-com.mchange.v2.async.ThreadPoolAsynchronousRunner@57eed154: Adding task to queue -- com.mchange.v2.resourcepool.BasicResourcePool$1RefurbishCheckinResourceTask@326ae282
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-com.mchange.v2.async.ThreadPoolAsynchronousRunner@57eed154: Adding task to queue -- com.mchange.v2.resourcepool.BasicResourcePool$1RefurbishCheckinResourceTask@5969985d
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-com.mchange.v2.async.ThreadPoolAsynchronousRunner@57eed154: Adding task to queue -- com.mchange.v2.resourcepool.BasicResourcePool$1RefurbishCheckinResourceTask@4e9ad414
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-com.mchange.v2.async.ThreadPoolAsynchronousRunner@57eed154: Adding task to queue -- com.mchange.v2.resourcepool.BasicResourcePool$1RefurbishCheckinResourceTask@3b5617c7
-trace com.mchange.v2.resourcepool.BasicResourcePool@63008df8 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6)
-The mbean com.mchange.v2.c3p0:type=PooledDataSource,identityToken=1hge9g29x1278yza1ung5yt|2c9e0145 was not found in the registry, so could not be unregistered.
-C3P0Registry mbean unregistered.
-com.mchange.v2.c3p0.PoolBackedDataSource@2c9e0145 has been closed. 
-java.lang.Exception: DEBUG STACK TRACE for PoolBackedDataSource.close().
-	at com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.close(AbstractPoolBackedDataSource.java:477)
-	at com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.close(AbstractPoolBackedDataSource.java:489)
-	at com.mchange.v2.c3p0.DataSources.destroy(DataSources.java:372)
-	at com.mchange.v2.c3p0.DataSources.destroy(DataSources.java:348)
-	at org.hibernate.c3p0.internal.C3P0ConnectionProvider.stop(C3P0ConnectionProvider.java:258)
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.stopService(AbstractServiceRegistryImpl.java:331)
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.destroy(AbstractServiceRegistryImpl.java:319)
-	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.destroy(StandardServiceRegistryImpl.java:95)
-	at org.hibernate.cfg.Configuration$2.sessionFactoryClosed(Configuration.java:1924)
-	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryClosed(SessionFactoryObserverChain.java:65)
-	at org.hibernate.internal.SessionFactoryImpl.close(SessionFactoryImpl.java:1375)
-	at main.Main.lambda$start$2(Main.java:158)
-	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
-	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:238)
-	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191)
-	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
-	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
-	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
-	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
-	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
-	at javafx.event.Event.fireEvent(Event.java:198)
-	at com.sun.javafx.stage.WindowPeerListener.closing(WindowPeerListener.java:88)
-	at com.sun.javafx.tk.quantum.GlassWindowEventHandler.run(GlassWindowEventHandler.java:122)
-	at com.sun.javafx.tk.quantum.GlassWindowEventHandler.run(GlassWindowEventHandler.java:40)
+2018-08-31 10:42:44 | Configuration.java |  | DEBUG | org.jboss.logging : Logging Provider: org.jboss.logging.Log4jLoggerProvider
+2018-08-31 10:42:46 | SchemaUpdate.java |  | ERROR | org.hibernate.tool.hbm2ddl.SchemaUpdate : HHH000299: Could not complete schema update
+java.lang.UnsupportedOperationException: No add column syntax supported by org.hibernate.dialect.SQLiteDialect
+	at org.hibernate.dialect.Dialect.getAddColumnString(Dialect.java:2024)
+	at org.hibernate.mapping.Table.sqlAlterStrings(Table.java:389)
+	at org.hibernate.cfg.Configuration.generateSchemaUpdateScriptList(Configuration.java:1209)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:212)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:178)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:521)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1857)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1928)
+	at DBcontroller.sessionFactorySingleton.<init>(sessionFactorySingleton.java:24)
+	at DBcontroller.sessionFactorySingleton.getInstance(sessionFactorySingleton.java:39)
+	at DBcontroller.RequirementDB.getAllRequirement(RequirementDB.java:37)
+	at controller.requirements.TabRequirementLibraryController.initialize(TabRequirementLibraryController.java:76)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2425)
+	at controller.requirements.TabRequirementMainViewController.initialize(TabRequirementMainViewController.java:56)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2425)
+	at controller.TATFrameController.initialize(TATFrameController.java:156)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2425)
+	at main.Main.start(Main.java:131)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
 	at java.security.AccessController.doPrivileged(Native Method)
-	at com.sun.javafx.tk.quantum.GlassWindowEventHandler.lambda$handleWindowEvent$422(GlassWindowEventHandler.java:151)
-	at com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:389)
-	at com.sun.javafx.tk.quantum.GlassWindowEventHandler.handleWindowEvent(GlassWindowEventHandler.java:149)
-	at com.sun.glass.ui.Window.handleWindowEvent(Window.java:1270)
-	at com.sun.glass.ui.Window.notifyClose(Window.java:1174)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
 	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
 	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
 	at java.lang.Thread.run(Thread.java:748)
-Preparing to destroy resource: com.mchange.v2.c3p0.impl.NewPooledConnection@2d22d13a
-Preparing to destroy PooledConnection: com.mchange.v2.c3p0.impl.NewPooledConnection@2d22d13a
-com.mchange.v2.c3p0.impl.NewPooledConnection@2d22d13a closed by a client.
-java.lang.Exception: DEBUG -- CLOSE BY CLIENT STACK TRACE
-	at com.mchange.v2.c3p0.impl.NewPooledConnection.close(NewPooledConnection.java:646)
-	at com.mchange.v2.c3p0.impl.NewPooledConnection.closeMaybeCheckedOut(NewPooledConnection.java:259)
-	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.destroyResource(C3P0PooledConnectionPool.java:619)
-	at com.mchange.v2.resourcepool.BasicResourcePool$1DestroyResourceTask.run(BasicResourcePool.java:1024)
-	at com.mchange.v2.resourcepool.BasicResourcePool.destroyResource(BasicResourcePool.java:1049)
-	at com.mchange.v2.resourcepool.BasicResourcePool.destroyResource(BasicResourcePool.java:1010)
-	at com.mchange.v2.resourcepool.BasicResourcePool.access$100(BasicResourcePool.java:44)
-	at com.mchange.v2.resourcepool.BasicResourcePool$5.run(BasicResourcePool.java:1260)
-Successfully destroyed PooledConnection: com.mchange.v2.c3p0.impl.NewPooledConnection@2d22d13a
-Successfully destroyed resource: com.mchange.v2.c3p0.impl.NewPooledConnection@2d22d13a
-Preparing to destroy resource: com.mchange.v2.c3p0.impl.NewPooledConnection@c2330e2
-Preparing to destroy PooledConnection: com.mchange.v2.c3p0.impl.NewPooledConnection@c2330e2
-com.mchange.v2.c3p0.impl.NewPooledConnection@c2330e2 closed by a client.
-java.lang.Exception: DEBUG -- CLOSE BY CLIENT STACK TRACE
-	at com.mchange.v2.c3p0.impl.NewPooledConnection.close(NewPooledConnection.java:646)
-	at com.mchange.v2.c3p0.impl.NewPooledConnection.closeMaybeCheckedOut(NewPooledConnection.java:259)
-	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.destroyResource(C3P0PooledConnectionPool.java:619)
-	at com.mchange.v2.resourcepool.BasicResourcePool$1DestroyResourceTask.run(BasicResourcePool.java:1024)
-	at com.mchange.v2.resourcepool.BasicResourcePool.destroyResource(BasicResourcePool.java:1049)
-	at com.mchange.v2.resourcepool.BasicResourcePool.destroyResource(BasicResourcePool.java:1010)
-	at com.mchange.v2.resourcepool.BasicResourcePool.access$100(BasicResourcePool.java:44)
-	at com.mchange.v2.resourcepool.BasicResourcePool$5.run(BasicResourcePool.java:1260)
-Successfully destroyed PooledConnection: com.mchange.v2.c3p0.impl.NewPooledConnection@c2330e2
-Successfully destroyed resource: com.mchange.v2.c3p0.impl.NewPooledConnection@c2330e2
-Preparing to destroy resource: com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6
-Preparing to destroy PooledConnection: com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6
-com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6 closed by a client.
-java.lang.Exception: DEBUG -- CLOSE BY CLIENT STACK TRACE
-	at com.mchange.v2.c3p0.impl.NewPooledConnection.close(NewPooledConnection.java:646)
-	at com.mchange.v2.c3p0.impl.NewPooledConnection.closeMaybeCheckedOut(NewPooledConnection.java:259)
-	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.destroyResource(C3P0PooledConnectionPool.java:619)
-	at com.mchange.v2.resourcepool.BasicResourcePool$1DestroyResourceTask.run(BasicResourcePool.java:1024)
-	at com.mchange.v2.resourcepool.BasicResourcePool.destroyResource(BasicResourcePool.java:1049)
-	at com.mchange.v2.resourcepool.BasicResourcePool.destroyResource(BasicResourcePool.java:1010)
-	at com.mchange.v2.resourcepool.BasicResourcePool.access$100(BasicResourcePool.java:44)
-	at com.mchange.v2.resourcepool.BasicResourcePool$5.run(BasicResourcePool.java:1260)
-Successfully destroyed PooledConnection: com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6
-Successfully destroyed resource: com.mchange.v2.c3p0.impl.NewPooledConnection@3295a3f6
+2018-08-31 10:43:57 | Configuration.java |  | DEBUG | org.jboss.logging : Logging Provider: org.jboss.logging.Log4jLoggerProvider
+2018-08-31 10:43:58 | SchemaUpdate.java |  | ERROR | org.hibernate.tool.hbm2ddl.SchemaUpdate : HHH000299: Could not complete schema update
+java.lang.UnsupportedOperationException: No add column syntax supported by org.hibernate.dialect.SQLiteDialect
+	at org.hibernate.dialect.Dialect.getAddColumnString(Dialect.java:2024)
+	at org.hibernate.mapping.Table.sqlAlterStrings(Table.java:389)
+	at org.hibernate.cfg.Configuration.generateSchemaUpdateScriptList(Configuration.java:1209)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:212)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:178)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:521)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1857)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1928)
+	at DBcontroller.sessionFactorySingleton.<init>(sessionFactorySingleton.java:24)
+	at DBcontroller.sessionFactorySingleton.getInstance(sessionFactorySingleton.java:39)
+	at DBcontroller.RequirementDB.getAllRequirement(RequirementDB.java:37)
+	at controller.requirements.TabRequirementLibraryController.initialize(TabRequirementLibraryController.java:76)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2425)
+	at controller.requirements.TabRequirementMainViewController.initialize(TabRequirementMainViewController.java:56)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2425)
+	at controller.TATFrameController.initialize(TATFrameController.java:156)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2425)
+	at main.Main.start(Main.java:131)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+2018-08-31 11:01:59 | Configuration.java |  | DEBUG | org.jboss.logging : Logging Provider: org.jboss.logging.Log4jLoggerProvider
+2018-08-31 11:02:01 | SchemaUpdate.java |  | ERROR | org.hibernate.tool.hbm2ddl.SchemaUpdate : HHH000299: Could not complete schema update
+java.lang.UnsupportedOperationException: No add column syntax supported by org.hibernate.dialect.SQLiteDialect
+	at org.hibernate.dialect.Dialect.getAddColumnString(Dialect.java:2024)
+	at org.hibernate.mapping.Table.sqlAlterStrings(Table.java:389)
+	at org.hibernate.cfg.Configuration.generateSchemaUpdateScriptList(Configuration.java:1209)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:212)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:178)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:521)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1857)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1928)
+	at DBcontroller.sessionFactorySingleton.<init>(sessionFactorySingleton.java:24)
+	at DBcontroller.sessionFactorySingleton.getInstance(sessionFactorySingleton.java:39)
+	at DBcontroller.RequirementDB.getAllRequirement(RequirementDB.java:37)
+	at controller.requirements.TabRequirementLibraryController.initialize(TabRequirementLibraryController.java:76)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2425)
+	at controller.requirements.TabRequirementMainViewController.initialize(TabRequirementMainViewController.java:56)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2425)
+	at controller.TATFrameController.initialize(TATFrameController.java:156)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2425)
+	at main.Main.start(Main.java:131)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+2018-08-31 11:16:47 | Configuration.java |  | DEBUG | org.jboss.logging : Logging Provider: org.jboss.logging.Log4jLoggerProvider
+2018-08-31 11:16:49 | SchemaUpdate.java |  | ERROR | org.hibernate.tool.hbm2ddl.SchemaUpdate : HHH000299: Could not complete schema update
+java.lang.UnsupportedOperationException: No add column syntax supported by org.hibernate.dialect.SQLiteDialect
+	at org.hibernate.dialect.Dialect.getAddColumnString(Dialect.java:2024)
+	at org.hibernate.mapping.Table.sqlAlterStrings(Table.java:389)
+	at org.hibernate.cfg.Configuration.generateSchemaUpdateScriptList(Configuration.java:1209)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:212)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:178)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:521)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1857)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1928)
+	at DBcontroller.sessionFactorySingleton.<init>(sessionFactorySingleton.java:24)
+	at DBcontroller.sessionFactorySingleton.getInstance(sessionFactorySingleton.java:39)
+	at DBcontroller.RequirementDB.getAllRequirement(RequirementDB.java:37)
+	at controller.requirements.TabRequirementLibraryController.initialize(TabRequirementLibraryController.java:76)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2425)
+	at controller.requirements.TabRequirementMainViewController.initialize(TabRequirementMainViewController.java:56)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2425)
+	at controller.TATFrameController.initialize(TATFrameController.java:156)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2425)
+	at main.Main.start(Main.java:131)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+2018-08-31 11:18:55 | Configuration.java |  | DEBUG | org.jboss.logging : Logging Provider: org.jboss.logging.Log4jLoggerProvider
+2018-08-31 11:18:57 | SchemaUpdate.java |  | ERROR | org.hibernate.tool.hbm2ddl.SchemaUpdate : HHH000299: Could not complete schema update
+java.lang.UnsupportedOperationException: No add column syntax supported by org.hibernate.dialect.SQLiteDialect
+	at org.hibernate.dialect.Dialect.getAddColumnString(Dialect.java:2024)
+	at org.hibernate.mapping.Table.sqlAlterStrings(Table.java:389)
+	at org.hibernate.cfg.Configuration.generateSchemaUpdateScriptList(Configuration.java:1209)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:212)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:178)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:521)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1857)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1928)
+	at DBcontroller.sessionFactorySingleton.<init>(sessionFactorySingleton.java:24)
+	at DBcontroller.sessionFactorySingleton.getInstance(sessionFactorySingleton.java:39)
+	at DBcontroller.RequirementDB.getAllRequirement(RequirementDB.java:37)
+	at controller.requirements.TabRequirementLibraryController.initialize(TabRequirementLibraryController.java:76)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2425)
+	at controller.requirements.TabRequirementMainViewController.initialize(TabRequirementMainViewController.java:56)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2425)
+	at controller.TATFrameController.initialize(TATFrameController.java:156)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2425)
+	at main.Main.start(Main.java:131)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+2018-08-31 14:15:56 | Configuration.java |  | DEBUG | org.jboss.logging : Logging Provider: org.jboss.logging.Log4jLoggerProvider
+2018-08-31 14:15:58 | SchemaUpdate.java |  | ERROR | org.hibernate.tool.hbm2ddl.SchemaUpdate : HHH000299: Could not complete schema update
+java.lang.UnsupportedOperationException: No add column syntax supported by org.hibernate.dialect.SQLiteDialect
+	at org.hibernate.dialect.Dialect.getAddColumnString(Dialect.java:2024)
+	at org.hibernate.mapping.Table.sqlAlterStrings(Table.java:389)
+	at org.hibernate.cfg.Configuration.generateSchemaUpdateScriptList(Configuration.java:1209)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:212)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:178)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:521)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1857)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1928)
+	at DBcontroller.sessionFactorySingleton.<init>(sessionFactorySingleton.java:24)
+	at DBcontroller.sessionFactorySingleton.getInstance(sessionFactorySingleton.java:39)
+	at DBcontroller.RequirementDB.getAllRequirement(RequirementDB.java:37)
+	at controller.requirements.TabRequirementLibraryController.initialize(TabRequirementLibraryController.java:76)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2425)
+	at controller.requirements.TabRequirementMainViewController.initialize(TabRequirementMainViewController.java:56)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2425)
+	at controller.TATFrameController.initialize(TATFrameController.java:156)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2425)
+	at main.Main.start(Main.java:131)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+2018-08-31 14:19:21 | Engine.java |  | DEBUG | engine.Engine : IN RESULT
+2018-08-31 14:19:21 | Engine.java |  | DEBUG | engine.Engine : OS
+2018-08-31 14:19:21 | Engine.java |  | DEBUG | engine.Engine : Parameters is not null
+2018-08-31 14:27:25 | PopUpRunController.java |  | ERROR | controller.popup.PopUpRunController : 
+java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at engine.Engine.runCheckScript(Engine.java:590)
+	at engine.Engine.run(Engine.java:257)
+	at controller.popup.PopUpRunController$1.call(PopUpRunController.java:266)
+	at controller.popup.PopUpRunController$1.call(PopUpRunController.java:261)
+	at javafx.concurrent.Task$TaskCallable.call(Task.java:1423)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.NullPointerException
+	at script.SearchOccurence.run(SearchOccurence.java:57)
+	... 11 more
+2018-08-31 14:29:53 | Configuration.java |  | DEBUG | org.jboss.logging : Logging Provider: org.jboss.logging.Log4jLoggerProvider
+2018-08-31 14:29:54 | SchemaUpdate.java |  | ERROR | org.hibernate.tool.hbm2ddl.SchemaUpdate : HHH000299: Could not complete schema update
+java.lang.UnsupportedOperationException: No add column syntax supported by org.hibernate.dialect.SQLiteDialect
+	at org.hibernate.dialect.Dialect.getAddColumnString(Dialect.java:2024)
+	at org.hibernate.mapping.Table.sqlAlterStrings(Table.java:389)
+	at org.hibernate.cfg.Configuration.generateSchemaUpdateScriptList(Configuration.java:1209)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:212)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:178)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:521)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1857)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1928)
+	at DBcontroller.sessionFactorySingleton.<init>(sessionFactorySingleton.java:24)
+	at DBcontroller.sessionFactorySingleton.getInstance(sessionFactorySingleton.java:39)
+	at DBcontroller.RequirementDB.getAllRequirement(RequirementDB.java:37)
+	at controller.requirements.TabRequirementLibraryController.initialize(TabRequirementLibraryController.java:76)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2425)
+	at controller.requirements.TabRequirementMainViewController.initialize(TabRequirementMainViewController.java:56)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2425)
+	at controller.TATFrameController.initialize(TATFrameController.java:156)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2425)
+	at main.Main.start(Main.java:131)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+2018-08-31 15:02:17 | Configuration.java |  | DEBUG | org.jboss.logging : Logging Provider: org.jboss.logging.Log4jLoggerProvider
+2018-08-31 15:02:19 | SchemaUpdate.java |  | ERROR | org.hibernate.tool.hbm2ddl.SchemaUpdate : HHH000299: Could not complete schema update
+java.lang.UnsupportedOperationException: No add column syntax supported by org.hibernate.dialect.SQLiteDialect
+	at org.hibernate.dialect.Dialect.getAddColumnString(Dialect.java:2024)
+	at org.hibernate.mapping.Table.sqlAlterStrings(Table.java:389)
+	at org.hibernate.cfg.Configuration.generateSchemaUpdateScriptList(Configuration.java:1209)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:212)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:178)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:521)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1857)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1928)
+	at DBcontroller.sessionFactorySingleton.<init>(sessionFactorySingleton.java:24)
+	at DBcontroller.sessionFactorySingleton.getInstance(sessionFactorySingleton.java:39)
+	at DBcontroller.RequirementDB.getAllRequirement(RequirementDB.java:37)
+	at controller.requirements.TabRequirementLibraryController.initialize(TabRequirementLibraryController.java:76)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2425)
+	at controller.requirements.TabRequirementMainViewController.initialize(TabRequirementMainViewController.java:56)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2425)
+	at controller.TATFrameController.initialize(TATFrameController.java:156)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2425)
+	at main.Main.start(Main.java:131)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+2018-08-31 15:19:31 | Configuration.java |  | DEBUG | org.jboss.logging : Logging Provider: org.jboss.logging.Log4jLoggerProvider
+2018-08-31 15:19:32 | SchemaUpdate.java |  | ERROR | org.hibernate.tool.hbm2ddl.SchemaUpdate : HHH000299: Could not complete schema update
+java.lang.UnsupportedOperationException: No add column syntax supported by org.hibernate.dialect.SQLiteDialect
+	at org.hibernate.dialect.Dialect.getAddColumnString(Dialect.java:2024)
+	at org.hibernate.mapping.Table.sqlAlterStrings(Table.java:389)
+	at org.hibernate.cfg.Configuration.generateSchemaUpdateScriptList(Configuration.java:1209)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:212)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:178)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:521)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1857)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1928)
+	at DBcontroller.sessionFactorySingleton.<init>(sessionFactorySingleton.java:24)
+	at DBcontroller.sessionFactorySingleton.getInstance(sessionFactorySingleton.java:39)
+	at DBcontroller.RequirementDB.getAllRequirement(RequirementDB.java:37)
+	at controller.requirements.TabRequirementLibraryController.initialize(TabRequirementLibraryController.java:76)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2425)
+	at controller.requirements.TabRequirementMainViewController.initialize(TabRequirementMainViewController.java:56)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2425)
+	at controller.TATFrameController.initialize(TATFrameController.java:156)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2425)
+	at main.Main.start(Main.java:131)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+2018-08-31 16:36:05 | Configuration.java |  | DEBUG | org.jboss.logging : Logging Provider: org.jboss.logging.Log4jLoggerProvider
+2018-08-31 16:36:07 | SchemaUpdate.java |  | ERROR | org.hibernate.tool.hbm2ddl.SchemaUpdate : HHH000299: Could not complete schema update
+java.lang.UnsupportedOperationException: No add column syntax supported by org.hibernate.dialect.SQLiteDialect
+	at org.hibernate.dialect.Dialect.getAddColumnString(Dialect.java:2024)
+	at org.hibernate.mapping.Table.sqlAlterStrings(Table.java:389)
+	at org.hibernate.cfg.Configuration.generateSchemaUpdateScriptList(Configuration.java:1209)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:212)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:178)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:521)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1857)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1928)
+	at DBcontroller.sessionFactorySingleton.<init>(sessionFactorySingleton.java:24)
+	at DBcontroller.sessionFactorySingleton.getInstance(sessionFactorySingleton.java:39)
+	at DBcontroller.RequirementDB.getAllRequirement(RequirementDB.java:37)
+	at controller.requirements.TabRequirementLibraryController.initialize(TabRequirementLibraryController.java:76)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2425)
+	at controller.requirements.TabRequirementMainViewController.initialize(TabRequirementMainViewController.java:56)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2425)
+	at controller.TATFrameController.initialize(TATFrameController.java:156)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2425)
+	at main.Main.start(Main.java:131)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+2018-08-31 16:38:27 | Configuration.java |  | DEBUG | org.jboss.logging : Logging Provider: org.jboss.logging.Log4jLoggerProvider
+2018-08-31 16:38:29 | SchemaUpdate.java |  | ERROR | org.hibernate.tool.hbm2ddl.SchemaUpdate : HHH000299: Could not complete schema update
+java.lang.UnsupportedOperationException: No add column syntax supported by org.hibernate.dialect.SQLiteDialect
+	at org.hibernate.dialect.Dialect.getAddColumnString(Dialect.java:2024)
+	at org.hibernate.mapping.Table.sqlAlterStrings(Table.java:389)
+	at org.hibernate.cfg.Configuration.generateSchemaUpdateScriptList(Configuration.java:1209)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:212)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:178)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:521)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1857)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1928)
+	at DBcontroller.sessionFactorySingleton.<init>(sessionFactorySingleton.java:24)
+	at DBcontroller.sessionFactorySingleton.getInstance(sessionFactorySingleton.java:39)
+	at DBcontroller.RequirementDB.getAllRequirement(RequirementDB.java:37)
+	at controller.requirements.TabRequirementLibraryController.initialize(TabRequirementLibraryController.java:76)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2425)
+	at controller.requirements.TabRequirementMainViewController.initialize(TabRequirementMainViewController.java:56)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2425)
+	at controller.TATFrameController.initialize(TATFrameController.java:156)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2425)
+	at main.Main.start(Main.java:131)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+2018-08-31 16:40:50 | Configuration.java |  | DEBUG | org.jboss.logging : Logging Provider: org.jboss.logging.Log4jLoggerProvider
+2018-08-31 16:40:51 | SchemaUpdate.java |  | ERROR | org.hibernate.tool.hbm2ddl.SchemaUpdate : HHH000299: Could not complete schema update
+java.lang.UnsupportedOperationException: No add column syntax supported by org.hibernate.dialect.SQLiteDialect
+	at org.hibernate.dialect.Dialect.getAddColumnString(Dialect.java:2024)
+	at org.hibernate.mapping.Table.sqlAlterStrings(Table.java:389)
+	at org.hibernate.cfg.Configuration.generateSchemaUpdateScriptList(Configuration.java:1209)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:212)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:178)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:521)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1857)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1928)
+	at DBcontroller.sessionFactorySingleton.<init>(sessionFactorySingleton.java:24)
+	at DBcontroller.sessionFactorySingleton.getInstance(sessionFactorySingleton.java:39)
+	at DBcontroller.RequirementDB.getAllRequirement(RequirementDB.java:37)
+	at controller.requirements.TabRequirementLibraryController.initialize(TabRequirementLibraryController.java:76)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2425)
+	at controller.requirements.TabRequirementMainViewController.initialize(TabRequirementMainViewController.java:56)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2425)
+	at controller.TATFrameController.initialize(TATFrameController.java:156)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2425)
+	at main.Main.start(Main.java:131)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+2018-08-31 16:41:40 | Configuration.java |  | DEBUG | org.jboss.logging : Logging Provider: org.jboss.logging.Log4jLoggerProvider
+2018-08-31 16:41:41 | SchemaUpdate.java |  | ERROR | org.hibernate.tool.hbm2ddl.SchemaUpdate : HHH000299: Could not complete schema update
+java.lang.UnsupportedOperationException: No add column syntax supported by org.hibernate.dialect.SQLiteDialect
+	at org.hibernate.dialect.Dialect.getAddColumnString(Dialect.java:2024)
+	at org.hibernate.mapping.Table.sqlAlterStrings(Table.java:389)
+	at org.hibernate.cfg.Configuration.generateSchemaUpdateScriptList(Configuration.java:1209)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:212)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:178)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:521)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1857)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1928)
+	at DBcontroller.sessionFactorySingleton.<init>(sessionFactorySingleton.java:24)
+	at DBcontroller.sessionFactorySingleton.getInstance(sessionFactorySingleton.java:39)
+	at DBcontroller.RequirementDB.getAllRequirement(RequirementDB.java:37)
+	at controller.requirements.TabRequirementLibraryController.initialize(TabRequirementLibraryController.java:76)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2425)
+	at controller.requirements.TabRequirementMainViewController.initialize(TabRequirementMainViewController.java:56)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2425)
+	at controller.TATFrameController.initialize(TATFrameController.java:156)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2425)
+	at main.Main.start(Main.java:131)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+2018-08-31 16:46:41 | Configuration.java |  | DEBUG | org.jboss.logging : Logging Provider: org.jboss.logging.Log4jLoggerProvider
+2018-08-31 16:46:42 | SchemaUpdate.java |  | ERROR | org.hibernate.tool.hbm2ddl.SchemaUpdate : HHH000299: Could not complete schema update
+java.lang.UnsupportedOperationException: No add column syntax supported by org.hibernate.dialect.SQLiteDialect
+	at org.hibernate.dialect.Dialect.getAddColumnString(Dialect.java:2024)
+	at org.hibernate.mapping.Table.sqlAlterStrings(Table.java:389)
+	at org.hibernate.cfg.Configuration.generateSchemaUpdateScriptList(Configuration.java:1209)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:212)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:178)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:521)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1857)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1928)
+	at DBcontroller.sessionFactorySingleton.<init>(sessionFactorySingleton.java:24)
+	at DBcontroller.sessionFactorySingleton.getInstance(sessionFactorySingleton.java:39)
+	at DBcontroller.RequirementDB.getAllRequirement(RequirementDB.java:37)
+	at controller.requirements.TabRequirementLibraryController.initialize(TabRequirementLibraryController.java:76)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2425)
+	at controller.requirements.TabRequirementMainViewController.initialize(TabRequirementMainViewController.java:56)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2425)
+	at controller.TATFrameController.initialize(TATFrameController.java:156)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2425)
+	at main.Main.start(Main.java:131)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+2018-08-31 16:48:53 | Configuration.java |  | DEBUG | org.jboss.logging : Logging Provider: org.jboss.logging.Log4jLoggerProvider
+2018-08-31 16:48:55 | SchemaUpdate.java |  | ERROR | org.hibernate.tool.hbm2ddl.SchemaUpdate : HHH000299: Could not complete schema update
+java.lang.UnsupportedOperationException: No add column syntax supported by org.hibernate.dialect.SQLiteDialect
+	at org.hibernate.dialect.Dialect.getAddColumnString(Dialect.java:2024)
+	at org.hibernate.mapping.Table.sqlAlterStrings(Table.java:389)
+	at org.hibernate.cfg.Configuration.generateSchemaUpdateScriptList(Configuration.java:1209)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:212)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:178)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:521)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1857)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1928)
+	at DBcontroller.sessionFactorySingleton.<init>(sessionFactorySingleton.java:24)
+	at DBcontroller.sessionFactorySingleton.getInstance(sessionFactorySingleton.java:39)
+	at DBcontroller.RequirementDB.getAllRequirement(RequirementDB.java:37)
+	at controller.requirements.TabRequirementLibraryController.initialize(TabRequirementLibraryController.java:76)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2425)
+	at controller.requirements.TabRequirementMainViewController.initialize(TabRequirementMainViewController.java:56)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2425)
+	at controller.TATFrameController.initialize(TATFrameController.java:156)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2425)
+	at main.Main.start(Main.java:131)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)

@@ -20,8 +20,6 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -43,6 +41,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.apache.log4j.Logger;
 
 /**
  * FXML Controller class
@@ -165,7 +164,7 @@ public class TabMacroEditController implements Initializable {
             try {
                 this.editMacro();
             } catch (ParseException ex) {
-                Logger.getLogger(TabMacroEditController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(TabMacroEditController.class.getName()).error("Cannot edit Macro: ", ex);
             }
         });
 
@@ -228,7 +227,7 @@ public class TabMacroEditController implements Initializable {
         try {
             this.gridPaneTableAction.add((AnchorPane) fxmlLoader.load(getClass().getResource("/view/macroActions/tableActionCreation.fxml").openStream()), 0, 1, 1, 5);
         } catch (IOException ex) {
-            Logger.getLogger(TabMacroEditController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabMacroEditController.class.getName()).error("Cannot construct table step: ", ex);
         }
         controllerTableAction = fxmlLoader.getController();
         FXMLLoader fxmlLoader2 = new FXMLLoader();
@@ -236,7 +235,7 @@ public class TabMacroEditController implements Initializable {
             AnchorPane paneTest = (AnchorPane) fxmlLoader2.load(getClass().getResource("/view/macroActions/headerTableAction.fxml").openStream());
             this.gridPaneTableAction.add(paneTest, 0, 0, 1, 1);
         } catch (IOException ex) {
-            Logger.getLogger(TabMacroEditController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabMacroEditController.class.getName()).error("Cannot construct table step: ", ex);
         }
     }
 
@@ -284,13 +283,13 @@ public class TabMacroEditController implements Initializable {
             //this.hBoxHeader.getChildren().add(paneTest);
             //this.gridPaneLabelCaseNew.add(paneTest, 5, 0, 1, 1);
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseEditController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabTestCaseEditController.class.getName()).error("Cannot load preview Macro: ", ex);
         }
 
         try {
             this.controllerPreviewMacro.initialize(scrollPanePreview);
         } catch (Exception ex) {
-            Logger.getLogger(TabTestCaseEditController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabTestCaseEditController.class.getName()).error("Cannot load preview Macro: ", ex);
         }
     }
 

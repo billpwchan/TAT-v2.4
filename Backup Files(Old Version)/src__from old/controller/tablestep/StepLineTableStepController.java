@@ -680,7 +680,7 @@ public class StepLineTableStepController implements Initializable {
                 scrollBarverif = (ScrollBar) textAreaVerif.lookup(".scroll-bar:vertical");
                 Thread.sleep(2000);
             } catch (InterruptedException ex) {
-                Logger.getLogger(StepLineTableStepController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(StepLineTableStepController.class.getName()).error("", ex);
             }
         }
         scrollBarv.setOpacity(0.0);

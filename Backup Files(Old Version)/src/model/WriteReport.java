@@ -26,8 +26,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+import org.apache.log4j.Logger;
 import org.apache.poi.ss.util.CellRangeAddress;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
@@ -207,7 +207,7 @@ public class WriteReport {
         try {
             this.readTemplateReport(it);
         } catch (Exception ex) {
-            Logger.getLogger(WriteReport.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(WriteReport.class.getName()).error("", ex);
         }
         this.initHashMaps();
         this.reportSheetOffsetInit(it);
@@ -224,9 +224,9 @@ public class WriteReport {
             this.workbook.write(outputStream);
             this.workbook.close();
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(WriteReport.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(WriteReport.class.getName()).error("", ex);
         } catch (IOException ex) {
-            Logger.getLogger(WriteReport.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(WriteReport.class.getName()).error("", ex);
         }
         System.out.println("Report Created");
     }

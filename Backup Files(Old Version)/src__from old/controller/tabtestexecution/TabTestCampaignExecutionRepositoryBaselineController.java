@@ -126,7 +126,7 @@ public class TabTestCampaignExecutionRepositoryBaselineController implements Ini
         try {
             updateRepository();
         } catch (ParseException ex) {
-            Logger.getLogger(TabTestCampaignExecutionRepositoryBaselineController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabTestCampaignExecutionRepositoryBaselineController.class.getName()).error("", ex);
         }
 
         buttonDelete.setDisable(false);
@@ -251,7 +251,7 @@ public class TabTestCampaignExecutionRepositoryBaselineController implements Ini
 
         } catch (IOException ex) {
             Logger.getLogger(TabTestCaseNewController.class
-                    .getName()).log(Level.SEVERE, null, ex);
+                    .getName()).error("", ex);
         }
     }
 
@@ -330,7 +330,7 @@ public class TabTestCampaignExecutionRepositoryBaselineController implements Ini
             th.start();
         } catch (IOException ex) {
             Logger.getLogger(TabTestCaseNewController.class
-                    .getName()).log(Level.SEVERE, null, ex);
+                    .getName()).error("", ex);
         }
     }
 
@@ -391,7 +391,7 @@ public class TabTestCampaignExecutionRepositoryBaselineController implements Ini
                 try {
                     this.UpdateTreeItem();
                 } catch (ParseException ex) {
-                    Logger.getLogger(TabTestCampaignExecutionRepositoryBaselineController.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(TabTestCampaignExecutionRepositoryBaselineController.class.getName()).error("", ex);
                 }
             } else if (this.selected.getType().equals("baseline")) {
                 ArrayList<Iterations> iterations;
@@ -402,7 +402,7 @@ public class TabTestCampaignExecutionRepositoryBaselineController implements Ini
                 try {
                     this.UpdateTreeItem();
                 } catch (ParseException ex) {
-                    Logger.getLogger(TabTestCampaignExecutionRepositoryBaselineController.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(TabTestCampaignExecutionRepositoryBaselineController.class.getName()).error("", ex);
                 }
             } else if (this.selected.getType().equals("campaign")) {
                 ArrayList<Iterations> arrayIterations = null;
@@ -410,7 +410,7 @@ public class TabTestCampaignExecutionRepositoryBaselineController implements Ini
                 try {
                     arrayIt = testExecutionHandler.getBaselinesFromCampaign(this.selected.getTestCampaign());
                 } catch (ParseException ex) {
-                    Logger.getLogger(TabTestCampaignExecutionRepositoryBaselineController.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(TabTestCampaignExecutionRepositoryBaselineController.class.getName()).error("", ex);
                 }
                 for (int i = 0; i < arrayIt.size(); i++) {
                     arrayIterations = testExecutionHandler.getExecutionsFromBaseline(arrayIt.get(i));
@@ -421,7 +421,7 @@ public class TabTestCampaignExecutionRepositoryBaselineController implements Ini
                 try {
                     this.UpdateTreeItem();
                 } catch (ParseException ex) {
-                    Logger.getLogger(TabTestCampaignExecutionRepositoryBaselineController.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(TabTestCampaignExecutionRepositoryBaselineController.class.getName()).error("", ex);
                 }
             }
         });

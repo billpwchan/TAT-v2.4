@@ -121,7 +121,7 @@ public class TableActionCreationController implements Initializable {
             }
             scriptPane.setPrefWidth(vBox.getPrefWidth());
         } catch (IOException ex) {
-            Logger.getLogger(TableStepScriptCreationController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TableStepScriptCreationController.class.getName()).error("", ex);
         }
         scriptID++;
         displayVbox();

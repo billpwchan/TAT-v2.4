@@ -11,8 +11,8 @@ import DB.Script;
 import engine.Result;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+import org.apache.log4j.Logger;
 import net.wimpi.modbus.procimg.SimpleProcessImage;
 import net.wimpi.modbus.procimg.SimpleRegister;
 
@@ -96,7 +96,7 @@ public class TriggerModbusPointDI2 implements InterfaceScript {
                     SimpleProcessImage instance = LaunchTCPServerModbus.getInstance();
                     updateHoldingRegister(instance, register,(int) value);
                 } catch (Exception ex) {
-                    Logger.getLogger(TriggerModbusPointDI.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(TriggerModbusPointDI.class.getName()).error("", ex);
                 }
                 break;
             case "AI":
@@ -104,7 +104,7 @@ public class TriggerModbusPointDI2 implements InterfaceScript {
                     SimpleProcessImage instance = LaunchTCPServerModbus.getInstance();
                     updateInputRegister(instance, register,(int) value);
                 } catch (Exception ex) {
-                    Logger.getLogger(TriggerModbusPointDI.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(TriggerModbusPointDI.class.getName()).error("", ex);
                 }
                 break;
             default:

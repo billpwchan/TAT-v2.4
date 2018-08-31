@@ -90,7 +90,7 @@ public class TabTestCampaignRepositoryController implements Initializable {
             //Fill the observable list of test campaign with all the campaign get from the DB
             observableListTestCampaign.setAll(testCampaignHandler.getAllCampaigns());
         } catch (Exception ex) {
-            Logger.getLogger(TabTestCaseLibraryController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabTestCaseLibraryController.class.getName()).error("", ex);
         }
         ;
 

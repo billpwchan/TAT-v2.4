@@ -6,8 +6,8 @@ import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+import org.apache.log4j.Logger;
 import net.wimpi.modbus.ModbusCoupler;
 import net.wimpi.modbus.net.ModbusTCPListener;
 import net.wimpi.modbus.procimg.SimpleProcessImage;
@@ -213,7 +213,7 @@ public class LaunchSerialSeverModbus {
         try {
             localhost = InetAddress.getByName(ip);
         } catch (UnknownHostException ex) {
-            Logger.getLogger(LaunchTCPServerModbus.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LaunchTCPServerModbus.class.getName()).error("", ex);
         }
         listener.setAddress(localhost);
         listener.setPort(portDeServer);

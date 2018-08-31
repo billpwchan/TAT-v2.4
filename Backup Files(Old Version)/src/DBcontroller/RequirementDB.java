@@ -37,12 +37,11 @@ public class RequirementDB {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
         session.beginTransaction();
-        Query qry = session.createQuery("from Requirement");
+        Query qry = session.createQuery("from Requirement req");        // Cause exception (Invalid syntax for Hibernate)
         List l = qry.list();
         ArrayList<Requirement> requirement = (ArrayList) l;
         session.getTransaction().commit();
         session.close();
-        System.out.println("SIZE requirement= " + requirement.size());
         return requirement;
     }
 
@@ -53,7 +52,6 @@ public class RequirementDB {
     public void updateRequirement(HashSet<Requirement> HashRequirement) {
 
         SessionFactory factory = sessionFactorySingleton.getInstance();
-        Session session = factory.openSession();
 
         Iterator<Requirement> iteRequirement = HashRequirement.iterator();
         while (iteRequirement.hasNext()) {

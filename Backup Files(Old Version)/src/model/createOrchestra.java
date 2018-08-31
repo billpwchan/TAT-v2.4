@@ -23,8 +23,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+import org.apache.log4j.Logger;
 import org.apache.poi.ss.util.CellRangeAddress;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
@@ -187,7 +187,7 @@ public class createOrchestra {
         try {
             copyFileUsingFileChannels(source, dest);
         } catch (IOException ex) {
-            Logger.getLogger(createOrchestra.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(createOrchestra.class.getName()).error("", ex);
         }
         openFile();
 
@@ -214,7 +214,7 @@ public class createOrchestra {
             //wb = new SXSSFWorkbook(new XSSFWorkbook(file));
             wb = new XSSFWorkbook(file);
         } catch (IOException ex) {
-            Logger.getLogger(createOrchestra.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(createOrchestra.class.getName()).error("", ex);
         }
         //printInstrumentationSize(wb);
 
@@ -414,9 +414,9 @@ public class createOrchestra {
             this.iteration = null;
             //System.gc();
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(createOrchestra.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(createOrchestra.class.getName()).error("", ex);
         } catch (IOException ex) {
-            Logger.getLogger(createOrchestra.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(createOrchestra.class.getName()).error("", ex);
         }
     }
 

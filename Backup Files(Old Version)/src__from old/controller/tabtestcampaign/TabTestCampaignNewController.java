@@ -224,7 +224,7 @@ public class TabTestCampaignNewController implements Initializable {
 
         } catch (IOException ex) {
             Logger.getLogger(TabTestCaseNewController.class
-                    .getName()).log(Level.SEVERE, null, ex);
+                    .getName()).error("", ex);
         }
     }
 

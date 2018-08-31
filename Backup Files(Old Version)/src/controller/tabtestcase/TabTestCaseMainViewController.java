@@ -9,8 +9,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+import org.apache.log4j.Logger;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -76,7 +76,7 @@ public class TabTestCaseMainViewController implements Initializable {
             libraryController = (TabTestCaseLibraryController) fxmlLoader.getController();
             libraryController.init(this);
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseMainViewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabTestCaseMainViewController.class.getName()).error("", ex);
         }
 
         this.tabPaneTestCase.setTabClosingPolicy(TabPane.TabClosingPolicy.SELECTED_TAB);
@@ -156,7 +156,7 @@ public class TabTestCaseMainViewController implements Initializable {
                     }
                 });
             } catch (IOException ex) {
-                Logger.getLogger(TabTestCaseMainViewController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(TabTestCaseMainViewController.class.getName()).error("", ex);
             }
         }
     }
@@ -182,7 +182,7 @@ public class TabTestCaseMainViewController implements Initializable {
             newTestCase.setClosable(true);
             this.tabPaneTestCase.getSelectionModel().select(newTestCase);
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseMainViewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabTestCaseMainViewController.class.getName()).error("", ex);
         }
     }
 
@@ -222,7 +222,7 @@ public class TabTestCaseMainViewController implements Initializable {
                     }
                 });
             } catch (IOException ex) {
-                Logger.getLogger(TabTestCaseMainViewController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(TabTestCaseMainViewController.class.getName()).error("", ex);
             }
         }
     }

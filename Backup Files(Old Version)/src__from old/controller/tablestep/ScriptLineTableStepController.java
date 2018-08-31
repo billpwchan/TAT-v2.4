@@ -446,7 +446,7 @@ public class ScriptLineTableStepController implements Initializable {
             }
             scriptControllerAction.init(this);
         } catch (IOException ex) {
-            Logger.getLogger(ScriptLineTableStepController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ScriptLineTableStepController.class.getName()).error("", ex);
             System.out.println(ex);
         }
 
@@ -462,7 +462,7 @@ public class ScriptLineTableStepController implements Initializable {
             }
             scriptControllerVerif.init(this);
         } catch (IOException ex) {
-            Logger.getLogger(ScriptLineTableStepController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ScriptLineTableStepController.class.getName()).error("", ex);
             System.out.println(ex);
         }
     }

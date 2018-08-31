@@ -11,8 +11,6 @@ import controller.requirements.TabRequirementMainViewController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -20,6 +18,7 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
 import model.ObjectCopy;
+import org.apache.log4j.Logger;
 
 /**
  * FXML Controller class
@@ -67,7 +66,7 @@ public class TabMacroMainViewController implements Initializable {
             libraryController = (TabMacroLibraryController) fxmlLoader.getController();
             libraryController.init(this);
         } catch (IOException ex) {
-            Logger.getLogger(TabRequirementMainViewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabRequirementMainViewController.class.getName()).error("Cannot initialize MacroView: ", ex);
         }
 
         this.tabPaneMacro.setTabClosingPolicy(TabPane.TabClosingPolicy.SELECTED_TAB);
@@ -88,7 +87,7 @@ public class TabMacroMainViewController implements Initializable {
             AnchorPane addPane = fxmlLoader.load(getClass().getResource("/view/macro/TabMacroEdit.fxml").openStream());
             editMacro.setContent(addPane);
         } catch (IOException ex) {
-            Logger.getLogger(TabMacroMainViewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabMacroMainViewController.class.getName()).error("Cannot edit Macro: ", ex);
         }
         editMacroController = (TabMacroEditController) fxmlLoader.getController();
         editMacroController.init(this);
@@ -109,7 +108,7 @@ public class TabMacroMainViewController implements Initializable {
             AnchorPane addPane = fxmlLoader.load(getClass().getResource("/view/macro/TabMacroNew.fxml").openStream());
             viewMacro.setContent(addPane);
         } catch (IOException ex) {
-            Logger.getLogger(TabMacroMainViewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabMacroMainViewController.class.getName()).error("Cannot view Macro: ", ex);
         }
         viewMacroController = (TabMacroNewController) fxmlLoader.getController();
         viewMacroController.init(this);
@@ -126,7 +125,7 @@ public class TabMacroMainViewController implements Initializable {
             AnchorPane addPane = fxmlLoader.load(getClass().getResource("/view/macro/TabMacroNew.fxml").openStream());
             newMacro.setContent(addPane);
         } catch (IOException ex) {
-            Logger.getLogger(TabMacroMainViewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabMacroMainViewController.class.getName()).error("Cannot create new Macro: ", ex);
         }
         newMacroController = (TabMacroNewController) fxmlLoader.getController();
         newMacroController.init(this);
@@ -143,7 +142,7 @@ public class TabMacroMainViewController implements Initializable {
         try {
             this.tabPaneMacro.getTabs().remove(this.tabPaneMacro.getSelectionModel().getSelectedItem());
         } catch (Exception ex) {
-            Logger.getLogger(TabMacroMainViewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabMacroMainViewController.class.getName()).error("Cannnot close Macro tab: ", ex);
         }
     }
 
@@ -154,7 +153,7 @@ public class TabMacroMainViewController implements Initializable {
         try {
             this.tabPaneMacro.getSelectionModel().select(0);
         } catch (Exception ex) {
-            Logger.getLogger(TabMacroMainViewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabMacroMainViewController.class.getName()).error("Cannot focus Macro lib: ", ex);
         }
     }
 

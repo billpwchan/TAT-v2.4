@@ -11,8 +11,8 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+import org.apache.log4j.Logger;
 import net.wimpi.modbus.procimg.SimpleProcessImage;
 import net.wimpi.modbus.procimg.SimpleRegister;
 
@@ -86,7 +86,7 @@ public class TriggerModbusPointAI {
                     SimpleProcessImage instance = LaunchTCPServerModbus.getInstance();
                     updateHoldingRegister(instance, newInt, register);
                 } catch (Exception ex) {
-                    Logger.getLogger(TriggerModbusPointAI.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(TriggerModbusPointAI.class.getName()).error("", ex);
                 }
                 break;
             case "AI":
@@ -94,7 +94,7 @@ public class TriggerModbusPointAI {
                     SimpleProcessImage instance = LaunchTCPServerModbus.getInstance();
                     updateInputRegister(instance, newInt, register);
                 } catch (Exception ex) {
-                    Logger.getLogger(TriggerModbusPointAI.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(TriggerModbusPointAI.class.getName()).error("", ex);
                 }
                 break;
             default:

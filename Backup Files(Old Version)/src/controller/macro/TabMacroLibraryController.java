@@ -17,8 +17,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -39,6 +37,7 @@ import javafx.scene.layout.GridPane;
 import model.initColumn;
 import javafx.scene.control.TextField;
 import model.setCursorOnComponent;
+import org.apache.log4j.Logger;
 
 /**
  * FXML Controller class
@@ -211,7 +210,7 @@ public class TabMacroLibraryController implements Initializable {
         try {
             this.preview.initialize(scrollPanePreview);
         } catch (Exception ex) {
-            Logger.getLogger(TabMacroLibraryController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabMacroLibraryController.class.getName()).error("Cannot construct table Macro: ", ex);
         }
 
         FXMLLoader fxmlLoader2 = new FXMLLoader();
@@ -219,7 +218,7 @@ public class TabMacroLibraryController implements Initializable {
             AnchorPane paneTest = (AnchorPane) fxmlLoader2.load(getClass().getResource("/view/macroActions/headerPreviewMacro.fxml").openStream());
             this.gridPaneMacroLibrary.add(paneTest, 1, 1, 1, 1);
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseNewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabTestCaseNewController.class.getName()).error("Cannot construct table Macro: ", ex);
         }
     }
 

@@ -9,8 +9,8 @@ import DB.Iterations;
 import DB.TestCampaign;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+import org.apache.log4j.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -209,7 +209,7 @@ public class TabTestCaseLibraryController implements Initializable {
 
             //tableViewTestCase.setPlaceholder(new Label(""));
         } catch (Exception ex) {
-            Logger.getLogger(TabTestCaseLibraryController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabTestCaseLibraryController.class.getName()).error("", ex);
         }
 //        this.tableViewTestCase.getSelectionModel().getSelectedCells().addListener((ListChangeListener.Change<? extends TablePosition> c) -> {
 //            label1.setText(String.valueOf(c.getList().get(0).getRow()));
@@ -411,7 +411,7 @@ public class TabTestCaseLibraryController implements Initializable {
         try {
             this.gridPaneCaseLibrary.add((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream()), 0, 2, 1, 1);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseNewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabTestCaseNewController.class.getName()).error("", ex);
         }
         controllerTableStep = fxmlLoader.getController();
 
@@ -420,7 +420,7 @@ public class TabTestCaseLibraryController implements Initializable {
             AnchorPane paneTest = (AnchorPane) fxmlLoader2.load(getClass().getResource("/view/stepcreation/headerTableStep.fxml").openStream());
             this.gridPaneCaseLibrary.add(paneTest, 0, 1, 1, 1);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseNewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabTestCaseNewController.class.getName()).error("", ex);
         }
         controllerHeaderTableStep = fxmlLoader2.getController();
         controllerHeaderTableStep.init(controllerTableStep);
@@ -470,7 +470,7 @@ public class TabTestCaseLibraryController implements Initializable {
 
         } catch (IOException ex) {
             Logger.getLogger(TabTestCaseNewController.class
-                    .getName()).log(Level.SEVERE, null, ex);
+                    .getName()).error("", ex);
         }
     }
 
@@ -540,7 +540,7 @@ public class TabTestCaseLibraryController implements Initializable {
 
         } catch (IOException ex) {
             Logger.getLogger(TabTestCaseNewController.class
-                    .getName()).log(Level.SEVERE, null, ex);
+                    .getName()).error("", ex);
         }
     }
 
@@ -581,7 +581,7 @@ public class TabTestCaseLibraryController implements Initializable {
                     try {
                         configDB.configureTestCase(baseline, currentTestCaseSelected, excelFile, range, tabBaseline.getSheetNumber(), 0, null, null);
                     } catch (Exception ex) {
-                        Logger.getLogger(TabTestCaseLibraryController.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(TabTestCaseLibraryController.class.getName()).error("", ex);
                     }
                     util.endTime();
                     return null;
@@ -593,13 +593,13 @@ public class TabTestCaseLibraryController implements Initializable {
             try {
                 th.join();
             } catch (InterruptedException ex) {
-                Logger.getLogger(TabTestCampaignExecutionBaselineCampaignController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(TabTestCampaignExecutionBaselineCampaignController.class.getName()).error("", ex);
             }
             TabTestCampaignExecutionBaselineCampaignController.closeAlert(tabBaseline.getAlert());
             try {
                 TabTestCampaignExecutionRepositoryBaselineController.UpdateTreeItem();
             } catch (ParseException ex) {
-                Logger.getLogger(TabTestCaseLibraryController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(TabTestCaseLibraryController.class.getName()).error("", ex);
             }
             tabBaseline.notificationBaselinCase();
             //closeAlertBox(dialog);

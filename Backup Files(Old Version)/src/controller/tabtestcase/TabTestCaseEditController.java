@@ -1,6 +1,5 @@
 package controller.tabtestcase;
 
-import main.Main;
 import DB.ScriptHasBeenConfigured;
 import DB.TestCase;
 import DB.TestStep;
@@ -23,31 +22,31 @@ import java.util.Iterator;
 import java.util.ResourceBundle;
 import java.util.Set;
 import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ListChangeListener;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DialogEvent;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.DialogEvent;
-import javafx.stage.Stage;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+import main.Main;
 import model.setCursorOnComponent;
+import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.TransientObjectException;
@@ -442,7 +441,7 @@ public class TabTestCaseEditController implements Initializable {
         try {
             this.gridPaneTableStep.add((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream()), 0, 1, 1, 5);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseNewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabTestCaseNewController.class.getName()).error("", ex);
         }
         controllerTableStep = fxmlLoader.getController();
         FXMLLoader fxmlLoader2 = new FXMLLoader();
@@ -450,7 +449,7 @@ public class TabTestCaseEditController implements Initializable {
             AnchorPane paneTest = (AnchorPane) fxmlLoader2.load(getClass().getResource("/view/stepcreation/headerTableStep.fxml").openStream());
             this.gridPaneTableStep.add(paneTest, 0, 0, 1, 1);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseNewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabTestCaseNewController.class.getName()).error("", ex);
         }
         controllerHeaderTableStep = fxmlLoader2.getController();
         controllerHeaderTableStep.init(controllerTableStep);
@@ -503,7 +502,7 @@ public class TabTestCaseEditController implements Initializable {
         try {
             thisTestCase = this.constructTestCase();        //Construct a new test case with info inside textarea & Combo boxes.
         } catch (ParseException ex) {
-            Logger.getLogger(TabTestCaseEditController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabTestCaseEditController.class.getName()).error("", ex);
         }
         session.save(thisTestCase);
         session.beginTransaction().commit();        //This can generate a new ID for reference.
@@ -570,7 +569,7 @@ public class TabTestCaseEditController implements Initializable {
         try {
             session.beginTransaction().commit();        //Cause TestStepHasScript exception (need to save it before commit). 
         } catch (TransientObjectException ex) {     //Need to close the session regardless the exception occured.
-            Logger.getLogger(TabTestCaseEditController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabTestCaseEditController.class.getName()).error("", ex);
         }
         session.close();
     }

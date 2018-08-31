@@ -211,7 +211,7 @@ public class TriggerEquipment implements InterfaceScript {
             mouse.click(screen.getCenter());
             Thread.sleep(2000);
         } catch (InterruptedException ex) {
-            Logger.getLogger(TriggerEquipment.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TriggerEquipment.class.getName()).error("", ex);
         }
     }
 
@@ -306,7 +306,7 @@ public class TriggerEquipment implements InterfaceScript {
             try {
                 Thread.sleep(500);
             } catch (InterruptedException ex) {
-                Logger.getLogger(TriggerEquipment.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(TriggerEquipment.class.getName()).error("", ex);
             }
             System.out.println("J'appuie sur " + s);
             switch (s) {

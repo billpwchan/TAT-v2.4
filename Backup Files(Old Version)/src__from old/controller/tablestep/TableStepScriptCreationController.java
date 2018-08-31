@@ -202,7 +202,7 @@ public class TableStepScriptCreationController implements Initializable {
 
             } catch (IOException ex) {
                 Logger.getLogger(TableStepScriptCreationController.class
-                        .getName()).log(Level.SEVERE, null, ex);
+                        .getName()).error("", ex);
             }
             controllerStepLine.addScript(controllerScriptLine, 1);
             workingCollection.add(VboxIDSelectedStep + 1, scriptPane);
@@ -307,7 +307,7 @@ public class TableStepScriptCreationController implements Initializable {
 
         } catch (IOException ex) {
             Logger.getLogger(TableStepScriptCreationController.class
-                    .getName()).log(Level.SEVERE, null, ex);
+                    .getName()).error("", ex);
         }
         stepID++;
         displayVbox();
@@ -790,7 +790,7 @@ public class TableStepScriptCreationController implements Initializable {
 
         } catch (IOException ex) {
             Logger.getLogger(TabTestCaseNewController.class
-                    .getName()).log(Level.SEVERE, null, ex);
+                    .getName()).error("", ex);
         }
     }
 

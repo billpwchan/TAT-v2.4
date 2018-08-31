@@ -136,7 +136,7 @@ public class ViewScriptController implements Initializable {
             controller.constructInformation(script, observableListScript, selectedParam);
         } catch (IOException ex) {
             Logger.getLogger(PopUpWizardScriptController.class
-                    .getName()).log(Level.SEVERE, null, ex);
+                    .getName()).error("", ex);
         }
         popUpStage = new Stage();
         popUpStage.setTitle("Script configuration");

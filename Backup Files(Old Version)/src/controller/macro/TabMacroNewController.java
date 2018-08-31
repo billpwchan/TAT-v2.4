@@ -19,8 +19,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.apache.log4j.Logger;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -173,7 +172,7 @@ public class TabMacroNewController implements Initializable {
             try {
                 this.createMacro();
             } catch (ParseException ex) {
-                Logger.getLogger(TabMacroNewController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(TabMacroNewController.class.getName()).error("", ex);
             }
         });
     }
@@ -191,7 +190,7 @@ public class TabMacroNewController implements Initializable {
         try {
             this.gridPaneTableAction.add((AnchorPane) fxmlLoader.load(getClass().getResource("/view/macroActions/tableActionCreation.fxml").openStream()), 0, 1, 1, 5);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseNewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabTestCaseNewController.class.getName()).error("", ex);
         }
         controllerTableAction = fxmlLoader.getController();
         FXMLLoader fxmlLoader2 = new FXMLLoader();
@@ -200,7 +199,7 @@ public class TabMacroNewController implements Initializable {
 
             this.gridPaneTableAction.add(paneTest, 0, 0, 1, 1);
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseNewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabTestCaseNewController.class.getName()).error("", ex);
         }
 
     }
@@ -257,12 +256,12 @@ public class TabMacroNewController implements Initializable {
             //this.hBoxHeader.getChildren().add(paneTest);
             //this.gridPaneLabelCaseNew.add(paneTest, 5, 0, 1, 1);
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseNewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabTestCaseNewController.class.getName()).error("", ex);
         }
         try {
             this.controllerPreviewMacro.initialize(scrollPanePreview);
         } catch (Exception ex) {
-            Logger.getLogger(TabMacroNewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabMacroNewController.class.getName()).error("", ex);
         }
     }
 

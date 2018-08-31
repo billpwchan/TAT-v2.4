@@ -61,7 +61,7 @@ public class TabScriptsMainViewController implements Initializable {
             libraryController = (TabScriptsLibraryController) fxmlLoader.getController();
             libraryController.init(this);
         } catch (IOException ex) {
-            Logger.getLogger(TabRequirementMainViewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabRequirementMainViewController.class.getName()).error("", ex);
         }
 
         this.tabPaneMacro.setTabClosingPolicy(TabPane.TabClosingPolicy.SELECTED_TAB);
@@ -80,7 +80,7 @@ public class TabScriptsMainViewController implements Initializable {
         try {
             addPane = fxmlLoader.load(getClass().getResource("/view/scriptmanagement/TabScriptNew.fxml").openStream());
         } catch (IOException ex) {
-            Logger.getLogger(TabScriptsMainViewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabScriptsMainViewController.class.getName()).error("", ex);
         }
         newScript.setContent(addPane);
         newScriptController = (TabScriptNewController) fxmlLoader.getController();

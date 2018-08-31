@@ -359,7 +359,7 @@ public class TabTestCaseEditController implements Initializable {
         try {
             this.gridPaneTableStep.add((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream()), 0, 1, 1, 5);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseNewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabTestCaseNewController.class.getName()).error("", ex);
         }
         controllerTableStep = fxmlLoader.getController();
         FXMLLoader fxmlLoader2 = new FXMLLoader();
@@ -367,7 +367,7 @@ public class TabTestCaseEditController implements Initializable {
             AnchorPane paneTest = (AnchorPane) fxmlLoader2.load(getClass().getResource("/view/stepcreation/headerTableStep.fxml").openStream());
             this.gridPaneTableStep.add(paneTest, 0, 0, 1, 1);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseNewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabTestCaseNewController.class.getName()).error("", ex);
         }
         controllerHeaderTableStep = fxmlLoader2.getController();
         controllerHeaderTableStep.init(controllerTableStep);
@@ -417,7 +417,7 @@ public class TabTestCaseEditController implements Initializable {
         try {
             thisTestCase = this.constructTestCase();
         } catch (ParseException ex) {
-            Logger.getLogger(TabTestCaseEditController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabTestCaseEditController.class.getName()).error("", ex);
         }
         for (int i = 0; i < numberOfTestStep; i++) {
             StepLineTableStepController current = observableTestStep.get(i);
@@ -556,7 +556,7 @@ public class TabTestCaseEditController implements Initializable {
 //        try {
 //            thisTestCase = constructTestCase();
 //        } catch (ParseException ex) {
-//            Logger.getLogger(TabTestCaseEditController.class.getName()).log(Level.SEVERE, null, ex);
+//            Logger.getLogger(TabTestCaseEditController.class.getName()).error("", ex);
 //        }
 //        thisTestCase.setTestSteps(setStep);
 //        tx = session.beginTransaction();

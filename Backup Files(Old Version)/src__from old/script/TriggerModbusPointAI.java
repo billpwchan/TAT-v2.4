@@ -80,7 +80,7 @@ public class TriggerModbusPointAI {
                     SimpleProcessImage instance = LaunchTCPServerModbus.getInstance();
                     updateHoldingRegister(instance, newInt, register);
                 } catch (Exception ex) {
-                    Logger.getLogger(TriggerModbusPointAI.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(TriggerModbusPointAI.class.getName()).error("", ex);
                 }
                 break;
             case "AI":
@@ -88,7 +88,7 @@ public class TriggerModbusPointAI {
                     SimpleProcessImage instance = LaunchTCPServerModbus.getInstance();
                     updateInputRegister(instance, newInt, register);
                 } catch (Exception ex) {
-                    Logger.getLogger(TriggerModbusPointAI.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(TriggerModbusPointAI.class.getName()).error("", ex);
                 }
                 break;
             default:

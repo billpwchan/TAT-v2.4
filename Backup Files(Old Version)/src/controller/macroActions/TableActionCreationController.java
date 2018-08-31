@@ -20,8 +20,8 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+import org.apache.log4j.Logger;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -163,7 +163,7 @@ public class TableActionCreationController implements Initializable {
             }
             scriptPane.setPrefWidth(vBox.getPrefWidth());
         } catch (IOException ex) {
-            Logger.getLogger(TableStepScriptCreationController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TableStepScriptCreationController.class.getName()).error("", ex);
         }
         scriptID++;
         displayVbox();

@@ -173,7 +173,7 @@ public class Main extends Application {
 //            Main.primaryStage.setWidth(primaryScreenBounds.getWidth());
 //            Main.primaryStage.setHeight(primaryScreenBounds.getHeight());
             } catch (IOException ex) {
-                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Main.class.getName()).error("", ex);
             }
         }
         //set Stage boundaries to visible bounds of the main screen

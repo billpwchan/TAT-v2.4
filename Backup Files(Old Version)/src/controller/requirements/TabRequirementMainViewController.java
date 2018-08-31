@@ -9,8 +9,8 @@ import controller.TATFrameController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+import org.apache.log4j.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -58,7 +58,7 @@ public class TabRequirementMainViewController implements Initializable {
             libraryController = (TabRequirementLibraryController) fxmlLoader.getController();
             libraryController.init(this);
         } catch (IOException ex) {
-            Logger.getLogger(TabRequirementMainViewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabRequirementMainViewController.class.getName()).error("", ex);
         }
 
         this.tabPaneRequirement.setTabClosingPolicy(TabPane.TabClosingPolicy.SELECTED_TAB);
@@ -79,7 +79,7 @@ public class TabRequirementMainViewController implements Initializable {
             AnchorPane addPane = fxmlLoader.load(getClass().getResource("/view/requirements/TabRequirementCreation.fxml").openStream());
             newRequirement.setContent(addPane);
         } catch (IOException ex) {
-            Logger.getLogger(TabRequirementMainViewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabRequirementMainViewController.class.getName()).error("", ex);
         }
         newController = (TabRequirementCreationController) fxmlLoader.getController();
         newController.init(this);

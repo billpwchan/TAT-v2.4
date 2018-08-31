@@ -166,7 +166,7 @@ public class ScriptLineTableMacroController implements Initializable {
         try {
             anchorAction = fxmlLoader.load();
         } catch (IOException ex) {
-            Logger.getLogger(ScriptLineTableMacroController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ScriptLineTableMacroController.class.getName()).error("", ex);
         }
         this.gridPaneScript.add(anchorAction, 2, 0, 1, 1);
         scriptControllerAction.init(this);

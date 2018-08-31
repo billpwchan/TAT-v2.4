@@ -8,11 +8,9 @@ package script;
 import DB.ParametersExecution;
 import com.jcraft.jsch.JSchException;
 import engine.Result;
-//import configuration.ParametersScript;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -52,7 +50,6 @@ public class SearchOccurence {
         if (this.toCompare.contains("@&Buffer_")) {
             this.toCompare = (String) ((ArrayList) hashMap.get(this.toCompare)).get(0);         //Special case
         }
-
         this.regularExpression = parameters.get(2).getValue().trim();
         this.hashMapIndex = parameters.get(3).getValue().trim();
         this.arrayToSearchIn = (ArrayList<String>) hashMap.get(this.hashMapIndex);

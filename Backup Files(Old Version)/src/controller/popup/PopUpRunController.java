@@ -24,8 +24,7 @@ import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.apache.log4j.Logger;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.value.ObservableValue;
@@ -230,7 +229,7 @@ public class PopUpRunController implements Initializable {
                     try {
                         DisplaySteps(testCaseSelected);
                     } catch (InterruptedException ex) {
-                        Logger.getLogger(PopUpRunController.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(PopUpRunController.class.getName()).error("", ex);
                     }
                     if (testScript != null) {
                         testScript.clear();
@@ -269,7 +268,7 @@ public class PopUpRunController implements Initializable {
                     System.out.println("Break the current session.");
                 } catch (Exception ex) {
                     //Default Logger Event
-                    Logger.getLogger(PopUpRunController.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(PopUpRunController.class.getName()).error("", ex);
                     //Can be specified to different types of exception. 
                     String exceptionMessage = ex.getMessage();
                     Platform.runLater(() -> {
@@ -286,7 +285,7 @@ public class PopUpRunController implements Initializable {
                         try {
                             thisController.executionFinished();
                         } catch (Exception e) {
-                            Logger.getLogger(PopUpRunController.class.getName()).log(Level.SEVERE, null, e);
+                            Logger.getLogger(PopUpRunController.class.getName()).error("", e);
                         }
                     });
                     Thread.currentThread().interrupt();
@@ -332,7 +331,7 @@ public class PopUpRunController implements Initializable {
                     float seconds2 = (tempsFin2 - tempsDebut2) / 1000F;
 
                 } catch (ParseException ex) {
-                    Logger.getLogger(PopUpRunController.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(PopUpRunController.class.getName()).error("", ex);
                 }
             }
         });
@@ -375,7 +374,7 @@ public class PopUpRunController implements Initializable {
                 //automaticCasesDisplay(testCaseInExecution);
                 DisplaySteps(testCaseInExecution);
             } catch (InterruptedException ex) {
-                Logger.getLogger(PopUpRunController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(PopUpRunController.class.getName()).error("", ex);
             }
             tPane.setText("Information of baseline : " + baselineId + ",  iteration number " + iterationNumber);
         }
@@ -420,7 +419,7 @@ public class PopUpRunController implements Initializable {
         try {
             this.gridPanePopUpCase.add((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream()), 1, 4, 3, 3);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseNewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabTestCaseNewController.class.getName()).error("", ex);
         }
         controllerTableStep = fxmlLoader.getController();
 
@@ -429,7 +428,7 @@ public class PopUpRunController implements Initializable {
             AnchorPane paneTest = (AnchorPane) fxmlLoader2.load(getClass().getResource("/view/stepcreation/headerTableStep.fxml").openStream());
             this.gridPanePopUpCase.add(paneTest, 1, 3, 3, 1);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseNewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabTestCaseNewController.class.getName()).error("", ex);
         }
         controllerTableStep = fxmlLoader.getController();
         controllerHeader = fxmlLoader2.getController();
@@ -512,7 +511,7 @@ public class PopUpRunController implements Initializable {
                     automaticCasesDisplay(currentTestCaseExecution);
                     //tableViewCampaignPopUpRun.scrollTo(testCase);
                 } catch (InterruptedException ex) {
-                    Logger.getLogger(PopUpRunController.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(PopUpRunController.class.getName()).error("", ex);
                 }
             }
             );
@@ -579,7 +578,7 @@ public class PopUpRunController implements Initializable {
             try {
                 DisplaySteps(testCaseInExecution);
             } catch (InterruptedException ex) {
-                Logger.getLogger(PopUpRunController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(PopUpRunController.class.getName()).error("", ex);
             }
             tableViewCampaignPopUpRun.getSelectionModel().select(testCaseInExecution);
         });
@@ -615,7 +614,7 @@ public class PopUpRunController implements Initializable {
                 //Need to stop the currentThread now. 
 //              Thread.currentThread().interrupt();
             } catch (Exception ex) {
-                Logger.getLogger(PopUpRunController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(PopUpRunController.class.getName()).error("", ex);
             }
         });
     }
@@ -742,7 +741,7 @@ public class PopUpRunController implements Initializable {
             clip.open(ais);
             clip.loop(0);
         } catch (LineUnavailableException | UnsupportedAudioFileException | IOException ex) {
-            Logger.getLogger(PopUpRunController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PopUpRunController.class.getName()).error("", ex);
         }
 
     }

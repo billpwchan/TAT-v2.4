@@ -12,8 +12,8 @@ import controller.tabtestcase.TabTestCaseNewController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+import org.apache.log4j.Logger;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -178,7 +178,7 @@ public class TabScriptsLibraryController implements Initializable {
         try {
             this.gridPaneMacroLibrary.add((AnchorPane) fxmlLoader.load(getClass().getResource("/view/scriptmanagement/tableScriptCreation.fxml").openStream()), 0, 2, 1, 1);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseNewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabTestCaseNewController.class.getName()).error("", ex);
         }
         tableParamController = fxmlLoader.getController();
 
@@ -188,7 +188,7 @@ public class TabScriptsLibraryController implements Initializable {
             AnchorPane paneTest = (AnchorPane) fxmlLoader2.load(getClass().getResource("/view/scriptmanagement/headerParameters.fxml").openStream());
             this.gridPaneMacroLibrary.add(paneTest, 0, 1, 1, 1);
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseNewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TabTestCaseNewController.class.getName()).error("", ex);
         }
     }
 
