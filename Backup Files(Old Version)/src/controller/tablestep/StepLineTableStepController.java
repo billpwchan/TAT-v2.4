@@ -13,8 +13,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.ResourceBundle;
-
-import org.apache.log4j.Logger;
 import javafx.application.Platform;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -41,6 +39,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.util.Callback;
 import model.setCursorOnComponent;
+import org.apache.log4j.Logger;
 
 /**
  * FXML Controller class Class handling all the action happening the the view
@@ -205,15 +204,6 @@ public class StepLineTableStepController implements Initializable {
 //            scrollBarverif = (ScrollBar) textAreaVerif.lookup(".scroll-bar:vertical");
 //            System.out.println("SCROLL BAR = " + scrollBarv);
         }
-
-        if (testStep != null) {
-            this.imageExpand.setVisible(true);
-            imageExpand.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent event) -> {
-                expandChildren();
-                event.consume();
-            });
-        }
-
     }
 
     /**
@@ -251,6 +241,7 @@ public class StepLineTableStepController implements Initializable {
 
         //Set the handler and listener for each compoent or node that need a listener, handler on this view.
         this.initializeHandler_Listener();
+        //Initialize new Step created with a script.
 
     }
 
@@ -687,25 +678,37 @@ public class StepLineTableStepController implements Initializable {
     private void initializeHandler_Listener() {
         //Attached an event handler on the image up, fire the method move step when the image up is clicked.
         imageUp.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent event) -> {
+            boolean storedExpandState = this.isExpand;
+            if (!this.isExpand) {
+                expandChildren();
+            }
             controllerViewGlobal.moveStep(StepLineTableStepController.this, true, numberOfScript);
+            if (!storedExpandState) {
+                expandChildren();
+            }
             event.consume();
         });
 
         //Attached an event handler on the image up, fire the method move step when the image up is clicked.
         imageDown.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent event) -> {
+            boolean storedExpandState = this.isExpand;
+            if (!this.isExpand) {
+                expandChildren();
+            }
             controllerViewGlobal.moveStep(StepLineTableStepController.this, false, numberOfScript);
+            if (!storedExpandState) {
+                expandChildren();
+            }
             event.consume();
         });
 
         //Attached an event handler on the image expand, fire the method expand when the arrow is clicked.
-//        imageExpand.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
-//            @Override
-//            public void handle(MouseEvent event) {
-//                expandChildren();
-//                event.consume();
-//            }
-//
-//        });
+        this.imageExpand.setVisible(true);
+        imageExpand.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent event) -> {
+            expandChildren();
+            event.consume();
+        });
+
         //Attached an event handler on the image trash, fire the method deletet when the arrow is clicked.
         this.imageTrash.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent event) -> {
             controllerViewGlobal.deleteSelectedStep(StepLineTableStepController.this);
@@ -780,7 +783,6 @@ public class StepLineTableStepController implements Initializable {
     }
 
     void hideArrow() {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         this.imageExpand.setVisible(false);
     }
 

@@ -417,7 +417,11 @@ public class TabTestCaseEditController implements Initializable {
     private void initializeButtonAction() {
         buttonAddStep.setOnAction((ActionEvent e) -> {
             controllerTableStep.addStepinVbox(null);
-            controllerTableStep.configurationOnForStep();
+            controllerTableStep.configurationOnForStep();   //Add a step already
+
+            ObservableList<StepLineTableStepController> observableTestStep = controllerTableStep.getCollectionTestStep();   //Try to select this new step
+            controllerTableStep.updateCurrentStep(observableTestStep.get(observableTestStep.size() - 1));
+            controllerTableStep.addScriptToSelectStep();
         });
 
         buttonAddScript.setOnAction((ActionEvent e) -> {

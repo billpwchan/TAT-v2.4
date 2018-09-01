@@ -170,7 +170,15 @@ public class TableStepScriptCreationController implements Initializable {
                 controllerEditCase.setStateButtonScript(false);
             }
         }
+    }
 
+    /**
+     * Get the current selected step (color blue) and put it in the variable
+     * selected step.
+     *
+     */
+    public StepLineTableStepController getCurrentStep() {
+        return this.selectedTestStepController;
     }
 
     /**
@@ -182,7 +190,6 @@ public class TableStepScriptCreationController implements Initializable {
         if (this.selectedTestStepController != null) {
             addScriptToStep(this.selectedTestStepController);
             controllerScriptLine.setScriptCreation(scriptStimuli, scriptCheck);
-
         }
 
     }
@@ -211,14 +218,11 @@ public class TableStepScriptCreationController implements Initializable {
                         .getName()).error("", ex);
             }
             controllerStepLine.addScript(controllerScriptLine, 1);
-            if (workingCollection.isEmpty()){
+            if (workingCollection.isEmpty()) {   //To prevent IndexOutOfBoundException
                 workingCollection.add(scriptPane);
             } else {
                 workingCollection.add(VboxIDSelectedStep + 1, scriptPane);
             }
-//            workingCollection.add(VboxIDSelectedStep + 1, scriptPane);        //Cause IndexOutOfBoundException
-//            workingCollection.add(scriptPane);      //This will add the new script to the last position.
-//            controllerStepLine.setExpandTrue();
             displayVbox();
 
         }
@@ -236,7 +240,7 @@ public class TableStepScriptCreationController implements Initializable {
         int indexOfStep = workingCollection.indexOf(indexToMove.getAnchorPane());
         if (wayToMove) {
             if (collectionControllerStep.indexOf(indexToMove) - 1 >= 0) {
-                int indexControllerSelected = +collectionControllerStep.indexOf(indexToMove);
+                int indexControllerSelected = collectionControllerStep.indexOf(indexToMove);
                 StepLineTableStepController targetedController = collectionControllerStep.get(collectionControllerStep.indexOf(indexToMove) - 1);
                 int indexOfTargetedStep = workingCollection.indexOf(targetedController.getAnchorPane());
                 Collections.swap(collectionControllerStep, indexControllerSelected, indexControllerSelected - 1);
@@ -247,8 +251,8 @@ public class TableStepScriptCreationController implements Initializable {
                 workingCollection.remove(indexOfStep, indexOfStep + indexToMove.numberOfScript + 1);
                 workingCollection.addAll(indexOfTargetedStep, tampCollection);
                 tampCollection.clear();
-                vBox.getChildren().setAll(workingCollection);
                 updateStepId(0);
+                vBox.getChildren().setAll(workingCollection);
             }
         } else {
             if (collectionControllerStep.indexOf(indexToMove) + 1 < collectionControllerStep.size()) {
@@ -263,18 +267,21 @@ public class TableStepScriptCreationController implements Initializable {
                 }
 
                 workingCollection.remove(indexOfStep, indexOfStep + indexToMove.numberOfScript + 1);
-
-                workingCollection.addAll(indexOfTargetedStep + targetedController.numberOfScript - tampCollection.size() + 1, tampCollection);
+                // Index 4, Size: 3. 
+                workingCollection.addAll(indexOfTargetedStep + targetedController.numberOfScript - tampCollection.size(), tampCollection);  //Will cause IndexOutOfBoundException
                 tampCollection.clear();
-                vBox.getChildren().setAll(workingCollection);
+                for (int i = 0; i < workingCollection.size(); i++) {
+                    System.out.println(workingCollection.get(i));
+                }
                 updateStepId(0);
+                vBox.getChildren().setAll(workingCollection);
             }
 
         }
     }
 
     /**
-     * Update the id a each test step starting from the Id given in parameters
+     * Update the id of each test step starting from the Id given in parameters
      *
      * @param startingID position of the test steps to start to modify the id
      * from.
