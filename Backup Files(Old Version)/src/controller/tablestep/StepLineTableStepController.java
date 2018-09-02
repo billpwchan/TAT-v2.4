@@ -451,15 +451,14 @@ public class StepLineTableStepController implements Initializable {
      * test step display.
      */
     public void executionInstance() {
-
         this.labelActionArea.setText(this.textAreaAction.getText());
         this.labelVerifArea.setText(this.textAreaVerif.getText());
 
         this.blockingStep.setDisable(true);
-
-        this.imageDown.setVisible(false);
-        this.imageUp.setVisible(false);
-        this.imageTrash.setVisible(false);
+//
+//        this.imageDown.setVisible(false);
+//        this.imageUp.setVisible(false);
+//        this.imageTrash.setVisible(false);
 
     }
 

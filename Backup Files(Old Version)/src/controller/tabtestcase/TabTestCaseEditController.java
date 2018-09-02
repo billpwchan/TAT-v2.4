@@ -420,6 +420,7 @@ public class TabTestCaseEditController implements Initializable {
             controllerTableStep.configurationOnForStep();   //Add a step already
 
             ObservableList<StepLineTableStepController> observableTestStep = controllerTableStep.getCollectionTestStep();   //Try to select this new step
+            System.out.println(observableTestStep.size());
             controllerTableStep.updateCurrentStep(observableTestStep.get(observableTestStep.size() - 1));
             controllerTableStep.addScriptToSelectStep();
         });
@@ -429,14 +430,11 @@ public class TabTestCaseEditController implements Initializable {
         });
 
         this.buttonValid.setOnAction((ActionEvent e) -> {
-            //if (displayWarningDeleteCase()) {
-            //alertBox2();
-            this.createUpdateTestCase();
-            //this.closeAlert();
-            main.updateLibrary();
-            main.closeTab();
-            main.focusOnLast();
-            // }
+            if (this.createUpdateTestCase()) {
+                main.updateLibrary();
+                main.closeTab();
+                main.focusOnLast();
+            }
         });
     }
 
@@ -458,7 +456,6 @@ public class TabTestCaseEditController implements Initializable {
         controllerHeaderTableStep = fxmlLoader2.getController();
         controllerHeaderTableStep.init(controllerTableStep);
         controllerTableStep.setControllerHeader(controllerHeaderTableStep);
-
     }
 
     /**
@@ -492,14 +489,35 @@ public class TabTestCaseEditController implements Initializable {
         return testCaseFromNew;
     }
 
+    private boolean validateUpdateTestCase() {
+        ObservableList<StepLineTableStepController> observableTestStep = controllerTableStep.getCollectionTestStep();
+        for (int i = 0; i < observableTestStep.size(); i++) {
+            StepLineTableStepController current = observableTestStep.get(i);
+            for (int j = 0; j < current.getCollectionScript().size(); j++) {
+                ScriptLineTableStepController currentScript = current.getCollectionScript().get(j);
+                if (currentScript.getScriptAction() == null && currentScript.getScriptVerif() != null) {
+                    CommonFunctions.displayAlert(Alert.AlertType.ERROR, "Invalid Script Found", "Invalid Script", "A script cannot only has expected result without step description");
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
     /**
      * Create the object test case linked to his set of test steps, which each
      * steps linked to the his set of script.
      */
-    private void createUpdateTestCase() {
+    private boolean createUpdateTestCase() {
+        //Validate the user input first
+
+        if (!this.validateUpdateTestCase()) {
+            return false;
+        }
+        ObservableList<StepLineTableStepController> observableTestStep = controllerTableStep.getCollectionTestStep();
+
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
-        ObservableList<StepLineTableStepController> observableTestStep = controllerTableStep.getCollectionTestStep();
         int numberOfTestStep = observableTestStep.size();
         TestCase thisTestCase = null;
 
@@ -525,7 +543,6 @@ public class TabTestCaseEditController implements Initializable {
             }
             int numberOfScript = current.getCollectionScript().size();
             int executionOrderScript = 0;
-            //System.out.println("NUMBER OF SCRIPT = "+numberOfScript);
 
             for (int j = 0; j < numberOfScript; j++) {
                 //This while-loop is for the Step description (Left part of the Test steps). Only consider isScript = 1 case.
@@ -576,6 +593,7 @@ public class TabTestCaseEditController implements Initializable {
             Logger.getLogger(TabTestCaseEditController.class.getName()).error("", ex);
         }
         session.close();
+        return true;
     }
 
     /**
