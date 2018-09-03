@@ -420,7 +420,6 @@ public class TabTestCaseEditController implements Initializable {
             controllerTableStep.configurationOnForStep();   //Add a step already
 
             ObservableList<StepLineTableStepController> observableTestStep = controllerTableStep.getCollectionTestStep();   //Try to select this new step
-            System.out.println(observableTestStep.size());
             controllerTableStep.updateCurrentStep(observableTestStep.get(observableTestStep.size() - 1));
             controllerTableStep.addScriptToSelectStep();
         });

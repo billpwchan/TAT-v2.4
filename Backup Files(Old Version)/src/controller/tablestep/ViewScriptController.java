@@ -24,8 +24,6 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.ResourceBundle;
-
-import org.apache.log4j.Logger;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -48,6 +46,7 @@ import javafx.scene.shape.Circle;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import main.Main;
+import org.apache.log4j.Logger;
 
 /**
  * FXML Controller class
@@ -526,13 +525,11 @@ public class ViewScriptController implements Initializable {
         teststephasscript.getScriptHasBeenConfigureds().clear();
         this.observableListScript.clear();
         while (itScriptParameters.hasNext()) {
-            System.out.println("here");
             ScriptHasParameters scriptHasParameters = itScriptParameters.next();
             ScriptHasBeenConfigured test = new ScriptHasBeenConfigured();
             test.setParamOrder((byte) j);
             test.setParameters(scriptHasParameters.getParameters());
             teststephasscript.addScripthasBeenConfigured(test);
-            System.out.println("            TEST STEP ADDED currentSelectedScript: " + currentSelectedScript.getTestStep());
             //teststephasscript.setTestStep(currentSelectedScript.getTestStep());
             test.setTestStepHasScript(teststephasscript);
 
@@ -567,7 +564,6 @@ public class ViewScriptController implements Initializable {
         int i = 0;
         while (iteTSHS.hasNext()) {
             ScriptHasBeenConfigured currentSHBC = iteTSHS.next();
-            System.out.println("get order = " + currentSHBC.getParamOrder());
             teststephasscript.addScripthasBeenConfigured(currentSHBC);
             //teststephasscript.setTestStep(currentSelectedScript.getTestStep());
         }

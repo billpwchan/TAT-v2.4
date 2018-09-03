@@ -8,6 +8,7 @@ package controller.tablestep;
 import DB.Requirement;
 import DB.StepExecutions;
 import DB.TestStep;
+import controller.util.CommonFunctions;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -517,14 +518,22 @@ public class StepLineTableStepController implements Initializable {
      * clicked or not
      */
     public void expandChildren() {
-        if (isExpand) {
-            isExpand = false;
-            imageExpand.setRotate(-90);
+        this.expandChildren(StepLineTableStepController.this);
+    }
+
+    /**
+     * Control image and the list of script depending on if the image expand is
+     * clicked or not (based on user-inputed StepLineTableStepController)
+     */
+    public void expandChildren(StepLineTableStepController stepLineTableStepController) {
+        if (stepLineTableStepController.isExpand) {
+            stepLineTableStepController.isExpand = false;
+            stepLineTableStepController.imageExpand.setRotate(-90);
         } else {
-            isExpand = true;
-            imageExpand.setRotate(0);
+            stepLineTableStepController.isExpand = true;
+            stepLineTableStepController.imageExpand.setRotate(0);
         }
-        controllerViewGlobal.expandChildren(StepLineTableStepController.this, isExpand);
+        controllerViewGlobal.expandChildren(stepLineTableStepController, stepLineTableStepController.isExpand);
 
         this.controllerViewGlobal.getControllerHeader().verifyExpand();
     }
@@ -588,7 +597,6 @@ public class StepLineTableStepController implements Initializable {
      * @param focusOnVerif
      */
     private void muteVerifStep(boolean focusOnVerif) {
-        System.out.println("MUTE VERIF");
         if (focusOnVerif) {
             this.textAreaVerif.setVisible(true);
             this.labelVerifArea.setVisible(false);
@@ -677,35 +685,76 @@ public class StepLineTableStepController implements Initializable {
     private void initializeHandler_Listener() {
         //Attached an event handler on the image up, fire the method move step when the image up is clicked.
         imageUp.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent event) -> {
-            boolean storedExpandState = this.isExpand;
-            if (!this.isExpand) {
-                expandChildren();
+            CommonFunctions.reportLog.info("Move up step");
+            try {
+                ObservableList<StepLineTableStepController> observableTestStep = controllerViewGlobal.getCollectionTestStep();
+                int currIndex = observableTestStep.indexOf(StepLineTableStepController.this);
+                if (currIndex - 1 >= 0) {
+                    StepLineTableStepController nextStep = observableTestStep.get(observableTestStep.indexOf(StepLineTableStepController.this) - 1);
+                    boolean storedExpandState = this.isExpand;
+                    boolean storeExpandStateNext = nextStep.isExpand;
+                    if (!this.isExpand) {
+                        expandChildren();
+                    }
+                    if (!nextStep.isExpand) {
+                        nextStep.expandChildren();
+                    }
+                    controllerViewGlobal.moveStep(StepLineTableStepController.this, true, numberOfScript);
+
+                    if (!storedExpandState) {
+                        expandChildren();
+                    }
+                    if (!storeExpandStateNext) {
+                        nextStep.expandChildren();
+                    }
+                }
+                event.consume();
+            } catch (Exception ex) {
+                Logger.getLogger(StepLineTableStepController.class.getName()).error("Exception when moving up", ex);
             }
-            controllerViewGlobal.moveStep(StepLineTableStepController.this, true, numberOfScript);
-            if (!storedExpandState) {
-                expandChildren();
-            }
-            event.consume();
         });
 
         //Attached an event handler on the image up, fire the method move step when the image up is clicked.
         imageDown.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent event) -> {
-            boolean storedExpandState = this.isExpand;
-            if (!this.isExpand) {
-                expandChildren();
+            try {
+                CommonFunctions.reportLog.info("Move down step");
+                ObservableList<StepLineTableStepController> observableTestStep = controllerViewGlobal.getCollectionTestStep();
+                int currIndex = observableTestStep.indexOf(StepLineTableStepController.this);
+                if (currIndex + 1 < observableTestStep.size()) {
+                    StepLineTableStepController nextStep = observableTestStep.get(observableTestStep.indexOf(StepLineTableStepController.this) + 1);
+                    boolean storeExpandStateNext = nextStep.isExpand;
+                    boolean storedExpandState = this.isExpand;
+                    if (!this.isExpand) {
+                        expandChildren();
+                    }
+                    if (!nextStep.isExpand) {
+                        nextStep.expandChildren();
+                    }
+                    controllerViewGlobal.moveStep(StepLineTableStepController.this, false, numberOfScript);
+                    if (!storedExpandState) {
+                        expandChildren();
+                    }
+                    if (!storeExpandStateNext) {
+                        nextStep.expandChildren();
+                    }
+                }
+                event.consume();
+            } catch (Exception ex) {
+                Logger.getLogger(StepLineTableStepController.class.getName()).error("Exception when moving down", ex);
             }
-            controllerViewGlobal.moveStep(StepLineTableStepController.this, false, numberOfScript);
-            if (!storedExpandState) {
-                expandChildren();
-            }
-            event.consume();
         });
 
         //Attached an event handler on the image expand, fire the method expand when the arrow is clicked.
         this.imageExpand.setVisible(true);
         imageExpand.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent event) -> {
-            expandChildren();
-            event.consume();
+            try {
+                CommonFunctions.reportLog.info("Expand step");
+                expandChildren();
+                event.consume();
+            } catch (Exception ex) {
+                Logger.getLogger(StepLineTableStepController.class.getName()).error("Exception when expanding step", ex);
+            }
+
         });
 
         //Attached an event handler on the image trash, fire the method deletet when the arrow is clicked.

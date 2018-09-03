@@ -269,6 +269,7 @@ public class TableStepScriptCreationController implements Initializable {
                 workingCollection.remove(indexOfStep, indexOfStep + indexToMove.numberOfScript + 1);
                 //Problematic statement. Need to consider the case when moving a 2 steps with 1 script to the end of the test case
                 //AddAll functions is using 1 based. If add to index 1, then it will be after the first element
+                //Potential Solution: Add default script at first.
                 workingCollection.addAll(indexOfTargetedStep + targetedController.numberOfScript - tampCollection.size() + 1, tampCollection);  //Will cause IndexOutOfBoundException
                 tampCollection.clear();
                 updateStepId(0);
@@ -307,19 +308,19 @@ public class TableStepScriptCreationController implements Initializable {
             controllerStepLine.initControllerTable(this);
             controllerStepLine.constructInformation(stepID);
 
-            if (this.selectedTestStepController == null) {
+//            if (this.selectedTestStepController == null) {
                 collectionControllerStep.add(controllerStepLine);
                 controllerStepLine.setStepView(step);
                 workingCollection.add(stepPane);
 
-            } else {
-                int idVbox = workingCollection.indexOf(this.selectedTestStepController.getAnchorPane()) + this.selectedTestStepController.getNumberOdScript() + 1;
-                workingCollection.add(idVbox, stepPane);
-                int indexController = this.selectedTestStepController.getIDStep() - 1;
-                indexController += 1;
-                collectionControllerStep.add(indexController, controllerStepLine);
-                updateStepId(indexController);
-            }
+//            } else {
+//                int idVbox = workingCollection.indexOf(this.selectedTestStepController.getAnchorPane()) + this.selectedTestStepController.getNumberOdScript() + 1;
+//                workingCollection.add(idVbox, stepPane);
+//                int indexController = this.selectedTestStepController.getIDStep() - 1;
+//                indexController += 1;
+//                collectionControllerStep.add(indexController, controllerStepLine);
+//                updateStepId(indexController);
+//            }
             stepPane.setPrefWidth(vBox.getPrefWidth());
 
         } catch (IOException ex) {
@@ -465,6 +466,7 @@ public class TableStepScriptCreationController implements Initializable {
      * @param testCase
      */
     public void displayScriptAndStepView(TestCase testCase) {
+        globalTestCase = testCase;
         clearTable();
         Iterator<TestStep> itSteps = testCase.getTestSteps().iterator();
 
@@ -506,6 +508,7 @@ public class TableStepScriptCreationController implements Initializable {
      * @param testCase
      */
     public void displayScriptAndStepEdit(TestCase testCase) {
+        globalTestCase = testCase;
         clearTable();
         Iterator<TestStep> itSteps = testCase.getTestSteps().iterator();
 

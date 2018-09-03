@@ -7,12 +7,16 @@ package controller.util;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import org.apache.log4j.Logger;
 
 /**
  *
  * @author billpwchan
  */
 public class CommonFunctions {
+
+    public static final Logger debugLog = Logger.getLogger("debugLogger");
+    public static final Logger reportLog = Logger.getLogger("reportsLogger");
 
     public static boolean displayWarningIncorrectInputFormat(String fieldName, Integer maxLength, boolean identifier) {
         if (!identifier) {
