@@ -257,9 +257,9 @@ public class TableStepScriptCreationController implements Initializable {
         } else {
             if (collectionControllerStep.indexOf(indexToMove) + 1 < collectionControllerStep.size()) {
                 StepLineTableStepController targetedController = collectionControllerStep.get(collectionControllerStep.indexOf(indexToMove) + 1);
-                int indexControllerSelected = collectionControllerStep.indexOf(indexToMove);
+                int indexControllerSelected = collectionControllerStep.indexOf(indexToMove);    //Selected step(step only) index (0-based)
 
-                int indexOfTargetedStep = workingCollection.indexOf(targetedController.getAnchorPane());    //Selected Step Index (0-based)
+                int indexOfTargetedStep = workingCollection.indexOf(targetedController.getAnchorPane());    //Selected Step(Step & script) Index (0-based)
 
                 Collections.swap(collectionControllerStep, indexControllerSelected, indexControllerSelected + 1);
                 for (int i = indexOfStep; i < (indexOfStep + indexToMove.numberOfScript) + 1; i++) {
@@ -267,12 +267,10 @@ public class TableStepScriptCreationController implements Initializable {
                 }
 
                 workingCollection.remove(indexOfStep, indexOfStep + indexToMove.numberOfScript + 1);
-                // Index 4, Size: 3. 
-                workingCollection.addAll(indexOfTargetedStep + targetedController.numberOfScript - tampCollection.size(), tampCollection);  //Will cause IndexOutOfBoundException
+                //Problematic statement. Need to consider the case when moving a 2 steps with 1 script to the end of the test case
+                //AddAll functions is using 1 based. If add to index 1, then it will be after the first element
+                workingCollection.addAll(indexOfTargetedStep + targetedController.numberOfScript - tampCollection.size() + 1, tampCollection);  //Will cause IndexOutOfBoundException
                 tampCollection.clear();
-                for (int i = 0; i < workingCollection.size(); i++) {
-                    System.out.println(workingCollection.get(i));
-                }
                 updateStepId(0);
                 vBox.getChildren().setAll(workingCollection);
             }

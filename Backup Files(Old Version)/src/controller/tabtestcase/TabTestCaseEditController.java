@@ -495,7 +495,8 @@ public class TabTestCaseEditController implements Initializable {
             StepLineTableStepController current = observableTestStep.get(i);
             for (int j = 0; j < current.getCollectionScript().size(); j++) {
                 ScriptLineTableStepController currentScript = current.getCollectionScript().get(j);
-                if (currentScript.getScriptAction() == null && currentScript.getScriptVerif() != null) {
+                //A step should not have null step description.
+                if (currentScript.getScriptAction() == null) {
                     CommonFunctions.displayAlert(Alert.AlertType.ERROR, "Invalid Script Found", "Invalid Script", "A script cannot only has expected result without step description");
                     return false;
                 }

@@ -8,18 +8,6 @@ package controller.tabtestcase;
 import DB.Requirement;
 import DB.TestCase;
 import DB.TestStep;
-import java.net.URL;
-import java.util.ResourceBundle;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
 import DBcontroller.sessionFactorySingleton;
 import controller.tablestep.HeaderTableStepController;
 import controller.tablestep.ScriptLineTableStepController;
@@ -28,26 +16,37 @@ import controller.tablestep.TableStepScriptCreationController;
 import controller.util.CommonFunctions;
 import static controller.util.CommonFunctions.displayWarningIncorrectInputFormat;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
-
-import org.apache.log4j.Logger;
+import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import main.Main;
 import model.initColumn;
 import model.setCursorOnComponent;
+import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
@@ -277,11 +276,31 @@ public class TabTestCaseNewController implements Initializable {
 
     }
 
+    private boolean validateUpdateTestCase() {
+        ObservableList<StepLineTableStepController> observableTestStep = controllerTableStep.getCollectionTestStep();
+        for (int i = 0; i < observableTestStep.size(); i++) {
+            StepLineTableStepController current = observableTestStep.get(i);
+            for (int j = 0; j < current.getCollectionScript().size(); j++) {
+                ScriptLineTableStepController currentScript = current.getCollectionScript().get(j);
+                //A step should not have null step description.
+                if (currentScript.getScriptAction() == null) {
+                    CommonFunctions.displayAlert(Alert.AlertType.ERROR, "Invalid Script Found", "Invalid Script", "A script cannot only has expected result without step description");
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
     /**
      * Create the object test case linked to his set of test steps, which each
      * steps linked to the his set of script.
      */
-    private void createNewTestCase() {
+    private boolean createNewTestCase() {
+        //Validate the user input first
+        if (!this.validateUpdateTestCase()) {
+            return false;
+        }
         ObservableList<StepLineTableStepController> observableTestStep = controllerTableStep.getCollectionTestStep();
         int numberOfTestStep = observableTestStep.size();
         TestCase thisTestCase = constructTestCase();
@@ -315,7 +334,7 @@ public class TabTestCaseNewController implements Initializable {
         session.save(thisTestCase);
         session.beginTransaction().commit();
         session.close();
-        System.out.println("SESSION OPENED ? : " + session.isConnected());
+        return true;
     }
 
     /**
@@ -404,11 +423,11 @@ public class TabTestCaseNewController implements Initializable {
         });
 
         this.buttonValid.setOnAction((ActionEvent e) -> {
-            this.createNewTestCase();
-            main.updateLibrary();
-            main.closeTab();
-            main.focusOnLast();
-
+            if (this.createNewTestCase()) {
+                main.updateLibrary();
+                main.closeTab();
+                main.focusOnLast();
+            }
         });
     }
 
@@ -521,7 +540,6 @@ public class TabTestCaseNewController implements Initializable {
             }
         });
     }
-
 
     /**
      *
