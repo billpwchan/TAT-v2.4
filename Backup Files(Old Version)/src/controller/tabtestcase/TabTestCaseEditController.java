@@ -26,7 +26,6 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -35,7 +34,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.DialogEvent;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
@@ -162,8 +160,6 @@ public class TabTestCaseEditController implements Initializable {
     private final TestCaseDB testCaseHandler = new TestCaseDB();
 
     private int testcaseID = -1;
-
-    private Alert alert;
 
     //Maximum Allowed TextField Length
     final int textfieldCaseIDMaxLength = 30;
@@ -422,10 +418,13 @@ public class TabTestCaseEditController implements Initializable {
             ObservableList<StepLineTableStepController> observableTestStep = controllerTableStep.getCollectionTestStep();   //Try to select this new step
             controllerTableStep.updateCurrentStep(observableTestStep.get(observableTestStep.size() - 1));
             controllerTableStep.addScriptToSelectStep();
+            
+            CommonFunctions.reportLog.info("Add a new step to test case (Test Case Edit)");
         });
 
         buttonAddScript.setOnAction((ActionEvent e) -> {
             controllerTableStep.addScriptToSelectStep();
+            CommonFunctions.reportLog.info("Add a new script to test step (Test Case Edit)");
         });
 
         this.buttonValid.setOnAction((ActionEvent e) -> {
@@ -509,8 +508,7 @@ public class TabTestCaseEditController implements Initializable {
      * steps linked to the his set of script.
      */
     private boolean createUpdateTestCase() {
-        //Validate the user input first
-
+        //Validate each test stpe to see if no step description is found.
         if (!this.validateUpdateTestCase()) {
             return false;
         }
@@ -589,46 +587,12 @@ public class TabTestCaseEditController implements Initializable {
         }
         try {
             session.beginTransaction().commit();        //Cause TestStepHasScript exception (need to save it before commit). 
+            CommonFunctions.reportLog.info("Save modified test case: " + thisTestCase.getTestCaseTitle());
         } catch (TransientObjectException ex) {     //Need to close the session regardless the exception occured.
             Logger.getLogger(TabTestCaseEditController.class.getName()).error("", ex);
         }
         session.close();
         return true;
-    }
-
-    /**
-     *
-     */
-    public void closeAlert() {
-        try {
-            alert.setOnCloseRequest(new EventHandler<DialogEvent>() {
-                @Override
-                public void handle(DialogEvent t) {
-                    alert.close();
-                }
-            });
-            alert.close();
-        } catch (Exception e) {
-            System.out.println("Exception close alert = " + e);
-        }
-    }
-
-    /**
-     *
-     */
-    public void alertBox2() {
-        alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Please wait");
-        alert.setHeaderText("Please wait until the edition is finished.");
-        Node NOKButton = alert.getDialogPane().lookupButton(alert.getButtonTypes().get(0));
-        NOKButton.setVisible(false);
-        alert.setOnCloseRequest(new EventHandler<DialogEvent>() {
-            @Override
-            public void handle(DialogEvent t) {
-                t.consume();
-            }
-        });
-        alert.show();
     }
 
     /**

@@ -13,34 +13,34 @@ import DB.TestStep;
 import DB.TestStepHasScript;
 import DBcontroller.ConfigurationDB;
 import DBcontroller.TestCaseDB;
-import java.nio.file.Files;
 import configuration.settings;
 import controller.popup.PopUpcaseExcelValidationController;
 import controller.tablestep.HeaderTableStepController;
 import controller.tablestep.TableStepScriptCreationController;
 import controller.tabtestcase.TabTestCaseNewController;
+import controller.util.CommonFunctions;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.ResourceBundle;
-
-import org.apache.log4j.Logger;
 import javafx.beans.property.StringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
+import javafx.scene.*;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -58,15 +58,14 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import main.Main;
 import model.initColumn;
 import model.util;
+import org.apache.log4j.Logger;
 import org.controlsfx.control.Notifications;
-import javafx.event.ActionEvent;
-import javafx.scene.*;
-import javafx.stage.Modality;
-import main.Main;
 
 /**
  * FXML Controller class For Baseline Creation ====> Validate campaign steps and
@@ -310,31 +309,20 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
                                 alertBox2();
                                 //Connect to Database for operation. Intended to add an additional layer of validation upfront.
                                 task = new Task<Void>() {
-                                    @Override
-                                    public Void call() throws IOException, FileNotFoundException, InterruptedException, Exception {
-                                        util.startTime();
-                                        try {
-                                            numberOfCases = configDB.configureTestCase(baseline, selected, excelFile, range, sheetNumber, numberOfCases, excelCategoryInstantiation, excelLocationInstantiation);
-                                        } catch (Exception e) {
-                                            System.out.println("EXCEPTION e= " + e);
-                                            System.out.println(e.getMessage());
-                                            // displayAlert("Incorrect Excel Range", e.getMessage());
-                                            throw new Exception(e.getMessage());
-                                            // File excelFiletemp = selectExcelFile(); //This line will cause thread related exception.
-                                            // if (excelFiletemp != null) {
-                                            //     storeExcel(excelFiletemp);
-                                            // }
-                                            // try {
-                                            //     numberOfCases = configDB.configureTestCase(baseline, selected, excelFile, range, sheetNumber, numberOfCases, excelCategoryInstantiation, excelLocationInstantiation);
-                                            // } catch (Exception ex) {
-                                            //     Logger.getLogger(TabTestCampaignExecutionBaselineCampaignController.class.getName()).error("", ex);
-                                            // }
-                                        }
+                            @Override
+                            public Void call() throws IOException, FileNotFoundException, InterruptedException, Exception {
+                                util.startTime();
+                                try {
+                                    numberOfCases = configDB.configureTestCase(baseline, selected, excelFile, range, sheetNumber, numberOfCases, excelCategoryInstantiation, excelLocationInstantiation);
+                                } catch (Exception e) {
+                                    CommonFunctions.debugLog.error("Incorrect Excel Range", e);
+                                    throw new Exception(e.getMessage());
+                                }
 
-                                        util.endTime();
-                                        return null;
-                                    }
-                                };
+                                util.endTime();
+                                return null;
+                            }
+                        };
                                 th = new Thread(task);
                                 th.setDaemon(true);
                                 th.start();
@@ -474,24 +462,6 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
                 }
             }
         }
-
-//        while (i < arrayTestStepAndScripts.size() && found == false) {
-//            j = 0;
-//            while (j < arrayTestStepAndScripts.get(i).getScriptAndParameters().size() && found == false) {
-//                k = 0;
-//                while (k < arrayTestStepAndScripts.get(i).getScriptAndParameters().get(j).getScriptHasParametersConfigured().size() && found == false) {
-//                    if (arrayTestStepAndScripts.get(i).getScriptAndParameters().get(j).getScriptHasParametersConfigured().get(k).getPathToVariable().equals("Excel file")) {
-//                        found = true;
-//                        String[] paramsForExcel = arrayTestStepAndScripts.get(i).getScriptAndParameters().get(j).getScriptHasParametersConfigured().get(k).getValue().split(splitOn);
-//                        //range = Integer.parseInt(paramsForExcel[4]);
-//                        sheetNumber = Integer.parseInt(paramsForExcel[1]);
-//                    }
-//                    k++;
-//                }
-//                j++;
-//            }
-//            i++;
-//        }
         return found;
     }
 
@@ -508,24 +478,10 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
         BaselineName = this.baselineName.getText();
         count = configurationHandler.checkConfigurationExistence(baselineName);
         if (count != 0) {
-            displayAlert("Baseline Name already used", "Please choose an other name/ID for the Baseline (baseline ID already exists)");
+            CommonFunctions.displayAlert(AlertType.ERROR, "Duplicate Baseline Found", "Baseline Name already used", "Please choose an other name/ID for the Baseline (baseline ID already exists)");
             exist = true;
         }
         return exist;
-    }
-
-    /**
-     * Display an alert to the user
-     *
-     * @param title the title of the window
-     * @param message the message to display to the user
-     */
-    public void displayAlert(String title, String message) {
-        Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.show();
     }
 
     /**

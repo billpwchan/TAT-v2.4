@@ -6,24 +6,21 @@
 package controller.popup;
 
 import controller.tabtestexecution.TabTestCampaignExecutionBaselineCampaignController;
-import controller.tabtestexecution.TabTestCampaignExecutionRepositoryBaselineController;
+import controller.util.CommonFunctions;
 import java.net.URL;
-import java.text.ParseException;
 import java.util.ResourceBundle;
-
-import org.apache.log4j.Logger;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Label;
-import javafx.scene.paint.Color;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 
 /**
  * FXML Controller class
@@ -69,6 +66,7 @@ public class PopUpcaseExcelValidationController implements Initializable {
 
     /**
      * Initializes the controller class.
+     *
      * @param url
      * @param rb
      */
@@ -83,7 +81,7 @@ public class PopUpcaseExcelValidationController implements Initializable {
         buttonOk.setOnAction((ActionEvent event) -> {
             okClick();
         });
-        
+
         buttonCancel.setOnAction((ActionEvent event) -> {
             mainController.cancelPopUp();
         });
@@ -189,21 +187,23 @@ public class PopUpcaseExcelValidationController implements Initializable {
         if (checkboxLocation.isSelected()) {
             this.mainController.setExcelLocationInstantiation((this.fieldColumnPositionLocation.getText() + Separator + this.fieldRowPositionLocation.getText()));
         }
-        
+
         int numFieldRange = 0;
         boolean isInteger = true;
-        
+
         try {
             numFieldRange = (int) Integer.valueOf(this.fieldRange.getText());
-        } catch(NumberFormatException e) {
+        } catch (NumberFormatException e) {
             isInteger = false;
-            this.mainController.displayAlert("Number of Lines inputed is not an Integer", "Number of Lines inputed is not an Integer. Please input a valid integer.");
+            CommonFunctions.displayAlert(AlertType.ERROR, "Invalid Input", "Number of Lines inputed is not an Integer", "Number of Lines inputed is not an Integer. Please input a valid integer.");
+        } catch (Exception ex) {
+            CommonFunctions.debugLog.error("Invlaid Num Field Range in Excel Validation", ex);
         }
         if (isInteger) {
             this.mainController.setRange(Integer.parseInt(this.fieldRange.getText())); //sets range
             this.mainController.setOnAction();
         }
-        
+
     }
 
 }

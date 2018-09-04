@@ -308,19 +308,11 @@ public class TableStepScriptCreationController implements Initializable {
             controllerStepLine.initControllerTable(this);
             controllerStepLine.constructInformation(stepID);
 
-//            if (this.selectedTestStepController == null) {
-                collectionControllerStep.add(controllerStepLine);
-                controllerStepLine.setStepView(step);
-                workingCollection.add(stepPane);
+            //Always add to end. Adding in the middle will cause exception (Due to AddAll function)
+            collectionControllerStep.add(controllerStepLine);
+            controllerStepLine.setStepView(step);
+            workingCollection.add(stepPane);
 
-//            } else {
-//                int idVbox = workingCollection.indexOf(this.selectedTestStepController.getAnchorPane()) + this.selectedTestStepController.getNumberOdScript() + 1;
-//                workingCollection.add(idVbox, stepPane);
-//                int indexController = this.selectedTestStepController.getIDStep() - 1;
-//                indexController += 1;
-//                collectionControllerStep.add(indexController, controllerStepLine);
-//                updateStepId(indexController);
-//            }
             stepPane.setPrefWidth(vBox.getPrefWidth());
 
         } catch (IOException ex) {
@@ -469,10 +461,10 @@ public class TableStepScriptCreationController implements Initializable {
         globalTestCase = testCase;
         clearTable();
         Iterator<TestStep> itSteps = testCase.getTestSteps().iterator();
-
         while (itSteps.hasNext()) {
             TestStep testStep = itSteps.next();
             this.addStepinVbox(testStep);
+            controllerStepLine.setStepExpandView(testStep);
             ArrayList<TestStepHasScript> gogolito = new ArrayList<>(testStep.getTestStepHasScripts());
             int numberOfScript = gogolito.size();
 

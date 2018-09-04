@@ -207,6 +207,18 @@ public class StepLineTableStepController implements Initializable {
         }
     }
 
+    public void setStepExpandView(TestStep tesStep) {
+        this.imageExpand.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent event) -> {
+            try {
+                CommonFunctions.reportLog.info("Expand step");
+                expandChildren();
+                event.consume();
+            } catch (Exception ex) {
+                Logger.getLogger(StepLineTableStepController.class.getName()).error("Exception when expanding step", ex);
+            }
+        });
+    }
+
     /**
      *
      * @param allReq
@@ -242,8 +254,6 @@ public class StepLineTableStepController implements Initializable {
 
         //Set the handler and listener for each compoent or node that need a listener, handler on this view.
         this.initializeHandler_Listener();
-        //Initialize new Step created with a script.
-
     }
 
     /**
@@ -420,7 +430,6 @@ public class StepLineTableStepController implements Initializable {
      * @return
      */
     public TestStep getTestStep() {
-        //System.out.println("this.personal TestStep="+this.personalID + "personefpdijfaldfjkas "+ this.personalTespStep.getIdtestStep());
         return this.personalTespStep;
 
     }
@@ -456,10 +465,13 @@ public class StepLineTableStepController implements Initializable {
         this.labelVerifArea.setText(this.textAreaVerif.getText());
 
         this.blockingStep.setDisable(true);
-//
-//        this.imageDown.setVisible(false);
-//        this.imageUp.setVisible(false);
-//        this.imageTrash.setVisible(false);
+
+        this.imageExpand.setDisable(false);
+        this.imageExpand.setVisible(true);
+
+        this.imageDown.setVisible(false);
+        this.imageUp.setVisible(false);
+        this.imageTrash.setVisible(false);
 
     }
 
@@ -671,15 +683,26 @@ public class StepLineTableStepController implements Initializable {
         });
     }
 
+    /**
+     * Provide view initialization for TestCase View tab and all related
+     * operations.
+     */
     private void loadImagesView() {
         this.imageExpand.setImage(ime);
+        this.imageExpand.setDisable(false);
         this.imageExpand.setRotate(0);
+        //Attached an event handler on the image expand, fire the method expand when the arrow is clicked.
+        this.imageExpand.setVisible(true);
     }
 
     private void loadImageCreation() {
         this.imageDown.setImage(imd);
         this.imageUp.setImage(imu);
         this.imageTrash.setImage(deilete);
+        this.imageExpand.setImage(ime);
+        this.imageExpand.setDisable(false);
+        this.imageExpand.setRotate(0);
+
     }
 
     private void initializeHandler_Listener() {
