@@ -21,17 +21,18 @@ import java.net.URL;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-
-import org.apache.log4j.Logger;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TreeItem;
@@ -39,20 +40,19 @@ import javafx.scene.control.TreeTableView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.DirectoryChooser;
+import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import main.Main;
 import static main.Main.primaryStage;
+import model.WriteReport;
 import model.createOrchestra;
 import model.initColumn;
-import model.util;
-import javafx.collections.ListChangeListener;
-import javafx.scene.Node;
-import javafx.scene.control.Alert;
-import javafx.stage.FileChooser;
-import model.WriteReport;
 import model.setCursorOnComponent;
+import model.util;
+import org.apache.log4j.Logger;
+import org.hibernate.exception.GenericJDBCException;
 
 /**
  * FXML Controller class To validate a particular test case (With prompt window
@@ -397,11 +397,16 @@ public class TabTestCampaignExecutionRepositoryBaselineController implements Ini
             if (selected == null) {
                 e.consume();
             } else if (this.selected.getType().equals("execution")) {
-                iteHandler.deleteExecution(selected);
                 try {
+                    iteHandler.deleteExecution(selected);
                     this.UpdateTreeItem();
                 } catch (ParseException ex) {
-                    Logger.getLogger(TabTestCampaignExecutionRepositoryBaselineController.class.getName()).error("", ex);
+                    Logger.getLogger(TabTestCampaignExecutionRepositoryBaselineController.class.getName()).error("Cannot update BaseLine", ex);
+                } catch (GenericJDBCException ex) {
+                    Logger.getLogger(TabTestCampaignExecutionRepositoryBaselineController.class.getName()).error("Database File is Locked", ex);
+                    CommonFunctions.displayAlert(Alert.AlertType.ERROR,
+                            "Locked Database File", "The database file is locked by another application",
+                            "Please refer to the log file for further information");
                 }
             } else if (this.selected.getType().equals("baseline")) {
                 ArrayList<Iterations> iterations;
@@ -419,19 +424,20 @@ public class TabTestCampaignExecutionRepositoryBaselineController implements Ini
                 ArrayList<Iterations> arrayIt = null;
                 try {
                     arrayIt = testExecutionHandler.getBaselinesFromCampaign(this.selected.getTestCampaign());
-                } catch (ParseException ex) {
-                    Logger.getLogger(TabTestCampaignExecutionRepositoryBaselineController.class.getName()).error("", ex);
-                }
-                for (int i = 0; i < arrayIt.size(); i++) {
-                    arrayIterations = testExecutionHandler.getExecutionsFromBaseline(arrayIt.get(i));
-                    for (int j = 0; j < arrayIterations.size(); j++) {
-                        iteHandler.deleteExecution(arrayIterations.get(j));
+                    for (int i = 0; i < arrayIt.size(); i++) {
+                        arrayIterations = testExecutionHandler.getExecutionsFromBaseline(arrayIt.get(i));
+                        for (int j = 0; j < arrayIterations.size(); j++) {
+                            iteHandler.deleteExecution(arrayIterations.get(j));
+                        }
                     }
-                }
-                try {
                     this.UpdateTreeItem();
                 } catch (ParseException ex) {
                     Logger.getLogger(TabTestCampaignExecutionRepositoryBaselineController.class.getName()).error("", ex);
+                } catch (GenericJDBCException ex) {
+                    Logger.getLogger(TabTestCampaignExecutionRepositoryBaselineController.class.getName()).error("Database File is Locked", ex);
+                    CommonFunctions.displayAlert(Alert.AlertType.ERROR,
+                            "Locked Database File", "The database file is locked by another application",
+                            "Please refer to the log file for further information");
                 }
             }
         });
@@ -453,12 +459,8 @@ public class TabTestCampaignExecutionRepositoryBaselineController implements Ini
                     newReport.createReport(selected);
                     CommonFunctions.displayAlert(Alert.AlertType.INFORMATION, "Report generated", "Report generated, named: " + newReport.getFileName(), null);
                 } catch (Exception ex) {
-                    Logger.getLogger(TabTestCampaignExecutionRepositoryBaselineController.class.getName()).error("", ex);
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Error in generating Report");
-                    alert.setHeaderText("The TAT can only generate a report based on successfully executed baselines");
-                    alert.setContentText("Please choose a successfully executed baseline to report");
-                    alert.showAndWait();
+                    Logger.getLogger(TabTestCampaignExecutionRepositoryBaselineController.class.getName()).debug("", ex);
+                    CommonFunctions.displayAlert(Alert.AlertType.ERROR, "Error in generating Report", "The TAT can only generate a report based on successfully executed baselines", "Please choose a successfully executed baseline to report");
                 }
             }
         });
@@ -514,11 +516,10 @@ public class TabTestCampaignExecutionRepositoryBaselineController implements Ini
      *
      */
     public void setBaselineButtonEnable() {
-
         this.runButton.setDisable(false);
     }
-    
-        /**
+
+    /**
      * define a new cursor for buttons where an action is possible
      */
     private void defineCursor() {

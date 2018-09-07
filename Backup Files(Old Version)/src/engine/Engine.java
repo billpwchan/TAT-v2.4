@@ -223,6 +223,7 @@ public class Engine {
                                         setMacroComment(testResult.getResult(), testResult.getComment(), currentScript, mac.getScriptByScriptIdScript1());
                                     }
                                 } catch (MalformedURLException | ClassNotFoundException | NoSuchMethodException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
+                                    // Problem with this catch: The result of Not Testable is not saved to the database. 
                                     String stackTrace = Throwables.getStackTraceAsString(ex);
                                     currentTestCase.setCaseExecutionResult("Not testable");
                                     testResult = new Result();
@@ -236,7 +237,7 @@ public class Engine {
                                     }
                                     averageTimeCase = exceptionCausedExecutionTerminator(hashMapNumberResultMacro, testResult, currentScript, mac, checkInMacro, hashMapNumberResultScript, scriptNumber, currentStep, hashMapNumberResultSteps, tempsDebut1, averageTimeCase, i, set, stepsNumber, currentTestCase);
 
-                                    throw new Exception(stackTrace.substring(stackTrace.indexOf("Caused by:") + 11), ex);    //Go to PopUpRunController.java
+                                    throw ex;    //Go to PopUpRunController.java
                                 }
                             }
                             this.stateMachineMacro(hashMapNumberResultMacro, checkInMacro);
@@ -276,7 +277,7 @@ public class Engine {
                 averageTimeCase = ((1 - 1 / ((float) i + 1)) * averageTimeCase + (1 / ((float) i + 1)) * seconds1);
                 //Logger.getLogger(Engine.class.getName()).debug("Average Time Case = " + averageTimeCase);
                 iterationResultPercentage = ((double) nbCaseOK / (double) this.toExecute.size()) * 100;
-                Logger.getLogger(Engine.class.getName()).debug("ITERATION RESULT = " + iterationResultPercentage);
+//                Logger.getLogger(Engine.class.getName()).debug("ITERATION RESULT = " + iterationResultPercentage);
                 this.popUpRunController.setIterationPercentage(iterationResultPercentage);
             }
             stateMachineCaseResult(hashMapNumberResultSteps, stepsNumber);
@@ -299,25 +300,27 @@ public class Engine {
         this.stateMachineMacro(hashMapNumberResultMacro, checkInMacro);
         setMacroResult(macroResult, currentScript);
         hashMapNumberResultScript.put(macroResult, hashMapNumberResultScript.get(macroResult) + 1);
-        Logger.getLogger(Engine.class.getName()).debug("SCRIPT NUMBER = " + scriptNumber);
+//        Logger.getLogger(Engine.class.getName()).debug("SCRIPT NUMBER = " + scriptNumber);
         stateMachineStepResult(hashMapNumberResultScript, scriptNumber);
         currentStep.setStepExecutionResult(stepResult);
-        Logger.getLogger(Engine.class.getName()).debug("RESULT STEP = " + stepResult);
+//        Logger.getLogger(Engine.class.getName()).debug("RESULT STEP = " + stepResult);
         hashMapNumberResultSteps.put(stepResult, hashMapNumberResultSteps.get(stepResult) + 1);
         tempsFin1 = System.currentTimeMillis();
         seconds1 = (tempsFin1 - tempsDebut1) / 1000;
         averageTimeCase = ((1 - 1 / ((float) i + 1)) * averageTimeCase + (1 / ((float) i + 1)) * seconds1);
         iterationResultPercentage = ((double) nbCaseOK / (double) this.toExecute.size()) * 100;
-        Logger.getLogger(Engine.class.getName()).debug("ITERATION RESULT = " + iterationResultPercentage);
+//        Logger.getLogger(Engine.class.getName()).debug("ITERATION RESULT = " + iterationResultPercentage);
         this.popUpRunController.setIterationPercentage(iterationResultPercentage);
         this.stateMachineIterationResult(nbCaseOK, nbCaseNOK, nbCaseOKWC, nbCaseNtestable, nbCaseIncomplete, nbCaseOS, this.toExecute.size());
         this.closeAllScripts(set);
         this.popUpRunController.executionFinished();
-        stateMachineCaseResult(hashMapNumberResultSteps, stepsNumber);
-        Logger.getLogger(Engine.class.getName()).debug("Case result = " + caseResult);
-        currentTestCase.setCaseExecutionResult(caseResult);
-        popUpRunController.setNumberNotExecuted(nbCaseOK, nbCaseOKWC, nbCaseNOK, nbCaseNtestable, nbCaseIncomplete, nbCaseOS, nbCaseNT);
-        popUpRunController.updateAverageTimeCase(averageTimeCase, averageTimeCase * (float) nbCaseNT);
+        //Possibly caused by setMachineCaseResult.
+        
+//        stateMachineCaseResult(hashMapNumberResultSteps, stepsNumber);
+////        Logger.getLogger(Engine.class.getName()).debug("Case result = " + caseResult);
+//        currentTestCase.setCaseExecutionResult(caseResult);
+//        popUpRunController.setNumberNotExecuted(nbCaseOK, nbCaseOKWC, nbCaseNOK, nbCaseNtestable, nbCaseIncomplete, nbCaseOS, nbCaseNT);
+//        popUpRunController.updateAverageTimeCase(averageTimeCase, averageTimeCase * (float) nbCaseNT);
         return averageTimeCase;
     }
 

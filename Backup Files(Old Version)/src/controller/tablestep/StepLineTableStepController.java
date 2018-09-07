@@ -708,10 +708,10 @@ public class StepLineTableStepController implements Initializable {
     private void initializeHandler_Listener() {
         //Attached an event handler on the image up, fire the method move step when the image up is clicked.
         imageUp.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent event) -> {
-            CommonFunctions.reportLog.info("Move up step");
             try {
                 ObservableList<StepLineTableStepController> observableTestStep = controllerViewGlobal.getCollectionTestStep();
                 int currIndex = observableTestStep.indexOf(StepLineTableStepController.this);
+                CommonFunctions.reportLog.info("Move up step: (ID) " + observableTestStep.get(currIndex).getIDStep());
                 if (currIndex - 1 >= 0) {
                     StepLineTableStepController nextStep = observableTestStep.get(observableTestStep.indexOf(StepLineTableStepController.this) - 1);
                     boolean storedExpandState = this.isExpand;
@@ -740,9 +740,9 @@ public class StepLineTableStepController implements Initializable {
         //Attached an event handler on the image up, fire the method move step when the image up is clicked.
         imageDown.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent event) -> {
             try {
-                CommonFunctions.reportLog.info("Move down step");
                 ObservableList<StepLineTableStepController> observableTestStep = controllerViewGlobal.getCollectionTestStep();
                 int currIndex = observableTestStep.indexOf(StepLineTableStepController.this);
+                CommonFunctions.reportLog.info("Move down step: (ID) " + observableTestStep.get(currIndex).getIDStep());
                 if (currIndex + 1 < observableTestStep.size()) {
                     StepLineTableStepController nextStep = observableTestStep.get(observableTestStep.indexOf(StepLineTableStepController.this) + 1);
                     boolean storeExpandStateNext = nextStep.isExpand;
@@ -771,7 +771,9 @@ public class StepLineTableStepController implements Initializable {
         this.imageExpand.setVisible(true);
         imageExpand.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent event) -> {
             try {
-                CommonFunctions.reportLog.info("Expand step");
+                 ObservableList<StepLineTableStepController> observableTestStep = controllerViewGlobal.getCollectionTestStep();
+                int currIndex = observableTestStep.indexOf(StepLineTableStepController.this);
+                CommonFunctions.reportLog.info("Expand step (ID) " + observableTestStep.get(currIndex).getIDStep());
                 expandChildren();
                 event.consume();
             } catch (Exception ex) {

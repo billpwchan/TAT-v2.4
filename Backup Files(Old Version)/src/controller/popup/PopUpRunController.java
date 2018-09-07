@@ -17,14 +17,15 @@ import controller.tablestep.HeaderTableStepController;
 import controller.tablestep.TableStepScriptCreationController;
 import controller.tabtestcase.TabTestCaseNewController;
 import controller.tabtestexecution.TabTestCampaignExecutionRepositoryBaselineController;
+import controller.util.CommonFunctions;
 import engine.Engine;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import org.apache.log4j.Logger;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.value.ObservableValue;
@@ -38,7 +39,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.DialogEvent;
 import javafx.scene.control.Label;
@@ -51,17 +54,14 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
-import model.TestCasesExecution;
-import model.initColumn;
-import java.io.File;
-import java.util.Optional;
-import javafx.scene.control.ButtonType;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
-import javafx.scene.control.Alert.AlertType;
+import model.TestCasesExecution;
+import model.initColumn;
+import org.apache.log4j.Logger;
 
 /**
  * FXML Controller class
@@ -275,10 +275,10 @@ public class PopUpRunController implements Initializable {
                         Alert alert = new Alert(Alert.AlertType.ERROR);
                         alert.setTitle("Error: ");
                         alert.setHeaderText("Exception Caught. Cannot execute the test case");
-                        alert.setContentText("Please refer to the stacktrace:\t\n\n" + ex.getMessage());
+                        alert.setContentText("Please refer to the log for adjusting SSH Connection Congirution.");
                         if (ex.getMessage() != null && ex.getMessage().contains("SSH")) {      //Customized Content for Exceptions from SSHCommand Script
                             alert.setTitle("Error: The server (IP: " + exceptionMessage.substring(exceptionMessage.indexOf("IP: ")).trim() + " ) cannot be reached.");
-                            alert.setContentText("The server (IP: " + exceptionMessage.replace("//n", " ").replace("    ", " ").substring(exceptionMessage.indexOf("IP: "), exceptionMessage.indexOf("at")).trim() + " ) cannot be reached.\n" + "Please refer to the stacktrace:\t\n\n" + ex.getMessage());
+                            CommonFunctions.debugLog.error("\"The server (IP: \" + exceptionMessage.replace(\"//n\", \" \").replace(\"    \", \" \").substring(exceptionMessage.indexOf(\"IP: \"), exceptionMessage.indexOf(\"at\")).trim() + \" ) cannot be reached.", ex);
                         }
                         alert.showAndWait();
                         th.resume();

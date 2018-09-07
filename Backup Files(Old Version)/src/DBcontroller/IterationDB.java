@@ -34,7 +34,6 @@ public class IterationDB {
      * @param ite
      */
     public void initializeIteration(Iterations ite) {
-        System.out.println("Start time to construct object : " + System.currentTimeMillis());
         ArrayList<CaseExecutions> caseExecutions = new TestCaseDB().getTestCasesAndResults(ite.getBaselineId(), ite.getIterationNumber());
         TestStepDB testStepDB = new TestStepDB();
         caseExecutions.stream().forEach((test1) -> {
@@ -47,7 +46,6 @@ public class IterationDB {
         Hibernate.initialize(ite.getTestCampaign());
         session.close();
         ite.setCaseExecutionses(new TreeSet<>(caseExecutions));
-        System.out.println("End time to construct object : " + System.currentTimeMillis());
     }
 
     /**

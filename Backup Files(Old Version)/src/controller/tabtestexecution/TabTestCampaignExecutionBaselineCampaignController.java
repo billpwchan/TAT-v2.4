@@ -20,7 +20,6 @@ import controller.tablestep.TableStepScriptCreationController;
 import controller.tabtestcase.TabTestCaseNewController;
 import controller.util.CommonFunctions;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Files;
@@ -279,11 +278,7 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
                     File excelFile;
                     boolean excelChoose = false;
                     if (!controllerTableStep.isFullyConfigured()) {
-                        Alert alert = new Alert(AlertType.WARNING);
-                        alert.setTitle("Case not fully configured");
-                        alert.setHeaderText(null);
-                        alert.setContentText("Please configure the entire testCase before validate");
-                        alert.showAndWait();
+                        CommonFunctions.displayAlert(AlertType.WARNING, "Case not fully configured", null, "Please configure the entire testCase before validate");
                         event.consume();
                     } else {
                         if (!this.baselineName.isDisable() && !this.verifyBaselineExistence(this.baselineName.getText())) {
@@ -297,7 +292,6 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
                                 if (excelFile != null) {
                                     excelChoose = true;
                                     this.storeExcel(excelFile);
-
                                 }
                             } else {
                                 excelFile = null;
@@ -308,42 +302,41 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
                             if (excelChoose == true) {
                                 alertBox2();
                                 //Connect to Database for operation. Intended to add an additional layer of validation upfront.
-                                task = new Task<Void>() {
-                            @Override
-                            public Void call() throws IOException, FileNotFoundException, InterruptedException, Exception {
-                                util.startTime();
                                 try {
-                                    numberOfCases = configDB.configureTestCase(baseline, selected, excelFile, range, sheetNumber, numberOfCases, excelCategoryInstantiation, excelLocationInstantiation);
-                                } catch (Exception e) {
-                                    CommonFunctions.debugLog.error("Incorrect Excel Range", e);
-                                    throw new Exception(e.getMessage());
+                                    util.startTime();
+                                    try {
+                                        numberOfCases = configDB.configureTestCase(baseline, selected, excelFile, range, sheetNumber, numberOfCases, excelCategoryInstantiation, excelLocationInstantiation);
+                                    } catch (NullPointerException ex) {
+                                        CommonFunctions.debugLog.error("Cannot find the specified sheet in Excel File", ex);
+                                        throw ex;
+                                    } catch (Exception ex) {
+                                        CommonFunctions.debugLog.error("General Exception when opening Excel File", ex);
+                                        throw ex;
+                                    }
+                                    util.endTime();
+                                    th = new Thread(task);
+                                    th.setDaemon(true);
+                                    th.start();
+                                    try {
+                                        th.join();
+                                    } catch (InterruptedException ex) {
+                                        Logger.getLogger(TabTestCampaignExecutionBaselineCampaignController.class.getName()).error("", ex);
+                                    }
+                                    closeAlert(alert);
+                                    //this.notificationBaselinCase();
+                                    if (numberOfCases != -1) {
+                                        this.selected.setConfigured("configured");
+                                        this.setButtonAndLabelsVisible(false, true, true);
+                                        validConfiguration(numberValidatedCase++);  //Enable ValidateBaseline button when consists enough cases
+                                        controllerTableStep.disableConfiguration();
+                                        numberOfCases = 0;
+                                    } else {
+                                        numberOfCases = 0;  //To restore numOfCases back to origina state (If exception is encountered)
+                                    }
+                                } catch (Exception ex) {
+                                    CommonFunctions.displayAlert(AlertType.ERROR, "Exeption Found when opening Excel File",
+                                            "Invalid Excel Configuration", "Please refer to the log to adjust Excel Configurations");
                                 }
-
-                                util.endTime();
-                                return null;
-                            }
-                        };
-                                th = new Thread(task);
-                                th.setDaemon(true);
-                                th.start();
-                                try {
-                                    th.join();
-                                } catch (InterruptedException ex) {
-                                    Logger.getLogger(TabTestCampaignExecutionBaselineCampaignController.class.getName()).error("", ex);
-                                }
-                                closeAlert(alert);
-                                //this.notificationBaselinCase();
-                                if (numberOfCases != -1) {
-                                    this.selected.setConfigured("configured");
-                                    this.setButtonAndLabelsVisible(false, true, true);
-                                    validConfiguration(numberValidatedCase++);  //Enable ValidateBaseline button when consists enough cases
-                                    controllerTableStep.disableConfiguration();
-                                    numberOfCases = 0;
-                                } else {
-                                    numberOfCases = 0;  //To restore numOfCases back to origina state (If exception is encountered)
-                                }
-                                //closeAlertBox(dialog);
-
                             }
                         } else {
                             event.consume();
@@ -513,7 +506,9 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open Resource File");
         fileChooser.getExtensionFilters().addAll(
-                new ExtensionFilter("Excel Files", "*.xls"));
+                new ExtensionFilter("Excel Files", "*.xls"),
+                new ExtensionFilter("Excel Files (New Ver.)", "*.xlsx")
+        );
         if (save == false) {
             selectedFile = fileChooser.showOpenDialog(dialogStage);
         } else {
@@ -679,7 +674,6 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
             if (th.getState() != Thread.State.TERMINATED) {
                 t.consume();
             } else {
-                //System.out.println("Alert close");
                 alert.close();
             }
         });
