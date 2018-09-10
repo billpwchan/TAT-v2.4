@@ -28,17 +28,13 @@ import java.util.ResourceBundle;
  */
 public class TabMacroMainViewController implements Initializable {
 
+    private static TabMacroLibraryController libraryController;
+    private static TabMacroNewController newMacroController;
     @FXML
     private AnchorPane anchorPanelViewMacro;
     @FXML
     private TabPane tabPaneMacro;
-
     private Tab tabMacroLibrary;
-
-    private static TabMacroLibraryController libraryController;
-
-    private static TabMacroNewController newMacroController;
-
     private TabMacroNewController viewMacroController;
 
     private TabMacroEditController editMacroController;
@@ -74,7 +70,6 @@ public class TabMacroMainViewController implements Initializable {
     }
 
     /**
-     *
      * @param aThis
      */
     public void init(TATFrameController aThis) {

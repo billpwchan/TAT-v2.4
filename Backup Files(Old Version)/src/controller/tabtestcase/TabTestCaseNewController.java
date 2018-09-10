@@ -32,16 +32,13 @@ import javafx.stage.Stage;
 import main.Main;
 import model.initColumn;
 import model.setCursorOnComponent;
-import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.TransientObjectException;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.ResourceBundle;
+import java.util.*;
 
 import static controller.util.CommonFunctions.displayWarningIncorrectInputFormat;
 
@@ -52,6 +49,19 @@ import static controller.util.CommonFunctions.displayWarningIncorrectInputFormat
  */
 public class TabTestCaseNewController implements Initializable {
 
+    private static TabTestCaseMainViewController main;
+    //Maximum Allowed TextField Length
+    private final int textfieldCaseIDMaxLength = 30;
+    private final int textfieldCaseVersionMaxLength = 10;
+    private final int textfieldProjectMaxLength = 10;
+    private final int textfieldTypeTestMaxLength = 20;
+    private final int textfieldTestCategoryMaxLength = 20;
+    private final int textfieldLocationMaxLength = 20;
+    private final int textfieldCaseTitleMaxLength = 30;
+    private final int textfieldWriterMaxLength = 20;
+    private final int textfieldWriterEmailMaxLength = 50;
+    private final int textfieldCaseSourceMaxLength = 50;
+    private final int textfieldTestEnvironementMaxLength = 20;
     @FXML
     private AnchorPane anchorPanelNewTestCase;
     @FXML
@@ -136,30 +146,9 @@ public class TabTestCaseNewController implements Initializable {
     private GridPane gridPaneTableStep;
     @FXML
     private ListView listViewRequirementCaseNew;
-
-    private static TabTestCaseMainViewController main;
-
     private Stage dialogStage;
-
     private TableStepScriptCreationController controllerTableStep;
-
     private boolean canBeValidate = false;
-
-    private HeaderTableStepController controllerHeaderTableStep;
-
-    private Alert alert;
-    //Maximum Allowed TextField Length
-    final int textfieldCaseIDMaxLength = 30;
-    final int textfieldCaseVersionMaxLength = 10;
-    final int textfieldProjectMaxLength = 10;
-    final int textfieldTypeTestMaxLength = 20;
-    final int textfieldTestCategoryMaxLength = 20;
-    final int textfieldLocationMaxLength = 20;
-    final int textfieldCaseTitleMaxLength = 30;
-    final int textfieldWriterMaxLength = 20;
-    final int textfieldWriterEmailMaxLength = 50;
-    final int textfieldCaseSourceMaxLength = 50;
-    final int textfieldTestEnvironementMaxLength = 20;
 
     /**
      * Initializes the controller class.
@@ -201,12 +190,8 @@ public class TabTestCaseNewController implements Initializable {
         TabTestCaseNewController.main = mainController;
         jtextfieldWriterCaseNew.setText(Main.currentUser.getName());
         jtextfieldWriterEmailCaseNew.setText(Main.currentUser.getEmail());
-        controllerTableStep.getCollectionTestStep().addListener(new ListChangeListener() {
-            @Override
-            public void onChanged(ListChangeListener.Change change) {
-                jtextfieldNumberStepCaseNew.setText(String.valueOf(controllerTableStep.getCollectionTestStep().size()));
-            }
-
+        controllerTableStep.getCollectionTestStep().addListener((ListChangeListener) change -> {
+            jtextfieldNumberStepCaseNew.setText(String.valueOf(controllerTableStep.getCollectionTestStep().size()));
         });
         controllerTableStep.initTestCaseNew(this);
     }
@@ -217,7 +202,7 @@ public class TabTestCaseNewController implements Initializable {
      * @return testCaseFromNew the test case created.
      */
     private TestCase constructTestCase() {
-        TestCase testCaseFromNew = new TestCase(
+        return new TestCase(
                 jtextfieldCaseTitleNew.getText(),
                 jtextfieldWriterCaseNew.getText(),
                 new Byte(jtextfieldInternalVersionCaseNew.getText()),
@@ -238,7 +223,6 @@ public class TabTestCaseNewController implements Initializable {
                 (byte) (checkBoxBlockingCaseNew.isSelected() ? 1 : 0),
                 jtextareaCommentsCaseNew.getText(),
                 jtextfieldCaseSourceNew.getText());
-        return testCaseFromNew;
     }
 
     /**
@@ -254,38 +238,22 @@ public class TabTestCaseNewController implements Initializable {
     private void constructTableStep() {
         FXMLLoader fxmlLoader = new FXMLLoader();
         try {
-            this.gridPaneTableStep.add((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream()), 0, 1, 1, 5);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
+            this.gridPaneTableStep.add(fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream()), 0, 1, 1, 5);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseNewController.class.getName()).error("", ex);
+            CommonFunctions.debugLog.error("", ex);
         }
         controllerTableStep = fxmlLoader.getController();
         FXMLLoader fxmlLoader2 = new FXMLLoader();
         try {
-            AnchorPane paneTest = (AnchorPane) fxmlLoader2.load(getClass().getResource("/view/stepcreation/headerTableStep.fxml").openStream());
+            AnchorPane paneTest = fxmlLoader2.load(getClass().getResource("/view/stepcreation/headerTableStep.fxml").openStream());
             this.gridPaneTableStep.add(paneTest, 0, 0, 1, 1);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseNewController.class.getName()).error("", ex);
+            CommonFunctions.debugLog.error("", ex);
         }
-        controllerHeaderTableStep = fxmlLoader2.getController();
+        HeaderTableStepController controllerHeaderTableStep = fxmlLoader2.getController();
         controllerHeaderTableStep.init(controllerTableStep);
-
     }
 
-    private boolean validateUpdateTestCase() {
-        ObservableList<StepLineTableStepController> observableTestStep = controllerTableStep.getCollectionTestStep();
-        for (int i = 0; i < observableTestStep.size(); i++) {
-            StepLineTableStepController current = observableTestStep.get(i);
-            for (int j = 0; j < current.getCollectionScript().size(); j++) {
-                ScriptLineTableStepController currentScript = current.getCollectionScript().get(j);
-                //A step should not have null step description.
-                if (currentScript.getScriptAction() == null) {
-                    CommonFunctions.displayAlert(Alert.AlertType.ERROR, "Invalid Script Found", "Invalid Script", "A script cannot only has expected result without step description");
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
 
     /**
      * Create the object test case linked to his set of test steps, which each
@@ -293,41 +261,51 @@ public class TabTestCaseNewController implements Initializable {
      */
     private boolean createNewTestCase() {
         //Validate the user input first
-        if (!this.validateUpdateTestCase()) {
+        if (!CommonFunctions.validateUpdateTestCase(controllerTableStep.getCollectionTestStep())) {
             return false;
         }
+        String reportLogMsg = "";
         ObservableList<StepLineTableStepController> observableTestStep = controllerTableStep.getCollectionTestStep();
         int numberOfTestStep = observableTestStep.size();
         TestCase thisTestCase = constructTestCase();
+        reportLogMsg += "After Creating Test Case :" + Objects.requireNonNull(thisTestCase).getTestCaseIdentification() + System.lineSeparator();
+        StringBuilder reportLogMsgBuilder = new StringBuilder(reportLogMsg);
         for (int i = 0; i < numberOfTestStep; i++) {
             StepLineTableStepController current = observableTestStep.get(i);
             TestStep step = current.getTestStep();
             step.setStepOrder((byte) i);
             thisTestCase.addStep(step);
+            reportLogMsgBuilder.append("\tStep ").append(i).append(": ").append(step.getHumanStimuli()).append(System.lineSeparator());
             int numberOfScript = current.getCollectionScript().size();
             int executionOrderScript = 0;
-
             for (int j = 0; j < numberOfScript; j++) {
                 ScriptLineTableStepController currentScript = current.getCollectionScript().get(j);
                 if (currentScript.getScriptAction() != null) {
                     currentScript.getScriptAction().setExecutionOrder((byte) executionOrderScript);
                     executionOrderScript++;
                     step.addTestStephasScript(currentScript.getScriptAction());
-
+                    reportLogMsgBuilder.append("\t\tScript ").append(0).append(": ").append(currentScript.getScriptAction().getScript().getName()).append(System.lineSeparator());
                 }
                 if (currentScript.getScriptVerif() != null) {
                     currentScript.getScriptVerif().setExecutionOrder((byte) executionOrderScript);
                     executionOrderScript++;
                     step.addTestStephasScript(currentScript.getScriptVerif());
+                    reportLogMsgBuilder.append("\t\tScript ").append(0).append(": ").append(currentScript.getScriptVerif().getScript().getName()).append(System.lineSeparator());
                 }
             }
 
         }
-
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
         session.save(thisTestCase);
-        session.beginTransaction().commit();
+        reportLogMsg = reportLogMsgBuilder.toString();
+        try {
+            session.beginTransaction().commit();        //Cause TestStepHasScript exception (need to save it before commit).
+            CommonFunctions.reportLog.info(reportLogMsg);
+            CommonFunctions.reportLog.info("Successfully saved test case: " + Objects.requireNonNull(thisTestCase).getTestCaseIdentification());
+        } catch (TransientObjectException ex) {     //Need to close the session regardless the exception occured.
+            CommonFunctions.debugLog.error("Error in saving new generated test case", ex);
+        }
         session.close();
         return true;
     }
@@ -377,7 +355,6 @@ public class TabTestCaseNewController implements Initializable {
     }
 
     /**
-     *
      * @param b
      */
     public void setStateButtonScript(boolean b) {
@@ -551,7 +528,6 @@ public class TabTestCaseNewController implements Initializable {
     }
 
     /**
-     *
      * @return
      */
     public AnchorPane getAnchorPane() {

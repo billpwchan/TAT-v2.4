@@ -42,28 +42,21 @@ import java.util.ResourceBundle;
  */
 public class TableActionCreationController implements Initializable {
 
+    /**
+     *
+     */
+    public final ObservableList<ScriptLineTableMacroController> collectionControllerScript = FXCollections.observableArrayList();
+    private final ObservableList<Node> workingCollection = FXCollections.observableArrayList();
+    private final HashSet<Script> scripts = new HashSet<>(0);
     @FXML
     private AnchorPane mainAnchorPan;
     @FXML
     private ScrollPane scrollPan;
     @FXML
     private VBox vBox;
-
     private ScriptLineTableMacroController controllerScriptLine;
-
     private ScriptLineTableMacroController selectedScriptController;
-
-    /**
-     *
-     */
-    public final ObservableList<ScriptLineTableMacroController> collectionControllerScript = FXCollections.observableArrayList();
-
     private int scriptID = 1;
-
-    private final ObservableList<Node> workingCollection = FXCollections.observableArrayList();
-
-    private final HashSet<Script> scripts = new HashSet<>(0);
-
     private HashSet<Script> allScript = new HashSet<>(0);
 
     private TabMacroNewController controllerNewMacro;
@@ -103,7 +96,6 @@ public class TableActionCreationController implements Initializable {
     }
 
     /**
-     *
      * @return
      */
     public TabMacroNewController getControllerFather() {
@@ -111,7 +103,6 @@ public class TableActionCreationController implements Initializable {
     }
 
     /**
-     *
      * @return
      */
     public TabMacroEditController getControllerFatherEdit() {
@@ -119,7 +110,6 @@ public class TableActionCreationController implements Initializable {
     }
 
     /**
-     *
      * @return
      */
     public ObservableList<ScriptLineTableMacroController> getCollectionControllerScript() {
@@ -173,7 +163,7 @@ public class TableActionCreationController implements Initializable {
      * Update the id a each test step starting from the Id given in parameters
      *
      * @param startingID position of the test steps to start to modify the id
-     * from.
+     *                   from.
      */
     private void updateScriptId(int startingID) {
         for (int i = startingID; i < collectionControllerScript.size(); i++) {
@@ -214,7 +204,6 @@ public class TableActionCreationController implements Initializable {
     }
 
     /**
-     *
      * @param aThis
      */
     public void initMacroEdit(TabMacroEditController aThis) {
@@ -288,7 +277,7 @@ public class TableActionCreationController implements Initializable {
      * Swap the script given in parameters in the vBox, depending on the value
      * of the boolean b
      *
-     * @param b way to swap, if true go up, else go down.
+     * @param b     way to swap, if true go up, else go down.
      * @param aThis script to swap in the vbox.
      */
     private void swapScript(boolean b, ScriptLineTableMacroController aThis) {
@@ -318,7 +307,6 @@ public class TableActionCreationController implements Initializable {
     }
 
     /**
-     *
      * @param macro
      */
     public void displayScriptAndStepView(Script macro) {

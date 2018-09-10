@@ -38,26 +38,20 @@ import java.util.ResourceBundle;
  */
 public class TableParamCreationController implements Initializable {
 
+    /**
+     *
+     */
+    public final ObservableList<ScriptLineParameterController> collectionControllerParam = FXCollections.observableArrayList();
+    private final ObservableList<Node> workingCollection = FXCollections.observableArrayList();
     @FXML
     private AnchorPane mainAnchorPan;
     @FXML
     private ScrollPane scrollPan;
     @FXML
     private VBox vBox;
-
     private ScriptLineParameterController controllerParamLine;
-
     private ScriptLineParameterController selectedParamController;
-
-    /**
-     *
-     */
-    public final ObservableList<ScriptLineParameterController> collectionControllerParam = FXCollections.observableArrayList();
-
     private int scriptID = 1;
-
-    private final ObservableList<Node> workingCollection = FXCollections.observableArrayList();
-
     private ArrayList<Parameters> params = new ArrayList<>();
 
     private TabScriptNewController controllerNewScript;
@@ -88,7 +82,6 @@ public class TableParamCreationController implements Initializable {
     }
 
     /**
-     *
      * @return
      */
     public TabScriptNewController getControllerFather() {
@@ -96,7 +89,6 @@ public class TableParamCreationController implements Initializable {
     }
 
     /**
-     *
      * @return
      */
     public ObservableList<ScriptLineParameterController> getCollectionControllerParam() {
@@ -151,7 +143,7 @@ public class TableParamCreationController implements Initializable {
      * Update the id a each test step starting from the Id given in parameters
      *
      * @param startingID position of the test steps to start to modify the id
-     * from.
+     *                   from.
      */
     private void updateScriptId(int startingID) {
         for (int i = startingID; i < collectionControllerParam.size(); i++) {
@@ -242,7 +234,7 @@ public class TableParamCreationController implements Initializable {
      * Swap the script given in parameters in the vBox, depending on the value
      * of the boolean b
      *
-     * @param b way to swap, if true go up, else go down.
+     * @param b     way to swap, if true go up, else go down.
      * @param aThis script to swap in the vbox.
      */
     void swapParam(boolean b, ScriptLineParameterController aThis) {
@@ -256,7 +248,6 @@ public class TableParamCreationController implements Initializable {
     }
 
     /**
-     *
      * @param script
      */
     public void displayParams(Script script) {
@@ -280,7 +271,6 @@ public class TableParamCreationController implements Initializable {
     }
 
     /**
-     *
      * @param params
      */
     public void PrefilParams(ArrayList<Parameters> params) {

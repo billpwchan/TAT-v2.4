@@ -66,7 +66,6 @@ public class PopUpCampaignCreationController implements Initializable {
     }
 
     /**
-     *
      * @param mainController
      */
     public void init(TabTestCaseLibraryController mainController) {
@@ -74,7 +73,6 @@ public class PopUpCampaignCreationController implements Initializable {
     }
 
     /**
-     *
      * @param stage
      */
     public void setPrimaryStage(Stage stage) {
@@ -82,7 +80,6 @@ public class PopUpCampaignCreationController implements Initializable {
     }
 
     /**
-     *
      * @param campaigID
      */
     public void getCampaignExistance(String campaigID) {

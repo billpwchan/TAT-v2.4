@@ -30,6 +30,11 @@ import java.util.ResourceBundle;
  */
 public class PopUPRequirementSelectionController implements Initializable {
 
+    /**
+     *
+     */
+    public static TableStepScriptCreationController controllerNewStep;
+    private final ObservableList<Requirement> observableListRequirement = FXCollections.observableArrayList();
     @FXML
     private AnchorPane anchorPane;
     @FXML
@@ -38,16 +43,7 @@ public class PopUPRequirementSelectionController implements Initializable {
     private TableView<Requirement> tableViewRequirementPopUpAddRea;
     @FXML
     private Button buttonValidationReq;
-
-    /**
-     *
-     */
-    public static TableStepScriptCreationController controllerNewStep;
-
     private StepLineTableStepController stepLineController;
-
-    private final ObservableList<Requirement> observableListRequirement = FXCollections.observableArrayList();
-
     private ObservableList<Requirement> requirementsSelected = FXCollections.observableArrayList();
 
     private ListSelectionView<Requirement> view = new ListSelectionView<>();
@@ -88,7 +84,6 @@ public class PopUPRequirementSelectionController implements Initializable {
     }
 
     /**
-     *
      * @param controllerNewCampaign
      * @param stepLine
      */
@@ -98,7 +93,6 @@ public class PopUPRequirementSelectionController implements Initializable {
     }
 
     /**
-     *
      * @param casesInDB
      * @param requirementInStep
      */

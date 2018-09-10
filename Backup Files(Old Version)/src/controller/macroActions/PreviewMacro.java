@@ -23,6 +23,8 @@ import java.util.Iterator;
  */
 public class PreviewMacro {
 
+    private final static String Separator = ("" + ((char) 7));
+    private final GridPane gridPaneDisplayResults = new GridPane();
     @FXML
     private AnchorPane anchorScript;
     @FXML
@@ -33,12 +35,7 @@ public class PreviewMacro {
     private Label labelScriptName;
     @FXML
     private Label labelNameOfScript;
-
     private ScriptLineTableMacroController controllerScriptFather;
-
-    private final GridPane gridPaneDisplayResults = new GridPane();
-
-    private final static String Separator = ("" + ((char) 007));
 
     /**
      * Initializes the controller class.
@@ -67,7 +64,6 @@ public class PreviewMacro {
     }
 
     /**
-     *
      * @return
      */
     public ScriptLineTableMacroController getControllerScriptFather() {
@@ -78,8 +74,8 @@ public class PreviewMacro {
      * Return the result of the node in the gridpane depending on the column and
      * row given in parameters.
      *
-     * @param row row needed
-     * @param column column needed
+     * @param row      row needed
+     * @param column   column needed
      * @param gridPane gridpane needed
      * @return
      */
@@ -136,7 +132,7 @@ public class PreviewMacro {
      * observable list, update the view with the corresponding values.
      *
      * @param paramScriptMacros observable list containing the parameters.
-     * @param toSet the hyperlink to change
+     * @param toSet             the hyperlink to change
      */
     public void referParameters(ParamScriptMacro paramScriptMacros, Hyperlink toSet) {
         toSet.setStyle(null);
@@ -173,8 +169,8 @@ public class PreviewMacro {
      * Return the result of the node in the gridpane depending on the column and
      * row given in parameters.
      *
-     * @param row row needed
-     * @param column column needed
+     * @param row      row needed
+     * @param column   column needed
      * @param gridPane gridpane needed
      * @return
      */
@@ -191,7 +187,6 @@ public class PreviewMacro {
     }
 
     /**
-     *
      * @param script
      */
     public void updateGridPaneCreationView(Script script) {
@@ -199,7 +194,6 @@ public class PreviewMacro {
     }
 
     /**
-     *
      * @param script
      */
     public void constructGridPaneViewView(Script script) {

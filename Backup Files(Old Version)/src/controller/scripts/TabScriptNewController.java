@@ -54,6 +54,8 @@ import java.util.*;
  */
 public class TabScriptNewController implements Initializable {
 
+    private static TabScriptsMainViewController mainController;
+    DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
     @FXML
     private AnchorPane anchorPanelNewScript;
     @FXML
@@ -100,15 +102,9 @@ public class TabScriptNewController implements Initializable {
     private Text labelPreview;
     @FXML
     private TextField jtextfieldJarName;
-
-    private static TabScriptsMainViewController mainController;
-
     private ViewScriptController controllerViewScript;
-
     private TableParamCreationController controllerTableParam;
-
     private Path scriptPath = null;
-    DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
 
     /**
      * Initializes the controller class.
@@ -140,7 +136,6 @@ public class TabScriptNewController implements Initializable {
     }
 
     /**
-     *
      * @param mainController
      */
     public void init(TabScriptsMainViewController mainController) {
@@ -217,7 +212,6 @@ public class TabScriptNewController implements Initializable {
     }
 
     /**
-     *
      * @throws ParseException
      */
     public void createScript() throws ParseException {
@@ -237,7 +231,6 @@ public class TabScriptNewController implements Initializable {
     }
 
     /**
-     *
      * @return @throws ParseException
      */
     public Script constructScript() throws ParseException {
@@ -378,7 +371,6 @@ public class TabScriptNewController implements Initializable {
     }
 
     /**
-     *
      * @param param
      */
     public void prefillParam(ArrayList<Parameters> param) {

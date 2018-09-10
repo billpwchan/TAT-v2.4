@@ -37,6 +37,9 @@ import java.util.ResourceBundle;
  */
 public class TabRequirementLibraryController implements Initializable {
 
+    private static TabRequirementMainViewController requirementMainViewController;
+    private final ObservableList<Requirement> observableListRequirement = FXCollections.observableArrayList();
+    private final RequirementDB RequirementHandler = new RequirementDB();
     @FXML
     private AnchorPane anchorPanelLibraryTestCase;
     @FXML
@@ -55,14 +58,7 @@ public class TabRequirementLibraryController implements Initializable {
     private WebView webViewRequirement;
     @FXML
     private TextField fieldFilter;
-
     private Requirement selectedRequirement;
-
-    private final ObservableList<Requirement> observableListRequirement = FXCollections.observableArrayList();
-
-    private static TabRequirementMainViewController requirementMainViewController;
-
-    private final RequirementDB RequirementHandler = new RequirementDB();
 
     /**
      * Initializes the controller class.

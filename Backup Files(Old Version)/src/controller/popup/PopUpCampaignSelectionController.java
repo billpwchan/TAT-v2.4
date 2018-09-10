@@ -39,6 +39,10 @@ import static controller.tabtestcampaign.TabTestCampaignRepositoryController.obs
  */
 public class PopUpCampaignSelectionController implements Initializable {
 
+    /**
+     *
+     */
+    public static TabTestCampaignExecutionRepositoryBaselineController executionMainViewController;
     @FXML
     private AnchorPane anchorPane;
     @FXML
@@ -51,12 +55,6 @@ public class PopUpCampaignSelectionController implements Initializable {
     private Text textEmptyCampaign;
     @FXML
     private TextField fieldFilter;
-
-    /**
-     *
-     */
-    public static TabTestCampaignExecutionRepositoryBaselineController executionMainViewController;
-
     private Stage dialogStage;
 
     private TestCampaign campaignSelected;
@@ -120,8 +118,8 @@ public class PopUpCampaignSelectionController implements Initializable {
 //        alert.setX(this.dialogStage.getX() + this.dialogStage.getWidth() / 2 - alert.getWidth() / 2);
 //        alert.setY(this.dialogStage.getY() + this.dialogStage.getHeight() / 2 - alert.getHeight() / 2);
 //    }
+
     /**
-     *
      * @param controllerBaselineCampaign
      */
     public void init(TabTestCampaignExecutionRepositoryBaselineController controllerBaselineCampaign) {
@@ -129,7 +127,6 @@ public class PopUpCampaignSelectionController implements Initializable {
     }
 
     /**
-     *
      * @param campaignInDB
      */
     public void setTable(ObservableList<TestCampaign> campaignInDB) {
@@ -186,7 +183,6 @@ public class PopUpCampaignSelectionController implements Initializable {
     }
 
     /**
-     *
      * @param stage
      */
     public void setPrimaryStage(Stage stage) {

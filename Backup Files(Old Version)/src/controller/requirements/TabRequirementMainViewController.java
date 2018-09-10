@@ -25,15 +25,12 @@ import java.util.ResourceBundle;
  */
 public class TabRequirementMainViewController implements Initializable {
 
+    private static TabRequirementLibraryController libraryController;
     @FXML
     private AnchorPane anchorPanelViewTestCase;
     @FXML
     private TabPane tabPaneRequirement;
-
     private Tab tabRequirementLibrary;
-
-    private static TabRequirementLibraryController libraryController;
-
     private TabRequirementCreationController newController;
 
     /**
@@ -55,7 +52,7 @@ public class TabRequirementMainViewController implements Initializable {
         try {
             AnchorPane libraryPane = fxmlLoader.load(getClass().getResource("/view/requirements/TabRequirementLibrary.fxml").openStream());
             this.tabRequirementLibrary.setContent(libraryPane);
-            libraryController = (TabRequirementLibraryController) fxmlLoader.getController();
+            libraryController = fxmlLoader.getController();
             libraryController.init(this);
         } catch (IOException ex) {
             Logger.getLogger(TabRequirementMainViewController.class.getName()).error("", ex);
@@ -65,7 +62,6 @@ public class TabRequirementMainViewController implements Initializable {
     }
 
     /**
-     *
      * @param aThis
      */
     public void init(TATFrameController aThis) {

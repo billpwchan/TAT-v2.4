@@ -54,6 +54,20 @@ import java.util.ResourceBundle;
  */
 public class PopUpRunController implements Initializable {
 
+    private final TestExecution testExecutionHandler = new TestExecution();
+    private final initColumn CaseToExecute = new initColumn();
+    private final SimpleIntegerProperty notExecuted = new SimpleIntegerProperty();
+    private final SimpleIntegerProperty ok = new SimpleIntegerProperty();
+    /**
+     *
+     */
+    public TabTestCampaignExecutionRepositoryBaselineController executionMainViewController;
+    @FXML
+    PieChart pieChart;
+    ArrayList<TestCase> testCasesToDisplay = new ArrayList();
+    ObservableList<CaseExecutions> testCases = FXCollections.observableArrayList();
+    ObservableList<Script> testScript;
+    ObservableList<PieChart.Data> pieChartData;
     @FXML
     private AnchorPane anchorRunPopUp;
     @FXML
@@ -119,8 +133,6 @@ public class PopUpRunController implements Initializable {
     @FXML
     private CheckBox CheckboxRegressionThreadCampaignView;
     @FXML
-    PieChart pieChart;
-    @FXML
     private Button runButton;
     @FXML
     private Button pauseButton;
@@ -128,36 +140,10 @@ public class PopUpRunController implements Initializable {
     private Button stopButton;
     @FXML
     private Button autoExecutionDisplay;
-
-    /**
-     *
-     */
-    public TabTestCampaignExecutionRepositoryBaselineController executionMainViewController;
-
-    ArrayList<TestCase> testCasesToDisplay = new ArrayList();
-
     private String baselineId;
-
-    private final TestExecution testExecutionHandler = new TestExecution();
-
     private ArrayList<CaseExecutions> caseExecutions;
-
     private CaseExecutions testCaseSelected;
-
-    private final initColumn CaseToExecute = new initColumn();
-
-    ObservableList<CaseExecutions> testCases = FXCollections.observableArrayList();
-
-    ObservableList<Script> testScript;
-
     private TableStepScriptCreationController controllerTableStep;
-
-    private final SimpleIntegerProperty notExecuted = new SimpleIntegerProperty();
-
-    private final SimpleIntegerProperty ok = new SimpleIntegerProperty();
-
-    ObservableList<PieChart.Data> pieChartData;
-
     private boolean ready;
 
     private boolean suspended;
@@ -227,18 +213,18 @@ public class PopUpRunController implements Initializable {
         tPane.setAnimated(false);
         tPane.expandedProperty().addListener((ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) -> {
             Platform.runLater(() -> {
-                if (!tPane.isExpanded()) {
-                    tPane.getChildrenUnmodifiable().get(0).setVisible(false);
-                    gridPanePopUpCase.getRowConstraints().get(0).setMaxHeight(30);
-                    gridPanePopUpCase.getRowConstraints().get(0).setPrefHeight(30);
-                    gridPanePopUpCase.getRowConstraints().get(0).setMinHeight(30);
-                } else {
-                    tPane.getChildrenUnmodifiable().get(0).setVisible(true);
-                    gridPanePopUpCase.getRowConstraints().get(0).setMaxHeight(300);
-                    gridPanePopUpCase.getRowConstraints().get(0).setPrefHeight(300);
-                    gridPanePopUpCase.getRowConstraints().get(0).setMinHeight(300);
-                }
-            }
+                        if (!tPane.isExpanded()) {
+                            tPane.getChildrenUnmodifiable().get(0).setVisible(false);
+                            gridPanePopUpCase.getRowConstraints().get(0).setMaxHeight(30);
+                            gridPanePopUpCase.getRowConstraints().get(0).setPrefHeight(30);
+                            gridPanePopUpCase.getRowConstraints().get(0).setMinHeight(30);
+                        } else {
+                            tPane.getChildrenUnmodifiable().get(0).setVisible(true);
+                            gridPanePopUpCase.getRowConstraints().get(0).setMaxHeight(300);
+                            gridPanePopUpCase.getRowConstraints().get(0).setPrefHeight(300);
+                            gridPanePopUpCase.getRowConstraints().get(0).setMinHeight(300);
+                        }
+                    }
             );
         });
 
@@ -284,7 +270,6 @@ public class PopUpRunController implements Initializable {
     }
 
     /**
-     *
      * @param controllerBaselineCampaign
      */
     public void init(TabTestCampaignExecutionRepositoryBaselineController controllerBaselineCampaign) {
@@ -292,7 +277,6 @@ public class PopUpRunController implements Initializable {
     }
 
     /**
-     *
      * @param stage
      */
     public void setPrimaryStage(Stage stage) {
@@ -322,7 +306,6 @@ public class PopUpRunController implements Initializable {
     }
 
     /**
-     *
      * @param baselineName
      * @param repositoryConroller
      */
@@ -351,17 +334,17 @@ public class PopUpRunController implements Initializable {
         tableViewCampaignPopUpRun.setItems(testCases);
         pieChartData.get(0).setPieValue(caseExecutions.size());
         Platform.runLater(() -> {
-            pieChartData.get(0).setName("not tested\t" + caseExecutions.size());
-            pieChartData.get(7).setName("Total\t\t" + caseExecutions.size());
-            testCaseInExecution = caseExecutions.get(0);
-            try {
-                //automaticCasesDisplay(testCaseInExecution);
-                DisplaySteps(testCaseInExecution);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(PopUpRunController.class.getName()).error("", ex);
-            }
-            tPane.setText("Information of baseline : " + baselineId + ",  iteration number " + iterationNumber);
-        }
+                    pieChartData.get(0).setName("not tested\t" + caseExecutions.size());
+                    pieChartData.get(7).setName("Total\t\t" + caseExecutions.size());
+                    testCaseInExecution = caseExecutions.get(0);
+                    try {
+                        //automaticCasesDisplay(testCaseInExecution);
+                        DisplaySteps(testCaseInExecution);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(PopUpRunController.class.getName()).error("", ex);
+                    }
+                    tPane.setText("Information of baseline : " + baselineId + ",  iteration number " + iterationNumber);
+                }
         );
         long tempsFin = System.currentTimeMillis();
         float seconds = (tempsFin - tempsDebut) / 1000F;
@@ -377,7 +360,6 @@ public class PopUpRunController implements Initializable {
     }
 
     /**
-     *
      * @param caseExecution
      * @throws InterruptedException
      */
@@ -422,7 +404,6 @@ public class PopUpRunController implements Initializable {
     }
 
     /**
-     *
      * @return
      */
     public TabTestCampaignExecutionRepositoryBaselineController getController() {
@@ -430,7 +411,6 @@ public class PopUpRunController implements Initializable {
     }
 
     /**
-     *
      * @param nbCaseOK
      * @param nbCaseOKWC
      * @param nbCaseNOK
@@ -449,19 +429,18 @@ public class PopUpRunController implements Initializable {
         pieChartData.get(5).setPieValue(nbCaseIncomplete);
         pieChartData.get(6).setPieValue(nbCaseOS);
         Platform.runLater(() -> {
-            pieChartData.get(0).setName("Not tested\t" + nbCaseNT);
-            pieChartData.get(1).setName("OK\t\t\t" + nbCaseOK);
-            pieChartData.get(2).setName("OKWC\t\t" + nbCaseOKWC);
-            pieChartData.get(3).setName("NOK\t\t\t" + nbCaseNOK);
-            pieChartData.get(4).setName("Not testable\t" + nbCaseNtestable);
-            pieChartData.get(5).setName("Incomplete\t" + nbCaseIncomplete);
-            pieChartData.get(6).setName("OS\t\t\t" + nbCaseOS);
-        }
+                    pieChartData.get(0).setName("Not tested\t" + nbCaseNT);
+                    pieChartData.get(1).setName("OK\t\t\t" + nbCaseOK);
+                    pieChartData.get(2).setName("OKWC\t\t" + nbCaseOKWC);
+                    pieChartData.get(3).setName("NOK\t\t\t" + nbCaseNOK);
+                    pieChartData.get(4).setName("Not testable\t" + nbCaseNtestable);
+                    pieChartData.get(5).setName("Incomplete\t" + nbCaseIncomplete);
+                    pieChartData.get(6).setName("OS\t\t\t" + nbCaseOS);
+                }
         );
     }
 
     /**
-     *
      * @param averageTimeCase
      * @param timeRemaining
      */
@@ -476,14 +455,13 @@ public class PopUpRunController implements Initializable {
         int hours = totalMinutes / MINUTES_IN_AN_HOUR;
 
         Platform.runLater(() -> {
-            labelTimeCase.setText("Average time case: " + df.format(averageTimeCase) + " sec");
-            labelTimeRemaining.setText("Time remaining: " + hours + " h " + minutes + " min " + seconds + " sec");
-        }
+                    labelTimeCase.setText("Average time case: " + df.format(averageTimeCase) + " sec");
+                    labelTimeRemaining.setText("Time remaining: " + hours + " h " + minutes + " min " + seconds + " sec");
+                }
         );
     }
 
     /**
-     *
      * @param currentTestCaseExecution
      */
     public void callDisplaySteps(CaseExecutions currentTestCaseExecution) {
@@ -491,20 +469,19 @@ public class PopUpRunController implements Initializable {
         testCaseInExecution = currentTestCaseExecution;
         if (caseSelected == false) {
             Platform.runLater(() -> {
-                try {
-                    automaticCasesDisplay(currentTestCaseExecution);
-                    //tableViewCampaignPopUpRun.scrollTo(testCase);
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(PopUpRunController.class.getName()).error("", ex);
-                }
-            }
+                        try {
+                            automaticCasesDisplay(currentTestCaseExecution);
+                            //tableViewCampaignPopUpRun.scrollTo(testCase);
+                        } catch (InterruptedException ex) {
+                            Logger.getLogger(PopUpRunController.class.getName()).error("", ex);
+                        }
+                    }
             );
         } else {
         }
     }
 
     /**
-     *
      * @param currentTestCaseExecution
      * @throws InterruptedException
      */
@@ -604,7 +581,6 @@ public class PopUpRunController implements Initializable {
     }
 
     /**
-     *
      * @throws Exception
      */
     public void executionInterrupted() throws Exception {
@@ -618,7 +594,6 @@ public class PopUpRunController implements Initializable {
     }
 
     /**
-     *
      * @throws Exception
      */
     public void executionFinished() throws Exception {
@@ -632,7 +607,6 @@ public class PopUpRunController implements Initializable {
     }
 
     /**
-     *
      * @throws ParseException
      */
     public void Update() throws ParseException {
@@ -640,7 +614,6 @@ public class PopUpRunController implements Initializable {
     }
 
     /**
-     *
      * @param campaignID
      */
     public void constructCampaignInformation(int campaignID) {
@@ -707,7 +680,6 @@ public class PopUpRunController implements Initializable {
     }
 
     /**
-     *
      * @param type
      */
     public void playSound(String type) {
@@ -731,7 +703,6 @@ public class PopUpRunController implements Initializable {
     }
 
     /**
-     *
      * @param iterationPercentage
      */
     public void setIterationPercentage(Double iterationPercentage) {

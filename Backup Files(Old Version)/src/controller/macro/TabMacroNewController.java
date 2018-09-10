@@ -43,6 +43,10 @@ import java.util.ResourceBundle;
  */
 public class TabMacroNewController implements Initializable {
 
+    private static TabMacroMainViewController mainController;
+    private final PreviewMacro controllerPreviewMacro = new PreviewMacro();
+    private final int textfieldMacroNameMaxLength = 60;
+    DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
     @FXML
     private AnchorPane anchorPanelNewTestCase;
     @FXML
@@ -85,17 +89,7 @@ public class TabMacroNewController implements Initializable {
     private Label labelIsStimuli;
     @FXML
     private AnchorPane anchorHeader;
-
-    private static TabMacroMainViewController mainController;
-
     private TableActionCreationController controllerTableAction;
-
-    private final PreviewMacro controllerPreviewMacro = new PreviewMacro();
-
-    DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
-
-    private final int textfieldMacroNameMaxLength = 60;
-
     @FXML
     private Text labelPreview;
 
@@ -135,7 +129,6 @@ public class TabMacroNewController implements Initializable {
     }
 
     /**
-     *
      * @param mainController
      */
     public void init(TabMacroMainViewController mainController) {
@@ -146,7 +139,7 @@ public class TabMacroNewController implements Initializable {
     /**
      *
      */
-    public void initNewMacro() {
+    void initNewMacro() {
         this.loadCSS();
         this.jtextfieldMacroCreationDate.setText(df.format(new Date()));
         this.jtextfieldMacroCreationDate.setId("displayStyle");
@@ -158,7 +151,7 @@ public class TabMacroNewController implements Initializable {
     /**
      *
      */
-    public void initButtons() {
+    private void initButtons() {
         this.buttonValid.setDisable(true);
         this.buttonAddAction.setOnAction((ActionEvent e) -> {
             controllerTableAction.addAction();
@@ -174,7 +167,6 @@ public class TabMacroNewController implements Initializable {
     }
 
     /**
-     *
      * @return
      */
     public PreviewMacro getControllerPreview() {
@@ -209,7 +201,7 @@ public class TabMacroNewController implements Initializable {
         session.save(macro);
         int i = 0;
         boolean missingPurpose = false;
-        while (i < numberScript && missingPurpose == false) {
+        while (i < numberScript && !missingPurpose) {
             if ("".equals(observableScripts.get(i).getScriptControllerAction().getHashParamScriptMacro().get(0).getValue())) {
                 CommonFunctions.displayAlert(AlertType.ERROR, "Missing Purpose", "There is something wrong with script: " + observableScripts.get(i).getScriptControllerAction().getCurrentScript().getName(), "A script purpose is missing in your macro");
                 missingPurpose = true;
@@ -220,7 +212,7 @@ public class TabMacroNewController implements Initializable {
                 i++;
             }
         }
-        if (missingPurpose == false) {
+        if (!missingPurpose) {
             session.beginTransaction().commit();
             mainController.updateRepository();
             mainController.closeTab();
@@ -262,10 +254,9 @@ public class TabMacroNewController implements Initializable {
     }
 
     /**
-     *
      * @param script
      */
-    public void displayMacro(Script script) {
+    void displayMacro(Script script) {
         this.anchorPanelNewTestCase.getStylesheets().add("/view/testcampaign/cssViewCampaign.css");
         buttonAddAction.setVisible(false);
         buttonValid.setVisible(false);

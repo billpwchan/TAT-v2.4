@@ -18,15 +18,13 @@ import controller.tablestep.TableStepScriptCreationController;
 import controller.tabtestcampaign.TabTestCampaignRepositoryController;
 import controller.tabtestexecution.TabTestCampaignExecutionBaselineCampaignController;
 import controller.tabtestexecution.TabTestCampaignExecutionRepositoryBaselineController;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
+import controller.util.CommonFunctions;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -34,7 +32,6 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
@@ -47,7 +44,6 @@ import model.util;
 import org.apache.log4j.Logger;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.text.ParseException;
@@ -63,6 +59,12 @@ import java.util.ResourceBundle;
  */
 public class TabTestCaseLibraryController implements Initializable {
 
+    /**
+     *
+     */
+    public static TabTestCaseMainViewController main;
+    private final ObservableList<TestCase> observableListTestCase = FXCollections.observableArrayList();
+    TestCampaignDB testCampaignHandler = new TestCampaignDB();
     @FXML
     private AnchorPane anchorPanelLibraryTestCase;
     @FXML
@@ -79,34 +81,17 @@ public class TabTestCaseLibraryController implements Initializable {
     private Button executeButton;
     @FXML
     private TextField fieldFilter;
-
-    /**
-     *
-     */
-    public static TabTestCaseMainViewController main;
-
     private Stage popUpCampaignID;
-
     private Stage popUpBaselineID;
-
-    private final ObservableList<TestCase> observableListTestCase = FXCollections.observableArrayList();
-
     private TestCaseDB testCaseHandler;
-
     private TestCase currentTestCaseSelected;
-
     private TestCampaign campaignToBaseline;
-
     private TableStepScriptCreationController controllerTableStep;
-
     private HeaderTableStepController controllerHeaderTableStep;
-
     @FXML
     private TableView<String> tableViewRequirements;
     @FXML
     private TableView<String> tableViewTestCaseLinked;
-
-    TestCampaignDB testCampaignHandler = new TestCampaignDB();
 
     /**
      * Initializes the controller class.
@@ -119,52 +104,7 @@ public class TabTestCaseLibraryController implements Initializable {
 
         FilteredList<TestCase> filteredData = new FilteredList<>(observableListTestCase, p -> true);
 
-        fieldFilter.textProperty().addListener((observable, oldValue, newValue) -> {
-            filteredData.setPredicate(tCase -> {
-                // If filter text is empty, display all persons.
-                if (newValue == null || newValue.isEmpty()) {
-                    return true;
-                }
-
-                // Compare first name and last name of every person with filter text.
-                String lowerCaseFilter = newValue.toLowerCase();
-
-                if (tCase.getTestCaseIdentification().toLowerCase().contains(lowerCaseFilter)) {
-                    return true; // Filter matches first name.
-                } else if (tCase.getProject() != null && tCase.getProject().toLowerCase().contains(lowerCaseFilter)) {
-                    return true;
-                } else if (tCase.getTypeOfTest() != null && tCase.getTypeOfTest().toLowerCase().contains(lowerCaseFilter)) {
-                    return true;
-                } else if (tCase.getCategoryOfTest() != null && tCase.getCategoryOfTest().toLowerCase().contains(lowerCaseFilter)) {
-                    return true;
-                } else if (tCase.getLocation() != null && tCase.getLocation().toLowerCase().contains(lowerCaseFilter)) {
-                    return true;
-                } else if (tCase.getTestCaseTitle() != null && tCase.getTestCaseTitle().toLowerCase().contains(lowerCaseFilter)) {
-                    return true;
-                } else if (tCase.getTestCaseSource() != null && tCase.getTestCaseSource().toLowerCase().contains(lowerCaseFilter)) {
-                    return true;
-                } else if (tCase.getTotalSteps() != null && tCase.getTotalSteps().toString().toLowerCase().contains(lowerCaseFilter)) {
-                    return true;
-                } else if (tCase.getBlocking() != null && tCase.getBlocking().toString().toLowerCase().contains(lowerCaseFilter)) {
-                    return true;
-                } else if (tCase.getInternalComments() != null && tCase.getInternalComments().toLowerCase().contains(lowerCaseFilter)) {
-                    return true;
-                } else if (tCase.getWritingStatus() != null && tCase.getWritingStatus().toLowerCase().contains(lowerCaseFilter)) {
-                    return true;
-                } else if (tCase.getWritter() != null && tCase.getWritter().toLowerCase().contains(lowerCaseFilter)) {
-                    return true;
-                } else if (tCase.getCreationDate() != null && tCase.getCreationDate().toLowerCase().contains(lowerCaseFilter)) {
-                    return true;
-                } else if (tCase.getTestObjective() != null && tCase.getTestObjective().toLowerCase().contains(lowerCaseFilter)) {
-                    return true;
-                } else if (tCase.getTestMethodIadt() != null && tCase.getTestMethodIadt().toLowerCase().contains(lowerCaseFilter)) {
-                    return true;
-                } else if (tCase.getEnvironment() != null && tCase.getEnvironment().toLowerCase().contains(lowerCaseFilter)) {
-                    return true;
-                }
-                return false; // Does not match.
-            });
-        });
+        CommonFunctions.AddListener(fieldFilter, filteredData);
 
         // 3. Wrap the FilteredList in a SortedList. 
         SortedList<TestCase> sortedData = new SortedList<>(filteredData);
@@ -184,12 +124,6 @@ public class TabTestCaseLibraryController implements Initializable {
              */
             this.testCaseHandler = new TestCaseDB();
             this.observableListTestCase.setAll(this.testCaseHandler.getAllTestCases());
-//            for (int i = 0; i < 100000; i++) {
-//                TestCase testCase = new TestCase();
-//                testCase.setTestCaseIdentification("ID = " + i);
-//                this.observableListTestCase.add(testCase);
-//            }
-            //this.tableViewTestCase.setItems(observableListTestCase);
             this.buttonDelete.setDisable(false);
             this.buttonEdit.setDisable(true);
             this.executeButton.setDisable(true);
@@ -203,38 +137,12 @@ public class TabTestCaseLibraryController implements Initializable {
 
             //tableViewTestCase.setPlaceholder(new Label(""));
         } catch (Exception ex) {
-            Logger.getLogger(TabTestCaseLibraryController.class.getName()).error("", ex);
+            CommonFunctions.debugLog.error("", ex);
         }
-//        this.tableViewTestCase.getSelectionModel().getSelectedCells().addListener((ListChangeListener.Change<? extends TablePosition> c) -> {
-//            label1.setText(String.valueOf(c.getList().get(0).getRow()));
-//            //System.out.println(label1);
-//        });
-
-        /**
-         * Bind the column stimuli and check to the model
-         * testCaseTreeTableVIewObject
-         */
-//        TreeTableColumn<testCaseTreeTableViewObject, String> stimuliCol
-//                = new TreeTableColumn<>("Stimuli");
-//        stimuliCol.setPrefWidth(150);
-//        stimuliCol.setCellValueFactory(
-//                (TreeTableColumn.CellDataFeatures<testCaseTreeTableViewObject, String> param)
-//                -> param.getValue().getValue().stimuliProperty()
-//        );
-//        TreeTableColumn<testCaseTreeTableViewObject, String> checkCol
-//                = new TreeTableColumn<>("check");
-//        checkCol.setPrefWidth(150);
-//        checkCol.setCellValueFactory(
-//                (TreeTableColumn.CellDataFeatures<testCaseTreeTableViewObject, String> param)
-//                -> param.getValue().getValue().checkProperty()
-//        );
         ContextMenu menu = new ContextMenu();
-
         MenuItem viewCase = new MenuItem("View..");
-        //MenuItem newCase = new MenuItem("New..");
         MenuItem editCase = new MenuItem("Edit..");
         MenuItem executeCase = new MenuItem("Execute..");
-        //MenuItem deleteCase = new MenuItem("Delete");
         this.buttonAdd.setOnAction((ActionEvent event) -> {
             newTestCase();
         });
@@ -268,42 +176,22 @@ public class TabTestCaseLibraryController implements Initializable {
             editTestCase(currentTestCaseSelected);
         });
 
+        editCase.setOnAction((ActionEvent event) -> {
+            editTestCase(currentTestCaseSelected);
+        });
+
         viewCase.setOnAction((ActionEvent event) -> {
             viewTestCase(currentTestCaseSelected);
         });
 
         this.executeButton.setOnAction((ActionEvent event) -> {
-//            if (!controllerTableStep.isFullyConfigured()) {
-//                Alert alert = new Alert(Alert.AlertType.WARNING);
-//                alert.setTitle("Case not fully configured");
-//                alert.setHeaderText(null);
-//                alert.setContentText("Impossible to execute a test case not fully configured");
-//                alert.showAndWait();
-//                event.consume();
-//            } else {
-            executeCaseGetCampaignID();
-            //}
-        });
-
-        editCase.setOnAction((ActionEvent event) -> {
-            //TestCase person = tableViewTestCase.getSelectoinModel().getSelectedItem();
-            editTestCase(currentTestCaseSelected);
         });
 
         executeCase.setOnAction((ActionEvent event) -> {
-            //To DO
+            executeCaseGetCampaignID();
         });
 
-//        newCase.setOnAction((ActionEvent event) -> {
-//            newTestCase();
-//        });
-//        deleteCase.setOnAction((ActionEvent event) -> {
-//            deleteTestCase();
-//        });
         menu.getItems().addAll(viewCase, editCase, executeCase);
-        //menu.getItems().add(newCase);
-        //menu.getItems().add(deleteCase);
-
         /**
          * Set the contextuel menu for the table TestCase.
          */
@@ -312,26 +200,18 @@ public class TabTestCaseLibraryController implements Initializable {
         /**
          * Add listener to selected object in the tableViewTestCase.
          */
-        this.tableViewTestCase.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<TestCase>() {
-            @Override
-            public void changed(ObservableValue<? extends TestCase> observable, TestCase oldValue, TestCase newValue) {
-                if (newValue != null) {
-                    currentTestCaseSelected = newValue;
-                    testCaseHandler.getAllFromCase(currentTestCaseSelected);
-                    controllerTableStep.displayScriptAndStepView(currentTestCaseSelected);
-                    tableViewTestCase.getSelectionModel().select(currentTestCaseSelected);
-                    buttonEdit.setDisable(false);
-
-                    if (controllerTableStep.isFullyConfigured()) {
-                        executeButton.setDisable(false);
-                    } else {
-                        executeButton.setDisable(true);
-                    }
-                    controllerHeaderTableStep.loadImageExpand();
-
-                } else {
-                    buttonEdit.setDisable(true);
-                }
+        this.tableViewTestCase.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                currentTestCaseSelected = newValue;
+                testCaseHandler.getAllFromCase(currentTestCaseSelected);
+                controllerTableStep.displayScriptAndStepView(currentTestCaseSelected);
+                tableViewTestCase.getSelectionModel().select(currentTestCaseSelected);
+                buttonEdit.setDisable(false);
+                if (controllerTableStep.isFullyConfigured()) executeButton.setDisable(false);
+                else executeButton.setDisable(true);
+                controllerHeaderTableStep.loadImageExpand();
+            } else {
+                buttonEdit.setDisable(true);
             }
         });
 
@@ -339,12 +219,9 @@ public class TabTestCaseLibraryController implements Initializable {
          * Add mouse action on table test case. ! click : display the teststep/
          * test script 2 click : open the test case in a new tab.
          */
-        this.tableViewTestCase.setOnMousePressed(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                if (currentTestCaseSelected != null && event.getClickCount() == 2) {
-                    viewTestCase(currentTestCaseSelected);
-                }
+        this.tableViewTestCase.setOnMousePressed(event -> {
+            if (currentTestCaseSelected != null && event.getClickCount() == 2) {
+                viewTestCase(currentTestCaseSelected);
             }
         });
         this.anchorPanelLibraryTestCase.getStylesheets().add("/view/testcase/cssLibraryTestCase.css");
@@ -354,16 +231,18 @@ public class TabTestCaseLibraryController implements Initializable {
     /**
      * @see TabTestCaseMainViewController
      */
-    private void viewTestCase(TestCase person) {
-        TabTestCaseLibraryController.main.displayViewTab(person);
+    private void viewTestCase(TestCase testCase) {
+        TabTestCaseLibraryController.main.displayViewTab(testCase);
+        CommonFunctions.reportLog.info("User Viewed the Test Case: " + testCase.getTestCaseIdentification());
     }
 
     /**
      * @see TabTestCaseMainViewController
      */
-    private void editTestCase(TestCase person) {
-        if (popUpEditCase(person)) {
-            TabTestCaseLibraryController.main.displayEditTab(person);
+    private void editTestCase(TestCase testCase) {
+        if (popUpEditCase(testCase)) {
+            TabTestCaseLibraryController.main.displayEditTab(testCase);
+            CommonFunctions.reportLog.info("User Edited the Test Case: " + testCase.getTestCaseIdentification());
         }
     }
 
@@ -372,14 +251,7 @@ public class TabTestCaseLibraryController implements Initializable {
      */
     private void newTestCase() {
         TabTestCaseLibraryController.main.displayNewTestCase();
-
-    }
-
-    /**
-     * @see TabTestCaseMainViewController
-     */
-    private void deleteTestCase() {
-        TabTestCaseLibraryController.main.deleteTestCase();
+        CommonFunctions.reportLog.info("User created a new Test Case");
     }
 
     /**
@@ -395,7 +267,7 @@ public class TabTestCaseLibraryController implements Initializable {
     /**
      * Update the table with the value stored in the database.
      */
-    public void updateLibrary() {
+    void updateLibrary() {
         this.observableListTestCase.setAll(testCaseHandler.getAllTestCases());
     }
 
@@ -403,7 +275,7 @@ public class TabTestCaseLibraryController implements Initializable {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         FXMLLoader fxmlLoader = new FXMLLoader();
         try {
-            this.gridPaneCaseLibrary.add((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream()), 0, 2, 1, 1);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
+            this.gridPaneCaseLibrary.add(fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream()), 0, 2, 1, 1);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
         } catch (IOException ex) {
             Logger.getLogger(TabTestCaseNewController.class.getName()).error("", ex);
         }
@@ -411,10 +283,10 @@ public class TabTestCaseLibraryController implements Initializable {
 
         FXMLLoader fxmlLoader2 = new FXMLLoader();
         try {
-            AnchorPane paneTest = (AnchorPane) fxmlLoader2.load(getClass().getResource("/view/stepcreation/headerTableStep.fxml").openStream());
+            AnchorPane paneTest = fxmlLoader2.load(getClass().getResource("/view/stepcreation/headerTableStep.fxml").openStream());
             this.gridPaneCaseLibrary.add(paneTest, 0, 1, 1, 1);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseNewController.class.getName()).error("", ex);
+            CommonFunctions.debugLog.error("", ex);
         }
         controllerHeaderTableStep = fxmlLoader2.getController();
         controllerHeaderTableStep.init(controllerTableStep);
@@ -434,7 +306,7 @@ public class TabTestCaseLibraryController implements Initializable {
     /**
      *
      */
-    public void focusOnLast() {
+    void focusOnLast() {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         this.tableViewTestCase.getSelectionModel().selectLast();
     }
@@ -444,7 +316,7 @@ public class TabTestCaseLibraryController implements Initializable {
             PopUpCampaignCreationController dialogController;
             FXMLLoader fxmlLoader = new FXMLLoader();
             AnchorPane editPane = fxmlLoader.load(getClass().getResource("/view/popup/popUpCampaignCreation.fxml").openStream());
-            dialogController = (PopUpCampaignCreationController) fxmlLoader.getController();
+            dialogController = fxmlLoader.getController();
             popUpCampaignID = new Stage();
             popUpCampaignID.setTitle("Campaign creation");
             popUpCampaignID.initOwner(Main.primaryStage);
@@ -463,8 +335,7 @@ public class TabTestCaseLibraryController implements Initializable {
             dialogController.setPrimaryStage(popUpCampaignID);
 
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseNewController.class
-                    .getName()).error("", ex);
+            CommonFunctions.debugLog.error("", ex);
         }
     }
 
@@ -473,7 +344,7 @@ public class TabTestCaseLibraryController implements Initializable {
      */
     public void closePopUpCampaign() {
         this.popUpCampaignID.close();
-        //popUpBaselineOpen = false;
+        CommonFunctions.reportLog.info("User Cancel Test Campaign PopUp.");
     }
 
     /**
@@ -481,11 +352,10 @@ public class TabTestCaseLibraryController implements Initializable {
      */
     public void closePopUpBaseline() {
         this.popUpBaselineID.close();
-        //popUpBaselineOpen = false;
+        CommonFunctions.reportLog.info("User Cancel Baseline PopUp.");
     }
 
     /**
-     *
      * @param campaignID
      */
     public void setOnActionCampaignID(String campaignID) {
@@ -508,7 +378,7 @@ public class TabTestCaseLibraryController implements Initializable {
             PopUpBaselineCreationController dialogController;
             FXMLLoader fxmlLoader = new FXMLLoader();
             AnchorPane editPane = fxmlLoader.load(getClass().getResource("/view/popup/popUpBaselineCreation.fxml").openStream());
-            dialogController = (PopUpBaselineCreationController) fxmlLoader.getController();
+            dialogController = fxmlLoader.getController();
             popUpBaselineID = new Stage();
             popUpBaselineID.setTitle("BaselineCreation");
             popUpBaselineID.initOwner(Main.primaryStage);
@@ -520,12 +390,7 @@ public class TabTestCaseLibraryController implements Initializable {
             popUpBaselineID.setOnCloseRequest((WindowEvent event) -> {
                 this.closePopUpBaseline();
             });
-            popUpBaselineID.setOnCloseRequest(new EventHandler<WindowEvent>() {
-                @Override
-                public void handle(WindowEvent event) {
-                    deleteCampaign();
-                }
-            });
+            popUpBaselineID.setOnCloseRequest(event -> deleteCampaign());
             //popUpBaselineOpen = true;
             popUpBaselineID.show();//.showAndWait();
             //popUpCampaignID.setX(main.getMainController().getPrimaryStage().getX() + main.getMainController().getPrimaryStage().getWidth() / 2 - popUpCampaignStage.getWidth() / 2);
@@ -533,13 +398,11 @@ public class TabTestCaseLibraryController implements Initializable {
             dialogController.setPrimaryStage(popUpBaselineID);
 
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseNewController.class
-                    .getName()).error("", ex);
+            CommonFunctions.debugLog.error("", ex);
         }
     }
 
     /**
-     *
      * @param baselineID
      */
     public void setOnActionBaselineID(String baselineID) {
@@ -547,7 +410,7 @@ public class TabTestCaseLibraryController implements Initializable {
         TabTestCampaignExecutionRepositoryBaselineController execController = new TabTestCampaignExecutionRepositoryBaselineController();
         Task<Void> task;
         Thread th;
-        int range, sheetNumber;
+        int range;
         TabTestCampaignExecutionBaselineCampaignController tabBaseline = new TabTestCampaignExecutionBaselineCampaignController();
         final ConfigurationDB configDB = new ConfigurationDB();
         File excelFile;
@@ -563,13 +426,12 @@ public class TabTestCaseLibraryController implements Initializable {
         } else {
             excelFile = null;
             range = -1;
-            sheetNumber = -1;
             excelChoose = true;
         }
-        if (excelChoose == true) {
+        if (excelChoose) {
             task = new Task<Void>() {
                 @Override
-                public Void call() throws IOException, FileNotFoundException, InterruptedException {
+                public Void call() {
                     util.startTime();
                     try {
                         configDB.configureTestCase(baseline, currentTestCaseSelected, excelFile, range, tabBaseline.getSheetNumber(), 0, null, null);
@@ -586,13 +448,13 @@ public class TabTestCaseLibraryController implements Initializable {
             try {
                 th.join();
             } catch (InterruptedException ex) {
-                Logger.getLogger(TabTestCampaignExecutionBaselineCampaignController.class.getName()).error("", ex);
+                CommonFunctions.debugLog.error("", ex);
             }
             TabTestCampaignExecutionBaselineCampaignController.closeAlert(tabBaseline.getAlert());
             try {
                 TabTestCampaignExecutionRepositoryBaselineController.UpdateTreeItem();
             } catch (ParseException ex) {
-                Logger.getLogger(TabTestCaseLibraryController.class.getName()).error("", ex);
+                CommonFunctions.debugLog.error("", ex);
             }
             tabBaseline.notificationBaselinCase();
             //closeAlertBox(dialog);
@@ -609,23 +471,15 @@ public class TabTestCaseLibraryController implements Initializable {
     }
 
     /**
-     *
      * @param testCase
      * @return
      */
-    public boolean popUpEditCase(TestCase testCase) {
+    private boolean popUpEditCase(TestCase testCase) {
         if (testCaseHandler.getTestCaseUsed(testCase)) {
-            Alert alert = new Alert(AlertType.CONFIRMATION);
-            alert.setTitle("Confirmation Dialog");
-            alert.setHeaderText("This test case is already used in a campaign, impossible to edit it.");
-            alert.setContentText("Do you want to create a new one from it ?");
-
-            Optional<ButtonType> result = alert.showAndWait();
-            return result.get() == ButtonType.OK; // ... user chose CANCEL or closed the dialog
-        } else {
+            Optional<ButtonType> result = CommonFunctions.displayAlert(AlertType.WARNING, "Confirmation Dialog",
+                    "This test case is already used in a campaign, impossible to edit it.", "Do you want to create a new one from it ?");
+            return result.isPresent() && result.get() == ButtonType.OK; // ... user chose CANCEL or closed the dialog
+        }
             return true;
         }
-
-    }
-
 }

@@ -19,6 +19,7 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
+          <factory-entry name="Entities" />
           <factory-entry name="cfgxmlpar" />
         </datasource-mapping>
         <deploymentDescriptor name="orm.xml" url="file://$MODULE_DIR$/Libraries/hibernate-release-5.3.5.Final/project/hibernate-core/src/test/bundles/defaultpar/META-INF/orm.xml" />

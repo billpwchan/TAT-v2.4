@@ -40,6 +40,14 @@ import java.util.ResourceBundle;
  */
 public class ScriptLineTableStepController implements Initializable {
 
+    private final static int constanteSize = 25;
+    private final static Image imd = new Image("images/imageDown.png");
+    private final static Image imu = new Image("images/imageUp.png");
+    private final Image delete = new Image("images/trash.png");
+    FXMLLoader fxmlLoader = new FXMLLoader();// FXMLLoader.load(getClass().getResource("/view/stepcreation/viewScript.fxml"));//InputStream anchorVerifStream = getClass().getResource("/view/stepcreation/viewScript.fxml").openStream();
+    FXMLLoader fxmlLoader2 = new FXMLLoader();
+    AnchorPane anchorAction = new AnchorPane();
+    AnchorPane anchorVerif = new AnchorPane();
     @FXML
     private AnchorPane anchroPaneScript;
     @FXML
@@ -68,30 +76,10 @@ public class ScriptLineTableStepController implements Initializable {
     private ListView listRequirements;
     @FXML
     private ImageView imageViewTrash;
-
     private StepLineTableStepController controllerStepParent;
-
     private ViewScriptController scriptControllerAction;
-
     private ViewScriptController scriptControllerVerif;
-
     private int idStepFather;
-
-    private final static int constanteSize = 25;
-
-    private final Image delete = new Image("images/trash.png");
-
-    private final static Image imd = new Image("images/imageDown.png");
-
-    private final static Image imu = new Image("images/imageUp.png");
-
-    FXMLLoader fxmlLoader = new FXMLLoader();// FXMLLoader.load(getClass().getResource("/view/stepcreation/viewScript.fxml"));//InputStream anchorVerifStream = getClass().getResource("/view/stepcreation/viewScript.fxml").openStream();
-
-    FXMLLoader fxmlLoader2 = new FXMLLoader();
-
-    AnchorPane anchorAction = new AnchorPane();
-
-    AnchorPane anchorVerif = new AnchorPane();
 
     /**
      * Initializes the controller class.
@@ -112,7 +100,6 @@ public class ScriptLineTableStepController implements Initializable {
     }
 
     /**
-     *
      * @param scriptStimuli
      * @param scriptCheck
      */
@@ -194,7 +181,6 @@ public class ScriptLineTableStepController implements Initializable {
     }
 
     /**
-     *
      * @return
      */
     public ViewScriptController getScriptActionController() {
@@ -202,7 +188,6 @@ public class ScriptLineTableStepController implements Initializable {
     }
 
     /**
-     *
      * @return
      */
     public ViewScriptController getScriptVerifController() {
@@ -371,6 +356,7 @@ public class ScriptLineTableStepController implements Initializable {
 //    public ObservableList<paramsForScript> getParamsVerif() {
 //        return this.scriptControllerVerif.getParams();
 //    }
+
     /**
      * Check if the script of check and script of stimuli are configured.
      *
@@ -545,7 +531,6 @@ public class ScriptLineTableStepController implements Initializable {
     }
 
     /**
-     *
      * @return
      */
     public StepLineTableStepController getControllerStepParent() {
@@ -553,7 +538,6 @@ public class ScriptLineTableStepController implements Initializable {
     }
 
     /**
-     *
      * @return
      */
     public ViewScriptController getScriptView() {

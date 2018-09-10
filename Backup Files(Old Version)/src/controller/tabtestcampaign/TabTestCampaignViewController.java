@@ -29,6 +29,15 @@ import java.util.ResourceBundle;
  */
 public class TabTestCampaignViewController implements Initializable {
 
+    /**
+     *
+     */
+    public static TabTestCampaignMainViewController main;
+    private final ObservableList<TestCase> observableListTestCase = FXCollections.observableArrayList();
+    /**
+     *
+     */
+    public TestCaseDB testCaseHandler = new TestCaseDB();
     @FXML
     private AnchorPane anchorPanelViewTestCampaign;
     @FXML
@@ -87,18 +96,6 @@ public class TabTestCampaignViewController implements Initializable {
     private TextArea jtextareaCommentsCampaignView;
     @FXML
     private CheckBox CheckboxRegressionThreadCampaignView;
-
-    /**
-     *
-     */
-    public TestCaseDB testCaseHandler = new TestCaseDB();
-
-    /**
-     *
-     */
-    public static TabTestCampaignMainViewController main;
-
-    private final ObservableList<TestCase> observableListTestCase = FXCollections.observableArrayList();
 
     /**
      * Initializes the controller class.

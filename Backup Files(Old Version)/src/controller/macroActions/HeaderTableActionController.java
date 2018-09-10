@@ -30,6 +30,7 @@ public class HeaderTableActionController implements Initializable {
 
     /**
      * Initializes the controller class.
+     *
      * @param url
      * @param rb
      */

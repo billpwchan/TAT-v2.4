@@ -39,6 +39,10 @@ import java.util.*;
  */
 public class ViewScriptController implements Initializable {
 
+    private final static String Separator = ("" + ((char) 007));
+    private final ObservableList<String> nameCollection = FXCollections.observableArrayList();
+    private final GridPane gridPaneDisplayResults = new GridPane();
+    private final MacroDB macroHandler = new MacroDB();
     @FXML
     private AnchorPane anchorScript;
     @FXML
@@ -55,34 +59,16 @@ public class ViewScriptController implements Initializable {
     private Label labelScriptName;
     @FXML
     private Label labelNameOfScript;
-
     private Stage popUpStage;
-
-    private final ObservableList<String> nameCollection = FXCollections.observableArrayList();
-
     private ScriptLineTableStepController controllerScriptFather;
-
     private ArrayList<Script> scriptsArray;
-
     private HashSet<ScriptHasBeenConfigured> observableListScript = new HashSet<>(0);
-
     private String scriptName;
-
     private int numberOfParam = 0;
-
-    private final GridPane gridPaneDisplayResults = new GridPane();
-
     private boolean isCOnfigured = true;
-
-    private final static String Separator = ("" + ((char) 007));
-
     private Boolean canBeConfigured = true;
-
     private Script currentScript;// = new Script();
-
     private TestStepHasScript teststephasscript = null;
-
-    private final MacroDB macroHandler = new MacroDB();
 
     /**
      * Initializes the controller class. Class for the display of the script.
@@ -105,7 +91,7 @@ public class ViewScriptController implements Initializable {
     /**
      * Display the view for script configuration when a parameters is clicked.
      *
-     * @param script the script to configured
+     * @param script        the script to configured
      * @param selectedParam the parameters selected
      */
     private void displayWizard(Script script, int selectedParam) {
@@ -150,7 +136,7 @@ public class ViewScriptController implements Initializable {
      * observable list, update the view with the corresponding values.
      *
      * @param observableListScriptMartinth observable list containing the
-     * parameters.
+     *                                     parameters.
      */
     public void referParameters(ArrayList<ScriptHasBeenConfigured> observableListScriptMartinth) {
         this.observableListScript = new HashSet(observableListScriptMartinth);
@@ -366,7 +352,6 @@ public class ViewScriptController implements Initializable {
     }
 
     /**
-     *
      * @param currentSelectedScript
      */
     public void constructGridPaneView(TestStepHasScript currentSelectedScript) {
@@ -478,7 +463,6 @@ public class ViewScriptController implements Initializable {
     }
 
     /**
-     *
      * @param currentSelectedScript
      */
     public void updateGridPaneCreation(TestStepHasScript currentSelectedScript) {
@@ -534,7 +518,6 @@ public class ViewScriptController implements Initializable {
     }
 
     /**
-     *
      * @param currentSelectedScript
      */
     public void updateGridPaneEdit(TestStepHasScript currentSelectedScript) {
@@ -556,7 +539,6 @@ public class ViewScriptController implements Initializable {
     }
 
     /**
-     *
      * @param currentSelectedScript
      */
     public void updateGridPaneBaseline(TestStepHasScript currentSelectedScript) {
@@ -577,7 +559,6 @@ public class ViewScriptController implements Initializable {
     }
 
     /**
-     *
      * @param testStephasScript
      */
     public void updateScriptViewDisplay(TestStepHasScript testStephasScript) {
@@ -630,8 +611,8 @@ public class ViewScriptController implements Initializable {
      * Return the result of the node in the gridpane depending on the column and
      * row given in parameters.
      *
-     * @param row row needed
-     * @param column column needed
+     * @param row      row needed
+     * @param column   column needed
      * @param gridPane gridpane needed
      * @return
      */
@@ -665,10 +646,9 @@ public class ViewScriptController implements Initializable {
     }
 
     /**
-     *
      * @return
      */
-        public ScriptLineTableStepController getControllerScriptFather() {
+    public ScriptLineTableStepController getControllerScriptFather() {
         return this.controllerScriptFather;
     }
 }

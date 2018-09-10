@@ -7,8 +7,10 @@ package controller.scripts;
 
 import DB.Script;
 import DBcontroller.ScriptDB;
+import controller.macro.TabMacroLibraryController;
 import controller.macroActions.PreviewMacro;
 import controller.tabtestcase.TabTestCaseNewController;
+import controller.util.CommonFunctions;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -39,6 +41,9 @@ import java.util.ResourceBundle;
  */
 public class TabScriptsLibraryController implements Initializable {
 
+    private static TabScriptsMainViewController scriptMainViewController;
+    private final ObservableList<Script> observableListScripts = FXCollections.observableArrayList();
+    private final ScriptDB scriptHandler = new ScriptDB();
     @FXML
     private AnchorPane anchorPanelLibraryMacro;
     @FXML
@@ -55,15 +60,7 @@ public class TabScriptsLibraryController implements Initializable {
     private ScrollPane scrollPanePreview;
     @FXML
     private TextField fieldFilter;
-
-    private static TabScriptsMainViewController scriptMainViewController;
-
-    private final ObservableList<Script> observableListScripts = FXCollections.observableArrayList();
-
     private Script currentScriptSelected;
-
-    private final ScriptDB scriptHandler = new ScriptDB();
-
     private PreviewMacro previewScript;
 
     private TableParamCreationController tableParamController;
@@ -81,7 +78,7 @@ public class TabScriptsLibraryController implements Initializable {
         //this.tableViewScript.setItems(observableListScripts);
         this.tableViewScript.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         initColumn columnInitialisation = new initColumn();
-        columnInitialisation.initColumnMacros(this.tableViewScript,true);
+        columnInitialisation.initColumnMacros(this.tableViewScript, true);
         constructTableMacro();
         initButtons();
         this.tableViewScript.setOnMousePressed((MouseEvent event) -> {
@@ -108,34 +105,11 @@ public class TabScriptsLibraryController implements Initializable {
                         //buttonEdit.setDisable(true);
                     }
                 }
-                );
+        );
 
         FilteredList<Script> filteredData = new FilteredList<>(observableListScripts, p -> true);
 
-        fieldFilter.textProperty().addListener((observable, oldValue, newValue) -> {
-            filteredData.setPredicate(script -> {
-                // If filter text is empty, display all persons.
-                if (newValue == null || newValue.isEmpty()) {
-                    return true;
-                }
-
-                // Compare first name and last name of every person with filter text.
-                String lowerCaseFilter = newValue.toLowerCase();
-
-                if (script.getCreationDate() != null && script.getCreationDate().toLowerCase().contains(lowerCaseFilter)) {
-                    return true; // Filter matches first name.
-                } else if (script.getEditionDate() != null && script.getEditionDate().toLowerCase().contains(lowerCaseFilter)) {
-                    return true;
-                } else if (script.getDesciption() != null && script.getDesciption().toLowerCase().contains(lowerCaseFilter)) {
-                    return true;
-                } else if (script.getName() != null && script.getName().toLowerCase().contains(lowerCaseFilter)) {
-                    return true;
-                } else if (script.getScriptVersion() != null && script.getScriptVersion().toString().toLowerCase().contains(lowerCaseFilter)) {
-                    return true;
-                }
-                return false; // Does not match.
-            });
-        });
+        CommonFunctions.addListenerScript(filteredData, fieldFilter);
 
         //System.out.println("filtered data= " + filteredData.size());
         // 3. Wrap the FilteredList in a SortedList. 
@@ -166,7 +140,6 @@ public class TabScriptsLibraryController implements Initializable {
     }
 
     /**
-     *
      * @param aThis
      */
     public void init(TabScriptsMainViewController aThis) {

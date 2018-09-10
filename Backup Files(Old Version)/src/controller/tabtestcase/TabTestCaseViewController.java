@@ -31,6 +31,8 @@ import java.util.ResourceBundle;
  */
 public class TabTestCaseViewController implements Initializable {
 
+    private static TabTestCaseMainViewController main;
+    private final TestCaseDB testCaseHandler = new TestCaseDB();
     @FXML
     private AnchorPane anchorPanelViewTestCase;
     @FXML
@@ -111,11 +113,6 @@ public class TabTestCaseViewController implements Initializable {
     private AnchorPane anchorStep;
     @FXML
     private ListView listViewRequirementsCaseView;
-
-    private final TestCaseDB testCaseHandler = new TestCaseDB();
-
-    private static TabTestCaseMainViewController main;
-
     private TableStepScriptCreationController controllerTableStep;
 
     private HeaderTableStepController controllerHeaderTableStep;
@@ -135,7 +132,6 @@ public class TabTestCaseViewController implements Initializable {
                 @Override
                 public void updateItem(Requirement item, boolean empty) {
                     super.updateItem(item, empty);
-
                     if (empty) {
                         setText(null);
                         setGraphic(null);

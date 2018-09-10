@@ -53,6 +53,19 @@ import java.util.ResourceBundle;
  */
 public class PopUpWizardActionController implements Initializable {
 
+    private static final ObservableList<String> BufferList = FXCollections.observableArrayList();
+    private final static String Separator = ("" + ((char) 007));
+    private static ViewScriptMacroController controller;
+    private static PreviewMacro previewController;
+    private final ObservableList<Parameters> observableListParam = FXCollections.observableArrayList();
+    private final ObservableList<TextFieldWithFormat> textFieldList = FXCollections.observableArrayList();
+    private final ComboBox<Classe> comboBoxClasse = new ComboBox();
+    private final ComboBox<Properties> combobxProperty = new ComboBox();
+    private final ComboBox<StateClasse> comboboxState = new ComboBox();
+    private final ComboBox<HMI> comboboxHMI = new ComboBox();
+    ParamScriptMacro paramToLink = new ParamScriptMacro();
+    String scriptChose;
+    String paramChose;
     @FXML
     private AnchorPane mainAnchor;
     @FXML
@@ -103,40 +116,39 @@ public class PopUpWizardActionController implements Initializable {
     private GridPane gridPaneValue;
     @FXML
     private Label textAreaDescriptionParameters;
-
-    private static ViewScriptMacroController controller;
-
-    private static PreviewMacro previewController;
-
-    private final ObservableList<Parameters> observableListParam = FXCollections.observableArrayList();
-
     private ArrayList<ParamScriptMacro> observableListParams = new ArrayList<>();
-
-    private static final ObservableList<String> BufferList = FXCollections.observableArrayList();
-
-    private final ObservableList<TextFieldWithFormat> textFieldList = FXCollections.observableArrayList();
-
-    private final static String Separator = ("" + ((char) 007));
-
-    ParamScriptMacro paramToLink = new ParamScriptMacro();
-
-    String scriptChose;
-
-    String paramChose;
-
-    private final ComboBox<Classe> comboBoxClasse = new ComboBox();
-
-    private final ComboBox<Properties> combobxProperty = new ComboBox();
-
-    private final ComboBox<StateClasse> comboboxState = new ComboBox();
-
-    private final ComboBox<HMI> comboboxHMI = new ComboBox();
-
     private Classe classChose;
 
     private String Property;
 
     private HMI HMIChose;
+
+    /**
+     * @param str
+     * @return
+     */
+    public static boolean isNumeric(String str) {
+        try {
+            double d = Double.parseDouble(str);
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * @param <T>
+     * @param comboBox
+     * @param value
+     * @param f
+     */
+    public static <T> void autoSelectComboBoxValue(ComboBox<T> comboBox, String value, Func<T, String> f) {
+        for (T t : comboBox.getItems()) {
+            if (f.compare(t, value)) {
+                comboBox.getSelectionModel().select(t);
+            }
+        }
+    }
 
     /**
      * Initializes the controller class. Class of the configuration popup for
@@ -177,18 +189,18 @@ public class PopUpWizardActionController implements Initializable {
          */
         this.tableParameters.getSelectionModel().selectedItemProperty().addListener((observable, oldSelection, newSelection)
                 -> {
-                    if (this.tableParameters.getSelectionModel().getSelectedIndex() >= 0) {
-                        comboBoxDefinitionValue.getSelectionModel().clearSelection();
-                        constructConfigurationParameters();
-                    }
-                });
+            if (this.tableParameters.getSelectionModel().getSelectedIndex() >= 0) {
+                comboBoxDefinitionValue.getSelectionModel().clearSelection();
+                constructConfigurationParameters();
+            }
+        });
 
         /*
          Action fire on button set parameters pressed.
          */
         buttonSetParameters.setOnAction((ActionEvent e) -> {
-            this.setParameters();
-        }
+                    this.setParameters();
+                }
         );
 
         /*
@@ -214,9 +226,9 @@ public class PopUpWizardActionController implements Initializable {
      * parameters is they have been already configured or not, construct the
      * left part of the popup.
      *
-     * @param script Script selected in the combobox of view script
+     * @param script           Script selected in the combobox of view script
      * @param paramScriptMacro
-     * @param selectedParam number of the selected parameter in the viewScript.
+     * @param selectedParam    number of the selected parameter in the viewScript.
      */
     public void constructInformation(Script script, ObservableList<ParamScriptMacro> paramScriptMacro, int selectedParam) {
 
@@ -614,18 +626,18 @@ public class PopUpWizardActionController implements Initializable {
 //                                }
 //                            });
                     });
-                     {
-                    }
-                    if (this.observableListParams.get(this.tableParameters.getSelectionModel().getSelectedIndex()).getParamScriptMacro() != null) {
-                        String script = this.observableListParams.get(this.tableParameters.getSelectionModel().getSelectedIndex()).getValuePath();
-                        //System.out.println("SCRIPT = " + script);
-                        choiceBoxss.getSelectionModel().select(script);
-                        comboBoxParam.getSelectionModel().select(this.observableListParams.get(this.tableParameters.getSelectionModel().getSelectedIndex()).getParamScriptMacro());
-                    }
+                {
+                }
+                if (this.observableListParams.get(this.tableParameters.getSelectionModel().getSelectedIndex()).getParamScriptMacro() != null) {
+                    String script = this.observableListParams.get(this.tableParameters.getSelectionModel().getSelectedIndex()).getValuePath();
+                    //System.out.println("SCRIPT = " + script);
+                    choiceBoxss.getSelectionModel().select(script);
+                    comboBoxParam.getSelectionModel().select(this.observableListParams.get(this.tableParameters.getSelectionModel().getSelectedIndex()).getParamScriptMacro());
+                }
 
-                    //System.out.println("NOMBRE DE SCRIPT = " + controller.getControllerScriptFather().controllerViewGlobal().collectionControllerScript.size());
-                    //System.out.println("ID SELECTED SCRIPT = " + controller.getControllerScriptFather().getIDScript());
-                    break;
+                //System.out.println("NOMBRE DE SCRIPT = " + controller.getControllerScriptFather().controllerViewGlobal().collectionControllerScript.size());
+                //System.out.println("ID SELECTED SCRIPT = " + controller.getControllerScriptFather().getIDScript());
+                break;
                 case "Property":
                     Rectangle preview = new Rectangle(10, 10);
                     Hyperlink linkImg = new Hyperlink();
@@ -792,21 +804,6 @@ public class PopUpWizardActionController implements Initializable {
     }
 
     /**
-     *
-     * @param str
-     * @return
-     */
-    public static boolean isNumeric(String str) {
-        try {
-            double d = Double.parseDouble(str);
-        } catch (NumberFormatException nfe) {
-            return false;
-        }
-        return true;
-    }
-
-    /**
-     *
      * @param param
      */
     public void deleteReferenceToParam(ParamScriptMacro param) {
@@ -825,37 +822,6 @@ public class PopUpWizardActionController implements Initializable {
                 paramsScriptMacro1.setToDisplay((byte) 1);
             });
         }
-    }
-
-    /**
-     *
-     * @param <T>
-     * @param comboBox
-     * @param value
-     * @param f
-     */
-    public static <T> void autoSelectComboBoxValue(ComboBox<T> comboBox, String value, Func<T, String> f) {
-        for (T t : comboBox.getItems()) {
-            if (f.compare(t, value)) {
-                comboBox.getSelectionModel().select(t);
-            }
-        }
-    }
-
-    /**
-     *
-     * @param <T>
-     * @param <V>
-     */
-    public interface Func<T, V> {
-
-        /**
-         *
-         * @param t
-         * @param v
-         * @return
-         */
-        boolean compare(T t, V v);
     }
 
     private void setCellFactoryComboboxHMI() {
@@ -1000,7 +966,6 @@ public class PopUpWizardActionController implements Initializable {
     }
 
     /**
-     *
      * @param path
      */
     public void displayPreview(String path) {
@@ -1018,5 +983,19 @@ public class PopUpWizardActionController implements Initializable {
         primaryStage.initOwner(Main.primaryStage);
         primaryStage.initModality(Modality.WINDOW_MODAL);
         primaryStage.show();
+    }
+
+    /**
+     * @param <T>
+     * @param <V>
+     */
+    public interface Func<T, V> {
+
+        /**
+         * @param t
+         * @param v
+         * @return
+         */
+        boolean compare(T t, V v);
     }
 }

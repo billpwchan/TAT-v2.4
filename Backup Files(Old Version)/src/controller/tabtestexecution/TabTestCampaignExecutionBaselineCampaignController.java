@@ -62,6 +62,28 @@ import java.util.ResourceBundle;
  */
 public class TabTestCampaignExecutionBaselineCampaignController implements Initializable {
 
+    /**
+     *
+     */
+    public static Stage dialog;
+    /**
+     *
+     */
+    public static Alert alert;
+    @FXML
+    private final TableView<ObservableList<StringProperty>> tableViewExcelFile = new TableView<>();
+    private final ObservableList<TestCase> observableListTestCases = FXCollections.observableArrayList();
+    private final TestCaseDB testCaseHandler = new TestCaseDB();
+    /**
+     *
+     */
+    public TabTestCampaignExecutionMainViewController main;
+    /**
+     *
+     */
+    public boolean save;
+    Task<Void> task;
+    Thread th;
     @FXML
     private AnchorPane anchorPanel;
     @FXML
@@ -131,8 +153,6 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
     @FXML
     private AnchorPane anchorPane;
     @FXML
-    private final TableView<ObservableList<StringProperty>> tableViewExcelFile = new TableView<>();
-    @FXML
     private Button validTestCase;
     @FXML
     private TextField baselineName;
@@ -144,61 +164,19 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
     private Text alreadyValidated;
     @FXML
     private Label labelBaselineName;
-
-    private final ObservableList<TestCase> observableListTestCases = FXCollections.observableArrayList();
-
     private TestCase selected;
-
-    /**
-     *
-     */
-    public TabTestCampaignExecutionMainViewController main;
-
     private TestCampaign campaignToBaseline = new TestCampaign();
-
-    private final TestCaseDB testCaseHandler = new TestCaseDB();
-
     private String BaselineName;
-
     private Stage dialogStage;
-
-    /**
-     *
-     */
-    public boolean save;
-
     private TableStepScriptCreationController controllerTableStep;
-
     private int range;
-
     private Iterations baseline;
-
     private String sheetNumber;
-
     private int numberOfCases = 0;
-
     private boolean baselineNameInput = true;
-
     private int numberValidatedCase;
-
     private int indexCaseSelected = 0;
-
-    Task<Void> task;
-
-    /**
-     *
-     */
-    public static Stage dialog;
-
-    /**
-     *
-     */
-    public static Alert alert;
-
     private HeaderTableStepController controllerHeaderTableStep;
-
-    Thread th;
-
     private String excelLocationInstantiation = null;
 
     private String excelCategoryInstantiation = null;
@@ -208,6 +186,18 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
     private Stage instantiateCase;
 
     private boolean closePopUp = false;
+
+    /**
+     * @param alert
+     */
+    public static void closeAlert(Alert alert) {
+        try {
+            alert.close();
+            alert.hide();
+        } catch (Exception e) {
+            System.out.println("Exception close alerte = " + e);
+        }
+    }
 
     /**
      * Initializes the controller class.
@@ -223,10 +213,10 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
         //Baseline Name will not be changed after validate one test case. Set Text Field to disabled.
         this.baselineName.textProperty()
                 .addListener((observable, oldValue, newValue) -> {
-                    if (selected != null) {
-                        this.manageButtonFromBaselineNameListener(newValue);
-                    }
-                }
+                            if (selected != null) {
+                                this.manageButtonFromBaselineNameListener(newValue);
+                            }
+                        }
                 );
 
         //If user decides to skip this one test case, pop-up this window to notify.
@@ -245,7 +235,7 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
                     controllerTableStep.displayScriptAndStepBaseline(selected);
                     this.manageButtonFromTableViewCase(newValue);
                 }
-                );
+        );
 
         validConfiguration.setOnAction(
                 (ActionEvent event) -> {
@@ -510,7 +500,7 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
      * newValue if new value is empty, label will be displayed in red. Otherwise
      * the label will be displayed in black
      *
-     * @param label the label for which change the color
+     * @param label    the label for which change the color
      * @param newValue the string to check
      */
     private void changeColorLabel(Label label, Boolean empty) {
@@ -587,10 +577,10 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
     /**
      * Set the buttons and label visibility
      *
-     * @param validOtherCasesLabel if enable the label "COnfigure other cases
-     * before"
+     * @param validOtherCasesLabel  if enable the label "COnfigure other cases
+     *                              before"
      * @param alreadyValidatedLabel if enable the label "Already validated"
-     * @param buttonValid if enable the button valid test case
+     * @param buttonValid           if enable the button valid test case
      */
     public void setButtonAndLabelsVisible(boolean validOtherCasesLabel, boolean alreadyValidatedLabel, boolean buttonValid) {
         validOtherCasesBefore.setVisible(validOtherCasesLabel);
@@ -670,46 +660,6 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
 
     /**
      *
-     * @param alert
-     */
-    public static void closeAlert(Alert alert) {
-        try {
-            alert.close();
-            alert.hide();
-        } catch (Exception e) {
-            System.out.println("Exception close alerte = " + e);
-        }
-    }
-
-    /**
-     *
-     * @param x
-     * @param y
-     */
-    public static void errorBox(int x, int y) {
-        Alert alert = new Alert(AlertType.ERROR);
-        alert.setTitle("Error Dialog");
-        alert.setHeaderText("The cell x= " + x + " y= " + y + " has a problem");
-        alert.setContentText("Click on OK, check your excel File and try again");
-        alert.showAndWait();
-    }
-
-    /**
-     *
-     * @param errorTitle
-     * @param errorHeaderText
-     * @param errorMessage
-     */
-    public static void errorBox(String errorTitle, String errorHeaderText, String errorMessage) {
-        Alert alert = new Alert(AlertType.ERROR);
-        alert.setTitle(errorTitle);
-        alert.setHeaderText(errorHeaderText);
-        alert.setContentText(errorMessage);
-        alert.showAndWait();
-    }
-
-    /**
-     *
      */
     public void notificationBaselinCase() {
         Notifications notificationBuilder = Notifications.create()
@@ -738,7 +688,6 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
     }
 
     /**
-     *
      * @return
      */
     public int getRange() {
@@ -746,7 +695,13 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
     }
 
     /**
-     *
+     * @param range
+     */
+    public void setRange(int range) {
+        this.range = range;
+    }
+
+    /**
      * @return
      */
     public String getSheetNumber() {
@@ -754,7 +709,6 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
     }
 
     /**
-     *
      * @return
      */
     public Alert getAlert() {
@@ -812,7 +766,6 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
     }
 
     /**
-     *
      * @param excelLocationInstantiation
      */
     public void setExcelLocationInstantiation(String excelLocationInstantiation) {
@@ -820,19 +773,10 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
     }
 
     /**
-     *
      * @param excelCategoryInstantiation
      */
     public void setExcelCategoryInstantiation(String excelCategoryInstantiation) {
         this.excelCategoryInstantiation = excelCategoryInstantiation;
-    }
-
-    /**
-     *
-     * @param range
-     */
-    public void setRange(int range) {
-        this.range = range;
     }
 
     /**

@@ -48,6 +48,13 @@ import java.util.ResourceBundle;
  */
 public class TabTestCampaignNewController implements Initializable {
 
+    private final ObservableList<TestCase> observableListTestCase = FXCollections.observableArrayList();
+    private final TestCaseDB testCaseHandler = new TestCaseDB();
+    private final TestCampaignDB testCampaignHandler = new TestCampaignDB();
+    /**
+     *
+     */
+    public TabTestCampaignMainViewController main;
     @FXML
     private AnchorPane anchorPanelNewTestCampaign;
     @FXML
@@ -114,18 +121,6 @@ public class TabTestCampaignNewController implements Initializable {
     private Button buttonUp;
     @FXML
     private Button buttonDown;
-
-    /**
-     *
-     */
-    public TabTestCampaignMainViewController main;
-
-    private final ObservableList<TestCase> observableListTestCase = FXCollections.observableArrayList();
-
-    private final TestCaseDB testCaseHandler = new TestCaseDB();
-
-    private final TestCampaignDB testCampaignHandler = new TestCampaignDB();
-
     private Stage dialogStage;
 
     // index of the current test case selected
@@ -305,7 +300,6 @@ public class TabTestCampaignNewController implements Initializable {
     }
 
     /**
-     *
      * Method in order to call the method view test case from the mainFrame
      *
      * @param testCaseToView the test case to display
@@ -402,7 +396,7 @@ public class TabTestCampaignNewController implements Initializable {
      * newValue if new value is empty, label will be displayed in red. Otherwise
      * the label will be displayed in black
      *
-     * @param label the label for which change the color
+     * @param label    the label for which change the color
      * @param newValue the string to check
      */
     private void changeColorLabel(Label label, String newValue) {

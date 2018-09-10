@@ -52,6 +52,7 @@ import java.util.ResourceBundle;
  */
 public class TabViewResultsController implements Initializable {
 
+    private final initColumn CaseToDisplay = new initColumn();
     @FXML
     private AnchorPane mainAnchorPopUp;
     @FXML
@@ -118,9 +119,6 @@ public class TabViewResultsController implements Initializable {
     private TableStepScriptCreationController controllerTableStep;
     @FXML
     private Button buttonChangeResults;
-
-    private final initColumn CaseToDisplay = new initColumn();
-
     private CaseExecutions testCaseSelected;
 
     private TabTestCampaignExecutionMainViewController main;
@@ -212,10 +210,10 @@ public class TabViewResultsController implements Initializable {
         this.baselineId = iteration.getBaselineId();
         TestCasesExecution testCaseExecution = new TestCasesExecution();
         //System.out.println("ITERATION NUMBER= " + this.iteration.getIterationNumber());
-        
+
         //gets all case executioms
         caseExecutions = testCaseExecution.PrepareCaseDisplayResults(baselineId, this.iteration.getIterationNumber());
-        testCasesToDisplay=caseExecutions;
+        testCasesToDisplay = caseExecutions;
         testCases = FXCollections.observableArrayList(caseExecutions);
         tableViewCampaignPopUpRun.setItems(testCases);
         //By Default: test case 0 is selected since at top
@@ -249,8 +247,8 @@ public class TabViewResultsController implements Initializable {
      * Display the step and scripts of a case
      *
      * @param testCasesAndSteps the ArrayList of testCasesAndSteps where search
-     * the test case to display
-     * @param testCaseId the ID of the case to display
+     *                          the test case to display
+     * @param testCaseId        the ID of the case to display
      * @param caseOrder
      */
     public void DisplaySteps(CaseExecutions caseExecution) {
@@ -392,24 +390,23 @@ public class TabViewResultsController implements Initializable {
         tPane.setAnimated(false);
         tPane.expandedProperty().addListener((ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) -> {
             Platform.runLater(() -> {
-                if (!tPane.isExpanded()) {
-                    tPane.getChildrenUnmodifiable().get(0).setVisible(false);
-                    gridPanePopUpCase.getRowConstraints().get(0).setMaxHeight(30);
-                    gridPanePopUpCase.getRowConstraints().get(0).setPrefHeight(30);
-                    gridPanePopUpCase.getRowConstraints().get(0).setMinHeight(30);
-                } else {
-                    tPane.getChildrenUnmodifiable().get(0).setVisible(true);
-                    gridPanePopUpCase.getRowConstraints().get(0).setMaxHeight(250);
-                    gridPanePopUpCase.getRowConstraints().get(0).setPrefHeight(250);
-                    gridPanePopUpCase.getRowConstraints().get(0).setMinHeight(250);
-                }
-            }
+                        if (!tPane.isExpanded()) {
+                            tPane.getChildrenUnmodifiable().get(0).setVisible(false);
+                            gridPanePopUpCase.getRowConstraints().get(0).setMaxHeight(30);
+                            gridPanePopUpCase.getRowConstraints().get(0).setPrefHeight(30);
+                            gridPanePopUpCase.getRowConstraints().get(0).setMinHeight(30);
+                        } else {
+                            tPane.getChildrenUnmodifiable().get(0).setVisible(true);
+                            gridPanePopUpCase.getRowConstraints().get(0).setMaxHeight(250);
+                            gridPanePopUpCase.getRowConstraints().get(0).setPrefHeight(250);
+                            gridPanePopUpCase.getRowConstraints().get(0).setMinHeight(250);
+                        }
+                    }
             );
         });
     }
 
     /**
-     *
      * @param caseExecModified
      */
     public void addModifiedCaseExecution(CaseExecutions caseExecModified) {
@@ -417,26 +414,26 @@ public class TabViewResultsController implements Initializable {
             this.casesExecutionModified.remove(caseExecModified);
             //this.testCases.get(this.testCases.indexOf(caseExecModified)).getCaseExecutionResultObj().setNewComment("");
         }
-        if(this.testCases.get(this.testCases.indexOf(caseExecModified)).getOriginalResult()==null){
-            
-        }else{
-        if (caseExecModified.simpleStringResultProperty().getValue().compareTo(this.testCases.get(this.testCases.indexOf(caseExecModified)).getOriginalResult()) != 0) {
-            String comment = popUpChangeResult();
-            if (comment != null) {
-                comment = Main.df.format(Calendar.getInstance().getTime()).concat(": " + comment + " (old result= " + this.testCases.get(this.testCases.indexOf(caseExecModified)).getOriginalResult() + ")");
-                this.casesExecutionModified.add(caseExecModified);
-                this.testCases.get(this.testCases.indexOf(caseExecModified)).getCaseExecutionResultObj().setNewComment(comment);
+        if (this.testCases.get(this.testCases.indexOf(caseExecModified)).getOriginalResult() == null) {
+
+        } else {
+            if (caseExecModified.simpleStringResultProperty().getValue().compareTo(this.testCases.get(this.testCases.indexOf(caseExecModified)).getOriginalResult()) != 0) {
+                String comment = popUpChangeResult();
+                if (comment != null) {
+                    comment = Main.df.format(Calendar.getInstance().getTime()).concat(": " + comment + " (old result= " + this.testCases.get(this.testCases.indexOf(caseExecModified)).getOriginalResult() + ")");
+                    this.casesExecutionModified.add(caseExecModified);
+                    this.testCases.get(this.testCases.indexOf(caseExecModified)).getCaseExecutionResultObj().setNewComment(comment);
+                } else {
+                    this.testCases.get(this.testCases.indexOf(caseExecModified)).setCaseExecutionResult(this.testCases.get(this.testCases.indexOf(caseExecModified)).getOriginalResult());
+                    this.testCases.get(this.testCases.indexOf(caseExecModified)).getCaseExecutionResultObj().setNewComment(" ");
+                }
             } else {
-                this.testCases.get(this.testCases.indexOf(caseExecModified)).setCaseExecutionResult(this.testCases.get(this.testCases.indexOf(caseExecModified)).getOriginalResult());
                 this.testCases.get(this.testCases.indexOf(caseExecModified)).getCaseExecutionResultObj().setNewComment(" ");
             }
-        } else {
-            this.testCases.get(this.testCases.indexOf(caseExecModified)).getCaseExecutionResultObj().setNewComment(" ");
-        }
-        System.out.println("SIZE = " + this.casesExecutionModified);
-        Platform.runLater(() -> {
-            preparePieGraph(testCasesToDisplay);
-        });
+            System.out.println("SIZE = " + this.casesExecutionModified);
+            Platform.runLater(() -> {
+                preparePieGraph(testCasesToDisplay);
+            });
         }
     }
 
@@ -455,7 +452,6 @@ public class TabViewResultsController implements Initializable {
     }
 
     /**
-     *
      * @param caseExecu
      */
     public void popUpChangeComment(CaseExecutions caseExecu) {
@@ -497,7 +493,6 @@ public class TabViewResultsController implements Initializable {
     }
 
     /**
-     *
      * @param caseExecu
      * @param comment
      */
@@ -507,7 +502,6 @@ public class TabViewResultsController implements Initializable {
     }
 
     /**
-     *
      * @param caseExecu
      */
     public void addCaseCommentModified(CaseExecutions caseExecu) {

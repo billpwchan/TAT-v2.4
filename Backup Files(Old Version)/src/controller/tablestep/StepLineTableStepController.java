@@ -43,6 +43,19 @@ import java.util.ResourceBundle;
  */
 public class StepLineTableStepController implements Initializable {
 
+    private static final Image imd = new Image("images/imageDown.png");
+    private static final Image ime = new Image("images/arrowDown.png");
+    private static final Image deilete = new Image("images/trash.png");
+    private static final Image imu = new Image("images/imageUp.png");
+    private final TestStep personalTespStep = new TestStep();
+    /**
+     *
+     */
+    public int numberOfScript = 0;
+    ObservableList<ScriptLineTableStepController> collectionControllerScript = FXCollections.observableArrayList();
+    ObservableList<Requirement> requirementsLinked = FXCollections.observableArrayList();
+    ObservableList<String> test = FXCollections.observableArrayList();
+    HashSet<Requirement> requirementLinked = new HashSet(0);
     @FXML
     private AnchorPane anchorPaneStep;
     @FXML
@@ -87,46 +100,28 @@ public class StepLineTableStepController implements Initializable {
     private Label labelActionArea;
     @FXML
     private Label labelVerifArea;
-
-    private static final Image imd = new Image("images/imageDown.png");
-
-    private static final Image ime = new Image("images/arrowDown.png");
-
-    private static final Image deilete = new Image("images/trash.png");
-
-    private static final Image imu = new Image("images/imageUp.png");
-
     private boolean isExpand = true;
-
-    /**
-     *
-     */
-    public int numberOfScript = 0;
-
-    private final TestStep personalTespStep = new TestStep();
-
     private TableStepScriptCreationController controllerViewGlobal;
-
-    ObservableList<ScriptLineTableStepController> collectionControllerScript = FXCollections.observableArrayList();
-
-    ObservableList<Requirement> requirementsLinked = FXCollections.observableArrayList();
-
     private int personalID;
-
     private boolean isSelected = false;
-
     private ArrayList<Requirement> allReq;
-
-    ObservableList<String> test = FXCollections.observableArrayList();
-
-    HashSet<Requirement> requirementLinked = new HashSet(0);
-
     private boolean clicked = false;
 
     private HeaderTableStepController controllerHeader;
 
     private ScrollBar scrollBarv = null;// = (ScrollBar) textAreaAction.lookup(".scroll-bar:vertical");
     private ScrollBar scrollBarverif = null;
+    /**
+     * Search for the scrollbar in the text area and initialize the method to
+     * increase the height of the anchor pane.
+     */
+    Task<Void> task = new Task<Void>() {
+        @Override
+        protected Void call() throws Exception {
+            initStep();
+            return null;
+        }
+    };
 
     /**
      * Initializes the controller class.
@@ -166,7 +161,6 @@ public class StepLineTableStepController implements Initializable {
     }
 
     /**
-     *
      * @param testStep
      */
     public void setStepView(TestStep testStep) {
@@ -213,7 +207,6 @@ public class StepLineTableStepController implements Initializable {
     }
 
     /**
-     *
      * @param allReq
      */
     public void setStepCreation(ArrayList<Requirement> allReq) {
@@ -617,18 +610,6 @@ public class StepLineTableStepController implements Initializable {
     }
 
     /**
-     * Search for the scrollbar in the text area and initialize the method to
-     * increase the height of the anchor pane.
-     */
-    Task<Void> task = new Task<Void>() {
-        @Override
-        protected Void call() throws Exception {
-            initStep();
-            return null;
-        }
-    };
-
-    /**
      *
      */
     public void initStep() {
@@ -764,7 +745,7 @@ public class StepLineTableStepController implements Initializable {
         this.imageExpand.setVisible(true);
         imageExpand.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent event) -> {
             try {
-                 ObservableList<StepLineTableStepController> observableTestStep = controllerViewGlobal.getCollectionTestStep();
+                ObservableList<StepLineTableStepController> observableTestStep = controllerViewGlobal.getCollectionTestStep();
                 int currIndex = observableTestStep.indexOf(StepLineTableStepController.this);
                 CommonFunctions.reportLog.info("Expand step (ID) " + observableTestStep.get(currIndex).getIDStep());
                 expandChildren();
@@ -789,9 +770,9 @@ public class StepLineTableStepController implements Initializable {
             if (isSelected) {
                 clicked = true;
                 Platform.runLater(() -> {
-                    muteActionStep(true);
-                    muteVerifStep(false);
-                }
+                            muteActionStep(true);
+                            muteVerifStep(false);
+                        }
                 );
             }
         });
@@ -804,9 +785,9 @@ public class StepLineTableStepController implements Initializable {
             if (isSelected) {
                 clicked = true;
                 Platform.runLater(() -> {
-                    muteActionStep(false);
-                    muteVerifStep(true);
-                }
+                            muteActionStep(false);
+                            muteVerifStep(true);
+                        }
                 );
             }
         });
@@ -827,7 +808,6 @@ public class StepLineTableStepController implements Initializable {
     }
 
     /**
-     *
      * @param requirementsSelected
      */
     public void setAction(ObservableList<Requirement> requirementsSelected) {
@@ -841,7 +821,6 @@ public class StepLineTableStepController implements Initializable {
     }
 
     /**
-     *
      * @return
      */
     public ObservableList<Requirement> getRequirements() {
@@ -853,7 +832,6 @@ public class StepLineTableStepController implements Initializable {
     }
 
     /**
-     *
      * @return
      */
     public boolean getIsExpand() {
@@ -861,7 +839,6 @@ public class StepLineTableStepController implements Initializable {
     }
 
     /**
-     *
      * @return
      */
     public boolean getIsSelected() {
@@ -869,7 +846,6 @@ public class StepLineTableStepController implements Initializable {
     }
 
     /**
-     *
      * @return
      */
     public boolean getIsClicked() {
@@ -877,7 +853,6 @@ public class StepLineTableStepController implements Initializable {
     }
 
     /**
-     *
      * @param clicked
      */
     public void setIsClicker(boolean clicked) {
@@ -885,7 +860,6 @@ public class StepLineTableStepController implements Initializable {
     }
 
     /**
-     *
      * @return
      */
     public TableStepScriptCreationController getControllerViewGlobal() {

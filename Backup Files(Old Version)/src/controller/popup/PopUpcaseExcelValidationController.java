@@ -30,6 +30,7 @@ import java.util.ResourceBundle;
  */
 public class PopUpcaseExcelValidationController implements Initializable {
 
+    private final static String Separator = ("" + ((char) 007));
     @FXML
     private AnchorPane anchorPaneCampaignCreation;
     @FXML
@@ -60,9 +61,6 @@ public class PopUpcaseExcelValidationController implements Initializable {
     private Label labelColumnCategory;
     @FXML
     private Label labelColumnLocation;
-
-    private final static String Separator = ("" + ((char) 007));
-
     private TabTestCampaignExecutionBaselineCampaignController mainController;
 
     /**
@@ -90,7 +88,6 @@ public class PopUpcaseExcelValidationController implements Initializable {
     }
 
     /**
-     *
      * @param mainController
      */
     public void init(TabTestCampaignExecutionBaselineCampaignController mainController) {

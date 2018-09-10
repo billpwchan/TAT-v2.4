@@ -67,7 +67,6 @@ public class PopUpBaselineCreationController implements Initializable {
     }
 
     /**
-     *
      * @param mainController
      */
     public void init(TabTestCaseLibraryController mainController) {
@@ -75,7 +74,6 @@ public class PopUpBaselineCreationController implements Initializable {
     }
 
     /**
-     *
      * @param stage
      */
     public void setPrimaryStage(Stage stage) {
@@ -83,7 +81,6 @@ public class PopUpBaselineCreationController implements Initializable {
     }
 
     /**
-     *
      * @param baselineID
      */
     public void getBaselineExistance(String baselineID) {

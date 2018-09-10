@@ -41,6 +41,18 @@ import java.util.ResourceBundle;
  */
 public class TabTestCampaignRepositoryController implements Initializable {
 
+    /**
+     *
+     */
+    public static final ObservableList<TestCampaign> observableListTestCampaign = FXCollections.observableArrayList();
+    private static final TestCampaignDB testCampaignHandler = new TestCampaignDB();
+    private static final IterationDB iterationHandler = new IterationDB();
+    /**
+     *
+     */
+    public static TabTestCampaignMainViewController main;
+    private final ObservableList<TestCase> observableListTestCase = FXCollections.observableArrayList();
+    private final TestCaseDB testCaseHandler = new TestCaseDB();
     @FXML
     private AnchorPane anchorPaneRepositoryCampaign;
     @FXML
@@ -59,24 +71,14 @@ public class TabTestCampaignRepositoryController implements Initializable {
     private Button buttonRefreshCampaignRepository;
     @FXML
     private TextField fieldFilter;
-
-    /**
-     *
-     */
-    public static TabTestCampaignMainViewController main;
-
-    /**
-     *
-     */
-    public static final ObservableList<TestCampaign> observableListTestCampaign = FXCollections.observableArrayList();
-
-    private final ObservableList<TestCase> observableListTestCase = FXCollections.observableArrayList();
-
-    private final TestCaseDB testCaseHandler = new TestCaseDB();
     private TestCampaign campaignSelected = new TestCampaign();
 
-    private static final TestCampaignDB testCampaignHandler = new TestCampaignDB();
-    private static final IterationDB iterationHandler = new IterationDB();
+    /**
+     * Update of the campaign repository
+     */
+    public static void updateRepository() {
+        observableListTestCampaign.setAll(testCampaignHandler.getAllCampaigns());
+    }
 
     /**
      * Initializes the controller class.
@@ -132,7 +134,7 @@ public class TabTestCampaignRepositoryController implements Initializable {
 
         System.out.println("filtered data campaign= " + filteredData.size());
 
-        // 3. Wrap the FilteredList in a SortedList. 
+        // 3. Wrap the FilteredList in a SortedList.
         SortedList<TestCampaign> sortedData = new SortedList<>(filteredData);
 
         // 4. Bind the SortedList comparator to the TableView comparator.
@@ -223,20 +225,12 @@ public class TabTestCampaignRepositoryController implements Initializable {
     }
 
     /**
-     *
      * Method in order to call the method view test case from the mainFrame
      *
      * @param testCase the test case to display
      */
     public void callViewToTestCase(TestCase testCase) {
         TabTestCampaignRepositoryController.main.viewTestCase(testCase);
-    }
-
-    /**
-     * Update of the campaign repository
-     */
-    public static void updateRepository() {
-        observableListTestCampaign.setAll(testCampaignHandler.getAllCampaigns());
     }
 
     /**

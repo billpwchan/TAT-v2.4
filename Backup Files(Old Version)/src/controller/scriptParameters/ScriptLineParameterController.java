@@ -32,6 +32,9 @@ import java.util.ResourceBundle;
  */
 public class ScriptLineParameterController implements Initializable {
 
+    private final static Image delete = new Image("images/trash.png");
+    private final static Image imd = new Image("images/imageDown.png");
+    private final static Image imu = new Image("images/imageUp.png");
     @FXML
     private AnchorPane anchroPaneScript;
     @FXML
@@ -60,21 +63,10 @@ public class ScriptLineParameterController implements Initializable {
     private TextField textFieldName2;
     @FXML
     private TextField textFieldType;
-
     private ObservableList<Parameters> paramToDisplay = FXCollections.observableArrayList();
-
     private ObservableList<String> observableListType = FXCollections.observableArrayList();
-
     private TableParamCreationController controllerViewGlobal;
-
     private int personalID;
-
-    private final static Image delete = new Image("images/trash.png");
-
-    private final static Image imd = new Image("images/imageDown.png");
-
-    private final static Image imu = new Image("images/imageUp.png");
-
     private ArrayList<Parameters> paramsArray = new ArrayList<>();
 
     private Parameters paramSelected;
@@ -83,6 +75,7 @@ public class ScriptLineParameterController implements Initializable {
 
     /**
      * Initializes the controller class.
+     *
      * @param url
      * @param rb
      */
@@ -116,7 +109,6 @@ public class ScriptLineParameterController implements Initializable {
     }
 
     /**
-     *
      * @return
      */
     public int getIDParam() {
@@ -142,7 +134,6 @@ public class ScriptLineParameterController implements Initializable {
     }
 
     /**
-     *
      * @param params
      */
     public void setParamsCreation(ArrayList<Parameters> params) {
@@ -238,7 +229,6 @@ public class ScriptLineParameterController implements Initializable {
     }
 
     /**
-     *
      * @return
      */
     public Parameters constructParam() {
@@ -255,7 +245,6 @@ public class ScriptLineParameterController implements Initializable {
     }
 
     /**
-     *
      * @param param
      */
     public void setParam(Parameters param) {
@@ -275,7 +264,6 @@ public class ScriptLineParameterController implements Initializable {
     }
 
     /**
-     *
      * @param param
      */
     public void setPreFilledParams(Parameters param) {

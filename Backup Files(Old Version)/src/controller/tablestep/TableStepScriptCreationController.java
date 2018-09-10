@@ -44,6 +44,17 @@ import java.util.*;
  */
 public class TableStepScriptCreationController implements Initializable {
 
+    private static ArrayList<Requirement> allReq = new ArrayList<>();
+    /**
+     *
+     */
+    private static int excelRank;
+    private final String defaultColor = " #CCFFCC";
+    private final ObservableList<Node> workingCollection = FXCollections.observableArrayList();
+    private final List<Node> tampCollection = new ArrayList<>();
+    private final ObservableList<StepLineTableStepController> collectionControllerStep = FXCollections.observableArrayList();
+    private final HashSet<Script> scriptStimuli = new HashSet<>(0);
+    private final HashSet<Script> scriptCheck = new HashSet<>(0);
     @FXML
     private AnchorPane mainAnchorPan;
     @FXML
@@ -56,43 +67,30 @@ public class TableStepScriptCreationController implements Initializable {
     private Label labelReadyVerif;
     @FXML
     private Label labelReadyAction;
-
     private StepLineTableStepController controllerStepLine;
-
     private ScriptLineTableStepController controllerScriptLine;
-
     private int stepID = 1;
-
-    private final String defaultColor = " #CCFFCC";
-
     private StepLineTableStepController selectedTestStepController;
-
-    private final ObservableList<Node> workingCollection = FXCollections.observableArrayList();
-
-    private final List<Node> tampCollection = new ArrayList<>();
-
-    private final ObservableList<StepLineTableStepController> collectionControllerStep = FXCollections.observableArrayList();
-
     private TabTestCaseNewController controllerNewCase;
-
     private TabTestCaseEditController controllerEditCase;
-
-    private final HashSet<Script> scriptStimuli = new HashSet<>(0);
-    private final HashSet<Script> scriptCheck = new HashSet<>(0);
-    private static ArrayList<Requirement> allReq = new ArrayList<>();
-
     private Stage dialogStage;
-
     private boolean popUpOpen = false;
-
     private HeaderTableStepController controllerHeader;
-
     private TestCase globalTestCase;
 
     /**
-     *
+     * @return
      */
-    private static int excelRank;
+    public static int getExcelRank() {
+        return excelRank;
+    }
+
+    /**
+     * @param rank
+     */
+    public static void setExcelRank(int rank) {
+        excelRank = rank;
+    }
 
     /**
      * Initializes the controller class.
@@ -106,27 +104,25 @@ public class TableStepScriptCreationController implements Initializable {
         //workingCollection.addAll(vBox.getChildren());
         this.scrollPan.widthProperty()
                 .addListener((ObservableValue<? extends Number> arg0, Number arg1, Number arg2) -> {
-                    double newValue = arg2.doubleValue() - 15;
-                    vBox.setPrefWidth(newValue);
-                    updateAllChildren(newValue);
-                }
+                            double newValue = arg2.doubleValue() - 15;
+                            vBox.setPrefWidth(newValue);
+                            updateAllChildren(newValue);
+                        }
                 );
     }
 
     /**
-     *
-     * @param headerController
-     */
-    public void setControllerHeader(HeaderTableStepController headerController) {
-        this.controllerHeader = headerController;
-    }
-
-    /**
-     *
      * @return
      */
     public HeaderTableStepController getControllerHeader() {
         return this.controllerHeader;
+    }
+
+    /**
+     * @param headerController
+     */
+    public void setControllerHeader(HeaderTableStepController headerController) {
+        this.controllerHeader = headerController;
     }
 
     /*
@@ -164,7 +160,6 @@ public class TableStepScriptCreationController implements Initializable {
     /**
      * Get the current selected step (color blue) and put it in the variable
      * selected step.
-     *
      */
     public StepLineTableStepController getCurrentStep() {
         return this.selectedTestStepController;
@@ -187,8 +182,8 @@ public class TableStepScriptCreationController implements Initializable {
      * Add a script to the step given in parameters. Need to update the Vbox
      * (working collection) and the object controllerStepLine as well
      *
-     * @see controllerStepLine.addScript
      * @param controllerStepLine step to add the script to.
+     * @see controllerStepLine.addScript
      */
     public void addScriptToStep(StepLineTableStepController controllerStepLine) {
 
@@ -221,8 +216,8 @@ public class TableStepScriptCreationController implements Initializable {
      * Method to move the step and its child(script) in one way or another
      * (depending on the value of the boolean).
      *
-     * @param indexToMove index in the vbox of the test step to move
-     * @param wayToMove boolean if true go up else go down.
+     * @param indexToMove          index in the vbox of the test step to move
+     * @param wayToMove            boolean if true go up else go down.
      * @param numberOfObjectToMove Number of child (Script) to move.
      */
     public void moveStep(StepLineTableStepController indexToMove, boolean wayToMove, int numberOfObjectToMove) {
@@ -272,7 +267,7 @@ public class TableStepScriptCreationController implements Initializable {
      * Update the id of each test step starting from the Id given in parameters
      *
      * @param startingID position of the test steps to start to modify the id
-     * from.
+     *                   from.
      */
     private void updateStepId(int startingID) {
         for (int i = startingID; i < collectionControllerStep.size(); i++) {
@@ -323,7 +318,7 @@ public class TableStepScriptCreationController implements Initializable {
      * Swap the script given in parameters in the vBox, depending on the value
      * of the boolean b
      *
-     * @param b way to swap, if true go up, else go down.
+     * @param b     way to swap, if true go up, else go down.
      * @param aThis script to swap in the vbox.
      */
     void swapScript(boolean b, ScriptLineTableStepController aThis) {
@@ -337,7 +332,6 @@ public class TableStepScriptCreationController implements Initializable {
     }
 
     /**
-     *
      * @param width
      * @param height
      */
@@ -443,7 +437,6 @@ public class TableStepScriptCreationController implements Initializable {
     }
 
     /**
-     *
      * @param testCase
      */
     public void displayScriptAndStepView(TestCase testCase) {
@@ -485,7 +478,6 @@ public class TableStepScriptCreationController implements Initializable {
     }
 
     /**
-     *
      * @param testCase
      */
     public void displayScriptAndStepEdit(TestCase testCase) {
@@ -530,7 +522,6 @@ public class TableStepScriptCreationController implements Initializable {
     }
 
     /**
-     *
      * @param testCase
      */
     public void displayScriptAndStepBaseline(TestCase testCase) {
@@ -574,7 +565,6 @@ public class TableStepScriptCreationController implements Initializable {
     }
 
     /**
-     *
      * @param testCase
      */
     public void displayScriptAndStepExecution(CaseExecutions testCase) {
@@ -621,9 +611,9 @@ public class TableStepScriptCreationController implements Initializable {
      * Method called when the user clicked on the image expand form the view
      * test step
      *
-     * @see StepLineTableStepController
      * @param aThis
      * @param expand
+     * @see StepLineTableStepController
      */
     void expandChildren(StepLineTableStepController aThis, boolean expand) {
         int startIndex = workingCollection.indexOf(aThis.getAnchorPane()) + 1;
@@ -688,24 +678,23 @@ public class TableStepScriptCreationController implements Initializable {
         if (this.controllerNewCase != null) {
             this.controllerNewCase.getAnchorPane().addEventHandler(MouseEvent.MOUSE_CLICKED,
                     new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent event) {
-                    collectionControllerStep.stream().map((collectionControllerStep1) -> {
-                        if (!collectionControllerStep1.getIsClicked()) {
-                            collectionControllerStep1.hideArea();
+                        @Override
+                        public void handle(MouseEvent event) {
+                            collectionControllerStep.stream().map((collectionControllerStep1) -> {
+                                if (!collectionControllerStep1.getIsClicked()) {
+                                    collectionControllerStep1.hideArea();
+                                }
+                                return collectionControllerStep1;
+                            }).forEachOrdered((collectionControllerStep1) -> {
+                                collectionControllerStep1.setIsClicker(false);
+                            });
                         }
-                        return collectionControllerStep1;
-                    }).forEachOrdered((collectionControllerStep1) -> {
-                        collectionControllerStep1.setIsClicker(false);
-                    });
-                }
-            }
+                    }
             );
         }
     }
 
     /**
-     *
      * @param aThis
      */
     public void initTestCaseEdit(TabTestCaseEditController aThis) {
@@ -716,17 +705,17 @@ public class TableStepScriptCreationController implements Initializable {
             this.controllerEditCase.getAnchorPane().addEventHandler(MouseEvent.MOUSE_CLICKED,
                     new EventHandler<MouseEvent>() {
 
-                @Override
-                public void handle(MouseEvent event) {
+                        @Override
+                        public void handle(MouseEvent event) {
 
-                    for (StepLineTableStepController collectionControllerStep1 : collectionControllerStep) {
-                        if (!collectionControllerStep1.getIsClicked()) {
-                            collectionControllerStep1.hideArea();
+                            for (StepLineTableStepController collectionControllerStep1 : collectionControllerStep) {
+                                if (!collectionControllerStep1.getIsClicked()) {
+                                    collectionControllerStep1.hideArea();
+                                }
+                                collectionControllerStep1.setIsClicker(false);
+                            }
                         }
-                        collectionControllerStep1.setIsClicker(false);
                     }
-                }
-            }
             );
         }
     }
@@ -738,22 +727,6 @@ public class TableStepScriptCreationController implements Initializable {
         collectionControllerStep.stream().forEach((collectionControllerStep1) -> {
             collectionControllerStep1.disableScriptConfiguration();
         });
-    }
-
-    /**
-     *
-     * @return
-     */
-    public static int getExcelRank() {
-        return excelRank;
-    }
-
-    /**
-     *
-     * @param rank
-     */
-    public static void setExcelRank(int rank) {
-        excelRank = rank;
     }
 
     private void loadScriptCheckAndStimuli() {
@@ -780,7 +753,6 @@ public class TableStepScriptCreationController implements Initializable {
     }
 
     /**
-     *
      * @param test
      */
     public void addRequirement(StepLineTableStepController test) {
@@ -817,7 +789,6 @@ public class TableStepScriptCreationController implements Initializable {
     }
 
     /**
-     *
      * @param requirementsSelected
      */
     public void setAction(ObservableList<Requirement> requirementsSelected) {
@@ -848,7 +819,6 @@ public class TableStepScriptCreationController implements Initializable {
     }
 
     /**
-     *
      * @return
      */
     public TestCase getTestCase() {

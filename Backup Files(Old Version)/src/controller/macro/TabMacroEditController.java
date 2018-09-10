@@ -43,6 +43,11 @@ import java.util.ResourceBundle;
  */
 public class TabMacroEditController implements Initializable {
 
+    private static TabMacroMainViewController mainController;
+    private final PreviewMacro controllerPreviewMacro = new PreviewMacro();
+    private final boolean canBeValidate = false;
+    private final int textfieldMacroNameMaxLength = 60;
+    DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
     @FXML
     private AnchorPane anchorPanelEditMacro;
     @FXML
@@ -86,21 +91,7 @@ public class TabMacroEditController implements Initializable {
     @FXML
     private AnchorPane anchorHeader;
     @FXML
-    private Text labelPreview;
-
-    private Alert alert;
-
-    private static TabMacroMainViewController mainController;
-
     private TableActionCreationController controllerTableAction;
-
-    private final PreviewMacro controllerPreviewMacro = new PreviewMacro();
-
-    private final boolean canBeValidate = false;
-
-    DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
-
-    private final int textfieldMacroNameMaxLength = 60;
 
     /**
      * Initializes the controller class.
@@ -131,7 +122,6 @@ public class TabMacroEditController implements Initializable {
     }
 
     /**
-     *
      * @param mainController
      */
     public void init(TabMacroMainViewController mainController) {
@@ -159,7 +149,6 @@ public class TabMacroEditController implements Initializable {
     }
 
     /**
-     *
      * @return
      */
     public PreviewMacro getControllerPreview() {

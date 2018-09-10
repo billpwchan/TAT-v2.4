@@ -43,6 +43,10 @@ import java.util.ResourceBundle;
  */
 public class TabMacroLibraryController implements Initializable {
 
+    private static TabMacroMainViewController macroMainViewController;
+    private final MacroDB macroHandler = new MacroDB();
+    private final TestCaseDB testCaseHandler = new TestCaseDB();
+    private final ObservableList<Script> observableListMacro = FXCollections.observableArrayList();
     @FXML
     private AnchorPane anchorPanelLibraryMacro;
     @FXML
@@ -59,19 +63,8 @@ public class TabMacroLibraryController implements Initializable {
     private ScrollPane scrollPanePreview;
     @FXML
     private TextField fieldFilter;
-
-    private static TabMacroMainViewController macroMainViewController;
-
     private TableActionCreationController controllerTableMacro;
-
     private Script currentMacroSelected = new Script();
-
-    private final MacroDB macroHandler = new MacroDB();
-
-    private final TestCaseDB testCaseHandler = new TestCaseDB();
-
-    private final ObservableList<Script> observableListMacro = FXCollections.observableArrayList();
-
     private PreviewMacro preview;
 
     /**
@@ -120,30 +113,7 @@ public class TabMacroLibraryController implements Initializable {
 
         FilteredList<Script> filteredData = new FilteredList<>(observableListMacro, p -> true);
 
-        fieldFilter.textProperty().addListener((observable, oldValue, newValue) -> {
-            filteredData.setPredicate(script -> {
-                // If filter text is empty, display all persons.
-                if (newValue == null || newValue.isEmpty()) {
-                    return true;
-                }
-
-                // Compare first name and last name of every person with filter text.
-                String lowerCaseFilter = newValue.toLowerCase();
-
-                if (script.getCreationDate() != null && script.getCreationDate().toLowerCase().contains(lowerCaseFilter)) {
-                    return true; // Filter matches first name.
-                } else if (script.getEditionDate() != null && script.getEditionDate().toLowerCase().contains(lowerCaseFilter)) {
-                    return true;
-                } else if (script.getDesciption() != null && script.getDesciption().toLowerCase().contains(lowerCaseFilter)) {
-                    return true;
-                } else if (script.getName() != null && script.getName().toLowerCase().contains(lowerCaseFilter)) {
-                    return true;
-                } else if (script.getScriptVersion() != null && script.getScriptVersion().toString().toLowerCase().contains(lowerCaseFilter)) {
-                    return true;
-                }
-                return false; // Does not match.
-            });
-        });
+        CommonFunctions.addListenerScript(filteredData, fieldFilter);
 
         // 3. Wrap the FilteredList in a SortedList. 
         SortedList<Script> sortedData = new SortedList<>(filteredData);
@@ -183,8 +153,10 @@ public class TabMacroLibraryController implements Initializable {
                 } else {
                     macroHandler.deleteMacro(this.currentMacroSelected);        //Need to also delete in ParamScriptMacro & Macro database.
                     this.updateLibrary();
-                    currentMacroSelected = this.observableListMacro.get(0) == null ? null : this.observableListMacro.get(0);    //If there's no macro left. Need to consider the case! 
-                    tableViewMacro.getSelectionModel().select(currentMacroSelected);
+                    currentMacroSelected = this.observableListMacro.get(0);    //If there's no macro left. Need to consider the case!
+                    if (currentMacroSelected != null) {
+                        tableViewMacro.getSelectionModel().select(currentMacroSelected);
+                    }
                 }
             }
         });
@@ -212,7 +184,7 @@ public class TabMacroLibraryController implements Initializable {
 
         FXMLLoader fxmlLoader2 = new FXMLLoader();
         try {
-            AnchorPane paneTest = (AnchorPane) fxmlLoader2.load(getClass().getResource("/view/macroActions/headerPreviewMacro.fxml").openStream());
+            AnchorPane paneTest = fxmlLoader2.load(getClass().getResource("/view/macroActions/headerPreviewMacro.fxml").openStream());
             this.gridPaneMacroLibrary.add(paneTest, 1, 1, 1, 1);
         } catch (IOException ex) {
             Logger.getLogger(TabTestCaseNewController.class.getName()).error("Cannot construct table Macro: ", ex);

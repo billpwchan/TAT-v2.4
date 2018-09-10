@@ -35,23 +35,15 @@ import java.util.ResourceBundle;
  */
 public class TabTestCampaignExecutionMainViewController implements Initializable {
 
+    private final ArrayList<currentTab> currentBaselineTab = new ArrayList<>();
+    private final Hashtable<Tab, TabTestCampaignExecutionBaselineCampaignController> storeBaselineControler = new Hashtable<>();
     @FXML
     private TabPane tabPaneTestCampaignExecution;
-
     private Tab campaigns;
-
     private TabTestCampaignExecutionRepositoryBaselineController repositoryBaselineController;
-
     private TATFrameController mainFrameController;
-
-    private final ArrayList<currentTab> currentBaselineTab = new ArrayList<>();
-
     private TabTestCampaignExecutionBaselineCampaignController baselineController;
-
     private TabViewResultsController viewController;
-
-    private final Hashtable<Tab, TabTestCampaignExecutionBaselineCampaignController> storeBaselineControler = new Hashtable<>();
-
     private int index;
 
     /**
@@ -160,7 +152,7 @@ public class TabTestCampaignExecutionMainViewController implements Initializable
      * viewing
      *
      * @param currentTab the arraylist of tab opened
-     * @param ID the ID of the campaign to search in the arraylist
+     * @param ID         the ID of the campaign to search in the arraylist
      * @return if the campaign is in the tab
      */
     private boolean searchPanel(ArrayList<currentTab> currentTab, int ID) {
@@ -192,7 +184,6 @@ public class TabTestCampaignExecutionMainViewController implements Initializable
      * tabs are stored
      *
      * @param ID the id of the campaign for which close the tab
-     *
      */
     public void closeTab(int ID) {
         searchPanel(currentBaselineTab, ID);

@@ -5,33 +5,26 @@
  */
 package DBcontroller;
 
-import DB.CaseExecutions;
-import DB.Iterations;
-import DB.ParametersExecution;
-import DB.ScriptExecutions;
-import DB.ScriptHasBeenConfigured;
-import DB.StepExecutions;
-import DB.TestCampaign;
-import DB.TestCase;
-import DB.TestStep;
-import DB.TestStepHasScript;
+import DB.*;
 import configuration.settings;
 import controller.tabtestcase.TabTestCaseMainViewController;
-import controller.tabtestexecution.TabTestCampaignExecutionBaselineCampaignController;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.Date;
-import java.util.Iterator;
-import org.apache.log4j.Logger;
+import controller.util.CommonFunctions;
 import javafx.application.Platform;
+import javafx.scene.control.Alert;
+import org.apache.log4j.Logger;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Date;
+import java.util.Iterator;
 
 /**
  *
@@ -150,7 +143,7 @@ public class ConfigurationDB {
                                 final int lastRowNum = sheet == null ? 0 : sheet.getLastRowNum() + 1;
                                 if (sheet.getLastRowNum() < y + range - 2) {     //Because getLastRowNum is Zero-based. Both y and range are 1-based.
                                     Platform.runLater(() -> {
-                                        TabTestCampaignExecutionBaselineCampaignController.errorBox("Configuration Error", "Number of row input is too large", "The input Excel file counts only " + lastRowNum + " rows.");
+                                        CommonFunctions.displayAlert(Alert.AlertType.ERROR, "Configuration Error", "Number of row input is too large", "The input Excel file counts only " + lastRowNum + " rows.");
                                     });
                                     if (paramExecutionLast != null) {
                                         scriptExecution.getParametersExecutions().remove(paramExecutionLast);
@@ -163,7 +156,7 @@ public class ConfigurationDB {
                                     sheet.getRow(updatedY).getCell(updatedX).getCellType();
                                 } catch (Exception e) {
                                     Platform.runLater(() -> {
-                                        TabTestCampaignExecutionBaselineCampaignController.errorBox("Configuration Error", "Blank cell detected", "Please check cell: Row " + (updatedY + 1) + " Column " + (updatedX + 1) + ".");
+                                        CommonFunctions.displayAlert(Alert.AlertType.ERROR, "Configuration Error", "Blank cell detected", "Please check cell: Row " + (updatedY + 1) + " Column " + (updatedX + 1) + ".");
                                     });
                                     return -1;
                                 }

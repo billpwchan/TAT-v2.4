@@ -67,7 +67,6 @@ public class TabScriptsMainViewController implements Initializable {
     }
 
     /**
-     *
      * @param aThis
      */
     public void init(TATFrameController aThis) {

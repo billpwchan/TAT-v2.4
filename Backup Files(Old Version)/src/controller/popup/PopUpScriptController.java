@@ -29,6 +29,14 @@ import java.util.ResourceBundle;
  */
 public class PopUpScriptController implements Initializable {
 
+    /**
+     *
+     */
+    public static TabTestCaseNewController controllerNewCase;
+    /**
+     *
+     */
+    public boolean isStimuli;
     @FXML
     private AnchorPane anchorPaneScriptPopUP;
     @FXML
@@ -53,17 +61,6 @@ public class PopUpScriptController implements Initializable {
     private TableColumn<Script, Date> editionDateScript;
     @FXML
     private Button buttonValid;
-
-    /**
-     *
-     */
-    public static TabTestCaseNewController controllerNewCase;
-
-    /**
-     *
-     */
-    public boolean isStimuli;
-
     private Script scriptSelected;
 
     /**
@@ -99,7 +96,6 @@ public class PopUpScriptController implements Initializable {
     }
 
     /**
-     *
      * @param scriptInDB
      */
     public void setTable(ObservableList<Script> scriptInDB) {
@@ -108,7 +104,6 @@ public class PopUpScriptController implements Initializable {
     }
 
     /**
-     *
      * @param Stimuli
      */
     public void setIsStimuli(boolean Stimuli) {
@@ -116,7 +111,6 @@ public class PopUpScriptController implements Initializable {
     }
 
     /**
-     *
      * @param controllerNewCase
      */
     public void init(TabTestCaseNewController controllerNewCase) {
@@ -124,7 +118,6 @@ public class PopUpScriptController implements Initializable {
     }
 
     /**
-     *
      * @param newValue
      */
     public void displayCurrentScript(Script newValue) {

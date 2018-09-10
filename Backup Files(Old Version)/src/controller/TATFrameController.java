@@ -61,6 +61,9 @@ import static main.Main.HMIs;
  */
 public class TATFrameController implements Initializable {
 
+    int globalSize = 40;
+    boolean DisplayTabLabel = false;
+    String oldCss = "customTabReq";
     @FXML
     private TabPane tabPaneHMI;
     @FXML
@@ -79,42 +82,21 @@ public class TATFrameController implements Initializable {
     private MenuItem itemHMIs;
     @FXML
     private MenuItem Load;
-
     private Tab tabViewCase;
-
     private Tab tabViewCampaign;
-
     private Tab tabViewExecution;
-
     private Tab tabRequirement;
-
     private Tab tabMacro;
-
     private Tab tabScripts;
-
     private TabTestCaseMainViewController mainControllerCase;
-
     private TabTestCampaignMainViewController mainControllerCampaign;
-
     private TabTestCampaignExecutionMainViewController mainControllerCampaignExecution;
-
     private TabRequirementMainViewController mainControllerRequirement;
-
     private TabMacroMainViewController mainControllerMacro;
-
     private TabScriptsMainViewController mainControllerScript;
-
     private Stage primaryStage;
-
     private Stage popUpSettingsStage;
-
     private settings setting = new settings();
-
-    int globalSize = 40;
-
-    boolean DisplayTabLabel = false;
-
-    String oldCss = "customTabReq";
 
     /**
      * Initializes the controller class.
@@ -288,7 +270,6 @@ public class TATFrameController implements Initializable {
     }
 
     /**
-     *
      * @param testCase
      */
     public void callViewToTestCase(TestCase testCase) {
@@ -297,7 +278,6 @@ public class TATFrameController implements Initializable {
     }
 
     /**
-     *
      * @param testCampaign
      */
     public void callViewToTestCampaign(TestCampaign testCampaign) {
@@ -308,16 +288,8 @@ public class TATFrameController implements Initializable {
 //    public void manageBaselineButton(int size){
 //        this.mainControllerCampaignExecution.buttonBaselineManagement(size);
 //    }
-    /**
-     *
-     * @param primaryStage
-     */
-    public void setPrimaryStage(Stage primaryStage) {
-        this.primaryStage = primaryStage;
-    }
 
     /**
-     *
      * @return
      */
     public Stage getPrimaryStage() {
@@ -325,9 +297,16 @@ public class TATFrameController implements Initializable {
     }
 
     /**
+     * @param primaryStage
+     */
+    public void setPrimaryStage(Stage primaryStage) {
+        this.primaryStage = primaryStage;
+    }
+
+    /**
      * Display the view for script configuration when a parameters is clicked.
      *
-     * @param script the script to configured
+     * @param script        the script to configured
      * @param selectedParam the parameters selected
      */
     private void displaySettings() {

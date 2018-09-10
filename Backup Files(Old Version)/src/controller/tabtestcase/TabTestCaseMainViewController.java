@@ -7,8 +7,7 @@ package controller.tabtestcase;
 
 import DB.TestCase;
 import controller.TATFrameController;
-import javafx.event.Event;
-import javafx.event.EventHandler;
+import controller.util.CommonFunctions;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -31,6 +30,7 @@ import java.util.ResourceBundle;
  */
 public class TabTestCaseMainViewController implements Initializable {
 
+    private static TabTestCaseLibraryController libraryController;
     /**
      *
      */
@@ -38,22 +38,8 @@ public class TabTestCaseMainViewController implements Initializable {
     public AnchorPane anchorPanelViewTestCase;
     @FXML
     private TabPane tabPaneTestCase;
-
-    private Tab tabLibrary;
-
     private ArrayList<currentTab> currentEditTab = new ArrayList<>();
-
     private ArrayList<currentTab> currentViewTab = new ArrayList<>();
-
-    private static TabTestCaseLibraryController libraryController;
-
-    private static TabTestCaseEditController editController;
-
-    private TabTestCaseViewController viewController;
-
-    private TabTestCaseNewController newController;
-
-    private TATFrameController mainFrameController;
 
     /**
      * Initializes the controller class.
@@ -64,63 +50,21 @@ public class TabTestCaseMainViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-        this.tabLibrary = new Tab("Library");
+        Tab tabLibrary = new Tab("Library");
         this.tabPaneTestCase.getTabs().add(0, tabLibrary);
-        this.tabLibrary.setClosable(false);
-        this.tabLibrary.setStyle("-fx-background-color : #00bfa5;"
+        tabLibrary.setClosable(false);
+        tabLibrary.setStyle("-fx-background-color : #00bfa5;"
                 + "-fx-background-insets : transparent;");
         FXMLLoader fxmlLoader = new FXMLLoader();
         try {
             AnchorPane libraryPane = fxmlLoader.load(getClass().getResource("/view/testcase/TabTestCaseLibrary.fxml").openStream());
-            this.tabLibrary.setContent(libraryPane);
-            libraryController = (TabTestCaseLibraryController) fxmlLoader.getController();
+            tabLibrary.setContent(libraryPane);
+            libraryController = fxmlLoader.getController();
             libraryController.init(this);
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseMainViewController.class.getName()).error("", ex);
+            CommonFunctions.debugLog.error("", ex);
         }
-
         this.tabPaneTestCase.setTabClosingPolicy(TabPane.TabClosingPolicy.SELECTED_TAB);
-
-//        this.tabPaneTestCase.getSelectionModel().selectedItemProperty().addListener(
-//                new ChangeListener<Tab>() {
-//
-//                    @Override
-//                    public void changed(ObservableValue<? extends Tab> observable, Tab oldValue, Tab newValue) {
-//                        System.out.println(newValue + ":" + newValue.getId() + ":" + newValue.getText());
-//                        if (newValue == tabLibrary) {
-//                            
-//                        }
-//                    }
-//
-//                }
-//        );
-        /**
-         * Update the library when focus on the library panel.
-         */
-//        this.tabLibrary.selectedProperty().addListener(new ChangeListener<Boolean>() {
-//            @Override
-//            public void changed(ObservableValue<? extends Boolean> arg0, Boolean oldPropertyValue, Boolean newPropertyValue) {
-//                if (newPropertyValue) {
-//                    updateLibrary();
-//                }
-//            }
-//        }
-//        );
-//        
-//                this.tabPaneTestCase.getSelectionModel().selectedItemProperty().addListener(
-//                new ChangeListener<Tab>() {
-//
-//                    @Override
-//                    public void changed(ObservableValue<? extends Tab> observable, Tab oldValue, Tab newValue) {
-//
-//                        if (newValue == tabLibrary) {
-//                            //System.out.println("UPDATE !");
-//                            updateLibrary();
-//                        }
-//                    }
-//
-//                }
-//        );
     }
 
     /**
@@ -135,28 +79,24 @@ public class TabTestCaseMainViewController implements Initializable {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 AnchorPane editPane = fxmlLoader.load(getClass().getResource("/view/testcase/TabTestCaseEdit.fxml").openStream());
                 edit.setContent(editPane);
-                editController = (TabTestCaseEditController) fxmlLoader.getController();
+                TabTestCaseEditController editController = fxmlLoader.getController();
                 editController.init(this);
                 edit.setText("Edit " + testcaseEdit.getTestCaseIdentification());
                 this.tabPaneTestCase.getTabs().add(edit);
-
                 ObjectCopy copyHandler = new ObjectCopy();      //Copy content before constructing object.
                 TestCase tc = copyHandler.copyCompleteTestCase(testcaseEdit);
-
                 editController.constructInformation(tc);
                 edit.setClosable(true);
                 currentTab editCurrent = new currentTab(testcaseEdit.getIdtestCase(), edit);
                 currentEditTab.add(editCurrent);
                 this.tabPaneTestCase.getSelectionModel().select(edit);
-                edit.setOnClosed(new EventHandler<Event>() {
-                    @Override
-                    public void handle(Event t) {
-                        t.consume();
-                        currentEditTab.remove(editCurrent);
-                    }
+                edit.setOnClosed(t -> {
+                    t.consume();
+                    currentEditTab.remove(editCurrent);
+                    CommonFunctions.reportLog.info("User cancel editing " + testcaseEdit.getTestCaseIdentification());
                 });
             } catch (IOException ex) {
-                Logger.getLogger(TabTestCaseMainViewController.class.getName()).error("", ex);
+                CommonFunctions.debugLog.error("", ex);
             }
         }
     }
@@ -164,33 +104,21 @@ public class TabTestCaseMainViewController implements Initializable {
     /**
      * Create a new tab.
      */
-    public void displayNewTestCase() {
-//        createOrchestra test = new createOrchestra();
-//        TestCampaignDB test2 = new TestCampaignDB();
-//        
-//        test.generateExcelRapport(test2.getTestCampaignFromID(13), "base-V1", 3);
+    void displayNewTestCase() {
         try {
-
             Tab newTestCase = new Tab();
             FXMLLoader fxmlLoader = new FXMLLoader();
             AnchorPane newPane = fxmlLoader.load(getClass().getResource("/view/testcase/TabTestCaseNew.fxml").openStream());
             newTestCase.setContent(newPane);
-            newController = (TabTestCaseNewController) fxmlLoader.getController();
+            TabTestCaseNewController newController = fxmlLoader.getController();
             newController.init(this);
             newTestCase.setText("New Test Case");
             this.tabPaneTestCase.getTabs().add(newTestCase);
             newTestCase.setClosable(true);
             this.tabPaneTestCase.getSelectionModel().select(newTestCase);
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseMainViewController.class.getName()).error("", ex);
+            CommonFunctions.debugLog.error("", ex);
         }
-    }
-
-    /**
-     *
-     */
-    public void deleteTestCase() {
-        System.out.println("Not implemented yet ");
     }
 
     /**
@@ -205,7 +133,7 @@ public class TabTestCaseMainViewController implements Initializable {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 AnchorPane editPane = fxmlLoader.load(getClass().getResource("/view/testcase/TabTestCaseView.fxml").openStream());
                 view.setContent(editPane);
-                viewController = (TabTestCaseViewController) fxmlLoader.getController();
+                TabTestCaseViewController viewController = fxmlLoader.getController();
                 viewController.init(this);
                 view.setText("View " + testCaseView.getTestCaseIdentification());
                 this.tabPaneTestCase.getTabs().add(view);
@@ -214,15 +142,13 @@ public class TabTestCaseMainViewController implements Initializable {
                 currentTab viewCurrent = new currentTab(testCaseView.getIdtestCase(), view);
                 currentViewTab.add(viewCurrent);
                 this.tabPaneTestCase.getSelectionModel().select(view);
-                view.setOnClosed(new EventHandler<Event>() {
-                    @Override
-                    public void handle(Event t) {
-                        t.consume();
-                        currentViewTab.remove(viewCurrent);
-                    }
+                view.setOnClosed(t -> {
+                    t.consume();
+                    currentViewTab.remove(viewCurrent);
+                    CommonFunctions.reportLog.info("User cancel viewing " + testCaseView.getTestCaseIdentification());
                 });
             } catch (IOException ex) {
-                Logger.getLogger(TabTestCaseMainViewController.class.getName()).error("", ex);
+                CommonFunctions.debugLog.error("", ex);
             }
         }
     }
@@ -232,13 +158,13 @@ public class TabTestCaseMainViewController implements Initializable {
      * view(Arraylist edit) or in the view mode (arrayList view).
      *
      * @param currentTab arraylist of the tab to search into.
-     * @param tabID id of the object to lookfor.
+     * @param tabID      id of the object to lookfor.
      * @return
      */
     private boolean searchPanel(ArrayList<currentTab> currentTab, int tabID) {
         boolean found = false;
         int i = 0;
-        while (i < currentTab.size() && found == false) {
+        while (i < currentTab.size() && !found) {
             if (currentTab.get(i).getID() == tabID) {
                 found = true;
                 this.tabPaneTestCase.getSelectionModel().select(currentTab.get(i).getTab());
@@ -249,11 +175,10 @@ public class TabTestCaseMainViewController implements Initializable {
     }
 
     /**
-     *
      * @param mainController
      */
     public void init(TATFrameController mainController) {
-        this.mainFrameController = mainController;
+        TATFrameController mainFrameController = mainController;
     }
 
     /**

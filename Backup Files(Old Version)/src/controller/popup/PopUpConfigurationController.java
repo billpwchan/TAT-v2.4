@@ -48,7 +48,6 @@ public class PopUpConfigurationController implements Initializable {
     }
 
     /**
-     *
      * @param mainController
      */
     public void init(TATFrameController mainController) {

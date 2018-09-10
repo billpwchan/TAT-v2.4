@@ -42,6 +42,10 @@ import java.util.*;
  */
 public class ViewScriptMacroController implements Initializable {
 
+    private final static String Separator = ("" + ((char) 007));
+    private final ObservableList<String> nameCollection = FXCollections.observableArrayList();
+    private final GridPane gridPaneDisplayResults = new GridPane();
+    private final ObservableList<ParamScriptMacro> observableListParams = FXCollections.observableArrayList();
     @FXML
     private AnchorPane anchorScript;
     @FXML
@@ -52,26 +56,12 @@ public class ViewScriptMacroController implements Initializable {
     private Label labelScriptName;
     @FXML
     private Label labelNameOfScript;
-
     private ScriptLineTableMacroController controllerScriptFather;
-
     private ArrayList<Script> scriptsArray;
-
-    private final ObservableList<String> nameCollection = FXCollections.observableArrayList();
-
     private Script currentScript = new Script();
-
-    private final GridPane gridPaneDisplayResults = new GridPane();
-
     private int numberOfParam = 0;
-
     private Stage popUpStage;
-
     private Macro scriptMacro = null;
-
-    private final ObservableList<ParamScriptMacro> observableListParams = FXCollections.observableArrayList();
-
-    private final static String Separator = ("" + ((char) 007));
 
     /**
      * Initializes the controller class.
@@ -101,7 +91,6 @@ public class ViewScriptMacroController implements Initializable {
     }
 
     /**
-     *
      * @return
      */
     public ScriptLineTableMacroController getControllerScriptFather() {
@@ -109,7 +98,6 @@ public class ViewScriptMacroController implements Initializable {
     }
 
     /**
-     *
      * @return
      */
     public Script getCurrentScript() {
@@ -117,7 +105,6 @@ public class ViewScriptMacroController implements Initializable {
     }
 
     /**
-     *
      * @return
      */
     public ObservableList<ParamScriptMacro> getHashParamScriptMacro() {
@@ -125,7 +112,6 @@ public class ViewScriptMacroController implements Initializable {
     }
 
     /**
-     *
      * @return
      */
     public Macro getScriptMacro() {
@@ -214,8 +200,8 @@ public class ViewScriptMacroController implements Initializable {
      * Return the result of the node in the gridpane depending on the column and
      * row given in parameters.
      *
-     * @param row row needed
-     * @param column column needed
+     * @param row      row needed
+     * @param column   column needed
      * @param gridPane gridpane needed
      * @return
      */
@@ -258,7 +244,6 @@ public class ViewScriptMacroController implements Initializable {
     }
 
     /**
-     *
      * @param currentSelectedScript
      */
     public void updateGridPaneEdit(Script currentSelectedScript) {  //This is for update script's parameter. 
@@ -273,7 +258,6 @@ public class ViewScriptMacroController implements Initializable {
     }
 
     /**
-     *
      * @param currentSelectedMacro
      */
     public void updateGridPaneEditNew(Macro currentSelectedMacro) {  //To update observableListParams object (For display wizzard)
@@ -314,7 +298,6 @@ public class ViewScriptMacroController implements Initializable {
     }
 
     /**
-     *
      * @param currentSelectedScript
      */
     public void constructGridPaneView(Script currentSelectedScript) {
@@ -349,7 +332,7 @@ public class ViewScriptMacroController implements Initializable {
     /**
      * Display the view for script configuration when a parameters is clicked.
      *
-     * @param script the script to configured
+     * @param script        the script to configured
      * @param selectedParam the parameters selected
      */
     private void displayWizard(Script script, int selectedParam) {
@@ -386,7 +369,7 @@ public class ViewScriptMacroController implements Initializable {
      * observable list, update the view with the corresponding values.
      *
      * @param observableListParamScripts observable list containing the
-     * parameters.
+     *                                   parameters.
      */
     public void referParameters(ArrayList<ParamScriptMacro> observableListParamScripts) {
         for (int i = 0; i < observableListParamScripts.size(); i++) {
@@ -481,7 +464,6 @@ public class ViewScriptMacroController implements Initializable {
     }
 
     /**
-     *
      * @param script
      */
     public void updateScriptViewDisplay(Macro script) {
@@ -494,7 +476,6 @@ public class ViewScriptMacroController implements Initializable {
     }
 
     /**
-     *
      * @param script
      */
     public void updateScriptEditDisplay(Macro script) {     //if have six scripts in this macro, will run this function again 6 times

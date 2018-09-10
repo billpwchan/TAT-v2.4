@@ -52,6 +52,22 @@ import static main.Main.primaryStage;
  */
 public class TabTestCampaignExecutionRepositoryBaselineController implements Initializable {
 
+    private static final TestCampaignDB testCampaignHandler = new TestCampaignDB();
+    /**
+     *
+     */
+    public static TabTestCampaignExecutionMainViewController main;
+    @FXML
+    private static TreeItem<Iterations> root;
+    private static TreeItem<Iterations> root2;
+    private static TreeItem<Iterations> root0;
+    private static TreeItem<Iterations> root3;
+    private final IterationDB iteHandler = new IterationDB();
+    private final TestExecution testExecutionHandler = new TestExecution();
+    /**
+     *
+     */
+    public int notExecuted;
     @FXML
     private AnchorPane anchorPaneTestExecution;
     @FXML
@@ -59,45 +75,47 @@ public class TabTestCampaignExecutionRepositoryBaselineController implements Ini
     @FXML
     private TreeTableView<Iterations> campaignBaselineAndExecution;
     @FXML
-    private static TreeItem<Iterations> root;
-    @FXML
     private Button runButton;
     @FXML
     private Button buttonReport;
     @FXML
     private Button buttonDelete;
-
-    private static final TestCampaignDB testCampaignHandler = new TestCampaignDB();
-
-    /**
-     *
-     */
-    public static TabTestCampaignExecutionMainViewController main;
-
     private Stage popUpCampaignStage;
-
     private Stage runStage;
-
     private PopUpRunController runController;
-
-    /**
-     *
-     */
-    public int notExecuted;
-
     private Iterations selected;
-
     private boolean popUpBaselineOpen = false;
 
-    private static TreeItem<Iterations> root2;
-
-    private static TreeItem<Iterations> root0;
-
-    private static TreeItem<Iterations> root3;
-
-    private final IterationDB iteHandler = new IterationDB();
-
-    private final TestExecution testExecutionHandler = new TestExecution();
+    /**
+     * Create the tree of campaigns,configurations and executions with up to
+     * date informations
+     *
+     * @throws ParseException
+     */
+    public static void UpdateTreeItem() throws ParseException {
+        TestExecution iterationHandler = new TestExecution();
+        ArrayList<Iterations> baselines;
+        ArrayList<Iterations> executions;
+        ArrayList<Iterations> baselinedCampaigns;
+        baselinedCampaigns = testCampaignHandler.getBaselinedCampaignsTree();
+        root.getChildren().clear();
+        for (Iterations baselinedCampaign : baselinedCampaigns) {
+            root0 = new TreeItem<>(baselinedCampaign);
+            baselines = iterationHandler.getBaselinesFromCampaign(baselinedCampaign.getTestCampaign());
+            for (Iterations baseline : baselines) {
+                root2 = new TreeItem<>(baseline);
+                executions = iterationHandler.getExecutionsFromBaseline(baseline);
+                for (Iterations execution : executions) {
+                    if (execution.getIterationNumber() != 0) {
+                        root3 = new TreeItem<>(execution);
+                        root2.getChildren().add(root3);
+                    }
+                }
+                root0.getChildren().add(root2);
+            }
+            root.getChildren().add(root0);
+        }
+    }
 
     /**
      * Initializes the controller class.
@@ -331,37 +349,6 @@ public class TabTestCampaignExecutionRepositoryBaselineController implements Ini
         } catch (IOException ex) {
             Logger.getLogger(TabTestCaseNewController.class
                     .getName()).error("", ex);
-        }
-    }
-
-    /**
-     * Create the tree of campaigns,configurations and executions with up to
-     * date informations
-     *
-     * @throws ParseException
-     */
-    public static void UpdateTreeItem() throws ParseException {
-        TestExecution iterationHandler = new TestExecution();
-        ArrayList<Iterations> baselines;
-        ArrayList<Iterations> executions;
-        ArrayList<Iterations> baselinedCampaigns;
-        baselinedCampaigns = testCampaignHandler.getBaselinedCampaignsTree();
-        root.getChildren().clear();
-        for (Iterations baselinedCampaign : baselinedCampaigns) {
-            root0 = new TreeItem<>(baselinedCampaign);
-            baselines = iterationHandler.getBaselinesFromCampaign(baselinedCampaign.getTestCampaign());
-            for (Iterations baseline : baselines) {
-                root2 = new TreeItem<>(baseline);
-                executions = iterationHandler.getExecutionsFromBaseline(baseline);
-                for (Iterations execution : executions) {
-                    if (execution.getIterationNumber() != 0) {
-                        root3 = new TreeItem<>(execution);
-                        root2.getChildren().add(root3);
-                    }
-                }
-                root0.getChildren().add(root2);
-            }
-            root.getChildren().add(root0);
         }
     }
 

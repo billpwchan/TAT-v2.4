@@ -59,7 +59,6 @@ public class PopUpChangeCaseCommentController implements Initializable {
     }
 
     /**
-     *
      * @param mainController
      */
     public void init(TabViewResultsController mainController) {
@@ -67,7 +66,6 @@ public class PopUpChangeCaseCommentController implements Initializable {
     }
 
     /**
-     *
      * @param caseExecu
      */
     public void setComment(CaseExecutions caseExecu) {

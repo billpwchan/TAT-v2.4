@@ -24,6 +24,7 @@ import java.util.ResourceBundle;
  */
 public class HeaderTableStepController implements Initializable {
 
+    private static final Image ime = new Image("images/arrowDown.png");
     @FXML
     private AnchorPane anchorPanInVbox;
     @FXML
@@ -34,12 +35,8 @@ public class HeaderTableStepController implements Initializable {
     private Label labelReadyVerif;
     @FXML
     private ImageView imageExpand;
-
     private boolean expand;
-
     private TableStepScriptCreationController controllerTableStep;
-
-    private static final Image ime = new Image("images/arrowDown.png");
 
     /**
      * Initializes the controller class.
@@ -78,7 +75,6 @@ public class HeaderTableStepController implements Initializable {
     }
 
     /**
-     *
      * @param controllerTableStep
      */
     public void init(TableStepScriptCreationController controllerTableStep) {

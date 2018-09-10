@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="TAT_V2.3.1">
+    <output-path>$PROJECT_DIR$/out/artifacts/TAT_V2_3_1</output-path>
+    <root id="archive" name="TAT_V2.3.1.jar">
+      <element id="library" level="project" name="Libraries" />
+      <element id="library" level="project" name="Java EE 6-Java EE 6" />
+      <element id="module-output" name="Backup Files(Old Version)" />
+    </root>
+  </artifact>
+</component>

@@ -32,23 +32,16 @@ import java.util.ResourceBundle;
  */
 public class TabTestCampaignMainViewController implements Initializable {
 
+    private static TabTestCampaignRepositoryController RepositoryController;
+    private final ArrayList<currentTab> currentViewTab = new ArrayList<>();
+    private final Hashtable<Tab, TabTestCampaignNewController> storeNewControler = new Hashtable<>();
     @FXML
     private AnchorPane anchorPanelCampaignRepository;
     @FXML
     private TabPane tabPaneTestCampaign;
-
     private Tab tabRepository;
-
-    private static TabTestCampaignRepositoryController RepositoryController;
-
-    private final ArrayList<currentTab> currentViewTab = new ArrayList<>();
-
     private TabTestCampaignViewController viewController;
-
     private TabTestCampaignNewController newController;
-
-    private final Hashtable<Tab, TabTestCampaignNewController> storeNewControler = new Hashtable<>();
-
     private TATFrameController mainFrameController;
 
     /**
@@ -77,7 +70,7 @@ public class TabTestCampaignMainViewController implements Initializable {
         this.tabPaneTestCampaign.setTabClosingPolicy(TabPane.TabClosingPolicy.SELECTED_TAB);
 
         /*
-         *  Listener to update the table of testCampaign when the tab repository is foscused 
+         *  Listener to update the table of testCampaign when the tab repository is foscused
          */
 //        this.tabPaneTestCampaign.getSelectionModel().selectedItemProperty().addListener(
 //                new ChangeListener<Tab>() {
@@ -142,7 +135,6 @@ public class TabTestCampaignMainViewController implements Initializable {
      * Method to create a tab in order to view the details of a test campaign
      *
      * @param campaign the campaign to display
-     *
      */
     public void displayViewTab(TestCampaign campaign) {
 
@@ -178,7 +170,7 @@ public class TabTestCampaignMainViewController implements Initializable {
      * viewing
      *
      * @param currentTab the arraylist of tab opened
-     * @param ID the ID of the campaign to search in the arraylist
+     * @param ID         the ID of the campaign to search in the arraylist
      * @return if the campaign is in the tab
      */
     private boolean searchPanel(ArrayList<currentTab> currentTab, int ID) {
