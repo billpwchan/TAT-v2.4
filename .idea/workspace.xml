@@ -7,7 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1112526d-0f70-45f5-97f9-62ef4a880793" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcase/TabTestCaseEditController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcase/TabTestCaseEditController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/nbproject/private/private.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/nbproject/private/private.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/org/hibernate/dialect/SQLiteDialect.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/org/hibernate/dialect/SQLiteDialect.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -48,7 +49,7 @@
           <entry key="fxml" value="3" />
           <entry key="iml" value="2" />
           <entry key="iterations" value="1" />
-          <entry key="java" value="27" />
+          <entry key="java" value="29" />
           <entry key="properties" value="1" />
           <entry key="script_has_been_configured" value="1" />
           <entry key="sql" value="1" />
@@ -61,7 +62,7 @@
           <entry key="CLASS" value="1" />
           <entry key="Database Element" value="3" />
           <entry key="IDEA_MODULE" value="2" />
-          <entry key="JAVA" value="27" />
+          <entry key="JAVA" value="29" />
           <entry key="Properties" value="1" />
           <entry key="Scratch" value="1" />
           <entry key="UML" value="2" />
@@ -82,20 +83,45 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/controller/macro/TabMacroEditController.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/org/hibernate/dialect/SQLiteDialect.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4407">
-              <caret line="118" column="36" lean-forward="true" selection-start-line="118" selection-start-column="36" selection-end-line="118" selection-end-column="36" />
+            <state relative-caret-position="97">
+              <caret line="233" column="6" lean-forward="true" selection-start-line="233" selection-start-column="6" selection-end-line="233" selection-end-column="6" />
+              <folding>
+                <element signature="e#6687#6688#0" expanded="true" />
+                <element signature="e#6716#6717#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/controller/macro/TabMacroEditController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-4407">
+              <caret line="118" column="36" selection-start-line="118" selection-start-column="36" selection-end-line="118" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcase/TabTestCaseEditController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2592">
-              <caret line="231" column="27" selection-start-line="231" selection-start-column="27" selection-end-line="231" selection-end-column="27" />
+            <state relative-caret-position="242">
+              <caret line="340" column="80" selection-start-line="340" selection-start-column="80" selection-end-line="340" selection-end-column="80" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/DBcontroller/sessionFactorySingleton.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="24" selection-start-line="24" selection-end-line="24" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -117,6 +143,7 @@
         <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/scripts/TabScriptsLibraryController.java" />
         <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/macro/TabMacroEditController.java" />
         <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcase/TabTestCaseEditController.java" />
+        <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/org/hibernate/dialect/SQLiteDialect.java" />
       </list>
     </option>
   </component>
@@ -254,12 +281,12 @@
       <updated>1536499702019</updated>
       <workItem from="1536499713481" duration="4388000" />
       <workItem from="1536504134766" duration="2794000" />
-      <workItem from="1536547122039" duration="1329000" />
+      <workItem from="1536547122039" duration="1636000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8511000" />
+    <option name="totallyTimeSpent" value="8818000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -282,7 +309,7 @@
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32803467" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4989953" weight="0.32658958" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4989953" visible="true" weight="0.32658958" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39884394" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -622,27 +649,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/DBcontroller/sessionFactorySingleton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="711">
-          <caret line="44" column="29" selection-start-line="44" selection-start-column="29" selection-end-line="44" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/main/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2626">
           <caret line="130" selection-start-line="130" selection-end-line="130" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/org/hibernate/dialect/SQLiteDialect.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
         </state>
       </provider>
     </entry>
@@ -685,14 +695,35 @@
     <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/controller/macro/TabMacroEditController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-4407">
-          <caret line="118" column="36" lean-forward="true" selection-start-line="118" selection-start-column="36" selection-end-line="118" selection-end-column="36" />
+          <caret line="118" column="36" selection-start-line="118" selection-start-column="36" selection-end-line="118" selection-end-column="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcase/TabTestCaseEditController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2592">
-          <caret line="231" column="27" selection-start-line="231" selection-start-column="27" selection-end-line="231" selection-end-column="27" />
+        <state relative-caret-position="242">
+          <caret line="340" column="80" selection-start-line="340" selection-start-column="80" selection-end-line="340" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/DBcontroller/sessionFactorySingleton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/org/hibernate/dialect/SQLiteDialect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="97">
+          <caret line="233" column="6" lean-forward="true" selection-start-line="233" selection-start-column="6" selection-end-line="233" selection-end-column="6" />
+          <folding>
+            <element signature="e#6687#6688#0" expanded="true" />
+            <element signature="e#6716#6717#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
