@@ -7,15 +7,17 @@ package controller.popup;
 
 import configuration.settings;
 import controller.TATFrameController;
-import java.io.File;
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.DirectoryChooser;
+
+import java.io.File;
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import static main.Main.primaryStage;
 
 /**

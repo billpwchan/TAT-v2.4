@@ -9,12 +9,6 @@ import DB.Script;
 import DB.ScriptExecutions;
 import DB.TestStep;
 import DB.TestStepHasScript;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -31,6 +25,13 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import model.setCursorOnComponent;
 import org.apache.log4j.Logger;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.ResourceBundle;
 
 /**
  * FXML Controller class

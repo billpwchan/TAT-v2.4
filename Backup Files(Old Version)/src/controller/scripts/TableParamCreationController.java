@@ -11,15 +11,6 @@ import DB.ScriptHasParameters;
 import DBcontroller.ParametersDB;
 import controller.scriptParameters.ScriptLineParameterController;
 import controller.tablestep.TableStepScriptCreationController;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.ResourceBundle;
-
-import org.apache.log4j.Logger;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -30,6 +21,15 @@ import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import org.apache.log4j.Logger;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.ResourceBundle;
 
 /**
  * FXML Controller class

@@ -9,11 +9,6 @@ import DB.Script;
 import DBcontroller.ScriptDB;
 import controller.macroActions.PreviewMacro;
 import controller.tabtestcase.TabTestCaseNewController;
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-
-import org.apache.log4j.Logger;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -26,11 +21,16 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import model.initColumn;
-import javafx.scene.control.TextField;
+import org.apache.log4j.Logger;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 /**
  * FXML Controller class

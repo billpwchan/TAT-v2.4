@@ -5,11 +5,7 @@
  */
 package controller.popup;
 
-import DB.CaseExecutions;
-import DB.Iterations;
-import DB.Script;
-import DB.TestCampaign;
-import DB.TestCase;
+import DB.*;
 import DBcontroller.IterationDB;
 import DBcontroller.TestCampaignDB;
 import DBcontroller.TestExecution;
@@ -19,13 +15,6 @@ import controller.tabtestcase.TabTestCaseNewController;
 import controller.tabtestexecution.TabTestCampaignExecutionRepositoryBaselineController;
 import controller.util.CommonFunctions;
 import engine.Engine;
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
-import java.text.DecimalFormat;
-import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.value.ObservableValue;
@@ -38,30 +27,25 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.PieChart;
-import javafx.scene.control.Alert;
+import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.DialogEvent;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.scene.control.TitledPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
 import model.TestCasesExecution;
 import model.initColumn;
 import org.apache.log4j.Logger;
+
+import javax.sound.sampled.*;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import java.text.DecimalFormat;
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 /**
  * FXML Controller class

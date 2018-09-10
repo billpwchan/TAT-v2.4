@@ -7,17 +7,17 @@ package controller.scripts;
 
 import controller.TATFrameController;
 import controller.requirements.TabRequirementMainViewController;
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-
-import org.apache.log4j.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
+import org.apache.log4j.Logger;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 /**
  * FXML Controller class

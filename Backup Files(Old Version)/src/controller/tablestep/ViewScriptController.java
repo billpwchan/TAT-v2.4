@@ -5,25 +5,9 @@
  */
 package controller.tablestep;
 
-import DB.Macro;
-import DB.ParamScriptMacro;
-import DB.Parameters;
-import DB.ParametersExecution;
-import DB.Script;
-import DB.ScriptExecutions;
-import DB.ScriptHasBeenConfigured;
-import DB.ScriptHasParameters;
-import DB.TestStep;
-import DB.TestStepHasScript;
+import DB.*;
 import DBcontroller.MacroDB;
 import controller.popup.PopUpWizardScriptController;
-import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.ResourceBundle;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -33,11 +17,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.Tooltip;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.ColumnConstraints;
@@ -47,6 +27,10 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import main.Main;
 import org.apache.log4j.Logger;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.*;
 
 /**
  * FXML Controller class

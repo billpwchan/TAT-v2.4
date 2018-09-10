@@ -13,31 +13,26 @@ import DBcontroller.TestCampaignDB;
 import DBcontroller.TestCaseDB;
 import controller.tabtestcase.TabTestCaseLibraryController;
 import controller.util.CommonFunctions;
-import java.net.URL;
-import java.util.ResourceBundle;
-
-import org.apache.log4j.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ContextMenu;
-import javafx.scene.control.Label;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TableView;
+import javafx.scene.Node;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import model.initColumn;
-import java.util.ArrayList;
-import javafx.collections.transformation.FilteredList;
-import javafx.collections.transformation.SortedList;
-import javafx.scene.Node;
-import javafx.scene.control.Alert.AlertType;
 import model.setCursorOnComponent;
-import javafx.scene.control.TextField;
+import org.apache.log4j.Logger;
+
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 /**
  * FXML Controller class

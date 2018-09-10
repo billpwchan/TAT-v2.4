@@ -6,6 +6,7 @@
 package DBcontroller;
 
 import org.hibernate.SessionFactory;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
 /**
@@ -19,13 +20,12 @@ public class sessionFactorySingleton {
     private static SessionFactory factory;
 
     private sessionFactorySingleton() {
-        cfg = new Configuration();
-        sessionFactorySingleton.cfg.configure("hibernate.cfg.xml");
-        factory = cfg.buildSessionFactory();
-        ScriptDB scriptHandler = new ScriptDB();
-        if (!scriptHandler.getScriptListWithParameters().isEmpty()) {
+        cfg = new Configuration().configure("hibernate.cfg.xml");
+        StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(cfg.getProperties());
+        factory = cfg.buildSessionFactory(builder.build());
 
-        } else {
+        ScriptDB scriptHandler = new ScriptDB();
+        if (scriptHandler.getScriptListWithParameters().isEmpty()) {
             scriptHandler.fillDB();
         }
     }
@@ -49,7 +49,8 @@ public class sessionFactorySingleton {
         sessionFactorySingleton.cfg.setProperty("hibernate.connection.url", "jdbc:sqlite:" + DatabasePath);
 //        this.cfg.setProperty("hibernate.connection.username", "");
 //        this.cfg.setProperty("hibernate.connection.password", "");
-        factory = cfg.buildSessionFactory();
+        StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(cfg.getProperties());
+        factory = cfg.buildSessionFactory(builder.build());
     }
 
     /**

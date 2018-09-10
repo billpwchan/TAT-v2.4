@@ -7,9 +7,6 @@ package controller.popup;
 
 import DB.Script;
 import controller.tabtestcase.TabTestCaseNewController;
-import java.net.URL;
-import java.util.Date;
-import java.util.ResourceBundle;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,6 +17,10 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+
+import java.net.URL;
+import java.util.Date;
+import java.util.ResourceBundle;
 
 /**
  * FXML Controller class

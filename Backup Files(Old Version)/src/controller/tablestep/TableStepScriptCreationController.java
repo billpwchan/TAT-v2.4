@@ -5,28 +5,12 @@
  */
 package controller.tablestep;
 
-import DB.CaseExecutions;
-import DB.Requirement;
-import DB.Script;
-import DB.ScriptExecutions;
-import DB.StepExecutions;
-import DB.TestCase;
-import DB.TestStep;
-import DB.TestStepHasScript;
+import DB.*;
 import DBcontroller.RequirementDB;
 import DBcontroller.ScriptDB;
 import controller.popup.PopUPRequirementSelectionController;
 import controller.tabtestcase.TabTestCaseEditController;
 import controller.tabtestcase.TabTestCaseNewController;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ResourceBundle;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -47,6 +31,11 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import main.Main;
 import org.apache.log4j.Logger;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.util.*;
 
 /**
  * FXML Controller class

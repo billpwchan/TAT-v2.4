@@ -7,8 +7,6 @@ package controller.popup;
 
 import controller.tabtestexecution.TabTestCampaignExecutionBaselineCampaignController;
 import controller.util.CommonFunctions;
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -21,6 +19,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
+
+import java.net.URL;
+import java.util.ResourceBundle;
 
 /**
  * FXML Controller class

@@ -1,7 +1,0 @@
-Developer's Notes on TAT:
-
-1. Macro is also an object of Script. It is stored in Script database with idScript, but also in Macro database with script_idScript. The script_idScript1 are reference to smaller scripts that are used to compose a macro object.
-2. In TableActionCreationController, the controllerScriptLine is not yet defined before calling this.addActioninVbox. Have to call that function before, or it will cause NullPointerException with no specification.
-3. in TabTestCaseEditController.java, cannot use session.beginTransaction().commit() at anywhere inside the loop. Or it will cause transistentObjectException. Unknown cause.
-4. In TabTestCaseEditController.java, if iterate through each ScriptHasbeenConfigured, it will save duplicated records to the database.
-5. Please use build.xml to combine all .jar files into a single one.

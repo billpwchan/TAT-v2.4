@@ -8,13 +8,6 @@ package controller.macroActions;
 import DB.Macro;
 import DB.Script;
 import controller.util.CommonFunctions;
-import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
-
-import org.apache.log4j.Logger;
-import java.util.HashSet;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -29,6 +22,13 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import model.setCursorOnComponent;
+import org.apache.log4j.Logger;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.ResourceBundle;
 
 /**
  * FXML Controller class

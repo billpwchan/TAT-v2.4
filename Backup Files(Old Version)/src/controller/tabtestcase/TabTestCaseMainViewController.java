@@ -5,12 +5,8 @@
  */
 package controller.tabtestcase;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
-
-import org.apache.log4j.Logger;
+import DB.TestCase;
+import controller.TATFrameController;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -19,10 +15,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
-import DB.TestCase;
-import model.currentTab;
-import controller.TATFrameController;
 import model.ObjectCopy;
+import model.currentTab;
+import org.apache.log4j.Logger;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 /**
  * FXML Controller class

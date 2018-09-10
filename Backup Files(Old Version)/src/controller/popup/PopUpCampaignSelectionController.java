@@ -7,10 +7,7 @@ package controller.popup;
 
 import DB.TestCampaign;
 import DBcontroller.TestCaseDB;
-import static controller.tabtestcampaign.TabTestCampaignRepositoryController.observableListTestCampaign;
 import controller.tabtestexecution.TabTestCampaignExecutionRepositoryBaselineController;
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -21,13 +18,18 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.initColumn;
-import javafx.scene.control.TextField;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import static controller.tabtestcampaign.TabTestCampaignRepositoryController.observableListTestCampaign;
 
 /**
  * FXML Controller class Controller of the popUp to select a campaign for

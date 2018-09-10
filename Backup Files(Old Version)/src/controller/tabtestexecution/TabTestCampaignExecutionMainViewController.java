@@ -7,14 +7,10 @@ package controller.tabtestexecution;
 
 import DB.Iterations;
 import DB.TestCampaign;
+import controller.TATFrameController;
 import controller.tabtestcase.TabTestCaseMainViewController;
-import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
-
-import org.apache.log4j.Logger;
 import javafx.beans.value.ObservableValue;
+import javafx.concurrent.Task;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,10 +19,14 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
 import model.currentTab;
-import controller.TATFrameController;
+import org.apache.log4j.Logger;
+
+import java.io.IOException;
+import java.net.URL;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Hashtable;
-import javafx.concurrent.Task;
+import java.util.ResourceBundle;
 
 /**
  * FXML Controller class

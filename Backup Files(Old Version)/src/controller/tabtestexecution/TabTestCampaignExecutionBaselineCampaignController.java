@@ -5,12 +5,7 @@
  */
 package controller.tabtestexecution;
 
-import DB.Iterations;
-import DB.ScriptHasBeenConfigured;
-import DB.TestCampaign;
-import DB.TestCase;
-import DB.TestStep;
-import DB.TestStepHasScript;
+import DB.*;
 import DBcontroller.ConfigurationDB;
 import DBcontroller.TestCaseDB;
 import configuration.settings;
@@ -19,16 +14,6 @@ import controller.tablestep.HeaderTableStepController;
 import controller.tablestep.TableStepScriptCreationController;
 import controller.tabtestcase.TabTestCaseNewController;
 import controller.util.CommonFunctions;
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.ResourceBundle;
 import javafx.beans.property.StringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -39,18 +24,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
-import javafx.scene.*;
-import javafx.scene.control.Alert;
+import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.DialogEvent;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.scene.control.TreeTableView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
@@ -65,6 +42,17 @@ import model.initColumn;
 import model.util;
 import org.apache.log4j.Logger;
 import org.controlsfx.control.Notifications;
+
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.ResourceBundle;
 
 /**
  * FXML Controller class For Baseline Creation ====> Validate campaign steps and

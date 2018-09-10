@@ -5,23 +5,10 @@
  */
 package controller.macroActions;
 
-import DB.Macro;
-import DB.ParamScriptMacro;
-import DB.Parameters;
-import DB.Script;
-import DB.ScriptHasParameters;
+import DB.*;
 import DBcontroller.ScriptDB;
 import controller.popup.PopUpWizardActionController;
 import controller.popup.PopUpWizardScriptController;
-import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.ResourceBundle;
-
-import org.apache.log4j.Logger;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -38,10 +25,15 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.scene.paint.Color;
 import main.Main;
+import org.apache.log4j.Logger;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.*;
 
 /**
  * FXML Controller class

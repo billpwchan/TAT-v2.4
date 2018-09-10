@@ -7,12 +7,7 @@ package controller.tabtestcampaign;
 
 import DB.TestCampaign;
 import DB.TestCase;
-import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
-
-import org.apache.log4j.Logger;
+import controller.TATFrameController;
 import javafx.beans.value.ObservableValue;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -22,8 +17,13 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
 import model.currentTab;
-import controller.TATFrameController;
+import org.apache.log4j.Logger;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.ResourceBundle;
 
 /**
  * FXML Controller class

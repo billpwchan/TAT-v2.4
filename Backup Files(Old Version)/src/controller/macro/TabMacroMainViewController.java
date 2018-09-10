@@ -8,9 +8,6 @@ package controller.macro;
 import DB.Script;
 import controller.TATFrameController;
 import controller.requirements.TabRequirementMainViewController;
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -19,6 +16,10 @@ import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
 import model.ObjectCopy;
 import org.apache.log4j.Logger;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 /**
  * FXML Controller class

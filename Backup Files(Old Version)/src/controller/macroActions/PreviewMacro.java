@@ -5,23 +5,16 @@
  */
 package controller.macroActions;
 
-import DB.Macro;
-import DB.ParamScriptMacro;
-import DB.Parameters;
-import DB.Script;
-import DB.ScriptHasParameters;
-import java.util.Iterator;
+import DB.*;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.Tooltip;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
+
+import java.util.Iterator;
 
 /**
  * FXML Controller class

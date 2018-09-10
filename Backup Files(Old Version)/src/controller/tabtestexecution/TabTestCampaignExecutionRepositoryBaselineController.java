@@ -15,12 +15,6 @@ import controller.popup.PopUpRunController;
 import controller.tabtestcampaign.TabTestCampaignRepositoryController;
 import controller.tabtestcase.TabTestCaseNewController;
 import controller.util.CommonFunctions;
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
-import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
@@ -32,27 +26,23 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TreeItem;
-import javafx.scene.control.TreeTableView;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.DirectoryChooser;
-import javafx.stage.FileChooser;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
+import javafx.stage.*;
 import main.Main;
-import static main.Main.primaryStage;
-import model.WriteReport;
-import model.createOrchestra;
-import model.initColumn;
-import model.setCursorOnComponent;
-import model.util;
+import model.*;
 import org.apache.log4j.Logger;
 import org.hibernate.exception.GenericJDBCException;
+
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
+
+import static main.Main.primaryStage;
 
 /**
  * FXML Controller class To validate a particular test case (With prompt window
