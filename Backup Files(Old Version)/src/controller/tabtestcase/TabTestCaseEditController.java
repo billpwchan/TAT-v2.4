@@ -151,17 +151,17 @@ public class TabTestCaseEditController implements Initializable {
     private int testcaseID = -1;
 
     //Maximum Allowed TextField Length
-    final int textfieldCaseIDMaxLength = 30;
-    final int textfieldCaseVersionMaxLength = 10;
-    final int textfieldProjectMaxLength = 10;
-    final int textfieldTypeTestMaxLength = 20;
-    final int textfieldTestCategoryMaxLength = 20;
-    final int textfieldLocationMaxLength = 20;
-    final int textfieldCaseTitleMaxLength = 60;
-    final int textfieldWriterMaxLength = 20;
-    final int textfieldWriterEmailMaxLength = 50;
-    final int textfieldCaseSourceMaxLength = 50;
-    final int textfieldTestEnvironementMaxLength = 20;
+    private final int textfieldCaseIDMaxLength = 30;
+    private final int textfieldCaseVersionMaxLength = 10;
+    private final int textfieldProjectMaxLength = 10;
+    private final int textfieldTypeTestMaxLength = 20;
+    private final int textfieldTestCategoryMaxLength = 20;
+    private final int textfieldLocationMaxLength = 20;
+    private final int textfieldCaseTitleMaxLength = 60;
+    private final int textfieldWriterMaxLength = 20;
+    private final int textfieldWriterEmailMaxLength = 50;
+    private final int textfieldCaseSourceMaxLength = 50;
+    private final int textfieldTestEnvironementMaxLength = 20;
 
     /**
      * Initializes the controller class.
@@ -428,14 +428,14 @@ public class TabTestCaseEditController implements Initializable {
     private void constructTableStep() {
         FXMLLoader fxmlLoader = new FXMLLoader();
         try {
-            this.gridPaneTableStep.add((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream()), 0, 1, 1, 5);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
+            this.gridPaneTableStep.add(fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream()), 0, 1, 1, 5);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
         } catch (IOException ex) {
             Logger.getLogger(TabTestCaseNewController.class.getName()).error("", ex);
         }
         controllerTableStep = fxmlLoader.getController();
         FXMLLoader fxmlLoader2 = new FXMLLoader();
         try {
-            AnchorPane paneTest = (AnchorPane) fxmlLoader2.load(getClass().getResource("/view/stepcreation/headerTableStep.fxml").openStream());
+            AnchorPane paneTest = fxmlLoader2.load(getClass().getResource("/view/stepcreation/headerTableStep.fxml").openStream());
             this.gridPaneTableStep.add(paneTest, 0, 0, 1, 1);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
         } catch (IOException ex) {
             Logger.getLogger(TabTestCaseNewController.class.getName()).error("", ex);
