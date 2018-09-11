@@ -11,19 +11,16 @@ import DBcontroller.sessionFactorySingleton;
 import configuration.settings;
 import controller.macro.TabMacroMainViewController;
 import controller.popup.PopUpConfigurationController;
-import controller.popup.PopUpWizardScriptController;
 import controller.requirements.TabRequirementMainViewController;
 import controller.scripts.TabScriptsMainViewController;
 import controller.tabtestcampaign.TabTestCampaignMainViewController;
 import controller.tabtestcase.TabTestCaseMainViewController;
 import controller.tabtestexecution.TabTestCampaignExecutionMainViewController;
+import controller.util.CommonFunctions;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -32,12 +29,14 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.*;
+import javafx.stage.DirectoryChooser;
+import javafx.stage.FileChooser;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import main.Main;
 import model.*;
 import model.Properties;
-import org.apache.log4j.Logger;
 import org.sikuli.api.DesktopScreenRegion;
 import org.sikuli.api.ScreenRegion;
 
@@ -61,9 +60,9 @@ import static main.Main.HMIs;
  */
 public class TATFrameController implements Initializable {
 
-    int globalSize = 40;
-    boolean DisplayTabLabel = false;
-    String oldCss = "customTabReq";
+    private int globalSize = 40;
+    private boolean DisplayTabLabel = false;
+    private String oldCss = "customTabReq";
     @FXML
     private TabPane tabPaneHMI;
     @FXML
@@ -110,7 +109,7 @@ public class TATFrameController implements Initializable {
         setting.readSettings();
 
         try {
-            if (DisplayTabLabel == true) {
+            if (DisplayTabLabel) {
                 this.tabRequirement = new Tab("Requirement");
             } else {
                 this.tabRequirement = new Tab();
@@ -120,14 +119,14 @@ public class TATFrameController implements Initializable {
             FXMLLoader fxmlLoaderRequirement = new FXMLLoader();
             AnchorPane RequirementPane = fxmlLoaderRequirement.load(getClass().getResource("/view/requirements/TabRequirementMainView.fxml").openStream());
             this.tabRequirement.setContent(RequirementPane);
-            mainControllerRequirement = (TabRequirementMainViewController) fxmlLoaderRequirement.getController();
+            mainControllerRequirement = fxmlLoaderRequirement.getController();
             mainControllerRequirement.init(this);
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseMainViewController.class.getName()).error("", ex);
+            CommonFunctions.debugLog.error("", ex);
         }
 
         try {
-            if (DisplayTabLabel == true) {
+            if (DisplayTabLabel) {
                 this.tabScripts = new Tab("Script");
             } else {
                 this.tabScripts = new Tab();
@@ -136,14 +135,14 @@ public class TATFrameController implements Initializable {
             FXMLLoader fxmlLoaderScript = new FXMLLoader();
             AnchorPane scriptPane = fxmlLoaderScript.load(getClass().getResource("/view/scriptmanagement/TabScriptsMainView.fxml").openStream());
             this.tabScripts.setContent(scriptPane);
-            mainControllerScript = (TabScriptsMainViewController) fxmlLoaderScript.getController();
+            mainControllerScript = fxmlLoaderScript.getController();
             mainControllerScript.init(this);
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseMainViewController.class.getName()).error("", ex);
+            CommonFunctions.debugLog.error("", ex);
         }
 
         try {
-            if (DisplayTabLabel == true) {
+            if (DisplayTabLabel) {
                 this.tabMacro = new Tab("Macro");
             } else {
                 this.tabMacro = new Tab();
@@ -152,14 +151,14 @@ public class TATFrameController implements Initializable {
             FXMLLoader fxmlLoaderMacro = new FXMLLoader();
             AnchorPane macroPane = fxmlLoaderMacro.load(getClass().getResource("/view/macro/TabMacroMainView.fxml").openStream());
             this.tabMacro.setContent(macroPane);
-            mainControllerMacro = (TabMacroMainViewController) fxmlLoaderMacro.getController();
+            mainControllerMacro = fxmlLoaderMacro.getController();
             mainControllerMacro.init(this);
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseMainViewController.class.getName()).error("", ex);
+            CommonFunctions.debugLog.error("", ex);
         }
 
         try {
-            if (DisplayTabLabel == true) {
+            if (DisplayTabLabel) {
                 this.tabViewCase = new Tab("Test Case");
             } else {
                 this.tabViewCase = new Tab();
@@ -168,14 +167,14 @@ public class TATFrameController implements Initializable {
             FXMLLoader fxmlLoaderTestCase = new FXMLLoader();
             AnchorPane TestCasePane = fxmlLoaderTestCase.load(getClass().getResource("/view/testcase/TabTestCaseMainView.fxml").openStream());
             this.tabViewCase.setContent(TestCasePane);
-            mainControllerCase = (TabTestCaseMainViewController) fxmlLoaderTestCase.getController();
+            mainControllerCase = fxmlLoaderTestCase.getController();
             mainControllerCase.init(this);
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseMainViewController.class.getName()).error("", ex);
+            CommonFunctions.debugLog.error("", ex);
         }
 
         try {
-            if (DisplayTabLabel == true) {
+            if (DisplayTabLabel) {
                 this.tabViewCampaign = new Tab("Test Campaign");
             } else {
                 this.tabViewCampaign = new Tab();
@@ -184,14 +183,14 @@ public class TATFrameController implements Initializable {
             FXMLLoader fxmlLoader2 = new FXMLLoader();
             AnchorPane TestCampaignPane = fxmlLoader2.load(getClass().getResource("/view/testcampaign/TabTestCampaignMainView.fxml").openStream());
             this.tabViewCampaign.setContent(TestCampaignPane);
-            mainControllerCampaign = (TabTestCampaignMainViewController) fxmlLoader2.getController();
+            mainControllerCampaign = fxmlLoader2.getController();
             mainControllerCampaign.init(this);
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseMainViewController.class.getName()).error("", ex);
+            CommonFunctions.debugLog.error("", ex);
         }
 
         try {
-            if (DisplayTabLabel == true) {
+            if (DisplayTabLabel) {
                 this.tabViewExecution = new Tab("Test execution");
             } else {
                 this.tabViewExecution = new Tab();
@@ -200,24 +199,21 @@ public class TATFrameController implements Initializable {
             FXMLLoader fxmlLoaderExecution = new FXMLLoader();
             AnchorPane TestCampaignExecutionPane = fxmlLoaderExecution.load(getClass().getResource("/view/testexecution/TabTestCampaignExecutionMainView.fxml").openStream());
             this.tabViewExecution.setContent(TestCampaignExecutionPane);
-            mainControllerCampaignExecution = (TabTestCampaignExecutionMainViewController) fxmlLoaderExecution.getController();
+            mainControllerCampaignExecution = fxmlLoaderExecution.getController();
             mainControllerCampaignExecution.init(this);
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseMainViewController.class.getName()).error("", ex);
+            CommonFunctions.debugLog.error("", ex);
         }
 
         this.tabImgAndStyleInit();
 
         this.tabPaneHMI.getTabs().addAll(this.tabRequirement, this.tabScripts, this.tabMacro, this.tabViewCase, this.tabViewCampaign, this.tabViewExecution);
         this.tabPaneHMI.getSelectionModel().selectedItemProperty().addListener(
-                new ChangeListener<Tab>() {
-                    @Override
-                    public void changed(ObservableValue<? extends Tab> observable, Tab oldValue, Tab newValue) {
-                        oldValue.getStyleClass().remove(oldCss);
-                        newValue.getStyleClass().add(newValue.getId());
-                        oldCss = newValue.getId();
-                        oldValue.getStyleClass().add("customTabNotSelected");
-                    }
+                (observable, oldValue, newValue) -> {
+                    oldValue.getStyleClass().remove(oldCss);
+                    newValue.getStyleClass().add(newValue.getId());
+                    oldCss = newValue.getId();
+                    oldValue.getStyleClass().add("customTabNotSelected");
                 }
         );
 
@@ -229,24 +225,17 @@ public class TATFrameController implements Initializable {
 
         final DateFormat format = new SimpleDateFormat("MM-dd-yyyy HH:mm:ss");
 
-        final Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                final Calendar cal = Calendar.getInstance();
-                labelTime.setText(format.format(cal.getTime()));
-            }
+        final Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
+            final Calendar cal = Calendar.getInstance();
+            labelTime.setText(format.format(cal.getTime()));
         }));
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
 
-        itemSettings.setOnAction((ActionEvent t) -> {
-            displaySettings();
-        });
+        itemSettings.setOnAction((ActionEvent t) -> displaySettings());
 
         //MenuItem loadHMIs = new MenuItem("Load HMIs");
-        itemHMIs.setOnAction((ActionEvent t) -> {
-            displayFunctionalPath();
-        });
+        itemHMIs.setOnAction((ActionEvent t) -> displayFunctionalPath());
 
         Load.setOnAction((ActionEvent t) -> {
             FileChooser fileChooser = new FileChooser();
@@ -262,7 +251,7 @@ public class TATFrameController implements Initializable {
                     mainControllerCampaign.updateRepository();
                     mainControllerCampaignExecution.updateBaselineTree();
                 } catch (ParseException ex) {
-                    Logger.getLogger(TATFrameController.class.getName()).error("", ex);
+                    CommonFunctions.debugLog.error("", ex);
                 }
 
             }
@@ -306,8 +295,6 @@ public class TATFrameController implements Initializable {
     /**
      * Display the view for script configuration when a parameters is clicked.
      *
-     * @param script        the script to configured
-     * @param selectedParam the parameters selected
      */
     private void displaySettings() {
 
@@ -321,8 +308,7 @@ public class TATFrameController implements Initializable {
             controller.init(this);
             controller.constructInformation();
         } catch (IOException ex) {
-            Logger.getLogger(PopUpWizardScriptController.class
-                    .getName()).error("", ex);
+            CommonFunctions.debugLog.error("", ex);
         }
         popUpSettingsStage = new Stage();
         popUpSettingsStage.setTitle("TAT Settings");
@@ -330,13 +316,10 @@ public class TATFrameController implements Initializable {
 //        popUpStage.initOwner(main.getMainController().getPrimaryStage());
         popUpSettingsStage.setScene(new Scene(popUpSettings));
 
-        popUpSettingsStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-            @Override
-            public void handle(WindowEvent event) {
-                setting.readSettings();
-                popUpSettingsStage.close();
+        popUpSettingsStage.setOnCloseRequest(event -> {
+            setting.readSettings();
+            popUpSettingsStage.close();
 
-            }
         });
         popUpSettingsStage.showAndWait();
 
@@ -399,12 +382,8 @@ public class TATFrameController implements Initializable {
     }
 
     private void displayFunctionalPath() {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("HMI folder selection ");
-        alert.setHeaderText("Please, select the folder with the HMIs");
-        Optional<ButtonType> result = alert.showAndWait();
-
-        if (result.get() == ButtonType.OK) {
+        Optional<ButtonType> result = CommonFunctions.displayAlert(Alert.AlertType.CONFIRMATION, "HMI folder selection ", "Please, select the folder with the HMIs", "");
+        if (result.isPresent() && result.get() == ButtonType.OK) {
             DirectoryChooser directoryChooser = new DirectoryChooser();
             directoryChooser.setTitle("This is my file");
             //Show open file dialog
@@ -428,7 +407,7 @@ public class TATFrameController implements Initializable {
         ArrayList<Classe> classes = new ArrayList<>();
         File[] directories = new File(classPath.getPath() + "\\Classes").listFiles((File current, String name) -> new File(current, name).isDirectory());
         System.out.println(Arrays.toString(directories));
-        for (File s : directories) {
+        for (File s : Objects.requireNonNull(directories)) {
             System.out.println("Name folder : " + s.getName());
             Classe classe = new Classe(s.getName());
             sortEquipmentOfClasse(s, classe);
@@ -438,7 +417,6 @@ public class TATFrameController implements Initializable {
     }
 
     private void sortEquipmentOfClasse(File fileInClass, Classe currentClasse) {
-
         //ArrayList<equipment> arrayEquipment = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(fileInClass.getAbsolutePath() + "\\Equipment.txt"))) {
             String sCurrentLine;
@@ -460,13 +438,11 @@ public class TATFrameController implements Initializable {
                     }
 
                 }
-
                 currentClasse.addEquipment(eqp);//.add(eqp);
-                //}
             }
             File[] files = fileInClass.listFiles();
 
-            for (File file : files) {
+            for (File file : Objects.requireNonNull(files)) {
                 if (file.isFile()) {
                     if (!file.getName().equals("Equipment.txt")) {
                         StateClasse currentState = new StateClasse(file.getName().replace(".txt", ""));
@@ -480,13 +456,13 @@ public class TATFrameController implements Initializable {
                                 }
                             }
                         } catch (IOException ex) {
-                            Logger.getLogger(TATFrameController.class.getName()).error("", ex);
+                            CommonFunctions.debugLog.error("", ex);
                         }
                     }
                 }
             }
         } catch (IOException ex) {
-            Logger.getLogger(TATFrameController.class.getName()).error("", ex);
+            CommonFunctions.debugLog.error("", ex);
         }
     }
 

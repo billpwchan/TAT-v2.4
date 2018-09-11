@@ -84,10 +84,8 @@ public class CommonFunctions {
                     return true;
                 } else if (tCase.getTestMethodIadt() != null && tCase.getTestMethodIadt().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
-                } else if (tCase.getEnvironment() != null && tCase.getEnvironment().toLowerCase().contains(lowerCaseFilter)) {
-                    return true;
-                }
-                return false; // Does not match.
+                } else
+                    return tCase.getEnvironment() != null && tCase.getEnvironment().toLowerCase().contains(lowerCaseFilter);
             });
         });
     }
@@ -120,18 +118,17 @@ public class CommonFunctions {
     }
 
     public static boolean validateUpdateTestCase(ObservableList<StepLineTableStepController> observableTestStep) {
-        for (int i = 0; i < observableTestStep.size(); i++) {
-            StepLineTableStepController current = observableTestStep.get(i);
+        for (StepLineTableStepController current : observableTestStep) {
             for (int j = 0; j < current.getCollectionScript().size(); j++) {
                 ScriptLineTableStepController currentScript = current.getCollectionScript().get(j);
                 //A step should not have null step description.
                 if (currentScript.getScriptAction() == null) {
-                    CommonFunctions.displayAlert(Alert.AlertType.ERROR, "Invalid Script Found", "Invalid Script", "A script cannot only has expected result without step description");
-                    return false;
+                    CommonFunctions.displayAlert(AlertType.ERROR, "Invalid Script Found", "Invalid Script", "A script cannot only has expected result without step description");
+                    return true;
                 }
             }
         }
-        return true;
+        return false;
     }
 
 }

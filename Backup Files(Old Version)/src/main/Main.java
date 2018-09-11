@@ -5,36 +5,38 @@ package main;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 import DB.User;
 import DBcontroller.UserDB;
 import DBcontroller.sessionFactorySingleton;
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
-import org.hibernate.SessionFactory;
 import controller.TATFrameController;
-import java.io.IOException;
-import java.util.ArrayList;
+import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.ImageCursor;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
 import javafx.stage.Screen;
+import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import model.Classe;
-import java.text.SimpleDateFormat;
-import java.text.DateFormat;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import model.HMI;
-import org.controlsfx.dialog.LoginDialog;
 import org.apache.log4j.Logger;
+import org.controlsfx.dialog.LoginDialog;
+import org.hibernate.SessionFactory;
+
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 /**
  *
@@ -129,7 +131,7 @@ public class Main extends Application {
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 Parent root = fxmlLoader.load(getClass().getResource("/view/TATFrame.fxml").openStream());
-                tatFrameController = (TATFrameController) fxmlLoader.getController();
+                tatFrameController = fxmlLoader.getController();
                 scene = new Scene(root);
                 primaryStage.setScene(scene);
                 getMainString(scene);

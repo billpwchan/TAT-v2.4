@@ -425,7 +425,7 @@ public class TabTestCaseEditController implements Initializable {
      */
     private boolean createUpdateTestCase() {
         //Validate each test stpe to see if no step description is found.
-        if (!CommonFunctions.validateUpdateTestCase(controllerTableStep.getCollectionTestStep())) {
+        if (CommonFunctions.validateUpdateTestCase(controllerTableStep.getCollectionTestStep())) {
             return false;
         }
         String reportLogMsg = "";
@@ -474,7 +474,7 @@ public class TabTestCaseEditController implements Initializable {
                         setSHBC.add(nextSHBC);
                     }
                     newTSHS.setScriptHasBeenConfigureds(setSHBC);
-                    reportLogMsgBuilder.append("\t\tScript ").append(0).append(": ").append(newTSHS.getScript().getName()).append(System.lineSeparator());
+                    reportLogMsgBuilder.append("\t\tScript ").append(j + 1).append(" Step Description: ").append(newTSHS.getScript().getName()).append(System.lineSeparator());
                 }
                 //This while-loop is for Expected result (Right part of the Test steps). Onlye consider isMacro = 1 case.
                 if (currentScript.getScriptVerif() != null) {
@@ -493,7 +493,7 @@ public class TabTestCaseEditController implements Initializable {
                         setSHBC.add(nextSHBC);
                     }
                     newTSHS.setScriptHasBeenConfigureds(setSHBC);
-                    reportLogMsgBuilder.append("\t\tScript ").append(1).append(": ").append(newTSHS.getScript().getName()).append(System.lineSeparator());
+                    reportLogMsgBuilder.append("\t\tScript ").append(j + 1).append(" Expected Result: ").append(newTSHS.getScript().getName()).append(System.lineSeparator());
                 }
             }
         }

@@ -10,7 +10,6 @@ import DBcontroller.sessionFactorySingleton;
 import controller.macroActions.PreviewMacro;
 import controller.macroActions.ScriptLineTableMacroController;
 import controller.macroActions.TableActionCreationController;
-import controller.tabtestcase.TabTestCaseNewController;
 import controller.util.CommonFunctions;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
@@ -34,6 +33,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 /**
@@ -120,12 +120,7 @@ public class TabMacroNewController implements Initializable {
             activationValidButton();
         });
 
-        this.controllerTableAction.collectionControllerScript.addListener(new ListChangeListener() {
-            @Override
-            public void onChanged(ListChangeListener.Change c) {
-                activationValidButton();
-            }
-        });
+        this.controllerTableAction.collectionControllerScript.addListener((ListChangeListener) c -> activationValidButton());
     }
 
     /**
@@ -161,7 +156,7 @@ public class TabMacroNewController implements Initializable {
             try {
                 this.createMacro();
             } catch (ParseException ex) {
-                Logger.getLogger(TabMacroNewController.class.getName()).error("", ex);
+                CommonFunctions.debugLog.error("", ex);
             }
         });
     }
@@ -176,47 +171,65 @@ public class TabMacroNewController implements Initializable {
     private void constructTableStep() {
         FXMLLoader fxmlLoader = new FXMLLoader();
         try {
-            this.gridPaneTableAction.add((AnchorPane) fxmlLoader.load(getClass().getResource("/view/macroActions/tableActionCreation.fxml").openStream()), 0, 1, 1, 5);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
+            this.gridPaneTableAction.add(fxmlLoader.load(getClass().getResource("/view/macroActions/tableActionCreation.fxml").openStream()), 0, 1, 1, 5);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseNewController.class.getName()).error("", ex);
+            CommonFunctions.debugLog.error("", ex);
         }
         controllerTableAction = fxmlLoader.getController();
         FXMLLoader fxmlLoader2 = new FXMLLoader();
         try {
-            AnchorPane paneTest = (AnchorPane) fxmlLoader2.load(getClass().getResource("/view/macroActions/headerTableAction.fxml").openStream());
+            AnchorPane paneTest = fxmlLoader2.load(getClass().getResource("/view/macroActions/headerTableAction.fxml").openStream());
 
             this.gridPaneTableAction.add(paneTest, 0, 0, 1, 1);
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseNewController.class.getName()).error("", ex);
+            CommonFunctions.debugLog.error("", ex);
         }
 
     }
 
     private void createMacro() throws ParseException {
+        StringBuilder reportLogMsg = new StringBuilder();
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
         ObservableList<ScriptLineTableMacroController> observableScripts = controllerTableAction.getCollectionControllerScript();
         int numberScript = observableScripts.size();
-        Script macro = constructMacro();
+        Script macro = null;
+        try {
+            macro = constructMacro();
+        } catch (ParseException ex) {
+            CommonFunctions.debugLog.error("Macro Construct Function Exception", ex);
+        }
         session.save(macro);
         int i = 0;
         boolean missingPurpose = false;
-        while (i < numberScript && !missingPurpose) {
-            if ("".equals(observableScripts.get(i).getScriptControllerAction().getHashParamScriptMacro().get(0).getValue())) {
-                CommonFunctions.displayAlert(AlertType.ERROR, "Missing Purpose", "There is something wrong with script: " + observableScripts.get(i).getScriptControllerAction().getCurrentScript().getName(), "A script purpose is missing in your macro");
+        reportLogMsg.append("After Creating Macro :").append(Objects.requireNonNull(macro).getName()).append(System.lineSeparator());
+        //This part is responsible for saving new macro object. Correct.
+        while ((i < numberScript) && !missingPurpose) {
+            if ("".equals(observableScripts.get(i).getScriptControllerAction().getHashParamScriptMacro().get(0).getValue())) {   //Each script should has purpose. First parameter of each script. If satisfied, save it.
+                CommonFunctions.displayAlert(AlertType.ERROR, "Missing Purpose", "There is something wrong with script" + observableScripts.get(i).getScriptControllerAction().getCurrentScript().getName(), "A script purpose is missing in your macro");
                 missingPurpose = true;
             } else {
+                //Save each script to sesson. Set parameters of each observableScript.
                 observableScripts.get(i).getScriptControllerAction().getScriptMacro().setScriptByScriptIdScript(macro);
                 observableScripts.get(i).getScriptControllerAction().getScriptMacro().setScriptOrder((byte) i);
+                observableScripts.get(i).getScriptControllerAction().getScriptMacro().setScriptByScriptIdScript1(observableScripts.get(i).getScriptControllerAction().getCurrentScript());
                 session.save(observableScripts.get(i).getScriptControllerAction().getScriptMacro());
+                reportLogMsg.append("\tScript ").append(i + 1).append(": ").append(observableScripts.get(i).getScriptControllerAction().getCurrentScript().getName()).append(System.lineSeparator());
                 i++;
             }
         }
         if (!missingPurpose) {
-            session.beginTransaction().commit();
-            mainController.updateRepository();
-            mainController.closeTab();
-            mainController.focusLibrary();
+            try {
+                session.beginTransaction().commit();
+                mainController.updateRepository();
+                mainController.closeTab();
+                mainController.focusLibrary();
+                CommonFunctions.reportLog.info(reportLogMsg);
+                CommonFunctions.reportLog.info("Successfully saved Macro: " + macro.getName());
+            } catch (Exception ex) {
+                CommonFunctions.debugLog.error("Error saving new macro" + ex);
+                throw new ParseException("In Macro", 1);
+            }
         }
         session.close();
     }
@@ -235,7 +248,7 @@ public class TabMacroNewController implements Initializable {
     private void loadPreviewMacro() {
         FXMLLoader fxmlLoader2 = new FXMLLoader();
         try {
-            AnchorPane paneTest = (AnchorPane) fxmlLoader2.load(getClass().getResource("/view/macroActions/headerPreviewMacro.fxml").openStream());
+            AnchorPane paneTest = fxmlLoader2.load(getClass().getResource("/view/macroActions/headerPreviewMacro.fxml").openStream());
             AnchorPane.setTopAnchor(paneTest, 0.0);
             AnchorPane.setRightAnchor(paneTest, 0.0);
             AnchorPane.setLeftAnchor(paneTest, 0.0);
@@ -244,7 +257,7 @@ public class TabMacroNewController implements Initializable {
             //this.hBoxHeader.getChildren().add(paneTest);
             //this.gridPaneLabelCaseNew.add(paneTest, 5, 0, 1, 1);
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseNewController.class.getName()).error("", ex);
+            CommonFunctions.debugLog.error("", ex);
         }
         try {
             this.controllerPreviewMacro.initialize(scrollPanePreview);
@@ -282,19 +295,11 @@ public class TabMacroNewController implements Initializable {
     }
 
     private void changeColorTextMacroName(boolean color) {
-        if (color) {
-            labelMacroName.setTextFill(Color.RED);
-        } else {
-            labelMacroName.setTextFill(Color.BLACK);
-        }
+        labelMacroName.setTextFill(color ? Color.RED : Color.BLACK);
     }
 
     private void changeColorTextDescription(boolean color) {
-        if (color) {
-            labelMacroObjectives.setTextFill(Color.RED);
-        } else {
-            labelMacroObjectives.setTextFill(Color.BLACK);
-        }
+        labelMacroObjectives.setTextFill(color ? Color.RED : Color.BLACK);
     }
 
     private void activationValidButton() {

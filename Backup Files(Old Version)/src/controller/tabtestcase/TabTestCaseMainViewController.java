@@ -16,7 +16,6 @@ import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
 import model.ObjectCopy;
 import model.currentTab;
-import org.apache.log4j.Logger;
 
 import java.io.IOException;
 import java.net.URL;
@@ -72,8 +71,8 @@ public class TabTestCaseMainViewController implements Initializable {
      *
      * @param testcaseEdit test case to create edition tab for.
      */
-    public void displayEditTab(TestCase testcaseEdit) {
-        if (!searchPanel(currentEditTab, testcaseEdit.getIdtestCase())) {
+    void displayEditTab(TestCase testcaseEdit) {
+        if (searchPanel(currentEditTab, testcaseEdit.getIdtestCase())) {
             try {
                 Tab edit = new Tab();
                 FXMLLoader fxmlLoader = new FXMLLoader();
@@ -127,7 +126,7 @@ public class TabTestCaseMainViewController implements Initializable {
      * @param testCaseView test case to view in new tab.
      */
     public void displayViewTab(TestCase testCaseView) {
-        if (!searchPanel(currentViewTab, testCaseView.getIdtestCase())) {
+        if (searchPanel(currentViewTab, testCaseView.getIdtestCase())) {
             try {
                 Tab view = new Tab();
                 FXMLLoader fxmlLoader = new FXMLLoader();
@@ -171,14 +170,13 @@ public class TabTestCaseMainViewController implements Initializable {
             }
             i++;
         }
-        return found;
+        return !found;
     }
 
     /**
      * @param mainController
      */
     public void init(TATFrameController mainController) {
-        TATFrameController mainFrameController = mainController;
     }
 
     /**
@@ -195,6 +193,7 @@ public class TabTestCaseMainViewController implements Initializable {
      */
     public void closeTab() {
         this.tabPaneTestCase.getTabs().remove(this.tabPaneTestCase.getSelectionModel().getSelectedItem());
+        CommonFunctions.reportLog.info("User close the Test Case tab.");
     }
 
     void focusOnLast() {

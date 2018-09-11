@@ -7,7 +7,7 @@ package controller.macro;
 
 import DB.Script;
 import controller.TATFrameController;
-import controller.requirements.TabRequirementMainViewController;
+import controller.util.CommonFunctions;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -15,7 +15,6 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
 import model.ObjectCopy;
-import org.apache.log4j.Logger;
 
 import java.io.IOException;
 import java.net.URL;
@@ -60,10 +59,10 @@ public class TabMacroMainViewController implements Initializable {
         try {
             AnchorPane libraryPane = fxmlLoader.load(getClass().getResource("/view/macro/TabMacroLibrary.fxml").openStream());
             this.tabMacroLibrary.setContent(libraryPane);
-            libraryController = (TabMacroLibraryController) fxmlLoader.getController();
+            libraryController = fxmlLoader.getController();
             libraryController.init(this);
         } catch (IOException ex) {
-            Logger.getLogger(TabRequirementMainViewController.class.getName()).error("Cannot initialize MacroView: ", ex);
+            CommonFunctions.debugLog.error("Cannot initialize MacroView: ", ex);
         }
 
         this.tabPaneMacro.setTabClosingPolicy(TabPane.TabClosingPolicy.SELECTED_TAB);
@@ -83,9 +82,9 @@ public class TabMacroMainViewController implements Initializable {
             AnchorPane addPane = fxmlLoader.load(getClass().getResource("/view/macro/TabMacroEdit.fxml").openStream());
             editMacro.setContent(addPane);
         } catch (IOException ex) {
-            Logger.getLogger(TabMacroMainViewController.class.getName()).error("Cannot edit Macro: ", ex);
+            CommonFunctions.debugLog.error("Cannot edit Macro: ", ex);
         }
-        editMacroController = (TabMacroEditController) fxmlLoader.getController();
+        editMacroController = fxmlLoader.getController();
         editMacroController.init(this);
 
         ObjectCopy copyHandler = new ObjectCopy();
@@ -104,9 +103,9 @@ public class TabMacroMainViewController implements Initializable {
             AnchorPane addPane = fxmlLoader.load(getClass().getResource("/view/macro/TabMacroNew.fxml").openStream());
             viewMacro.setContent(addPane);
         } catch (IOException ex) {
-            Logger.getLogger(TabMacroMainViewController.class.getName()).error("Cannot view Macro: ", ex);
+            CommonFunctions.debugLog.error("Cannot view Macro: ", ex);
         }
-        viewMacroController = (TabMacroNewController) fxmlLoader.getController();
+        viewMacroController = fxmlLoader.getController();
         viewMacroController.init(this);
         viewMacroController.displayMacro(macro);
         this.tabPaneMacro.getTabs().add(viewMacro);
@@ -121,9 +120,9 @@ public class TabMacroMainViewController implements Initializable {
             AnchorPane addPane = fxmlLoader.load(getClass().getResource("/view/macro/TabMacroNew.fxml").openStream());
             newMacro.setContent(addPane);
         } catch (IOException ex) {
-            Logger.getLogger(TabMacroMainViewController.class.getName()).error("Cannot create new Macro: ", ex);
+            CommonFunctions.debugLog.error("Cannot create new Macro: ", ex);
         }
-        newMacroController = (TabMacroNewController) fxmlLoader.getController();
+        newMacroController = fxmlLoader.getController();
         newMacroController.init(this);
         newMacroController.initNewMacro();
         this.tabPaneMacro.getTabs().add(newMacro);
@@ -137,19 +136,20 @@ public class TabMacroMainViewController implements Initializable {
     public void closeTab() {
         try {
             this.tabPaneMacro.getTabs().remove(this.tabPaneMacro.getSelectionModel().getSelectedItem());
+            CommonFunctions.reportLog.info("User close the Macro tab.");
         } catch (Exception ex) {
-            Logger.getLogger(TabMacroMainViewController.class.getName()).error("Cannnot close Macro tab: ", ex);
+            CommonFunctions.debugLog.error("Cannot close Macro tab: ", ex);
         }
     }
 
     /**
      * Select first Macro displayed in the library.
      */
-    public void focusLibrary() {
+    void focusLibrary() {
         try {
             this.tabPaneMacro.getSelectionModel().select(0);
         } catch (Exception ex) {
-            Logger.getLogger(TabMacroMainViewController.class.getName()).error("Cannot focus Macro lib: ", ex);
+            CommonFunctions.debugLog.error("Cannot focus Macro lib: ", ex);
         }
     }
 

@@ -10,6 +10,7 @@ import DB.TestCase;
 import DBcontroller.TestCaseDB;
 import controller.tablestep.HeaderTableStepController;
 import controller.tablestep.TableStepScriptCreationController;
+import controller.util.CommonFunctions;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,7 +18,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-import org.apache.log4j.Logger;
 
 import java.io.IOException;
 import java.net.URL;
@@ -128,7 +128,7 @@ public class TabTestCaseViewController implements Initializable {
         this.anchorPanelViewTestCase.getStylesheets().add("/view/stepcreation/cssScriptLine.css");
         constructTableStep();
         this.listViewRequirementsCaseView.setCellFactory(listView -> {
-            ListCell<Requirement> cell = new ListCell<Requirement>() {
+            return new ListCell<Requirement>() {
                 @Override
                 public void updateItem(Requirement item, boolean empty) {
                     super.updateItem(item, empty);
@@ -141,7 +141,6 @@ public class TabTestCaseViewController implements Initializable {
                     }
                 }
             };
-            return cell;
         });
 //        /**
 //         * Define the the cell factory of the table test step.
@@ -219,7 +218,6 @@ public class TabTestCaseViewController implements Initializable {
      * @param mainController
      */
     void init(TabTestCaseMainViewController mainController) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         TabTestCaseViewController.main = mainController;
 
     }
@@ -315,21 +313,21 @@ public class TabTestCaseViewController implements Initializable {
     //    }
 
     private void constructTableStep() {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         FXMLLoader fxmlLoader = new FXMLLoader();
         try {
-            this.gridPaneCaseView.add((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream()), 0, 1, 1, 5);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
+            this.gridPaneCaseView.add(fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream()), 0, 1, 1, 5);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseNewController.class.getName()).error("", ex);
+            CommonFunctions.debugLog.error("", ex);
         }
         controllerTableStep = fxmlLoader.getController();
 
+        //This should be the preview of test case (Header Part)
         FXMLLoader fxmlLoader2 = new FXMLLoader();
         try {
-            AnchorPane paneTest = (AnchorPane) fxmlLoader2.load(getClass().getResource("/view/stepcreation/headerTableStep.fxml").openStream());
+            AnchorPane paneTest = fxmlLoader2.load(getClass().getResource("/view/stepcreation/headerTableStep.fxml").openStream());
             this.gridPaneCaseView.add(paneTest, 0, 0, 1, 1);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseNewController.class.getName()).error("", ex);
+            CommonFunctions.debugLog.error("", ex);
         }
         controllerHeaderTableStep = fxmlLoader2.getController();
         controllerHeaderTableStep.init(controllerTableStep);

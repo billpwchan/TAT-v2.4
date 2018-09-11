@@ -261,7 +261,7 @@ public class TabTestCaseNewController implements Initializable {
      */
     private boolean createNewTestCase() {
         //Validate the user input first
-        if (!CommonFunctions.validateUpdateTestCase(controllerTableStep.getCollectionTestStep())) {
+        if (CommonFunctions.validateUpdateTestCase(controllerTableStep.getCollectionTestStep())) {
             return false;
         }
         String reportLogMsg = "";
@@ -528,7 +528,7 @@ public class TabTestCaseNewController implements Initializable {
     }
 
     /**
-     * @return
+     * @return AnchorPane
      */
     public AnchorPane getAnchorPane() {
         return this.anchorPanelNewTestCase;

@@ -106,7 +106,7 @@ public class PreviewMacro {
      *
      * @param controllerActions
      */
-    public void constructGridPaneView(TableActionCreationController controllerActions) {
+    private void constructGridPaneView(TableActionCreationController controllerActions) {
         gridPaneDisplayResults.getChildren().clear();
         controllerActions.getCollectionControllerScript().stream().forEach((collectionControllerScript) -> {
             for (int j = 1; j < collectionControllerScript.getScriptControllerAction().getHashParamScriptMacro().size(); j++) {
@@ -134,7 +134,7 @@ public class PreviewMacro {
      * @param paramScriptMacros observable list containing the parameters.
      * @param toSet             the hyperlink to change
      */
-    public void referParameters(ParamScriptMacro paramScriptMacros, Hyperlink toSet) {
+    private void referParameters(ParamScriptMacro paramScriptMacros, Hyperlink toSet) {
         toSet.setStyle(null);
 
         if (!"".equals(paramScriptMacros.getValuePath()) && !" ".equals(paramScriptMacros.getValuePath())) {
@@ -196,7 +196,7 @@ public class PreviewMacro {
     /**
      * @param script
      */
-    public void constructGridPaneViewView(Script script) {
+    private void constructGridPaneViewView(Script script) {
         gridPaneDisplayResults.getChildren().clear();
         int i = 0;
         String purpose = "";

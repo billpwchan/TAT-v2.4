@@ -10,7 +10,6 @@ import DBcontroller.sessionFactorySingleton;
 import controller.macroActions.PreviewMacro;
 import controller.macroActions.ScriptLineTableMacroController;
 import controller.macroActions.TableActionCreationController;
-import controller.tabtestcase.TabTestCaseEditController;
 import controller.util.CommonFunctions;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
@@ -18,13 +17,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
-import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
@@ -34,6 +32,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 /**
@@ -45,9 +44,8 @@ public class TabMacroEditController implements Initializable {
 
     private static TabMacroMainViewController mainController;
     private final PreviewMacro controllerPreviewMacro = new PreviewMacro();
-    private final boolean canBeValidate = false;
     private final int textfieldMacroNameMaxLength = 60;
-    DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+    private DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
     @FXML
     private AnchorPane anchorPanelEditMacro;
     @FXML
@@ -113,7 +111,7 @@ public class TabMacroEditController implements Initializable {
             }
         });
 
-        jtextareaObjectivesMacroEdit.textProperty().addListener((obsevable, oldValue, newValue) -> {
+        jtextareaObjectivesMacroEdit.textProperty().addListener((observable, oldValue, newValue) -> {
             changeColorTextDescription(newValue.trim().isEmpty());
             activationValidButton();
         });
@@ -132,17 +130,15 @@ public class TabMacroEditController implements Initializable {
     /**
      *
      */
-    public void initButtons() {
+    private void initButtons() {
         this.buttonValid.setDisable(true);
-        this.buttonAddAction.setOnAction((ActionEvent e) -> {
-            controllerTableAction.addAction();
-        });
+        this.buttonAddAction.setOnAction((ActionEvent e) -> controllerTableAction.addAction());
 
         this.buttonValid.setOnAction((ActionEvent e) -> {
             try {
                 this.editMacro();
             } catch (ParseException ex) {
-                Logger.getLogger(TabMacroEditController.class.getName()).error("Cannot edit Macro: ", ex);
+                CommonFunctions.debugLog.error("Cannot edit Macro: ", ex);
             }
         });
 
@@ -156,33 +152,48 @@ public class TabMacroEditController implements Initializable {
     }
 
     private void editMacro() throws ParseException {
+        StringBuilder reportLogMsg = new StringBuilder();
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
         ObservableList<ScriptLineTableMacroController> observableScripts = controllerTableAction.getCollectionControllerScript();
         int numberScript = observableScripts.size();
-        Script macro = constructMacro();
+        Script macro = null;
+        try {
+            macro = constructMacro();
+        } catch (ParseException ex) {
+            CommonFunctions.debugLog.error("Macro Construct Function Exception", ex);
+        }
         session.save(macro);
         int i = 0;
         boolean missingPurpose = false;
+        reportLogMsg.append("After Editing Macro :").append(Objects.requireNonNull(macro).getName()).append(System.lineSeparator());
         //This part is responsible for saving new macro object. Correct. 
-        while (i < numberScript && missingPurpose == false) {
+        while ((i < numberScript) && !missingPurpose) {
             if ("".equals(observableScripts.get(i).getScriptControllerAction().getHashParamScriptMacro().get(0).getValue())) {   //Each script should has purpose. First parameter of each script. If satisfied, save it.
                 CommonFunctions.displayAlert(AlertType.ERROR, "Missing Purpose", "There is something wrong with script" + observableScripts.get(i).getScriptControllerAction().getCurrentScript().getName(), "A script purpose is missing in your macro");
                 missingPurpose = true;
             } else {
-                //Save each script to sesson. Set parameters of each observableScript. 
+                //Save each script to sesson. Set parameters of each observableScript.
                 observableScripts.get(i).getScriptControllerAction().getScriptMacro().setScriptByScriptIdScript(macro);
                 observableScripts.get(i).getScriptControllerAction().getScriptMacro().setScriptOrder((byte) i);
                 observableScripts.get(i).getScriptControllerAction().getScriptMacro().setScriptByScriptIdScript1(observableScripts.get(i).getScriptControllerAction().getCurrentScript());
                 session.save(observableScripts.get(i).getScriptControllerAction().getScriptMacro());
+                reportLogMsg.append("\tScript ").append(i + 1).append(": ").append(observableScripts.get(i).getScriptControllerAction().getCurrentScript().getName()).append(System.lineSeparator());
                 i++;
             }
         }
         if (!missingPurpose) {
-            session.beginTransaction().commit();
-            mainController.updateRepository();
-            mainController.closeTab();
-            mainController.focusLibrary();
+            try {
+                session.beginTransaction().commit();
+                mainController.updateRepository();
+                mainController.closeTab();
+                mainController.focusLibrary();
+                CommonFunctions.reportLog.info(reportLogMsg);
+                CommonFunctions.reportLog.info("Successfully saved Macro: " + macro.getName());
+            } catch (Exception ex) {
+                CommonFunctions.debugLog.error("Error saving modified macro" + ex);
+                throw new ParseException("In Macro", 1);
+            }
         }
         session.close();
     }
@@ -202,17 +213,17 @@ public class TabMacroEditController implements Initializable {
     private void constructTableStep() {
         FXMLLoader fxmlLoader = new FXMLLoader();
         try {
-            this.gridPaneTableAction.add((AnchorPane) fxmlLoader.load(getClass().getResource("/view/macroActions/tableActionCreation.fxml").openStream()), 0, 1, 1, 5);
+            this.gridPaneTableAction.add(fxmlLoader.load(getClass().getResource("/view/macroActions/tableActionCreation.fxml").openStream()), 0, 1, 1, 5);
         } catch (IOException ex) {
-            Logger.getLogger(TabMacroEditController.class.getName()).error("Cannot construct table step: ", ex);
+            CommonFunctions.debugLog.error("Cannot construct table step: ", ex);
         }
         controllerTableAction = fxmlLoader.getController();
         FXMLLoader fxmlLoader2 = new FXMLLoader();
         try {
-            AnchorPane paneTest = (AnchorPane) fxmlLoader2.load(getClass().getResource("/view/macroActions/headerTableAction.fxml").openStream());
+            AnchorPane paneTest = fxmlLoader2.load(getClass().getResource("/view/macroActions/headerTableAction.fxml").openStream());
             this.gridPaneTableAction.add(paneTest, 0, 0, 1, 1);
         } catch (IOException ex) {
-            Logger.getLogger(TabMacroEditController.class.getName()).error("Cannot construct table step: ", ex);
+            CommonFunctions.debugLog.error("Cannot construct table step: ", ex);
         }
     }
 
@@ -221,7 +232,7 @@ public class TabMacroEditController implements Initializable {
      *
      * @param script
      */
-    public void displayMacro(Script script) {
+    void displayMacro(Script script) {
         buttonAddAction.setVisible(true);
         buttonValid.setVisible(true);
 
@@ -251,7 +262,7 @@ public class TabMacroEditController implements Initializable {
     private void loadPreviewMacro() {
         FXMLLoader fxmlLoader2 = new FXMLLoader();
         try {
-            AnchorPane paneTest = (AnchorPane) fxmlLoader2.load(getClass().getResource("/view/macroActions/headerPreviewMacro.fxml").openStream());
+            AnchorPane paneTest = fxmlLoader2.load(getClass().getResource("/view/macroActions/headerPreviewMacro.fxml").openStream());
             AnchorPane.setTopAnchor(paneTest, 0.0);
             AnchorPane.setRightAnchor(paneTest, 0.0);
             AnchorPane.setLeftAnchor(paneTest, 0.0);
@@ -260,30 +271,22 @@ public class TabMacroEditController implements Initializable {
             //this.hBoxHeader.getChildren().add(paneTest);
             //this.gridPaneLabelCaseNew.add(paneTest, 5, 0, 1, 1);
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseEditController.class.getName()).error("Cannot load preview Macro: ", ex);
+            CommonFunctions.debugLog.error("Cannot load preview Macro: ", ex);
         }
 
         try {
             this.controllerPreviewMacro.initialize(scrollPanePreview);
         } catch (Exception ex) {
-            Logger.getLogger(TabTestCaseEditController.class.getName()).error("Cannot load preview Macro: ", ex);
+            CommonFunctions.debugLog.error("Cannot load preview Macro: ", ex);
         }
     }
 
     private void changeColorTextMacroName(boolean color) {
-        if (color) {
-            labelMacroNameEdit.setTextFill(Color.RED);
-        } else {
-            labelMacroNameEdit.setTextFill(Color.BLACK);
-        }
+        labelMacroNameEdit.setTextFill(color ? Color.RED : Color.BLACK);
     }
 
     private void changeColorTextDescription(boolean color) {
-        if (color) {
-            labelMacroObjectives.setTextFill(Color.RED);
-        } else {
-            labelMacroObjectives.setTextFill(Color.BLACK);
-        }
+        labelMacroObjectives.setTextFill(color ? Color.RED : Color.BLACK);
     }
 
     private void activationValidButton() {

@@ -165,14 +165,17 @@ public class TabMacroLibraryController implements Initializable {
 
     private void newMacro() {
         TabMacroLibraryController.macroMainViewController.displayNewMacro();
+        CommonFunctions.reportLog.info("User create a new Macro.");
     }
 
     private void editMacro(Script script) {
         TabMacroLibraryController.macroMainViewController.displayEditMacro(script);
+        CommonFunctions.reportLog.info("User edited the Macro(" + script.getIdScript() + "): " + currentMacroSelected.getName());
     }
 
     private void displayMacro(Script script) {
         TabMacroLibraryController.macroMainViewController.displayViewMacro(script);
+        CommonFunctions.reportLog.info("User edited the Macro(" + script.getIdScript() + "): " + currentMacroSelected.getName());
     }
 
     private void constructTableMacro() {

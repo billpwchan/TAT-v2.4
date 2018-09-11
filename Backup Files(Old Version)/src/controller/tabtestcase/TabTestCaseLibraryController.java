@@ -30,8 +30,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
@@ -152,15 +152,11 @@ public class TabTestCaseLibraryController implements Initializable {
             if (this.currentTestCaseSelected != null) {
                 ArrayList<TestCampaign> campaigns = testCampaignHandler.getCampaignsFromCases(this.currentTestCaseSelected);
                 if (campaigns.size() > 0) {
-                    String campaignNames = "Campaign to Delete : \n";
+                    StringBuilder campaignNames = new StringBuilder("Campaign to Delete : \n");
                     for (TestCampaign campaign : campaigns) {
-                        campaignNames = campaignNames + "\t--> " + campaign.getReference() + "\n";
+                        campaignNames.append("\t--> ").append(campaign.getReference()).append("\n");
                     }
-                    Alert alert = new Alert(AlertType.WARNING);
-                    alert.setTitle("Warning");
-                    alert.setHeaderText("Impossible to delete, the campaign has already been baselined. Please delete these Campaigns first :");
-                    alert.setContentText(campaignNames);
-                    alert.showAndWait();
+                    CommonFunctions.displayAlert(AlertType.WARNING, "Warning", "Impossible to delete, the campaign has already been baselined. Please delete these Campaigns first :", campaignNames.toString());
                     event.consume();
                 } else {
                     testCaseHandler.deleteTestCase(currentTestCaseSelected);
@@ -233,7 +229,7 @@ public class TabTestCaseLibraryController implements Initializable {
      */
     private void viewTestCase(TestCase testCase) {
         TabTestCaseLibraryController.main.displayViewTab(testCase);
-        CommonFunctions.reportLog.info("User Viewed the Test Case: " + testCase.getTestCaseIdentification());
+        CommonFunctions.reportLog.info("User Viewed the Test Case(" + testCase.getIdtestCase() + "): " + testCase.getTestCaseIdentification());
     }
 
     /**
@@ -242,7 +238,7 @@ public class TabTestCaseLibraryController implements Initializable {
     private void editTestCase(TestCase testCase) {
         if (popUpEditCase(testCase)) {
             TabTestCaseLibraryController.main.displayEditTab(testCase);
-            CommonFunctions.reportLog.info("User Edited the Test Case: " + testCase.getTestCaseIdentification());
+            CommonFunctions.reportLog.info("User Edited the Test Case(" + testCase.getIdtestCase() + "): " + testCase.getTestCaseIdentification());
         }
     }
 
