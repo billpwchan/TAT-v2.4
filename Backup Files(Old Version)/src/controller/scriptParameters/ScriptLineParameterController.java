@@ -8,7 +8,6 @@ package controller.scriptParameters;
 import DB.Parameters;
 import controller.scripts.TableParamCreationController;
 import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -67,7 +66,6 @@ public class ScriptLineParameterController implements Initializable {
     private ObservableList<String> observableListType = FXCollections.observableArrayList();
     private TableParamCreationController controllerViewGlobal;
     private int personalID;
-    private ArrayList<Parameters> paramsArray = new ArrayList<>();
 
     private Parameters paramSelected;
 
@@ -170,47 +168,41 @@ public class ScriptLineParameterController implements Initializable {
      */
     public void loadParams(ArrayList<Parameters> params) {
 
-        this.paramsArray = new ArrayList<>(params);
+        ArrayList<Parameters> paramsArray = new ArrayList<>(params);
         paramToDisplay = FXCollections.observableArrayList(paramsArray);
         // paramToDisplay.setAll(params);
         comboBoxParam.setItems(paramToDisplay);
         comboBoxParam.setPrefWidth(Control.USE_COMPUTED_SIZE);
         choiceBoxType.setItems(observableListType);
         //gridPaneParam.getColumnConstraints().set(0, new ColumnConstraints(comboBoxParam.getPrefWidth()));
-        comboBoxParam.valueProperty().addListener(new ChangeListener<Parameters>() {
-            @Override
-            public void changed(ObservableValue ov, Parameters t, Parameters t1) {
-                //System.out.println("SIZE = " + comboBoxParam.getPrefWidth());
-                paramSelected = t1;
-                if (paramSelected.getName().equals("Add new parameter")) {
-                    description.setEditable(true);
-                    description.setDisable(false);
-                    textFieldName.setVisible(true);
-                    choiceBoxType.setDisable(false);
-                    observableListType.clear();
-                    observableListType.addAll("string", "integer", "buffer");
-                    choiceBoxType.valueProperty().addListener(new ChangeListener<String>() {
-                        @Override
-                        public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                            type = newValue;
-                            //controllerViewGlobal.getControllerFather().UpdateScriptPreview();
+        comboBoxParam.valueProperty().addListener((ChangeListener<Parameters>) (ov, t, t1) -> {
+            //System.out.println("SIZE = " + comboBoxParam.getPrefWidth());
+            paramSelected = t1;
+            if (paramSelected.getName().equals("Add new parameter")) {
+                description.setEditable(true);
+                description.setDisable(false);
+                textFieldName.setVisible(true);
+                choiceBoxType.setDisable(false);
+                observableListType.clear();
+                observableListType.addAll("string", "integer", "buffer");
+                choiceBoxType.valueProperty().addListener((ChangeListener<String>) (observable, oldValue, newValue) -> {
+                    type = newValue;
+                    //controllerViewGlobal.getControllerFather().UpdateScriptPreview();
 
-                        }
-                    });
-                    description.setText("");
-                    description.setDisable(false);
-                    //description.setOpacity(0.95);
-                } else {
-                    textFieldName.setVisible(false);
-                    observableListType.clear();
-                    observableListType.add(paramSelected.getParameterType());
-                    choiceBoxType.setDisable(true);
-                    choiceBoxType.getSelectionModel().select(observableListType.get(0));
-                    choiceBoxType.setOpacity(0.95);
-                    description.setText(paramSelected.getDescription());
-                    description.setDisable(true);
-                    description.setOpacity(0.95);
-                }
+                });
+                description.setText("");
+                description.setDisable(false);
+                //description.setOpacity(0.95);
+            } else {
+                textFieldName.setVisible(false);
+                observableListType.clear();
+                observableListType.add(paramSelected.getParameterType());
+                choiceBoxType.setDisable(true);
+                choiceBoxType.getSelectionModel().select(observableListType.get(0));
+                choiceBoxType.setOpacity(0.95);
+                description.setText(paramSelected.getDescription());
+                description.setDisable(true);
+                description.setOpacity(0.95);
             }
         });
 
@@ -287,7 +279,7 @@ public class ScriptLineParameterController implements Initializable {
     /**
      *
      */
-    public void initComboBox() {
+    private void initComboBox() {
         comboBoxParam.setCellFactory(new Callback<ListView<Parameters>, ListCell<Parameters>>() {
             @Override
             public ListCell<Parameters> call(ListView<Parameters> p) {

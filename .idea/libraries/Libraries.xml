@@ -19,7 +19,9 @@
       <root url="file://C:/Program Files/NetBeans 8.2/java/modules/ext/hibernate4" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ideaLibSources/poi-3.16-sources.jar!/" />
+    </SOURCES>
     <jarDirectory url="file://C:/Program Files/NetBeans 8.2/java/modules/ext/hibernate4" recursive="false" />
   </library>
 </component>

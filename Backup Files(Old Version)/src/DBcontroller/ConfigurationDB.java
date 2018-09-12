@@ -7,11 +7,9 @@ package DBcontroller;
 
 import DB.*;
 import configuration.settings;
-import controller.tabtestcase.TabTestCaseMainViewController;
 import controller.util.CommonFunctions;
 import javafx.application.Platform;
 import javafx.scene.control.Alert;
-import org.apache.log4j.Logger;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
@@ -63,7 +61,7 @@ public class ConfigurationDB {
             throws FileNotFoundException, IOException, InterruptedException, Exception {
         // final Stage dialog2 = dialog;
         SessionFactory factory = sessionFactorySingleton.getInstance();
-        String splitOn = ((char) 007) + "";
+        String splitOn = ((char) 7) + "";
         Session session = factory.openSession();
         boolean excelFilePresent = false;
         HSSFSheet sheet = null;
@@ -73,17 +71,33 @@ public class ConfigurationDB {
             HSSFWorkbook workbook = new HSSFWorkbook(file);
             excelFilePresent = true;
             if (sheetNumber.contains("@&Number_")) {
-                sheet = workbook.getSheetAt(Integer.parseInt(sheetNumber.replace("@&Number_", "").trim()) - 1);
+                try {
+                    sheet = workbook.getSheetAt(Integer.parseInt(sheetNumber.replace("@&Number_", "").trim()) - 1);
+                } catch (IllegalArgumentException ex) {
+                    CommonFunctions.displayAlert(Alert.AlertType.ERROR, "Excel Validation Exception", "Cannot find specified sheet (Index out of range):", "Please re-check the sheet number");
+                    CommonFunctions.debugLog.error("Invalid Sheet Number provided", ex);
+                    sheet = null;
+                }
             } else if (sheetNumber.contains("@&Name_")) {
-                System.out.println("STRING = " + sheetNumber.replace("@&Name_", "").trim());
-                sheet = workbook.getSheet(sheetNumber.replace("@&Name_", "").trim());
-                System.out.println("sheetName= " + sheet.getSheetName());
+                try {
+                    sheet = workbook.getSheet(sheetNumber.replace("@&Name_", "").trim());
+                    if (sheet == null) {
+                        throw new Exception();
+                    }   //Cannot find specified sheet in Excel Workbook.
+                } catch (Exception ex) {
+                    CommonFunctions.displayAlert(Alert.AlertType.ERROR, "Excel Validation Exception", "Cannot find specified sheet (Index out of range):", "Please re-check the sheet number");
+                    CommonFunctions.debugLog.error("Invalid Sheet Name provided", ex);
+                }
             }
-
-            System.out.println("sheet numberAAAA = " + sheetNumber);
-        } else {
-
         }
+
+        if (sheet == null) {
+            Platform.runLater(() -> {
+                CommonFunctions.debugLog.debug("Exit Excel Data Extraction, proceeed to previous step.");
+            });
+            return -1;
+        }
+
         Short caseOrder = (short) caseNumber;
         Byte stepOrder = 0;
         Byte scriptOrder = 0;
@@ -191,7 +205,7 @@ public class ConfigurationDB {
             try {
                 session.save(caseExecution);
             } catch (Exception ex) {
-                Logger.getLogger(TabTestCaseMainViewController.class.getName()).error("Exception in ConfigurationDB: ", ex);
+                CommonFunctions.debugLog.error("Exception in ConfigurationDB: ", ex);
             }
             caseNumber++;
             indexLine++;

@@ -13,7 +13,6 @@ import DBcontroller.TestExecution;
 import controller.popup.PopUpCampaignSelectionController;
 import controller.popup.PopUpRunController;
 import controller.tabtestcampaign.TabTestCampaignRepositoryController;
-import controller.tabtestcase.TabTestCaseNewController;
 import controller.util.CommonFunctions;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -32,7 +31,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.*;
 import main.Main;
 import model.*;
-import org.apache.log4j.Logger;
 import org.hibernate.exception.GenericJDBCException;
 
 import java.io.File;
@@ -96,12 +94,12 @@ public class TabTestCampaignExecutionRepositoryBaselineController implements Ini
         TestExecution iterationHandler = new TestExecution();
         ArrayList<Iterations> baselines;
         ArrayList<Iterations> executions;
-        ArrayList<Iterations> baselinedCampaigns;
-        baselinedCampaigns = testCampaignHandler.getBaselinedCampaignsTree();
+        ArrayList<Iterations> baselineCampaigns;
+        baselineCampaigns = testCampaignHandler.getBaselinedCampaignsTree();
         root.getChildren().clear();
-        for (Iterations baselinedCampaign : baselinedCampaigns) {
-            root0 = new TreeItem<>(baselinedCampaign);
-            baselines = iterationHandler.getBaselinesFromCampaign(baselinedCampaign.getTestCampaign());
+        for (Iterations baselineCampaign : baselineCampaigns) {
+            root0 = new TreeItem<>(baselineCampaign);
+            baselines = iterationHandler.getBaselinesFromCampaign(baselineCampaign.getTestCampaign());
             for (Iterations baseline : baselines) {
                 root2 = new TreeItem<>(baseline);
                 executions = iterationHandler.getExecutionsFromBaseline(baseline);
@@ -143,7 +141,7 @@ public class TabTestCampaignExecutionRepositoryBaselineController implements Ini
         try {
             updateRepository();
         } catch (ParseException ex) {
-            Logger.getLogger(TabTestCampaignExecutionRepositoryBaselineController.class.getName()).error("", ex);
+            CommonFunctions.debugLog.error("", ex);
         }
 
         buttonDelete.setDisable(false);
@@ -172,7 +170,7 @@ public class TabTestCampaignExecutionRepositoryBaselineController implements Ini
             }
         });
 
-        //Listener to open the righ tab when the user double click on an object of the table
+        //Listener to open the right tab when the user double click on an object of the table
         this.campaignBaselineAndExecution.setOnMousePressed((MouseEvent event) -> {
             if (event.getClickCount() == 2 && selected != null) {
                 switch (selected.getType()) {
@@ -226,7 +224,7 @@ public class TabTestCampaignExecutionRepositoryBaselineController implements Ini
      */
     public void updateRepository() throws ParseException {
         long tempsDebut = System.currentTimeMillis();
-        this.UpdateTreeItem();
+        UpdateTreeItem();
         long tempsFin = System.currentTimeMillis();
         float seconds = (tempsFin - tempsDebut) / 1000F;
         //System.out.println("TEMPS TOTAL UPDATE= " + Float.toString(seconds));
@@ -245,7 +243,7 @@ public class TabTestCampaignExecutionRepositoryBaselineController implements Ini
             ObservableList<TestCampaign> campaignInDB = FXCollections.observableArrayList(new ArrayList<TestCampaign>(testCampaignHandler.getAllCampaigns()));
             FXMLLoader fxmlLoader = new FXMLLoader();
             AnchorPane editPane = fxmlLoader.load(getClass().getResource("/view/popup/popUpCampaignSelection.fxml").openStream());
-            dialogController = (PopUpCampaignSelectionController) fxmlLoader.getController();
+            dialogController = fxmlLoader.getController();
             popUpCampaignStage = new Stage();
             popUpCampaignStage.setTitle("Campaign Selection");
             popUpCampaignStage.initOwner(Main.primaryStage);
@@ -268,8 +266,7 @@ public class TabTestCampaignExecutionRepositoryBaselineController implements Ini
             dialogController.setPrimaryStage(popUpCampaignStage);
 
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseNewController.class
-                    .getName()).error("", ex);
+            CommonFunctions.debugLog.error("", ex);
         }
     }
 
@@ -320,7 +317,7 @@ public class TabTestCampaignExecutionRepositoryBaselineController implements Ini
             //Set the parameters of the PopUp in a thread because it can take time
             Task<Void> task = new Task<Void>() {
                 @Override
-                protected Void call() throws Exception {
+                protected Void call() {
                     runController.setParameters(baselineName, TabTestCampaignExecutionRepositoryBaselineController.this);
                     return null;
                 }
@@ -329,7 +326,7 @@ public class TabTestCampaignExecutionRepositoryBaselineController implements Ini
             th.setDaemon(true);
             FXMLLoader fxmlLoader = new FXMLLoader();
             AnchorPane editPane = fxmlLoader.load(getClass().getResource("/view/popup/popUpRun.fxml").openStream());
-            runController = (PopUpRunController) fxmlLoader.getController();
+            runController = fxmlLoader.getController();
             runStage = new Stage();
             runStage.setTitle("Run");
             runStage.initModality(Modality.WINDOW_MODAL);
@@ -347,8 +344,7 @@ public class TabTestCampaignExecutionRepositoryBaselineController implements Ini
 //            runStage.setY(main.getMainController().getPrimaryStage().getY() + main.getMainController().getPrimaryStage().getHeight() / 2 - runStage.getHeight() / 2);
             th.start();
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseNewController.class
-                    .getName()).error("", ex);
+            CommonFunctions.debugLog.error("", ex);
         }
     }
 
@@ -362,9 +358,10 @@ public class TabTestCampaignExecutionRepositoryBaselineController implements Ini
         buttonReport.setDisable(true);
 
         runButton.setOnAction((ActionEvent e) -> {
-            if (selected == null) {
+            if (this.selected == null) {
                 e.consume();
             } else if (this.selected.getType().equals("baseline") || this.selected.getType().equals("execution")) {
+                CommonFunctions.reportLog.info("User run iteration(" + this.selected.getBaselineId() + "): "+ this.selected.getBaselineId());
                 this.runCampaign(selected.getBaselineId());
             }
 
@@ -376,11 +373,11 @@ public class TabTestCampaignExecutionRepositoryBaselineController implements Ini
             } else if (this.selected.getType().equals("execution")) {
                 try {
                     iteHandler.deleteExecution(selected);
-                    this.UpdateTreeItem();
+                    UpdateTreeItem();
                 } catch (ParseException ex) {
-                    Logger.getLogger(TabTestCampaignExecutionRepositoryBaselineController.class.getName()).error("Cannot update BaseLine", ex);
+                    CommonFunctions.debugLog.error("Cannot update BaseLine", ex);
                 } catch (GenericJDBCException ex) {
-                    Logger.getLogger(TabTestCampaignExecutionRepositoryBaselineController.class.getName()).error("Database File is Locked", ex);
+                    CommonFunctions.debugLog.error("Database File is Locked", ex);
                     CommonFunctions.displayAlert(Alert.AlertType.ERROR,
                             "Locked Database File", "The database file is locked by another application",
                             "Please refer to the log file for further information");
@@ -388,30 +385,30 @@ public class TabTestCampaignExecutionRepositoryBaselineController implements Ini
             } else if (this.selected.getType().equals("baseline")) {
                 ArrayList<Iterations> iterations;
                 iterations = testExecutionHandler.getExecutionsFromBaseline(selected);
-                for (int i = 0; i < iterations.size(); i++) {
-                    iteHandler.deleteExecution(iterations.get(i));
+                for (Iterations iteration : iterations) {
+                    iteHandler.deleteExecution(iteration);
                 }
                 try {
-                    this.UpdateTreeItem();
+                    UpdateTreeItem();
                 } catch (ParseException ex) {
-                    Logger.getLogger(TabTestCampaignExecutionRepositoryBaselineController.class.getName()).error("", ex);
+                    CommonFunctions.debugLog.error("", ex);
                 }
             } else if (this.selected.getType().equals("campaign")) {
                 ArrayList<Iterations> arrayIterations = null;
                 ArrayList<Iterations> arrayIt = null;
                 try {
                     arrayIt = testExecutionHandler.getBaselinesFromCampaign(this.selected.getTestCampaign());
-                    for (int i = 0; i < arrayIt.size(); i++) {
-                        arrayIterations = testExecutionHandler.getExecutionsFromBaseline(arrayIt.get(i));
-                        for (int j = 0; j < arrayIterations.size(); j++) {
-                            iteHandler.deleteExecution(arrayIterations.get(j));
+                    for (Iterations anArrayIt : arrayIt) {
+                        arrayIterations = testExecutionHandler.getExecutionsFromBaseline(anArrayIt);
+                        for (Iterations arrayIteration : arrayIterations) {
+                            iteHandler.deleteExecution(arrayIteration);
                         }
                     }
-                    this.UpdateTreeItem();
+                    UpdateTreeItem();
                 } catch (ParseException ex) {
-                    Logger.getLogger(TabTestCampaignExecutionRepositoryBaselineController.class.getName()).error("", ex);
+                    CommonFunctions.debugLog.error("", ex);
                 } catch (GenericJDBCException ex) {
-                    Logger.getLogger(TabTestCampaignExecutionRepositoryBaselineController.class.getName()).error("Database File is Locked", ex);
+                    CommonFunctions.debugLog.error("Database File is Locked", ex);
                     CommonFunctions.displayAlert(Alert.AlertType.ERROR,
                             "Locked Database File", "The database file is locked by another application",
                             "Please refer to the log file for further information");
@@ -420,7 +417,7 @@ public class TabTestCampaignExecutionRepositoryBaselineController implements Ini
         });
 
         baselineButton.setOnAction((ActionEvent e) -> {
-            if (popUpBaselineOpen == true) {
+            if (popUpBaselineOpen) {
                 popUpCampaignStage.requestFocus();
             } else {
                 this.selectCampaignToBaseline();
@@ -436,7 +433,7 @@ public class TabTestCampaignExecutionRepositoryBaselineController implements Ini
                     newReport.createReport(selected);
                     CommonFunctions.displayAlert(Alert.AlertType.INFORMATION, "Report generated", "Report generated, named: " + newReport.getFileName(), null);
                 } catch (Exception ex) {
-                    Logger.getLogger(TabTestCampaignExecutionRepositoryBaselineController.class.getName()).debug("", ex);
+                    CommonFunctions.debugLog.debug("", ex);
                     CommonFunctions.displayAlert(Alert.AlertType.ERROR, "Error in generating Report", "The TAT can only generate a report based on successfully executed baselines", "Please choose a successfully executed baseline to report");
                 }
             }
@@ -454,7 +451,6 @@ public class TabTestCampaignExecutionRepositoryBaselineController implements Ini
      *
      */
     public void selectDirectoryForReport() {
-
         DirectoryChooser directoryChooser = new DirectoryChooser();
         directoryChooser.setTitle("Report generation directory");
 

@@ -6,22 +6,23 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1112526d-0f70-45f5-97f9-62ef4a880793" name="Default Changelist" comment="Macro Logger finished implement Logger.">
+    <list default="true" id="1112526d-0f70-45f5-97f9-62ef4a880793" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Libraries.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Libraries.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/DBcontroller/ConfigurationDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/DBcontroller/ConfigurationDB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/TATFrameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/TATFrameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/macro/TabMacroEditController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/macro/TabMacroEditController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/macro/TabMacroLibraryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/macro/TabMacroLibraryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/macro/TabMacroMainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/macro/TabMacroMainViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/macro/TabMacroNewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/macro/TabMacroNewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/macroActions/PreviewMacro.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/macroActions/PreviewMacro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/popup/PopUpcaseExcelValidationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/popup/PopUpcaseExcelValidationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/scriptParameters/ScriptLineParameterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/scriptParameters/ScriptLineParameterController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcase/TabTestCaseEditController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcase/TabTestCaseEditController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcase/TabTestCaseLibraryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcase/TabTestCaseLibraryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcase/TabTestCaseMainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcase/TabTestCaseMainViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcase/TabTestCaseNewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcase/TabTestCaseNewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcase/TabTestCaseViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcase/TabTestCaseViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/util/CommonFunctions.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/util/CommonFunctions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/log4j.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestexecution/TabTestCampaignExecutionBaselineCampaignController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestexecution/TabTestCampaignExecutionBaselineCampaignController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestexecution/TabTestCampaignExecutionMainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestexecution/TabTestCampaignExecutionMainViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestexecution/TabTestCampaignExecutionRepositoryBaselineController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestexecution/TabTestCampaignExecutionRepositoryBaselineController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/engine/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/engine/Engine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/model/initColumn.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/model/initColumn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mydb.db" beforeDir="false" afterPath="$PROJECT_DIR$/mydb.db" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -64,27 +65,29 @@
     <session id="736936950">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="6" />
           <entry key="project.open.time.11" value="2" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.14" value="2" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.open.time.9" value="1" />
+          <entry key="project.opened" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="DATABASE/91702316-8f1d-4edb-8550-af8db0bd678f" value="1" />
           <entry key="case_executions" value="1" />
-          <entry key="class" value="1" />
+          <entry key="class" value="2" />
           <entry key="fxml" value="3" />
           <entry key="iml" value="2" />
           <entry key="iterations" value="1" />
-          <entry key="java" value="89" />
+          <entry key="java" value="106" />
           <entry key="properties" value="3" />
           <entry key="script_has_been_configured" value="1" />
           <entry key="snippet" value="1" />
           <entry key="sql" value="1" />
+          <entry key="test_case" value="1" />
           <entry key="test_step" value="1" />
           <entry key="xml" value="28" />
           <entry key="xml/Backup Files(Old Version)/hibernate/Hibernate/PersistenceModel" value="1" />
@@ -92,10 +95,10 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="1" />
-          <entry key="Database Element" value="4" />
+          <entry key="CLASS" value="2" />
+          <entry key="Database Element" value="5" />
           <entry key="IDEA_MODULE" value="2" />
-          <entry key="JAVA" value="89" />
+          <entry key="JAVA" value="106" />
           <entry key="Properties" value="3" />
           <entry key="Scratch" value="2" />
           <entry key="UML" value="2" />
@@ -104,7 +107,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="2332" />
+          <entry key="java" value="3444" />
           <entry key="properties" value="10" />
           <entry key="snippet" value="174" />
           <entry key="txt" value="67" />
@@ -112,7 +115,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2332" />
+          <entry key="JAVA" value="3444" />
           <entry key="PLAIN_TEXT" value="67" />
           <entry key="Properties" value="10" />
           <entry key="Scratch" value="174" />
@@ -123,19 +126,40 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/controller/TATFrameController.java">
+        <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/controller/popup/PopUpcaseExcelValidationController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="288" column="14" selection-start-line="288" selection-start-column="14" selection-end-line="288" selection-end-column="14" />
+            <state relative-caret-position="-176">
+              <caret line="174" column="48" selection-start-line="174" selection-start-column="48" selection-end-line="174" selection-end-column="48" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcase/TabTestCaseNewController.java">
+        <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/DBcontroller/ConfigurationDB.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="530" column="25" lean-forward="true" selection-start-line="530" selection-start-column="25" selection-end-line="530" selection-end-column="25" />
+            <state relative-caret-position="308">
+              <caret line="95" column="103" selection-start-line="95" selection-start-column="103" selection-end-line="95" selection-end-column="103" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.ideaLibSources/poi-3.16-sources.jar!/org/apache/poi/hssf/usermodel/HSSFWorkbook.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="208">
+              <caret line="1038" column="21" selection-start-line="1038" selection-start-column="21" selection-end-line="1038" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestexecution/TabTestCampaignExecutionBaselineCampaignController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="487">
+              <caret line="780" column="16" selection-start-line="780" selection-start-column="16" selection-end-line="780" selection-end-column="16" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -153,19 +177,27 @@
       <find>new test</find>
       <find>validate</find>
       <find>\n</find>
-      <find>logger</find>
       <find>Logger.getLogger(TabMacroEditController.class.getName()).</find>
       <find>arraylist</find>
-      <find>button</find>
       <find>LCommonFunctions</find>
       <find>reportlo</find>
       <find>reportlog</find>
       <find>cancel</find>
+      <find>button</find>
+      <find>casetitle</find>
+      <find>validconfigur</find>
+      <find>validconfig</find>
+      <find>report</find>
+      <find>identification</find>
+      <find>logger</find>
     </findStrings>
     <replaceStrings>
       <replace>CommonFunctions.debugLog.</replace>
       <replace>CommonFunctions</replace>
     </replaceStrings>
+    <dirStrings>
+      <dir>C:\Users\Billp\Documents\NetBeansProjects\TAT_V2.3\Backup Files(Old Version)\src</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
@@ -187,15 +219,11 @@
         <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/DB/Script.java" />
         <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/org/hibernate/dialect/SQLiteDialect.java" />
         <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/popup/PopUpCaseSelectionController.java" />
-        <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/DBcontroller/ConfigurationDB.java" />
-        <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestexecution/TabTestCampaignExecutionBaselineCampaignController.java" />
         <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/scripts/TabScriptsLibraryController.java" />
         <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/requirements/TabRequirementMainViewController.java" />
         <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcase/TabTestCaseViewController.java" />
         <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/macroActions/PreviewMacro.java" />
-        <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/main/Main.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/jshell/jshell_console_1.snippet" />
-        <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcase/TabTestCaseEditController.java" />
         <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/log4j.properties" />
         <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/macro/TabMacroEditController.java" />
         <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/macro/TabMacroNewController.java" />
@@ -205,7 +233,17 @@
         <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcase/TabTestCaseMainViewController.java" />
         <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/util/CommonFunctions.java" />
         <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/TATFrameController.java" />
+        <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/scriptParameters/ScriptLineParameterController.java" />
+        <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/main/Main.java" />
+        <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/engine/Engine.java" />
+        <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestexecution/TabTestCampaignExecutionMainViewController.java" />
+        <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/model/initColumn.java" />
+        <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcase/TabTestCaseEditController.java" />
         <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcase/TabTestCaseNewController.java" />
+        <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestexecution/TabTestCampaignExecutionBaselineCampaignController.java" />
+        <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestexecution/TabTestCampaignExecutionRepositoryBaselineController.java" />
+        <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/popup/PopUpcaseExcelValidationController.java" />
+        <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/DBcontroller/ConfigurationDB.java" />
       </list>
     </option>
   </component>
@@ -216,9 +254,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1240" />
-    <option name="width" value="2615" />
-    <option name="height" value="2075" />
+    <option name="x" value="310" />
+    <option name="y" value="-15" />
+    <option name="width" value="3500" />
+    <option name="height" value="1810" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -244,42 +283,13 @@
               <item name="TAT_V2.3" type="b2602c69:ProjectViewProjectNode" />
               <item name="Backup Files(Old Version)" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="DBcontroller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TAT_V2.3" type="b2602c69:ProjectViewProjectNode" />
               <item name="Backup Files(Old Version)" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-              <item name="macroActions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TAT_V2.3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Backup Files(Old Version)" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-              <item name="scripts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TAT_V2.3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Backup Files(Old Version)" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-              <item name="tabtestcase" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TAT_V2.3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Backup Files(Old Version)" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-              <item name="tabtestexecution" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TAT_V2.3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Backup Files(Old Version)" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
+              <item name="engine" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TAT_V2.3" type="b2602c69:ProjectViewProjectNode" />
@@ -297,8 +307,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -352,7 +362,8 @@
       <workItem from="1536547122039" duration="3652000" />
       <workItem from="1536559504144" duration="10327000" />
       <workItem from="1536647756365" duration="4519000" />
-      <workItem from="1536675069715" duration="4708000" />
+      <workItem from="1536675069715" duration="7397000" />
+      <workItem from="1536725762551" duration="3709000" />
     </task>
     <task id="LOCAL-00001" summary="Test Case Edit Tab finished implement Logger.">
       <created>1536579398975</created>
@@ -361,11 +372,18 @@
       <option name="project" value="LOCAL" />
       <updated>1536579398976</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Macro Logger finished implement Logger.">
+      <created>1536680238589</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1536680238589</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30388000" />
+    <option name="totallyTimeSpent" value="36786000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -380,29 +398,29 @@
     <frame x="-6" y="-6" width="1549" height="837" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49277458" side_tool="true" visible="true" weight="0.20696583" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49277458" side_tool="true" visible="true" weight="0.21299396" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Persistence" order="2" sideWeight="0.50722545" side_tool="true" weight="0.13931681" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info anchor="bottom" id="Inspection Results" weight="0.32947975" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49832553" weight="0.32658958" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49698594" weight="0.32658958" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49698594" visible="true" weight="0.112716764" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39884394" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32947975" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32803467" />
       <window_info anchor="bottom" id="Database Console" order="7" weight="0.13294798" />
       <window_info anchor="bottom" id="Hibernate Console" order="8" weight="0.32947975" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Messages" order="11" sideWeight="0.49832553" visible="true" weight="0.32658958" />
+      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49832553" weight="0.32658958" />
       <window_info anchor="bottom" id="Terminal" order="12" />
       <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.5030141" side_tool="true" weight="0.32658958" />
       <window_info anchor="bottom" id="Dependency Viewer" order="14" weight="0.32947975" />
       <window_info anchor="bottom" id="Java Enterprise" order="15" />
+      <window_info anchor="bottom" id="Inspection Results" order="16" weight="0.32947975" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -460,92 +478,6 @@
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/Libraries/hibernate-release-5.3.5.Final/project/tooling/metamodel-generator/src/test/resources/org/hibernate/jpamodelgen/test/xmlonly/persistence.xml" />
-    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/DB/TestCase.hbm.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/Backup Files(Old Version).iml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="das://91702316-8f1d-4edb-8550-af8db0bd678f/schema/main/table/iterations">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/DB/Iterations.hbm.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="5" column="71" lean-forward="true" selection-start-line="5" selection-start-column="71" selection-end-line="5" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/DB/CaseExecutions.hbm.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="5" column="86" selection-start-line="5" selection-start-column="86" selection-end-line="5" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/hibernate.reveng.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="uml://DATABASE/91702316-8f1d-4edb-8550-af8db0bd678f">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>DATABASE</ID>
-          <OriginalElement>91702316-8f1d-4edb-8550-af8db0bd678f</OriginalElement>
-          <nodes>
-            <node x="" y="">91702316-8f1d-4edb-8550-af8db0bd678f.TABLE:main.test_campaign_test_case</node>
-            <node x="" y="">91702316-8f1d-4edb-8550-af8db0bd678f.TABLE:main.sqlite_master</node>
-            <node x="" y="">91702316-8f1d-4edb-8550-af8db0bd678f.TABLE:main.parameters_execution</node>
-            <node x="" y="">91702316-8f1d-4edb-8550-af8db0bd678f.TABLE:main.test_step</node>
-            <node x="" y="">91702316-8f1d-4edb-8550-af8db0bd678f.TABLE:main.test_campaign_has_user</node>
-            <node x="" y="">91702316-8f1d-4edb-8550-af8db0bd678f.TABLE:main.step_executions</node>
-            <node x="" y="">91702316-8f1d-4edb-8550-af8db0bd678f.TABLE:main.iterations</node>
-            <node x="" y="">91702316-8f1d-4edb-8550-af8db0bd678f.TABLE:main.script_execution_result</node>
-            <node x="" y="">91702316-8f1d-4edb-8550-af8db0bd678f.TABLE:main.case_executions</node>
-            <node x="" y="">91702316-8f1d-4edb-8550-af8db0bd678f.TABLE:main.case_executions_result</node>
-            <node x="" y="">91702316-8f1d-4edb-8550-af8db0bd678f.TABLE:main.user</node>
-            <node x="" y="">91702316-8f1d-4edb-8550-af8db0bd678f.TABLE:main.test_case</node>
-            <node x="" y="">91702316-8f1d-4edb-8550-af8db0bd678f.TABLE:main.script_executions</node>
-            <node x="" y="">91702316-8f1d-4edb-8550-af8db0bd678f.TABLE:main.macro</node>
-            <node x="" y="">91702316-8f1d-4edb-8550-af8db0bd678f.TABLE:main.parameters</node>
-            <node x="" y="">91702316-8f1d-4edb-8550-af8db0bd678f.TABLE:main.step_executions_result</node>
-            <node x="" y="">91702316-8f1d-4edb-8550-af8db0bd678f.TABLE:main.script</node>
-            <node x="" y="">91702316-8f1d-4edb-8550-af8db0bd678f.TABLE:main.macro_execution</node>
-            <node x="" y="">91702316-8f1d-4edb-8550-af8db0bd678f.TABLE:main.test_step_has_script</node>
-            <node x="" y="">91702316-8f1d-4edb-8550-af8db0bd678f.TABLE:main.requirement</node>
-            <node x="" y="">91702316-8f1d-4edb-8550-af8db0bd678f.TABLE:main.script_has_been_configured</node>
-            <node x="" y="">91702316-8f1d-4edb-8550-af8db0bd678f.TABLE:main.script_has_parameters</node>
-            <node x="" y="">91702316-8f1d-4edb-8550-af8db0bd678f.TABLE:main.param_script_macro</node>
-            <node x="" y="">91702316-8f1d-4edb-8550-af8db0bd678f.TABLE:main.test_step_has_requirement</node>
-            <node x="" y="">91702316-8f1d-4edb-8550-af8db0bd678f.TABLE:main.test_campaign</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="0.4200944032366824" x="732.0" y="723.0" />
-          <SelectedNodes />
-          <Categories>
-            <Category>Key columns</Category>
-            <Category>Columns</Category>
-          </Categories>
-          <SCOPE>All</SCOPE>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/DBcontroller/TestCampaignDB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-23">
-          <caret line="95" selection-start-line="95" selection-end-line="95" />
-        </state>
-      </provider>
-    </entry>
     <entry file="uml://Persistence/JavaeeElement:/4d1c9da5/hibernate.cfg.xml/Backup Files(Old Version)/hibernate/Hibernate/PersistenceModel">
       <provider selected="true" editor-type-id="UmlEditorProvider">
         <state>
@@ -638,9 +570,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="159">
           <caret line="123" selection-start-line="123" selection-end-line="123" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -659,24 +588,10 @@
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/DBcontroller/ConfigurationDB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="163" column="82" selection-start-line="163" selection-start-column="80" selection-end-line="163" selection-end-column="95" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/org/hibernate/dialect/SQLiteDialect.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6182">
           <caret line="324" selection-start-line="324" selection-end-line="324" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestexecution/TabTestCampaignExecutionBaselineCampaignController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14850">
-          <caret line="736" column="30" selection-start-line="736" selection-start-column="30" selection-end-line="736" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -700,13 +615,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestexecution/TabTestCampaignExecutionRepositoryBaselineController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="383" column="43" selection-start-line="383" selection-start-column="43" selection-end-line="383" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/controller/popup/PopUpCaseSelectionController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
@@ -725,13 +633,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
           <caret line="303" column="16" selection-start-line="303" selection-start-column="16" selection-end-line="303" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/DB/TestCase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="616" column="16" selection-start-line="616" selection-start-column="16" selection-end-line="616" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -760,13 +661,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2948">
           <caret line="169" selection-start-line="169" selection-end-line="169" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2244">
-          <caret line="131" column="37" selection-start-line="131" selection-start-column="37" selection-end-line="131" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -809,13 +703,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="174">
           <caret line="176" column="69" selection-start-line="176" selection-start-column="69" selection-end-line="176" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcase/TabTestCaseEditController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-33">
-          <caret line="491" column="42" selection-start-line="491" selection-start-column="42" selection-end-line="491" selection-end-column="42" />
         </state>
       </provider>
     </entry>
@@ -866,15 +753,135 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/controller/TATFrameController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="288" column="14" selection-start-line="288" selection-start-column="14" selection-end-line="288" selection-end-column="14" />
+        <state relative-caret-position="4709">
+          <caret line="356" column="50" lean-forward="true" selection-start-line="356" selection-start-column="50" selection-end-line="356" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/controller/scriptParameters/ScriptLineParameterController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1029">
+          <caret line="301" column="19" selection-start-line="301" selection-start-column="19" selection-end-line="301" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/engine/Engine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="83">
+          <caret line="586" column="7" lean-forward="true" selection-start-line="586" selection-start-column="7" selection-end-line="586" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestexecution/TabTestCampaignExecutionMainViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-66">
+          <caret line="37" column="38" lean-forward="true" selection-start-line="37" selection-start-column="38" selection-end-line="37" selection-end-column="38" />
+          <folding>
+            <element signature="e#8242#8243#0" expanded="true" />
+            <element signature="e#8319#8320#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/javafx.controls/javafx/scene/control/cell/PropertyValueFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="183" selection-start-line="183" selection-end-line="183" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/model/initColumn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="269" column="45" lean-forward="true" selection-start-line="269" selection-start-column="45" selection-end-line="269" selection-end-column="45" />
+          <folding>
+            <element signature="e#16129#18035#0" expanded="true" />
+            <element signature="e#18034#18035#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="137" selection-start-line="137" selection-end-line="137" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/DB/TestCase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="304" lean-forward="true" selection-start-line="304" selection-end-line="304" />
+          <folding>
+            <element signature="e#10045#10046#0" expanded="true" />
+            <element signature="e#10095#10096#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://079e1941-a342-489e-88f3-9dbc2c5243ea/schema/main/table/test_case">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcase/TabTestCaseNewController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="530" column="25" lean-forward="true" selection-start-line="530" selection-start-column="25" selection-end-line="530" selection-end-column="25" />
+        <state relative-caret-position="216">
+          <caret line="268" column="57" lean-forward="true" selection-start-line="268" selection-start-column="57" selection-end-line="268" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcase/TabTestCaseEditController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="106">
+          <caret line="444" column="109" selection-start-line="444" selection-start-column="109" selection-end-line="444" selection-end-column="109" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestexecution/TabTestCampaignExecutionRepositoryBaselineController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="323" column="14" lean-forward="true" selection-start-line="323" selection-start-column="14" selection-end-line="323" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestexecution/TabTestCampaignExecutionBaselineCampaignController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="487">
+          <caret line="780" column="16" selection-start-line="780" selection-start-column="16" selection-end-line="780" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/controller/popup/PopUpcaseExcelValidationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-176">
+          <caret line="174" column="48" selection-start-line="174" selection-start-column="48" selection-end-line="174" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/Backup Files(Old Version)/Libraries/poi-3.16.jar!/org/apache/poi/hssf/usermodel/HSSFWorkbook.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="581" column="21" selection-start-line="581" selection-start-column="21" selection-end-line="581" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ideaLibSources/poi-3.16-sources.jar!/org/apache/poi/hssf/usermodel/HSSFWorkbook.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="1038" column="21" selection-start-line="1038" selection-start-column="21" selection-end-line="1038" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/DBcontroller/ConfigurationDB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="95" column="103" selection-start-line="95" selection-start-column="103" selection-end-line="95" selection-end-column="103" />
         </state>
       </provider>
     </entry>

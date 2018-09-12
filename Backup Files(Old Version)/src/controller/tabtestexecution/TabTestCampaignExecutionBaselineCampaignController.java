@@ -12,7 +12,6 @@ import configuration.settings;
 import controller.popup.PopUpcaseExcelValidationController;
 import controller.tablestep.HeaderTableStepController;
 import controller.tablestep.TableStepScriptCreationController;
-import controller.tabtestcase.TabTestCaseNewController;
 import controller.util.CommonFunctions;
 import javafx.beans.property.StringProperty;
 import javafx.beans.value.ObservableValue;
@@ -40,7 +39,6 @@ import javafx.util.Duration;
 import main.Main;
 import model.initColumn;
 import model.util;
-import org.apache.log4j.Logger;
 import org.controlsfx.control.Notifications;
 
 import java.io.File;
@@ -241,8 +239,9 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
                 (ActionEvent event) -> {
                     try {
                         this.main.updateBaselineTree();
+                        CommonFunctions.reportLog.info("User successfully validate baseline: "+ this.BaselineName);
                     } catch (ParseException ex) {
-                        Logger.getLogger(TabTestCampaignExecutionBaselineCampaignController.class.getName()).error("", ex);
+                        CommonFunctions.debugLog.error("", ex);
                     }
                     TabTestCampaignExecutionRepositoryBaselineController execController = new TabTestCampaignExecutionRepositoryBaselineController();
                     execController.runCampaign(BaselineName);
@@ -277,7 +276,7 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
                                 sheetNumber = null;
                                 excelChoose = true;
                             }
-                            if (excelChoose == true) {
+                            if (excelChoose) {
                                 alertBox2();
                                 //Connect to Database for operation. Intended to add an additional layer of validation upfront.
                                 try {
@@ -298,7 +297,7 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
                                     try {
                                         th.join();
                                     } catch (InterruptedException ex) {
-                                        Logger.getLogger(TabTestCampaignExecutionBaselineCampaignController.class.getName()).error("", ex);
+                                        CommonFunctions.debugLog.error("", ex);
                                     }
                                     closeAlert(alert);
                                     //this.notificationBaselinCase();
@@ -311,8 +310,9 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
                                     } else {
                                         numberOfCases = 0;  //To restore numOfCases back to origina state (If exception is encountered)
                                     }
+                                    CommonFunctions.reportLog.info("User successfully validated test case: " + this.selected.getTestCaseTitle());
                                 } catch (Exception ex) {
-                                    CommonFunctions.displayAlert(AlertType.ERROR, "Exeption Found when opening Excel File",
+                                    CommonFunctions.displayAlert(AlertType.ERROR, "Exception Found when opening Excel File",
                                             "Invalid Excel Configuration", "Please refer to the log to adjust Excel Configurations");
                                 }
                             }
@@ -388,7 +388,7 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
         try {
             this.gridPane.add((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream()), 1, 1, 3, 1);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseNewController.class.getName()).error("", ex);
+            CommonFunctions.debugLog.error("", ex);
         }
         controllerTableStep = fxmlLoader.getController();
 
@@ -397,7 +397,7 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
             AnchorPane paneTest = (AnchorPane) fxmlLoader2.load(getClass().getResource("/view/stepcreation/headerTableStep.fxml").openStream());
             this.gridPane.add(paneTest, 1, 0, 3, 1);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseNewController.class.getName()).error("", ex);
+            CommonFunctions.debugLog.error("", ex);
         }
         controllerHeaderTableStep = fxmlLoader2.getController();
         controllerHeaderTableStep.init(controllerTableStep);
@@ -501,14 +501,10 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
      * the label will be displayed in black
      *
      * @param label    the label for which change the color
-     * @param newValue the string to check
+     * @param empty the string to check
      */
     private void changeColorLabel(Label label, Boolean empty) {
-        if (empty) {
-            label.setTextFill(Color.RED);
-        } else {
-            label.setTextFill(Color.BLACK);
-        }
+        label.setTextFill(empty ? Color.RED : Color.BLACK);
     }
 
     /**
@@ -528,7 +524,7 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
      * @param testCampaign test campaign to configure
      * @return an arrayList of testCase to configure in the campaign
      */
-    public ArrayList<TestCase> getCasesToConfigure(TestCampaign testCampaign) {
+    private ArrayList<TestCase> getCasesToConfigure(TestCampaign testCampaign) {
         ArrayList<TestCase> testCases = testCaseHandler.getTestCasesFromTestCampaign(testCampaign);
         //ArrayList<TestCase> testCasesDifferent = new ArrayList<>();
         testCases.stream().forEach((testCase) -> {
@@ -722,7 +718,7 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
             try {
                 Files.copy(excelFile.toPath(), pathToCopy);
             } catch (IOException ex) {
-                Logger.getLogger(TabTestCampaignExecutionBaselineCampaignController.class.getName()).error("", ex);
+                CommonFunctions.debugLog.error("", ex);
             }
         }
     }
@@ -730,7 +726,7 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
     /**
      *
      */
-    public void deleteFolderConfiguration() {
+    private void deleteFolderConfiguration() {
         File index = new File(settings.scriptsPaht + "\\" + baseline.getTestCampaign().getReference() + "\\" + baseline.getBaselineId());
         String[] entries = index.list();
         if (entries != null) {
@@ -746,7 +742,7 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
         try {
             FXMLLoader fxmlLoader = new FXMLLoader();
             AnchorPane instantiatePane = fxmlLoader.load(getClass().getResource("/view/popup/popUpcaseExcelValidation.fxml").openStream());
-            popUpChooseExcel = (PopUpcaseExcelValidationController) fxmlLoader.getController();
+            popUpChooseExcel = fxmlLoader.getController();
             instantiateCase = new Stage();
             instantiateCase.setTitle("Value Instantiation");
             instantiateCase.initModality(Modality.WINDOW_MODAL);
@@ -761,7 +757,7 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
             instantiateCase.setX(Main.primaryStage.getX() + Main.primaryStage.getWidth() / 2 - instantiateCase.getWidth() / 2);
             instantiateCase.setY(Main.primaryStage.getY() + Main.primaryStage.getHeight() / 2 - instantiateCase.getHeight() / 2);
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCampaignExecutionBaselineCampaignController.class.getName()).error("", ex);
+            CommonFunctions.debugLog.error("", ex);
         }
     }
 

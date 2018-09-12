@@ -442,7 +442,7 @@ public class TabTestCaseEditController implements Initializable {
         }
         session.save(thisTestCase);
         session.beginTransaction().commit();        //This can generate a new ID for reference
-        reportLogMsg += "After Editing Test Case :" + Objects.requireNonNull(thisTestCase).getTestCaseIdentification() + System.lineSeparator();
+        reportLogMsg += "After Editing Test Case :" + Objects.requireNonNull(thisTestCase).getTestCaseTitle() + System.lineSeparator();
         StringBuilder reportLogMsgBuilder = new StringBuilder(reportLogMsg);
         for (int i = 0; i < numberOfTestStep; i++) {
             StepLineTableStepController current = observableTestStep.get(i);

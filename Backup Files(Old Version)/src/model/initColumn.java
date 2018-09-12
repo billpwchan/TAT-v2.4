@@ -5,45 +5,27 @@
  */
 package model;
 
-import DB.CaseExecutions;
-import DB.Iterations;
-import DB.Requirement;
-import DB.Script;
-import DB.TestCampaign;
-import DB.TestCase;
-import DB.TestStep;
+import DB.*;
 import controller.tabtestexecution.TabViewResultsController;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.css.PseudoClass;
-import javafx.geometry.Pos;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableColumn.CellDataFeatures;
-import javafx.scene.control.TableView;
-import javafx.scene.control.Tooltip;
-import javafx.scene.control.TreeItem;
-import javafx.scene.control.TreeTableCell;
-import javafx.scene.control.TreeTableColumn;
-import javafx.scene.control.TreeTableRow;
-import javafx.scene.control.TreeTableView;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.util.Callback;
+import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.paint.Color;
-import javafx.beans.value.ChangeListener;
-import javafx.scene.input.MouseEvent;
+import javafx.css.PseudoClass;
 import javafx.event.EventHandler;
-import javafx.scene.control.cell.TextFieldTableCell;
-import javafx.scene.control.TableColumn.CellEditEvent;
+import javafx.geometry.Pos;
+import javafx.scene.control.*;
+import javafx.scene.control.TableColumn.CellDataFeatures;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.util.Callback;
+
+import java.util.Objects;
 
 /**
  *
@@ -162,7 +144,7 @@ public class initColumn {
         categoryOfTest.setCellValueFactory(new PropertyValueFactory<>("categoryOfTest"));
         location.setCellValueFactory(new PropertyValueFactory<>("location"));
 
-        titleCase.setCellValueFactory(new PropertyValueFactory<>("caseTitle"));
+        titleCase.setCellValueFactory(new PropertyValueFactory<>("testCaseTitle"));
         testMethodIadt.setCellValueFactory(new PropertyValueFactory<>("testMethodIadt"));
         writingStatus.setCellValueFactory(new PropertyValueFactory<>("writingStatus"));
         writer.setCellValueFactory(new PropertyValueFactory<>("writter"));
@@ -381,7 +363,7 @@ public class initColumn {
                                 setGraphic(choice);
 
                             } else {
-                                if (item == "NExec") {
+                                if (Objects.equals(item, "NExec")) {
                                     setText(item);
                                     setStyle(" -fx-control-inner-background: #D9D9D9;\n"
                                             + " -fx-background-color: -fx-table-cell-border-color, -fx-control-inner-background;\n"
@@ -857,7 +839,7 @@ public class initColumn {
         configured.setText("Configured");
 
         caseID.setCellValueFactory(new PropertyValueFactory<>("testCaseIdentification"));
-        caseTitle.setCellValueFactory(new PropertyValueFactory<>("caseTitle"));
+        caseTitle.setCellValueFactory(new PropertyValueFactory<>("testCaseTitle"));
         configured.setCellValueFactory(new PropertyValueFactory<>("simpleStringConfigured"));
 
         tableViewTestCase.getColumns().addAll(caseID,

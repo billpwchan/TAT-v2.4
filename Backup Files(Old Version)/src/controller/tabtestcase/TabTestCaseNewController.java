@@ -14,8 +14,6 @@ import controller.tablestep.ScriptLineTableStepController;
 import controller.tablestep.StepLineTableStepController;
 import controller.tablestep.TableStepScriptCreationController;
 import controller.util.CommonFunctions;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
@@ -268,7 +266,7 @@ public class TabTestCaseNewController implements Initializable {
         ObservableList<StepLineTableStepController> observableTestStep = controllerTableStep.getCollectionTestStep();
         int numberOfTestStep = observableTestStep.size();
         TestCase thisTestCase = constructTestCase();
-        reportLogMsg += "After Creating Test Case :" + Objects.requireNonNull(thisTestCase).getTestCaseIdentification() + System.lineSeparator();
+        reportLogMsg += "After Creating Test Case :" + Objects.requireNonNull(thisTestCase).getTestCaseTitle() + System.lineSeparator();
         StringBuilder reportLogMsgBuilder = new StringBuilder(reportLogMsg);
         for (int i = 0; i < numberOfTestStep; i++) {
             StepLineTableStepController current = observableTestStep.get(i);
@@ -404,113 +402,71 @@ public class TabTestCaseNewController implements Initializable {
     }
 
     private void initializeFieldListener() {
-        this.jtextfieldCaseIDNew.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(final ObservableValue<? extends String> observable, final String oldValue, final String newValue) {
-                changeColorLabel(labelCaseIDNew, newValue);
-                if (displayWarningIncorrectInputFormat("Case ID", textfieldCaseIDMaxLength, newValue.length() > textfieldCaseIDMaxLength)) {
-                    jtextfieldCaseIDNew.setText(oldValue);
-                }
+        this.jtextfieldCaseIDNew.textProperty().addListener((observable, oldValue, newValue) -> {
+            changeColorLabel(labelCaseIDNew, newValue);
+            if (displayWarningIncorrectInputFormat("Case ID", textfieldCaseIDMaxLength, newValue.length() > textfieldCaseIDMaxLength)) {
+                jtextfieldCaseIDNew.setText(oldValue);
             }
         });
-        this.jtextfieldTestCategoryCaseNew.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(final ObservableValue<? extends String> observable, final String oldValue, final String newValue) {
-                changeColorLabel(labelTestCategoryCaseNew, newValue);
-                if (displayWarningIncorrectInputFormat("Test Category", textfieldTestCategoryMaxLength, newValue.length() > textfieldTestCategoryMaxLength)) {
-                    jtextfieldTestCategoryCaseNew.setText(oldValue);
-                }
-            }
-
-        });
-        this.jtextfieldTestEnvironementCaseNew.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(final ObservableValue<? extends String> observable, final String oldValue, final String newValue) {
-                changeColorLabel(labelTestEnvironementCaseNew, newValue);
-                if (CommonFunctions.displayWarningIncorrectInputFormat("Test Environement", textfieldTestEnvironementMaxLength, newValue.length() > textfieldTestCategoryMaxLength)) {
-                    jtextfieldTestEnvironementCaseNew.setText(oldValue);
-                }
+        this.jtextfieldTestCategoryCaseNew.textProperty().addListener((observable, oldValue, newValue) -> {
+            changeColorLabel(labelTestCategoryCaseNew, newValue);
+            if (displayWarningIncorrectInputFormat("Test Category", textfieldTestCategoryMaxLength, newValue.length() > textfieldTestCategoryMaxLength)) {
+                jtextfieldTestCategoryCaseNew.setText(oldValue);
             }
         });
-        this.jtextfieldCaseTitleNew.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(final ObservableValue<? extends String> observable, final String oldValue, final String newValue) {
-                if (CommonFunctions.displayWarningIncorrectInputFormat("Test Title", textfieldCaseTitleMaxLength, newValue.length() > textfieldCaseTitleMaxLength)) {
-                    jtextfieldCaseTitleNew.setText(oldValue);
-                }
+        this.jtextfieldTestEnvironementCaseNew.textProperty().addListener((observable, oldValue, newValue) -> {
+            changeColorLabel(labelTestEnvironementCaseNew, newValue);
+            if (CommonFunctions.displayWarningIncorrectInputFormat("Test Environement", textfieldTestEnvironementMaxLength, newValue.length() > textfieldTestCategoryMaxLength)) {
+                jtextfieldTestEnvironementCaseNew.setText(oldValue);
             }
         });
-        this.jtextfieldCaseVersionNew.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(final ObservableValue<? extends String> observable, final String oldValue, final String newValue) {
-                if (CommonFunctions.displayWarningIncorrectInputFormat("Test Case Version", textfieldCaseVersionMaxLength, newValue.length() > textfieldCaseVersionMaxLength)) {
-                    jtextfieldCaseVersionNew.setText(oldValue);
-                }
+        this.jtextfieldCaseTitleNew.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (CommonFunctions.displayWarningIncorrectInputFormat("Test Title", textfieldCaseTitleMaxLength, newValue.length() > textfieldCaseTitleMaxLength)) {
+                jtextfieldCaseTitleNew.setText(oldValue);
             }
         });
-        this.jtextfieldProjectCaseNew.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(final ObservableValue<? extends String> observable, final String oldValue, final String newValue) {
-                if (CommonFunctions.displayWarningIncorrectInputFormat("Project", textfieldProjectMaxLength, newValue.length() > textfieldProjectMaxLength)) {
-                    jtextfieldProjectCaseNew.setText(oldValue);
-                }
+        this.jtextfieldCaseVersionNew.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (CommonFunctions.displayWarningIncorrectInputFormat("Test Case Version", textfieldCaseVersionMaxLength, newValue.length() > textfieldCaseVersionMaxLength)) {
+                jtextfieldCaseVersionNew.setText(oldValue);
             }
         });
-        this.jtextfieldTypeTestCaseNew.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(final ObservableValue<? extends String> observable, final String oldValue, final String newValue) {
-                if (CommonFunctions.displayWarningIncorrectInputFormat("Project", textfieldTypeTestMaxLength, newValue.length() > textfieldTypeTestMaxLength)) {
-                    jtextfieldTypeTestCaseNew.setText(oldValue);
-                }
+        this.jtextfieldProjectCaseNew.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (CommonFunctions.displayWarningIncorrectInputFormat("Project", textfieldProjectMaxLength, newValue.length() > textfieldProjectMaxLength)) {
+                jtextfieldProjectCaseNew.setText(oldValue);
             }
         });
-        this.jtextfieldTestCategoryCaseNew.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(final ObservableValue<? extends String> observable, final String oldValue, final String newValue) {
-                changeColorLabel(labelTestCategoryCaseNew, newValue);
-                if (CommonFunctions.displayWarningIncorrectInputFormat("Test Category", textfieldTestCategoryMaxLength, newValue.length() > textfieldTestCategoryMaxLength)) {
-                    jtextfieldTestCategoryCaseNew.setText(oldValue);
-                }
+        this.jtextfieldTypeTestCaseNew.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (CommonFunctions.displayWarningIncorrectInputFormat("Project", textfieldTypeTestMaxLength, newValue.length() > textfieldTypeTestMaxLength)) {
+                jtextfieldTypeTestCaseNew.setText(oldValue);
             }
         });
-        this.jtextfieldLocationCaseNew.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(final ObservableValue<? extends String> observable, final String oldValue, final String newValue) {
-                if (CommonFunctions.displayWarningIncorrectInputFormat("Location", textfieldLocationMaxLength, newValue.length() > textfieldLocationMaxLength)) {
-                    jtextfieldLocationCaseNew.setText(oldValue);
-                }
+        this.jtextfieldTestCategoryCaseNew.textProperty().addListener((observable, oldValue, newValue) -> {
+            changeColorLabel(labelTestCategoryCaseNew, newValue);
+            if (CommonFunctions.displayWarningIncorrectInputFormat("Test Category", textfieldTestCategoryMaxLength, newValue.length() > textfieldTestCategoryMaxLength)) {
+                jtextfieldTestCategoryCaseNew.setText(oldValue);
             }
         });
-        this.jtextfieldWriterCaseNew.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(final ObservableValue<? extends String> observable, final String oldValue, final String newValue) {
-                if (CommonFunctions.displayWarningIncorrectInputFormat("Writer", textfieldWriterMaxLength, newValue.length() > textfieldWriterMaxLength)) {
-                    jtextfieldWriterCaseNew.setText(oldValue);
-                }
+        this.jtextfieldLocationCaseNew.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (CommonFunctions.displayWarningIncorrectInputFormat("Location", textfieldLocationMaxLength, newValue.length() > textfieldLocationMaxLength)) {
+                jtextfieldLocationCaseNew.setText(oldValue);
             }
         });
-        this.jtextfieldWriterEmailCaseNew.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(final ObservableValue<? extends String> observable, final String oldValue, final String newValue) {
-                if (CommonFunctions.displayWarningIncorrectInputFormat("Writer Email", textfieldWriterEmailMaxLength, newValue.length() > textfieldWriterEmailMaxLength)) {
-                    jtextfieldWriterEmailCaseNew.setText(oldValue);
-                }
+        this.jtextfieldWriterCaseNew.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (CommonFunctions.displayWarningIncorrectInputFormat("Writer", textfieldWriterMaxLength, newValue.length() > textfieldWriterMaxLength)) {
+                jtextfieldWriterCaseNew.setText(oldValue);
             }
         });
-        this.jtextfieldCaseSourceNew.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(final ObservableValue<? extends String> observable, final String oldValue, final String newValue) {
-                if (CommonFunctions.displayWarningIncorrectInputFormat("Case Source", textfieldCaseSourceMaxLength, newValue.length() > textfieldCaseSourceMaxLength)) {
-                    jtextfieldCaseSourceNew.setText(oldValue);
-                }
+        this.jtextfieldWriterEmailCaseNew.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (CommonFunctions.displayWarningIncorrectInputFormat("Writer Email", textfieldWriterEmailMaxLength, newValue.length() > textfieldWriterEmailMaxLength)) {
+                jtextfieldWriterEmailCaseNew.setText(oldValue);
             }
         });
-        this.jtextareaObjectivesCaseNew.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(final ObservableValue<? extends String> Observable, final String oldValue, final String newValue) {
-                changeColorLabel(labelDescriptionCaseNew, newValue);
+        this.jtextfieldCaseSourceNew.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (CommonFunctions.displayWarningIncorrectInputFormat("Case Source", textfieldCaseSourceMaxLength, newValue.length() > textfieldCaseSourceMaxLength)) {
+                jtextfieldCaseSourceNew.setText(oldValue);
             }
         });
+        this.jtextareaObjectivesCaseNew.textProperty().addListener((Observable, oldValue, newValue) -> changeColorLabel(labelDescriptionCaseNew, newValue));
     }
 
     /**

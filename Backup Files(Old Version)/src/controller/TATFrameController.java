@@ -356,7 +356,7 @@ public class TATFrameController implements Initializable {
         Image imgExec = new Image(getClass().getResourceAsStream("/images/execution2.png"), globalSize, globalSize, true, true);
         ImageView ivExec = new ImageView(imgExec);
 
-        // Set the rigth icon to each tab.
+        // Set the right icon to each tab.
         this.tabRequirement.setGraphic(ivReq);
         this.tabScripts.setGraphic(ivScript);
         this.tabMacro.setGraphic(ivMacro);

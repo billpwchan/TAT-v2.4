@@ -1,33 +1,20 @@
 package engine;
 
-import DB.CaseExecutions;
-import DB.Macro;
-import DB.ParamScriptMacro;
-import DB.ParametersExecution;
-import DB.Script;
-import DB.ScriptExecutions;
-import DB.StepExecutions;
-import DBcontroller.MacroDB;
-import DBcontroller.ScriptExecutionDB;
-import DBcontroller.TestCaseDB;
-import DBcontroller.TestExecution;
-import DBcontroller.TestStepDB;
+import DB.*;
+import DBcontroller.*;
 import com.google.common.base.Throwables;
 import configuration.settings;
 import controller.popup.PopUpRunController;
+import model.TestCasesExecution;
+import org.apache.log4j.Logger;
+
 import java.io.File;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
-import model.TestCasesExecution;
-import org.apache.log4j.Logger;
+import java.util.*;
 
 /**
  * Class for the engine of the software. The tests are launched by this class.
@@ -359,7 +346,7 @@ public class Engine {
      * @param hashMap the hashmap of test step results
      * @param numberScripts
      */
-    public void stateMachineMacro(HashMap<String, Integer> hashMap, int numberScripts) {
+    private void stateMachineMacro(HashMap<String, Integer> hashMap, int numberScripts) {
         Logger.getLogger(Engine.class.getName()).debug("RESULT MACRO");
         Logger.getLogger(Engine.class.getName()).debug("NUMBER OF SCRIPT IN MACRO = " + numberScripts);
         if (hashMap.get(resultOKWC) == 0 && hashMap.get(resultNOK) == 0 && hashMap.get(resultNotTestable) == 0 && hashMap.get(resultOutOfScope) != numberScripts) {
@@ -383,7 +370,7 @@ public class Engine {
      * @param hashMap the hashmap of test step results
      * @param numberScript the number of scripts in the step
      */
-    public void stateMachineStepResult(HashMap<String, Integer> hashMap, int numberScript) {
+    private void stateMachineStepResult(HashMap<String, Integer> hashMap, int numberScript) {
         Logger.getLogger(Engine.class.getName()).debug("IN RESULT");
         if (hashMap.get(resultOKWC) == 0 && hashMap.get(resultNOK) == 0 && hashMap.get(resultNotTestable) == 0 && hashMap.get(resultOutOfScope) != numberScript) {
             Logger.getLogger(Engine.class.getName()).debug("OKWC");
@@ -423,7 +410,7 @@ public class Engine {
      * @param nbCaseOS number of cases OS
      * @param numberCases total number of test cases
      */
-    public void stateMachineIterationResult(int nbCaseOK, int nbCaseNOK, int nbCaseOKWC, int nbCaseNtestable, int nbCaseIncomplete, int nbCaseOS, int numberCases) {
+    private void stateMachineIterationResult(int nbCaseOK, int nbCaseNOK, int nbCaseOKWC, int nbCaseNtestable, int nbCaseIncomplete, int nbCaseOS, int numberCases) {
         if (nbCaseOKWC == 0 && nbCaseNOK == 0 && nbCaseNtestable == 0 && nbCaseOS != numberCases) {
             iterationResult = resultOK;
         } else if (nbCaseNOK > 0) {
@@ -444,7 +431,7 @@ public class Engine {
      *
      * @param hashMapNumber Hashmap for the results of test steps
      */
-    public void startCaseInit(HashMap<String, Integer> hashMapNumber) {
+    private void startCaseInit(HashMap<String, Integer> hashMapNumber) {
         //hashMap.clear();
         hashMapNumber.put(resultOK, 0);
         hashMapNumber.put(resultNOK, 0);
@@ -462,7 +449,7 @@ public class Engine {
      * @param caseHandler the TestCaseDB to use
      * @param averageTimeCase
      */
-    public void endCaseSetResultChartAndDB(CaseExecutions currentTestCase, TestCaseDB caseHandler, float averageTimeCase) {
+    private void endCaseSetResultChartAndDB(CaseExecutions currentTestCase, TestCaseDB caseHandler, float averageTimeCase) {
         Logger.getLogger(Engine.class.getName()).debug("Case result = " + caseResult);
         currentTestCase.setCaseExecutionResult(caseResult);
         popUpRunController.setNumberNotExecuted(nbCaseOK, nbCaseOKWC, nbCaseNOK, nbCaseNtestable, nbCaseIncomplete, nbCaseOS, nbCaseNT);
@@ -488,7 +475,7 @@ public class Engine {
      * @param comment the comment to set
      * @param currentScript the script to which set the result
      */
-    public void setScriptCommentAndResult(String result, String comment, ScriptExecutions currentScript) {
+    private void setScriptCommentAndResult(String result, String comment, ScriptExecutions currentScript) {
         currentScript.setScriptExecutionResult(result);
         currentScript.setScriptExecutionComment(comment);
     }
@@ -509,7 +496,7 @@ public class Engine {
      * @param comment the comment to set
      * @param currentStep
      */
-    public void setStepCommentAndResult(String result, String comment, StepExecutions currentStep) {
+    private void setStepCommentAndResult(String result, String comment, StepExecutions currentStep) {
         currentStep.setStepExecutionResult(result);
         currentStep.setStepExecutionComment(comment);
     }
@@ -529,7 +516,7 @@ public class Engine {
      * @throws IllegalArgumentException
      * @throws java.lang.reflect.InvocationTargetException
      */
-    public void runStimuliScript(String script, ArrayList<ParametersExecution> parameters, HashMap hashMap)
+    private void runStimuliScript(String script, ArrayList<ParametersExecution> parameters, HashMap hashMap)
             throws MalformedURLException, ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
         //get the name of the class of the script
         File root = new File(settings.scriptsPaht + "\\" + script + ".jar");
@@ -570,7 +557,7 @@ public class Engine {
      * @throws IllegalArgumentException
      * @throws InvocationTargetException
      */
-    public Result runCheckScript(String script, ArrayList<ParametersExecution> parameters, HashMap hashMap)
+    private Result runCheckScript(String script, ArrayList<ParametersExecution> parameters, HashMap hashMap)
             throws ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException, MalformedURLException {
         File root = new File(settings.scriptsPaht + "\\" + script + ".jar");
         Class<?> classe = null;
@@ -610,7 +597,7 @@ public class Engine {
      * @throws InvocationTargetException
      * @throws java.net.MalformedURLException
      */
-    public void closeScript(String script) throws ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, MalformedURLException {
+    private void closeScript(String script) throws ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, MalformedURLException {
         File root = new File(settings.scriptsPaht + "\\" + script + ".jar");
         Class<?> classe = null;
         if (root.exists()) {

@@ -7,8 +7,6 @@ package controller.popup;
 
 import controller.tabtestexecution.TabTestCampaignExecutionBaselineCampaignController;
 import controller.util.CommonFunctions;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -17,7 +15,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 
 import java.net.URL;
@@ -30,9 +27,7 @@ import java.util.ResourceBundle;
  */
 public class PopUpcaseExcelValidationController implements Initializable {
 
-    private final static String Separator = ("" + ((char) 007));
-    @FXML
-    private AnchorPane anchorPaneCampaignCreation;
+    private final static String Separator = ("" + ((char) 7));
     @FXML
     private Button buttonOk;
     @FXML
@@ -102,35 +97,29 @@ public class PopUpcaseExcelValidationController implements Initializable {
             buttonOk.setDisable(newValue.trim().isEmpty());
         });
 
-        checkboxLocation.selectedProperty().addListener(new ChangeListener<Boolean>() {
-            @Override
-            public void changed(ObservableValue<? extends Boolean> obs, Boolean wasPreviouslySelected, Boolean isNowSelected) {
-                if (isNowSelected) {
-                    fieldColumnPositionLocation.setDisable(false);
-                    fieldRowPositionLocation.setDisable(false);
-                    setColorsLocation();
-                } else {
-                    fieldColumnPositionLocation.setDisable(true);
-                    fieldRowPositionLocation.setDisable(true);
-                    labelColumnLocation.setTextFill(Color.BLACK);
-                    labelRowLocation.setTextFill(Color.BLACK);
-                }
+        checkboxLocation.selectedProperty().addListener((obs, wasPreviouslySelected, isNowSelected) -> {
+            if (isNowSelected) {
+                fieldColumnPositionLocation.setDisable(false);
+                fieldRowPositionLocation.setDisable(false);
+                setColorsLocation();
+            } else {
+                fieldColumnPositionLocation.setDisable(true);
+                fieldRowPositionLocation.setDisable(true);
+                labelColumnLocation.setTextFill(Color.BLACK);
+                labelRowLocation.setTextFill(Color.BLACK);
             }
         });
 
-        checkBoxCategory.selectedProperty().addListener(new ChangeListener<Boolean>() {
-            @Override
-            public void changed(ObservableValue<? extends Boolean> obs, Boolean wasPreviouslySelected, Boolean isNowSelected) {
-                if (isNowSelected) {
-                    fieldColumnPositionCategory.setDisable(false);
-                    fieldRowPositionCategory.setDisable(false);
-                    setColorsCategory();
-                } else {
-                    fieldColumnPositionCategory.setDisable(true);
-                    fieldRowPositionCategory.setDisable(true);
-                    labelColumnCategory.setTextFill(Color.BLACK);
-                    labelRowCategory.setTextFill(Color.BLACK);
-                }
+        checkBoxCategory.selectedProperty().addListener((obs, wasPreviouslySelected, isNowSelected) -> {
+            if (isNowSelected) {
+                fieldColumnPositionCategory.setDisable(false);
+                fieldRowPositionCategory.setDisable(false);
+                setColorsCategory();
+            } else {
+                fieldColumnPositionCategory.setDisable(true);
+                fieldRowPositionCategory.setDisable(true);
+                labelColumnCategory.setTextFill(Color.BLACK);
+                labelRowCategory.setTextFill(Color.BLACK);
             }
         });
 
@@ -190,7 +179,7 @@ public class PopUpcaseExcelValidationController implements Initializable {
         boolean isInteger = true;
 
         try {
-            numFieldRange = (int) Integer.valueOf(this.fieldRange.getText());
+            numFieldRange = Integer.valueOf(this.fieldRange.getText());
         } catch (NumberFormatException e) {
             isInteger = false;
             CommonFunctions.displayAlert(AlertType.ERROR, "Invalid Input", "Number of Lines inputed is not an Integer", "Number of Lines inputed is not an Integer. Please input a valid integer.");

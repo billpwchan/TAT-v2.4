@@ -10,6 +10,7 @@ import DB.User;
 import DBcontroller.UserDB;
 import DBcontroller.sessionFactorySingleton;
 import controller.TATFrameController;
+import controller.util.CommonFunctions;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -29,7 +30,6 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import model.Classe;
 import model.HMI;
-import org.apache.log4j.Logger;
 import org.controlsfx.dialog.LoginDialog;
 import org.hibernate.SessionFactory;
 
@@ -111,7 +111,7 @@ public class Main extends Application {
         UserDB userHandler = new UserDB();
         Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
         LoginDialog dlg = new LoginDialog(null, null);
-        while (currentUser == null && tryAgain == true && askUser == true) {
+        while (currentUser == null && tryAgain && askUser) {
             dlg.showAndWait().ifPresent(result -> {
                 currentUser = userHandler.getUser(result.getKey(), result.getValue());
             });
@@ -141,19 +141,6 @@ public class Main extends Application {
 
                 Main.primaryStage = primaryStage;
                 tatFrameController.setPrimaryStage(Main.primaryStage);
-//                
-//              Iterations it = new Iterations();
-//              Iterations it2 = new Iterations();
-//              IterationDB itDB = new IterationDB();
-//              //it = itDB.getIterationFromBaselineID("1166B Demo");
-//              it2 = itDB.getIterationFromID(296);
-//              System.out.println(it2.getIditerations());
-//              System.out.println(it2.getBaselineId());
-//              System.out.println(it2.getIterationResult());
-//              WriteReport newReport = new WriteReport();
-//              newReport.createReport(it2);
-//                
-
                 primaryStage.setOnCloseRequest((WindowEvent event) -> {
                     SessionFactory factory = sessionFactorySingleton.getInstance();
 
@@ -169,7 +156,7 @@ public class Main extends Application {
 //            Main.primaryStage.setWidth(primaryScreenBounds.getWidth());
 //            Main.primaryStage.setHeight(primaryScreenBounds.getHeight());
             } catch (IOException ex) {
-                Logger.getLogger(Main.class.getName()).error("Exception Caught: ", ex);
+                CommonFunctions.debugLog.error("Exception Caught: ", ex);
             }
         }
         //set Stage boundaries to visible bounds of the main screen

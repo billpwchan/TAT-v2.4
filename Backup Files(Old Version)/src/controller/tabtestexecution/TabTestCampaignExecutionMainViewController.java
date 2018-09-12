@@ -8,7 +8,7 @@ package controller.tabtestexecution;
 import DB.Iterations;
 import DB.TestCampaign;
 import controller.TATFrameController;
-import controller.tabtestcase.TabTestCaseMainViewController;
+import controller.util.CommonFunctions;
 import javafx.beans.value.ObservableValue;
 import javafx.concurrent.Task;
 import javafx.event.Event;
@@ -63,10 +63,10 @@ public class TabTestCampaignExecutionMainViewController implements Initializable
         try {
             AnchorPane campaignsPane = fxmlLoader.load(getClass().getResource("/view/testexecution/TabTestCampaignExecutionRepositoryBaseline.fxml").openStream());
             this.campaigns.setContent(campaignsPane);
-            repositoryBaselineController = (TabTestCampaignExecutionRepositoryBaselineController) fxmlLoader.getController();
+            repositoryBaselineController = fxmlLoader.getController();
             repositoryBaselineController.init(this);
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCampaignExecutionRepositoryBaselineController.class.getName()).error("", ex);
+            CommonFunctions.debugLog.error("", ex);
         }
         this.tabPaneTestCampaignExecution.setTabClosingPolicy(TabPane.TabClosingPolicy.SELECTED_TAB);
 
@@ -83,15 +83,15 @@ public class TabTestCampaignExecutionMainViewController implements Initializable
      *
      * @param campaign the campaign to baseline
      */
-    public void createBaseline(TestCampaign campaign) {
-
+    void createBaseline(TestCampaign campaign) {
         if (!searchPanel(currentBaselineTab, campaign.getIdtestCampaign())) {
             try {
+                CommonFunctions.reportLog.info("User open baseline: " + campaign.getReference());
                 Tab view = new Tab();
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 AnchorPane baselinePane = fxmlLoader.load(getClass().getResource("/view/testexecution/TabTestCampaignExecutionBaselineCampaign.fxml").openStream());
                 view.setContent(baselinePane);
-                baselineController = (TabTestCampaignExecutionBaselineCampaignController) fxmlLoader.getController();
+                baselineController = fxmlLoader.getController();
                 baselineController.init(this);
                 view.setText("Baseline : " + campaign.getReference());
                 this.tabPaneTestCampaignExecution.getTabs().add(view);
@@ -107,9 +107,8 @@ public class TabTestCampaignExecutionMainViewController implements Initializable
                     currentBaselineTab.remove(BaselineCurrent);
                 });
             } catch (IOException ex) {
-                Logger.getLogger(TabTestCaseMainViewController.class.getName()).error("", ex);
+                CommonFunctions.debugLog.error("", ex);
             }
-        } else {
         }
     }
 
@@ -118,8 +117,7 @@ public class TabTestCampaignExecutionMainViewController implements Initializable
      *
      * @param iteration
      */
-    public void displayViewTab(Iterations iteration) {
-
+    void displayViewTab(Iterations iteration) {
         Task<Void> task = new Task<Void>() {
             @Override
             protected Void call() throws Exception {
@@ -138,8 +136,9 @@ public class TabTestCampaignExecutionMainViewController implements Initializable
             Logger.getLogger(TabTestCampaignExecutionMainViewController.class.getName()).error("", ex);
         }
         view.setContent(editPane);
-        viewController = (TabViewResultsController) fxmlLoader.getController();
+        viewController = fxmlLoader.getController();
         viewController.init(this);
+        CommonFunctions.reportLog.info("User view Iteration: " + iteration.getBaselineId());
         view.setText("View : " + iteration.getBaselineId());
         this.tabPaneTestCampaignExecution.getTabs().add(view);
         th.start();
@@ -158,7 +157,7 @@ public class TabTestCampaignExecutionMainViewController implements Initializable
     private boolean searchPanel(ArrayList<currentTab> currentTab, int ID) {
         boolean found = false;
         int i = 0;
-        while (i < currentTab.size() && found == false) {
+        while (i < currentTab.size() && !found) {
             if (currentTab.get(i).getID() == ID) {
                 found = true;
                 index = i;
@@ -189,6 +188,7 @@ public class TabTestCampaignExecutionMainViewController implements Initializable
         searchPanel(currentBaselineTab, ID);
         boolean j = this.currentBaselineTab.remove(this.currentBaselineTab.get(index));
         this.tabPaneTestCampaignExecution.getTabs().remove(this.tabPaneTestCampaignExecution.getSelectionModel().getSelectedItem());
+        CommonFunctions.reportLog.info("User close Baseline Tab.");
     }
 
     /**
@@ -206,7 +206,7 @@ public class TabTestCampaignExecutionMainViewController implements Initializable
      *
      * @param testCampaign the campaign to view
      */
-    public void viewTestCampaign(TestCampaign testCampaign) {
+    void viewTestCampaign(TestCampaign testCampaign) {
         this.mainFrameController.callViewToTestCampaign(testCampaign);
     }
 
