@@ -74,9 +74,12 @@ public class ConfigurationDB {
                 try {
                     sheet = workbook.getSheetAt(Integer.parseInt(sheetNumber.replace("@&Number_", "").trim()) - 1);
                 } catch (IllegalArgumentException ex) {
-                    CommonFunctions.displayAlert(Alert.AlertType.ERROR, "Excel Validation Exception", "Cannot find specified sheet (Index out of range):", "Please re-check the sheet number");
-                    CommonFunctions.debugLog.error("Invalid Sheet Number provided", ex);
+                    Platform.runLater(() -> {
+                        CommonFunctions.displayAlert(Alert.AlertType.ERROR, "Excel Validation Exception", "Cannot find specified sheet (Index out of range):", "Please re-check the sheet number");
+                        CommonFunctions.debugLog.error("Invalid Sheet Number provided", ex);
+                    });
                     sheet = null;
+                    return -1;
                 }
             } else if (sheetNumber.contains("@&Name_")) {
                 try {
@@ -85,17 +88,13 @@ public class ConfigurationDB {
                         throw new Exception();
                     }   //Cannot find specified sheet in Excel Workbook.
                 } catch (Exception ex) {
-                    CommonFunctions.displayAlert(Alert.AlertType.ERROR, "Excel Validation Exception", "Cannot find specified sheet (Index out of range):", "Please re-check the sheet number");
-                    CommonFunctions.debugLog.error("Invalid Sheet Name provided", ex);
+                    Platform.runLater(() -> {
+                        CommonFunctions.displayAlert(Alert.AlertType.ERROR, "Excel Validation Exception", "Cannot find specified sheet (Index out of range):", "Please re-check the sheet number");
+                        CommonFunctions.debugLog.error("Invalid Sheet Name provided", ex);
+                    });
+                    return -1;
                 }
             }
-        }
-
-        if (sheet == null) {
-            Platform.runLater(() -> {
-                CommonFunctions.debugLog.debug("Exit Excel Data Extraction, proceeed to previous step.");
-            });
-            return -1;
         }
 
         Short caseOrder = (short) caseNumber;

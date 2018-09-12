@@ -7,21 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1112526d-0f70-45f5-97f9-62ef4a880793" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Libraries.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Libraries.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/DBcontroller/ConfigurationDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/DBcontroller/ConfigurationDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/TATFrameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/TATFrameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/popup/PopUpcaseExcelValidationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/popup/PopUpcaseExcelValidationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/scriptParameters/ScriptLineParameterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/scriptParameters/ScriptLineParameterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcase/TabTestCaseEditController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcase/TabTestCaseEditController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcase/TabTestCaseNewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcase/TabTestCaseNewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestexecution/TabTestCampaignExecutionBaselineCampaignController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestexecution/TabTestCampaignExecutionBaselineCampaignController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestexecution/TabTestCampaignExecutionMainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestexecution/TabTestCampaignExecutionMainViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestexecution/TabTestCampaignExecutionRepositoryBaselineController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestexecution/TabTestCampaignExecutionRepositoryBaselineController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/engine/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/engine/Engine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/model/initColumn.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/model/initColumn.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mydb.db" beforeDir="false" afterPath="$PROJECT_DIR$/mydb.db" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -65,13 +53,13 @@
     <session id="736936950">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="6" />
+          <entry key="project.closed" value="7" />
           <entry key="project.open.time.11" value="2" />
-          <entry key="project.open.time.12" value="1" />
+          <entry key="project.open.time.12" value="2" />
           <entry key="project.open.time.14" value="2" />
           <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="7" />
+          <entry key="project.opened" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -107,16 +95,16 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="3444" />
+          <entry key="java" value="3474" />
           <entry key="properties" value="10" />
           <entry key="snippet" value="174" />
-          <entry key="txt" value="67" />
+          <entry key="txt" value="131" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="3444" />
-          <entry key="PLAIN_TEXT" value="67" />
+          <entry key="JAVA" value="3474" />
+          <entry key="PLAIN_TEXT" value="131" />
           <entry key="Properties" value="10" />
           <entry key="Scratch" value="174" />
         </counts>
@@ -128,8 +116,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/controller/popup/PopUpcaseExcelValidationController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-176">
-              <caret line="174" column="48" selection-start-line="174" selection-start-column="48" selection-end-line="174" selection-end-column="48" />
+            <state relative-caret-position="154">
+              <caret line="171" column="48" selection-start-line="171" selection-start-column="48" selection-end-line="171" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -137,8 +125,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/DBcontroller/ConfigurationDB.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="95" column="103" selection-start-line="95" selection-start-column="103" selection-end-line="95" selection-end-column="103" />
+            <state relative-caret-position="132">
+              <caret line="97" column="9" selection-start-line="97" selection-start-column="9" selection-end-line="97" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -146,7 +134,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="jar://$USER_HOME$/.ideaLibSources/poi-3.16-sources.jar!/org/apache/poi/hssf/usermodel/HSSFWorkbook.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
+            <state relative-caret-position="19734">
               <caret line="1038" column="21" selection-start-line="1038" selection-start-column="21" selection-end-line="1038" selection-end-column="21" />
             </state>
           </provider>
@@ -155,8 +143,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestexecution/TabTestCampaignExecutionBaselineCampaignController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="487">
-              <caret line="780" column="16" selection-start-line="780" selection-start-column="16" selection-end-line="780" selection-end-column="16" />
+            <state relative-caret-position="276">
+              <caret line="264" column="25" selection-start-line="264" selection-start-column="25" selection-end-line="264" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -186,10 +174,11 @@
       <find>button</find>
       <find>casetitle</find>
       <find>validconfigur</find>
-      <find>validconfig</find>
       <find>report</find>
       <find>identification</find>
       <find>logger</find>
+      <find>valid</find>
+      <find>validconfig</find>
     </findStrings>
     <replaceStrings>
       <replace>CommonFunctions.debugLog.</replace>
@@ -267,6 +256,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -308,7 +298,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -363,7 +352,8 @@
       <workItem from="1536559504144" duration="10327000" />
       <workItem from="1536647756365" duration="4519000" />
       <workItem from="1536675069715" duration="7397000" />
-      <workItem from="1536725762551" duration="3709000" />
+      <workItem from="1536725762551" duration="3800000" />
+      <workItem from="1536737993954" duration="433000" />
     </task>
     <task id="LOCAL-00001" summary="Test Case Edit Tab finished implement Logger.">
       <created>1536579398975</created>
@@ -379,11 +369,18 @@
       <option name="project" value="LOCAL" />
       <updated>1536680238589</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Validate excel sheet name (ConfigurationDB.java)">
+      <created>1536734786890</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1536734786890</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36786000" />
+    <option name="totallyTimeSpent" value="37310000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -398,7 +395,7 @@
     <frame x="-6" y="-6" width="1549" height="837" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49277458" side_tool="true" visible="true" weight="0.21299396" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49277458" side_tool="true" visible="true" weight="0.21567315" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Persistence" order="2" sideWeight="0.50722545" side_tool="true" weight="0.13931681" />
       <window_info id="Designer" order="3" />
@@ -406,7 +403,7 @@
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49832553" weight="0.32658958" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49698594" visible="true" weight="0.112716764" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49698594" visible="true" weight="0.23554914" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39884394" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -471,11 +468,13 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Test Case Edit Tab finished implement Logger." />
     <MESSAGE value="Macro Logger finished implement Logger." />
-    <option name="LAST_COMMIT_MESSAGE" value="Macro Logger finished implement Logger." />
+    <MESSAGE value="Validate excel sheet name (ConfigurationDB.java)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Validate excel sheet name (ConfigurationDB.java)" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
-    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
     <entry file="uml://Persistence/JavaeeElement:/4d1c9da5/hibernate.cfg.xml/Backup Files(Old Version)/hibernate/Hibernate/PersistenceModel">
@@ -745,9 +744,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="83">
           <caret line="91" lean-forward="true" selection-start-line="91" selection-end-line="91" />
-          <folding>
-            <element signature="method#addListenerScript#0;class#CommonFunctions#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -776,10 +772,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-66">
           <caret line="37" column="38" lean-forward="true" selection-start-line="37" selection-start-column="38" selection-end-line="37" selection-end-column="38" />
-          <folding>
-            <element signature="e#8242#8243#0" expanded="true" />
-            <element signature="e#8319#8320#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -794,10 +786,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
           <caret line="269" column="45" lean-forward="true" selection-start-line="269" selection-start-column="45" selection-end-line="269" selection-end-column="45" />
-          <folding>
-            <element signature="e#16129#18035#0" expanded="true" />
-            <element signature="e#18034#18035#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -812,10 +800,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
           <caret line="304" lean-forward="true" selection-start-line="304" selection-end-line="304" />
-          <folding>
-            <element signature="e#10045#10046#0" expanded="true" />
-            <element signature="e#10095#10096#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -847,23 +831,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestexecution/TabTestCampaignExecutionBaselineCampaignController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="780" column="16" selection-start-line="780" selection-start-column="16" selection-end-line="780" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/controller/popup/PopUpcaseExcelValidationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-176">
-          <caret line="174" column="48" selection-start-line="174" selection-start-column="48" selection-end-line="174" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/Backup Files(Old Version)/Libraries/poi-3.16.jar!/org/apache/poi/hssf/usermodel/HSSFWorkbook.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -873,15 +840,32 @@
     </entry>
     <entry file="jar://$USER_HOME$/.ideaLibSources/poi-3.16-sources.jar!/org/apache/poi/hssf/usermodel/HSSFWorkbook.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
+        <state relative-caret-position="19734">
           <caret line="1038" column="21" selection-start-line="1038" selection-start-column="21" selection-end-line="1038" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/controller/popup/PopUpcaseExcelValidationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="171" column="48" selection-start-line="171" selection-start-column="48" selection-end-line="171" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestexecution/TabTestCampaignExecutionBaselineCampaignController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="264" column="25" selection-start-line="264" selection-start-column="25" selection-end-line="264" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/DBcontroller/ConfigurationDB.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="95" column="103" selection-start-line="95" selection-start-column="103" selection-end-line="95" selection-end-column="103" />
+        <state relative-caret-position="132">
+          <caret line="97" column="9" selection-start-line="97" selection-start-column="9" selection-end-line="97" selection-end-column="9" />
         </state>
       </provider>
     </entry>
