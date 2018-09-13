@@ -142,29 +142,13 @@ public class PopUpcaseExcelValidationController implements Initializable {
     }
 
     private void setColorsLocation() {
-        if (fieldColumnPositionLocation.getText().isEmpty()) {
-            labelColumnLocation.setTextFill(Color.RED);
-        } else {
-            labelColumnLocation.setTextFill(Color.BLACK);
-        }
-        if (fieldRowPositionLocation.getText().isEmpty()) {
-            labelRowLocation.setTextFill(Color.RED);
-        } else {
-            labelRowLocation.setTextFill(Color.BLACK);
-        }
+        labelColumnLocation.setTextFill(fieldColumnPositionLocation.getText().isEmpty() ? Color.RED : Color.BLACK);
+        labelRowLocation.setTextFill(fieldRowPositionLocation.getText().isEmpty() ? Color.RED : Color.BLACK);
     }
 
     private void setColorsCategory() {
-        if (fieldColumnPositionCategory.getText().isEmpty()) {
-            labelColumnCategory.setTextFill(Color.RED);
-        } else {
-            labelColumnCategory.setTextFill(Color.BLACK);
-        }
-        if (fieldRowPositionCategory.getText().isEmpty()) {
-            labelRowCategory.setTextFill(Color.RED);
-        } else {
-            labelRowCategory.setTextFill(Color.BLACK);
-        }
+        labelColumnCategory.setTextFill(fieldColumnPositionCategory.getText().isEmpty() ? Color.RED : Color.BLACK);
+        labelRowCategory.setTextFill(fieldRowPositionCategory.getText().isEmpty() ? Color.RED : Color.BLACK);
     }
 
     private void okClick() {
@@ -184,7 +168,7 @@ public class PopUpcaseExcelValidationController implements Initializable {
             isInteger = false;
             CommonFunctions.displayAlert(AlertType.ERROR, "Invalid Input", "Number of Lines inputed is not an Integer", "Number of Lines inputed is not an Integer. Please input a valid integer.");
         } catch (Exception ex) {
-            CommonFunctions.debugLog.error("Invlaid Num Field Range in Excel Validation", ex);
+            CommonFunctions.debugLog.error("Invalid Num Field Range in Excel Validation", ex);
         }
         if (isInteger) {
             this.mainController.setRange(Integer.parseInt(this.fieldRange.getText())); //sets range
