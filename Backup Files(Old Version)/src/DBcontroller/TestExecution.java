@@ -5,29 +5,16 @@
  */
 package DBcontroller;
 
-import DB.CaseExecutions;
-import DB.CaseExecutionsResult;
-import DB.CaseExecutionsResultId;
-import DB.Iterations;
-import DB.ScriptExecutionResult;
-import DB.ScriptExecutionResultId;
-import DB.ScriptExecutions;
-import DB.StepExecutions;
-import DB.StepExecutionsResult;
-import DB.StepExecutionsResultId;
-import DB.TestCampaign;
+import DB.*;
+import org.hibernate.*;
+import org.hibernate.criterion.Projections;
+import org.hibernate.criterion.Restrictions;
+
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
-import org.hibernate.Criteria;
-import org.hibernate.Hibernate;
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Projections;
-import org.hibernate.criterion.Restrictions;
 
 /**
  *
@@ -51,7 +38,7 @@ public class TestExecution {
         ArrayList<Iterations> baselines = new ArrayList<>();
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
-        Query qry = session.createQuery("select IT from Iterations IT where IT.testCampaign.idtestCampaign=:campaignId  group by IT.baselineId");
+        Query qry = session.createQuery("select IT from Iterations IT where IT.testCampaign.idtestCampaign=:campaignId group by IT.baselineId");
         qry.setInteger("campaignId", campaign.getIdtestCampaign());
         baselines = (ArrayList) qry.list();
         for (Iterations baseline : baselines) {
@@ -123,27 +110,51 @@ public class TestExecution {
     }
 
     /**
+     * For iterations with iteration number 0 (Baseline)
+     *
+     * @param iteration
+     */
+    public void deleteBaseline(Iterations iteration) {
+        SessionFactory factory = sessionFactorySingleton.getInstance();
+        Session session = factory.openSession();
+        Query qry = session.createQuery("delete from Iterations IT where IT.testCampaign.idtestCampaign=:campaignId and IT.baselineId=:baselineID");
+        qry.setString("baselineID", iteration.getBaselineId());
+        qry.setInteger("campaignId", iteration.getTestCampaign().getIdtestCampaign());
+        session.beginTransaction().commit();
+        qry = session.createQuery("delete from CaseExecutionsResult CE where CE.baselineId=:baselineID");
+        qry.setString("baselineID", iteration.getBaselineId());
+        session.beginTransaction().commit();
+        qry = session.createQuery("delete from StepExecutionsResult SE where SE.baselineId=:baselineID");
+        qry.setString("baselineID", iteration.getBaselineId());
+        session.beginTransaction().commit();
+        qry = session.createQuery("delete from ScriptExecutionResult SE where SE.baselineId=:baselineID");
+        qry.setString("baselineID", iteration.getBaselineId());
+        session.beginTransaction().commit();
+        session.close();
+    }
+
+    /**
      *
      * @param caseExecution
      * @param iterationNumber
      */
-    public void resultInDB(CaseExecutions caseExecution, int iterationNumber) {
+    public void resultInDB(CaseExecutions caseExecution, int iterationNumber, String baselineId) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
         CaseExecutionsResultId caseResultId = new CaseExecutionsResultId(caseExecution.getIdcaseExecutions(), (byte) iterationNumber);
-        CaseExecutionsResult caseResult = new CaseExecutionsResult(caseResultId, caseExecution, caseExecution.getCaseExecutionResult(), caseExecution.getCaseExecutionComment());
+        CaseExecutionsResult caseResult = new CaseExecutionsResult(caseResultId, caseExecution, caseExecution.getCaseExecutionResult(), caseExecution.getCaseExecutionComment(), baselineId);
         session.save(caseResult);
         Iterator<StepExecutions> itStepExecutions = caseExecution.getStepExecutionses().iterator();
         while (itStepExecutions.hasNext()) {
             StepExecutions stepExecution = itStepExecutions.next();
             StepExecutionsResultId stepResultId = new StepExecutionsResultId(stepExecution.getIdstepExecutions(), (byte) iterationNumber);
-            StepExecutionsResult stepResult = new StepExecutionsResult(stepResultId, stepExecution, stepExecution.getStepExecutionResult(), stepExecution.getStepExecutionComment());
+            StepExecutionsResult stepResult = new StepExecutionsResult(stepResultId, stepExecution, stepExecution.getStepExecutionResult(), stepExecution.getStepExecutionComment(), baselineId);
             session.save(stepResult);
             Iterator<ScriptExecutions> itScriptExecutions = stepExecution.getScriptExecutionses().iterator();
             while (itScriptExecutions.hasNext()) {
                 ScriptExecutions scriptExecution = itScriptExecutions.next();
                 ScriptExecutionResultId scriptResultId = new ScriptExecutionResultId(scriptExecution.getIdscriptExecutions(), (byte) iterationNumber);
-                ScriptExecutionResult scriptResult = new ScriptExecutionResult(scriptResultId, scriptExecution, scriptExecution.getScriptExecutionResult(), scriptExecution.getScriptExecutionComment());
+                ScriptExecutionResult scriptResult = new ScriptExecutionResult(scriptResultId, scriptExecution, scriptExecution.getScriptExecutionResult(), scriptExecution.getScriptExecutionComment(), baselineId);
                 session.save(scriptResult);
             }
         }

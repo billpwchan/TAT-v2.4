@@ -15,6 +15,9 @@
         <many-to-one name="scriptExecutions" class="DB.ScriptExecutions" update="false" insert="false" fetch="select">
             <column name="script_executions_idscript_executions" not-null="true" />
         </many-to-one>
+        <property name="baselineId" type="string">
+            <column name="baseline_id" length="20" not-null="true" />
+        </property>
         <property name="result" type="string">
             <column name="result" length="6" not-null="true" />
         </property>

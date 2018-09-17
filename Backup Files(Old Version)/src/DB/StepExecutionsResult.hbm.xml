@@ -15,6 +15,9 @@
         <many-to-one name="stepExecutions" class="DB.StepExecutions" update="false" insert="false" fetch="select">
             <column name="step_executions_idstep_executions" not-null="true" />
         </many-to-one>
+        <property name="baselineId" type="string">
+            <column name="baseline_id" length="20" not-null="true" />
+        </property>
         <property name="result" type="string">
             <column name="result" length="6" not-null="true" />
         </property>

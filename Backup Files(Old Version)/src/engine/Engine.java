@@ -5,8 +5,8 @@ import DBcontroller.*;
 import com.google.common.base.Throwables;
 import configuration.settings;
 import controller.popup.PopUpRunController;
+import controller.util.CommonFunctions;
 import model.TestCasesExecution;
-import org.apache.log4j.Logger;
 
 import java.io.File;
 import java.lang.reflect.Constructor;
@@ -64,7 +64,7 @@ public class Engine {
     }
 
     /**
-     * Method which launch the sequence of tests.
+     * Method which launch the sequence of tests. Should store the result into
      *
      * @throws Exception
      */
@@ -102,7 +102,7 @@ public class Engine {
             long tempsDebut2 = System.currentTimeMillis();
             long tempsFin2 = System.currentTimeMillis();
             float seconds2 = (tempsFin2 - tempsDebut2) / 1000F;
-            //Logger.getLogger(Engine.class.getName()).debug("QUERY TIME= " + Float.toString(seconds2));
+            //CommonFunctions.debugLog.debug("QUERY TIME= " + Float.toString(seconds2));
             //currentTestCaseAndSteps.setStepsExecutionsAndScripts(testStepsExecutionAndScripts);
             //popUpRunController.callDisplaySteps(currentTestCase);
             currentTestCase.setCaseExecutionResult("In execution");
@@ -168,7 +168,7 @@ public class Engine {
                                                 param.setParamOrder(paramScMacro.getScriptHasParameters().getParamOrder());
                                                 paramScriptMacro.add(param);
                                             } catch (Exception ex) {
-                                                Logger.getLogger(Engine.class.getName()).error(
+                                                CommonFunctions.debugLog.error(
                                                         "Cannot set param value, please check paramScriptMacro Value: " + paramScMacro.getMacro().getIdmacro(), ex);
                                             }
                                         }
@@ -195,16 +195,16 @@ public class Engine {
                                             count = true;
                                         }
                                         tempsDebut3 = System.currentTimeMillis();
-                                        Logger.getLogger(Engine.class.getName()).debug("ScriptName : " + scriptName.toString());
-                                        Logger.getLogger(Engine.class.getName()).debug("paramScriptMacro : " + paramScriptMacro.toString());
+                                        CommonFunctions.debugLog.debug("ScriptName : " + scriptName.toString());
+                                        CommonFunctions.debugLog.debug("paramScriptMacro : " + paramScriptMacro.toString());
                                         //This line might cause exception. Catch the error here.
 
                                         testResult = runCheckScript(scriptName, paramScriptMacro, hashMap);
                                         tempsFin3 = System.currentTimeMillis();
                                         seconds3 = (tempsFin3 - tempsDebut3) / 1000F;
-                                        Logger.getLogger(Engine.class.getName()).debug("SCRIPT = " + scriptName);
-                                        //Logger.getLogger(Engine.class.getName()).debug("Script = " + scriptName + " effectue en : " + Float.toString(seconds3));
-                                        Logger.getLogger(Engine.class.getName()).debug("RESULT SCRIPT MACRO = " + testResult.getResult());
+                                        CommonFunctions.debugLog.debug("SCRIPT = " + scriptName);
+                                        //CommonFunctions.debugLog.debug("Script = " + scriptName + " effectue en : " + Float.toString(seconds3));
+                                        CommonFunctions.debugLog.debug("RESULT SCRIPT MACRO = " + testResult.getResult());
 
                                         hashMapNumberResultMacro.put(testResult.getResult(), hashMapNumberResultMacro.get(testResult.getResult()) + 1);
                                         setMacroComment(testResult.getResult(), testResult.getComment(), currentScript, mac.getScriptByScriptIdScript1());
@@ -252,19 +252,19 @@ public class Engine {
                         stateMachineStepResult(hashMapNumberResultScript, scriptNumber);
                         currentStep.setStepExecutionResult(stepResult);
                     }
-                    Logger.getLogger(Engine.class.getName()).debug("RESULT STEP = " + stepResult);
+                    CommonFunctions.debugLog.debug("RESULT STEP = " + stepResult);
                     hashMapNumberResultSteps.put(stepResult, hashMapNumberResultSteps.get(stepResult) + 1);
 
                 }
 
                 tempsFin1 = System.currentTimeMillis();
                 seconds1 = (tempsFin1 - tempsDebut1) / 1000;
-                //Logger.getLogger(Engine.class.getName()).debug("Case execution in = " + seconds1);
-                //Logger.getLogger(Engine.class.getName()).debug("1ere part= " + (1 - 1 / (i + 1)) * averageTimeCase + " 2eme part= " + (1 / (i + 1)) * seconds1);
+                //CommonFunctions.debugLog.debug("Case execution in = " + seconds1);
+                //CommonFunctions.debugLog.debug("1ere part= " + (1 - 1 / (i + 1)) * averageTimeCase + " 2eme part= " + (1 / (i + 1)) * seconds1);
                 averageTimeCase = ((1 - 1 / ((float) i + 1)) * averageTimeCase + (1 / ((float) i + 1)) * seconds1);
-                //Logger.getLogger(Engine.class.getName()).debug("Average Time Case = " + averageTimeCase);
+                //CommonFunctions.debugLog.debug("Average Time Case = " + averageTimeCase);
                 iterationResultPercentage = ((double) nbCaseOK / (double) this.toExecute.size()) * 100;
-//                Logger.getLogger(Engine.class.getName()).debug("ITERATION RESULT = " + iterationResultPercentage);
+//                CommonFunctions.debugLog.debug("ITERATION RESULT = " + iterationResultPercentage);
                 this.popUpRunController.setIterationPercentage(iterationResultPercentage);
             }
             stateMachineCaseResult(hashMapNumberResultSteps, stepsNumber);
@@ -287,16 +287,16 @@ public class Engine {
         this.stateMachineMacro(hashMapNumberResultMacro, checkInMacro);
         setMacroResult(macroResult, currentScript);
         hashMapNumberResultScript.put(macroResult, hashMapNumberResultScript.get(macroResult) + 1);
-//        Logger.getLogger(Engine.class.getName()).debug("SCRIPT NUMBER = " + scriptNumber);
+//        CommonFunctions.debugLog.debug("SCRIPT NUMBER = " + scriptNumber);
         stateMachineStepResult(hashMapNumberResultScript, scriptNumber);
         currentStep.setStepExecutionResult(stepResult);
-//        Logger.getLogger(Engine.class.getName()).debug("RESULT STEP = " + stepResult);
+//        CommonFunctions.debugLog.debug("RESULT STEP = " + stepResult);
         hashMapNumberResultSteps.put(stepResult, hashMapNumberResultSteps.get(stepResult) + 1);
         tempsFin1 = System.currentTimeMillis();
         seconds1 = (tempsFin1 - tempsDebut1) / 1000;
         averageTimeCase = ((1 - 1 / ((float) i + 1)) * averageTimeCase + (1 / ((float) i + 1)) * seconds1);
         iterationResultPercentage = ((double) nbCaseOK / (double) this.toExecute.size()) * 100;
-//        Logger.getLogger(Engine.class.getName()).debug("ITERATION RESULT = " + iterationResultPercentage);
+//        CommonFunctions.debugLog.debug("ITERATION RESULT = " + iterationResultPercentage);
         this.popUpRunController.setIterationPercentage(iterationResultPercentage);
         this.stateMachineIterationResult(nbCaseOK, nbCaseNOK, nbCaseOKWC, nbCaseNtestable, nbCaseIncomplete, nbCaseOS, this.toExecute.size());
         this.closeAllScripts(set);
@@ -304,7 +304,7 @@ public class Engine {
         //Possibly caused by setMachineCaseResult.
         
 //        stateMachineCaseResult(hashMapNumberResultSteps, stepsNumber);
-////        Logger.getLogger(Engine.class.getName()).debug("Case result = " + caseResult);
+////        CommonFunctions.debugLog.debug("Case result = " + caseResult);
 //        currentTestCase.setCaseExecutionResult(caseResult);
 //        popUpRunController.setNumberNotExecuted(nbCaseOK, nbCaseOKWC, nbCaseNOK, nbCaseNtestable, nbCaseIncomplete, nbCaseOS, nbCaseNT);
 //        popUpRunController.updateAverageTimeCase(averageTimeCase, averageTimeCase * (float) nbCaseNT);
@@ -347,8 +347,8 @@ public class Engine {
      * @param numberScripts
      */
     private void stateMachineMacro(HashMap<String, Integer> hashMap, int numberScripts) {
-        Logger.getLogger(Engine.class.getName()).debug("RESULT MACRO");
-        Logger.getLogger(Engine.class.getName()).debug("NUMBER OF SCRIPT IN MACRO = " + numberScripts);
+        CommonFunctions.debugLog.debug("RESULT MACRO");
+        CommonFunctions.debugLog.debug("NUMBER OF SCRIPT IN MACRO = " + numberScripts);
         if (hashMap.get(resultOKWC) == 0 && hashMap.get(resultNOK) == 0 && hashMap.get(resultNotTestable) == 0 && hashMap.get(resultOutOfScope) != numberScripts) {
             macroResult = resultOK;
         } else if (hashMap.get(resultNOK) > 0) {
@@ -371,29 +371,29 @@ public class Engine {
      * @param numberScript the number of scripts in the step
      */
     private void stateMachineStepResult(HashMap<String, Integer> hashMap, int numberScript) {
-        Logger.getLogger(Engine.class.getName()).debug("IN RESULT");
+        CommonFunctions.debugLog.debug("IN RESULT");
         if (hashMap.get(resultOKWC) == 0 && hashMap.get(resultNOK) == 0 && hashMap.get(resultNotTestable) == 0 && hashMap.get(resultOutOfScope) != numberScript) {
-            Logger.getLogger(Engine.class.getName()).debug("OKWC");
+            CommonFunctions.debugLog.debug("OKWC");
             stepResult = resultOK;
             nbStepOK++;
         } else if (hashMap.get(resultNOK) > 0) {
-            Logger.getLogger(Engine.class.getName()).debug("NOK");
+            CommonFunctions.debugLog.debug("NOK");
             stepResult = resultNOK;
             nbStepNOK++;
         } else if (hashMap.get(resultOKWC) > 0) {
-            Logger.getLogger(Engine.class.getName()).debug("OKWC");
+            CommonFunctions.debugLog.debug("OKWC");
             stepResult = resultOKWC;
             nbStepOKWC++;
         } else if (hashMap.get(resultOK) == 0 && hashMap.get(resultOKWC) == 0 && hashMap.get(resultNOK) == 0 && hashMap.get(resultNotTestable) > 0) {
-            Logger.getLogger(Engine.class.getName()).debug("NT");
+            CommonFunctions.debugLog.debug("NT");
             stepResult = resultNotTestable;
             nbStepNotTestable++;
         } else if ((hashMap.get(resultOK) > 0 || hashMap.get(resultOKWC) > 0) && hashMap.get(resultNOK) == 0 && hashMap.get(resultNotTestable) > 0) {
-            Logger.getLogger(Engine.class.getName()).debug("IC");
+            CommonFunctions.debugLog.debug("IC");
             stepResult = resultIncomplete;
             nbStepIncomplete++;
         } else if (hashMap.get(resultOK) == 0 && hashMap.get(resultOKWC) == 0 && hashMap.get(resultNOK) == 0 && hashMap.get(resultNotTestable) == 0 && hashMap.get(resultOutOfScope) == numberScript) {
-            Logger.getLogger(Engine.class.getName()).debug("OS");
+            CommonFunctions.debugLog.debug("OS");
             stepResult = resultOutOfScope;
             nbStepOutOfScope++;
         }
@@ -450,11 +450,14 @@ public class Engine {
      * @param averageTimeCase
      */
     private void endCaseSetResultChartAndDB(CaseExecutions currentTestCase, TestCaseDB caseHandler, float averageTimeCase) {
-        Logger.getLogger(Engine.class.getName()).debug("Case result = " + caseResult);
+        CommonFunctions.debugLog.debug("Case result = " + caseResult);
+        System.out.println("!!!!!!!Baseline Name: " + this.baselineName);
+
+        //this.baselineName will show the name of Iteration (baselineId)
         currentTestCase.setCaseExecutionResult(caseResult);
         popUpRunController.setNumberNotExecuted(nbCaseOK, nbCaseOKWC, nbCaseNOK, nbCaseNtestable, nbCaseIncomplete, nbCaseOS, nbCaseNT);
         popUpRunController.updateAverageTimeCase(averageTimeCase, averageTimeCase * (float) nbCaseNT);
-        testExecutionHandler.resultInDB(currentTestCase, iteration);
+        testExecutionHandler.resultInDB(currentTestCase, iteration, this.baselineName);
         //caseHandler.updateDBwithResults(currentTestCase, (byte) iteration);
     }
 
@@ -463,7 +466,7 @@ public class Engine {
         String scriptName;
         while (it.hasNext()) {
             scriptName = (String) it.next();
-            //Logger.getLogger(Engine.class.getName()).debug("SCRIPT NAME = " + scriptName);
+            //CommonFunctions.debugLog.debug("SCRIPT NAME = " + scriptName);
             closeScript(scriptName);
         }
     }
@@ -575,7 +578,7 @@ public class Engine {
         //get the name of the class of the script
         if (parameters != null) {
             //if there is parameters for the test, execute the scripts with the parameters
-            Logger.getLogger(Engine.class.getName()).debug("Parameters is not null");
+            CommonFunctions.debugLog.debug("Parameters is not null");
             //Should not use catch here, but catch in PopUpRnController.java: 261
             return (Result) method.invoke(o, parameters, hashMap);
 

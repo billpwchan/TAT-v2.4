@@ -14,6 +14,16 @@ public class ScriptExecutionResult  implements java.io.Serializable {
      private String result;
      private String comment;
 
+    public String getBaselineId() {
+        return baselineId;
+    }
+
+    public void setBaselineId(String baselineId) {
+        this.baselineId = baselineId;
+    }
+
+    private String baselineId;
+
     /**
      *
      */
@@ -44,6 +54,22 @@ public class ScriptExecutionResult  implements java.io.Serializable {
        this.scriptExecutions = scriptExecutions;
        this.result = result;
        this.comment = comment;
+    }
+
+    /**
+     *
+     * @param id
+     * @param scriptExecutions
+     * @param result
+     * @param comment
+     * @param baselineId
+     */
+    public ScriptExecutionResult(ScriptExecutionResultId id, ScriptExecutions scriptExecutions, String result, String comment, String baselineId) {
+        this.id = id;
+        this.scriptExecutions = scriptExecutions;
+        this.result = result;
+        this.comment = comment;
+        this.baselineId = baselineId;
     }
    
     /**

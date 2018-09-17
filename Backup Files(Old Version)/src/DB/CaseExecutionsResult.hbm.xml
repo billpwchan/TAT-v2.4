@@ -15,6 +15,9 @@
         <many-to-one name="caseExecutions" class="DB.CaseExecutions" update="false" insert="false" fetch="select">
             <column name="case_executions_idcase_executions" not-null="true" />
         </many-to-one>
+        <property name="baselineId" type="string">
+            <column name="baseline_id" length="20" not-null="true" />
+        </property>
         <property name="result" type="string">
             <column name="result" length="6" />
         </property>

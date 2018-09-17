@@ -13,6 +13,16 @@ public class StepExecutionsResult  implements java.io.Serializable {
      private String result;
      private String comment;
 
+    public String getBaselineId() {
+        return baselineId;
+    }
+
+    public void setBaselineId(String baselineId) {
+        this.baselineId = baselineId;
+    }
+
+    private String baselineId;
+
     /**
      *
      */
@@ -43,6 +53,22 @@ public class StepExecutionsResult  implements java.io.Serializable {
        this.stepExecutions = stepExecutions;
        this.result = result;
        this.comment = comment;
+    }
+
+    /**
+     *
+     * @param id
+     * @param stepExecutions
+     * @param result
+     * @param comment
+     * @param baselineId
+     */
+    public StepExecutionsResult(StepExecutionsResultId id, StepExecutions stepExecutions, String result, String comment, String baselineId) {
+        this.id = id;
+        this.stepExecutions = stepExecutions;
+        this.result = result;
+        this.comment = comment;
+        this.baselineId = baselineId;
     }
    
     /**

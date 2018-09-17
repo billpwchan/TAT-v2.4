@@ -8,13 +8,14 @@ package DBcontroller;
 import DB.CaseExecutions;
 import DB.Iterations;
 import DB.TestCampaign;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.TreeSet;
 import org.hibernate.Hibernate;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.TreeSet;
 
 /**
  *
@@ -70,14 +71,17 @@ public class IterationDB {
     public void deleteExecution(Iterations ite) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
-        Query query = session.createQuery("delete from CaseExecutionsResult CER where CER.id.iterationNumber=:iterationNumber");
+        Query query = session.createQuery("delete from CaseExecutionsResult CER where CER.id.iterationNumber=:iterationNumber and CER.baselineId=:baselineId");
         query.setInteger("iterationNumber", ite.getIterationNumber());
+        query.setString("baselineId", ite.getBaselineId());
         query.executeUpdate();
-        query = session.createQuery("delete from StepExecutionsResult SER where SER.id.iterationNumber=:iterationNumber");
+        query = session.createQuery("delete from StepExecutionsResult SER where SER.id.iterationNumber=:iterationNumber and SER.baselineId=:baselineId");
         query.setInteger("iterationNumber", ite.getIterationNumber());
+        query.setString("baselineId", ite.getBaselineId());
         query.executeUpdate();
-        query = session.createQuery("delete from ScriptExecutionResult SER where SER.id.iterationNumber=:iterationNumber");
+        query = session.createQuery("delete from ScriptExecutionResult SER where SER.id.iterationNumber=:iterationNumber and SER.baselineId=:baselineId");
         query.setInteger("iterationNumber", ite.getIterationNumber());
+        query.setString("baselineId", ite.getBaselineId());
         query.executeUpdate();
         session.delete(ite);
         session.beginTransaction().commit();

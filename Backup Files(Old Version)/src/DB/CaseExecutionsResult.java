@@ -16,7 +16,7 @@ public class CaseExecutionsResult implements java.io.Serializable {
     private String newComment;
     private SimpleStringProperty simpleStringComment;
     private SimpleStringProperty OldCommentStringProperty;
-
+    private String baselineId;
     /**
      *
      */
@@ -45,6 +45,22 @@ public class CaseExecutionsResult implements java.io.Serializable {
         this.caseExecutions = caseExecutions;
         this.result = result;
         this.comment = comment;
+    }
+
+    /**
+     *
+     * @param id
+     * @param caseExecutions
+     * @param result
+     * @param comment
+     * @param baselineId
+     */
+    public CaseExecutionsResult(CaseExecutionsResultId id, CaseExecutions caseExecutions, String result, String comment, String baselineId) {
+        this.id = id;
+        this.caseExecutions = caseExecutions;
+        this.result = result;
+        this.comment = comment;
+        this.baselineId = baselineId;
     }
 
     /**
@@ -137,6 +153,15 @@ public class CaseExecutionsResult implements java.io.Serializable {
         return simpleStringCommentProperty().get();
     }
 
+
+
+    public String getBaselineId() {
+        return baselineId;
+    }
+
+    public void setBaselineId(String baselineId) {
+        this.baselineId = baselineId;
+    }
     /**
      *
      * @return

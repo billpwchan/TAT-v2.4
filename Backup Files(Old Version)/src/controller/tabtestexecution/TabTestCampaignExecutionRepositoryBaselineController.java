@@ -383,11 +383,12 @@ public class TabTestCampaignExecutionRepositoryBaselineController implements Ini
                             "Please refer to the log file for further information");
                 }
             } else if (this.selected.getType().equals("baseline")) {
-                ArrayList<Iterations> iterations;
-                iterations = testExecutionHandler.getExecutionsFromBaseline(selected);
-                for (Iterations iteration : iterations) {
-                    iteHandler.deleteExecution(iteration);
-                }
+                testExecutionHandler.deleteBaseline(this.selected);
+//                ArrayList<Iterations> iterations;
+//                iterations = testExecutionHandler.getExecutionsFromBaseline(selected);
+//                for (Iterations iteration : iterations) {
+//                    iteHandler.deleteExecution(iteration);
+//                }
                 try {
                     UpdateTreeItem();
                 } catch (ParseException ex) {
@@ -399,10 +400,11 @@ public class TabTestCampaignExecutionRepositoryBaselineController implements Ini
                 try {
                     arrayIt = testExecutionHandler.getBaselinesFromCampaign(this.selected.getTestCampaign());
                     for (Iterations anArrayIt : arrayIt) {
-                        arrayIterations = testExecutionHandler.getExecutionsFromBaseline(anArrayIt);
-                        for (Iterations arrayIteration : arrayIterations) {
-                            iteHandler.deleteExecution(arrayIteration);
-                        }
+                        testExecutionHandler.deleteBaseline(anArrayIt);
+//                        arrayIterations = testExecutionHandler.getExecutionsFromBaseline(anArrayIt);
+//                        for (Iterations arrayIteration : arrayIterations) {
+//                            iteHandler.deleteExecution(arrayIteration);
+//                        }
                     }
                     UpdateTreeItem();
                 } catch (ParseException ex) {
