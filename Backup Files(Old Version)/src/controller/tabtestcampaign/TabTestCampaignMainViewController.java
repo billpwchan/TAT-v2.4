@@ -8,6 +8,7 @@ package controller.tabtestcampaign;
 import DB.TestCampaign;
 import DB.TestCase;
 import controller.TATFrameController;
+import controller.util.CommonFunctions;
 import javafx.beans.value.ObservableValue;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -17,7 +18,6 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
 import model.currentTab;
-import org.apache.log4j.Logger;
 
 import java.io.IOException;
 import java.net.URL;
@@ -65,7 +65,7 @@ public class TabTestCampaignMainViewController implements Initializable {
             RepositoryController = (TabTestCampaignRepositoryController) fxmlLoader.getController();
             RepositoryController.init(this);
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCampaignMainViewController.class.getName()).error("", ex);
+            CommonFunctions.debugLog.error("", ex);
         }
         this.tabPaneTestCampaign.setTabClosingPolicy(TabPane.TabClosingPolicy.SELECTED_TAB);
 
@@ -92,19 +92,15 @@ public class TabTestCampaignMainViewController implements Initializable {
      * Method to open a tab in order to create a new campaign
      */
     public void displayNewTestCampaign() {
-        //Logger.getLogger(TabTestCaseMainViewController.class.getName()).error("", ex);
-
         Tab newTestCampaign = new Tab("New Campaign");
-        //System.out.println("HEERERERE");
         FXMLLoader fxmlLoader = new FXMLLoader();
-        //System.out.println("HEERERERE");
         try {
             AnchorPane addPane = fxmlLoader.load(getClass().getResource("/view/testcampaign/TabTestCampaignNew.fxml").openStream());
             newTestCampaign.setContent(addPane);
         } catch (Exception e) {
-            System.out.println("EXCEPTION E= " + e);
+            CommonFunctions.debugLog.error("Exception caught when opening TestCampaignNew", e);
         }
-        newController = (TabTestCampaignNewController) fxmlLoader.getController();
+        newController = fxmlLoader.getController();
         //System.out.println("INIT");
         newController.init(this);
         storeNewControler.put(newTestCampaign, newController);
@@ -144,7 +140,7 @@ public class TabTestCampaignMainViewController implements Initializable {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 AnchorPane editPane = fxmlLoader.load(getClass().getResource("/view/testcampaign/TabTestCampaignView.fxml").openStream());
                 view.setContent(editPane);
-                viewController = (TabTestCampaignViewController) fxmlLoader.getController();
+                viewController = fxmlLoader.getController();
                 viewController.init(this);
                 view.setText("View : " + campaign.getReference());
                 this.tabPaneTestCampaign.getTabs().add(view);
@@ -152,15 +148,14 @@ public class TabTestCampaignMainViewController implements Initializable {
                 view.setClosable(true);
                 currentTab viewCurrent = new currentTab(campaign.getIdtestCampaign(), view);
                 currentViewTab.add(viewCurrent);
-                //System.out.println(currentViewTab.size());
                 this.tabPaneTestCampaign.getSelectionModel().select(view);
-                //System.out.println(editCurrent);
                 view.setOnClosed((Event t) -> {
                     t.consume();
                     currentViewTab.remove(viewCurrent);
+                    CommonFunctions.reportLog.info("User cancel viewing " + campaign.getIdtestCampaign());
                 });
             } catch (IOException ex) {
-                Logger.getLogger(TabTestCampaignMainViewController.class.getName()).error("", ex);
+                CommonFunctions.debugLog.error("", ex);
             }
         }
     }
@@ -176,7 +171,7 @@ public class TabTestCampaignMainViewController implements Initializable {
     private boolean searchPanel(ArrayList<currentTab> currentTab, int ID) {
         boolean found = false;
         int i = 0;
-        while (i < currentTab.size() && found == false) {
+        while (i < currentTab.size() && !found) {
             if (currentTab.get(i).getID() == ID) {
                 found = true;
                 this.tabPaneTestCampaign.getSelectionModel().select(currentTab.get(i).getTab());

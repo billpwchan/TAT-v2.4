@@ -6,21 +6,16 @@
 package DBcontroller;
 //
 
-import DB.Iterations;
-import DB.TestCampaign;
-import DB.TestCampaignTestCase;
-import DB.TestCampaignTestCaseId;
-import DB.TestCase;
+import DB.*;
+import controller.util.CommonFunctions;
+import org.hibernate.*;
+import org.hibernate.criterion.Projections;
+import org.hibernate.criterion.Restrictions;
+
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
-import org.hibernate.Criteria;
-import org.hibernate.Hibernate;
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Projections;
-import org.hibernate.criterion.Restrictions;
+import java.util.Objects;
 
 /**
  *
@@ -56,20 +51,17 @@ public class TestCampaignDB {
      * @return
      */
     public TestCampaign CreateCampaign(TestCampaign testCampaign, ArrayList<TestCase> testCases) {
+        String reportLogMsg = "";
         TestCase testCaseToAdd = new TestCase();
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
-        //Transaction tx;
-        //tx = session.beginTransaction();
         session.save(testCampaign);
-        //tx.commit();
+        reportLogMsg += "After Creating Test Campaign :" + Objects.requireNonNull(testCampaign).getReference() + System.lineSeparator();
+        StringBuilder reportLogMsgBuilder = new StringBuilder(reportLogMsg);
         for (int i = 0; i < testCases.size(); i++) {
-            //System.out.println(testCases.get(i));
             TestCampaignTestCase tctc = new TestCampaignTestCase();
             TestCampaignTestCaseId tctcId = new TestCampaignTestCaseId();
-            // tx = session.beginTransaction();
             testCaseToAdd = (TestCase) session.get(TestCase.class, testCases.get(i).getIdtestCase());
-            //System.out.println(testCaseToAdd);
             tctc.setTestCampaign(testCampaign);
             tctc.setTestCase(testCaseToAdd);
             tctcId.setCaseOrder((byte) i);
@@ -78,10 +70,13 @@ public class TestCampaignDB {
             tctc.setId(tctcId);
             testCampaign.getTestCampaignTestCases().add(tctc);
             session.save(testCampaign);
-            //tx.commit();
+            reportLogMsgBuilder.append("\tCase ").append(i + 1).append(": ").append(testCases.get(i).getTestCaseTitle())
+                    .append(" (").append(testCases.get(i).getIdtestCase()).append(')').append(System.lineSeparator());
         }
         session.beginTransaction().commit();
         session.close();
+        CommonFunctions.reportLog.info(reportLogMsgBuilder.toString());
+        CommonFunctions.reportLog.info("Successfully saved test campaign: " + Objects.requireNonNull(testCampaign).getReference());
         return testCampaign;
     }
 

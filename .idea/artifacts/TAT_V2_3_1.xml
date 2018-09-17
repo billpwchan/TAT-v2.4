@@ -4,7 +4,9 @@
     <root id="archive" name="TAT_V2.3.1.jar">
       <element id="library" level="project" name="Libraries" />
       <element id="library" level="project" name="Java EE 6-Java EE 6" />
-      <element id="module-output" name="Backup Files(Old Version)" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/Backup Files(Old Version)/src/META-INF/MANIFEST.MF" />
+      </element>
     </root>
   </artifact>
 </component>

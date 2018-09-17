@@ -7,173 +7,81 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1112526d-0f70-45f5-97f9-62ef4a880793" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/079e1941-a342-489e-88f3-9dbc2c5243ea.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/91702316-8f1d-4edb-8550-af8db0bd678f.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/TAT_V2_3_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/TAT_V2_3_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/Backup Files(Old Version).iml" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/Backup Files(Old Version).iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/built-jar.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/built-jar.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/DB/CaseExecutionsResult.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/DB/CaseExecutionsResult.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/DB/CaseExecutionsResult.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/DB/CaseExecutionsResult.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/DB/ScriptExecutionResult.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/DB/ScriptExecutionResult.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/DB/ScriptExecutionResult.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/DB/ScriptExecutionResult.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/DB/StepExecutionsResult.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/DB/StepExecutionsResult.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/DB/StepExecutionsResult.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/DB/StepExecutionsResult.hbm.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/DBcontroller/ConfigurationDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/DBcontroller/ConfigurationDB.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/DBcontroller/IterationDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/DBcontroller/IterationDB.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/DBcontroller/ResultsDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/DBcontroller/ResultsDB.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/DBcontroller/TestCampaignDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/DBcontroller/TestCampaignDB.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/DBcontroller/TestExecution.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/DBcontroller/TestExecution.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/TATFrameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/TATFrameController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/macro/TabMacroEditController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/macro/TabMacroEditController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/macro/TabMacroLibraryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/macro/TabMacroLibraryController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/TATFrameController$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/TATFrameController$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/TATFrameController$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/macro/TabMacroEditController$1.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/macro/TabMacroMainViewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/macro/TabMacroMainViewController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/macro/TabMacroNewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/macro/TabMacroNewController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/macroActions/HeaderTableActionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/macroActions/HeaderTableActionController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/macroActions/PreviewMacro.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/macroActions/PreviewMacro.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/macroActions/ScriptLineTableMacroController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/macroActions/ScriptLineTableMacroController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/macroActions/TableActionCreationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/macroActions/TableActionCreationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/macroActions/ViewScriptMacroController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/macroActions/ViewScriptMacroController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUPRequirementSelectionController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUPRequirementSelectionController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUPRequirementSelectionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUPRequirementSelectionController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpBaselineCreationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpBaselineCreationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpCampaignCreationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpCampaignCreationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpCampaignSelectionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpCampaignSelectionController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpCaseSelectionController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpCaseSelectionController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpCaseSelectionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpCaseSelectionController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpChangeCaseCommentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpChangeCaseCommentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpConfigurationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpConfigurationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpRunController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpRunController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/macro/TabMacroNewController$1.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpRunController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpRunController$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpRunController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpRunController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpScriptController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpScriptController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardActionController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardActionController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardActionController$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardActionController$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardActionController$11$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardActionController$11$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardActionController$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardActionController$11.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardActionController$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardActionController$12.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardActionController$13$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardActionController$13$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardActionController$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardActionController$13.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardActionController$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardActionController$14.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardActionController$15$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardActionController$15$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardActionController$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardActionController$15.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardActionController$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardActionController$16.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardActionController$2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardActionController$2$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardActionController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardActionController$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardActionController$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardActionController$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardActionController$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardActionController$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardActionController$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardActionController$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardActionController$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardActionController$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardActionController$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardActionController$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardActionController$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardActionController$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardActionController$9$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardActionController$9$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardActionController$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardActionController$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardActionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardActionController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$11.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$12.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$13.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$14.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$15$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$15$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$15.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$16.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$17$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$17$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$17.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$18.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$18.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$19$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$19$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$19.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$19.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$20.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$20.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$21$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$21$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$21.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$21.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$22.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$22.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$4$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$4$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$8$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$8$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpWizardScriptController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpcaseExcelValidationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpcaseExcelValidationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/cssPieChart.css" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/cssPieChart.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/requirements/TabRequirementCreationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/requirements/TabRequirementCreationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/requirements/TabRequirementLibraryController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/requirements/TabRequirementLibraryController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/requirements/TabRequirementLibraryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/requirements/TabRequirementLibraryController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/requirements/TabRequirementMainViewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/requirements/TabRequirementMainViewController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/scriptParameters/ScriptLineParameterController$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/scriptParameters/ScriptLineParameterController$1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/scriptParameters/ScriptLineParameterController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/scriptParameters/ScriptLineParameterController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/scriptParameters/ScriptLineParameterController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/scriptParameters/ScriptLineParameterController$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/scriptParameters/ScriptLineParameterController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/scriptParameters/ScriptLineParameterController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/scripts/TabScriptNewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/scripts/TabScriptNewController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/scripts/TabScriptsLibraryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/scripts/TabScriptsLibraryController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/scripts/TabScriptsMainViewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/scripts/TabScriptsMainViewController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/scripts/TableParamCreationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/scripts/TableParamCreationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tablestep/HeaderTableStepController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tablestep/HeaderTableStepController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tablestep/ScriptLineTableStepController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tablestep/ScriptLineTableStepController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tablestep/StepLineTableStepController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tablestep/StepLineTableStepController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tablestep/StepLineTableStepController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tablestep/StepLineTableStepController$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tablestep/StepLineTableStepController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tablestep/StepLineTableStepController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tablestep/TableStepScriptCreationController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tablestep/TableStepScriptCreationController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tablestep/TableStepScriptCreationController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tablestep/TableStepScriptCreationController$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tablestep/TableStepScriptCreationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tablestep/TableStepScriptCreationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tablestep/ViewScriptController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tablestep/ViewScriptController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpcaseExcelValidationController$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/popup/PopUpcaseExcelValidationController$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/scriptParameters/ScriptLineParameterController$2$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/scriptParameters/ScriptLineParameterController$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tablestep/StepLineTableStepController$1$1.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcampaign/TabTestCampaignMainViewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcampaign/TabTestCampaignMainViewController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcampaign/TabTestCampaignNewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcampaign/TabTestCampaignNewController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcampaign/TabTestCampaignRepositoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcampaign/TabTestCampaignRepositoryController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcampaign/TabTestCampaignViewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcampaign/TabTestCampaignViewController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcase/TabTestCaseEditController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcase/TabTestCaseEditController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcase/TabTestCaseEditController$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcase/TabTestCaseEditController$10.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcase/TabTestCaseEditController$11.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcase/TabTestCaseEditController$12.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcase/TabTestCaseEditController$13.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcase/TabTestCaseEditController$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcase/TabTestCaseEditController$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcase/TabTestCaseEditController$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcase/TabTestCaseEditController$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcase/TabTestCaseEditController$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcase/TabTestCaseEditController$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcase/TabTestCaseEditController$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcase/TabTestCaseEditController$9.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcase/TabTestCaseLibraryController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcase/TabTestCaseLibraryController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcase/TabTestCaseLibraryController$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcase/TabTestCaseLibraryController$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcase/TabTestCaseLibraryController$4.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcase/TabTestCaseLibraryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcase/TabTestCaseLibraryController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcase/TabTestCaseMainViewController$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcase/TabTestCaseMainViewController$2.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcase/TabTestCaseMainViewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcase/TabTestCaseMainViewController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcase/TabTestCaseNewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcase/TabTestCaseNewController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcase/TabTestCaseViewController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcase/TabTestCaseViewController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcase/TabTestCaseViewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcase/TabTestCaseViewController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestexecution/TabTestCampaignExecutionBaselineCampaignController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestexecution/TabTestCampaignExecutionBaselineCampaignController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestexecution/TabTestCampaignExecutionMainViewController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestexecution/TabTestCampaignExecutionMainViewController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestexecution/TabTestCampaignExecutionMainViewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestexecution/TabTestCampaignExecutionMainViewController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestexecution/TabTestCampaignExecutionRepositoryBaselineController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestexecution/TabTestCampaignExecutionRepositoryBaselineController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestexecution/TabTestCampaignExecutionRepositoryBaselineController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestexecution/TabTestCampaignExecutionRepositoryBaselineController$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcase/TabTestCaseNewController$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcase/TabTestCaseNewController$10.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcase/TabTestCaseNewController$11.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcase/TabTestCaseNewController$12.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcase/TabTestCaseNewController$13.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcase/TabTestCaseNewController$14.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcase/TabTestCaseNewController$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcase/TabTestCaseNewController$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcase/TabTestCaseNewController$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcase/TabTestCaseNewController$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcase/TabTestCaseNewController$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcase/TabTestCaseNewController$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcase/TabTestCaseNewController$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestcase/TabTestCaseNewController$9.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestexecution/TabTestCampaignExecutionRepositoryBaselineController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestexecution/TabTestCampaignExecutionRepositoryBaselineController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestexecution/TabViewResultsController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestexecution/TabViewResultsController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestexecution/TabViewResultsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/tabtestexecution/TabViewResultsController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/util/CommonFunctions.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/controller/util/CommonFunctions.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/engine/Engine.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/engine/Engine.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/log4j.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/main/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/model/initColumn$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/model/initColumn$1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/model/initColumn$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/model/initColumn$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/model/initColumn$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/model/initColumn$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/model/initColumn$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/model/initColumn$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/model/initColumn$3$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/model/initColumn$3$1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/model/initColumn$3$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/model/initColumn$3$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/model/initColumn$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/model/initColumn$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/model/initColumn$4$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/model/initColumn$4$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/model/initColumn$4$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/model/initColumn$4$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/model/initColumn$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/model/initColumn$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/model/initColumn$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/model/initColumn$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/model/initColumn$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/model/initColumn$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/model/initColumn$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/model/initColumn$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/model/initColumn$8$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/model/initColumn$8$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/model/initColumn$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/model/initColumn$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/model/initColumn$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/model/initColumn$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/model/initColumn.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/model/initColumn.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/org/hibernate/dialect/SQLiteDialect$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/org/hibernate/dialect/SQLiteDialect$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/org/hibernate/dialect/SQLiteDialect.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/build/classes/org/hibernate/dialect/SQLiteDialect.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/dist/TAT2.jar" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/dist/TAT2.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/mydb.db" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/mydb.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/DB/CaseExecutionsResult.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/DB/CaseExecutionsResult.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/DB/CaseExecutionsResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/DB/CaseExecutionsResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/DB/ScriptExecutionResult.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/DB/ScriptExecutionResult.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/DB/ScriptExecutionResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/DB/ScriptExecutionResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/DB/StepExecutionsResult.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/DB/StepExecutionsResult.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/DB/StepExecutionsResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/DB/StepExecutionsResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/DBcontroller/IterationDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/DBcontroller/IterationDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/DBcontroller/TestExecution.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/DBcontroller/TestExecution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/manifest.mf" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/manifest.mf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/DBcontroller/TestCampaignDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/DBcontroller/TestCampaignDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/macro/TabMacroMainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/macro/TabMacroMainViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcampaign/TabTestCampaignMainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcampaign/TabTestCampaignMainViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcampaign/TabTestCampaignNewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcampaign/TabTestCampaignNewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcampaign/TabTestCampaignRepositoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcampaign/TabTestCampaignRepositoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcase/TabTestCaseLibraryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcase/TabTestCaseLibraryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcase/TabTestCaseMainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcase/TabTestCaseMainViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestexecution/TabTestCampaignExecutionRepositoryBaselineController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestexecution/TabTestCampaignExecutionRepositoryBaselineController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/engine/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/engine/Engine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/log4j.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version)/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version)/src/main/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mydb.db" beforeDir="false" afterPath="$PROJECT_DIR$/mydb.db" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -210,6 +118,20 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="main: schema" type="90513b60:SqliteImplModel$Schema" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="mydb.db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="90513b60:SqliteImplModel$Schema" />
+        <item name="case_executions_result: table" type="ffe0bd85:SqliteImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="mydb.db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="90513b60:SqliteImplModel$Schema" />
+        <item name="macro_execution: table" type="ffe0bd85:SqliteImplModel$Table" />
+      </path>
     </expand>
     <select />
   </component>
@@ -217,69 +139,72 @@
     <session id="736936950">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="15" />
+          <entry key="project.closed" value="17" />
           <entry key="project.open.time.10" value="2" />
           <entry key="project.open.time.11" value="3" />
           <entry key="project.open.time.12" value="3" />
           <entry key="project.open.time.13" value="2" />
           <entry key="project.open.time.14" value="3" />
           <entry key="project.open.time.16" value="1" />
-          <entry key="project.open.time.8" value="1" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.open.time.8" value="2" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="16" />
+          <entry key="project.opened" value="18" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="DATABASE/91702316-8f1d-4edb-8550-af8db0bd678f" value="1" />
           <entry key="case_executions" value="4" />
-          <entry key="case_executions_result" value="8" />
+          <entry key="case_executions_result" value="11" />
           <entry key="class" value="2" />
           <entry key="fxml" value="3" />
           <entry key="iml" value="2" />
-          <entry key="iterations" value="4" />
-          <entry key="java" value="131" />
+          <entry key="iterations" value="6" />
+          <entry key="java" value="154" />
           <entry key="mf" value="1" />
-          <entry key="properties" value="3" />
+          <entry key="properties" value="4" />
+          <entry key="script_execution_result" value="2" />
           <entry key="script_has_been_configured" value="1" />
           <entry key="snippet" value="1" />
-          <entry key="sql" value="6" />
+          <entry key="sql" value="7" />
           <entry key="step_executions_result" value="1" />
-          <entry key="test_case" value="1" />
+          <entry key="test_case" value="2" />
           <entry key="test_step" value="1" />
-          <entry key="xml" value="40" />
+          <entry key="xml" value="41" />
           <entry key="xml/Backup Files(Old Version)/hibernate/Hibernate/PersistenceModel" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="2" />
-          <entry key="Database Element" value="20" />
+          <entry key="Database Element" value="28" />
           <entry key="IDEA_MODULE" value="2" />
-          <entry key="JAVA" value="131" />
+          <entry key="JAVA" value="154" />
           <entry key="Manifest" value="1" />
-          <entry key="Properties" value="3" />
+          <entry key="Properties" value="4" />
           <entry key="SQL" value="3" />
-          <entry key="Scratch" value="4" />
+          <entry key="Scratch" value="5" />
           <entry key="UML" value="2" />
-          <entry key="XML" value="43" />
+          <entry key="XML" value="44" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="cell" value="1" />
-          <entry key="java" value="4509" />
+          <entry key="dummy" value="1" />
+          <entry key="java" value="5643" />
           <entry key="properties" value="10" />
           <entry key="snippet" value="174" />
           <entry key="sql" value="63" />
-          <entry key="txt" value="172" />
+          <entry key="txt" value="439" />
           <entry key="xml" value="72" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="4509" />
-          <entry key="PLAIN_TEXT" value="172" />
+          <entry key="JAVA" value="5643" />
+          <entry key="PLAIN_TEXT" value="440" />
           <entry key="Properties" value="10" />
           <entry key="SQL" value="63" />
           <entry key="Scratch" value="175" />
@@ -289,66 +214,21 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/DB/ScriptExecutionResult.hbm.xml">
+        <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcampaign/TabTestCampaignRepositoryController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/DB/CaseExecutionsResult.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1232">
-              <caret line="57" column="31" selection-start-line="57" selection-start-column="11" selection-end-line="57" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/DB/StepExecutionsResult.hbm.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/engine/Engine.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="9790">
-              <caret line="459" column="32" selection-start-line="459" selection-start-column="32" selection-end-line="459" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestexecution/TabTestCampaignExecutionRepositoryBaselineController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="381">
-              <caret line="400" column="64" selection-start-line="400" selection-start-column="64" selection-end-line="400" selection-end-column="64" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/DBcontroller/IterationDB.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-662">
-              <caret line="71" column="43" selection-start-line="71" selection-start-column="43" selection-end-line="71" selection-end-column="43" />
+            <state relative-caret-position="-3432">
+              <caret line="133" lean-forward="true" selection-start-line="133" selection-end-line="133" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/DBcontroller/TestExecution.java">
+        <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestexecution/TabTestCampaignExecutionRepositoryBaselineController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="55" column="34" lean-forward="true" selection-start-line="55" selection-start-column="34" selection-end-line="55" selection-end-column="34" />
+            <state relative-caret-position="254">
+              <caret line="410" column="21" lean-forward="true" selection-start-line="410" selection-start-column="21" selection-end-line="410" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -361,7 +241,6 @@
       <find>alert</find>
       <find>delete</find>
       <find>tatmain</find>
-      <find>edit</find>
       <find>edittestcase</find>
       <find>new test</find>
       <find>validate</find>
@@ -375,14 +254,18 @@
       <find>button</find>
       <find>casetitle</find>
       <find>validconfigur</find>
-      <find>report</find>
       <find>identification</find>
-      <find>logger</find>
       <find>valid</find>
       <find>validconfig</find>
       <find>setresult</find>
       <find>baselinename</find>
       <find>result</find>
+      <find>close</find>
+      <find>logger</find>
+      <find>report</find>
+      <find>bu</find>
+      <find>edit</find>
+      <find>executeButton</find>
     </findStrings>
     <replaceStrings>
       <replace>CommonFunctions.debugLog.</replace>
@@ -417,34 +300,40 @@
         <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcase/TabTestCaseViewController.java" />
         <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/macroActions/PreviewMacro.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/jshell/jshell_console_1.snippet" />
-        <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/log4j.properties" />
-        <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/macro/TabMacroEditController.java" />
         <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/macro/TabMacroNewController.java" />
         <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/macro/TabMacroLibraryController.java" />
-        <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcase/TabTestCaseLibraryController.java" />
-        <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/macro/TabMacroMainViewController.java" />
-        <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcase/TabTestCaseMainViewController.java" />
         <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/util/CommonFunctions.java" />
         <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/TATFrameController.java" />
         <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/scriptParameters/ScriptLineParameterController.java" />
-        <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/main/Main.java" />
         <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestexecution/TabTestCampaignExecutionMainViewController.java" />
         <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/model/initColumn.java" />
         <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcase/TabTestCaseEditController.java" />
         <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcase/TabTestCaseNewController.java" />
         <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestexecution/TabTestCampaignExecutionBaselineCampaignController.java" />
-        <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/DBcontroller/ConfigurationDB.java" />
         <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/popup/PopUpcaseExcelValidationController.java" />
         <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/DB/ScriptExecutionResult.hbm.xml" />
         <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/DB/StepExecutionsResult.hbm.xml" />
         <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/DB/CaseExecutionsResult.hbm.xml" />
-        <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/engine/Engine.java" />
         <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/DB/CaseExecutionsResult.java" />
         <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/DB/StepExecutionsResult.java" />
         <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/DB/ScriptExecutionResult.java" />
         <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/DBcontroller/IterationDB.java" />
-        <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestexecution/TabTestCampaignExecutionRepositoryBaselineController.java" />
+        <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/DBcontroller/ResultsDB.java" />
+        <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/engine/Engine.java" />
+        <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/popup/PopUpRunController.java" />
+        <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/DBcontroller/ConfigurationDB.java" />
         <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/DBcontroller/TestExecution.java" />
+        <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/macro/TabMacroEditController.java" />
+        <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/macro/TabMacroMainViewController.java" />
+        <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcase/TabTestCaseMainViewController.java" />
+        <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcampaign/TabTestCampaignMainViewController.java" />
+        <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/DBcontroller/TestCampaignDB.java" />
+        <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/log4j.properties" />
+        <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcampaign/TabTestCampaignNewController.java" />
+        <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcase/TabTestCaseLibraryController.java" />
+        <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcampaign/TabTestCampaignRepositoryController.java" />
+        <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/main/Main.java" />
+        <option value="$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestexecution/TabTestCampaignExecutionRepositoryBaselineController.java" />
       </list>
     </option>
   </component>
@@ -455,9 +344,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1430" />
-    <option name="y" value="-15" />
-    <option name="width" value="780" />
+    <option name="x" value="1380" />
+    <option name="y" value="-33" />
+    <option name="width" value="820" />
     <option name="height" value="830" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -468,6 +357,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -497,19 +388,14 @@
               <item name="Backup Files(Old Version)" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="tabtestcampaign" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TAT_V2.3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Backup Files(Old Version)" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
               <item name="tabtestexecution" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TAT_V2.3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Backup Files(Old Version)" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="DB" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TAT_V2.3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Backup Files(Old Version)" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="DBcontroller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TAT_V2.3" type="b2602c69:ProjectViewProjectNode" />
@@ -539,8 +425,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -549,14 +433,14 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="extract.method.default.visibility" value="packageLocal" />
-    <property name="last_opened_file_path" value="C:/Program Files/NetBeans 8.2/java/modules/ext/hibernate4" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Backup Files(Old Version)/src/META-INF/MANIFEST.MF" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.file-colors" />
+    <property name="settings.editor.selected.configurable" value="MTConfigurable" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -604,7 +488,9 @@
       <workItem from="1536999832543" duration="85000" />
       <workItem from="1536999988675" duration="1766000" />
       <workItem from="1537077060751" duration="2834000" />
-      <workItem from="1537163603885" duration="1703000" />
+      <workItem from="1537163603885" duration="10496000" />
+      <workItem from="1537175917277" duration="7000" />
+      <workItem from="1537175966236" duration="1369000" />
     </task>
     <task id="LOCAL-00001" summary="Test Case Edit Tab finished implement Logger.">
       <created>1536579398975</created>
@@ -641,11 +527,25 @@
       <option name="project" value="LOCAL" />
       <updated>1536813317606</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="IterationDB &amp; TestExecutionsDB controllers update. Added baselineId column for all executions tables">
+      <created>1537165432379</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1537165432379</updated>
+    </task>
+    <task id="LOCAL-00007" summary="ExecuteUpdate implementation in TestExecution.java. Able to remove baseline &amp; campaign now">
+      <created>1537173845062</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1537173845062</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53879000" />
+    <option name="totallyTimeSpent" value="64048000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -660,22 +560,22 @@
     <frame x="-6" y="-6" width="1549" height="837" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49277458" side_tool="true" visible="true" weight="0.18955123" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49277458" side_tool="true" visible="true" weight="0.19490957" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Persistence" order="2" sideWeight="0.50722545" side_tool="true" weight="0.13931681" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49832553" visible="true" weight="0.32658958" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49698594" visible="true" weight="0.16618498" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39884394" />
+      <window_info active="true" anchor="bottom" id="Find" order="1" sideWeight="0.49832553" visible="true" weight="0.32658958" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49698594" visible="true" weight="0.22109826" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.29046243" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32803467" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32658958" />
       <window_info anchor="bottom" id="Database Console" order="7" weight="0.13294798" />
       <window_info anchor="bottom" id="Hibernate Console" order="8" weight="0.32947975" />
-      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Database Changes" order="9" weight="0.32658958" />
       <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49832553" weight="0.32658958" />
       <window_info anchor="bottom" id="Terminal" order="12" />
@@ -687,7 +587,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Database" order="4" weight="0.32953784" />
+      <window_info anchor="right" id="Database" order="4" weight="0.2103148" />
       <window_info anchor="right" id="Palette&#9;" order="5" />
       <window_info anchor="right" id="Maven Projects" order="6" />
     </layout>
@@ -739,123 +639,36 @@
     <MESSAGE value="Macro Logger finished implement Logger." />
     <MESSAGE value="Validate excel sheet name (ConfigurationDB.java)" />
     <MESSAGE value="Before applying database schema update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Before applying database schema update" />
+    <MESSAGE value="IterationDB &amp; TestExecutionsDB controllers update. Added baselineId column for all executions tables" />
+    <MESSAGE value="ExecuteUpdate implementation in TestExecution.java. Able to remove baseline &amp; campaign now" />
+    <option name="LAST_COMMIT_MESSAGE" value="ExecuteUpdate implementation in TestExecution.java. Able to remove baseline &amp; campaign now" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Backup Files(Old Version)/src/DBcontroller/ConfigurationDB.java</url>
+          <line>169</line>
+          <properties />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Backup Files(Old Version)/src/DBcontroller/IterationDB.java</url>
+          <line>72</line>
+          <properties />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Backup Files(Old Version)/src/DBcontroller/TestExecution.java</url>
+          <line>117</line>
+          <properties />
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/controller/scriptParameters/ScriptLineParameterController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1029">
-          <caret line="301" column="19" selection-start-line="301" selection-start-column="19" selection-end-line="301" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestexecution/TabTestCampaignExecutionMainViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-66">
-          <caret line="37" column="38" lean-forward="true" selection-start-line="37" selection-start-column="38" selection-end-line="37" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/javafx.controls/javafx/scene/control/cell/PropertyValueFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="183" selection-start-line="183" selection-end-line="183" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/model/initColumn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="269" column="45" lean-forward="true" selection-start-line="269" selection-start-column="45" selection-end-line="269" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="137" selection-start-line="137" selection-end-line="137" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/DB/TestCase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="304" lean-forward="true" selection-start-line="304" selection-end-line="304" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://079e1941-a342-489e-88f3-9dbc2c5243ea/schema/main/table/test_case" />
-    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcase/TabTestCaseNewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="268" column="57" lean-forward="true" selection-start-line="268" selection-start-column="57" selection-end-line="268" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcase/TabTestCaseEditController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
-          <caret line="444" column="109" selection-start-line="444" selection-start-column="109" selection-end-line="444" selection-end-column="109" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/Backup Files(Old Version)/Libraries/poi-3.16.jar!/org/apache/poi/hssf/usermodel/HSSFWorkbook.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="581" column="21" selection-start-line="581" selection-start-column="21" selection-end-line="581" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/controller/popup/PopUpcaseExcelValidationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="43" column="38" lean-forward="true" selection-start-line="43" selection-start-column="38" selection-end-line="43" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/DBcontroller/ConfigurationDB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="127" column="69" selection-start-line="127" selection-start-column="69" selection-end-line="127" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.ideaLibSources/poi-3.16-sources.jar!/org/apache/poi/hssf/usermodel/HSSFWorkbook.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="581">
-          <caret line="1038" column="21" selection-start-line="1038" selection-start-column="21" selection-end-line="1038" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestexecution/TabTestCampaignExecutionBaselineCampaignController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="264" column="25" selection-start-line="264" selection-start-column="25" selection-end-line="264" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://079e1941-a342-489e-88f3-9dbc2c5243ea/schema/main/table/case_executions" />
-    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/TAT/util/HibernateUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/DB_tocopy7-19.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-80784" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/manifest.mf">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="das://079e1941-a342-489e-88f3-9dbc2c5243ea/schema/main/table/case_executions_result" />
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/91702316-8f1d-4edb-8550-af8db0bd678f/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="das://91702316-8f1d-4edb-8550-af8db0bd678f/schema/main/table/case_executions_result" />
     <entry file="das://91702316-8f1d-4edb-8550-af8db0bd678f/schema/main/table/iterations" />
     <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/DB/CaseExecutions.hbm.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -868,9 +681,6 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/hibernate.reveng.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/28364675-97b0-4615-aec6-a3d99113982e/console.sql">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/hibernate.cfg.xml">
@@ -971,28 +781,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/DB/Iterations.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="814">
-          <caret line="38" column="31" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
-          <folding>
-            <element signature="e#2782#2783#0" expanded="true" />
-            <element signature="e#2826#2827#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/DB/ScriptExecutionResult.hbm.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/DB/CaseExecutionsResult.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1232">
-          <caret line="57" column="31" selection-start-line="57" selection-start-column="11" selection-end-line="57" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -1003,10 +795,68 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/engine/Engine.java">
+    <entry file="das://28364675-97b0-4615-aec6-a3d99113982e/schema/main/table/step_executions_result">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/28364675-97b0-4615-aec6-a3d99113982e/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar://$USER_HOME$/.ideaLibSources/poi-3.16-sources.jar!/org/apache/poi/hssf/usermodel/HSSFCell.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9790">
-          <caret line="459" column="32" selection-start-line="459" selection-start-column="32" selection-end-line="459" selection-end-column="32" />
+        <state relative-caret-position="273">
+          <caret line="462" column="20" selection-start-line="462" selection-start-column="20" selection-end-line="462" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/script/ExecuteSSHCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="80" selection-start-line="80" selection-end-line="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/DBcontroller/ConfigurationDB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="77" column="45" lean-forward="true" selection-start-line="77" selection-start-column="45" selection-end-line="77" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/controller/popup/PopUpRunController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="564" column="41" lean-forward="true" selection-start-line="564" selection-start-column="41" selection-end-line="564" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/DB/Iterations.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="387">
+          <caret line="111" column="18" selection-start-line="111" selection-start-column="18" selection-end-line="111" selection-end-column="18" />
+          <folding>
+            <element signature="e#2644#2645#0" expanded="true" />
+            <element signature="e#2682#2683#0" expanded="true" />
+            <element signature="e#2782#2783#0" expanded="true" />
+            <element signature="e#2826#2827#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/DBcontroller/sessionFactorySingleton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://28364675-97b0-4615-aec6-a3d99113982e/schema/main/table/script_execution_result">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -1024,31 +874,144 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://28364675-97b0-4615-aec6-a3d99113982e/schema/main/table/step_executions_result">
+    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/DBcontroller/TestExecution.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="132" selection-start-line="132" selection-end-line="132" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/DBcontroller/ResultsDB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="41" column="35" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/DBcontroller/IterationDB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="86" column="28" selection-start-line="86" selection-end-line="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/DB/CaseExecutionsResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1210">
+          <caret line="62" column="23" selection-start-line="62" selection-start-column="13" selection-end-line="62" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/engine/Engine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-49">
+          <caret line="452" column="70" selection-start-line="452" selection-start-column="70" selection-end-line="452" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/controller/macro/TabMacroEditController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="202" column="32" selection-start-line="202" selection-start-column="32" selection-end-line="202" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/controller/macro/TabMacroLibraryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="70" column="36" selection-start-line="70" selection-start-column="36" selection-end-line="70" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/controller/macro/TabMacroMainViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="138" selection-start-line="138" selection-end-line="138" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcase/TabTestCaseMainViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="94" column="78" lean-forward="true" selection-start-line="94" selection-end-line="95" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://28364675-97b0-4615-aec6-a3d99113982e/schema/main/table/test_case">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/DBcontroller/IterationDB.java">
+    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/log4j.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-662">
-          <caret line="71" column="43" selection-start-line="71" selection-start-column="43" selection-end-line="71" selection-end-column="43" />
+        <state relative-caret-position="210">
+          <caret line="17" column="76" lean-forward="true" selection-start-line="17" selection-start-column="76" selection-end-line="17" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcase/TabTestCaseLibraryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="587">
+          <caret line="160" column="41" lean-forward="true" selection-start-line="160" selection-start-column="41" selection-end-line="160" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcampaign/TabTestCampaignMainViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="127" column="108" selection-start-line="127" selection-start-column="108" selection-end-line="127" selection-end-column="108" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcampaign/TabTestCampaignNewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-286">
+          <caret line="252" column="118" selection-start-line="252" selection-start-column="118" selection-end-line="252" selection-end-column="118" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/DBcontroller/TestCampaignDB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="69" column="31" lean-forward="true" selection-start-line="69" selection-start-column="31" selection-end-line="69" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcase/TabTestCaseNewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="302" column="144" lean-forward="true" selection-start-line="301" selection-start-column="12" selection-end-line="302" selection-end-column="144" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/build.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1980" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="144" column="25" selection-start-line="144" selection-start-column="25" selection-end-line="144" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestcampaign/TabTestCampaignRepositoryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3432">
+          <caret line="133" lean-forward="true" selection-start-line="133" selection-end-line="133" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/controller/tabtestexecution/TabTestCampaignExecutionRepositoryBaselineController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="400" column="64" selection-start-line="400" selection-start-column="64" selection-end-line="400" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Backup Files(Old Version)/src/DBcontroller/TestExecution.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="55" column="34" lean-forward="true" selection-start-line="55" selection-start-column="34" selection-end-line="55" selection-end-column="34" />
+        <state relative-caret-position="254">
+          <caret line="410" column="21" lean-forward="true" selection-start-line="410" selection-start-column="21" selection-end-line="410" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -1057,7 +1020,14 @@
     <states>
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
-          <artifact-editor />
+          <artifact-editor>
+            <show-content>
+              <type id="library" />
+              <type id="jpa-descriptors" />
+              <type id="artifact" />
+              <type id="javaee-facet-resources" />
+            </show-content>
+          </artifact-editor>
           <last-edited>TAT_V2.3.1</last-edited>
           <splitter-proportions>
             <option name="proportions">

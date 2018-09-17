@@ -400,14 +400,18 @@ public class TabTestCampaignExecutionRepositoryBaselineController implements Ini
                 ArrayList<Iterations> arrayIt = null;
                 try {
                     arrayIt = testExecutionHandler.getBaselinesFromCampaign(this.selected.getTestCampaign());
+                    StringBuilder reportMsgBuilder = new StringBuilder("User delete entire test campaign: " + this.selected.getBaselineId() + System.lineSeparator());
                     for (Iterations anArrayIt : arrayIt) {
                         testExecutionHandler.deleteBaseline(anArrayIt);
+                        reportMsgBuilder.append("\tBaseline: ").append(anArrayIt.getBaselineId()).append(System.lineSeparator());
 //                        arrayIterations = testExecutionHandler.getExecutionsFromBaseline(anArrayIt);
 //                        for (Iterations arrayIteration : arrayIterations) {
 //                            iteHandler.deleteExecution(arrayIteration);
 //                        }
                     }
                     UpdateTreeItem();
+                    CommonFunctions.reportLog.info(reportMsgBuilder.toString());
+                    CommonFunctions.reportLog.info("User completed test campaign deletion.");
                 } catch (ParseException ex) {
                     CommonFunctions.debugLog.error("", ex);
                 } catch (GenericJDBCException ex) {

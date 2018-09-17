@@ -193,7 +193,6 @@ public class TabTestCaseMainViewController implements Initializable {
      */
     public void closeTab() {
         this.tabPaneTestCase.getTabs().remove(this.tabPaneTestCase.getSelectionModel().getSelectedItem());
-        CommonFunctions.reportLog.info("User close the Test Case tab.");
     }
 
     void focusOnLast() {

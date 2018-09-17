@@ -132,8 +132,6 @@ public class TabTestCampaignRepositoryController implements Initializable {
             });
         });
 
-        System.out.println("filtered data campaign= " + filteredData.size());
-
         // 3. Wrap the FilteredList in a SortedList.
         SortedList<TestCampaign> sortedData = new SortedList<>(filteredData);
 
@@ -241,7 +239,7 @@ public class TabTestCampaignRepositoryController implements Initializable {
         nodeHand.add(this.buttonNew);
         //nodeHand.add(this.buttonRefreshCampaignRepository);
         nodeHand.add(this.buttonDelete);
-        nodeHand.add(this.buttonEdit);
+//        nodeHand.add(this.buttonEdit);
         setCursorOnComponent action = new setCursorOnComponent();
         action.setCursorHand(nodeHand);
     }
@@ -278,6 +276,7 @@ public class TabTestCampaignRepositoryController implements Initializable {
     private void initButtons() {
         this.buttonDelete.setDisable(false);
         this.buttonEdit.setDisable(true);
+        this.buttonEdit.setVisible(false);
         this.buttonRefreshCampaignRepository.setVisible(false);
         buttonRefreshCampaignRepository.setOnAction((ActionEvent e) -> {
             TabTestCampaignRepositoryController.updateRepository();
@@ -287,8 +286,8 @@ public class TabTestCampaignRepositoryController implements Initializable {
             newTestCampaign();
         });
 
-        buttonEdit.setOnAction((ActionEvent e) -> {
-        });
+//        buttonEdit.setOnAction((ActionEvent e) -> {
+//        });
 
         buttonDelete.setOnAction((ActionEvent e) -> {
             if (this.campaignSelected != null) {
@@ -304,6 +303,7 @@ public class TabTestCampaignRepositoryController implements Initializable {
                     testCampaignHandler.deleteCampaignNotExecuted(campaignSelected);
                     TabTestCampaignRepositoryController.updateRepository();
                     tableViewTestCase.setItems(null);
+                    CommonFunctions.reportLog.info("User deleted test campaign: " + campaignSelected.getReference());
                 }
             }
         });

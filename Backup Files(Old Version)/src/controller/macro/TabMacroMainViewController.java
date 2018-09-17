@@ -136,7 +136,6 @@ public class TabMacroMainViewController implements Initializable {
     public void closeTab() {
         try {
             this.tabPaneMacro.getTabs().remove(this.tabPaneMacro.getSelectionModel().getSelectedItem());
-            CommonFunctions.reportLog.info("User close the Macro tab.");
         } catch (Exception ex) {
             CommonFunctions.debugLog.error("Cannot close Macro tab: ", ex);
         }

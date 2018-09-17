@@ -127,6 +127,7 @@ public class TabTestCaseLibraryController implements Initializable {
             this.buttonDelete.setDisable(false);
             this.buttonEdit.setDisable(true);
             this.executeButton.setDisable(true);
+            this.executeButton.setVisible(false);
             this.tableViewTestCase.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 
             /**
@@ -143,12 +144,9 @@ public class TabTestCaseLibraryController implements Initializable {
         MenuItem viewCase = new MenuItem("View..");
         MenuItem editCase = new MenuItem("Edit..");
         MenuItem executeCase = new MenuItem("Execute..");
-        this.buttonAdd.setOnAction((ActionEvent event) -> {
-            newTestCase();
-        });
+        this.buttonAdd.setOnAction((ActionEvent event) -> newTestCase());
 
         this.buttonDelete.setOnAction((ActionEvent event) -> {
-            System.out.println("Campaign selected : ");
             if (this.currentTestCaseSelected != null) {
                 ArrayList<TestCampaign> campaigns = testCampaignHandler.getCampaignsFromCases(this.currentTestCaseSelected);
                 if (campaigns.size() > 0) {
@@ -163,7 +161,6 @@ public class TabTestCaseLibraryController implements Initializable {
                     this.updateLibrary();
                     currentTestCaseSelected = this.observableListTestCase.get(0);
                     tableViewTestCase.getSelectionModel().select(currentTestCaseSelected);
-
                 }
             }
         });

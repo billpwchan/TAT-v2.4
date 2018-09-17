@@ -7,7 +7,6 @@ package main;
  */
 
 import DB.User;
-import DBcontroller.UserDB;
 import DBcontroller.sessionFactorySingleton;
 import controller.TATFrameController;
 import controller.util.CommonFunctions;
@@ -15,22 +14,17 @@ import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.ImageCursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import model.Classe;
 import model.HMI;
-import org.controlsfx.dialog.LoginDialog;
 import org.hibernate.SessionFactory;
 
 import java.io.IOException;
@@ -108,24 +102,24 @@ public class Main extends Application {
             currentUser = tom;
         }
 
-        UserDB userHandler = new UserDB();
-        Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
-        LoginDialog dlg = new LoginDialog(null, null);
-        while (currentUser == null && tryAgain && askUser) {
-            dlg.showAndWait().ifPresent(result -> {
-                currentUser = userHandler.getUser(result.getKey(), result.getValue());
-            });
-            if (currentUser == null) {
-                Alert dlg2 = new Alert(AlertType.CONFIRMATION, "");
-                dlg2.setTitle("Wrong username or password");
-                dlg2.getDialogPane().setContentText("Your username of password is wrong, do you want to try again or quit");
-                dlg2.showAndWait().ifPresent(result -> {
-                    if (result.getText().equals("Cancel")) {
-                        tryAgain = false;
-                    }
-                });
-            }
-        }
+//        UserDB userHandler = new UserDB();
+//        Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
+//        LoginDialog dlg = new LoginDialog(null, null);
+//        while (currentUser == null && tryAgain && askUser) {
+//            dlg.showAndWait().ifPresent(result -> {
+//                currentUser = userHandler.getUser(result.getKey(), result.getValue());
+//            });
+//            if (currentUser == null) {
+//                Alert dlg2 = new Alert(AlertType.CONFIRMATION, "");
+//                dlg2.setTitle("Wrong username or password");
+//                dlg2.getDialogPane().setContentText("Your username of password is wrong, do you want to try again or quit");
+//                dlg2.showAndWait().ifPresent(result -> {
+//                    if (result.getText().equals("Cancel")) {
+//                        tryAgain = false;
+//                    }
+//                });
+//            }
+//        }
 
         if (currentUser != null) {
             try {

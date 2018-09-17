@@ -10,7 +10,6 @@ import DB.TestCase;
 import DBcontroller.TestCampaignDB;
 import DBcontroller.TestCaseDB;
 import controller.popup.PopUpCaseSelectionController;
-import controller.tabtestcase.TabTestCaseNewController;
 import controller.util.CommonFunctions;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -32,7 +31,6 @@ import javafx.stage.WindowEvent;
 import main.Main;
 import model.initColumn;
 import model.setCursorOnComponent;
-import org.apache.log4j.Logger;
 
 import java.io.IOException;
 import java.net.URL;
@@ -161,17 +159,11 @@ public class TabTestCampaignNewController implements Initializable {
         TableViewTestCasesAdded.setTableMenuButtonVisible(true);
         TableViewTestCasesAdded.setItems(observableListTestCase);
 
-        // Label label1 = new Label();
-        // this.TableViewTestCasesAdded.getSelectionModel().getSelectedCells().addListener((ListChangeListener.Change<?
-        // extends TablePosition> c) -> {
-        // label1.setText(String.valueOf(c.getList().get(0).getRow()));
-        // });
-
         /*
          * Listener in order to perform actions after mousePressed on the table view
          * test cases if only 1click, get the index of the case selected and
          * Disable/Enable the buttons up and down if needed if 2 click, open the test
-         * case selected in a view tab
+         * case selected in a view tab.
          */
         this.TableViewTestCasesAdded.setOnMousePressed((MouseEvent event) -> {
             if (event.getClickCount() == 1 && TableViewTestCasesAdded.getSelectionModel().getSelectedItem() != null) {
@@ -226,7 +218,6 @@ public class TabTestCampaignNewController implements Initializable {
                         this.jtextfieldWriterMailAddCampaign.setText(oldValue);
                     }
                 });
-
         // Define a new cursor when an action is available for the user
         defineCursor();
 
@@ -260,16 +251,9 @@ public class TabTestCampaignNewController implements Initializable {
             dialogStage.setX(Main.primaryStage.getX() + Main.primaryStage.getWidth() / 2 - dialogStage.getWidth() / 2);
             dialogStage
                     .setY(Main.primaryStage.getY() + Main.primaryStage.getHeight() / 2 - dialogStage.getHeight() / 2);
-            // dialogStage.setX(main.getMainController().getPrimaryStage().getX() +
-            // main.getMainController().getPrimaryStage().getWidth() / 2 -
-            // dialogStage.getWidth() / 2);
-            // dialogStage.setY(main.getMainController().getPrimaryStage().getY() +
-            // main.getMainController().getPrimaryStage().getHeight() / 2 -
-            // dialogStage.getHeight() / 2);
             popUpOpen = true;
-
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCaseNewController.class.getName()).error("", ex);
+            CommonFunctions.debugLog.error("", ex);
         }
     }
 
@@ -281,9 +265,7 @@ public class TabTestCampaignNewController implements Initializable {
      * @param CasesSelected
      */
     public void setAction(ObservableList<TestCase> CasesSelected) {
-        CasesSelected.stream().forEach((CasesSelected1) -> {
-            observableListTestCase.add(CasesSelected1);
-        });
+        observableListTestCase.addAll(CasesSelected);
         this.jtextfieldCasesNumberAddCampaign.setText(String.valueOf(observableListTestCase.size()));
         buttonUpDownManagement();
     }
@@ -312,7 +294,7 @@ public class TabTestCampaignNewController implements Initializable {
      * Method called to close the popUp of case selection
      */
     public void closePopUp() {
-        if (popUpOpen == true) {
+        if (popUpOpen) {
             this.dialogStage.close();
             popUpOpen = false;
         }
@@ -322,8 +304,8 @@ public class TabTestCampaignNewController implements Initializable {
     /**
      * Method called to focus on the popUp of case selection
      */
-    public void focusOnPopUp() {
-        if (popUpOpen == true) {
+    void focusOnPopUp() {
+        if (popUpOpen) {
             dialogStage.requestFocus();
         }
     }
@@ -332,7 +314,7 @@ public class TabTestCampaignNewController implements Initializable {
      * management in order to management the disable/enable of up and down
      * buttons
      */
-    public void buttonUpDownManagement() {
+    private void buttonUpDownManagement() {
         if (observableListTestCase.size() == 1 || index == -2) {
             this.buttonUp.setDisable(true);
             this.buttonDown.setDisable(true);
@@ -365,7 +347,7 @@ public class TabTestCampaignNewController implements Initializable {
     /**
      * create the new campaign and call the method to put this campaign in DB
      */
-    public void createNewCampaign() {
+    private void createNewCampaign() {
         TestCampaign newTestCampaign = new TestCampaign();
         newTestCampaign.setReference(this.jtextfieldReferenceAddCampaign.getText()); // CHANGE IN STRING
         newTestCampaign.setSystem(this.jtextfieldSystemAddCampaign.getText());
@@ -400,11 +382,7 @@ public class TabTestCampaignNewController implements Initializable {
      * @param newValue the string to check
      */
     private void changeColorLabel(Label label, String newValue) {
-        if (newValue.isEmpty()) {
-            label.setTextFill(Color.RED);
-        } else {
-            label.setTextFill(Color.BLACK);
-        }
+        label.setTextFill(newValue.isEmpty() ? Color.RED : Color.BLACK);
         minimumInformationTestCampaign();
         this.buttonValidCampaign.setDisable(!canBeValidate);
     }
@@ -421,7 +399,7 @@ public class TabTestCampaignNewController implements Initializable {
         this.buttonValidCampaign.setDisable(true);
 
         buttonAddCase.setOnAction((ActionEvent event) -> {
-            if (popUpOpen == true) {
+            if (popUpOpen) {
                 dialogStage.requestFocus();
             } else {
                 popUpOpen = true;
@@ -459,7 +437,6 @@ public class TabTestCampaignNewController implements Initializable {
                 main.closeTab();
                 main.focusRepository();
             }
-
         });
     }
 
@@ -506,7 +483,7 @@ public class TabTestCampaignNewController implements Initializable {
         });
 
         addCase.setOnAction((ActionEvent event) -> {
-            if (popUpOpen == true) {
+            if (popUpOpen) {
                 dialogStage.requestFocus();
             } else {
                 this.addCases();
