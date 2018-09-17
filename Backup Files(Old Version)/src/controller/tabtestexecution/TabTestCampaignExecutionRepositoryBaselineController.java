@@ -361,7 +361,7 @@ public class TabTestCampaignExecutionRepositoryBaselineController implements Ini
             if (this.selected == null) {
                 e.consume();
             } else if (this.selected.getType().equals("baseline") || this.selected.getType().equals("execution")) {
-                CommonFunctions.reportLog.info("User run iteration(" + this.selected.getBaselineId() + "): "+ this.selected.getBaselineId());
+                CommonFunctions.reportLog.info("User run iteration: " + this.selected.getBaselineId());
                 this.runCampaign(selected.getBaselineId());
             }
 
@@ -372,8 +372,9 @@ public class TabTestCampaignExecutionRepositoryBaselineController implements Ini
                 e.consume();
             } else if (this.selected.getType().equals("execution")) {
                 try {
-                    iteHandler.deleteExecution(selected);
+                    iteHandler.deleteExecution(this.selected);
                     UpdateTreeItem();
+                    CommonFunctions.reportLog.info("User delete execution: " + this.selected.getBaselineId() + "(Iteration Num: " + this.selected.getIterationNumber() + ")");
                 } catch (ParseException ex) {
                     CommonFunctions.debugLog.error("Cannot update BaseLine", ex);
                 } catch (GenericJDBCException ex) {
@@ -384,6 +385,7 @@ public class TabTestCampaignExecutionRepositoryBaselineController implements Ini
                 }
             } else if (this.selected.getType().equals("baseline")) {
                 testExecutionHandler.deleteBaseline(this.selected);
+                CommonFunctions.reportLog.info("User delete baseline: " + this.selected.getBaselineId());
 //                ArrayList<Iterations> iterations;
 //                iterations = testExecutionHandler.getExecutionsFromBaseline(selected);
 //                for (Iterations iteration : iterations) {
@@ -395,7 +397,6 @@ public class TabTestCampaignExecutionRepositoryBaselineController implements Ini
                     CommonFunctions.debugLog.error("", ex);
                 }
             } else if (this.selected.getType().equals("campaign")) {
-                ArrayList<Iterations> arrayIterations = null;
                 ArrayList<Iterations> arrayIt = null;
                 try {
                     arrayIt = testExecutionHandler.getBaselinesFromCampaign(this.selected.getTestCampaign());

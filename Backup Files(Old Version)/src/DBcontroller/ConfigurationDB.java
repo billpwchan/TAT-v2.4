@@ -13,6 +13,7 @@ import javafx.scene.control.Alert;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -166,7 +167,7 @@ public class ConfigurationDB {
                                 final int updatedY = y + indexLine - 1;
                                 final int updatedX = x - 1;
                                 try {       //Detecting Blank cell, or unsupported cell. Will catch exception.
-                                    sheet.getRow(updatedY).getCell(updatedX).getCellType();
+                                    CellType cellType = sheet.getRow(updatedY).getCell(updatedX).getCellTypeEnum();
                                 } catch (Exception e) {
                                     Platform.runLater(() -> {
                                         CommonFunctions.displayAlert(Alert.AlertType.ERROR, "Configuration Error", "Blank cell detected", "Please check cell: Row " + (updatedY + 1) + " Column " + (updatedX + 1) + ".");

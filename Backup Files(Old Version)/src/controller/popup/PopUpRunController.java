@@ -564,11 +564,9 @@ public class PopUpRunController implements Initializable {
             try {
                 //Need to delete one record in Iterations database. Provide iteration_number and baseline_id
                 th.suspend();
-//                th.interrupt();
                 this.executionInterrupted();
                 th.resume();
                 th.stop();
-
 //                Thread.currentThread().interrupt();
                 //Change the state of testCaseInExecution to "Not tested."
 //                this.executionFinished();

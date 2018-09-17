@@ -6,16 +6,12 @@
 package DBcontroller;
 
 import DB.CaseExecutions;
-import DB.Iterations;
-import java.util.ArrayList;
-import java.util.TreeSet;
-import org.hibernate.Hibernate;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
 import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
 /**
  *
@@ -28,25 +24,6 @@ public class ResultsDB {
      */
     public ResultsDB() {
 
-    }
-
-    /**
-     *
-     * @param ite
-     */
-    public void initializeIteration(Iterations ite) {
-        ArrayList<CaseExecutions> caseExecutions = new TestCaseDB().getTestCasesAndResults(ite.getBaselineId(), ite.getIterationNumber());
-        TestStepDB testStepDB = new TestStepDB();
-        caseExecutions.stream().forEach((test1) -> {
-            testStepDB.getStepExecutionAndScriptsResults(test1, ite);
-        });
-        SessionFactory factory = sessionFactorySingleton.getInstance();
-        Session session = factory.openSession();
-
-        session.update(ite);
-        Hibernate.initialize(ite.getTestCampaign());
-        session.close();
-        ite.setCaseExecutionses(new TreeSet<>(caseExecutions));
     }
 
     /**

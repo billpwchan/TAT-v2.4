@@ -117,18 +117,19 @@ public class TestExecution {
     public void deleteBaseline(Iterations iteration) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
-        Query qry = session.createQuery("delete from Iterations IT where IT.testCampaign.idtestCampaign=:campaignId and IT.baselineId=:baselineID");
-        qry.setString("baselineID", iteration.getBaselineId());
+        Query qry = session.createQuery("delete from Iterations IT where IT.testCampaign.idtestCampaign=:campaignId and IT.baselineId=:baselineId");
+        qry.setString("baselineId", iteration.getBaselineId());
         qry.setInteger("campaignId", iteration.getTestCampaign().getIdtestCampaign());
-        session.beginTransaction().commit();
-        qry = session.createQuery("delete from CaseExecutionsResult CE where CE.baselineId=:baselineID");
-        qry.setString("baselineID", iteration.getBaselineId());
-        session.beginTransaction().commit();
-        qry = session.createQuery("delete from StepExecutionsResult SE where SE.baselineId=:baselineID");
-        qry.setString("baselineID", iteration.getBaselineId());
-        session.beginTransaction().commit();
-        qry = session.createQuery("delete from ScriptExecutionResult SE where SE.baselineId=:baselineID");
-        qry.setString("baselineID", iteration.getBaselineId());
+        qry.executeUpdate();
+        qry = session.createQuery("delete from CaseExecutionsResult CE where CE.baselineId=:baselineId");
+        qry.setString("baselineId", iteration.getBaselineId());
+        qry.executeUpdate();
+        qry = session.createQuery("delete from StepExecutionsResult SE where SE.baselineId=:baselineId");
+        qry.setString("baselineId", iteration.getBaselineId());
+        qry.executeUpdate();
+        qry = session.createQuery("delete from ScriptExecutionResult SE where SE.baselineId=:baselineId");
+        qry.setString("baselineId", iteration.getBaselineId());
+        qry.executeUpdate();
         session.beginTransaction().commit();
         session.close();
     }

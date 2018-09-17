@@ -8,6 +8,7 @@ package DBcontroller;
 import DB.CaseExecutions;
 import DB.Iterations;
 import DB.TestCampaign;
+import controller.util.CommonFunctions;
 import org.hibernate.Hibernate;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -145,11 +146,9 @@ public class IterationDB {
         qry.setParameter("baseline_id", ite.getBaselineId());
         qry.setInteger("iteration_num", ite.getIterationNumber());
         int result = qry.executeUpdate();
-        System.out.println("Rows affected: " + result);
-//        session.delete(ite);
         session.beginTransaction().commit();
         session.close();
-        System.out.println("DELETE FINISHED");
+        CommonFunctions.reportLog.info("In total " + result + " rows are affected by this delete.");
     }
 
 }

@@ -451,8 +451,6 @@ public class Engine {
      */
     private void endCaseSetResultChartAndDB(CaseExecutions currentTestCase, TestCaseDB caseHandler, float averageTimeCase) {
         CommonFunctions.debugLog.debug("Case result = " + caseResult);
-        System.out.println("!!!!!!!Baseline Name: " + this.baselineName);
-
         //this.baselineName will show the name of Iteration (baselineId)
         currentTestCase.setCaseExecutionResult(caseResult);
         popUpRunController.setNumberNotExecuted(nbCaseOK, nbCaseOKWC, nbCaseNOK, nbCaseNtestable, nbCaseIncomplete, nbCaseOS, nbCaseNT);
@@ -523,15 +521,9 @@ public class Engine {
             throws MalformedURLException, ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
         //get the name of the class of the script
         File root = new File(settings.scriptsPaht + "\\" + script + ".jar");
-        Class<?> cls = null;
-        if (root.exists()) {
-            URLClassLoader classLoader = URLClassLoader.newInstance(new URL[]{root.toURI().toURL()});
-            cls = Class.forName(script, true, classLoader);
-        } else {
-            cls = Class.forName("script." + script);
-        }
+        Class<?> classe = getClasse(script, root);
 
-        final Constructor<?> constructor = cls.getConstructor();
+        final Constructor<?> constructor = classe.getConstructor();
         final Object o = constructor.newInstance();
         java.lang.reflect.Method method;
         method = o.getClass().getMethod("run", ArrayList.class, HashMap.class);
@@ -563,14 +555,7 @@ public class Engine {
     private Result runCheckScript(String script, ArrayList<ParametersExecution> parameters, HashMap hashMap)
             throws ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException, MalformedURLException {
         File root = new File(settings.scriptsPaht + "\\" + script + ".jar");
-        Class<?> classe = null;
-        if (root.exists()) {
-            URLClassLoader classLoader = null;
-            classLoader = URLClassLoader.newInstance(new URL[]{root.toURI().toURL()});
-            classe = Class.forName(script, false, classLoader);
-        } else {
-            classe = Class.forName("script." + script);
-        }
+        Class<?> classe = getClasse(script, root);
         final Constructor<?> constructor = classe.getConstructor();
         final Object o = constructor.newInstance();
         java.lang.reflect.Method method;
@@ -602,7 +587,16 @@ public class Engine {
      */
     private void closeScript(String script) throws ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, MalformedURLException {
         File root = new File(settings.scriptsPaht + "\\" + script + ".jar");
-        Class<?> classe = null;
+        Class<?> classe = getClasse(script, root);
+        final Constructor<?> constructor = classe.getConstructor();
+        final Object o = constructor.newInstance();
+        java.lang.reflect.Method method;
+        method = o.getClass().getMethod("close");
+        method.invoke(o);
+    }
+
+    private Class<?> getClasse(String script, File root) throws MalformedURLException, ClassNotFoundException {
+        Class<?> classe;
         if (root.exists()) {
             URLClassLoader classLoader = null;
             classLoader = URLClassLoader.newInstance(new URL[]{root.toURI().toURL()});
@@ -610,10 +604,6 @@ public class Engine {
         } else {
             classe = Class.forName("script." + script);
         }
-        final Constructor<?> constructor = classe.getConstructor();
-        final Object o = constructor.newInstance();
-        java.lang.reflect.Method method;
-        method = o.getClass().getMethod("close");
-        method.invoke(o);
+        return classe;
     }
 }
