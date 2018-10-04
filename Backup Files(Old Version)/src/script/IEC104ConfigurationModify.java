@@ -6,7 +6,10 @@ import DB.Script;
 import controller.util.CommonFunctions;
 import engine.Result;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -28,9 +31,9 @@ public class IEC104ConfigurationModify implements InterfaceScript {
         Path inputPath = Paths.get("C:\\Users\\Billp\\Documents\\NetBeansProjects\\TAT_V2.3\\Backup Files(Old Version)\\src\\script\\IEC104Simulator\\IEC104slavetemplate.ini");
         Path outputPath = Paths.get("C:\\Users\\Billp\\Documents\\NetBeansProjects\\TAT_V2.3\\Backup Files(Old Version)\\src\\script\\IEC104Simulator\\IEC104slaveSample.ini");
         try {
+            //Read Template File
             List<String> lines =
                     Files.readAllLines(inputPath);
-
             for (int i = 0; i < lines.size(); i++) {
                 if (lines.get(i) != null && (lines.get(i)).startsWith("Port")) {
                     lines.set(i, "Port=" + port);
@@ -41,10 +44,22 @@ public class IEC104ConfigurationModify implements InterfaceScript {
             for (Object line : lines) {
                 System.out.println((String)line);
             }
-            Files.write(outputPath,lines, Charset.defaultCharset());
+            //Write adjusted configuration to OutputFile.
+            Files.write(outputPath, lines, Charset.defaultCharset());
         } catch (IOException ex) {
             CommonFunctions.debugLog.error("Cannot locate the file specified. Please check the IEC104Simulator Folder inside /scripts.", ex);
         }
+
+        Process process = new ProcessBuilder("C:\\Users\\Billp\\Documents\\NetBeansProjects\\TAT_V2.3\\Backup Files(Old Version)\\src\\script\\IEC104Simulator\\20171117_104Slave.exe").start();
+        InputStream is = process.getInputStream();
+        InputStreamReader isr = new InputStreamReader(is);
+        BufferedReader br = new BufferedReader(isr);
+        String line;
+
+        while ((line = br.readLine()) != null) {
+            System.out.println(line);
+        }
+        Thread.sleep(10000);
         return null;
     }
 
