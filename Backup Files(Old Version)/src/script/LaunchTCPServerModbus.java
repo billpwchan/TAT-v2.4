@@ -1,19 +1,17 @@
 package script;
 
 import DB.ParametersExecution;
+import net.wimpi.modbus.ModbusCoupler;
+import net.wimpi.modbus.net.ModbusTCPListener;
+import net.wimpi.modbus.procimg.SimpleProcessImage;
+import net.wimpi.modbus.procimg.SimpleRegister;
+import org.apache.log4j.Logger;
+
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
-
-import org.apache.log4j.Logger;
-import net.wimpi.modbus.ModbusCoupler;
-import net.wimpi.modbus.net.ModbusTCPListener;
-import net.wimpi.modbus.procimg.SimpleProcessImage;
-import net.wimpi.modbus.procimg.SimpleRegister;
-import net.wimpi.modbus.procimg.SimpleInputRegister;
-import static script.LaunchSerialSeverModbus.listener;
 
 ///*
 // * To change this license header, choose License Headers in Project Properties.
@@ -171,10 +169,10 @@ public class LaunchTCPServerModbus {
      */
     public String run(ArrayList<ParametersExecution> parameters, HashMap<String, Object> test) throws InterruptedException {
 
-        this.ip = (String) parameters.get(1).getValue().trim();
+        this.ip = parameters.get(1).getValue().trim();
         this.port = ((int) Double.parseDouble(parameters.get(2).getValue().trim()));
         this.slave = ((int) Double.parseDouble(parameters.get(3).getValue().trim()));
-        serverType = (String) parameters.get(4).getValue().trim();
+        serverType = parameters.get(4).getValue().trim();
         //System.out.println("Server type is :"+serverType);
         if (oldPort != port || !oldServerType.equals(serverType) || !oldIp.equals(ip)) {
             close();
@@ -195,7 +193,7 @@ public class LaunchTCPServerModbus {
      * @param SlaveID
      * @param serString
      */
-    public void launchServer(String ip, int portDeServer, int SlaveID, String serString) {
+    private void launchServer(String ip, int portDeServer, int SlaveID, String serString) {
 
 //2. Prepare a process image
         instance = new SimpleProcessImage();
@@ -204,7 +202,6 @@ public class LaunchTCPServerModbus {
                 for (int i = 0; i < 100000; i++) {
                     instance.addRegister(new SimpleRegister(0));
                     //instance.addInputRegister(new SimpleRegister(0));
-
                 }
                 break;
             case "AI":
@@ -235,7 +232,6 @@ public class LaunchTCPServerModbus {
     /**
      * Singleton of the class.
      *
-     * @param ip
      * @return instance of the class
      * @throws Exception exception
      */
@@ -247,7 +243,6 @@ public class LaunchTCPServerModbus {
      *
      */
     public static void close() {
-        System.out.println("Je suis dans la method close");
         if (listener != null) {
             listener.stop();
         }
@@ -265,6 +260,5 @@ public class LaunchTCPServerModbus {
                 threadArray1.interrupt();
             }
         }
-        
     }
 }

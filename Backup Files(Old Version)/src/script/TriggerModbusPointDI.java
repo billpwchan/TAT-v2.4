@@ -5,18 +5,19 @@ package script;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 import DB.Parameters;
 import DB.ParametersExecution;
 import DB.Script;
 import engine.Result;
-//import configuration.ParametersScript;
+import net.wimpi.modbus.procimg.SimpleProcessImage;
+import net.wimpi.modbus.procimg.SimpleRegister;
+import org.apache.log4j.Logger;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import org.apache.log4j.Logger;
-import net.wimpi.modbus.procimg.SimpleProcessImage;
-import net.wimpi.modbus.procimg.SimpleRegister;
-import net.wimpi.modbus.procimg.SimpleInputRegister;
+//import configuration.ParametersScript;
 //import net.wimpi.modbus.debug;
 
 /**
@@ -74,17 +75,6 @@ public class TriggerModbusPointDI implements InterfaceScript {
     /**
      *
      */
-    public void treatParameters() {
-        final String[] parameter = this.params.split(",");
-        this.value = Integer.parseInt(parameter[0]);
-        this.register = Integer.parseInt(parameter[1]);
-//        System.out.println("value = " + this.value);
-//        System.out.println("register = "+this.register);
-    }
-
-    /**
-     *
-     */
     public void result() {
         this.result = "success";
     }
@@ -105,7 +95,6 @@ public class TriggerModbusPointDI implements InterfaceScript {
 //        if (this.stringValue.length() == 2) {
 //            this.value = Math.pow(2, (int) this.stringValue.charAt(1)) + Math.pow(2, (int) this.stringValue.charAt(0));
 //        } else {
-        System.out.println("0 ?"+ this.stringValue.equals("0"));
         int val = (int) Double.parseDouble(this.stringValue);
         //System.out.println("VALUE AFTER CAST" + val);
         this.value = (int) Math.pow(2, val);
