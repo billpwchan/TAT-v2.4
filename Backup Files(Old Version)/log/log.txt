@@ -86,3 +86,13 @@ Caused by: java.lang.reflect.InvocationTargetException
 Caused by: java.lang.Exception: Exception in executing SSH command. (IP: 128.62.230.11; User: scloc21; SSHCommand: scsolsshow -lEventList -r | tail -f -n 1
 	at script.ExecuteSSHCommand.run(ExecuteSSHCommand.java:81)
 	... 11 more
+2018-10-09 00:26:51 | Engine.java | DEBUG | debugLogger : IN RESULT
+2018-10-09 00:26:51 | Engine.java | DEBUG | debugLogger : OS
+2018-10-09 00:26:51 | Engine.java | DEBUG | debugLogger : RESULT STEP = OS
+2018-10-09 00:28:15 | Engine.java | DEBUG | debugLogger : IN RESULT
+2018-10-09 00:28:15 | Engine.java | DEBUG | debugLogger : OS
+2018-10-09 00:28:15 | Engine.java | DEBUG | debugLogger : RESULT STEP = OS
+2018-10-09 00:28:15 | Engine.java | DEBUG | debugLogger : IN RESULT
+2018-10-09 00:28:15 | Engine.java | DEBUG | debugLogger : OS
+2018-10-09 00:28:15 | Engine.java | DEBUG | debugLogger : RESULT STEP = OS
+2018-10-09 00:28:15 | Engine.java | DEBUG | debugLogger : Case result = OS

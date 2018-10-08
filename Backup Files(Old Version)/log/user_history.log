@@ -1,0 +1,46 @@
+2018-10-08 00:27:56 | StepLineTableStepController.java |  INFO | reportsLogger : Expand step
+2018-10-08 00:28:02 | StepLineTableStepController.java |  INFO | reportsLogger : Expand step
+2018-10-08 23:32:10 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User view Iteration: trig1
+2018-10-08 23:32:27 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User view Iteration: Demo_rep2
+2018-10-09 00:17:03 | TabTestCaseLibraryController.java |  INFO | reportsLogger : User created a new Test Case
+2018-10-09 00:17:16 | StepLineTableStepController.java |  INFO | reportsLogger : Expand step (ID) 1
+2018-10-09 00:19:07 | TabTestCaseNewController.java |  INFO | reportsLogger : After Creating Test Case :
+	Step 0: Initiate IEC-104 Connection with Server
+		Script 0: Launch IEC-104 Sample Server
+
+2018-10-09 00:19:07 | TabTestCaseNewController.java |  INFO | reportsLogger : Successfully saved test case: TriggerSOE1
+2018-10-09 00:19:44 | TabTestCaseLibraryController.java |  INFO | reportsLogger : User Viewed the Test Case(49): TriggerSOE1
+2018-10-09 00:19:47 | TabTestCaseMainViewController.java |  INFO | reportsLogger : User cancel viewing TriggerSOE1
+2018-10-09 00:19:49 | TabTestCaseLibraryController.java |  INFO | reportsLogger : User Edited the Test Case(49): TriggerSOE1
+2018-10-09 00:19:50 | StepLineTableStepController.java |  INFO | reportsLogger : Expand step (ID) 1
+2018-10-09 00:20:23 | TabTestCaseEditController.java |  INFO | reportsLogger : After Editing Test Case :
+	Step 0: Initiate IEC-104 Connection with Server
+		Script 1 Step Description: Launch IEC-104 Sample Server
+	Step 1: null
+		Script 1 Step Description: Trigger of SOE1 (IEC104)
+
+2018-10-09 00:20:23 | TabTestCaseEditController.java |  INFO | reportsLogger : Successfully saved test case: TriggerSOE1
+2018-10-09 00:20:29 | TabTestCampaignRepositoryController.java |  INFO | reportsLogger : User deleted test campaign: 132
+2018-10-09 00:20:31 | TabTestCampaignRepositoryController.java |  INFO | reportsLogger : User deleted test campaign: 123
+2018-10-09 00:20:33 | TabTestCampaignRepositoryController.java |  INFO | reportsLogger : User deleted test campaign: sdf
+2018-10-09 00:20:34 | TabTestCampaignRepositoryController.java |  INFO | reportsLogger : User deleted test campaign: yuyu
+2018-10-09 00:20:36 | TabTestCampaignRepositoryController.java |  INFO | reportsLogger : User deleted test campaign: rtrt
+2018-10-09 00:20:38 | TabTestCampaignRepositoryController.java |  INFO | reportsLogger : User deleted test campaign: dfdf
+2018-10-09 00:20:39 | TabTestCampaignRepositoryController.java |  INFO | reportsLogger : User deleted test campaign: qwerty
+2018-10-09 00:21:11 | TestCampaignDB.java |  INFO | reportsLogger : After Creating Test Campaign :IEC-104
+	Case 1:  (50)
+
+2018-10-09 00:21:11 | TestCampaignDB.java |  INFO | reportsLogger : Successfully saved test campaign: IEC-104
+2018-10-09 00:21:21 | TabTestCaseMainViewController.java |  INFO | reportsLogger : User cancel viewing TriggerSOE1
+2018-10-09 00:21:25 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User open baseline: IEC-104
+2018-10-09 00:21:33 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: 
+2018-10-09 00:21:37 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validate baseline: IECBaseline
+2018-10-09 00:21:37 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User close Baseline Tab.
+2018-10-09 00:21:45 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User view Iteration: IECBaseline
+2018-10-09 00:24:30 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User view Iteration: IECBaseline
+2018-10-09 00:26:39 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User view Iteration: IECBaseline
+2018-10-09 00:26:44 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: IECBaseline
+2018-10-09 00:28:02 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User view Iteration: IECBaseline
+2018-10-09 00:28:08 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User delete execution: IECBaseline(Iteration Num: 1)
+2018-10-09 00:28:10 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User view Iteration: IECBaseline
+2018-10-09 00:28:13 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: IECBaseline
