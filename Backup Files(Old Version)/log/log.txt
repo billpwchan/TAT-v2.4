@@ -96,3 +96,1315 @@ Caused by: java.lang.Exception: Exception in executing SSH command. (IP: 128.62.
 2018-10-09 00:28:15 | Engine.java | DEBUG | debugLogger : OS
 2018-10-09 00:28:15 | Engine.java | DEBUG | debugLogger : RESULT STEP = OS
 2018-10-09 00:28:15 | Engine.java | DEBUG | debugLogger : Case result = OS
+2018-10-09 09:54:00 | IEC104InitConnection.java | DEBUG | debugLogger : Working Directory = C:\Users\Billp\Documents\NetBeansProjects\TAT_V2.3\Backup Files(Old Version)
+2018-10-09 09:54:00 | Engine.java | DEBUG | debugLogger : IN RESULT
+2018-10-09 09:54:00 | Engine.java | DEBUG | debugLogger : OS
+2018-10-09 09:54:00 | Engine.java | DEBUG | debugLogger : RESULT STEP = OS
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : ; save this file to take effect
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : [Configuration]
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : Version=1.8
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : [LogFile]
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : Log=0
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : [Server]
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : ; ip address for the current machine
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : ;Interface=127.0.0.1
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : ; default should be 2404 for IEC104
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : Port=2404
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : AsduAddress=7
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : [Debug]
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : ; if set to 1, after saving the ini file it will show all the point value
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : ShowData=0
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : [PointRange]
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : ;<Type>,<Start Address>,<Size>[,<Flag>...]
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : Range0=MSPNA,0x2711,0x0150,BACKGROUND
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : [Parameter]
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : ; whether the value of points initially send to master is random value or not. Otherwise, it will become all zero.
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : RandomPointValue=0
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : ; period for background response,(in second), need to restart the simulator to take effect
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : ; at least >=10
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : BackgroundPeriod=10
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : ; period for cyclic response (in second), need to restart the simulator to take effect
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : ; at least >=30
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : CyclicPeriod=0
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : ; kValue, max 60
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : kValue=12
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : ; wValue, recommend not larger than 2/3 of k
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : wValue=8
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : [Database]
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : ; whether to initialize point value in the database
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : InitPointValue0=1
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : IOA0=1
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : Value0=1
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : ; 0 for DI1,DI2 without timestamp, 1 for with timestamp
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : TimeStamp=0
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : PointEnabled0=1
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : PointType0=MSPNA
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : PointIOA0=10001
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : PointValue0=1
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : PointRepeat0=1
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : RandomPointEnabled0=0
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : RandomPointType0=
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : RandomPointIOA0=
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : RandomPointLength0=
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : RandomPointFrequency0=
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : RandomPointDisplay0=
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : ; multiple point for type 137 (0x7001 - 0x7050)
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : equipmentaddr0=0
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : groupaddr0=
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : sendvalue0=
+2018-10-09 09:54:00 | ArrayList.java | DEBUG | debugLogger : sendValueContinueChange0=
+2018-10-09 09:54:00 | Engine.java | DEBUG | debugLogger : IN RESULT
+2018-10-09 09:54:00 | Engine.java | DEBUG | debugLogger : OS
+2018-10-09 09:54:00 | Engine.java | DEBUG | debugLogger : RESULT STEP = OS
+2018-10-09 09:54:00 | Engine.java | DEBUG | debugLogger : Case result = OS
+2018-10-09 09:55:05 | IEC104InitConnection.java | DEBUG | debugLogger : Working Directory = C:\Users\Billp\Documents\NetBeansProjects\TAT_V2.3\Backup Files(Old Version)
+2018-10-09 09:55:05 | Engine.java | DEBUG | debugLogger : IN RESULT
+2018-10-09 09:55:05 | Engine.java | DEBUG | debugLogger : OS
+2018-10-09 09:55:05 | Engine.java | DEBUG | debugLogger : RESULT STEP = OS
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : ; save this file to take effect
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : [Configuration]
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : Version=1.8
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : [LogFile]
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : Log=0
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : [Server]
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : ; ip address for the current machine
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : ;Interface=127.0.0.1
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : ; default should be 2404 for IEC104
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : Port=2404
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : AsduAddress=7
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : [Debug]
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : ; if set to 1, after saving the ini file it will show all the point value
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : ShowData=0
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : [PointRange]
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : ;<Type>,<Start Address>,<Size>[,<Flag>...]
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : Range0=MSPNA,0x2711,0x0150,BACKGROUND
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : [Parameter]
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : ; whether the value of points initially send to master is random value or not. Otherwise, it will become all zero.
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : RandomPointValue=0
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : ; period for background response,(in second), need to restart the simulator to take effect
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : ; at least >=10
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : BackgroundPeriod=10
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : ; period for cyclic response (in second), need to restart the simulator to take effect
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : ; at least >=30
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : CyclicPeriod=0
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : ; kValue, max 60
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : kValue=12
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : ; wValue, recommend not larger than 2/3 of k
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : wValue=8
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : [Database]
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : ; whether to initialize point value in the database
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : InitPointValue0=1
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : IOA0=1
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : Value0=1
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : ; 0 for DI1,DI2 without timestamp, 1 for with timestamp
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : TimeStamp=0
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : PointEnabled0=1
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : PointType0=MSPNA
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : PointIOA0=10001
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : PointValue0=1
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : PointRepeat0=1
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : RandomPointEnabled0=0
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : RandomPointType0=
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : RandomPointIOA0=
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : RandomPointLength0=
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : RandomPointFrequency0=
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : RandomPointDisplay0=
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : ; multiple point for type 137 (0x7001 - 0x7050)
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : equipmentaddr0=0
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : groupaddr0=
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : sendvalue0=
+2018-10-09 09:55:05 | ArrayList.java | DEBUG | debugLogger : sendValueContinueChange0=
+2018-10-09 10:15:01 | IEC104InitConnection.java | DEBUG | debugLogger : Working Directory = C:\Users\Billp\Documents\NetBeansProjects\TAT_V2.3\Backup Files(Old Version)
+2018-10-09 10:15:01 | Engine.java | DEBUG | debugLogger : IN RESULT
+2018-10-09 10:15:01 | Engine.java | DEBUG | debugLogger : OS
+2018-10-09 10:15:01 | Engine.java | DEBUG | debugLogger : RESULT STEP = OS
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : ; save this file to take effect
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : [Configuration]
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : Version=1.8
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : [LogFile]
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : Log=0
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : [Server]
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : ; ip address for the current machine
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : ;Interface=127.0.0.1
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : ; default should be 2404 for IEC104
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : Port=2404
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : AsduAddress=7
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : [Debug]
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : ; if set to 1, after saving the ini file it will show all the point value
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : ShowData=0
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : [PointRange]
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : ;<Type>,<Start Address>,<Size>[,<Flag>...]
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : Range0=MSPNA,0x2711,0x0001,BACKGROUND
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : [Parameter]
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : ; whether the value of points initially send to master is random value or not. Otherwise, it will become all zero.
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : RandomPointValue=0
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : ; period for background response,(in second), need to restart the simulator to take effect
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : ; at least >=10
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : BackgroundPeriod=10
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : ; period for cyclic response (in second), need to restart the simulator to take effect
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : ; at least >=30
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : CyclicPeriod=0
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : ; kValue, max 60
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : kValue=12
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : ; wValue, recommend not larger than 2/3 of k
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : wValue=8
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : [Database]
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : ; whether to initialize point value in the database
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : InitPointValue0=1
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : IOA0=1
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : Value0=1
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : ; 0 for DI1,DI2 without timestamp, 1 for with timestamp
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : TimeStamp=0
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : PointEnabled0=1
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : PointType0=MSPNA
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : PointIOA0=10001
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : PointValue0=1
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : PointRepeat0=1
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : RandomPointEnabled0=0
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : RandomPointType0=
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : RandomPointIOA0=
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : RandomPointLength0=
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : RandomPointFrequency0=
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : RandomPointDisplay0=
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : ; multiple point for type 137 (0x7001 - 0x7050)
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : equipmentaddr0=0
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : groupaddr0=
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : sendvalue0=
+2018-10-09 10:15:01 | ArrayList.java | DEBUG | debugLogger : sendValueContinueChange0=
+2018-10-09 10:15:01 | TriggerIEC104PointSOE1.java | ERROR | debugLogger : Invalid Write Operation Found. Please restart the program.
+2018-10-09 10:15:01 | Engine.java | DEBUG | debugLogger : IN RESULT
+2018-10-09 10:15:01 | Engine.java | DEBUG | debugLogger : OS
+2018-10-09 10:15:01 | Engine.java | DEBUG | debugLogger : RESULT STEP = OS
+2018-10-09 10:15:01 | Engine.java | DEBUG | debugLogger : Case result = OS
+2018-10-09 10:17:15 | IEC104InitConnection.java | DEBUG | debugLogger : Working Directory = C:\Users\Billp\Documents\NetBeansProjects\TAT_V2.3\Backup Files(Old Version)
+2018-10-09 10:17:15 | Engine.java | DEBUG | debugLogger : IN RESULT
+2018-10-09 10:17:15 | Engine.java | DEBUG | debugLogger : OS
+2018-10-09 10:17:15 | Engine.java | DEBUG | debugLogger : RESULT STEP = OS
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : ; save this file to take effect
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : [Configuration]
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : Version=1.8
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : [LogFile]
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : Log=0
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : [Server]
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : ; ip address for the current machine
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : ;Interface=127.0.0.1
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : ; default should be 2404 for IEC104
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : Port=2404
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : AsduAddress=7
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : [Debug]
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : ; if set to 1, after saving the ini file it will show all the point value
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : ShowData=0
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : [PointRange]
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : ;<Type>,<Start Address>,<Size>[,<Flag>...]
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : Range0=MSPNA,0x2711,0x0001,BACKGROUND
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : [Parameter]
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : ; whether the value of points initially send to master is random value or not. Otherwise, it will become all zero.
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : RandomPointValue=0
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : ; period for background response,(in second), need to restart the simulator to take effect
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : ; at least >=10
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : BackgroundPeriod=10
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : ; period for cyclic response (in second), need to restart the simulator to take effect
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : ; at least >=30
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : CyclicPeriod=0
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : ; kValue, max 60
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : kValue=12
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : ; wValue, recommend not larger than 2/3 of k
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : wValue=8
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : [Database]
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : ; whether to initialize point value in the database
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : InitPointValue0=1
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : IOA0=1
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : Value0=1
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : ; 0 for DI1,DI2 without timestamp, 1 for with timestamp
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : TimeStamp=0
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : PointEnabled0=1
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : PointType0=MSPNA
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : PointIOA0=10001
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : PointValue0=1
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : PointRepeat0=1
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : RandomPointEnabled0=0
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : RandomPointType0=
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : RandomPointIOA0=
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : RandomPointLength0=
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : RandomPointFrequency0=
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : RandomPointDisplay0=
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : ; multiple point for type 137 (0x7001 - 0x7050)
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : equipmentaddr0=0
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : groupaddr0=
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : sendvalue0=
+2018-10-09 10:17:15 | ArrayList.java | DEBUG | debugLogger : sendValueContinueChange0=
+2018-10-09 14:29:41 | TabTestCampaignExecutionRepositoryBaselineController.java | ERROR | debugLogger : Database File is Locked
+org.hibernate.exception.GenericJDBCException: could not prepare statement
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:54)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:126)
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl$StatementPreparationTemplate.prepareStatement(StatementPreparerImpl.java:196)
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl.prepareQueryStatement(StatementPreparerImpl.java:160)
+	at org.hibernate.loader.Loader.prepareQueryStatement(Loader.java:1884)
+	at org.hibernate.loader.Loader.executeQueryStatement(Loader.java:1861)
+	at org.hibernate.loader.Loader.executeQueryStatement(Loader.java:1838)
+	at org.hibernate.loader.Loader.doQuery(Loader.java:909)
+	at org.hibernate.loader.Loader.doQueryAndInitializeNonLazyCollections(Loader.java:354)
+	at org.hibernate.loader.Loader.doList(Loader.java:2551)
+	at org.hibernate.loader.Loader.doList(Loader.java:2537)
+	at org.hibernate.loader.Loader.listIgnoreQueryCache(Loader.java:2367)
+	at org.hibernate.loader.Loader.list(Loader.java:2362)
+	at org.hibernate.loader.hql.QueryLoader.list(QueryLoader.java:496)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.list(QueryTranslatorImpl.java:387)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.performList(HQLQueryPlan.java:229)
+	at org.hibernate.internal.SessionImpl.list(SessionImpl.java:1260)
+	at org.hibernate.internal.QueryImpl.list(QueryImpl.java:103)
+	at DBcontroller.TestExecution.getBaselinesFromCampaign(TestExecution.java:43)
+	at controller.tabtestexecution.TabTestCampaignExecutionRepositoryBaselineController.lambda$iniButtons$4(TabTestCampaignExecutionRepositoryBaselineController.java:402)
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:238)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191)
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.scene.Node.fireEvent(Node.java:8411)
+	at javafx.scene.control.Button.fire(Button.java:185)
+	at com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:182)
+	at com.sun.javafx.scene.control.skin.BehaviorSkinBase$1.handle(BehaviorSkinBase.java:96)
+	at com.sun.javafx.scene.control.skin.BehaviorSkinBase$1.handle(BehaviorSkinBase.java:89)
+	at com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:218)
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:238)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191)
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
+	at javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.scene.Scene$MouseHandler.process(Scene.java:3757)
+	at javafx.scene.Scene$MouseHandler.access$1500(Scene.java:3485)
+	at javafx.scene.Scene.impl_processMouseEvent(Scene.java:1762)
+	at javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2494)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:394)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$353(GlassViewEventHandler.java:432)
+	at com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:389)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:431)
+	at com.sun.glass.ui.View.handleMouseEvent(View.java:555)
+	at com.sun.glass.ui.View.notifyMouse(View.java:937)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.sql.SQLException: [SQLITE_BUSY]  The database file is locked (database is locked)
+	at org.sqlite.core.DB.newSQLException(DB.java:890)
+	at org.sqlite.core.DB.newSQLException(DB.java:901)
+	at org.sqlite.core.DB.throwex(DB.java:868)
+	at org.sqlite.core.NativeDB.prepare(Native Method)
+	at org.sqlite.core.DB.prepare(DB.java:211)
+	at org.sqlite.core.CorePreparedStatement.<init>(CorePreparedStatement.java:40)
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.<init>(JDBC3PreparedStatement.java:29)
+	at org.sqlite.jdbc4.JDBC4PreparedStatement.<init>(JDBC4PreparedStatement.java:18)
+	at org.sqlite.jdbc4.JDBC4Connection.prepareStatement(JDBC4Connection.java:47)
+	at org.sqlite.jdbc3.JDBC3Connection.prepareStatement(JDBC3Connection.java:254)
+	at org.sqlite.jdbc3.JDBC3Connection.prepareStatement(JDBC3Connection.java:226)
+	at com.mchange.v2.c3p0.impl.NewProxyConnection.prepareStatement(NewProxyConnection.java:162)
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl$5.doPrepare(StatementPreparerImpl.java:162)
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl$StatementPreparationTemplate.prepareStatement(StatementPreparerImpl.java:186)
+	... 72 more
+2018-10-09 14:36:24 | IEC104InitConnection.java | DEBUG | debugLogger : Working Directory = C:\Users\Billp\Documents\NetBeansProjects\TAT_V2.3\Backup Files(Old Version)
+2018-10-09 14:36:24 | Engine.java | DEBUG | debugLogger : IN RESULT
+2018-10-09 14:36:24 | Engine.java | DEBUG | debugLogger : OS
+2018-10-09 14:36:24 | Engine.java | DEBUG | debugLogger : RESULT STEP = OS
+2018-10-09 14:36:24 | Engine.java | DEBUG | debugLogger : Case result = OS
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : ; save this file to take effect
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : [Configuration]
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : Version=1.8
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : [LogFile]
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : Log=0
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : [Server]
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : ; ip address for the current machine
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : ;Interface=127.0.0.1
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : ; default should be 2404 for IEC104
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : Port=2404
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : AsduAddress=7
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : [Debug]
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : ; if set to 1, after saving the ini file it will show all the point value
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : ShowData=0
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : [PointRange]
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : ;<Type>,<Start Address>,<Size>[,<Flag>...]
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : Range0=MSPNA,0x2711,0x0010,BACKGROUND
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : [Parameter]
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : ; whether the value of points initially send to master is random value or not. Otherwise, it will become all zero.
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : RandomPointValue=0
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : ; period for background response,(in second), need to restart the simulator to take effect
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : ; at least >=10
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : BackgroundPeriod=10
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : ; period for cyclic response (in second), need to restart the simulator to take effect
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : ; at least >=30
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : CyclicPeriod=0
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : ; kValue, max 60
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : kValue=12
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : ; wValue, recommend not larger than 2/3 of k
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : wValue=8
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : [Database]
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : ; whether to initialize point value in the database
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : InitPointValue0=1
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : IOA0=1
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : Value0=1
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : ; 0 for DI1,DI2 without timestamp, 1 for with timestamp
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : TimeStamp=0
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : PointEnabled0=1
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : PointType0=MSPNA
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : PointIOA0=10001
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : PointValue0=0.0
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : PointRepeat0=1
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : RandomPointEnabled0=0
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : RandomPointType0=
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : RandomPointIOA0=
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : RandomPointLength0=
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : RandomPointFrequency0=
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : RandomPointDisplay0=
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : ; multiple point for type 137 (0x7001 - 0x7050)
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : equipmentaddr0=0
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : groupaddr0=
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : sendvalue0=
+2018-10-09 14:36:24 | ArrayList.java | DEBUG | debugLogger : sendValueContinueChange0=
+2018-10-09 14:39:10 | IEC104InitConnection.java | DEBUG | debugLogger : Working Directory = C:\Users\Billp\Documents\NetBeansProjects\TAT_V2.3\Backup Files(Old Version)
+2018-10-09 14:39:10 | Engine.java | DEBUG | debugLogger : IN RESULT
+2018-10-09 14:39:10 | Engine.java | DEBUG | debugLogger : OS
+2018-10-09 14:39:10 | Engine.java | DEBUG | debugLogger : RESULT STEP = OS
+2018-10-09 14:39:10 | Engine.java | DEBUG | debugLogger : Case result = OS
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : ; save this file to take effect
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : [Configuration]
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : Version=1.8
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : [LogFile]
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : Log=0
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : [Server]
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : ; ip address for the current machine
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : ;Interface=127.0.0.1
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : ; default should be 2404 for IEC104
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : Port=2404
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : AsduAddress=7
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : [Debug]
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : ; if set to 1, after saving the ini file it will show all the point value
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : ShowData=0
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : [PointRange]
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : ;<Type>,<Start Address>,<Size>[,<Flag>...]
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : Range0=MSPNA,0x2711,0x0010,BACKGROUND
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : [Parameter]
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : ; whether the value of points initially send to master is random value or not. Otherwise, it will become all zero.
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : RandomPointValue=0
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : ; period for background response,(in second), need to restart the simulator to take effect
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : ; at least >=10
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : BackgroundPeriod=10
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : ; period for cyclic response (in second), need to restart the simulator to take effect
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : ; at least >=30
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : CyclicPeriod=0
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : ; kValue, max 60
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : kValue=12
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : ; wValue, recommend not larger than 2/3 of k
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : wValue=8
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : [Database]
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : ; whether to initialize point value in the database
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : InitPointValue0=1
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : IOA0=1
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : Value0=1
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : ; 0 for DI1,DI2 without timestamp, 1 for with timestamp
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : TimeStamp=0
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : PointEnabled0=1
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : PointType0=MSPNA
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : PointIOA0=10001
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : PointValue0=0.0
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : PointRepeat0=1
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : RandomPointEnabled0=0
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : RandomPointType0=
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : RandomPointIOA0=
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : RandomPointLength0=
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : RandomPointFrequency0=
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : RandomPointDisplay0=
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : ; multiple point for type 137 (0x7001 - 0x7050)
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : equipmentaddr0=0
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : groupaddr0=
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : sendvalue0=
+2018-10-09 14:39:10 | ArrayList.java | DEBUG | debugLogger : sendValueContinueChange0=
+2018-10-09 14:40:52 | IEC104InitConnection.java | DEBUG | debugLogger : Working Directory = C:\Users\Billp\Documents\NetBeansProjects\TAT_V2.3\Backup Files(Old Version)
+2018-10-09 14:40:52 | Engine.java | DEBUG | debugLogger : IN RESULT
+2018-10-09 14:40:52 | Engine.java | DEBUG | debugLogger : OS
+2018-10-09 14:40:52 | Engine.java | DEBUG | debugLogger : RESULT STEP = OS
+2018-10-09 14:40:52 | Engine.java | DEBUG | debugLogger : Case result = OS
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : ; save this file to take effect
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : [Configuration]
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : Version=1.8
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : [LogFile]
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : Log=0
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : [Server]
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : ; ip address for the current machine
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : ;Interface=127.0.0.1
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : ; default should be 2404 for IEC104
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : Port=2404
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : AsduAddress=7
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : [Debug]
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : ; if set to 1, after saving the ini file it will show all the point value
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : ShowData=0
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : [PointRange]
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : ;<Type>,<Start Address>,<Size>[,<Flag>...]
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : Range0=MSPNA,0x2711,0x0010,BACKGROUND
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : [Parameter]
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : ; whether the value of points initially send to master is random value or not. Otherwise, it will become all zero.
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : RandomPointValue=0
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : ; period for background response,(in second), need to restart the simulator to take effect
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : ; at least >=10
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : BackgroundPeriod=10
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : ; period for cyclic response (in second), need to restart the simulator to take effect
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : ; at least >=30
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : CyclicPeriod=0
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : ; kValue, max 60
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : kValue=12
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : ; wValue, recommend not larger than 2/3 of k
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : wValue=8
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : [Database]
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : ; whether to initialize point value in the database
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : InitPointValue0=1
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : IOA0=1
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : Value0=1
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : ; 0 for DI1,DI2 without timestamp, 1 for with timestamp
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : TimeStamp=0
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : PointEnabled0=1
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : PointType0=MSPNA
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : PointIOA0=10001
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : PointValue0=0.0
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : PointRepeat0=1
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : RandomPointEnabled0=0
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : RandomPointType0=
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : RandomPointIOA0=
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : RandomPointLength0=
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : RandomPointFrequency0=
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : RandomPointDisplay0=
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : ; multiple point for type 137 (0x7001 - 0x7050)
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : equipmentaddr0=0
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : groupaddr0=
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : sendvalue0=
+2018-10-09 14:40:52 | ArrayList.java | DEBUG | debugLogger : sendValueContinueChange0=
+2018-10-09 14:42:24 | IEC104InitConnection.java | DEBUG | debugLogger : Working Directory = C:\Users\Billp\Documents\NetBeansProjects\TAT_V2.3\Backup Files(Old Version)
+2018-10-09 14:42:24 | Engine.java | DEBUG | debugLogger : IN RESULT
+2018-10-09 14:42:24 | Engine.java | DEBUG | debugLogger : OS
+2018-10-09 14:42:24 | Engine.java | DEBUG | debugLogger : RESULT STEP = OS
+2018-10-09 14:42:24 | Engine.java | DEBUG | debugLogger : Case result = OS
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : ; save this file to take effect
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : [Configuration]
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : Version=1.8
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : [LogFile]
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : Log=0
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : [Server]
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : ; ip address for the current machine
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : ;Interface=127.0.0.1
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : ; default should be 2404 for IEC104
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : Port=2404
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : AsduAddress=7
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : [Debug]
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : ; if set to 1, after saving the ini file it will show all the point value
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : ShowData=0
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : [PointRange]
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : ;<Type>,<Start Address>,<Size>[,<Flag>...]
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : Range0=MSPNA,0x2711,0x0010,BACKGROUND
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : [Parameter]
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : ; whether the value of points initially send to master is random value or not. Otherwise, it will become all zero.
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : RandomPointValue=0
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : ; period for background response,(in second), need to restart the simulator to take effect
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : ; at least >=10
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : BackgroundPeriod=10
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : ; period for cyclic response (in second), need to restart the simulator to take effect
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : ; at least >=30
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : CyclicPeriod=0
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : ; kValue, max 60
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : kValue=12
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : ; wValue, recommend not larger than 2/3 of k
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : wValue=8
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : [Database]
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : ; whether to initialize point value in the database
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : InitPointValue0=1
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : IOA0=1
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : Value0=1
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : ; 0 for DI1,DI2 without timestamp, 1 for with timestamp
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : TimeStamp=0
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : PointEnabled0=1
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : PointType0=MSPNA
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : PointIOA0=10001
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : PointValue0=0.0
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : PointRepeat0=1
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : RandomPointEnabled0=0
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : RandomPointType0=
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : RandomPointIOA0=
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : RandomPointLength0=
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : RandomPointFrequency0=
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : RandomPointDisplay0=
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : ; multiple point for type 137 (0x7001 - 0x7050)
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : equipmentaddr0=0
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : groupaddr0=
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : sendvalue0=
+2018-10-09 14:42:24 | ArrayList.java | DEBUG | debugLogger : sendValueContinueChange0=
+2018-10-09 14:42:26 | Engine.java | DEBUG | debugLogger : IN RESULT
+2018-10-09 14:42:26 | Engine.java | DEBUG | debugLogger : OS
+2018-10-09 14:42:26 | Engine.java | DEBUG | debugLogger : RESULT STEP = OS
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : ; save this file to take effect
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : [Configuration]
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : Version=1.8
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : [LogFile]
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : Log=0
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : [Server]
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : ; ip address for the current machine
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : ;Interface=127.0.0.1
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : ; default should be 2404 for IEC104
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : Port=2404
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : AsduAddress=7
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : [Debug]
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : ; if set to 1, after saving the ini file it will show all the point value
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : ShowData=0
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : [PointRange]
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : ;<Type>,<Start Address>,<Size>[,<Flag>...]
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : Range0=MSPNA,0x2711,0x0010,BACKGROUND
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : [Parameter]
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : ; whether the value of points initially send to master is random value or not. Otherwise, it will become all zero.
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : RandomPointValue=0
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : ; period for background response,(in second), need to restart the simulator to take effect
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : ; at least >=10
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : BackgroundPeriod=10
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : ; period for cyclic response (in second), need to restart the simulator to take effect
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : ; at least >=30
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : CyclicPeriod=0
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : ; kValue, max 60
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : kValue=12
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : ; wValue, recommend not larger than 2/3 of k
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : wValue=8
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : [Database]
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : ; whether to initialize point value in the database
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : InitPointValue0=1
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : IOA0=1
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : Value0=1
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : ; 0 for DI1,DI2 without timestamp, 1 for with timestamp
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : TimeStamp=0
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : PointEnabled0=1
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : PointType0=MSPNA
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : PointIOA0=10001
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : PointValue0=1.0
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : PointRepeat0=1
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : RandomPointEnabled0=0
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : RandomPointType0=
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : RandomPointIOA0=
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : RandomPointLength0=
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : RandomPointFrequency0=
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : RandomPointDisplay0=
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : ; multiple point for type 137 (0x7001 - 0x7050)
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : equipmentaddr0=0
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : groupaddr0=
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : sendvalue0=
+2018-10-09 14:42:26 | ArrayList.java | DEBUG | debugLogger : sendValueContinueChange0=
+2018-10-09 14:42:28 | Engine.java | DEBUG | debugLogger : IN RESULT
+2018-10-09 14:42:28 | Engine.java | DEBUG | debugLogger : OS
+2018-10-09 14:42:28 | Engine.java | DEBUG | debugLogger : RESULT STEP = OS
+2018-10-09 14:42:28 | Engine.java | DEBUG | debugLogger : Case result = OS
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : ; save this file to take effect
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : [Configuration]
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : Version=1.8
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : [LogFile]
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : Log=0
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : [Server]
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : ; ip address for the current machine
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : ;Interface=127.0.0.1
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : ; default should be 2404 for IEC104
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : Port=2404
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : AsduAddress=7
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : [Debug]
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : ; if set to 1, after saving the ini file it will show all the point value
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : ShowData=0
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : [PointRange]
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : ;<Type>,<Start Address>,<Size>[,<Flag>...]
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : Range0=MSPNA,0x2712,0x0010,BACKGROUND
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : [Parameter]
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : ; whether the value of points initially send to master is random value or not. Otherwise, it will become all zero.
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : RandomPointValue=0
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : ; period for background response,(in second), need to restart the simulator to take effect
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : ; at least >=10
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : BackgroundPeriod=10
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : ; period for cyclic response (in second), need to restart the simulator to take effect
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : ; at least >=30
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : CyclicPeriod=0
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : ; kValue, max 60
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : kValue=12
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : ; wValue, recommend not larger than 2/3 of k
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : wValue=8
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : [Database]
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : ; whether to initialize point value in the database
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : InitPointValue0=1
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : IOA0=1
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : Value0=1
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : ; 0 for DI1,DI2 without timestamp, 1 for with timestamp
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : TimeStamp=0
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : PointEnabled0=1
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : PointType0=MSPNA
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : PointIOA0=10002
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : PointValue0=0.0
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : PointRepeat0=1
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : RandomPointEnabled0=0
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : RandomPointType0=
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : RandomPointIOA0=
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : RandomPointLength0=
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : RandomPointFrequency0=
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : RandomPointDisplay0=
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : ; multiple point for type 137 (0x7001 - 0x7050)
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : equipmentaddr0=0
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : groupaddr0=
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : sendvalue0=
+2018-10-09 14:42:28 | ArrayList.java | DEBUG | debugLogger : sendValueContinueChange0=
+2018-10-09 14:42:30 | Engine.java | DEBUG | debugLogger : IN RESULT
+2018-10-09 14:42:30 | Engine.java | DEBUG | debugLogger : OS
+2018-10-09 14:42:30 | Engine.java | DEBUG | debugLogger : RESULT STEP = OS
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : ; save this file to take effect
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : [Configuration]
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : Version=1.8
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : [LogFile]
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : Log=0
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : [Server]
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : ; ip address for the current machine
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : ;Interface=127.0.0.1
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : ; default should be 2404 for IEC104
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : Port=2404
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : AsduAddress=7
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : [Debug]
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : ; if set to 1, after saving the ini file it will show all the point value
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : ShowData=0
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : [PointRange]
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : ;<Type>,<Start Address>,<Size>[,<Flag>...]
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : Range0=MSPNA,0x2712,0x0010,BACKGROUND
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : [Parameter]
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : ; whether the value of points initially send to master is random value or not. Otherwise, it will become all zero.
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : RandomPointValue=0
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : ; period for background response,(in second), need to restart the simulator to take effect
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : ; at least >=10
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : BackgroundPeriod=10
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : ; period for cyclic response (in second), need to restart the simulator to take effect
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : ; at least >=30
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : CyclicPeriod=0
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : ; kValue, max 60
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : kValue=12
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : ; wValue, recommend not larger than 2/3 of k
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : wValue=8
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : [Database]
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : ; whether to initialize point value in the database
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : InitPointValue0=1
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : IOA0=1
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : Value0=1
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : ; 0 for DI1,DI2 without timestamp, 1 for with timestamp
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : TimeStamp=0
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : PointEnabled0=1
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : PointType0=MSPNA
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : PointIOA0=10002
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : PointValue0=1.0
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : PointRepeat0=1
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : RandomPointEnabled0=0
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : RandomPointType0=
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : RandomPointIOA0=
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : RandomPointLength0=
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : RandomPointFrequency0=
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : RandomPointDisplay0=
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : ; multiple point for type 137 (0x7001 - 0x7050)
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : equipmentaddr0=0
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : groupaddr0=
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : sendvalue0=
+2018-10-09 14:42:30 | ArrayList.java | DEBUG | debugLogger : sendValueContinueChange0=
+2018-10-09 14:42:32 | Engine.java | DEBUG | debugLogger : IN RESULT
+2018-10-09 14:42:32 | Engine.java | DEBUG | debugLogger : OS
+2018-10-09 14:42:32 | Engine.java | DEBUG | debugLogger : RESULT STEP = OS
+2018-10-09 14:42:32 | Engine.java | DEBUG | debugLogger : Case result = OS
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : ; save this file to take effect
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : [Configuration]
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : Version=1.8
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : [LogFile]
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : Log=0
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : [Server]
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : ; ip address for the current machine
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : ;Interface=127.0.0.1
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : ; default should be 2404 for IEC104
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : Port=2404
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : AsduAddress=7
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : [Debug]
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : ; if set to 1, after saving the ini file it will show all the point value
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : ShowData=0
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : [PointRange]
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : ;<Type>,<Start Address>,<Size>[,<Flag>...]
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : Range0=MSPNA,0x2713,0x0010,BACKGROUND
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : [Parameter]
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : ; whether the value of points initially send to master is random value or not. Otherwise, it will become all zero.
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : RandomPointValue=0
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : ; period for background response,(in second), need to restart the simulator to take effect
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : ; at least >=10
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : BackgroundPeriod=10
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : ; period for cyclic response (in second), need to restart the simulator to take effect
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : ; at least >=30
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : CyclicPeriod=0
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : ; kValue, max 60
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : kValue=12
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : ; wValue, recommend not larger than 2/3 of k
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : wValue=8
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : [Database]
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : ; whether to initialize point value in the database
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : InitPointValue0=1
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : IOA0=1
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : Value0=1
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : ; 0 for DI1,DI2 without timestamp, 1 for with timestamp
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : TimeStamp=0
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : PointEnabled0=1
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : PointType0=MSPNA
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : PointIOA0=10003
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : PointValue0=0.0
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : PointRepeat0=1
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : RandomPointEnabled0=0
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : RandomPointType0=
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : RandomPointIOA0=
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : RandomPointLength0=
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : RandomPointFrequency0=
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : RandomPointDisplay0=
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : ; multiple point for type 137 (0x7001 - 0x7050)
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : equipmentaddr0=0
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : groupaddr0=
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : sendvalue0=
+2018-10-09 14:42:32 | ArrayList.java | DEBUG | debugLogger : sendValueContinueChange0=
+2018-10-09 14:42:34 | Engine.java | DEBUG | debugLogger : IN RESULT
+2018-10-09 14:42:34 | Engine.java | DEBUG | debugLogger : OS
+2018-10-09 14:42:34 | Engine.java | DEBUG | debugLogger : RESULT STEP = OS
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : ; save this file to take effect
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : [Configuration]
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : Version=1.8
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : [LogFile]
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : Log=0
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : [Server]
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : ; ip address for the current machine
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : ;Interface=127.0.0.1
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : ; default should be 2404 for IEC104
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : Port=2404
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : AsduAddress=7
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : [Debug]
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : ; if set to 1, after saving the ini file it will show all the point value
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : ShowData=0
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : [PointRange]
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : ;<Type>,<Start Address>,<Size>[,<Flag>...]
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : Range0=MSPNA,0x2713,0x0010,BACKGROUND
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : [Parameter]
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : ; whether the value of points initially send to master is random value or not. Otherwise, it will become all zero.
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : RandomPointValue=0
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : ; period for background response,(in second), need to restart the simulator to take effect
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : ; at least >=10
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : BackgroundPeriod=10
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : ; period for cyclic response (in second), need to restart the simulator to take effect
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : ; at least >=30
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : CyclicPeriod=0
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : ; kValue, max 60
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : kValue=12
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : ; wValue, recommend not larger than 2/3 of k
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : wValue=8
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : [Database]
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : ; whether to initialize point value in the database
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : InitPointValue0=1
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : IOA0=1
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : Value0=1
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : ; 0 for DI1,DI2 without timestamp, 1 for with timestamp
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : TimeStamp=0
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : PointEnabled0=1
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : PointType0=MSPNA
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : PointIOA0=10003
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : PointValue0=1.0
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : PointRepeat0=1
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : RandomPointEnabled0=0
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : RandomPointType0=
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : RandomPointIOA0=
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : RandomPointLength0=
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : RandomPointFrequency0=
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : RandomPointDisplay0=
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : ; multiple point for type 137 (0x7001 - 0x7050)
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : equipmentaddr0=0
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : groupaddr0=
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : sendvalue0=
+2018-10-09 14:42:34 | ArrayList.java | DEBUG | debugLogger : sendValueContinueChange0=
+2018-10-09 14:42:36 | Engine.java | DEBUG | debugLogger : IN RESULT
+2018-10-09 14:42:36 | Engine.java | DEBUG | debugLogger : OS
+2018-10-09 14:42:36 | Engine.java | DEBUG | debugLogger : RESULT STEP = OS
+2018-10-09 14:42:36 | Engine.java | DEBUG | debugLogger : Case result = OS
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : ; save this file to take effect
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : [Configuration]
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : Version=1.8
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : [LogFile]
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : Log=0
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : [Server]
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : ; ip address for the current machine
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : ;Interface=127.0.0.1
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : ; default should be 2404 for IEC104
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : Port=2404
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : AsduAddress=7
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : [Debug]
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : ; if set to 1, after saving the ini file it will show all the point value
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : ShowData=0
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : [PointRange]
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : ;<Type>,<Start Address>,<Size>[,<Flag>...]
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : Range0=MSPNA,0x2714,0x0010,BACKGROUND
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : [Parameter]
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : ; whether the value of points initially send to master is random value or not. Otherwise, it will become all zero.
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : RandomPointValue=0
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : ; period for background response,(in second), need to restart the simulator to take effect
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : ; at least >=10
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : BackgroundPeriod=10
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : ; period for cyclic response (in second), need to restart the simulator to take effect
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : ; at least >=30
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : CyclicPeriod=0
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : ; kValue, max 60
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : kValue=12
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : ; wValue, recommend not larger than 2/3 of k
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : wValue=8
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : [Database]
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : ; whether to initialize point value in the database
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : InitPointValue0=1
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : IOA0=1
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : Value0=1
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : ; 0 for DI1,DI2 without timestamp, 1 for with timestamp
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : TimeStamp=0
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : PointEnabled0=1
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : PointType0=MSPNA
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : PointIOA0=10004
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : PointValue0=0.0
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : PointRepeat0=1
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : RandomPointEnabled0=0
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : RandomPointType0=
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : RandomPointIOA0=
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : RandomPointLength0=
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : RandomPointFrequency0=
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : RandomPointDisplay0=
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : ; multiple point for type 137 (0x7001 - 0x7050)
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : equipmentaddr0=0
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : groupaddr0=
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : sendvalue0=
+2018-10-09 14:42:36 | ArrayList.java | DEBUG | debugLogger : sendValueContinueChange0=
+2018-10-09 14:42:38 | Engine.java | DEBUG | debugLogger : IN RESULT
+2018-10-09 14:42:38 | Engine.java | DEBUG | debugLogger : OS
+2018-10-09 14:42:38 | Engine.java | DEBUG | debugLogger : RESULT STEP = OS
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : ; save this file to take effect
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : [Configuration]
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : Version=1.8
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : [LogFile]
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : Log=0
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : [Server]
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : ; ip address for the current machine
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : ;Interface=127.0.0.1
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : ; default should be 2404 for IEC104
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : Port=2404
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : AsduAddress=7
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : [Debug]
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : ; if set to 1, after saving the ini file it will show all the point value
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : ShowData=0
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : [PointRange]
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : ;<Type>,<Start Address>,<Size>[,<Flag>...]
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : Range0=MSPNA,0x2714,0x0010,BACKGROUND
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : [Parameter]
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : ; whether the value of points initially send to master is random value or not. Otherwise, it will become all zero.
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : RandomPointValue=0
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : ; period for background response,(in second), need to restart the simulator to take effect
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : ; at least >=10
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : BackgroundPeriod=10
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : ; period for cyclic response (in second), need to restart the simulator to take effect
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : ; at least >=30
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : CyclicPeriod=0
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : ; kValue, max 60
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : kValue=12
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : ; wValue, recommend not larger than 2/3 of k
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : wValue=8
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : [Database]
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : ; whether to initialize point value in the database
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : InitPointValue0=1
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : IOA0=1
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : Value0=1
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : ; 0 for DI1,DI2 without timestamp, 1 for with timestamp
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : TimeStamp=0
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : PointEnabled0=1
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : PointType0=MSPNA
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : PointIOA0=10004
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : PointValue0=1.0
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : PointRepeat0=1
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : RandomPointEnabled0=0
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : RandomPointType0=
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : RandomPointIOA0=
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : RandomPointLength0=
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : RandomPointFrequency0=
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : RandomPointDisplay0=
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : ; multiple point for type 137 (0x7001 - 0x7050)
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : equipmentaddr0=0
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : groupaddr0=
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : sendvalue0=
+2018-10-09 14:42:38 | ArrayList.java | DEBUG | debugLogger : sendValueContinueChange0=
+2018-10-09 14:42:40 | Engine.java | DEBUG | debugLogger : IN RESULT
+2018-10-09 14:42:40 | Engine.java | DEBUG | debugLogger : OS
+2018-10-09 14:42:40 | Engine.java | DEBUG | debugLogger : RESULT STEP = OS
+2018-10-09 14:42:40 | Engine.java | DEBUG | debugLogger : Case result = OS
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : ; save this file to take effect
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : [Configuration]
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : Version=1.8
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : [LogFile]
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : Log=0
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : [Server]
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : ; ip address for the current machine
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : ;Interface=127.0.0.1
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : ; default should be 2404 for IEC104
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : Port=2404
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : AsduAddress=7
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : [Debug]
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : ; if set to 1, after saving the ini file it will show all the point value
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : ShowData=0
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : [PointRange]
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : ;<Type>,<Start Address>,<Size>[,<Flag>...]
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : Range0=MSPNA,0x2715,0x0010,BACKGROUND
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : [Parameter]
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : ; whether the value of points initially send to master is random value or not. Otherwise, it will become all zero.
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : RandomPointValue=0
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : ; period for background response,(in second), need to restart the simulator to take effect
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : ; at least >=10
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : BackgroundPeriod=10
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : ; period for cyclic response (in second), need to restart the simulator to take effect
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : ; at least >=30
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : CyclicPeriod=0
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : ; kValue, max 60
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : kValue=12
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : ; wValue, recommend not larger than 2/3 of k
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : wValue=8
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : [Database]
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : ; whether to initialize point value in the database
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : InitPointValue0=1
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : IOA0=1
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : Value0=1
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : ; 0 for DI1,DI2 without timestamp, 1 for with timestamp
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : TimeStamp=0
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : PointEnabled0=1
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : PointType0=MSPNA
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : PointIOA0=10005
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : PointValue0=0.0
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : PointRepeat0=1
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : RandomPointEnabled0=0
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : RandomPointType0=
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : RandomPointIOA0=
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : RandomPointLength0=
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : RandomPointFrequency0=
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : RandomPointDisplay0=
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : ; multiple point for type 137 (0x7001 - 0x7050)
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : equipmentaddr0=0
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : groupaddr0=
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : sendvalue0=
+2018-10-09 14:42:41 | ArrayList.java | DEBUG | debugLogger : sendValueContinueChange0=
+2018-10-09 14:42:43 | Engine.java | DEBUG | debugLogger : IN RESULT
+2018-10-09 14:42:43 | Engine.java | DEBUG | debugLogger : OS
+2018-10-09 14:42:43 | Engine.java | DEBUG | debugLogger : RESULT STEP = OS
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : ; save this file to take effect
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : [Configuration]
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : Version=1.8
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : [LogFile]
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : Log=0
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : [Server]
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : ; ip address for the current machine
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : ;Interface=127.0.0.1
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : ; default should be 2404 for IEC104
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : Port=2404
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : AsduAddress=7
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : [Debug]
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : ; if set to 1, after saving the ini file it will show all the point value
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : ShowData=0
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : [PointRange]
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : ;<Type>,<Start Address>,<Size>[,<Flag>...]
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : Range0=MSPNA,0x2715,0x0010,BACKGROUND
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : [Parameter]
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : ; whether the value of points initially send to master is random value or not. Otherwise, it will become all zero.
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : RandomPointValue=0
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : ; period for background response,(in second), need to restart the simulator to take effect
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : ; at least >=10
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : BackgroundPeriod=10
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : ; period for cyclic response (in second), need to restart the simulator to take effect
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : ; at least >=30
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : CyclicPeriod=0
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : ; kValue, max 60
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : kValue=12
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : ; wValue, recommend not larger than 2/3 of k
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : wValue=8
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : [Database]
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : ; whether to initialize point value in the database
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : InitPointValue0=1
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : IOA0=1
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : Value0=1
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : ; 0 for DI1,DI2 without timestamp, 1 for with timestamp
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : TimeStamp=0
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : PointEnabled0=1
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : PointType0=MSPNA
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : PointIOA0=10005
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : PointValue0=1.0
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : PointRepeat0=1
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : RandomPointEnabled0=0
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : RandomPointType0=
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : RandomPointIOA0=
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : RandomPointLength0=
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : RandomPointFrequency0=
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : RandomPointDisplay0=
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : 
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : ; multiple point for type 137 (0x7001 - 0x7050)
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : equipmentaddr0=0
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : groupaddr0=
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : sendvalue0=
+2018-10-09 14:42:43 | ArrayList.java | DEBUG | debugLogger : sendValueContinueChange0=
+2018-10-09 14:42:45 | Engine.java | DEBUG | debugLogger : IN RESULT
+2018-10-09 14:42:45 | Engine.java | DEBUG | debugLogger : OS
+2018-10-09 14:42:45 | Engine.java | DEBUG | debugLogger : RESULT STEP = OS
+2018-10-09 14:42:45 | Engine.java | DEBUG | debugLogger : Case result = OS
