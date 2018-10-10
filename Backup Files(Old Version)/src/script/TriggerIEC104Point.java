@@ -11,10 +11,7 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 
@@ -45,14 +42,14 @@ public class TriggerIEC104Point implements InterfaceScript {
         try {
             for (int i = 0; i < lines.size(); i++) {
                 if (lines.get(i) != null && lines.get(i).startsWith("Range0")) {
-                    lines.set(i, "Range0=" + this.adjustedParam().get(0) + ",0x" + Integer.toHexString(this.register) + ",0x0010,BACKGROUND");
+                    lines.set(i, "Range0=" + Objects.requireNonNull(this.adjustedParam()).get(0) + ",0x" + Integer.toHexString(this.register) + ",0x0010,BACKGROUND");
                 } else if (lines.get(i) != null && (lines.get(i)).startsWith("AsduAddress")) {
                     lines.set(i, "AsduAddress=" + asduAddress);
                 } else if (lines.get(i) != null && lines.get(i).startsWith("TimeStamp")) {
                     lines.set(i, "TimeStamp=0");    //Require confirmation for SOE1.
                 } else if (lines.get(i) != null && lines.get(i).startsWith("PointEnabled")) {
                     lines.set(i, "PointEnabled0=1");
-                    lines.set(i + 1, "PointType0=" + this.adjustedParam().get(0));
+                    lines.set(i + 1, "PointType0=" + Objects.requireNonNull(this.adjustedParam()).get(0));
                     lines.set(i + 2, "PointIOA0=" + this.register);
                     lines.set(i + 3, "PointValue0=" + this.value);
                     lines.set(i + 4, "PointRepeat0=1");
@@ -82,7 +79,7 @@ public class TriggerIEC104Point implements InterfaceScript {
 //            while ((line = br.readLine()) != null) {
 //                System.out.println(line);
 //            }
-            Thread.sleep(2000);
+            Thread.sleep(1500);
             process.destroy();
             return null;
         } catch (IndexOutOfBoundsException | IOException ex) {

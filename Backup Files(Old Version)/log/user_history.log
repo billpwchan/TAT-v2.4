@@ -129,3 +129,27 @@
 2018-10-09 14:40:50 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 123
 2018-10-09 14:42:22 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 123
 2018-10-09 14:42:55 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User view Iteration: 123
+2018-10-10 23:54:38 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 123
+2018-10-10 23:56:47 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 123
+2018-10-10 23:57:38 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 123
+2018-10-11 00:00:08 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User open baseline: IEC-104Test
+2018-10-11 00:00:12 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: 
+2018-10-11 00:00:58 | StepLineTableStepController.java |  INFO | reportsLogger : Expand step
+2018-10-11 00:00:59 | StepLineTableStepController.java |  INFO | reportsLogger : Expand step
+2018-10-11 00:01:27 | TabTestCaseLibraryController.java |  INFO | reportsLogger : User Edited the Test Case(48): Trigger DI
+2018-10-11 00:05:46 | TabTestCaseEditController.java |  INFO | reportsLogger : After Editing Test Case :Trigger IEC-104 Point
+	Step 0: Low Level
+		Script 1 Step Description: Trigger IEC104 Point
+	Step 1: null
+		Script 1 Step Description: SSH command
+	Step 2: Trigger High Level
+		Script 1 Step Description: Trigger IEC104 Point
+		Script 1 Expected Result: CheckSSHEvent_ReportFinalized
+	Step 3: Trigger Low Level
+		Script 1 Step Description: Trigger IEC104 Point
+		Script 1 Expected Result: CheckSSHEvent_ReportFinalized
+	Step 4: Check Event Match
+		Script 1 Step Description: SSH command
+		Script 1 Expected Result: Search occurrence
+
+2018-10-11 00:05:46 | TabTestCaseEditController.java |  INFO | reportsLogger : Successfully saved test case: Trigger DI

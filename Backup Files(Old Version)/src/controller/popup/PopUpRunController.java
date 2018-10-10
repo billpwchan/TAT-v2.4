@@ -244,8 +244,8 @@ public class PopUpRunController implements Initializable {
                     Platform.runLater(() -> {
                         Alert alert = new Alert(Alert.AlertType.ERROR);
                         alert.setTitle("Error: ");
-                        alert.setHeaderText("Exception Caught. Cannot execute the test case");
-                        alert.setContentText("Please refer to the log for adjusting SSH Connection Congirution.");
+                        alert.setHeaderText("Exception Caught. Cannot execute the test case / User interrupted the session.");
+                        alert.setContentText("Please refer to the log for adjusting configurations.");
                         if (ex.getMessage() != null && ex.getMessage().contains("SSH")) {      //Customized Content for Exceptions from SSHCommand Script
                             alert.setTitle("Error: The server (IP: " + exceptionMessage.substring(exceptionMessage.indexOf("IP: ")).trim() + " ) cannot be reached.");
                             CommonFunctions.debugLog.error("\"The server (IP: \" + exceptionMessage.replace(\"//n\", \" \").replace(\"    \", \" \").substring(exceptionMessage.indexOf(\"IP: \"), exceptionMessage.indexOf(\"at\")).trim() + \" ) cannot be reached.", ex);
