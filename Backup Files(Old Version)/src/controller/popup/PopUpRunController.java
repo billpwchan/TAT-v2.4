@@ -199,7 +199,7 @@ public class PopUpRunController implements Initializable {
                     try {
                         DisplaySteps(testCaseSelected);
                     } catch (InterruptedException ex) {
-                        Logger.getLogger(PopUpRunController.class.getName()).error("", ex);
+                        CommonFunctions.debugLog.error("", ex);
                     }
                     if (testScript != null) {
                         testScript.clear();
@@ -230,7 +230,7 @@ public class PopUpRunController implements Initializable {
 
         Task<Void> task = new Task<Void>() {
             @Override
-            protected Void call() throws Exception {
+            protected Void call() {
                 Engine engine = new Engine(caseExecutions, thisController, baselineId, iterationNumber);
                 try {
                     engine.run();
@@ -238,7 +238,7 @@ public class PopUpRunController implements Initializable {
                     System.out.println("Break the current session.");
                 } catch (Exception ex) {
                     //Default Logger Event
-                    Logger.getLogger(PopUpRunController.class.getName()).error("", ex);
+                    CommonFunctions.debugLog.error("", ex);
                     //Can be specified to different types of exception. 
                     String exceptionMessage = ex.getMessage();
                     Platform.runLater(() -> {
@@ -252,18 +252,13 @@ public class PopUpRunController implements Initializable {
                         }
                         alert.showAndWait();
                         th.resume();
-                        try {
-                            thisController.executionFinished();
-                        } catch (Exception e) {
-                            Logger.getLogger(PopUpRunController.class.getName()).error("", e);
-                        }
+                        th.stop();
                     });
                     Thread.currentThread().interrupt();
                 }
                 return null;
             }
         };
-
         th = new Thread(task);
         this.initButtons();
         this.loadCss();
@@ -280,16 +275,17 @@ public class PopUpRunController implements Initializable {
      * @param stage
      */
     public void setPrimaryStage(Stage stage) {
-        //System.out.println("HERE STAGE");
         this.dialogStage = stage;
         stage.setOnCloseRequest((WindowEvent event) -> {
-            //System.out.println("TH STATE= " + th.getState());
             if (th.getState() != Thread.State.NEW && th.getState() != Thread.State.TERMINATED) {
                 event.consume();
             } else if (th.getState() == Thread.State.NEW) {
-                //System.out.println("DELETE ");
                 long tempsDebut = System.currentTimeMillis();
-                testExecutionHandler.deleteIteration(this.iteration);
+                try {
+                    testExecutionHandler.deleteIteration(this.iteration);
+                } catch(org.hibernate.service.UnknownServiceException ex) {
+                    CommonFunctions.debugLog.error("Invalid Request. Caused by Invalid operation on thread.");
+                }
                 long tempsFin = System.currentTimeMillis();
                 float seconds = (tempsFin - tempsDebut) / 1000F;
                 try {
@@ -297,9 +293,8 @@ public class PopUpRunController implements Initializable {
                     Update();
                     long tempsFin2 = System.currentTimeMillis();
                     float seconds2 = (tempsFin2 - tempsDebut2) / 1000F;
-
                 } catch (ParseException ex) {
-                    Logger.getLogger(PopUpRunController.class.getName()).error("", ex);
+                    CommonFunctions.debugLog.error("", ex);
                 }
             }
         });
@@ -341,7 +336,7 @@ public class PopUpRunController implements Initializable {
                         //automaticCasesDisplay(testCaseInExecution);
                         DisplaySteps(testCaseInExecution);
                     } catch (InterruptedException ex) {
-                        Logger.getLogger(PopUpRunController.class.getName()).error("", ex);
+                        CommonFunctions.debugLog.error("", ex);
                     }
                     tPane.setText("Information of baseline : " + baselineId + ",  iteration number " + iterationNumber);
                 }
@@ -354,9 +349,7 @@ public class PopUpRunController implements Initializable {
         constructCampaignInformation(this.iteration.getTestCampaign().getIdtestCampaign());
         ready = true;
         this.runButton.setDisable(false);
-        Platform.runLater(() -> {
-            this.closeAlert();
-        });
+        Platform.runLater(this::closeAlert);
     }
 
     /**
@@ -467,13 +460,13 @@ public class PopUpRunController implements Initializable {
     public void callDisplaySteps(CaseExecutions currentTestCaseExecution) {
         testCaseSelected = currentTestCaseExecution;
         testCaseInExecution = currentTestCaseExecution;
-        if (caseSelected == false) {
+        if (!caseSelected) {
             Platform.runLater(() -> {
                         try {
                             automaticCasesDisplay(currentTestCaseExecution);
                             //tableViewCampaignPopUpRun.scrollTo(testCase);
                         } catch (InterruptedException ex) {
-                            Logger.getLogger(PopUpRunController.class.getName()).error("", ex);
+                            CommonFunctions.debugLog.error("", ex);
                         }
                     }
             );
@@ -513,7 +506,7 @@ public class PopUpRunController implements Initializable {
 
         runButton.setOnAction((ActionEvent e) -> {
             // Control the button behavior. 
-            if (ready == true && th.getState() == Thread.State.NEW) {
+            if (ready && th.getState() == Thread.State.NEW) {
                 //playSound("go");
                 th.start();
                 suspended = false;
@@ -539,13 +532,13 @@ public class PopUpRunController implements Initializable {
             try {
                 DisplaySteps(testCaseInExecution);
             } catch (InterruptedException ex) {
-                Logger.getLogger(PopUpRunController.class.getName()).error("", ex);
+                CommonFunctions.debugLog.error("", ex);
             }
             tableViewCampaignPopUpRun.getSelectionModel().select(testCaseInExecution);
         });
 
         pauseButton.setOnAction((ActionEvent e) -> {
-            if (suspended == false) {
+            if (!suspended) {
                 th.suspend();
                 suspended = true;
                 runButton.setDisable(false);
@@ -557,23 +550,20 @@ public class PopUpRunController implements Initializable {
 
         stopButton.setOnAction((ActionEvent e) -> {
             //The Stop button is not working at this stage. Only UI responds, but the algorithm will keep running till encountering exceptions / Finished.
-//            if (suspended) {
-//                th.resume();
-//            }
-
             try {
                 //Need to delete one record in Iterations database. Provide iteration_number and baseline_id
                 th.suspend();
                 this.executionInterrupted();
-                th.resume();
-                th.stop();
+//                th.resume();
 //                Thread.currentThread().interrupt();
                 //Change the state of testCaseInExecution to "Not tested."
 //                this.executionFinished();
-                //Need to stop the currentThread now. 
+                //Need to stop the currentThread now.
 //              Thread.currentThread().interrupt();
             } catch (Exception ex) {
-                Logger.getLogger(PopUpRunController.class.getName()).error("", ex);
+                CommonFunctions.debugLog.error("ExecutionInterrupted Is having problem! ", ex);
+            } finally {
+                th.stop();
             }
         });
     }
@@ -583,7 +573,7 @@ public class PopUpRunController implements Initializable {
      */
     public void executionInterrupted() throws Exception {
         IterationDB iterationHandler = new IterationDB();
-        iterationHandler.deleteExecution(iteration);
+        iterationHandler.deleteExecution(iteration);        //Causing exception
         Update();
         stopButton.setDisable(true);
         pauseButton.setDisable(true);
@@ -595,7 +585,6 @@ public class PopUpRunController implements Initializable {
      * @throws Exception
      */
     public void executionFinished() throws Exception {
-        //this.playSound("finish");
         IterationDB iterationHandler = new IterationDB();
         iterationHandler.setIterationResult(iteration, iterationPercentage);
         Update();
@@ -695,7 +684,7 @@ public class PopUpRunController implements Initializable {
             clip.open(ais);
             clip.loop(0);
         } catch (LineUnavailableException | UnsupportedAudioFileException | IOException ex) {
-            Logger.getLogger(PopUpRunController.class.getName()).error("", ex);
+            CommonFunctions.debugLog.error("", ex);
         }
 
     }

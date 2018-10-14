@@ -153,3 +153,30 @@
 		Script 1 Expected Result: Search occurrence
 
 2018-10-11 00:05:46 | TabTestCaseEditController.java |  INFO | reportsLogger : Successfully saved test case: Trigger DI
+2018-10-14 14:48:20 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 123
+2018-10-14 14:48:35 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 123
+2018-10-14 14:49:17 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 123
+2018-10-14 14:50:10 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User delete execution: 123(Iteration Num: 5)
+2018-10-14 14:50:14 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 123
+2018-10-14 14:50:25 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 123
+2018-10-14 14:52:14 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 123
+2018-10-14 14:54:42 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User view Iteration: 123
+2018-10-14 14:54:56 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User view Iteration: 123
+2018-10-14 14:55:02 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 123
+2018-10-14 14:55:13 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 123
+2018-10-14 14:56:04 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: trig1
+2018-10-14 14:56:19 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: trig1
+2018-10-14 15:01:06 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 123
+2018-10-14 15:01:13 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 123
+2018-10-14 15:01:23 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 123
+2018-10-14 15:03:18 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 123
+2018-10-14 15:03:31 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 123
+2018-10-14 15:06:40 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 123
+2018-10-14 15:06:50 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 123
+2018-10-14 15:08:08 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 123
+2018-10-14 15:08:22 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 123
+2018-10-14 15:09:35 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 123
+2018-10-14 15:09:47 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User view Iteration: 123
+2018-10-14 15:09:52 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 123
+2018-10-14 15:10:35 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 123
+2018-10-14 15:10:44 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 123
