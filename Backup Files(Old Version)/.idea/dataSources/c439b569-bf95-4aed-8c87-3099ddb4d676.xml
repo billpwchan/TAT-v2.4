@@ -104,6 +104,7 @@
       <NameSurrogate>1</NameSurrogate>
       <ColNames>case_executions_idcase_executions
 iteration_number</ColNames>
+      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <key id="46" parent="7">
@@ -385,6 +386,7 @@ iteration_number</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ColNames>script_executions_idscript_executions
 iteration_number</ColNames>
+      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <key id="111" parent="16">
@@ -551,6 +553,7 @@ iteration_number</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ColNames>step_executions_idstep_executions
 iteration_number</ColNames>
+      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <key id="148" parent="22">
@@ -629,6 +632,7 @@ iteration_number</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ColNames>test_campaign_idtest_campaign
 user_idUser</ColNames>
+      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <key id="166" parent="24">
@@ -657,6 +661,7 @@ user_idUser</ColNames>
       <ColNames>test_campaign_idtest_campaign
 test_case_idtest_case
 case_order</ColNames>
+      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <key id="171" parent="25">
@@ -812,6 +817,7 @@ case_order</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ColNames>requirement_idrequirement
 test_step_idtest_step</ColNames>
+      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <key id="208" parent="28">

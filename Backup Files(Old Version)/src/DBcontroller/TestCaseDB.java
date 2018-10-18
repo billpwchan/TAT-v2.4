@@ -5,20 +5,15 @@
  */
 package DBcontroller;
 
-import DB.CaseExecutions;
-import DB.CaseExecutionsResult;
-import DB.Iterations;
-import DB.Script;
-import DB.ScriptHasBeenConfigured;
-import DB.ScriptHasParameters;
-import DB.TestCampaign;
-import DB.TestCase;
-import DB.TestStep;
-import DB.TestStepHasScript;
+import DB.*;
+import org.hibernate.Hibernate;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import org.hibernate.*;
 
 /**
  *
@@ -169,28 +164,31 @@ public class TestCaseDB {
         Iterations iteration = (Iterations) qry2.list().get(0);
         caseExecutions = new ArrayList<>(iteration.getCaseExecutionses());
         Query qry = session.createQuery("from CaseExecutionsResult CER where CER.id.caseExecutionsIdcaseExecutions=:idCase and CER.id.iterationNumber=:iterationNumber");
-        for (CaseExecutions caseExecution : caseExecutions) {
-            Hibernate.initialize(caseExecution.getTestCase());
-            if (iterationNumber == 0) {
-                caseExecution.setCaseExecutionResult("");
-                caseExecution.setCaseExecutionComment("");
-            } else {
-                qry.setInteger("idCase", caseExecution.getIdcaseExecutions());
-                qry.setInteger("iterationNumber", iterationNumber);
-                List l = qry.list();
-                if (!l.isEmpty()) {
-                    CaseExecutionsResult caseResult = (CaseExecutionsResult) l.get(0);
-                    caseExecution.setCaseExecutionResult(caseResult.getResult());
-                    caseExecution.setCaseExecutionComment(caseResult.getComment());
-                    caseExecution.setOriginalResult(caseResult.getResult());
-                    caseExecution.setCaseExecutionResultObj(caseResult);
-                } else {
-                    caseExecution.setCaseExecutionResult("NExec");
+        try {
+            for (CaseExecutions caseExecution : caseExecutions) {
+                Hibernate.initialize(caseExecution.getTestCase());
+                if (iterationNumber == 0) {
+                    caseExecution.setCaseExecutionResult("");
                     caseExecution.setCaseExecutionComment("");
+                } else {
+                    qry.setInteger("idCase", caseExecution.getIdcaseExecutions());
+                    qry.setInteger("iterationNumber", iterationNumber);
+                    List l = qry.list();
+                    if (!l.isEmpty()) {
+                        CaseExecutionsResult caseResult = (CaseExecutionsResult) l.get(0);
+                        caseExecution.setCaseExecutionResult(caseResult.getResult());
+                        caseExecution.setCaseExecutionComment(caseResult.getComment());
+                        caseExecution.setOriginalResult(caseResult.getResult());
+                        caseExecution.setCaseExecutionResultObj(caseResult);
+                    } else {
+                        caseExecution.setCaseExecutionResult("NExec");
+                        caseExecution.setCaseExecutionComment("");
+                    }
                 }
             }
+        } finally {
+            session.close();
         }
-        session.close();
         return caseExecutions;
     }
 

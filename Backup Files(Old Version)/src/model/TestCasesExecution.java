@@ -13,6 +13,7 @@ import DB.StepExecutions;
 import DBcontroller.ScriptDB;
 import DBcontroller.TestCaseDB;
 import DBcontroller.TestStepDB;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -199,7 +200,6 @@ public class TestCasesExecution {
     public ArrayList<CaseExecutions> PrepareCaseDisplayResults(String baselineID, int iteration) {
         TestCaseDB testCaseHandler = new TestCaseDB();
         ArrayList<CaseExecutions> caseExecutions;
-        //System.out.println("INTERATION= " + iteration);
         caseExecutions = testCaseHandler.getTestCasesAndResults(baselineID, iteration);
         return caseExecutions;
     }

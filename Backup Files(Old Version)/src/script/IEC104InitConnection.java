@@ -40,6 +40,8 @@ public class IEC104InitConnection implements InterfaceScript {
         } catch (IOException ex) {
             CommonFunctions.debugLog.error("Cannot locate the file specified. Please check the IEC104Simulator Folder inside /scripts.", ex);
         }
+        Runtime.getRuntime().exec("attrib +H IEC104slave.ini");     //Hide the .ini file from the user.
+        Process process = new ProcessBuilder("src\\script\\IEC104Simulator\\20171117_104Slave.exe").start();
 
 
 //        process.destroy();

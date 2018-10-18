@@ -5,23 +5,13 @@
  */
 package DBcontroller;
 
-import DB.Iterations;
-import DB.Macro;
-import DB.ParametersExecution;
-import DB.Script;
-import DB.ScriptExecutionResult;
-import DB.ScriptExecutions;
-import DB.ScriptHasParameters;
-import DB.StepExecutions;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
+import DB.*;
 import org.hibernate.Hibernate;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+
+import java.util.*;
 
 /**
  *
@@ -106,6 +96,7 @@ public class ScriptDB {
                 }
             }
 
+            // Causing Exception in ObjectNotFoundException
             Hibernate.initialize(scriptExecution.getScript());
             Iterator<ParametersExecution> itParamExecution = scriptExecution.getParametersExecutions().iterator();
             while (itParamExecution.hasNext()) {

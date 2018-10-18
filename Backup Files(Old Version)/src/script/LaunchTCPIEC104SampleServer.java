@@ -18,6 +18,11 @@ public class LaunchTCPIEC104SampleServer implements InterfaceScript {
     private int port;
     private static String asduAddress;
 
+
+    public static void main(String[] args) {
+        LaunchTCPIEC104SampleServer temp = new LaunchTCPIEC104SampleServer();
+        temp.run(null, null);
+    }
     /**
      * Run the script.
      *
@@ -27,9 +32,11 @@ public class LaunchTCPIEC104SampleServer implements InterfaceScript {
      * can be "null". In this case put "return null" at the end of the run function.
      */
     public Result run(ArrayList<ParametersExecution> parameters, HashMap hashMap) {
-        this.ip = parameters.get(1).getValue().trim();
-        this.port = ((int) Double.parseDouble(parameters.get(2).getValue().trim()));
-        asduAddress = parameters.get(3).getValue().trim();
+//        this.ip = parameters.get(1).getValue().trim();
+//        this.port = ((int) Double.parseDouble(parameters.get(2).getValue().trim()));
+//        asduAddress = parameters.get(3).getValue().trim();
+        this.port = 2404;
+        asduAddress = "7";
         start();        //To start the server (IEC-104 protocol). Thales server should be able to scan & show connected.
         return null;
     }

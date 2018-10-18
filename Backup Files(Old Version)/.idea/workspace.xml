@@ -7,7 +7,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c889ef52-46c0-4f96-a7a0-3467c1158425" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c439b569-bf95-4aed-8c87-3099ddb4d676.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c439b569-bf95-4aed-8c87-3099ddb4d676.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IEC104slave.ini" beforeDir="false" afterPath="$PROJECT_DIR$/IEC104slave.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/log/log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/user_history.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/user_history.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mydb.db" beforeDir="false" afterPath="$PROJECT_DIR$/mydb.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DBcontroller/ScriptDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBcontroller/ScriptDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DBcontroller/TestCaseDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBcontroller/TestCaseDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DBcontroller/TestStepDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBcontroller/TestStepDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/popup/PopUpRunController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/popup/PopUpRunController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/TestCasesExecution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/TestCasesExecution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/script/IEC104InitConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/IEC104InitConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/script/IEC104Simulator/IEC104slavetemplate.ini" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/IEC104Simulator/IEC104slavetemplate.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/script/LaunchTCPIEC104SampleServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/LaunchTCPIEC104SampleServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/script/TriggerIEC104Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/TriggerIEC104Point.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,6 +57,13 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="main: schema" type="90513b60:SqliteImplModel$Schema" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="mydb.db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="90513b60:SqliteImplModel$Schema" />
+        <item name="case_executions_result: table" type="ffe0bd85:SqliteImplModel$Table" />
+      </path>
     </expand>
     <select />
   </component>
@@ -50,59 +71,69 @@
     <session id="30367687">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="8" />
-          <entry key="project.open.time.10" value="2" />
+          <entry key="project.closed" value="13" />
+          <entry key="project.open.time.10" value="4" />
+          <entry key="project.open.time.11" value="1" />
+          <entry key="project.open.time.12" value="2" />
+          <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.21" value="1" />
+          <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.8" value="2" />
           <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="8" />
+          <entry key="project.opened" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="case_executions" value="3" />
-          <entry key="case_executions_result" value="2" />
-          <entry key="ini" value="2" />
-          <entry key="iterations" value="2" />
-          <entry key="java" value="18" />
+          <entry key="case_executions" value="10" />
+          <entry key="case_executions_result" value="5" />
+          <entry key="ini" value="4" />
+          <entry key="iterations" value="10" />
+          <entry key="java" value="54" />
           <entry key="parameters" value="2" />
-          <entry key="script" value="7" />
-          <entry key="script_executions" value="1" />
-          <entry key="script_has_been_configured" value="1" />
+          <entry key="script" value="10" />
+          <entry key="script_executions" value="3" />
+          <entry key="script_has_been_configured" value="3" />
           <entry key="script_has_parameters" value="3" />
-          <entry key="snippet" value="1" />
+          <entry key="snippet" value="2" />
           <entry key="sql" value="1" />
-          <entry key="step_executions" value="1" />
-          <entry key="test_campaign" value="1" />
-          <entry key="test_campaign_test_case" value="1" />
-          <entry key="test_case" value="2" />
-          <entry key="test_step" value="1" />
+          <entry key="step_executions" value="3" />
+          <entry key="test_campaign" value="2" />
+          <entry key="test_campaign_test_case" value="2" />
+          <entry key="test_case" value="5" />
+          <entry key="test_step" value="3" />
+          <entry key="test_step_has_requirement" value="1" />
+          <entry key="test_step_has_script" value="3" />
           <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Database Element" value="27" />
-          <entry key="Ini" value="2" />
-          <entry key="JAVA" value="18" />
-          <entry key="Scratch" value="2" />
+          <entry key="Database Element" value="65" />
+          <entry key="Ini" value="4" />
+          <entry key="JAVA" value="54" />
+          <entry key="Scratch" value="3" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cell" value="234" />
-          <entry key="java" value="2627" />
-          <entry key="snippet" value="35" />
-          <entry key="txt" value="246" />
+          <entry key="cell" value="283" />
+          <entry key="ini" value="2" />
+          <entry key="java" value="3429" />
+          <entry key="snippet" value="213" />
+          <entry key="sql" value="14" />
+          <entry key="txt" value="388" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2627" />
-          <entry key="PLAIN_TEXT" value="246" />
-          <entry key="Scratch" value="269" />
+          <entry key="Ini" value="2" />
+          <entry key="JAVA" value="3429" />
+          <entry key="PLAIN_TEXT" value="388" />
+          <entry key="SQL" value="14" />
+          <entry key="Scratch" value="496" />
         </counts>
       </usages-collector>
     </session>
@@ -113,10 +144,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/DBcontroller/TestCaseDB.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3410">
+              <caret line="167" column="65" selection-start-line="167" selection-start-column="65" selection-end-line="167" selection-end-column="65" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/script/TriggerIEC104Point.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1518">
-              <caret line="81" column="29" selection-start-line="81" selection-start-column="29" selection-end-line="81" selection-end-column="29" />
+            <state relative-caret-position="361">
+              <caret line="60" column="13" lean-forward="true" selection-start-line="60" selection-start-column="13" selection-end-line="60" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -125,61 +165,34 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/engine/Engine.java">
+        <entry file="file://$PROJECT_DIR$/src/script/IEC104InitConnection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="11374">
-              <caret line="531" selection-start-line="531" selection-end-line="531" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/DBcontroller/TestExecution.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="98" column="7" selection-start-line="98" selection-start-column="7" selection-end-line="98" selection-end-column="7" />
+            <state relative-caret-position="418">
+              <caret line="41" column="9" lean-forward="true" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DBcontroller/ScriptDB.java">
+        <entry file="file://$PROJECT_DIR$/src/script/LaunchTCPIEC104Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="35" selection-start-line="35" selection-end-line="35" />
+            <state relative-caret-position="88">
+              <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/model/TestCasesExecution.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4444">
-              <caret line="214" selection-start-line="214" selection-end-line="214" />
+        <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/iterations">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DBcontroller/TestStepDB.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2640">
-              <caret line="133" selection-start-line="133" selection-end-line="133" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DBcontroller/sessionFactorySingleton.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="770">
-              <caret line="41" selection-start-line="41" selection-end-line="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/step_executions">
+        <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/case_executions">
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
             <state>
               <filtering enabled="true" />
@@ -200,6 +213,10 @@
     <findStrings>
       <find>System.out</find>
       <find>ssh</find>
+      <find>stop</find>
+      <find>thread</find>
+      <find>wait</find>
+      <find>compareto</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -223,9 +240,16 @@
       <list>
         <option value="$APPLICATION_CONFIG_DIR$/consoles/jshell/jshell_console_5.snippet" />
         <option value="$PROJECT_DIR$/src/script/TriggerIEC104PointSOE1.java" />
-        <option value="$PROJECT_DIR$/src/script/IEC104InitConnection.java" />
-        <option value="$PROJECT_DIR$/src/script/TriggerIEC104Point.java" />
+        <option value="$PROJECT_DIR$/src/DBcontroller/TestStepDB.java" />
+        <option value="$PROJECT_DIR$/src/DBcontroller/ScriptDB.java" />
         <option value="$PROJECT_DIR$/src/controller/popup/PopUpRunController.java" />
+        <option value="$PROJECT_DIR$/src/model/TestCasesExecution.java" />
+        <option value="$PROJECT_DIR$/src/DBcontroller/TestCaseDB.java" />
+        <option value="$PROJECT_DIR$/src/script/LaunchTCPIEC104SampleServer.java" />
+        <option value="$PROJECT_DIR$/src/script/IEC104InitConnection.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/jshell/jshell_console_6.snippet" />
+        <option value="$PROJECT_DIR$/src/script/IEC104Simulator/IEC104slavetemplate.ini" />
+        <option value="$PROJECT_DIR$/src/script/TriggerIEC104Point.java" />
       </list>
     </option>
   </component>
@@ -246,10 +270,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1430" />
-    <option name="y" value="-15" />
-    <option name="width" value="780" />
-    <option name="height" value="830" />
+    <option name="x" value="1255" />
+    <option name="y" value="5" />
+    <option name="width" value="1950" />
+    <option name="height" value="2075" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -257,6 +281,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -273,13 +298,45 @@
               <item name="Backup Files(Old Version)" type="b2602c69:ProjectViewProjectNode" />
               <item name="Backup Files(Old Version)" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Backup Files(Old Version)" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Backup Files(Old Version)" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="popup" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Backup Files(Old Version)" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Backup Files(Old Version)" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="tabtestexecution" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Backup Files(Old Version)" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Backup Files(Old Version)" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="engine" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Backup Files(Old Version)" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Backup Files(Old Version)" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="script" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Backup Files(Old Version)" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Backup Files(Old Version)" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="script" type="462c0819:PsiDirectoryNode" />
+              <item name="IEC104Simulator" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -321,6 +378,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="LaunchTCPIEC104SampleServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="script.LaunchTCPIEC104SampleServer" />
+      <module name="Backup Files(Old Version)" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="script.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="Backup Files(Old Version)" />
@@ -345,9 +415,11 @@
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.TriggerIEC104Point" />
       <item itemvalue="Application.IEC104InitConnection" />
+      <item itemvalue="Application.LaunchTCPIEC104SampleServer" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.LaunchTCPIEC104SampleServer" />
         <item itemvalue="Application.IEC104InitConnection" />
       </list>
     </recent_temporary>
@@ -370,6 +442,13 @@
       <workItem from="1539104727923" duration="2169000" />
       <workItem from="1539186308941" duration="1524000" />
       <workItem from="1539226944803" duration="11000" />
+      <workItem from="1539498837441" duration="2283000" />
+      <workItem from="1539535471804" duration="34000" />
+      <workItem from="1539654339463" duration="4230000" />
+      <workItem from="1539658643368" duration="342000" />
+      <workItem from="1539659080184" duration="5211000" />
+      <workItem from="1539702371367" duration="2224000" />
+      <workItem from="1539847674134" duration="694000" />
     </task>
     <task id="LOCAL-00001" summary="Able to create baseline and input value to IEC104slave.ini file on run-time.">
       <created>1539016208060</created>
@@ -399,40 +478,64 @@
       <option name="project" value="LOCAL" />
       <updated>1539187711289</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="DB Content modified. Baseline creation troubleshooting.">
+      <created>1539498959624</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1539498959624</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Remove unnecessary thread operation. Pending test.">
+      <created>1539501098800</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1539501098800</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19928000" />
+    <option name="totallyTimeSpent" value="34946000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1549" height="837" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49722737" visible="true" weight="0.21634294" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49722737" visible="true" weight="0.21299396" />
       <window_info id="Structure" order="1" sideWeight="0.5021552" side_tool="true" weight="0.229069" />
       <window_info id="Persistence" order="2" sideWeight="0.5009242" side_tool="true" weight="0.22103149" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Favorites" order="5" sideWeight="0.4990758" weight="0.22103149" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.26589596" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32658958" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4996651" weight="0.26878613" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.30924857" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32947975" />
       <window_info anchor="bottom" id="Database Console" order="7" weight="0.32658958" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.32947975" />
       <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.32803467" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5003349" side_tool="true" weight="0.26878613" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32658958" />
       <window_info anchor="bottom" id="Java Enterprise" order="13" weight="0.32947975" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info active="true" anchor="right" id="Database" order="4" visible="true" weight="0.20361687" />
+      <window_info anchor="right" id="Database" order="4" weight="0.26523778" />
       <window_info anchor="right" id="Palette&#9;" order="5" />
       <window_info anchor="right" id="Maven Projects" order="6" weight="0.32953784" />
     </layout>
@@ -453,35 +556,36 @@
     <MESSAGE value="Baseline Draft Completed. Destroy process after 2000 sec." />
     <MESSAGE value="Modified Hidden slave file" />
     <MESSAGE value="Added Event-check enabled test case" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Event-check enabled test case" />
+    <MESSAGE value="DB Content modified. Baseline creation troubleshooting." />
+    <MESSAGE value="Remove unnecessary thread operation. Pending test." />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove unnecessary thread operation. Pending test." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/controller/popup/PopUpRunController.java</url>
-          <line>368</line>
+          <url>file://$PROJECT_DIR$/src/DBcontroller/ConfigurationDB.java</url>
+          <line>63</line>
           <properties />
-          <option name="timeStamp" value="1" />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/controller/popup/PopUpRunController.java</url>
+          <line>314</line>
+          <properties />
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/DBcontroller/TestCaseDB.java</url>
+          <line>158</line>
+          <properties />
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/c439b569-bf95-4aed-8c87-3099ddb4d676/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/hibernate.cfg.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/script/LaunchTCPIEC104Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/script/LaunchTCPServerModbus.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
@@ -496,10 +600,82 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/script/IEC104Simulator/IEC104slavetemplate.ini">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/util/Arrays.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="63" column="14" selection-start-line="63" selection-end-line="63" selection-end-column="14" />
+        <state relative-caret-position="166">
+          <caret line="3798" column="30" selection-start-line="3798" selection-start-column="30" selection-end-line="3798" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/script/TriggerModbusPointDI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1870">
+          <caret line="96" column="3" selection-start-line="96" selection-start-column="3" selection-end-line="96" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/script_has_parameters" />
+    <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/parameters" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/nio/file/Files.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="2856" column="26" selection-start-line="2856" selection-start-column="26" selection-end-line="2856" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/test_step_has_requirement">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/script/TriggerEquipment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6938">
+          <caret line="408" selection-start-line="46" selection-end-line="408" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/script/TriggerModbusPointAI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1245">
+          <caret line="109" column="26" lean-forward="true" selection-start-line="109" selection-start-column="26" selection-end-line="109" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/engine/Engine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11374">
+          <caret line="531" selection-start-line="531" selection-end-line="531" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/script/SearchOccurence.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="41" column="11" selection-start-line="41" selection-start-column="11" selection-end-line="41" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DBcontroller/sessionFactorySingleton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="770">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/test_step">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/script/ServerConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -517,73 +693,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/script_has_been_configured">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/util/Arrays.java">
+    <entry file="file://$PROJECT_DIR$/src/controller/popup/PopUpBaselineCreationController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="3798" column="30" selection-start-line="3798" selection-start-column="30" selection-end-line="3798" selection-end-column="30" />
+        <state relative-caret-position="251">
+          <caret line="90" column="42" lean-forward="true" selection-start-line="90" selection-start-column="42" selection-end-line="90" selection-end-column="42" />
         </state>
       </provider>
     </entry>
-    <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/script_executions">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/script/TriggerModbusPointDI.java">
+    <entry file="file://$PROJECT_DIR$/src/controller/tabtestcase/TabTestCaseLibraryController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1870">
-          <caret line="96" column="3" selection-start-line="96" selection-start-column="3" selection-end-line="96" selection-end-column="3" />
+        <state relative-caret-position="155">
+          <caret line="400" column="16" selection-start-line="400" selection-start-column="16" selection-end-line="400" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/script_has_parameters">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/parameters">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/script/IEC104Simulator/IEC104slave.ini">
+    <entry file="file://$PROJECT_DIR$/src/controller/tabtestexecution/TabTestCampaignExecutionMainViewController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="69" column="13" selection-start-line="69" selection-start-column="13" selection-end-line="69" selection-end-column="13" />
+        <state relative-caret-position="-307">
+          <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/nio/file/Files.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/javafx/event/Event.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="2856" column="26" selection-start-line="2856" selection-start-column="26" selection-end-line="2856" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/case_executions">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/iterations">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
+        <state relative-caret-position="237">
+          <caret line="197" selection-start-line="197" selection-end-line="197" />
         </state>
       </provider>
     </entry>
@@ -591,6 +725,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
           <caret line="111" column="18" selection-start-line="111" selection-start-column="18" selection-end-line="111" selection-end-column="18" />
+          <folding>
+            <element signature="e#3776#3777#0" expanded="true" />
+            <element signature="e#3810#3811#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/test_step_has_script">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/script_has_been_configured">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -601,28 +753,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/case_executions_result">
+    <entry file="file://$PROJECT_DIR$/src/controller/tabtestexecution/TabTestCampaignExecutionBaselineCampaignController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6182">
+          <caret line="330" selection-start-line="330" selection-end-line="330" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DBcontroller/TestStepDB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1958">
+          <caret line="101" column="16" selection-start-line="101" selection-start-column="16" selection-end-line="101" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DBcontroller/TestExecution.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="105" selection-start-line="105" selection-end-line="105" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/javafx/concurrent/Task.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="1467" column="9" selection-start-line="1467" selection-start-column="9" selection-end-line="1467" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DBcontroller/ScriptDB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="107" selection-start-line="107" selection-end-line="107" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/script_executions">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/script/IEC104InitConnection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="23" column="36" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/popup/PopUpRunController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="239" column="42" lean-forward="true" selection-start-line="239" selection-start-column="42" selection-end-line="239" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/test_step">
+    <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/step_executions">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
@@ -636,62 +809,136 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/script/TriggerIEC104Point.java">
+    <entry file="file://$PROJECT_DIR$/src/DBcontroller/ConfigurationDB.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1518">
-          <caret line="81" column="29" selection-start-line="81" selection-start-column="29" selection-end-line="81" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="137">
+          <caret line="63" selection-start-line="63" selection-end-line="63" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/engine/Engine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11374">
-          <caret line="531" selection-start-line="531" selection-end-line="531" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DBcontroller/ScriptDB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/TestCasesExecution.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4444">
-          <caret line="214" selection-start-line="214" selection-end-line="214" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DBcontroller/TestStepDB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2640">
-          <caret line="133" selection-start-line="133" selection-end-line="133" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DBcontroller/sessionFactorySingleton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="770">
-          <caret line="41" selection-start-line="41" selection-end-line="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/step_executions">
+    <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/case_executions_result">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DBcontroller/TestExecution.java">
+    <entry file="file://$PROJECT_DIR$/src/script/LaunchTCPIEC104SampleServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="98" column="7" selection-start-line="98" selection-start-column="7" selection-end-line="98" selection-end-column="7" />
+        <state relative-caret-position="484">
+          <caret line="39" column="12" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/popup/PopUpRunController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6160">
+          <caret line="324" column="54" selection-start-line="324" selection-start-column="54" selection-end-line="324" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DBcontroller/TestCampaignDB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1716">
+          <caret line="91" selection-start-line="91" selection-end-line="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/TestCasesExecution.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4158">
+          <caret line="201" column="45" selection-start-line="201" selection-start-column="45" selection-end-line="201" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/jshell/jshell_console_6.snippet">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/tabtestexecution/TabTestCampaignExecutionRepositoryBaselineController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4114">
+          <caret line="226" selection-start-line="226" selection-end-line="226" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DBcontroller/TestCaseDB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3410">
+          <caret line="167" column="65" selection-start-line="167" selection-start-column="65" selection-end-line="167" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/lang/Integer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25586">
+          <caret line="1220" column="45" selection-start-line="1220" selection-start-column="45" selection-end-line="1220" selection-end-column="45" />
+          <folding>
+            <element signature="e#32532#32533#0" expanded="true" />
+            <element signature="e#32566#32567#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/lang/Number.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="682">
+          <caret line="54" column="22" selection-start-line="54" selection-start-column="22" selection-end-line="54" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/script/LaunchTCPIEC104Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/iterations">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/case_executions">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/script/IEC104Simulator/IEC104slavetemplate.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/script/IEC104Simulator/IEC104slave.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="20" column="7" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/script/IEC104InitConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="41" column="9" lean-forward="true" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/script/TriggerIEC104Point.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="60" column="13" lean-forward="true" selection-start-line="60" selection-start-column="13" selection-end-line="60" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -70,8 +70,7 @@ public class TriggerIEC104Point implements InterfaceScript {
             }
 //            Files.write(Paths.get("IEC104slave.ini"), lines, Charset.defaultCharset());
 
-            Runtime.getRuntime().exec("attrib +H IEC104slave.ini");     //Hide the .ini file from the user.
-            Process process = new ProcessBuilder("src\\script\\IEC104Simulator\\20171117_104Slave.exe").start();
+
 //            InputStream is = process.getInputStream();
 //            InputStreamReader isr = new InputStreamReader(is);
 //            BufferedReader br = new BufferedReader(isr);
@@ -79,10 +78,9 @@ public class TriggerIEC104Point implements InterfaceScript {
 //            while ((line = br.readLine()) != null) {
 //                System.out.println(line);
 //            }
-            Thread.sleep(1500);
-            process.destroy();
+            Thread.sleep(3000);
             return null;
-        } catch (IndexOutOfBoundsException | IOException ex) {
+        } catch (IndexOutOfBoundsException  ex) {
             CommonFunctions.debugLog.error("Invalid Line Index Caught. Please re-start the program.");
             return null;
         }

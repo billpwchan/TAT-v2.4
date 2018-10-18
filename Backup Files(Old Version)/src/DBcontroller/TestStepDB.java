@@ -5,16 +5,15 @@
  */
 package DBcontroller;
 
-import DB.CaseExecutions;
-import DB.Iterations;
-import DB.ScriptExecutions;
-import DB.StepExecutions;
-import DB.StepExecutionsResult;
-import DB.TestStep;
+import DB.*;
+import org.hibernate.Hibernate;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import org.hibernate.*;
 
 /**
  *
@@ -104,33 +103,36 @@ public class TestStepDB {
         ScriptDB scriptHandler = new ScriptDB();
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
-        session.update(caseExecution);
-        Hibernate.initialize(caseExecution.getStepExecutionses());
-        Query qryStep = session.createQuery("from StepExecutionsResult SER where SER.id.stepExecutionsIdstepExecutions=:idStep and SER.id.iterationNumber=:iterationNumber");
-        Iterator<StepExecutions> itTestStepExecutions = caseExecution.getStepExecutionses().iterator();
-        while (itTestStepExecutions.hasNext()) {
-            StepExecutions stepExecution = itTestStepExecutions.next();
-            Hibernate.initialize(stepExecution.getTestStep().getRequirements());
-            if (iteration.getIterationNumber() == 0) {
-                stepExecution.setStepExecutionResult("");
-                stepExecution.setStepExecutionComment("");
-            } else {
-                qryStep.setInteger("idStep", stepExecution.getIdstepExecutions());
-                qryStep.setInteger("iterationNumber", iteration.getIterationNumber());
-                List l = qryStep.list();
-                if (!l.isEmpty()) {
-                    StepExecutionsResult stepExecutionResult = (StepExecutionsResult) l.get(0);
-                    stepExecution.setStepExecutionResult(stepExecutionResult.getResult());
-                    stepExecution.setStepExecutionComment(stepExecutionResult.getComment());
-                } else {
-                    stepExecution.setStepExecutionResult("NExec");
+        try {
+            session.update(caseExecution);
+            Hibernate.initialize(caseExecution.getStepExecutionses());
+            Query qryStep = session.createQuery("from StepExecutionsResult SER where SER.id.stepExecutionsIdstepExecutions=:idStep and SER.id.iterationNumber=:iterationNumber");
+            Iterator<StepExecutions> itTestStepExecutions = caseExecution.getStepExecutionses().iterator();
+            while (itTestStepExecutions.hasNext()) {
+                StepExecutions stepExecution = itTestStepExecutions.next();
+                Hibernate.initialize(stepExecution.getTestStep().getRequirements());
+                if (iteration.getIterationNumber() == 0) {
+                    stepExecution.setStepExecutionResult("");
                     stepExecution.setStepExecutionComment("");
+                } else {
+                    qryStep.setInteger("idStep", stepExecution.getIdstepExecutions());
+                    qryStep.setInteger("iterationNumber", iteration.getIterationNumber());
+                    List l = qryStep.list();
+                    if (!l.isEmpty()) {
+                        StepExecutionsResult stepExecutionResult = (StepExecutionsResult) l.get(0);
+                        stepExecution.setStepExecutionResult(stepExecutionResult.getResult());
+                        stepExecution.setStepExecutionComment(stepExecutionResult.getComment());
+                    } else {
+                        stepExecution.setStepExecutionResult("NExec");
+                        stepExecution.setStepExecutionComment("");
+                    }
                 }
+                Hibernate.initialize(stepExecution.getTestStep());
+                scriptHandler.getScriptParametersAndResults(session, stepExecution, iteration);
             }
-            Hibernate.initialize(stepExecution.getTestStep());
-            scriptHandler.getScriptParametersAndResults(session, stepExecution, iteration);
+        } finally {
+            session.close();
         }
-        session.close();
     }
 
     /**

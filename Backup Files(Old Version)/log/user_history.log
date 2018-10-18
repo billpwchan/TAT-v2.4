@@ -180,3 +180,418 @@
 2018-10-14 15:09:52 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 123
 2018-10-14 15:10:35 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 123
 2018-10-14 15:10:44 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 123
+2018-10-16 09:48:22 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 123
+2018-10-16 09:49:02 | StepLineTableStepController.java |  INFO | reportsLogger : Expand step
+2018-10-16 09:49:14 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User delete entire test campaign: 123
+	Baseline: 123
+
+2018-10-16 09:49:14 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User completed test campaign deletion.
+2018-10-16 09:49:17 | TabTestCampaignRepositoryController.java |  INFO | reportsLogger : User deleted test campaign: IEC-104Test
+2018-10-16 09:49:38 | TestCampaignDB.java |  INFO | reportsLogger : After Creating Test Campaign :IEC104Test
+	Case 1:  (50)
+	Case 2: Trigger IEC-104 Point (52)
+
+2018-10-16 09:49:38 | TestCampaignDB.java |  INFO | reportsLogger : Successfully saved test campaign: IEC104Test
+2018-10-16 09:49:42 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User open baseline: IEC104Test
+2018-10-16 09:49:50 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: 
+2018-10-16 09:50:10 | StepLineTableStepController.java |  INFO | reportsLogger : Expand step
+2018-10-16 09:50:13 | TabTestCaseMainViewController.java |  INFO | reportsLogger : User cancel viewing Connect IEC104
+2018-10-16 09:50:17 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User open baseline: IEC104Test
+2018-10-16 09:50:29 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: 
+2018-10-16 09:50:49 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: Trigger IEC-104 Point
+2018-10-16 09:50:51 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validate baseline: IEC
+2018-10-16 09:50:51 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User close Baseline Tab.
+2018-10-16 09:51:50 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User view Iteration: IEC
+2018-10-16 09:55:23 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User delete baseline: IEC
+2018-10-16 09:55:41 | TabTestCaseMainViewController.java |  INFO | reportsLogger : User cancel viewing Trigger IEC-104 Points (Multi-Enabled)
+2018-10-16 09:55:47 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User open baseline: IEC104Test
+2018-10-16 09:55:58 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: 
+2018-10-16 09:56:10 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: Trigger IEC-104 Point
+2018-10-16 09:56:11 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validate baseline: IECTest
+2018-10-16 09:56:12 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User close Baseline Tab.
+2018-10-16 09:59:54 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User view Iteration: IECTest
+2018-10-16 10:00:07 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: IECTest
+2018-10-16 10:00:33 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: IECTest
+2018-10-16 10:01:48 | TabTestCaseLibraryController.java |  INFO | reportsLogger : User Edited the Test Case(52): Trigger IEC-104 Points (Multi-Enabled)
+2018-10-16 10:01:52 | TabTestCaseEditController.java |  INFO | reportsLogger : After Editing Test Case :Trigger IEC-104 Point
+	Step 0: Low Level
+		Script 1 Step Description: Trigger IEC104 Point
+	Step 1: Obtain Last Line
+		Script 1 Step Description: SSH command
+	Step 2: Trigger High Level
+		Script 1 Step Description: Trigger IEC104 Point
+		Script 1 Expected Result: CheckSSHEvent_ReportFinalized
+	Step 3: Trigger Low Level
+		Script 1 Step Description: Trigger IEC104 Point
+		Script 1 Expected Result: CheckSSHEvent_ReportFinalized
+	Step 4: Check Event Match
+		Script 1 Step Description: SSH command
+		Script 1 Expected Result: Search occurrence
+
+2018-10-16 10:01:52 | TabTestCaseEditController.java |  INFO | reportsLogger : Successfully saved test case: Trigger IEC-104 Points (Multi-Enabled)
+2018-10-16 10:02:13 | TestCampaignDB.java |  INFO | reportsLogger : After Creating Test Campaign :Newer Test
+	Case 1:  (50)
+	Case 2: Trigger IEC-104 Point (53)
+
+2018-10-16 10:02:13 | TestCampaignDB.java |  INFO | reportsLogger : Successfully saved test campaign: Newer Test
+2018-10-16 10:02:17 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User open baseline: Newer Test
+2018-10-16 10:02:21 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: 
+2018-10-16 10:02:34 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: Trigger IEC-104 Point
+2018-10-16 10:02:35 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validate baseline: 123
+2018-10-16 10:02:36 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User close Baseline Tab.
+2018-10-16 10:05:09 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User view Iteration: 123
+2018-10-16 10:07:08 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 123
+2018-10-16 10:07:56 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User delete entire test campaign: 123
+	Baseline: 123
+
+2018-10-16 10:07:56 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User completed test campaign deletion.
+2018-10-16 10:07:59 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User delete entire test campaign: IECTest
+	Baseline: IECTest
+
+2018-10-16 10:07:59 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User completed test campaign deletion.
+2018-10-16 10:08:02 | TabTestCampaignRepositoryController.java |  INFO | reportsLogger : User deleted test campaign: Newer Test
+2018-10-16 10:08:03 | TabTestCampaignRepositoryController.java |  INFO | reportsLogger : User deleted test campaign: IEC104Test
+2018-10-16 10:08:29 | TestCampaignDB.java |  INFO | reportsLogger : After Creating Test Campaign :123456
+	Case 1:  (50)
+	Case 2: Trigger IEC-104 Point (52)
+
+2018-10-16 10:08:29 | TestCampaignDB.java |  INFO | reportsLogger : Successfully saved test campaign: 123456
+2018-10-16 10:08:33 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User open baseline: 123456
+2018-10-16 10:08:38 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: 
+2018-10-16 10:08:51 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: Trigger IEC-104 Point
+2018-10-16 10:08:52 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validate baseline: 123456
+2018-10-16 10:08:52 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User close Baseline Tab.
+2018-10-16 10:16:31 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User delete entire test campaign: 123456
+	Baseline: 123456
+
+2018-10-16 10:16:31 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User completed test campaign deletion.
+2018-10-16 10:16:33 | TabTestCampaignRepositoryController.java |  INFO | reportsLogger : User deleted test campaign: 123456
+2018-10-16 10:17:07 | TestCampaignDB.java |  INFO | reportsLogger : After Creating Test Campaign :1324
+	Case 1:  (50)
+	Case 2: Trigger IEC-104 Point (52)
+
+2018-10-16 10:17:07 | TestCampaignDB.java |  INFO | reportsLogger : Successfully saved test campaign: 1324
+2018-10-16 10:17:19 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User open baseline: 1324
+2018-10-16 10:20:39 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: 
+2018-10-16 10:22:25 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: Trigger IEC-104 Point
+2018-10-16 10:22:29 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validate baseline: Base1324
+2018-10-16 10:22:29 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User close Baseline Tab.
+2018-10-16 10:34:59 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User delete entire test campaign: Base1324
+	Baseline: Base1324
+
+2018-10-16 10:34:59 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User completed test campaign deletion.
+2018-10-16 10:35:15 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User open baseline: 1324
+2018-10-16 10:35:18 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: 
+2018-10-16 10:35:30 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: Trigger IEC-104 Point
+2018-10-16 10:35:32 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validate baseline: 1414
+2018-10-16 10:35:32 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User close Baseline Tab.
+2018-10-16 10:37:02 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User view Iteration: 1414
+2018-10-16 10:37:10 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User view Iteration: 1414
+2018-10-16 10:37:22 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User delete baseline: 1414
+2018-10-16 10:37:24 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User delete entire test campaign: werwerwe
+	Baseline: trig1
+	Baseline: werwerwe
+
+2018-10-16 10:37:24 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User completed test campaign deletion.
+2018-10-16 10:37:27 | TabTestCampaignRepositoryController.java |  INFO | reportsLogger : User deleted test campaign: 1324
+2018-10-16 10:37:36 | TestCampaignDB.java |  INFO | reportsLogger : After Creating Test Campaign :123
+	Case 1:  (50)
+	Case 2: Trigger IEC-104 Point (52)
+
+2018-10-16 10:37:36 | TestCampaignDB.java |  INFO | reportsLogger : Successfully saved test campaign: 123
+2018-10-16 10:37:41 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User open baseline: 123
+2018-10-16 10:37:44 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: 
+2018-10-16 10:37:55 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: Trigger IEC-104 Point
+2018-10-16 10:37:56 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validate baseline: 1414
+2018-10-16 10:37:56 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User close Baseline Tab.
+2018-10-16 10:38:54 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User view Iteration: 1414
+2018-10-16 10:39:19 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 1414
+2018-10-16 10:46:47 | TabTestCaseLibraryController.java |  INFO | reportsLogger : User Edited the Test Case(52): Trigger IEC-104 Points (Multi-Enabled)
+2018-10-16 10:46:49 | StepLineTableStepController.java |  INFO | reportsLogger : Expand step (ID) 2
+2018-10-16 10:47:13 | StepLineTableStepController.java |  INFO | reportsLogger : Expand step (ID) 3
+2018-10-16 10:47:31 | StepLineTableStepController.java |  INFO | reportsLogger : Expand step (ID) 4
+2018-10-16 10:47:42 | StepLineTableStepController.java |  INFO | reportsLogger : Expand step (ID) 5
+2018-10-16 10:47:55 | StepLineTableStepController.java |  INFO | reportsLogger : Expand step (ID) 1
+2018-10-16 10:47:58 | TabTestCaseEditController.java |  INFO | reportsLogger : After Editing Test Case :Trigger IEC-104 Point
+	Step 0: Low Level
+		Script 1 Step Description: Trigger IEC104 Point
+	Step 1: Obtain Last Line
+		Script 1 Step Description: SSH command
+	Step 2: Trigger High Level
+		Script 1 Step Description: Trigger IEC104 Point
+		Script 1 Expected Result: CheckSSHEvent_ReportFinalized
+	Step 3: Trigger Low Level
+		Script 1 Step Description: Trigger IEC104 Point
+		Script 1 Expected Result: CheckSSHEvent_ReportFinalized
+	Step 4: Check Event Match
+		Script 1 Step Description: SSH command
+		Script 1 Expected Result: Search occurrence
+
+2018-10-16 10:47:58 | TabTestCaseEditController.java |  INFO | reportsLogger : Successfully saved test case: Trigger IEC-104 Points (Multi-Enabled)
+2018-10-16 10:48:24 | TestCampaignDB.java |  INFO | reportsLogger : After Creating Test Campaign :145
+	Case 1:  (50)
+	Case 2: Trigger IEC-104 Point (53)
+
+2018-10-16 10:48:24 | TestCampaignDB.java |  INFO | reportsLogger : Successfully saved test campaign: 145
+2018-10-16 10:48:30 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User open baseline: 145
+2018-10-16 10:48:36 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: 
+2018-10-16 10:48:47 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: Trigger IEC-104 Point
+2018-10-16 10:48:48 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validate baseline: 145Bas
+2018-10-16 10:48:48 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User close Baseline Tab.
+2018-10-16 10:49:56 | TabTestCaseLibraryController.java |  INFO | reportsLogger : User Edited the Test Case(53): Trigger IEC-104 Points (Multi-Enabled)
+2018-10-16 10:49:57 | StepLineTableStepController.java |  INFO | reportsLogger : Expand step (ID) 1
+2018-10-16 10:49:58 | StepLineTableStepController.java |  INFO | reportsLogger : Expand step (ID) 1
+2018-10-16 10:49:59 | StepLineTableStepController.java |  INFO | reportsLogger : Expand step (ID) 2
+2018-10-16 10:50:06 | StepLineTableStepController.java |  INFO | reportsLogger : Expand step (ID) 3
+2018-10-16 10:50:10 | StepLineTableStepController.java |  INFO | reportsLogger : Expand step (ID) 4
+2018-10-16 10:50:12 | StepLineTableStepController.java |  INFO | reportsLogger : Expand step (ID) 5
+2018-10-16 10:50:14 | TabTestCaseEditController.java |  INFO | reportsLogger : After Editing Test Case :Trigger IEC-104 Point
+	Step 0: Low Level
+		Script 1 Step Description: Trigger IEC104 Point
+	Step 1: Obtain Last Line
+		Script 1 Step Description: SSH command
+	Step 2: Trigger High Level
+		Script 1 Step Description: Trigger IEC104 Point
+		Script 1 Expected Result: CheckSSHEvent_ReportFinalized
+	Step 3: Trigger Low Level
+		Script 1 Step Description: Trigger IEC104 Point
+		Script 1 Expected Result: CheckSSHEvent_ReportFinalized
+	Step 4: Check Event Match
+		Script 1 Step Description: SSH command
+		Script 1 Expected Result: Search occurrence
+
+2018-10-16 10:50:14 | TabTestCaseEditController.java |  INFO | reportsLogger : Successfully saved test case: Trigger IEC-104 Points (Multi-Enabled)
+2018-10-16 10:50:27 | TestCampaignDB.java |  INFO | reportsLogger : After Creating Test Campaign :167
+	Case 1:  (50)
+	Case 2: Trigger IEC-104 Point (54)
+
+2018-10-16 10:50:27 | TestCampaignDB.java |  INFO | reportsLogger : Successfully saved test campaign: 167
+2018-10-16 10:50:32 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User open baseline: 167
+2018-10-16 10:50:35 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: 
+2018-10-16 10:50:47 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: Trigger IEC-104 Point
+2018-10-16 10:50:48 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validate baseline: 167
+2018-10-16 10:50:48 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User close Baseline Tab.
+2018-10-16 10:50:58 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User delete entire test campaign: 167
+	Baseline: 167
+
+2018-10-16 10:50:58 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User completed test campaign deletion.
+2018-10-16 10:51:02 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User view Iteration: 145Bas
+2018-10-16 10:53:04 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User view Iteration: 145Bas
+2018-10-16 10:53:23 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 145Bas
+2018-10-16 10:54:13 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User delete entire test campaign: 145Bas
+	Baseline: 145Bas
+
+2018-10-16 10:54:13 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User completed test campaign deletion.
+2018-10-16 10:54:21 | TabTestCampaignRepositoryController.java |  INFO | reportsLogger : User deleted test campaign: 145
+2018-10-16 10:54:23 | TabTestCampaignRepositoryController.java |  INFO | reportsLogger : User deleted test campaign: 167
+2018-10-16 10:54:45 | TestCampaignDB.java |  INFO | reportsLogger : After Creating Test Campaign :156
+	Case 1:  (51)
+	Case 2: Trigger IEC-104 Point (54)
+
+2018-10-16 10:54:45 | TestCampaignDB.java |  INFO | reportsLogger : Successfully saved test campaign: 156
+2018-10-16 10:54:57 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User open baseline: 156
+2018-10-16 10:58:29 | TabTestCampaignRepositoryController.java |  INFO | reportsLogger : User deleted test campaign: 156
+2018-10-16 10:58:45 | TestCampaignDB.java |  INFO | reportsLogger : After Creating Test Campaign :1313
+	Case 1:  (50)
+	Case 2: Trigger IEC-104 Point (54)
+
+2018-10-16 10:58:45 | TestCampaignDB.java |  INFO | reportsLogger : Successfully saved test campaign: 1313
+2018-10-16 10:58:50 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User open baseline: 1313
+2018-10-16 10:59:10 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: 
+2018-10-16 10:59:32 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: Trigger IEC-104 Point
+2018-10-16 10:59:37 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validate baseline: 1324
+2018-10-16 10:59:37 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User close Baseline Tab.
+2018-10-16 11:00:52 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User view Iteration: 1324
+2018-10-16 11:01:39 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User delete entire test campaign: 1324
+	Baseline: 1324
+
+2018-10-16 11:01:39 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User completed test campaign deletion.
+2018-10-16 11:01:49 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User open baseline: 1313
+2018-10-16 11:01:57 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: 
+2018-10-16 11:02:13 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: Trigger IEC-104 Point
+2018-10-16 11:02:14 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validate baseline: NEWBAS
+2018-10-16 11:02:14 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User close Baseline Tab.
+2018-10-16 11:05:51 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User delete entire test campaign: NEWBAS
+	Baseline: NEWBAS
+
+2018-10-16 11:05:51 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User completed test campaign deletion.
+2018-10-16 11:05:53 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User delete entire test campaign: 1414
+	Baseline: 1414
+
+2018-10-16 11:05:53 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User completed test campaign deletion.
+2018-10-16 11:05:55 | TabTestCampaignRepositoryController.java |  INFO | reportsLogger : User deleted test campaign: 1313
+2018-10-16 11:06:00 | TabTestCampaignRepositoryController.java |  INFO | reportsLogger : User deleted test campaign: 123
+2018-10-16 11:06:26 | TestCampaignDB.java |  INFO | reportsLogger : After Creating Test Campaign :13bas
+	Case 1:  (50)
+	Case 2: Trigger IEC-104 Point (54)
+
+2018-10-16 11:06:26 | TestCampaignDB.java |  INFO | reportsLogger : Successfully saved test campaign: 13bas
+2018-10-16 11:06:30 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User open baseline: 13bas
+2018-10-16 11:06:36 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: 
+2018-10-16 11:06:50 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: Trigger IEC-104 Point
+2018-10-16 11:06:52 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validate baseline: bas
+2018-10-16 11:06:53 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User close Baseline Tab.
+2018-10-16 11:08:43 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User delete baseline: bas
+2018-10-16 11:08:50 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User open baseline: 13bas
+2018-10-16 11:08:55 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: 
+2018-10-16 11:09:05 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: Trigger IEC-104 Point
+2018-10-16 11:09:06 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validate baseline: 14bas
+2018-10-16 11:09:07 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User close Baseline Tab.
+2018-10-16 11:09:15 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 14bas
+2018-10-16 11:12:00 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User delete entire test campaign: 14bas
+	Baseline: 14bas
+
+2018-10-16 11:12:00 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User completed test campaign deletion.
+2018-10-16 11:12:04 | TabTestCampaignRepositoryController.java |  INFO | reportsLogger : User deleted test campaign: 13bas
+2018-10-16 11:12:19 | TestCampaignDB.java |  INFO | reportsLogger : After Creating Test Campaign :1515
+	Case 1:  (50)
+	Case 2: Trigger IEC-104 Point (54)
+
+2018-10-16 11:12:19 | TestCampaignDB.java |  INFO | reportsLogger : Successfully saved test campaign: 1515
+2018-10-16 11:12:28 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User open baseline: 1515
+2018-10-16 11:13:20 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: 
+2018-10-16 11:15:38 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: Trigger IEC-104 Point
+2018-10-16 11:15:46 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validate baseline: 1515bas
+2018-10-16 11:17:45 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User close Baseline Tab.
+2018-10-16 11:20:41 | TestCampaignDB.java |  INFO | reportsLogger : After Creating Test Campaign :1616
+	Case 1:  (50)
+	Case 2: Trigger IEC-104 Point (54)
+
+2018-10-16 11:20:41 | TestCampaignDB.java |  INFO | reportsLogger : Successfully saved test campaign: 1616
+2018-10-16 11:20:46 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User open baseline: 1616
+2018-10-16 11:20:58 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: 
+2018-10-16 11:21:16 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: Trigger IEC-104 Point
+2018-10-16 11:21:20 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validate baseline: 1616base
+2018-10-16 11:21:30 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User close Baseline Tab.
+2018-10-16 11:27:15 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User view Iteration: 1616base
+2018-10-16 11:27:20 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 1616base
+2018-10-16 11:31:43 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User open baseline: 1616
+2018-10-16 11:31:47 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: 
+2018-10-16 11:31:59 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: Trigger IEC-104 Point
+2018-10-16 11:32:11 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: Trigger IEC-104 Point
+2018-10-16 11:32:12 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validate baseline: 14
+2018-10-16 11:32:12 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User close Baseline Tab.
+2018-10-16 11:32:30 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User view Iteration: 1616base
+2018-10-16 11:32:33 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User view Iteration: 14
+2018-10-16 11:33:22 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User view Iteration: 14
+2018-10-16 11:33:36 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 14
+2018-10-16 11:35:19 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User view Iteration: 14
+2018-10-16 11:36:10 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User open baseline: 1616
+2018-10-16 11:36:15 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: Connect IEC-104 Server
+2018-10-16 11:36:25 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: Trigger IEC-104 Point
+2018-10-16 11:36:26 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validate baseline: dfdfdf
+2018-10-16 11:36:26 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User close Baseline Tab.
+2018-10-16 11:36:42 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User view Iteration: dfdfdf
+2018-10-16 11:36:44 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User delete baseline: dfdfdf
+2018-10-16 11:36:48 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User delete baseline: 1616base
+2018-10-16 11:36:50 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User view Iteration: 14
+2018-10-16 11:37:07 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User open baseline: 1616
+2018-10-16 11:37:14 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: Connect IEC-104 Server
+2018-10-16 11:37:23 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: Trigger IEC-104 Point
+2018-10-16 11:37:24 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validate baseline: 17eurtyrtyr
+2018-10-16 11:37:24 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User close Baseline Tab.
+2018-10-16 11:42:33 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User view Iteration: 1515bas
+2018-10-16 11:42:39 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User delete entire test campaign: 1515bas
+	Baseline: 1515bas
+
+2018-10-16 11:42:39 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User completed test campaign deletion.
+2018-10-16 11:42:43 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User view Iteration: novDi2
+2018-10-16 11:43:05 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User view Iteration: 1166B Demo
+2018-10-16 11:49:40 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User view Iteration: 14
+2018-10-16 11:50:17 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User view Iteration: 14
+2018-10-16 11:50:22 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User open baseline: 1616
+2018-10-16 11:50:27 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: Connect IEC-104 Server
+2018-10-16 11:50:38 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: Trigger IEC-104 Point
+2018-10-16 11:50:46 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validate baseline: 153w434
+2018-10-16 11:50:46 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User close Baseline Tab.
+2018-10-16 11:51:55 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User view Iteration: 153w434
+2018-10-16 11:51:58 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 153w434
+2018-10-16 11:52:03 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 11:52:05 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 11:52:06 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 11:52:07 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 11:52:08 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 11:52:10 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 11:52:12 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 11:52:12 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 11:52:14 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 11:52:15 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 11:52:17 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 11:52:17 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 11:52:19 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 11:52:20 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 11:52:22 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 11:52:22 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 11:52:24 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 11:52:25 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 11:52:27 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 11:52:27 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 11:59:39 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 153w434
+2018-10-16 11:59:55 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 11:59:57 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 11:59:58 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 11:59:58 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:00:00 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:00:02 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:00:03 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:00:03 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:00:05 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:00:07 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:00:09 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:00:09 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:00:10 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:00:12 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:02:02 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 153w434
+2018-10-16 12:02:07 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:02:08 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:02:10 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:02:10 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:02:12 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:02:14 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:03:18 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User open baseline: 1515
+2018-10-16 12:03:21 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: Connect IEC-104 Server
+2018-10-16 12:03:31 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: Trigger IEC-104 Point
+2018-10-16 12:03:41 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validate baseline: 1242141
+2018-10-16 12:03:41 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User close Baseline Tab.
+2018-10-16 12:11:55 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 153w434
+2018-10-16 12:12:01 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:12:03 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:12:04 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:12:05 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:12:06 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:12:08 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:12:10 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:12:10 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:12:12 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:12:13 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:12:15 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:12:15 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:12:17 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:12:18 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:12:20 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:12:20 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:12:22 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:12:24 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:12:25 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:12:25 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:15:31 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 153w434
+2018-10-16 12:15:40 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:15:45 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:15:50 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:15:50 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:15:56 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:16:01 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:16:06 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:16:06 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:16:11 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:16:16 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:16:21 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:16:22 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:16:27 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:16:32 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:16:37 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:16:37 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:16:42 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:16:47 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:16:53 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-16 12:16:53 | ExecuteSSHCommand.java |  INFO | reportsLogger : 

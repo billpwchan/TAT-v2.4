@@ -284,7 +284,11 @@ public class PopUpRunController implements Initializable {
                 try {
                     testExecutionHandler.deleteIteration(this.iteration);
                 } catch(org.hibernate.service.UnknownServiceException ex) {
-                    CommonFunctions.debugLog.error("Invalid Request. Caused by Invalid operation on thread.");
+                    CommonFunctions.debugLog.error("Invalid Request. Caused by Invalid operation on thread.", ex);
+                    return;
+                } catch(org.hibernate.HibernateException ex) {
+                    CommonFunctions.debugLog.error("Invalid Request.", ex);
+                    return;
                 }
                 long tempsFin = System.currentTimeMillis();
                 float seconds = (tempsFin - tempsDebut) / 1000F;
@@ -318,7 +322,7 @@ public class PopUpRunController implements Initializable {
         long tempsDebut = System.currentTimeMillis();
         long tempsDebut3 = System.currentTimeMillis();
         //System.out.println("");
-        caseExecutions = testCaseExecution.PrepareCaseDisplayResults(this.baselineId, this.iterationNumber);
+        caseExecutions = testCaseExecution.PrepareCaseDisplayResults(this.baselineId, this.iterationNumber);    //Causing Exception with No Message.
         long tempsFin3 = System.currentTimeMillis();
         float seconds3 = (tempsFin3 - tempsDebut3) / 1000F;
         //System.out.println("Case display= " + Float.toString(seconds3));
@@ -554,7 +558,7 @@ public class PopUpRunController implements Initializable {
                 //Need to delete one record in Iterations database. Provide iteration_number and baseline_id
                 th.suspend();
                 this.executionInterrupted();
-//                th.resume();
+                th.resume();
 //                Thread.currentThread().interrupt();
                 //Change the state of testCaseInExecution to "Not tested."
 //                this.executionFinished();
