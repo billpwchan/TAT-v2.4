@@ -66,7 +66,7 @@ public class TestExecution {
         qry.setInteger("campaignId", baseline.getTestCampaign().getIdtestCampaign());
         qry.setString("baselineId", baseline.getBaselineId());
         executions = (ArrayList) qry.list();
-        executions.stream().forEach((execution) -> {
+        executions.forEach((execution) -> {
             execution.setType("execution");
         });
         session.close();

@@ -167,6 +167,7 @@ public class TestCaseDB {
         try {
             for (CaseExecutions caseExecution : caseExecutions) {
                 Hibernate.initialize(caseExecution.getTestCase());
+                System.out.println(caseExecution.getIdcaseExecutions());
                 if (iterationNumber == 0) {
                     caseExecution.setCaseExecutionResult("");
                     caseExecution.setCaseExecutionComment("");

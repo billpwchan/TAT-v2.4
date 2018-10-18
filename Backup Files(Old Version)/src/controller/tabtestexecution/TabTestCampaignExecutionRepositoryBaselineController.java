@@ -386,11 +386,10 @@ public class TabTestCampaignExecutionRepositoryBaselineController implements Ini
             } else if (this.selected.getType().equals("baseline")) {
                 testExecutionHandler.deleteBaseline(this.selected);
                 CommonFunctions.reportLog.info("User delete baseline: " + this.selected.getBaselineId());
-//                ArrayList<Iterations> iterations;
-//                iterations = testExecutionHandler.getExecutionsFromBaseline(selected);
-//                for (Iterations iteration : iterations) {
-//                    iteHandler.deleteExecution(iteration);
-//                }
+                ArrayList<Iterations> iterations = testExecutionHandler.getExecutionsFromBaseline(this.selected);
+                for (Iterations iteration : iterations) {
+                    iteHandler.deleteExecution(iteration);
+                }
                 try {
                     UpdateTreeItem();
                 } catch (ParseException ex) {
