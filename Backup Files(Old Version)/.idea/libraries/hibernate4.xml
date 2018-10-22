@@ -26,6 +26,8 @@
       <root url="jar://$PROJECT_DIR$/Libraries/hibernate4/antlr-2.7.7.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ideaLibSources/hibernate-core-4.3.1.Final-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>

@@ -72,19 +72,29 @@ public class IterationDB {
     public void deleteExecution(Iterations ite) {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
-        Query query = session.createQuery("delete from CaseExecutionsResult CER where CER.id.iterationNumber=:iterationNumber and CER.baselineId=:baselineId");
-        query.setInteger("iterationNumber", ite.getIterationNumber());
-        query.setString("baselineId", ite.getBaselineId());
-        query.executeUpdate();
-        query = session.createQuery("delete from StepExecutionsResult SER where SER.id.iterationNumber=:iterationNumber and SER.baselineId=:baselineId");
-        query.setInteger("iterationNumber", ite.getIterationNumber());
-        query.setString("baselineId", ite.getBaselineId());
-        query.executeUpdate();
-        query = session.createQuery("delete from ScriptExecutionResult SER where SER.id.iterationNumber=:iterationNumber and SER.baselineId=:baselineId");
-        query.setInteger("iterationNumber", ite.getIterationNumber());
-        query.setString("baselineId", ite.getBaselineId());
-        query.executeUpdate();
-        session.delete(ite);
+//        Query query = session.createQuery("delete from CaseExecutionsResult CER where CER.id.iterationNumber=:iterationNumber and CER.baselineId=:baselineId");
+//        query.setInteger("iterationNumber", ite.getIterationNumber());
+//        query.setString("baselineId", ite.getBaselineId());
+//        query.executeUpdate();
+//        query = session.createQuery("delete from StepExecutionsResult SER where SER.id.iterationNumber=:iterationNumber and SER.baselineId=:baselineId");
+//        query.setInteger("iterationNumber", ite.getIterationNumber());
+//        query.setString("baselineId", ite.getBaselineId());
+//        query.executeUpdate();
+//        query = session.createQuery("delete from ScriptExecutionResult SER where SER.id.iterationNumber=:iterationNumber and SER.baselineId=:baselineId");
+//        query.setInteger("iterationNumber", ite.getIterationNumber());
+//        query.setString("baselineId", ite.getBaselineId());
+//        query.executeUpdate();
+        if (ite != null) {
+            session.delete(ite);
+            session.beginTransaction().commit();
+        }
+        System.out.println(session.createSQLQuery("delete from case_executions where iterations_iditerations not in (select iditerations from iterations)").executeUpdate());
+        session.beginTransaction().commit();
+        session.createSQLQuery("delete from step_executions where case_executions_idcase_executions not in (select idcase_executions from case_executions)").executeUpdate();
+        session.beginTransaction().commit();
+        session.createSQLQuery("delete from script_executions where step_executions_idstep_executions not in (select idstep_executions from step_executions)").executeUpdate();
+        session.beginTransaction().commit();
+        session.createSQLQuery("delete from parameters_execution where script_executions_idscript_executions not in (select idscript_executions from script_executions)").executeUpdate();
         session.beginTransaction().commit();
         session.close();
     }

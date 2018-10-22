@@ -387,9 +387,7 @@ public class TabTestCampaignExecutionRepositoryBaselineController implements Ini
                 testExecutionHandler.deleteBaseline(this.selected);
                 CommonFunctions.reportLog.info("User delete baseline: " + this.selected.getBaselineId());
                 ArrayList<Iterations> iterations = testExecutionHandler.getExecutionsFromBaseline(this.selected);
-                for (Iterations iteration : iterations) {
-                    iteHandler.deleteExecution(iteration);
-                }
+                iteHandler.deleteExecution(null);
                 try {
                     UpdateTreeItem();
                 } catch (ParseException ex) {
@@ -403,6 +401,7 @@ public class TabTestCampaignExecutionRepositoryBaselineController implements Ini
                     for (Iterations anArrayIt : arrayIt) {
                         testExecutionHandler.deleteBaseline(anArrayIt);
                         reportMsgBuilder.append("\tBaseline: ").append(anArrayIt.getBaselineId()).append(System.lineSeparator());
+                        iteHandler.deleteExecution(null);
 //                        arrayIterations = testExecutionHandler.getExecutionsFromBaseline(anArrayIt);
 //                        for (Iterations arrayIteration : arrayIterations) {
 //                            iteHandler.deleteExecution(arrayIteration);
