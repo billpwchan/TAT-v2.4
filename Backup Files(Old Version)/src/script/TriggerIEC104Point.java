@@ -22,8 +22,6 @@ public class TriggerIEC104Point implements InterfaceScript {
 
     private String dcType;
 
-    private int asduAddress;
-
     private String stringValue;
 
     private List<String> lines;
@@ -36,15 +34,12 @@ public class TriggerIEC104Point implements InterfaceScript {
         this.stringValue = (parameters.get(2).getValue().trim());
         this.value = (int) Double.parseDouble(this.stringValue);
         this.dcType = parameters.get(3).getValue().trim();
-        this.asduAddress = (int) Double.parseDouble(parameters.get(4).getValue().trim());
 
         this.lines = IEC104InitConnection.lines.stream().collect(Collectors.toList());
         try {
             for (int i = 0; i < lines.size(); i++) {
                 if (lines.get(i) != null && lines.get(i).startsWith("Range0")) {
                     lines.set(i, "Range0=" + Objects.requireNonNull(this.adjustedParam()).get(0) + ",0x" + Integer.toHexString(this.register) + ",0x0010,BACKGROUND");
-                } else if (lines.get(i) != null && (lines.get(i)).startsWith("AsduAddress")) {
-                    lines.set(i, "AsduAddress=" + asduAddress);
                 } else if (lines.get(i) != null && lines.get(i).startsWith("TimeStamp")) {
                     lines.set(i, "TimeStamp=0");    //Require confirmation for SOE1.
                 } else if (lines.get(i) != null && lines.get(i).startsWith("PointEnabled")) {
@@ -68,20 +63,11 @@ public class TriggerIEC104Point implements InterfaceScript {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            Thread.sleep(500);
 //            Files.write(Paths.get("IEC104slave.ini"), lines, Charset.defaultCharset());
-
-
-//            InputStream is = process.getInputStream();
-//            InputStreamReader isr = new InputStreamReader(is);
-//            BufferedReader br = new BufferedReader(isr);
-//            String line;
-//            while ((line = br.readLine()) != null) {
-//                System.out.println(line);
-//            }
-            Thread.sleep(3000);
-            return null;
-        } catch (IndexOutOfBoundsException  ex) {
+        } catch (IndexOutOfBoundsException ex) {
             CommonFunctions.debugLog.error("Invalid Line Index Caught. Please re-start the program.");
+        } finally {
             return null;
         }
     }

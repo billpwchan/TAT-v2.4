@@ -6,14 +6,17 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c889ef52-46c0-4f96-a7a0-3467c1158425" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c439b569-bf95-4aed-8c87-3099ddb4d676.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c439b569-bf95-4aed-8c87-3099ddb4d676.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/hibernate4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/hibernate4.xml" afterDir="false" />
+    <list default="true" id="c889ef52-46c0-4f96-a7a0-3467c1158425" name="Default Changelist" comment="Finalized adjusted deleteExecution Method in IterationDB. Passed test">
+      <change afterPath="$PROJECT_DIR$/src/script/stopIEC104Simulator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IEC104slave.ini" beforeDir="false" afterPath="$PROJECT_DIR$/IEC104slave.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/log/log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log/user_history.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/user_history.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mydb.db" beforeDir="false" afterPath="$PROJECT_DIR$/mydb.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DBcontroller/IterationDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBcontroller/IterationDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/tabtestexecution/TabTestCampaignExecutionRepositoryBaselineController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/tabtestexecution/TabTestCampaignExecutionRepositoryBaselineController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/script/IEC104InitConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/IEC104InitConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/script/IEC104Simulator/IEC104slave.ini" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/IEC104Simulator/IEC104slave.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/script/IEC104Simulator/IEC104slavetemplate.ini" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/IEC104Simulator/IEC104slavetemplate.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/script/TriggerIEC104Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/TriggerIEC104Point.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -56,18 +59,19 @@
     <session id="30367687">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="17" />
-          <entry key="project.open.time.10" value="4" />
+          <entry key="project.closed" value="25" />
+          <entry key="project.open.time.10" value="6" />
           <entry key="project.open.time.11" value="3" />
           <entry key="project.open.time.12" value="2" />
-          <entry key="project.open.time.14" value="1" />
+          <entry key="project.open.time.14" value="2" />
+          <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.21" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.open.time.8" value="2" />
-          <entry key="project.open.time.9" value="4" />
-          <entry key="project.opened" value="20" />
+          <entry key="project.open.time.8" value="3" />
+          <entry key="project.open.time.9" value="7" />
+          <entry key="project.opened" value="28" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -80,14 +84,14 @@
           <entry key="class" value="1" />
           <entry key="ini" value="4" />
           <entry key="iterations" value="14" />
-          <entry key="java" value="68" />
+          <entry key="java" value="72" />
           <entry key="parameters" value="2" />
-          <entry key="script" value="10" />
+          <entry key="script" value="11" />
           <entry key="script_executions" value="4" />
           <entry key="script_has_been_configured" value="3" />
-          <entry key="script_has_parameters" value="3" />
+          <entry key="script_has_parameters" value="5" />
           <entry key="snippet" value="3" />
-          <entry key="sql" value="9" />
+          <entry key="sql" value="12" />
           <entry key="step_executions" value="4" />
           <entry key="step_executions_result" value="1" />
           <entry key="test_campaign" value="3" />
@@ -102,32 +106,32 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="1" />
-          <entry key="Database Element" value="83" />
+          <entry key="Database Element" value="86" />
           <entry key="Ini" value="4" />
-          <entry key="JAVA" value="68" />
-          <entry key="SQL" value="6" />
-          <entry key="Scratch" value="6" />
+          <entry key="JAVA" value="72" />
+          <entry key="SQL" value="7" />
+          <entry key="Scratch" value="8" />
           <entry key="UML" value="5" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cell" value="321" />
+          <entry key="cell" value="395" />
           <entry key="ini" value="2" />
-          <entry key="java" value="3936" />
+          <entry key="java" value="4484" />
           <entry key="snippet" value="263" />
-          <entry key="sql" value="505" />
-          <entry key="txt" value="496" />
+          <entry key="sql" value="558" />
+          <entry key="txt" value="576" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Ini" value="2" />
-          <entry key="JAVA" value="3936" />
-          <entry key="PLAIN_TEXT" value="496" />
+          <entry key="JAVA" value="4484" />
+          <entry key="PLAIN_TEXT" value="576" />
           <entry key="SQL" value="101" />
-          <entry key="Scratch" value="988" />
+          <entry key="Scratch" value="1115" />
         </counts>
       </usages-collector>
     </session>
@@ -138,55 +142,47 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/c439b569-bf95-4aed-8c87-3099ddb4d676/console.sql">
+        <entry file="file://$PROJECT_DIR$/src/script/IEC104InitConnection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+            <state relative-caret-position="176">
+              <caret line="47" column="30" selection-start-line="47" selection-start-column="30" selection-end-line="47" selection-end-column="30" />
+              <folding>
+                <element signature="e#2495#2496#0" expanded="true" />
+                <element signature="e#2522#2523#0" expanded="true" />
+                <element signature="e#2571#2572#0" expanded="true" />
+                <element signature="e#2598#2599#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/case_executions">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
+        <entry file="file://$PROJECT_DIR$/src/script/stopIEC104Simulator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="179">
+              <caret line="18" column="59" lean-forward="true" selection-start-line="18" selection-start-column="59" selection-end-line="18" selection-end-column="59" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#716#717#0" expanded="true" />
+                <element signature="e#743#744#0" expanded="true" />
+                <element signature="e#792#793#0" expanded="true" />
+                <element signature="e#819#820#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DBcontroller/IterationDB.java">
+        <entry file="file://$PROJECT_DIR$/src/script/TriggerIEC104Point.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-329">
-              <caret line="71" column="22" selection-start-line="71" selection-start-column="22" selection-end-line="71" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/controller/popup/PopUpRunController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="579" column="42" selection-start-line="579" selection-start-column="42" selection-end-line="579" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DBcontroller/TestCaseDB.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="71">
-              <caret line="158" selection-start-line="158" selection-end-line="158" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/controller/tabtestexecution/TabTestCampaignExecutionRepositoryBaselineController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
-              <caret line="397" column="21" selection-start-line="397" selection-start-column="21" selection-end-line="397" selection-end-column="21" />
+            <state relative-caret-position="110">
+              <caret line="17" column="60" lean-forward="true" selection-start-line="17" selection-start-column="60" selection-end-line="17" selection-end-column="60" />
+              <folding>
+                <element signature="e#3375#3376#0" expanded="true" />
+                <element signature="e#3402#3403#0" expanded="true" />
+                <element signature="e#3451#3452#0" expanded="true" />
+                <element signature="e#3478#3479#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -194,17 +190,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/DBcontroller/TestExecution.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="119" column="137" selection-start-line="119" selection-start-column="137" selection-end-line="119" selection-end-column="137" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DBcontroller/ConfigurationDB.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="72" column="36" selection-start-line="72" selection-start-column="36" selection-end-line="72" selection-end-column="36" />
+            <state relative-caret-position="2398">
+              <caret line="122" column="28" selection-start-line="122" selection-start-column="28" selection-end-line="122" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -255,17 +242,18 @@
         <option value="$PROJECT_DIR$/src/controller/popup/PopUpRunController.java" />
         <option value="$PROJECT_DIR$/src/model/TestCasesExecution.java" />
         <option value="$PROJECT_DIR$/src/script/LaunchTCPIEC104SampleServer.java" />
-        <option value="$PROJECT_DIR$/src/script/IEC104InitConnection.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/jshell/jshell_console_6.snippet" />
         <option value="$PROJECT_DIR$/src/script/IEC104Simulator/IEC104slavetemplate.ini" />
-        <option value="$PROJECT_DIR$/src/script/TriggerIEC104Point.java" />
         <option value="$PROJECT_DIR$/src/DBcontroller/TestCaseDB.java" />
         <option value="$PROJECT_DIR$/src/DBcontroller/TestExecution.java" />
         <option value="c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/step_executions.sql" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/c439b569-bf95-4aed-8c87-3099ddb4d676/console.sql" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/jshell/jshell_console_7.snippet" />
         <option value="$PROJECT_DIR$/src/DBcontroller/IterationDB.java" />
         <option value="$PROJECT_DIR$/src/controller/tabtestexecution/TabTestCampaignExecutionRepositoryBaselineController.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/c439b569-bf95-4aed-8c87-3099ddb4d676/console.sql" />
+        <option value="$PROJECT_DIR$/src/script/IEC104InitConnection.java" />
+        <option value="$PROJECT_DIR$/src/script/TriggerIEC104Point.java" />
+        <option value="$PROJECT_DIR$/src/script/stopIEC104Simulator.java" />
       </list>
     </option>
   </component>
@@ -286,7 +274,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="200" />
+    <option name="x" value="1505" />
+    <option name="y" value="-30" />
     <option name="width" value="1950" />
     <option name="height" value="2075" />
   </component>
@@ -312,21 +301,21 @@
               <item name="Backup Files(Old Version)" type="b2602c69:ProjectViewProjectNode" />
               <item name="Backup Files(Old Version)" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="DBcontroller" type="462c0819:PsiDirectoryNode" />
+              <item name="script" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="sqlite" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="database.console.LAST_STATE" value="true" />
+    <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/OneDrive/HKUST/COMP 3021/5-exceptions-program" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -402,6 +391,7 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TriggerIEC104Point" />
         <item itemvalue="Application.LaunchTCPIEC104SampleServer" />
         <item itemvalue="Application.IEC104InitConnection" />
       </list>
@@ -436,7 +426,15 @@
       <workItem from="1539926795867" duration="4675000" />
       <workItem from="1539939867519" duration="2496000" />
       <workItem from="1540023941134" duration="645000" />
-      <workItem from="1540177718647" duration="2013000" />
+      <workItem from="1540177718647" duration="2063000" />
+      <workItem from="1540179974592" duration="106000" />
+      <workItem from="1540190824787" duration="58000" />
+      <workItem from="1540258394113" duration="206000" />
+      <workItem from="1540258639517" duration="7147000" />
+      <workItem from="1540266395600" duration="1720000" />
+      <workItem from="1540403232195" duration="61000" />
+      <workItem from="1540518540871" duration="642000" />
+      <workItem from="1540526516706" duration="1483000" />
     </task>
     <task id="LOCAL-00001" summary="Able to create baseline and input value to IEC104slave.ini file on run-time.">
       <created>1539016208060</created>
@@ -494,11 +492,18 @@
       <option name="project" value="LOCAL" />
       <updated>1539854056105</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Finalized adjusted deleteExecution Method in IterationDB. Passed test">
+      <created>1540179762633</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1540179762633</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49634000" />
+    <option name="totallyTimeSpent" value="61107000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -513,7 +518,7 @@
     <frame x="-6" y="-6" width="1549" height="837" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49722737" visible="true" weight="0.17102616" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49722737" visible="true" weight="0.20925553" />
       <window_info id="Structure" order="1" sideWeight="0.5021552" side_tool="true" weight="0.229069" />
       <window_info id="Persistence" order="2" sideWeight="0.5009242" side_tool="true" weight="0.22103149" />
       <window_info id="Designer" order="3" />
@@ -521,12 +526,12 @@
       <window_info id="Favorites" order="5" sideWeight="0.4990758" weight="0.22103149" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32561505" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4996651" weight="0.3429812" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4996651" visible="true" weight="0.19826339" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3082489" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32947975" />
-      <window_info active="true" anchor="bottom" id="Database Console" order="7" visible="true" weight="0.32561505" />
+      <window_info anchor="bottom" id="Database Console" order="7" weight="0.32561505" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.32947975" />
       <window_info anchor="bottom" id="Terminal" order="10" />
@@ -537,7 +542,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Database" order="4" visible="true" weight="0.25150904" />
+      <window_info active="true" anchor="right" id="Database" order="4" visible="true" weight="0.25083837" />
       <window_info anchor="right" id="Palette&#9;" order="5" />
       <window_info anchor="right" id="Maven Projects" order="6" weight="0.32953784" />
     </layout>
@@ -562,7 +567,8 @@
     <MESSAGE value="Remove unnecessary thread operation. Pending test." />
     <MESSAGE value="Moving exe launcher to initConnection" />
     <MESSAGE value="Added Database Cleaning Tool. (Inside Script Folder)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Database Cleaning Tool. (Inside Script Folder)" />
+    <MESSAGE value="Finalized adjusted deleteExecution Method in IterationDB. Passed test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finalized adjusted deleteExecution Method in IterationDB. Passed test" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -578,14 +584,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/test_step" />
-    <entry file="file://$PROJECT_DIR$/src/script/ServerConnection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/popup/PopUpBaselineCreationController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="251">
@@ -623,7 +621,6 @@
     </entry>
     <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/test_step_has_script" />
     <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/script_has_been_configured" />
-    <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/script" />
     <entry file="file://$PROJECT_DIR$/src/controller/tabtestexecution/TabTestCampaignExecutionBaselineCampaignController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6182">
@@ -712,20 +709,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="20" column="7" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/script/IEC104InitConnection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="41" column="9" lean-forward="true" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/script/TriggerIEC104Point.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
         </state>
       </provider>
     </entry>
@@ -945,13 +928,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/script/ManualRemoveDatabaseDuplication.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/Libraries/hibernate4/hibernate-core-4.3.1.Final.jar!/org/hibernate/Query.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="137">
@@ -966,35 +942,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DBcontroller/ConfigurationDB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="72" column="36" selection-start-line="72" selection-start-column="36" selection-end-line="72" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DBcontroller/TestCaseDB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="158" selection-start-line="158" selection-end-line="158" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/case_executions_result">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DBcontroller/TestExecution.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="119" column="137" selection-start-line="119" selection-start-column="137" selection-end-line="119" selection-end-column="137" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/case_executions">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
@@ -1008,10 +956,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/case_executions">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DBcontroller/IterationDB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-22">
+          <caret line="71" column="22" selection-start-line="71" selection-start-column="22" selection-end-line="71" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/popup/PopUpRunController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="579" column="42" selection-start-line="579" selection-start-column="42" selection-end-line="579" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DBcontroller/TestCaseDB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="71">
+          <caret line="158" selection-start-line="158" selection-end-line="158" />
         </state>
       </provider>
     </entry>
@@ -1022,17 +991,85 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DBcontroller/IterationDB.java">
+    <entry file="file://$PROJECT_DIR$/src/DBcontroller/ConfigurationDB.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-329">
-          <caret line="71" column="22" selection-start-line="71" selection-start-column="22" selection-end-line="71" selection-end-column="22" />
+        <state relative-caret-position="220">
+          <caret line="72" column="36" selection-start-line="72" selection-start-column="36" selection-end-line="72" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/script/ManualRemoveDatabaseDuplication.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DBcontroller/TestExecution.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2398">
+          <caret line="122" column="28" selection-start-line="122" selection-start-column="28" selection-end-line="122" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/script">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/script_has_parameters">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/c439b569-bf95-4aed-8c87-3099ddb4d676/console.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        <state relative-caret-position="288">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/script/TriggerIEC104Point.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="17" column="60" lean-forward="true" selection-start-line="17" selection-start-column="60" selection-end-line="17" selection-end-column="60" />
+          <folding>
+            <element signature="e#3375#3376#0" expanded="true" />
+            <element signature="e#3402#3403#0" expanded="true" />
+            <element signature="e#3451#3452#0" expanded="true" />
+            <element signature="e#3478#3479#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/script/stopIEC104Simulator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="18" column="59" lean-forward="true" selection-start-line="18" selection-start-column="59" selection-end-line="18" selection-end-column="59" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#716#717#0" expanded="true" />
+            <element signature="e#743#744#0" expanded="true" />
+            <element signature="e#792#793#0" expanded="true" />
+            <element signature="e#819#820#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/script/IEC104InitConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="47" column="30" selection-start-line="47" selection-start-column="30" selection-end-line="47" selection-end-column="30" />
+          <folding>
+            <element signature="e#2495#2496#0" expanded="true" />
+            <element signature="e#2522#2523#0" expanded="true" />
+            <element signature="e#2571#2572#0" expanded="true" />
+            <element signature="e#2598#2599#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

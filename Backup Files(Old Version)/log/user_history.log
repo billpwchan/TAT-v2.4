@@ -753,3 +753,393 @@
 	Baseline: 2
 
 2018-10-22 11:42:05 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User completed test campaign deletion.
+2018-10-23 09:33:59 | TabTestCampaignMainViewController.java |  INFO | reportsLogger : User cancel viewing 43
+2018-10-23 09:34:03 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User open baseline: IEC-104
+2018-10-23 09:34:26 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: Connect IEC-104 Server
+2018-10-23 09:34:50 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: Trigger IEC-104 Point
+2018-10-23 09:34:51 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validate baseline: IECb
+2018-10-23 09:34:51 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User close Baseline Tab.
+2018-10-23 09:47:21 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User delete execution: IECb(Iteration Num: 1)
+2018-10-23 09:47:24 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User view Iteration: IECb
+2018-10-23 10:09:24 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: IECb
+2018-10-23 10:10:56 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User delete entire test campaign: IECb
+	Baseline: IECb
+
+2018-10-23 10:10:56 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User completed test campaign deletion.
+2018-10-23 10:11:24 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User open baseline: IEC-104
+2018-10-23 10:11:27 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: Connect IEC-104 Server
+2018-10-23 10:11:41 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: Trigger IEC-104 Point
+2018-10-23 10:11:42 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validate baseline: 123
+2018-10-23 10:11:42 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User close Baseline Tab.
+2018-10-23 10:11:49 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:11:53 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:11:56 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:11:56 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:11:59 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:12:02 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:12:05 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:12:05 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:12:09 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:12:12 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:12:15 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:12:15 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:12:18 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:12:21 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:12:24 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:12:24 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:12:28 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:12:31 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:12:34 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:12:34 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:16:24 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 123
+2018-10-23 10:16:27 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:16:27 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:16:27 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:16:27 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:16:27 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:16:27 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:16:27 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:16:27 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:16:28 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:16:28 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:16:28 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:16:28 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:16:28 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:16:28 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:16:28 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:16:29 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:16:29 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:16:29 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:16:29 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:16:29 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:19:46 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 123
+2018-10-23 10:19:51 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:19:55 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:19:58 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:19:58 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:20:01 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:20:05 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:20:08 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:20:08 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:20:11 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:20:14 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:20:17 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:20:17 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:20:21 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:20:24 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:20:27 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:20:27 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:20:30 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:20:34 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:20:37 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:20:37 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:24:22 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 123
+2018-10-23 10:24:29 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:24:32 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:24:35 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:24:35 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:24:39 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:24:42 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:24:45 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:24:45 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:24:48 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:24:51 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:24:55 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:24:55 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:24:58 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:25:01 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:25:04 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:25:04 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:25:07 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:25:11 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:25:14 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:25:14 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:27:27 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 123
+2018-10-23 10:27:34 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:27:37 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:27:41 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:27:41 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:27:44 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:27:47 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:27:50 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:27:50 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:27:54 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:27:57 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:28:00 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:28:00 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:28:03 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:28:06 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:28:09 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:28:10 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:28:13 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:28:16 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:28:19 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:28:19 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:30:39 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 123
+2018-10-23 10:30:56 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:30:59 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:31:03 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:31:03 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:31:06 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:31:09 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:31:12 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:31:12 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:31:16 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:31:19 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:31:22 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:31:22 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:31:25 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:31:28 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:31:31 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:31:32 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:31:35 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:31:38 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:31:41 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:31:41 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:32:49 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 123
+2018-10-23 10:32:55 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:32:58 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:33:01 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:33:01 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:33:05 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:33:08 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:33:11 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:33:11 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:33:14 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:33:17 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:33:20 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:33:21 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:33:24 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:33:27 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:33:30 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:33:30 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:33:33 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:33:36 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:33:40 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:33:40 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:37:54 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 123
+2018-10-23 10:51:27 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 123
+2018-10-23 10:51:33 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:51:33 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:51:33 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:51:33 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:51:33 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:51:33 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:51:33 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:51:34 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:51:34 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:51:34 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:51:34 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:51:34 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:51:34 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:51:35 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:51:35 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:51:35 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:51:35 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:51:35 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:51:35 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:51:35 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:53:41 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 123
+2018-10-23 10:55:12 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 123
+2018-10-23 10:55:40 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 123
+2018-10-23 10:55:42 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:55:42 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:55:43 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:55:43 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:55:43 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:55:43 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:55:43 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:55:43 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:55:43 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:55:44 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:55:44 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:55:44 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:55:44 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:55:44 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:55:44 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:55:44 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:55:44 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:55:45 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:55:45 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:55:45 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:58:40 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 123
+2018-10-23 10:58:44 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:58:44 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:58:44 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:58:44 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:58:45 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:58:45 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:58:45 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:58:45 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:58:45 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:58:45 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:58:45 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:58:45 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:58:46 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:58:46 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:58:46 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:58:46 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:58:46 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:58:46 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:58:46 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 10:58:46 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:00:49 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 123
+2018-10-23 11:00:53 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:00:53 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:00:54 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:00:54 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:00:54 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:00:54 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:00:54 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:00:54 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:00:54 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:00:55 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:00:55 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:00:55 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:00:55 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:00:55 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:00:55 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:00:55 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:00:56 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:00:56 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:00:56 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:00:56 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:04:50 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 123
+2018-10-23 11:04:53 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:04:53 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:04:53 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:04:53 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:04:54 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:04:54 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:04:54 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:04:54 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:04:54 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:04:54 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:04:54 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:04:55 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:04:55 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:04:55 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:04:55 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:04:55 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:04:55 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:04:55 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:04:55 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:04:56 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:06:54 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 123
+2018-10-23 11:07:01 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:07:03 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:07:05 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:07:05 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:07:07 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:07:38 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 123
+2018-10-23 11:08:14 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 123
+2018-10-23 11:08:31 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User view Iteration: 123
+2018-10-23 11:16:16 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User open baseline: IEC-104
+2018-10-23 11:18:04 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User delete entire test campaign: 123
+	Baseline: 123
+	Baseline: dfghj
+
+2018-10-23 11:18:04 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User completed test campaign deletion.
+2018-10-23 11:22:43 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User open baseline: IEC-104
+2018-10-23 11:26:48 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User open baseline: IEC-104
+2018-10-23 11:26:56 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: Connect IEC-104 Server
+2018-10-23 11:27:09 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: Trigger IEC-104 Point
+2018-10-23 11:27:10 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validate baseline: New Baseline
+2018-10-23 11:27:11 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User close Baseline Tab.
+2018-10-23 11:29:45 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: New Baseline
+2018-10-23 11:29:52 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:29:54 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:29:57 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:29:57 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:30:00 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:30:07 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User view Iteration: New Baseline
+2018-10-23 11:30:11 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User delete baseline: New Baseline
+2018-10-23 11:30:41 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User open baseline: IEC-104
+2018-10-23 11:30:45 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: Connect IEC-104 Server
+2018-10-23 11:30:55 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: Trigger IEC-104 Point
+2018-10-23 11:30:55 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validate baseline: 1313
+2018-10-23 11:30:56 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User close Baseline Tab.
+2018-10-23 11:31:02 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:31:05 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:31:08 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:31:08 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:31:11 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:31:13 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:31:16 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:31:16 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:31:19 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:31:22 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:31:24 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:31:24 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:31:27 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:31:30 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:31:32 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:31:33 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:56:20 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 1313
+2018-10-23 11:56:25 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:56:27 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:56:29 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:56:29 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:56:32 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:56:34 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:56:36 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:56:36 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:56:38 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:56:40 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:56:42 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:56:42 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:56:44 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:56:46 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:56:49 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:56:49 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 11:59:10 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 1313
+2018-10-23 12:00:15 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 1313
+2018-10-23 12:00:21 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 12:00:23 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 12:00:26 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 12:00:26 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 12:00:29 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 12:00:31 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 12:00:34 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 12:00:34 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 12:00:36 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 12:00:39 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 12:00:42 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 12:00:42 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 12:00:44 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 12:00:47 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 12:00:50 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 12:00:50 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 12:02:05 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 1313
+2018-10-23 12:02:13 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 12:02:19 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 12:02:25 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 12:02:25 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 12:02:30 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 12:02:36 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 12:02:42 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 12:02:42 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 12:02:48 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 12:02:53 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 12:02:59 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 12:02:59 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 12:03:05 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 12:03:10 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 12:03:16 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 12:03:16 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 12:08:44 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: 1313
+2018-10-23 12:09:03 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 12:09:59 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 12:10:55 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 12:10:55 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 12:11:02 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 12:11:58 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 12:12:54 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 12:12:54 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 12:13:01 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-23 12:13:57 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-26 12:07:28 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User delete entire test campaign: 1313
+	Baseline: 1313
+
+2018-10-26 12:07:28 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User completed test campaign deletion.
+2018-10-26 12:07:57 | TabTestCampaignRepositoryController.java |  INFO | reportsLogger : User deleted test campaign: IEC-104
