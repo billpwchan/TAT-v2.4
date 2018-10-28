@@ -1143,3 +1143,65 @@
 
 2018-10-26 12:07:28 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User completed test campaign deletion.
 2018-10-26 12:07:57 | TabTestCampaignRepositoryController.java |  INFO | reportsLogger : User deleted test campaign: IEC-104
+2018-10-26 12:54:52 | TabMacroLibraryController.java |  INFO | reportsLogger : User create a new Macro.
+2018-10-26 12:54:59 | TabTestCaseLibraryController.java |  INFO | reportsLogger : User created a new Test Case
+2018-10-26 12:57:50 | TabTestCaseLibraryController.java |  INFO | reportsLogger : User Edited the Test Case(48): Trigger DI
+2018-10-26 12:57:51 | StepLineTableStepController.java |  INFO | reportsLogger : Expand step (ID) 1
+2018-10-26 12:58:09 | StepLineTableStepController.java |  INFO | reportsLogger : Move up step: (ID) 4
+2018-10-26 12:58:10 | StepLineTableStepController.java |  INFO | reportsLogger : Move up step: (ID) 3
+2018-10-26 12:58:10 | StepLineTableStepController.java |  INFO | reportsLogger : Move up step: (ID) 2
+2018-10-26 13:01:56 | StepLineTableStepController.java |  INFO | reportsLogger : Expand step (ID) 3
+2018-10-26 13:03:04 | StepLineTableStepController.java |  INFO | reportsLogger : Expand step (ID) 4
+2018-10-26 13:04:19 | TabTestCaseEditController.java |  INFO | reportsLogger : After Editing Test Case :Trigger IEC-104 Point
+	Step 0: Init IEC-104 Connection
+		Script 1 Step Description: IEC104InitConnection
+	Step 1: Low Level
+		Script 1 Step Description: TriggerIEC104Point
+	Step 2: Trigger High Level
+		Script 1 Step Description: TriggerIEC104Point
+		Script 1 Expected Result: CheckSSHEvent_ReportFinalized
+	Step 3: Trigger Low Level
+		Script 1 Step Description: TriggerIEC104Point
+		Script 1 Expected Result: CheckSSHEvent_ReportFinalized
+
+2018-10-26 13:04:19 | TabTestCaseEditController.java |  INFO | reportsLogger : Successfully saved test case: Trigger DI
+2018-10-26 13:31:06 | TestCampaignDB.java |  INFO | reportsLogger : After Creating Test Campaign :IEC-104 Tes
+	Case 1: Trigger IEC-104 Point (49)
+
+2018-10-26 13:31:06 | TestCampaignDB.java |  INFO | reportsLogger : Successfully saved test campaign: IEC-104 Tes
+2018-10-26 13:31:16 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User open baseline: IEC-104 Tes
+2018-10-26 13:31:39 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: Trigger IEC-104 Point
+2018-10-26 13:31:40 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validate baseline: IEC-104
+2018-10-26 13:31:40 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User close Baseline Tab.
+2018-10-26 13:31:55 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User delete entire test campaign: IEC-104
+	Baseline: IEC-104
+
+2018-10-26 13:31:55 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User completed test campaign deletion.
+2018-10-26 13:31:57 | TabTestCampaignRepositoryController.java |  INFO | reportsLogger : User deleted test campaign: IEC-104 Tes
+2018-10-26 13:32:02 | TabTestCaseLibraryController.java |  INFO | reportsLogger : User Edited the Test Case(49): Trigger IEC104
+2018-10-26 13:32:29 | TabTestCaseEditController.java |  INFO | reportsLogger : After Editing Test Case :Trigger IEC-104 Point
+	Step 0: Init IEC-104 Connection
+		Script 1 Step Description: IEC104InitConnection
+	Step 1: Low Level
+		Script 1 Step Description: TriggerIEC104Point
+	Step 2: Trigger High Level
+		Script 1 Step Description: TriggerIEC104Point
+		Script 1 Expected Result: CheckSSHEvent_ReportFinalized
+	Step 3: Trigger Low Level
+		Script 1 Step Description: TriggerIEC104Point
+		Script 1 Expected Result: CheckSSHEvent_ReportFinalized
+	Step 4: Stop IEC-104 Simulator
+		Script 1 Step Description: StopIEC104Simulator
+
+2018-10-26 13:32:29 | TabTestCaseEditController.java |  INFO | reportsLogger : Successfully saved test case: Trigger IEC104
+2018-10-26 13:32:47 | TestCampaignDB.java |  INFO | reportsLogger : After Creating Test Campaign :IEC104
+	Case 1: Trigger IEC-104 Point (50)
+
+2018-10-26 13:32:47 | TestCampaignDB.java |  INFO | reportsLogger : Successfully saved test campaign: IEC104
+2018-10-26 13:32:51 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User open baseline: IEC104
+2018-10-26 13:33:05 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: Trigger IEC-104 Point
+2018-10-26 13:33:05 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validate baseline: IEC-104
+2018-10-26 13:33:05 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User close Baseline Tab.
+2018-10-28 23:07:35 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: IEC-104
+2018-10-28 23:07:59 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: IEC-104
+2018-10-28 23:08:06 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: IEC-104
