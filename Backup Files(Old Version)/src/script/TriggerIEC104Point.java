@@ -60,9 +60,11 @@ public class TriggerIEC104Point implements InterfaceScript {
                     writer.write(line, 0, line.length());
                     writer.newLine();
                 }
+                writer.flush();
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            Thread.sleep(3000);
 //            Files.write(Paths.get("IEC104slave.ini"), lines, Charset.defaultCharset());
         } catch (IndexOutOfBoundsException ex) {
             CommonFunctions.debugLog.error("Invalid Line Index Caught. Please re-start the program.");

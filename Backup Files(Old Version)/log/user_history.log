@@ -1382,3 +1382,145 @@
 2018-10-30 10:35:15 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
 2018-10-30 10:35:20 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
 2018-10-30 10:42:42 | TabTestCaseLibraryController.java |  INFO | reportsLogger : User Viewed the Test Case(53): Trigger IEC104
+2018-10-30 10:59:44 | TabTestCaseLibraryController.java |  INFO | reportsLogger : User Edited the Test Case(53): Trigger IEC104
+2018-10-30 10:59:53 | TabTestCaseEditController.java |  INFO | reportsLogger : After Editing Test Case :Trigger IEC-104 Point
+	Step 0: Init IEC-104 Connection
+		Script 1 Step Description: IEC104InitConnection
+	Step 1: Low Level
+		Script 1 Step Description: TriggerIEC104Point
+	Step 2: Trigger High Level Point
+		Script 1 Step Description: TriggerIEC104Point
+	Step 3: Trigger High Level Result
+		Script 1 Step Description: Wait without popup
+		Script 1 Expected Result: CheckSSHEvent_ReportFinalized
+	Step 4: Trigger Low Level Point
+		Script 1 Step Description: TriggerIEC104Point
+	Step 5: Check Low Level Result
+		Script 1 Step Description: Wait without popup
+		Script 1 Expected Result: CheckSSHEvent_ReportFinalized
+	Step 6: Stop IEC-104 Simulator
+		Script 1 Step Description: StopIEC104Simulator
+
+2018-10-30 10:59:53 | TabTestCaseEditController.java |  INFO | reportsLogger : Successfully saved test case: Trigger IEC104
+2018-10-30 11:00:06 | TestCampaignDB.java |  INFO | reportsLogger : After Creating Test Campaign :NewIEC
+	Case 1: Trigger IEC-104 Point (54)
+
+2018-10-30 11:00:06 | TestCampaignDB.java |  INFO | reportsLogger : Successfully saved test campaign: NewIEC
+2018-10-30 11:00:09 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User open baseline: NewIEC
+2018-10-30 11:00:22 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: Trigger IEC-104 Point
+2018-10-30 11:00:23 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validate baseline: NEWIEC
+2018-10-30 11:00:23 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User close Baseline Tab.
+2018-10-30 11:00:31 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:00:37 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:00:42 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:00:47 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:00:52 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:00:57 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:04:49 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: NEWIEC
+2018-10-30 11:05:02 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:05:07 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:05:17 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:05:22 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:05:31 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:05:37 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:09:36 | TabTestCaseLibraryController.java |  INFO | reportsLogger : User Edited the Test Case(54): Trigger IEC104
+2018-10-30 11:09:38 | StepLineTableStepController.java |  INFO | reportsLogger : Expand step (ID) 2
+2018-10-30 11:09:39 | StepLineTableStepController.java |  INFO | reportsLogger : Expand step (ID) 2
+2018-10-30 11:09:40 | StepLineTableStepController.java |  INFO | reportsLogger : Expand step (ID) 3
+2018-10-30 11:09:42 | StepLineTableStepController.java |  INFO | reportsLogger : Expand step (ID) 3
+2018-10-30 11:09:45 | StepLineTableStepController.java |  INFO | reportsLogger : Expand step (ID) 3
+2018-10-30 11:10:10 | StepLineTableStepController.java |  INFO | reportsLogger : Expand step (ID) 3
+2018-10-30 11:10:14 | StepLineTableStepController.java |  INFO | reportsLogger : Expand step (ID) 4
+2018-10-30 11:10:44 | TabTestCaseEditController.java |  INFO | reportsLogger : After Editing Test Case :Trigger IEC-104 Point
+	Step 0: Init IEC-104 Connection
+		Script 1 Step Description: IEC104InitConnection
+	Step 1: Low Level
+		Script 1 Step Description: TriggerIEC104Point
+	Step 2: Trigger High Level Result
+		Script 1 Step Description: TriggerIEC104Point
+		Script 1 Expected Result: CheckSSHEvent_ReportFinalized
+	Step 3: Check Low Level Result
+		Script 1 Step Description: TriggerIEC104Point
+		Script 1 Expected Result: CheckSSHEvent_ReportFinalized
+	Step 4: Stop IEC-104 Simulator
+		Script 1 Step Description: StopIEC104Simulator
+
+2018-10-30 11:10:44 | TabTestCaseEditController.java |  INFO | reportsLogger : Successfully saved test case: Trigger IEC104
+2018-10-30 11:10:48 | StepLineTableStepController.java |  INFO | reportsLogger : Expand step
+2018-10-30 11:10:48 | StepLineTableStepController.java |  INFO | reportsLogger : Expand step
+2018-10-30 11:11:11 | TestCampaignDB.java |  INFO | reportsLogger : After Creating Test Campaign :IECNoSleep
+	Case 1: Trigger IEC-104 Point (55)
+
+2018-10-30 11:11:11 | TestCampaignDB.java |  INFO | reportsLogger : Successfully saved test campaign: IECNoSleep
+2018-10-30 11:11:15 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User open baseline: IECNoSleep
+2018-10-30 11:11:28 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: Trigger IEC-104 Point
+2018-10-30 11:11:29 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validate baseline: NoSleep
+2018-10-30 11:11:29 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User close Baseline Tab.
+2018-10-30 11:11:40 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:11:41 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:11:45 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:11:45 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:11:50 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:11:50 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:11:55 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:11:55 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:11:59 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:12:00 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:14:35 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: NoSleep
+2018-10-30 11:14:42 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:14:43 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:14:47 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:14:48 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:14:52 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:14:53 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:14:57 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:14:58 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:15:02 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:15:02 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:16:19 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User view Iteration: NoSleep
+2018-10-30 11:17:43 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: NoSleep
+2018-10-30 11:17:55 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:17:58 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:18:07 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:18:10 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:18:20 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:18:23 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:18:32 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:18:35 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:18:44 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:18:48 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:22:41 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: NoSleep
+2018-10-30 11:23:00 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:23:03 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:23:13 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:23:16 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:23:32 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:23:35 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:23:52 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:23:55 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:24:11 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:24:14 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:49:56 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: NoSleep
+2018-10-30 11:50:17 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:56:34 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: NoSleep
+2018-10-30 11:56:54 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:56:57 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:57:14 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:57:17 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:57:33 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:57:36 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:57:53 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:57:56 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:58:12 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 11:58:15 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 12:00:24 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: NoSleep
+2018-10-30 12:00:45 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 12:00:48 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 12:00:58 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 12:01:01 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 12:01:19 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 12:01:22 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 12:01:32 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 12:01:36 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 12:01:53 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 12:01:56 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
