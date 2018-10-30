@@ -26,7 +26,7 @@ public class IEC104InitConnection implements InterfaceScript {
     public Result run(ArrayList<ParametersExecution> parameters, HashMap hashMap) throws Exception {
         String ip = parameters.get(1).getValue().trim();    //Not used for simulator monitor process
         int port = ((int) Double.parseDouble(parameters.get(2).getValue().trim()));
-        int asduAddress = (int) Double.parseDouble(parameters.get(4).getValue().trim());
+        int asduAddress = (int) Double.parseDouble(parameters.get(3).getValue().trim());
         CommonFunctions.debugLog.debug("Working Directory = " + System.getProperty("user.dir"));
         Path inputPath = Paths.get("src\\script\\IEC104Simulator\\IEC104slavetemplate.ini");
         Path outputPath = Paths.get("IEC104slave.ini");
@@ -51,10 +51,10 @@ public class IEC104InitConnection implements InterfaceScript {
         InputStreamReader isr = new InputStreamReader(is);
         BufferedReader br = new BufferedReader(isr);
         String line123;
-        while ((line123 = br.readLine()) != null && !line123.contains("Supervisory")) {
-            //Should be finished initialization
-            System.out.println(line123);
-        }
+//        while ((line123 = br.readLine()) != null && !line123.contains("Supervisory")) {
+//            //Should be finished initialization
+//            System.out.println(line123);
+//        }
         return null;
     }
 

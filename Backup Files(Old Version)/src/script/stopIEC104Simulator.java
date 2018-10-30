@@ -14,7 +14,6 @@ public class stopIEC104Simulator implements InterfaceScript {
         if (IEC104InitConnection.process != null && IEC104InitConnection.process.isAlive()) {
             IEC104InitConnection.process.destroy();
         }
-        Thread.sleep(500);
         if (IEC104InitConnection.process.isAlive()) {
             IEC104InitConnection.process.destroyForcibly();
         }

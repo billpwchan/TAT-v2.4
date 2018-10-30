@@ -1205,3 +1205,180 @@
 2018-10-28 23:07:35 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: IEC-104
 2018-10-28 23:07:59 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: IEC-104
 2018-10-28 23:08:06 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: IEC-104
+2018-10-28 23:23:17 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User view Iteration: IEC-104
+2018-10-28 23:23:21 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User delete execution: IEC-104(Iteration Num: 3)
+2018-10-30 09:27:31 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: IEC-104
+2018-10-30 09:28:39 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: IEC-104
+2018-10-30 09:28:54 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 09:28:55 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 09:28:59 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 09:28:59 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 09:29:11 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 09:29:12 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 09:29:24 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 09:29:25 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 09:29:36 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 09:29:37 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 09:31:50 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: IEC-104
+2018-10-30 09:32:09 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: IEC-104
+2018-10-30 09:33:54 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 09:34:34 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 09:34:55 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 09:35:03 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 09:35:33 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 09:35:37 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 09:35:57 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 09:36:01 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 09:36:08 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 09:36:11 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 09:42:20 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: IEC-104
+2018-10-30 09:42:50 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 09:42:50 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 09:43:02 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 09:43:03 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 09:43:06 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 09:43:07 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 09:43:19 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 09:43:19 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 09:43:24 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 09:43:24 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 09:52:38 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: IEC-104
+2018-10-30 09:53:03 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 09:53:08 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 09:53:30 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 09:53:35 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 09:53:47 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 09:53:52 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 09:54:13 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 09:54:18 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 09:54:26 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 09:54:31 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 10:11:49 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: IEC-104
+2018-10-30 10:16:29 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 10:16:36 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 10:16:59 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: IEC-104
+2018-10-30 10:17:24 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 10:17:29 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 10:17:50 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 10:17:55 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 10:18:16 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 10:18:22 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 10:18:43 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 10:18:48 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 10:19:04 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 10:19:09 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 10:21:59 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User delete entire test campaign: IEC-104
+	Baseline: IEC-104
+
+2018-10-30 10:21:59 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User completed test campaign deletion.
+2018-10-30 10:22:02 | TabTestCampaignRepositoryController.java |  INFO | reportsLogger : User deleted test campaign: IEC104
+2018-10-30 10:23:10 | TabTestCaseLibraryController.java |  INFO | reportsLogger : User Edited the Test Case(50): Trigger IEC104
+2018-10-30 10:23:12 | StepLineTableStepController.java |  INFO | reportsLogger : Expand step (ID) 2
+2018-10-30 10:23:19 | StepLineTableStepController.java |  INFO | reportsLogger : Expand step (ID) 2
+2018-10-30 10:23:23 | StepLineTableStepController.java |  INFO | reportsLogger : Move up step: (ID) 6
+2018-10-30 10:23:24 | StepLineTableStepController.java |  INFO | reportsLogger : Move up step: (ID) 5
+2018-10-30 10:23:24 | StepLineTableStepController.java |  INFO | reportsLogger : Move up step: (ID) 4
+2018-10-30 10:24:13 | StepLineTableStepController.java |  INFO | reportsLogger : Expand step
+2018-10-30 10:24:21 | StepLineTableStepController.java |  INFO | reportsLogger : Expand step (ID) 3
+2018-10-30 10:24:22 | StepLineTableStepController.java |  INFO | reportsLogger : Expand step (ID) 4
+2018-10-30 10:24:53 | StepLineTableStepController.java |  INFO | reportsLogger : Expand step (ID) 5
+2018-10-30 10:25:22 | StepLineTableStepController.java |  INFO | reportsLogger : Expand step (ID) 5
+2018-10-30 10:25:23 | StepLineTableStepController.java |  INFO | reportsLogger : Move up step: (ID) 7
+2018-10-30 10:25:24 | StepLineTableStepController.java |  INFO | reportsLogger : Move up step: (ID) 6
+2018-10-30 10:25:25 | StepLineTableStepController.java |  INFO | reportsLogger : Move up step: (ID) 5
+2018-10-30 10:26:14 | StepLineTableStepController.java |  INFO | reportsLogger : Move up step: (ID) 8
+2018-10-30 10:26:15 | StepLineTableStepController.java |  INFO | reportsLogger : Expand step (ID) 7
+2018-10-30 10:26:16 | StepLineTableStepController.java |  INFO | reportsLogger : Move up step: (ID) 7
+2018-10-30 10:27:04 | StepLineTableStepController.java |  INFO | reportsLogger : Expand step (ID) 7
+2018-10-30 10:27:28 | StepLineTableStepController.java |  INFO | reportsLogger : Expand step (ID) 3
+2018-10-30 10:27:29 | StepLineTableStepController.java |  INFO | reportsLogger : Expand step (ID) 2
+2018-10-30 10:27:30 | StepLineTableStepController.java |  INFO | reportsLogger : Expand step (ID) 1
+2018-10-30 10:27:38 | StepLineTableStepController.java |  INFO | reportsLogger : Expand step (ID) 6
+2018-10-30 10:27:52 | StepLineTableStepController.java |  INFO | reportsLogger : Expand step (ID) 8
+2018-10-30 10:27:53 | StepLineTableStepController.java |  INFO | reportsLogger : Expand step (ID) 8
+2018-10-30 10:28:03 | TabTestCaseMainViewController.java |  INFO | reportsLogger : User cancel editing Trigger IEC104
+2018-10-30 10:28:08 | TabTestCaseLibraryController.java |  INFO | reportsLogger : User Edited the Test Case(50): Trigger IEC104
+2018-10-30 10:28:40 | StepLineTableStepController.java |  INFO | reportsLogger : Move up step: (ID) 6
+2018-10-30 10:28:41 | StepLineTableStepController.java |  INFO | reportsLogger : Move up step: (ID) 5
+2018-10-30 10:28:44 | StepLineTableStepController.java |  INFO | reportsLogger : Move up step: (ID) 4
+2018-10-30 10:28:53 | TabTestCaseEditController.java |  INFO | reportsLogger : After Editing Test Case :Trigger IEC-104 Point
+	Step 0: Init IEC-104 Connection
+		Script 1 Step Description: IEC104InitConnection
+	Step 1: Low Level
+		Script 1 Step Description: TriggerIEC104Point
+	Step 2: Wait for 5 sec
+		Script 1 Step Description: Wait without popup
+	Step 3: Trigger High Level
+		Script 1 Step Description: TriggerIEC104Point
+		Script 1 Expected Result: CheckSSHEvent_ReportFinalized
+	Step 4: Trigger Low Level
+		Script 1 Step Description: TriggerIEC104Point
+		Script 1 Expected Result: CheckSSHEvent_ReportFinalized
+	Step 5: Stop IEC-104 Simulator
+		Script 1 Step Description: StopIEC104Simulator
+
+2018-10-30 10:28:53 | TabTestCaseEditController.java |  INFO | reportsLogger : Successfully saved test case: Trigger IEC104
+2018-10-30 10:28:57 | TabTestCaseLibraryController.java |  INFO | reportsLogger : User Edited the Test Case(51): Trigger IEC104
+2018-10-30 10:29:05 | StepLineTableStepController.java |  INFO | reportsLogger : Expand step (ID) 7
+2018-10-30 10:29:06 | StepLineTableStepController.java |  INFO | reportsLogger : Move up step: (ID) 7
+2018-10-30 10:29:08 | StepLineTableStepController.java |  INFO | reportsLogger : Move up step: (ID) 6
+2018-10-30 10:29:10 | StepLineTableStepController.java |  INFO | reportsLogger : Move up step: (ID) 5
+2018-10-30 10:29:14 | StepLineTableStepController.java |  INFO | reportsLogger : Expand step (ID) 4
+2018-10-30 10:29:45 | StepLineTableStepController.java |  INFO | reportsLogger : Expand step (ID) 5
+2018-10-30 10:30:05 | TabTestCaseEditController.java |  INFO | reportsLogger : After Editing Test Case :Trigger IEC-104 Point
+	Step 0: Init IEC-104 Connection
+		Script 1 Step Description: IEC104InitConnection
+	Step 1: Low Level
+		Script 1 Step Description: TriggerIEC104Point
+	Step 2: Wait for 5 sec
+		Script 1 Step Description: Wait without popup
+	Step 3: Trigger High Level Point
+		Script 1 Step Description: TriggerIEC104Point
+	Step 4: Trigger High Level
+		Script 1 Step Description: Wait without popup
+		Script 1 Expected Result: CheckSSHEvent_ReportFinalized
+	Step 5: Trigger Low Level
+		Script 1 Step Description: TriggerIEC104Point
+		Script 1 Expected Result: CheckSSHEvent_ReportFinalized
+	Step 6: Stop IEC-104 Simulator
+		Script 1 Step Description: StopIEC104Simulator
+
+2018-10-30 10:30:05 | TabTestCaseEditController.java |  INFO | reportsLogger : Successfully saved test case: Trigger IEC104
+2018-10-30 10:30:16 | TabTestCaseLibraryController.java |  INFO | reportsLogger : User Edited the Test Case(52): Trigger IEC104
+2018-10-30 10:30:25 | StepLineTableStepController.java |  INFO | reportsLogger : Move up step: (ID) 8
+2018-10-30 10:30:28 | StepLineTableStepController.java |  INFO | reportsLogger : Move up step: (ID) 7
+2018-10-30 10:31:58 | StepLineTableStepController.java |  INFO | reportsLogger : Expand step (ID) 7
+2018-10-30 10:32:13 | TabTestCaseEditController.java |  INFO | reportsLogger : After Editing Test Case :Trigger IEC-104 Point
+	Step 0: Init IEC-104 Connection
+		Script 1 Step Description: IEC104InitConnection
+	Step 1: Low Level
+		Script 1 Step Description: TriggerIEC104Point
+	Step 2: Wait for 5 sec
+		Script 1 Step Description: Wait without popup
+	Step 3: Trigger High Level Point
+		Script 1 Step Description: TriggerIEC104Point
+	Step 4: Trigger High Level
+		Script 1 Step Description: Wait without popup
+		Script 1 Expected Result: CheckSSHEvent_ReportFinalized
+	Step 5: Trigger Low Level Point
+		Script 1 Step Description: TriggerIEC104Point
+	Step 6: Trigger Low Level
+		Script 1 Step Description: Wait without popup
+		Script 1 Expected Result: CheckSSHEvent_ReportFinalized
+	Step 7: Stop IEC-104 Simulator
+		Script 1 Step Description: StopIEC104Simulator
+
+2018-10-30 10:32:13 | TabTestCaseEditController.java |  INFO | reportsLogger : Successfully saved test case: Trigger IEC104
+2018-10-30 10:33:18 | TestCampaignDB.java |  INFO | reportsLogger : After Creating Test Campaign :IEC104
+	Case 1: Trigger IEC-104 Point (53)
+
+2018-10-30 10:33:18 | TestCampaignDB.java |  INFO | reportsLogger : Successfully saved test campaign: IEC104
+2018-10-30 10:33:22 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User open baseline: IEC104
+2018-10-30 10:33:36 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: Trigger IEC-104 Point
+2018-10-30 10:33:37 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validate baseline: IEC104
+2018-10-30 10:33:37 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User close Baseline Tab.
+2018-10-30 10:34:14 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 10:34:49 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: IEC104
+2018-10-30 10:35:15 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 10:35:20 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-10-30 10:42:42 | TabTestCaseLibraryController.java |  INFO | reportsLogger : User Viewed the Test Case(53): Trigger IEC104

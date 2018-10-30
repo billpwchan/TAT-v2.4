@@ -8,6 +8,7 @@ package script;
 import DB.ParametersExecution;
 import com.jcraft.jsch.JSchException;
 import engine.Result;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -98,7 +99,7 @@ public class SearchOccurence {
 
             } else {
                 //Scanner txtscan = new Scanner(this.arrayToSearchIn.get(0));
-                if (this.arrayToSearchIn.get(0).indexOf(this.toCompare) != -1) {
+                if (this.arrayToSearchIn.get(0).contains(this.toCompare)) {
                     result.setResult("OK");
                 }
             }
@@ -106,7 +107,6 @@ public class SearchOccurence {
 //            System.out.println("COMPARE = " + toCompare);
 //            System.out.println("EQUALS = " + compare.equals(this.toCompare));
         }
-        System.out.println("FIN SearchOccurence");
         return result;
     }
 
