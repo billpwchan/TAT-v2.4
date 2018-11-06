@@ -51,7 +51,7 @@ public class IEC104InitConnection implements InterfaceScript {
         InputStreamReader isr = new InputStreamReader(is);
         BufferedReader br = new BufferedReader(isr);
         String line123;
-        Thread.sleep(3000);
+//        Thread.sleep(3000);
         while ((line123 = br.readLine()) != null && !line123.contains("Supervisory")) {
             //Should be finished initialization
             System.out.println(line123);

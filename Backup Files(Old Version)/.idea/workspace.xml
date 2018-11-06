@@ -8,13 +8,15 @@
   <component name="ChangeListManager">
     <list default="true" id="c889ef52-46c0-4f96-a7a0-3467c1158425" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup Files(Old Version).iml" beforeDir="false" afterPath="$PROJECT_DIR$/Backup Files(Old Version).iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IEC104slave.ini" beforeDir="false" afterPath="$PROJECT_DIR$/IEC104slave.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/log/log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log/user_history.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/user_history.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mydb.db" beforeDir="false" afterPath="$PROJECT_DIR$/mydb.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/script/IEC104InitConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/IEC104InitConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/script/IEC104Simulator/IEC104slave.ini" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/IEC104Simulator/IEC104slave.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/script/IEC104Simulator/IEC104slavetemplate.ini" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/IEC104Simulator/IEC104slavetemplate.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/script/TriggerIEC104Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/TriggerIEC104Point.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/script/stopIEC104Simulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/stopIEC104Simulator.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -57,7 +59,7 @@
     <session id="30367687">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="29" />
+          <entry key="project.closed" value="33" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="6" />
           <entry key="project.open.time.11" value="4" />
@@ -66,13 +68,13 @@
           <entry key="project.open.time.14" value="2" />
           <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.21" value="1" />
-          <entry key="project.open.time.3" value="1" />
-          <entry key="project.open.time.4" value="1" />
-          <entry key="project.open.time.5" value="1" />
+          <entry key="project.open.time.3" value="2" />
+          <entry key="project.open.time.4" value="2" />
+          <entry key="project.open.time.5" value="3" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.8" value="3" />
           <entry key="project.open.time.9" value="7" />
-          <entry key="project.opened" value="32" />
+          <entry key="project.opened" value="37" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -83,23 +85,25 @@
           <entry key="case_executions" value="13" />
           <entry key="case_executions_result" value="11" />
           <entry key="class" value="1" />
+          <entry key="fxml" value="2" />
           <entry key="ini" value="4" />
           <entry key="iterations" value="14" />
           <entry key="java" value="75" />
           <entry key="parameters" value="2" />
+          <entry key="parameters_execution" value="1" />
           <entry key="script" value="12" />
           <entry key="script_execution_result" value="1" />
           <entry key="script_executions" value="4" />
           <entry key="script_has_been_configured" value="3" />
           <entry key="script_has_parameters" value="5" />
-          <entry key="snippet" value="3" />
+          <entry key="snippet" value="4" />
           <entry key="sql" value="14" />
           <entry key="step_executions" value="4" />
           <entry key="step_executions_result" value="1" />
           <entry key="test_campaign" value="3" />
           <entry key="test_campaign_test_case" value="3" />
-          <entry key="test_case" value="7" />
-          <entry key="test_step" value="4" />
+          <entry key="test_case" value="8" />
+          <entry key="test_step" value="5" />
           <entry key="test_step_has_requirement" value="1" />
           <entry key="test_step_has_script" value="3" />
           <entry key="xml" value="1" />
@@ -108,32 +112,32 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="1" />
-          <entry key="Database Element" value="91" />
+          <entry key="Database Element" value="94" />
           <entry key="Ini" value="4" />
           <entry key="JAVA" value="75" />
           <entry key="SQL" value="7" />
-          <entry key="Scratch" value="10" />
+          <entry key="Scratch" value="11" />
           <entry key="UML" value="5" />
-          <entry key="XML" value="1" />
+          <entry key="XML" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cell" value="455" />
+          <entry key="cell" value="585" />
           <entry key="ini" value="2" />
-          <entry key="java" value="4607" />
-          <entry key="snippet" value="263" />
+          <entry key="java" value="4815" />
+          <entry key="snippet" value="278" />
           <entry key="sql" value="558" />
-          <entry key="txt" value="751" />
+          <entry key="txt" value="847" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Ini" value="2" />
-          <entry key="JAVA" value="4607" />
-          <entry key="PLAIN_TEXT" value="751" />
+          <entry key="JAVA" value="4815" />
+          <entry key="PLAIN_TEXT" value="847" />
           <entry key="SQL" value="101" />
-          <entry key="Scratch" value="1175" />
+          <entry key="Scratch" value="1320" />
         </counts>
       </usages-collector>
     </session>
@@ -143,11 +147,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/script/IEC104InitConnection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="54" column="87" selection-start-line="54" selection-start-column="87" selection-end-line="54" selection-end-column="87" />
+            <state relative-caret-position="67">
+              <caret line="27" column="17" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -161,10 +165,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/script/stopIEC104Simulator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
+            <state relative-caret-position="308">
               <caret line="20" column="44" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -176,17 +180,14 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/script/TriggerIEC104Point.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="335">
-              <caret line="70" column="19" selection-start-line="70" selection-start-column="19" selection-end-line="70" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/script_execution_result">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
+            <state relative-caret-position="177">
+              <caret line="73" column="37" selection-start-line="73" selection-start-column="37" selection-end-line="73" selection-end-column="37" />
+              <folding>
+                <element signature="e#3313#3314#0" expanded="true" />
+                <element signature="e#3340#3341#0" expanded="true" />
+                <element signature="e#3389#3390#0" expanded="true" />
+                <element signature="e#3416#3417#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -194,7 +195,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/script/SearchOccurence.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
+            <state relative-caret-position="1166">
               <caret line="65" column="21" selection-start-line="65" selection-start-column="21" selection-end-line="65" selection-end-column="21" />
             </state>
           </provider>
@@ -274,9 +275,10 @@
         <option value="$PROJECT_DIR$/src/controller/tabtestexecution/TabTestCampaignExecutionRepositoryBaselineController.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/c439b569-bf95-4aed-8c87-3099ddb4d676/console.sql" />
         <option value="$PROJECT_DIR$/src/script/SearchOccurence.java" />
+        <option value="$PROJECT_DIR$/src/script/stopIEC104Simulator.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/jshell/jshell_console_8.snippet" />
         <option value="$PROJECT_DIR$/src/script/TriggerIEC104Point.java" />
         <option value="$PROJECT_DIR$/src/script/IEC104InitConnection.java" />
-        <option value="$PROJECT_DIR$/src/script/stopIEC104Simulator.java" />
       </list>
     </option>
   </component>
@@ -297,9 +299,9 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1125" />
-    <option name="y" value="145" />
-    <option name="width" value="1950" />
+    <option name="x" value="1712" />
+    <option name="y" value="115" />
+    <option name="width" value="2398" />
     <option name="height" value="2075" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -308,7 +310,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -325,20 +327,13 @@
               <item name="Backup Files(Old Version)" type="b2602c69:ProjectViewProjectNode" />
               <item name="Backup Files(Old Version)" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="script" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Backup Files(Old Version)" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Backup Files(Old Version)" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="script" type="462c0819:PsiDirectoryNode" />
-              <item name="IEC104Simulator" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -349,9 +344,9 @@
     <property name="last_opened_file_path" value="$USER_HOME$/OneDrive/HKUST/COMP 3021/5-exceptions-program" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Artifacts" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.122507125" />
+    <property name="project.structure.side.proportion" value="0.15584415" />
     <property name="settings.editor.selected.configurable" value="MTConfigurable" />
   </component>
   <component name="RunDashboard">
@@ -468,7 +463,12 @@
       <workItem from="1540534616468" duration="3266000" />
       <workItem from="1540744913168" duration="7000" />
       <workItem from="1540862718810" duration="3953000" />
-      <workItem from="1540867260442" duration="3803000" />
+      <workItem from="1540867260442" duration="4925000" />
+      <workItem from="1540968043149" duration="4490000" />
+      <workItem from="1541041190883" duration="1000" />
+      <workItem from="1541141303557" duration="70000" />
+      <workItem from="1541397373059" duration="5870000" />
+      <workItem from="1541468062790" duration="5087000" />
     </task>
     <task id="LOCAL-00001" summary="Able to create baseline and input value to IEC104slave.ini file on run-time.">
       <created>1539016208060</created>
@@ -554,11 +554,18 @@
       <option name="project" value="LOCAL" />
       <updated>1540867462146</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="NoSleep Script is workable. Add bufferReader.close() in IECInitConnection.">
+      <created>1540872122980</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1540872122980</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74060000" />
+    <option name="totallyTimeSpent" value="90700000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -573,7 +580,7 @@
     <frame x="-6" y="-6" width="1549" height="837" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49722737" visible="true" weight="0.18846412" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49722737" visible="true" weight="0.13615024" />
       <window_info id="Structure" order="1" sideWeight="0.5021552" side_tool="true" weight="0.229069" />
       <window_info id="Persistence" order="2" sideWeight="0.5009242" side_tool="true" weight="0.22103149" />
       <window_info id="Designer" order="3" />
@@ -581,7 +588,7 @@
       <window_info id="Favorites" order="5" sideWeight="0.4990758" weight="0.22103149" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32561505" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4996651" visible="true" weight="0.24457309" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4996651" weight="0.17221418" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.37771347" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -597,7 +604,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info active="true" anchor="right" id="Database" order="4" visible="true" weight="0.22401074" />
+      <window_info anchor="right" id="Database" order="4" weight="0.3767313" />
       <window_info anchor="right" id="Palette&#9;" order="5" />
       <window_info anchor="right" id="Maven Projects" order="6" weight="0.32953784" />
     </layout>
@@ -626,7 +633,8 @@
     <MESSAGE value="Created new scripts." />
     <MESSAGE value="Test: Baseline Exception ==&gt; Will not cause database record disorder" />
     <MESSAGE value="Using default Wait w/o popup script." />
-    <option name="LAST_COMMIT_MESSAGE" value="Using default Wait w/o popup script." />
+    <MESSAGE value="NoSleep Script is workable. Add bufferReader.close() in IECInitConnection." />
+    <option name="LAST_COMMIT_MESSAGE" value="NoSleep Script is workable. Add bufferReader.close() in IECInitConnection." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -644,79 +652,10 @@
           <properties />
           <option name="timeStamp" value="10" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/script/TriggerIEC104Point.java</url>
-          <line>56</line>
-          <properties />
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/DBcontroller/TestStepDB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1958">
-          <caret line="101" column="16" selection-start-line="101" selection-start-column="16" selection-end-line="101" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/javafx/concurrent/Task.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="1467" column="9" selection-start-line="1467" selection-start-column="9" selection-end-line="1467" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DBcontroller/ScriptDB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="107" selection-start-line="107" selection-end-line="107" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/script/LaunchTCPIEC104SampleServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="39" column="12" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DBcontroller/TestCampaignDB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1716">
-          <caret line="91" selection-start-line="91" selection-end-line="91" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/TestCasesExecution.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4158">
-          <caret line="201" column="45" selection-start-line="201" selection-start-column="45" selection-end-line="201" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/jshell/jshell_console_6.snippet">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/lang/Integer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25586">
-          <caret line="1220" column="45" selection-start-line="1220" selection-start-column="45" selection-end-line="1220" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/lang/Number.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="682">
-          <caret line="54" column="22" selection-start-line="54" selection-start-column="22" selection-end-line="54" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/script/LaunchTCPIEC104Client.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
@@ -1005,7 +944,6 @@
       </provider>
     </entry>
     <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/script_has_parameters" />
-    <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/test_case" />
     <entry file="file://$PROJECT_DIR$/src/configuration/settings.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="594">
@@ -1014,20 +952,21 @@
       </provider>
     </entry>
     <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/script" />
-    <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/case_executions_result">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
+    <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/case_executions_result" />
+    <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/script_execution_result" />
+    <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/parameters_execution" />
+    <entry file="file://$PROJECT_DIR$/src/view/testcase/TabTestCaseLibrary.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1254" />
       </provider>
     </entry>
-    <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/test_step">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/view/TATFrame.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+      <provider editor-type-id="text-editor" />
     </entry>
+    <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/test_step" />
+    <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/test_case" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/c439b569-bf95-4aed-8c87-3099ddb4d676/console.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="484">
@@ -1035,10 +974,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/script_execution_result">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
+    <entry file="file://$PROJECT_DIR$/src/script/SearchOccurence.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1166">
+          <caret line="65" column="21" selection-start-line="65" selection-start-column="21" selection-end-line="65" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -1056,34 +995,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/script/TriggerIEC104Point.java">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/jshell/jshell_console_8.snippet">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="70" column="19" selection-start-line="70" selection-start-column="19" selection-end-line="70" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/script/IEC104InitConnection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="54" column="87" selection-start-line="54" selection-start-column="87" selection-end-line="54" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/script/SearchOccurence.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="65" column="21" selection-start-line="65" selection-start-column="21" selection-end-line="65" selection-end-column="21" />
+        <state>
+          <caret column="25" selection-start-column="25" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/script/stopIEC104Simulator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
+        <state relative-caret-position="308">
           <caret line="20" column="44" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/script/TriggerIEC104Point.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="73" column="37" selection-start-line="73" selection-start-column="37" selection-end-line="73" selection-end-column="37" />
+          <folding>
+            <element signature="e#3313#3314#0" expanded="true" />
+            <element signature="e#3340#3341#0" expanded="true" />
+            <element signature="e#3389#3390#0" expanded="true" />
+            <element signature="e#3416#3417#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/script/IEC104InitConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="67">
+          <caret line="27" column="17" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -1097,7 +1042,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.15584415" />
                 <option value="0.5" />
               </list>
             </option>
@@ -1106,11 +1051,11 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
-          <last-edited>Hibernate</last-edited>
+          <last-edited>Hibernate (Backup Files(Old Version))|Hibernate</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.15584415" />
               </list>
             </option>
           </splitter-proportions>
@@ -1121,7 +1066,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.15584415" />
               </list>
             </option>
           </splitter-proportions>
@@ -1133,7 +1078,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.15584415" />
               </list>
             </option>
           </splitter-proportions>
@@ -1141,12 +1086,11 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>Backup Files(Old Version)</last-edited>
+          <last-edited>Hibernate|Backup Files(Old Version)</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
-                <option value="0.6" />
+                <option value="0.10470779" />
               </list>
             </option>
           </splitter-proportions>
@@ -1166,11 +1110,11 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>hibernate4</last-edited>
+          <last-edited>Libraries</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.10470779" />
               </list>
             </option>
           </splitter-proportions>
