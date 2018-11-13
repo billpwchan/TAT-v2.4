@@ -42,6 +42,7 @@ import javax.sound.sampled.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.channels.ClosedByInterruptException;
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -178,7 +179,7 @@ public class PopUpRunController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //this.mainAnchorPopUp.getStylesheets().add("/view/CustomeStyle.css");
+        //this.mainAnchorPopUp.getStylesheets().add("/assets.view/CustomeStyle.css");
         thisController = this;
         ready = false;
         tableViewCampaignPopUpRun.setTableMenuButtonVisible(true);
@@ -234,8 +235,9 @@ public class PopUpRunController implements Initializable {
                 Engine engine = new Engine(caseExecutions, thisController, baselineId, iterationNumber);
                 try {
                     engine.run();
-                } catch (InterruptedException ex) {
+                } catch (InterruptedException | ClosedByInterruptException ex) {
                     System.out.println("Break the current session.");
+                    CommonFunctions.debugLog.error("Stopping Baseline Execution.");
                 } catch (Exception ex) {
                     //Default Logger Event
                     CommonFunctions.debugLog.error("", ex);
@@ -251,14 +253,12 @@ public class PopUpRunController implements Initializable {
                             CommonFunctions.debugLog.error("\"The server (IP: \" + exceptionMessage.replace(\"//n\", \" \").replace(\"    \", \" \").substring(exceptionMessage.indexOf(\"IP: \"), exceptionMessage.indexOf(\"at\")).trim() + \" ) cannot be reached.", ex);
                         }
                         alert.showAndWait();
-                        th.resume();
-                        th.stop();
                     });
-                    Thread.currentThread().interrupt();
                 }
                 return null;
             }
         };
+
         th = new Thread(task);
         this.initButtons();
         this.loadCss();
@@ -309,9 +309,7 @@ public class PopUpRunController implements Initializable {
      * @param repositoryConroller
      */
     public void setParameters(String baselineName, TabTestCampaignExecutionRepositoryBaselineController repositoryConroller) {
-        Platform.runLater(() -> {
-            this.alertBox2();
-        });
+        Platform.runLater(this::alertBox2);
         executionMainViewController = repositoryConroller;
         this.baselineId = baselineName;
         //TestCasesExecution testCaseExecution = new TestCasesExecution();
@@ -380,7 +378,7 @@ public class PopUpRunController implements Initializable {
     private void constructTableStep() {
         FXMLLoader fxmlLoader = new FXMLLoader();
         try {
-            this.gridPanePopUpCase.add((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream()), 1, 4, 3, 3);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
+            this.gridPanePopUpCase.add((AnchorPane) fxmlLoader.load(getClass().getResource("/assets/view/stepcreation/tableStepScriptCreation.fxml").openStream()), 1, 4, 3, 3);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/assets.view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
         } catch (IOException ex) {
             Logger.getLogger(TabTestCaseNewController.class.getName()).error("", ex);
         }
@@ -388,8 +386,8 @@ public class PopUpRunController implements Initializable {
 
         FXMLLoader fxmlLoader2 = new FXMLLoader();
         try {
-            AnchorPane paneTest = (AnchorPane) fxmlLoader2.load(getClass().getResource("/view/stepcreation/headerTableStep.fxml").openStream());
-            this.gridPanePopUpCase.add(paneTest, 1, 3, 3, 1);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
+            AnchorPane paneTest = (AnchorPane) fxmlLoader2.load(getClass().getResource("/assets/view/stepcreation/headerTableStep.fxml").openStream());
+            this.gridPanePopUpCase.add(paneTest, 1, 3, 3, 1);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/assets.view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
         } catch (IOException ex) {
             Logger.getLogger(TabTestCaseNewController.class.getName()).error("", ex);
         }
@@ -488,7 +486,7 @@ public class PopUpRunController implements Initializable {
     }
 
     private void loadCss() {
-        this.mainAnchorPopUp.getStylesheets().add("/view/popup/tablestep.css");
+        this.mainAnchorPopUp.getStylesheets().add("/assets/view/popup/tablestep.css");
     }
 
     /**
@@ -556,18 +554,16 @@ public class PopUpRunController implements Initializable {
             //The Stop button is not working at this stage. Only UI responds, but the algorithm will keep running till encountering exceptions / Finished.
             try {
                 //Need to delete one record in Iterations database. Provide iteration_number and baseline_id
-                th.suspend();
+//                th.suspend();
+//                th.resume();
+                th.interrupt();
                 this.executionInterrupted();
-                th.resume();
-//                Thread.currentThread().interrupt();
                 //Change the state of testCaseInExecution to "Not tested."
 //                this.executionFinished();
                 //Need to stop the currentThread now.
 //              Thread.currentThread().interrupt();
             } catch (Exception ex) {
                 CommonFunctions.debugLog.error("ExecutionInterrupted Is having problem! ", ex);
-            } finally {
-                th.stop();
             }
         });
     }
@@ -674,8 +670,8 @@ public class PopUpRunController implements Initializable {
      * @param type
      */
     public void playSound(String type) {
-        File finish = new File("src/sounds/Finish.wav");
-        File go = new File("src/sounds/Go.wav");
+        File finish = new File("src/assets.sounds/Finish.wav");
+        File go = new File("src/assets.sounds/Go.wav");
         try {
             File toplay;
             if (type.equals("finish")) {

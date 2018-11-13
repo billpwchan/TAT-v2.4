@@ -198,7 +198,7 @@ public class TabViewResultsController implements Initializable {
     }
 
     /**
-     * Initialize all the parameters and variables for the view
+     * Initialize all the parameters and variables for the assets.view
      *
      * @param stepExecution the campaign to display results
      * @throws InterruptedException
@@ -266,12 +266,12 @@ public class TabViewResultsController implements Initializable {
     }
 
     /**
-     * Prepare the view of the table of step
+     * Prepare the assets.view of the table of step
      */
     private void constructTableStep() {
         FXMLLoader fxmlLoader = new FXMLLoader();
         try {
-            this.gridPanePopUpCase.add((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream()), 1, 4, 3, 3);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
+            this.gridPanePopUpCase.add((AnchorPane) fxmlLoader.load(getClass().getResource("/assets/view/stepcreation/tableStepScriptCreation.fxml").openStream()), 1, 4, 3, 3);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/assets.view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
         } catch (IOException ex) {
             Logger.getLogger(TabTestCaseNewController.class.getName()).error("", ex);
         }
@@ -279,8 +279,8 @@ public class TabViewResultsController implements Initializable {
 
         FXMLLoader fxmlLoader2 = new FXMLLoader();
         try {
-            AnchorPane paneTest = (AnchorPane) fxmlLoader2.load(getClass().getResource("/view/stepcreation/headerTableStep.fxml").openStream());
-            this.gridPanePopUpCase.add(paneTest, 1, 3, 3, 1);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
+            AnchorPane paneTest = (AnchorPane) fxmlLoader2.load(getClass().getResource("/assets/view/stepcreation/headerTableStep.fxml").openStream());
+            this.gridPanePopUpCase.add(paneTest, 1, 3, 3, 1);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/assets.view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
         } catch (IOException ex) {
             Logger.getLogger(TabTestCaseNewController.class.getName()).error("", ex);
         }
@@ -353,10 +353,10 @@ public class TabViewResultsController implements Initializable {
     }
 
     /**
-     * Load the CSS sheet of the view
+     * Load the CSS sheet of the assets.view
      */
     private void loadCss() {
-        this.mainAnchorPopUp.getStylesheets().add("/view/popup/tablestep.css");
+        this.mainAnchorPopUp.getStylesheets().add("/assets/view/popup/tablestep.css");
     }
 
     /**
@@ -460,7 +460,7 @@ public class TabViewResultsController implements Initializable {
             //return toto.concat(p.getValue().getCaseExecutionResultObj().simpleStringCommentProperty());
             //String comment = caseExecu.getCaseExecutionResultObj().getComment();
             FXMLLoader fxmlLoader = new FXMLLoader();
-            AnchorPane editPane = fxmlLoader.load(getClass().getResource("/view/popup/popUpChangeCaseComment.fxml").openStream());
+            AnchorPane editPane = fxmlLoader.load(getClass().getResource("/assets/view/popup/popUpChangeCaseComment.fxml").openStream());
             dialogStage = new Stage();
             dialogStage.setTitle("Change Comment");
             dialogStage.initOwner(Main.primaryStage);

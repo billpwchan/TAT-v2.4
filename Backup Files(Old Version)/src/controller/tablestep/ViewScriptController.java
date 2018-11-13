@@ -89,7 +89,7 @@ public class ViewScriptController implements Initializable {
     }
 
     /**
-     * Display the view for script configuration when a parameters is clicked.
+     * Display the assets.view for script configuration when a parameters is clicked.
      *
      * @param script        the script to configured
      * @param selectedParam the parameters selected
@@ -98,7 +98,7 @@ public class ViewScriptController implements Initializable {
 
         AnchorPane popUpWizard = new AnchorPane();
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/popup/popUpWizardScript.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/assets/view/popup/popUpWizardScript.fxml"));
             PopUpWizardScriptController controller = new PopUpWizardScriptController();
             fxmlLoader.setController(controller);
             popUpWizard = fxmlLoader.load();
@@ -133,7 +133,7 @@ public class ViewScriptController implements Initializable {
 
     /**
      * Take the parameters from the popup script and associate them in the
-     * observable list, update the view with the corresponding values.
+     * observable list, update the assets.view with the corresponding values.
      *
      * @param observableListScriptMartinth observable list containing the
      *                                     parameters.
@@ -151,7 +151,7 @@ public class ViewScriptController implements Initializable {
                 Hyperlink toSet = (Hyperlink) getNodeByRowColumnIndex(i, 1, gridPaneDisplayResults);
                 //System.out.println("TO SET = "+toSet);
                 toSet.setId("displayStyle");
-                this.anchorScript.getStylesheets().add("/view/testexecution/cssLibraryTestCase.css");
+                this.anchorScript.getStylesheets().add("/assets/view/testexecution/cssLibraryTestCase.css");
                 toSet.setStyle(null);
                 String valuePath = scriptHBC.getValuePath();
                 if (scriptHBC.getValuePath().charAt(0) == Separator.charAt(0)) {
@@ -232,7 +232,7 @@ public class ViewScriptController implements Initializable {
     }
 
     /**
-     * Update the image corresponding to the view.
+     * Update the image corresponding to the assets.view.
      */
     private void updateImage() {
         if (currentScript != null) {
@@ -248,24 +248,24 @@ public class ViewScriptController implements Initializable {
             if (this.observableListScript.isEmpty()) {
                 isCOnfigured = true;
                 if (currentScript.getIsStimuli() == 0) {
-                    controllerScriptFather.updateImageConfigurationVerif(new Image("/images/ready.png"));
+                    controllerScriptFather.updateImageConfigurationVerif(new Image("/assets/images/ready.png"));
                 } else {
-                    controllerScriptFather.updateImageConfigurationAction(new Image("/images/ready.png"));
+                    controllerScriptFather.updateImageConfigurationAction(new Image("/assets/images/ready.png"));
                 }
             } else {
                 if (i == this.observableListScript.size() && i != 0) {
                     isCOnfigured = true;
                     if (currentScript.getIsStimuli() == 0) {
-                        controllerScriptFather.updateImageConfigurationVerif(new Image("/images/ready.png"));
+                        controllerScriptFather.updateImageConfigurationVerif(new Image("/assets/images/ready.png"));
                     } else {
-                        controllerScriptFather.updateImageConfigurationAction(new Image("/images/ready.png"));
+                        controllerScriptFather.updateImageConfigurationAction(new Image("/assets/images/ready.png"));
                     }
                 } else {
                     isCOnfigured = false;
                     if (currentScript.getIsStimuli() == 0) {
-                        controllerScriptFather.updateImageConfigurationVerif(new Image("/images/notready.png"));
+                        controllerScriptFather.updateImageConfigurationVerif(new Image("/assets/images/notready.png"));
                     } else {
-                        controllerScriptFather.updateImageConfigurationAction(new Image("/images/notready.png"));
+                        controllerScriptFather.updateImageConfigurationAction(new Image("/assets/images/notready.png"));
                     }
                 }
             }
@@ -327,7 +327,7 @@ public class ViewScriptController implements Initializable {
     }
 
     /**
-     * Modify the view for the instance view (disable the non needed options).
+     * Modify the assets.view for the instance assets.view (disable the non needed options).
      */
     void executionInstance() {
 
@@ -343,7 +343,7 @@ public class ViewScriptController implements Initializable {
 
     /**
      * return the number of parameters for this script (use to redefine the
-     * anchor pane of the father view.
+     * anchor pane of the father assets.view.
      *
      * @return
      */
@@ -409,7 +409,7 @@ public class ViewScriptController implements Initializable {
     }
 
     /**
-     * Update the gridpane of the view depending on the script selected (view
+     * Update the gridpane of the assets.view depending on the script selected (assets.view
      * View).
      *
      * @param currentSelectedScript

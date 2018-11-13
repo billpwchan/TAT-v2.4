@@ -105,7 +105,7 @@ public class TATFrameController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        tabPaneHMI.getStylesheets().add("view/CustomeStyle.css");
+        tabPaneHMI.getStylesheets().add("assets/view/CustomeStyle.css");
         setting.readSettings();
 
         try {
@@ -117,7 +117,7 @@ public class TATFrameController implements Initializable {
             this.tabRequirement.setId("customTabReq");
             this.tabRequirement.getStyleClass().add("customTabReq");
             FXMLLoader fxmlLoaderRequirement = new FXMLLoader();
-            AnchorPane RequirementPane = fxmlLoaderRequirement.load(getClass().getResource("/view/requirements/TabRequirementMainView.fxml").openStream());
+            AnchorPane RequirementPane = fxmlLoaderRequirement.load(getClass().getResource("/assets/view/requirements/TabRequirementMainView.fxml").openStream());
             this.tabRequirement.setContent(RequirementPane);
             mainControllerRequirement = fxmlLoaderRequirement.getController();
             mainControllerRequirement.init(this);
@@ -133,7 +133,7 @@ public class TATFrameController implements Initializable {
             }
             this.tabScripts.setId("customTabScript");
             FXMLLoader fxmlLoaderScript = new FXMLLoader();
-            AnchorPane scriptPane = fxmlLoaderScript.load(getClass().getResource("/view/scriptmanagement/TabScriptsMainView.fxml").openStream());
+            AnchorPane scriptPane = fxmlLoaderScript.load(getClass().getResource("/assets/view/scriptmanagement/TabScriptsMainView.fxml").openStream());
             this.tabScripts.setContent(scriptPane);
             mainControllerScript = fxmlLoaderScript.getController();
             mainControllerScript.init(this);
@@ -149,7 +149,7 @@ public class TATFrameController implements Initializable {
             }
             this.tabMacro.setId("customTabMacro");
             FXMLLoader fxmlLoaderMacro = new FXMLLoader();
-            AnchorPane macroPane = fxmlLoaderMacro.load(getClass().getResource("/view/macro/TabMacroMainView.fxml").openStream());
+            AnchorPane macroPane = fxmlLoaderMacro.load(getClass().getResource("/assets/view/macro/TabMacroMainView.fxml").openStream());
             this.tabMacro.setContent(macroPane);
             mainControllerMacro = fxmlLoaderMacro.getController();
             mainControllerMacro.init(this);
@@ -165,7 +165,7 @@ public class TATFrameController implements Initializable {
             }
             this.tabViewCase.setId("customTabCase");
             FXMLLoader fxmlLoaderTestCase = new FXMLLoader();
-            AnchorPane TestCasePane = fxmlLoaderTestCase.load(getClass().getResource("/view/testcase/TabTestCaseMainView.fxml").openStream());
+            AnchorPane TestCasePane = fxmlLoaderTestCase.load(getClass().getResource("/assets/view/testcase/TabTestCaseMainView.fxml").openStream());
             this.tabViewCase.setContent(TestCasePane);
             mainControllerCase = fxmlLoaderTestCase.getController();
             mainControllerCase.init(this);
@@ -181,7 +181,7 @@ public class TATFrameController implements Initializable {
             }
             this.tabViewCampaign.setId("customTabCampaign");
             FXMLLoader fxmlLoader2 = new FXMLLoader();
-            AnchorPane TestCampaignPane = fxmlLoader2.load(getClass().getResource("/view/testcampaign/TabTestCampaignMainView.fxml").openStream());
+            AnchorPane TestCampaignPane = fxmlLoader2.load(getClass().getResource("/assets/view/testcampaign/TabTestCampaignMainView.fxml").openStream());
             this.tabViewCampaign.setContent(TestCampaignPane);
             mainControllerCampaign = fxmlLoader2.getController();
             mainControllerCampaign.init(this);
@@ -197,7 +197,7 @@ public class TATFrameController implements Initializable {
             }
             this.tabViewExecution.setId("customTabExec");
             FXMLLoader fxmlLoaderExecution = new FXMLLoader();
-            AnchorPane TestCampaignExecutionPane = fxmlLoaderExecution.load(getClass().getResource("/view/testexecution/TabTestCampaignExecutionMainView.fxml").openStream());
+            AnchorPane TestCampaignExecutionPane = fxmlLoaderExecution.load(getClass().getResource("/assets/view/testexecution/TabTestCampaignExecutionMainView.fxml").openStream());
             this.tabViewExecution.setContent(TestCampaignExecutionPane);
             mainControllerCampaignExecution = fxmlLoaderExecution.getController();
             mainControllerCampaignExecution.init(this);
@@ -293,14 +293,14 @@ public class TATFrameController implements Initializable {
     }
 
     /**
-     * Display the view for script configuration when a parameters is clicked.
+     * Display the assets.view for script configuration when a parameters is clicked.
      *
      */
     private void displaySettings() {
 
         AnchorPane popUpSettings = new AnchorPane();
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/popup/popUpConfiguration.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/assets/view/popup/popUpConfiguration.fxml"));
             PopUpConfigurationController controller = new PopUpConfigurationController();
             fxmlLoader.setController(controller);
             popUpSettings = fxmlLoader.load();
@@ -343,17 +343,17 @@ public class TATFrameController implements Initializable {
     private void tabImgAndStyleInit() {
 
         //Get Img and create imageView for each icon.
-        Image imgReq = new Image(getClass().getResourceAsStream("/images/requirement2.png"), globalSize, globalSize, true, true);
+        Image imgReq = new Image(getClass().getResourceAsStream("/assets/images/requirement2.png"), globalSize, globalSize, true, true);
         ImageView ivReq = new ImageView(imgReq);
-        Image imgScript = new Image(getClass().getResourceAsStream("/images/script_1.png"), globalSize, globalSize, true, true);
+        Image imgScript = new Image(getClass().getResourceAsStream("/assets/images/script_1.png"), globalSize, globalSize, true, true);
         ImageView ivScript = new ImageView(imgScript);
-        Image imgMacro = new Image(getClass().getResourceAsStream("/images/macro.png"), globalSize, globalSize, true, true);
+        Image imgMacro = new Image(getClass().getResourceAsStream("/assets/images/macro.png"), globalSize, globalSize, true, true);
         ImageView ivMacro = new ImageView(imgMacro);
-        Image imgCase = new Image(getClass().getResourceAsStream("/images/case2.png"), globalSize, globalSize, true, true);
+        Image imgCase = new Image(getClass().getResourceAsStream("/assets/images/case2.png"), globalSize, globalSize, true, true);
         ImageView ivCase = new ImageView(imgCase);
-        Image imgCampaign = new Image(getClass().getResourceAsStream("/images/campaign2.png"), globalSize, globalSize, true, true);
+        Image imgCampaign = new Image(getClass().getResourceAsStream("/assets/images/campaign2.png"), globalSize, globalSize, true, true);
         ImageView ivCampaign = new ImageView(imgCampaign);
-        Image imgExec = new Image(getClass().getResourceAsStream("/images/execution2.png"), globalSize, globalSize, true, true);
+        Image imgExec = new Image(getClass().getResourceAsStream("/assets/images/execution2.png"), globalSize, globalSize, true, true);
         ImageView ivExec = new ImageView(imgExec);
 
         // Set the right icon to each tab.

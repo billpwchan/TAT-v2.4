@@ -242,7 +242,7 @@ public class TabTestCampaignExecutionRepositoryBaselineController implements Ini
             PopUpCampaignSelectionController dialogController;
             ObservableList<TestCampaign> campaignInDB = FXCollections.observableArrayList(new ArrayList<TestCampaign>(testCampaignHandler.getAllCampaigns()));
             FXMLLoader fxmlLoader = new FXMLLoader();
-            AnchorPane editPane = fxmlLoader.load(getClass().getResource("/view/popup/popUpCampaignSelection.fxml").openStream());
+            AnchorPane editPane = fxmlLoader.load(getClass().getResource("/assets/view/popup/popUpCampaignSelection.fxml").openStream());
             dialogController = fxmlLoader.getController();
             popUpCampaignStage = new Stage();
             popUpCampaignStage.setTitle("Campaign Selection");
@@ -325,7 +325,7 @@ public class TabTestCampaignExecutionRepositoryBaselineController implements Ini
             Thread th = new Thread(task);
             th.setDaemon(true);
             FXMLLoader fxmlLoader = new FXMLLoader();
-            AnchorPane editPane = fxmlLoader.load(getClass().getResource("/view/popup/popUpRun.fxml").openStream());
+            AnchorPane editPane = fxmlLoader.load(getClass().getResource("/assets/view/popup/popUpRun.fxml").openStream());
             runController = fxmlLoader.getController();
             runStage = new Stage();
             runStage.setTitle("Run");
@@ -349,7 +349,7 @@ public class TabTestCampaignExecutionRepositoryBaselineController implements Ini
     }
 
     /**
-     * Initialize all the buttons of the view and their listener
+     * Initialize all the buttons of the assets.view and their listener
      */
     private void iniButtons() {
 
@@ -446,10 +446,10 @@ public class TabTestCampaignExecutionRepositoryBaselineController implements Ini
     }
 
     /**
-     * Load the css sheet of the view
+     * Load the css sheet of the assets.view
      */
     private void loadCSS() {
-        this.anchorPaneTestExecution.getStylesheets().add("/view/testexecution/cssLibraryTestCase.css");
+        this.anchorPaneTestExecution.getStylesheets().add("/assets/view/testexecution/cssLibraryTestCase.css");
     }
 
     /**

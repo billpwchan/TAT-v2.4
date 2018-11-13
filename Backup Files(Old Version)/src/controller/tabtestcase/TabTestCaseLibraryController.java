@@ -217,7 +217,7 @@ public class TabTestCaseLibraryController implements Initializable {
                 viewTestCase(currentTestCaseSelected);
             }
         });
-        this.anchorPanelLibraryTestCase.getStylesheets().add("/view/testcase/cssLibraryTestCase.css");
+        this.anchorPanelLibraryTestCase.getStylesheets().add("/assets/view/testcase/cssLibraryTestCase.css");
         defineCursor();
     }
 
@@ -268,7 +268,7 @@ public class TabTestCaseLibraryController implements Initializable {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         FXMLLoader fxmlLoader = new FXMLLoader();
         try {
-            this.gridPaneCaseLibrary.add(fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream()), 0, 2, 1, 1);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
+            this.gridPaneCaseLibrary.add(fxmlLoader.load(getClass().getResource("/assets/view/stepcreation/tableStepScriptCreation.fxml").openStream()), 0, 2, 1, 1);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/assets.view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
         } catch (IOException ex) {
             Logger.getLogger(TabTestCaseNewController.class.getName()).error("", ex);
         }
@@ -276,8 +276,8 @@ public class TabTestCaseLibraryController implements Initializable {
 
         FXMLLoader fxmlLoader2 = new FXMLLoader();
         try {
-            AnchorPane paneTest = fxmlLoader2.load(getClass().getResource("/view/stepcreation/headerTableStep.fxml").openStream());
-            this.gridPaneCaseLibrary.add(paneTest, 0, 1, 1, 1);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
+            AnchorPane paneTest = fxmlLoader2.load(getClass().getResource("/assets/view/stepcreation/headerTableStep.fxml").openStream());
+            this.gridPaneCaseLibrary.add(paneTest, 0, 1, 1, 1);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/assets.view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
         } catch (IOException ex) {
             CommonFunctions.debugLog.error("", ex);
         }
@@ -308,7 +308,7 @@ public class TabTestCaseLibraryController implements Initializable {
         try {
             PopUpCampaignCreationController dialogController;
             FXMLLoader fxmlLoader = new FXMLLoader();
-            AnchorPane editPane = fxmlLoader.load(getClass().getResource("/view/popup/popUpCampaignCreation.fxml").openStream());
+            AnchorPane editPane = fxmlLoader.load(getClass().getResource("/assets/view/popup/popUpCampaignCreation.fxml").openStream());
             dialogController = fxmlLoader.getController();
             popUpCampaignID = new Stage();
             popUpCampaignID.setTitle("Campaign creation");
@@ -370,7 +370,7 @@ public class TabTestCaseLibraryController implements Initializable {
         try {
             PopUpBaselineCreationController dialogController;
             FXMLLoader fxmlLoader = new FXMLLoader();
-            AnchorPane editPane = fxmlLoader.load(getClass().getResource("/view/popup/popUpBaselineCreation.fxml").openStream());
+            AnchorPane editPane = fxmlLoader.load(getClass().getResource("/assets/view/popup/popUpBaselineCreation.fxml").openStream());
             dialogController = fxmlLoader.getController();
             popUpBaselineID = new Stage();
             popUpBaselineID.setTitle("BaselineCreation");

@@ -125,7 +125,7 @@ public class TabTestCaseViewController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        this.anchorPanelViewTestCase.getStylesheets().add("/view/stepcreation/cssScriptLine.css");
+        this.anchorPanelViewTestCase.getStylesheets().add("/assets/view/stepcreation/cssScriptLine.css");
         constructTableStep();
         this.listViewRequirementsCaseView.setCellFactory(listView -> {
             return new ListCell<Requirement>() {
@@ -223,7 +223,7 @@ public class TabTestCaseViewController implements Initializable {
     }
 
     /**
-     * Construct the information of this view form the information in the
+     * Construct the information of this assets.view form the information in the
      * parameter test case.
      *
      * @param testCase test case to display information of.
@@ -231,7 +231,7 @@ public class TabTestCaseViewController implements Initializable {
     void constructInformation(TestCase testCase) {
 
         /**
-         * Set all the field of the view form the information in the variable
+         * Set all the field of the assets.view form the information in the variable
          * test case
          */
         this.jtextfieldCaseIDView.setText(testCase.getTestCaseIdentification());
@@ -259,7 +259,7 @@ public class TabTestCaseViewController implements Initializable {
          * Query the D and get all the test step and script of this particular
          * test case.
          */
-        //Need to create a view mode for the table test step;
+        //Need to create a assets.view mode for the table test step;
         //displayTestStepToTreeTable(testCaseHandler.getAllFromCase(testCase.getIdtestCase()));
         //System.out.println("Get All from case");
         testCaseHandler.getAllFromCase(testCase);
@@ -315,7 +315,7 @@ public class TabTestCaseViewController implements Initializable {
     private void constructTableStep() {
         FXMLLoader fxmlLoader = new FXMLLoader();
         try {
-            this.gridPaneCaseView.add(fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream()), 0, 1, 1, 5);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
+            this.gridPaneCaseView.add(fxmlLoader.load(getClass().getResource("/assets/view/stepcreation/tableStepScriptCreation.fxml").openStream()), 0, 1, 1, 5);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/assets.view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
         } catch (IOException ex) {
             CommonFunctions.debugLog.error("", ex);
         }
@@ -324,8 +324,8 @@ public class TabTestCaseViewController implements Initializable {
         //This should be the preview of test case (Header Part)
         FXMLLoader fxmlLoader2 = new FXMLLoader();
         try {
-            AnchorPane paneTest = fxmlLoader2.load(getClass().getResource("/view/stepcreation/headerTableStep.fxml").openStream());
-            this.gridPaneCaseView.add(paneTest, 0, 0, 1, 1);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
+            AnchorPane paneTest = fxmlLoader2.load(getClass().getResource("/assets/view/stepcreation/headerTableStep.fxml").openStream());
+            this.gridPaneCaseView.add(paneTest, 0, 0, 1, 1);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/assets.view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
         } catch (IOException ex) {
             CommonFunctions.debugLog.error("", ex);
         }

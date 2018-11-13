@@ -59,7 +59,7 @@ public class initColumn {
     public void initColumnCase(TableView<TestCase> tableViewTestCase) {
 
         /*
-         First column of the view/creation case.
+         First column of the assets.view/creation case.
          */
         TableColumn caseID = new TableColumn();
         TableColumn caseVersion = new TableColumn();
@@ -69,7 +69,7 @@ public class initColumn {
         TableColumn location = new TableColumn();
 
         /*
-         Second column of the view/creation case.
+         Second column of the assets.view/creation case.
          */
         TableColumn titleCase = new TableColumn();
         TableColumn testMethodIadt = new TableColumn();
@@ -79,7 +79,7 @@ public class initColumn {
         TableColumn testCaseSource = new TableColumn();
 
         /*
-         Third column of the view/creation case.
+         Third column of the assets.view/creation case.
          */
         TableColumn environment = new TableColumn();
         TableColumn creationDate = new TableColumn();
@@ -856,12 +856,12 @@ public class initColumn {
                     } else if (!item.equals("configured")) {
                         setAlignment(Pos.CENTER);
                         ImageView imageview = new ImageView();
-                        imageview.setImage(new Image("/images/notready.png"));
+                        imageview.setImage(new Image("/assets/images/notready.png"));
                         setGraphic(imageview);
                     } else if (item.equals("configured")) {
                         setAlignment(Pos.CENTER);
                         ImageView imageview = new ImageView();
-                        imageview.setImage(new Image("/images/ready.png"));
+                        imageview.setImage(new Image("/assets/images/ready.png"));
                         setGraphic(imageview);
                     }
                 }

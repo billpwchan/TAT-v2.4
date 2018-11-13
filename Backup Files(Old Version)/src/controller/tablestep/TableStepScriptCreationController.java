@@ -192,7 +192,7 @@ public class TableStepScriptCreationController implements Initializable {
             FXMLLoader fxmlLoader = new FXMLLoader();
             AnchorPane scriptPane = new AnchorPane();
             try {
-                try (InputStream scriptPaneStream = getClass().getResource("/view/stepcreation/scriptLineTableStep.fxml").openStream()) {
+                try (InputStream scriptPaneStream = getClass().getResource("/assets/view/stepcreation/scriptLineTableStep.fxml").openStream()) {
                     scriptPane = fxmlLoader.load(scriptPaneStream);
                     controllerScriptLine = (ScriptLineTableStepController) fxmlLoader.getController();
                 }
@@ -285,7 +285,7 @@ public class TableStepScriptCreationController implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader();
         try {
             AnchorPane stepPane;
-            try (InputStream streamViewStep = getClass().getResource("/view/stepcreation/stepLineTableStep.fxml").openStream()) {
+            try (InputStream streamViewStep = getClass().getResource("/assets/view/stepcreation/stepLineTableStep.fxml").openStream()) {
                 stepPane = fxmlLoader.load(streamViewStep);
                 controllerStepLine = (StepLineTableStepController) fxmlLoader.getController();
             }
@@ -396,7 +396,7 @@ public class TableStepScriptCreationController implements Initializable {
     }
 
     /**
-     * Delete the script from the view given in parameters and update the table.
+     * Delete the script from the assets.view given in parameters and update the table.
      *
      * @param aThis script to delete.
      */
@@ -407,7 +407,7 @@ public class TableStepScriptCreationController implements Initializable {
     }
 
     /**
-     * Delete the script given in prameters from the view.
+     * Delete the script given in prameters from the assets.view.
      *
      * @param scriptController
      */
@@ -608,7 +608,7 @@ public class TableStepScriptCreationController implements Initializable {
     }
 
     /**
-     * Method called when the user clicked on the image expand form the view
+     * Method called when the user clicked on the image expand form the assets.view
      * test step
      *
      * @param aThis
@@ -759,7 +759,7 @@ public class TableStepScriptCreationController implements Initializable {
         try {
             ObservableList<Requirement> CasesInDB = FXCollections.observableArrayList(allReq);
             FXMLLoader fxmlLoader = new FXMLLoader();
-            AnchorPane editPane = fxmlLoader.load(getClass().getResource("/view/popup/popUPRequirementSelection.fxml").openStream());
+            AnchorPane editPane = fxmlLoader.load(getClass().getResource("/assets/view/popup/popUPRequirementSelection.fxml").openStream());
             dialogStage = new Stage();
             dialogStage.setTitle("Case Selection");
             dialogStage.initOwner(Main.primaryStage);

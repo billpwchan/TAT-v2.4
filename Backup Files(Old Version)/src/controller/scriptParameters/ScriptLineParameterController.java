@@ -31,9 +31,9 @@ import java.util.ResourceBundle;
  */
 public class ScriptLineParameterController implements Initializable {
 
-    private final static Image delete = new Image("images/trash.png");
-    private final static Image imd = new Image("images/imageDown.png");
-    private final static Image imu = new Image("images/imageUp.png");
+    private final static Image delete = new Image("assets/images/trash.png");
+    private final static Image imd = new Image("assets/images/imageDown.png");
+    private final static Image imu = new Image("assets/images/imageUp.png");
     @FXML
     private AnchorPane anchroPaneScript;
     @FXML
@@ -248,7 +248,7 @@ public class ScriptLineParameterController implements Initializable {
         this.textFieldType.setText(param.getParameterType());
         this.textFieldType.setId("displayStyle");
         this.textFieldName2.setId("displayStyle");
-        this.anchroPaneScript.getStylesheets().add("/view/testexecution/cssLibraryTestCase.css");
+        this.anchroPaneScript.getStylesheets().add("/assets/view/testexecution/cssLibraryTestCase.css");
         description.setEditable(false);
         description.setText(param.getDescription());
         comboBoxParam.setOpacity(0.95);

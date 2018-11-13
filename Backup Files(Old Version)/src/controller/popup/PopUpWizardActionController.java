@@ -213,7 +213,7 @@ public class PopUpWizardActionController implements Initializable {
 
     /**
      * Init the controller of viewScript by giving the reference of the father
-     * view to this popup.
+     * assets.view to this popup.
      *
      * @param aThis controller viewScriptController
      */
@@ -226,7 +226,7 @@ public class PopUpWizardActionController implements Initializable {
      * parameters is they have been already configured or not, construct the
      * left part of the popup.
      *
-     * @param script           Script selected in the combobox of view script
+     * @param script           Script selected in the combobox of assets.view script
      * @param paramScriptMacro
      * @param selectedParam    number of the selected parameter in the viewScript.
      */

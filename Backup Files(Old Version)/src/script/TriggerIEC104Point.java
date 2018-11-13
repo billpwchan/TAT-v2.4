@@ -32,7 +32,7 @@ public class TriggerIEC104Point implements InterfaceScript {
 
         this.register = ((int) Double.parseDouble(parameters.get(1).getValue().trim()));
         this.stringValue = (parameters.get(2).getValue().trim());
-        this.value = Integer.parseInt(this.stringValue);
+        this.value = Double.parseDouble(this.stringValue);
         this.dcType = parameters.get(3).getValue().trim();
 
         this.lines = IEC104InitConnection.lines.stream().collect(Collectors.toList());
@@ -42,22 +42,19 @@ public class TriggerIEC104Point implements InterfaceScript {
                     lines.set(i, "Range0=" + Objects.requireNonNull(this.adjustedParam()).get(0) + ",0x" + Integer.toHexString(this.register).toUpperCase() + ",0x0030,BACKGROUND");
                 } else if (lines.get(i) != null && lines.get(i).startsWith("Range1") && this.dcType.equals("SOE2")) {
                     lines.set(i, "Range1=" + Objects.requireNonNull(this.adjustedParam()).get(0) + ",0x" + Integer.toHexString(this.register).toUpperCase() + ",0x0030,BACKGROUND");
+                } else if (lines.get(i) != null && lines.get(i).startsWith("Range1") && this.dcType.equals("AI")) {
+                    lines.set(i, "Range2=" + Objects.requireNonNull(this.adjustedParam()).get(0) + ",0x" + Integer.toHexString(this.register).toUpperCase() + ",0x0030,BACKGROUND");
                 } else if (lines.get(i) != null && lines.get(i).startsWith("TimeStamp")) {
                     lines.set(i, "TimeStamp=0");    //Require confirmation for SOE1.
                 } else if (lines.get(i) != null && lines.get(i).startsWith("PointEnabled0") && this.dcType.equals("SOE1")) {
                     String index = "0";
-                    lines.set(i, "PointEnabled" + index + "=1");
-                    lines.set(i + 1, "PointType" + index + "=" + Objects.requireNonNull(this.adjustedParam()).get(0));
-                    lines.set(i + 2, "PointIOA" + index + "=" + this.register);
-                    lines.set(i + 3, "PointValue" + index + "=" + this.value);
-                    lines.set(i + 4, "PointRepeat" + index + "=1");
+                    writeValues(i, index);
                 } else if (lines.get(i) != null && lines.get(i).startsWith("PointEnabled1") && this.dcType.equals("SOE2")) {
                     String index = "1";
-                    lines.set(i, "PointEnabled" + index + "=1");
-                    lines.set(i + 1, "PointType" + index + "=" + Objects.requireNonNull(this.adjustedParam()).get(0));
-                    lines.set(i + 2, "PointIOA" + index + "=" + this.register);
-                    lines.set(i + 3, "PointValue" + index + "=" + this.value);
-                    lines.set(i + 4, "PointRepeat" + index + "=1");
+                    writeValues(i, index);
+                } else if (lines.get(i) != null && lines.get(i).startsWith("PointEnabled1") && this.dcType.equals("AI")) {
+                    String index = "3";
+                    writeValues(i, index);
                 } else if (lines.get(i) != null && lines.get(i).startsWith("RandomPointEnabled")) {
                     lines.set(i, "RandomPointEnabled0=0");
                 } else if (lines.get(i) != null && lines.get(i).startsWith("equipmentaddr")) {
@@ -81,6 +78,14 @@ public class TriggerIEC104Point implements InterfaceScript {
         } finally {
             return null;
         }
+    }
+
+    private void writeValues(int i, String index) {
+        lines.set(i, "PointEnabled" + index + "=1");
+        lines.set(i + 1, "PointType" + index + "=" + Objects.requireNonNull(this.adjustedParam()).get(0));
+        lines.set(i + 2, "PointIOA" + index + "=" + this.register);
+        lines.set(i + 3, "PointValue" + index + "=" + this.value);
+        lines.set(i + 4, "PointRepeat" + index + "=1");
     }
 
     @Override

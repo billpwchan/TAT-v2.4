@@ -165,7 +165,7 @@ public class TabTestCaseEditController implements Initializable {
     void constructInformation(TestCase testCase) {
 
         /**
-         * Set all the field of the view form the information in the variable
+         * Set all the field of the assets.view form the information in the variable
          * test case
          */
         this.jtextfieldCaseIDEdit.setText(testCase.getTestCaseIdentification());
@@ -197,7 +197,7 @@ public class TabTestCaseEditController implements Initializable {
          * Query the DB and get all the test step and script of this particular
          * test case.
          */
-        //Need to create a view mode fo the table test step;
+        //Need to create a assets.view mode fo the table test step;
         //displayTestStepToTreeTable(testCaseHandler.getAllFromCase(testCase.getIdtestCase()));
         //controllerTableStep.addStepAndScriptView(testCaseHandler.getAllFromCase(testCase.getIdtestCase()));
     }
@@ -371,15 +371,15 @@ public class TabTestCaseEditController implements Initializable {
     private void constructTableStep() {
         FXMLLoader fxmlLoader = new FXMLLoader();
         try {
-            this.gridPaneTableStep.add(fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream()), 0, 1, 1, 5);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
+            this.gridPaneTableStep.add(fxmlLoader.load(getClass().getResource("/assets/view/stepcreation/tableStepScriptCreation.fxml").openStream()), 0, 1, 1, 5);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/assets.view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
         } catch (IOException ex) {
             Logger.getLogger(TabTestCaseNewController.class.getName()).error("", ex);
         }
         controllerTableStep = fxmlLoader.getController();
         FXMLLoader fxmlLoader2 = new FXMLLoader();
         try {
-            AnchorPane paneTest = fxmlLoader2.load(getClass().getResource("/view/stepcreation/headerTableStep.fxml").openStream());
-            this.gridPaneTableStep.add(paneTest, 0, 0, 1, 1);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
+            AnchorPane paneTest = fxmlLoader2.load(getClass().getResource("/assets/view/stepcreation/headerTableStep.fxml").openStream());
+            this.gridPaneTableStep.add(paneTest, 0, 0, 1, 1);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/assets.view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
         } catch (IOException ex) {
             Logger.getLogger(TabTestCaseNewController.class.getName()).error("", ex);
         }
@@ -389,7 +389,7 @@ public class TabTestCaseEditController implements Initializable {
     }
 
     /**
-     * Construct an object test case from the field in the view
+     * Construct an object test case from the field in the assets.view
      *
      * @return testCaseFromNew the test case created.
      */

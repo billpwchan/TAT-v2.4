@@ -63,7 +63,7 @@ public class PopUpCaseSelectionController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        this.anchorPane.getStylesheets().add("/view/CustomeStyle.css");
+        this.anchorPane.getStylesheets().add("/assets/view/CustomeStyle.css");
         buttonValidationPopUpAddCase.setDisable(true);
         tableViewCasePopUpAddCase.setPlaceholder(new Label(""));
         tableViewCasePopUpAddCase.setTableMenuButtonVisible(true);

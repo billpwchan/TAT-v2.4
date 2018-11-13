@@ -24,7 +24,7 @@ import java.util.ResourceBundle;
  */
 public class HeaderTableStepController implements Initializable {
 
-    private static final Image ime = new Image("images/arrowDown.png");
+    private static final Image ime = new Image("assets/images/arrowDown.png");
     @FXML
     private AnchorPane anchorPanInVbox;
     @FXML
@@ -52,7 +52,7 @@ public class HeaderTableStepController implements Initializable {
             expandChildren();
             event.consume();
         });
-        this.anchorPanInVbox.getStylesheets().add("/view/CustomeStyle.css");
+        this.anchorPanInVbox.getStylesheets().add("/assets/view/CustomeStyle.css");
         this.anchorPanInVbox.getStyleClass().add("header-custom");
         this.anchorPanInVbox.getStyleClass().add("header-custom2");
     }

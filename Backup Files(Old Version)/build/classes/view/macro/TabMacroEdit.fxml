@@ -111,7 +111,7 @@
                         <Label fx:id="labelMacroVersion" text="Macro version" GridPane.rowIndex="1" />
                         <Label fx:id="labelMacroObjectives" text="Macro description" GridPane.columnIndex="3" />
                         
-                        <!-- 1st column of the view textfield in testcase -->
+                        <!-- 1st column of the assets.view textfield in testcase -->
                         <TextField fx:id="jtextfieldMacroNameEdit" maxWidth="150.0" GridPane.columnIndex="1" />
                         <TextField fx:id="jtextfieldMacroEdit" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <TextField fx:id="jtextfieldMacroCreationDateEdit" editable="false" maxWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />

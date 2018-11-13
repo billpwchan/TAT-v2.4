@@ -33,7 +33,7 @@ public class HeaderParametersController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        this.anchorPanInVbox.getStylesheets().add("/view/CustomeStyle.css");
+        this.anchorPanInVbox.getStylesheets().add("/assets/view/CustomeStyle.css");
         this.anchorPanInVbox.getStyleClass().add("header-custom");
         this.anchorPanInVbox.getStyleClass().add("header-custom2");
     }

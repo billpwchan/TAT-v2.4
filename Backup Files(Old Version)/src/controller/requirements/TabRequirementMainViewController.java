@@ -50,7 +50,7 @@ public class TabRequirementMainViewController implements Initializable {
 
         FXMLLoader fxmlLoader = new FXMLLoader();
         try {
-            AnchorPane libraryPane = fxmlLoader.load(getClass().getResource("/view/requirements/TabRequirementLibrary.fxml").openStream());
+            AnchorPane libraryPane = fxmlLoader.load(getClass().getResource("/assets/view/requirements/TabRequirementLibrary.fxml").openStream());
             this.tabRequirementLibrary.setContent(libraryPane);
             libraryController = fxmlLoader.getController();
             libraryController.init(this);
@@ -72,7 +72,7 @@ public class TabRequirementMainViewController implements Initializable {
         Tab newRequirement = new Tab("New Requirement");
         FXMLLoader fxmlLoader = new FXMLLoader();
         try {
-            AnchorPane addPane = fxmlLoader.load(getClass().getResource("/view/requirements/TabRequirementCreation.fxml").openStream());
+            AnchorPane addPane = fxmlLoader.load(getClass().getResource("/assets/view/requirements/TabRequirementCreation.fxml").openStream());
             newRequirement.setContent(addPane);
         } catch (IOException ex) {
             Logger.getLogger(TabRequirementMainViewController.class.getName()).error("", ex);

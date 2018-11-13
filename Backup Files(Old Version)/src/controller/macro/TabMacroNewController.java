@@ -171,14 +171,14 @@ public class TabMacroNewController implements Initializable {
     private void constructTableStep() {
         FXMLLoader fxmlLoader = new FXMLLoader();
         try {
-            this.gridPaneTableAction.add(fxmlLoader.load(getClass().getResource("/view/macroActions/tableActionCreation.fxml").openStream()), 0, 1, 1, 5);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
+            this.gridPaneTableAction.add(fxmlLoader.load(getClass().getResource("/assets/view/macroActions/tableActionCreation.fxml").openStream()), 0, 1, 1, 5);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/assets.view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
         } catch (IOException ex) {
             CommonFunctions.debugLog.error("", ex);
         }
         controllerTableAction = fxmlLoader.getController();
         FXMLLoader fxmlLoader2 = new FXMLLoader();
         try {
-            AnchorPane paneTest = fxmlLoader2.load(getClass().getResource("/view/macroActions/headerTableAction.fxml").openStream());
+            AnchorPane paneTest = fxmlLoader2.load(getClass().getResource("/assets/view/macroActions/headerTableAction.fxml").openStream());
 
             this.gridPaneTableAction.add(paneTest, 0, 0, 1, 1);
         } catch (IOException ex) {
@@ -248,7 +248,7 @@ public class TabMacroNewController implements Initializable {
     private void loadPreviewMacro() {
         FXMLLoader fxmlLoader2 = new FXMLLoader();
         try {
-            AnchorPane paneTest = fxmlLoader2.load(getClass().getResource("/view/macroActions/headerPreviewMacro.fxml").openStream());
+            AnchorPane paneTest = fxmlLoader2.load(getClass().getResource("/assets/view/macroActions/headerPreviewMacro.fxml").openStream());
             AnchorPane.setTopAnchor(paneTest, 0.0);
             AnchorPane.setRightAnchor(paneTest, 0.0);
             AnchorPane.setLeftAnchor(paneTest, 0.0);
@@ -270,7 +270,7 @@ public class TabMacroNewController implements Initializable {
      * @param script
      */
     void displayMacro(Script script) {
-        this.anchorPanelNewTestCase.getStylesheets().add("/view/testcampaign/cssViewCampaign.css");
+        this.anchorPanelNewTestCase.getStylesheets().add("/assets/view/testcampaign/cssViewCampaign.css");
         buttonAddAction.setVisible(false);
         buttonValid.setVisible(false);
         jtextareaObjectivesMacro.setText(script.getDesciption());
@@ -288,10 +288,10 @@ public class TabMacroNewController implements Initializable {
     }
 
     /**
-     * Add css sheet to the anchorPane of the view
+     * Add css sheet to the anchorPane of the assets.view
      */
     private void loadCSS() {
-        this.anchorPanelNewTestCase.getStylesheets().add("/view/testexecution/cssLibraryTestCase.css");
+        this.anchorPanelNewTestCase.getStylesheets().add("/assets/view/testexecution/cssLibraryTestCase.css");
     }
 
     private void changeColorTextMacroName(boolean color) {

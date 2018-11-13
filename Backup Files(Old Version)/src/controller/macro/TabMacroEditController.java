@@ -213,14 +213,14 @@ public class TabMacroEditController implements Initializable {
     private void constructTableStep() {
         FXMLLoader fxmlLoader = new FXMLLoader();
         try {
-            this.gridPaneTableAction.add(fxmlLoader.load(getClass().getResource("/view/macroActions/tableActionCreation.fxml").openStream()), 0, 1, 1, 5);
+            this.gridPaneTableAction.add(fxmlLoader.load(getClass().getResource("/assets/view/macroActions/tableActionCreation.fxml").openStream()), 0, 1, 1, 5);
         } catch (IOException ex) {
             CommonFunctions.debugLog.error("Cannot construct table step: ", ex);
         }
         controllerTableAction = fxmlLoader.getController();
         FXMLLoader fxmlLoader2 = new FXMLLoader();
         try {
-            AnchorPane paneTest = fxmlLoader2.load(getClass().getResource("/view/macroActions/headerTableAction.fxml").openStream());
+            AnchorPane paneTest = fxmlLoader2.load(getClass().getResource("/assets/view/macroActions/headerTableAction.fxml").openStream());
             this.gridPaneTableAction.add(paneTest, 0, 0, 1, 1);
         } catch (IOException ex) {
             CommonFunctions.debugLog.error("Cannot construct table step: ", ex);
@@ -253,16 +253,16 @@ public class TabMacroEditController implements Initializable {
         jtextfieldTypeMacroEditionDateEdit.setEditable(true);
         stimuliCheckBoxEdit.setSelected(script.getIsStimuli() != 0);
 
-        controllerTableAction.displayScriptAndStepEdit(script);     //Contruct most of the view. 
+        controllerTableAction.displayScriptAndStepEdit(script);     //Contruct most of the assets.view.
         controllerPreviewMacro.updateGridPaneCreationView(script);
-        this.anchorPanelEditMacro.getStylesheets().add("/view/testcampaign/cssViewCampaign.css");
+        this.anchorPanelEditMacro.getStylesheets().add("/assets/view/testcampaign/cssViewCampaign.css");
 
     }
 
     private void loadPreviewMacro() {
         FXMLLoader fxmlLoader2 = new FXMLLoader();
         try {
-            AnchorPane paneTest = fxmlLoader2.load(getClass().getResource("/view/macroActions/headerPreviewMacro.fxml").openStream());
+            AnchorPane paneTest = fxmlLoader2.load(getClass().getResource("/assets/view/macroActions/headerPreviewMacro.fxml").openStream());
             AnchorPane.setTopAnchor(paneTest, 0.0);
             AnchorPane.setRightAnchor(paneTest, 0.0);
             AnchorPane.setLeftAnchor(paneTest, 0.0);

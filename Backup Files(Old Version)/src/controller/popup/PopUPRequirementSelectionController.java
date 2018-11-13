@@ -56,7 +56,7 @@ public class PopUPRequirementSelectionController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        this.anchorPane.getStylesheets().add("/view/CustomeStyle.css");
+        this.anchorPane.getStylesheets().add("/assets/view/CustomeStyle.css");
         buttonValidationReq.setDisable(false);
         this.gridPanePopUpRequirement.add(view, 0, 0, 1, 1);
         this.view.setCellFactory(listView -> {

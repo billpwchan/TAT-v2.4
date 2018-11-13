@@ -243,7 +243,7 @@
 
      /**
       * Init the controller of viewScript by giving the reference of the father
-      * view to this popup.
+      * assets.view to this popup.
       *
       * @param aThis controller viewScriptController
       */
@@ -256,7 +256,7 @@
       * parameters is they have been already configured or not, construct the
       * left part of the popup.
       *
-      * @param script                      Script selected in the combobox of view script
+      * @param script                      Script selected in the combobox of assets.view script
       * @param hashScriptHasBeenConfigured
       * @param selectedParam               number of the selected parameter in the viewScript.
       */
@@ -295,7 +295,7 @@
              this.observableListParam.add(scriptHasParameters.getParameters());
 
          }
-         //Select the line corresponding of the clicked parameters on the view Case creation.
+         //Select the line corresponding of the clicked parameters on the assets.view Case creation.
          this.tableParameters.getSelectionModel().select(selectedParam);
      }
 

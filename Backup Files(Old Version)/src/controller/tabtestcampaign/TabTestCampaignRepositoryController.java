@@ -161,8 +161,8 @@ public class TabTestCampaignRepositoryController implements Initializable {
         this.initContextMenu();
         this.initButtons();
 
-        /* Listener in order to perform actions after mousePressed on the table view testCases.
-         * if 2 click, open the view of the test case selected in a tab.
+        /* Listener in order to perform actions after mousePressed on the table assets.view testCases.
+         * if 2 click, open the assets.view of the test case selected in a tab.
          */
         this.tableViewTestCase.setOnMousePressed(
                 (MouseEvent event) -> {
@@ -172,9 +172,9 @@ public class TabTestCampaignRepositoryController implements Initializable {
                 }
         );
 
-        /* Listener in order to perform actions after mousePressed on the table view testCampaign.
-         * if only 1click, display in the table view case, the test cases of the selected campaign.
-         * if 2 click, open the view of the test campaign in a tab.
+        /* Listener in order to perform actions after mousePressed on the table assets.view testCampaign.
+         * if only 1click, display in the table assets.view case, the test cases of the selected campaign.
+         * if 2 click, open the assets.view of the test campaign in a tab.
          */
         this.tableViewTestCampaign.setOnMousePressed(
                 (MouseEvent event) -> {
@@ -197,7 +197,7 @@ public class TabTestCampaignRepositoryController implements Initializable {
     }
 
     /**
-     * method to open the view of a campaign in a new tab
+     * method to open the assets.view of a campaign in a new tab
      *
      * @param Campaign the campaign to display
      */
@@ -223,7 +223,7 @@ public class TabTestCampaignRepositoryController implements Initializable {
     }
 
     /**
-     * Method in order to call the method view test case from the mainFrame
+     * Method in order to call the method assets.view test case from the mainFrame
      *
      * @param testCase the test case to display
      */
@@ -245,7 +245,7 @@ public class TabTestCampaignRepositoryController implements Initializable {
     }
 
     /**
-     * initialize the context menu in the table view test campaign
+     * initialize the context menu in the table assets.view test campaign
      */
     private void initContextMenu() {
         ContextMenu menu = new ContextMenu();
@@ -271,7 +271,7 @@ public class TabTestCampaignRepositoryController implements Initializable {
     }
 
     /**
-     * initialize the buttons of the view
+     * initialize the buttons of the assets.view
      */
     private void initButtons() {
         this.buttonDelete.setDisable(false);

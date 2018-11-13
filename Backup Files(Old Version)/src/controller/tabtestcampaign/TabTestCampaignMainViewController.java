@@ -60,7 +60,7 @@ public class TabTestCampaignMainViewController implements Initializable {
         this.tabRepository.setClosable(false);
         FXMLLoader fxmlLoader = new FXMLLoader();
         try {
-            AnchorPane repositoryPane = fxmlLoader.load(getClass().getResource("/view/testcampaign/TabTestCampaignRepository.fxml").openStream());
+            AnchorPane repositoryPane = fxmlLoader.load(getClass().getResource("/assets/view/testcampaign/TabTestCampaignRepository.fxml").openStream());
             this.tabRepository.setContent(repositoryPane);
             RepositoryController = (TabTestCampaignRepositoryController) fxmlLoader.getController();
             RepositoryController.init(this);
@@ -95,7 +95,7 @@ public class TabTestCampaignMainViewController implements Initializable {
         Tab newTestCampaign = new Tab("New Campaign");
         FXMLLoader fxmlLoader = new FXMLLoader();
         try {
-            AnchorPane addPane = fxmlLoader.load(getClass().getResource("/view/testcampaign/TabTestCampaignNew.fxml").openStream());
+            AnchorPane addPane = fxmlLoader.load(getClass().getResource("/assets/view/testcampaign/TabTestCampaignNew.fxml").openStream());
             newTestCampaign.setContent(addPane);
         } catch (Exception e) {
             CommonFunctions.debugLog.error("Exception caught when opening TestCampaignNew", e);
@@ -128,7 +128,7 @@ public class TabTestCampaignMainViewController implements Initializable {
     }
 
     /**
-     * Method to create a tab in order to view the details of a test campaign
+     * Method to create a tab in order to assets.view the details of a test campaign
      *
      * @param campaign the campaign to display
      */
@@ -138,7 +138,7 @@ public class TabTestCampaignMainViewController implements Initializable {
             try {
                 Tab view = new Tab();
                 FXMLLoader fxmlLoader = new FXMLLoader();
-                AnchorPane editPane = fxmlLoader.load(getClass().getResource("/view/testcampaign/TabTestCampaignView.fxml").openStream());
+                AnchorPane editPane = fxmlLoader.load(getClass().getResource("/assets/view/testcampaign/TabTestCampaignView.fxml").openStream());
                 view.setContent(editPane);
                 viewController = fxmlLoader.getController();
                 viewController.init(this);
@@ -192,7 +192,7 @@ public class TabTestCampaignMainViewController implements Initializable {
     }
 
     /**
-     * Method in order to call the method view test case from the mainFrame
+     * Method in order to call the method assets.view test case from the mainFrame
      *
      * @param testCase the test case to display
      */

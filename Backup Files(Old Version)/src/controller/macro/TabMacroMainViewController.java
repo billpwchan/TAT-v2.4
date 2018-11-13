@@ -57,7 +57,7 @@ public class TabMacroMainViewController implements Initializable {
 
         FXMLLoader fxmlLoader = new FXMLLoader();
         try {
-            AnchorPane libraryPane = fxmlLoader.load(getClass().getResource("/view/macro/TabMacroLibrary.fxml").openStream());
+            AnchorPane libraryPane = fxmlLoader.load(getClass().getResource("/assets/view/macro/TabMacroLibrary.fxml").openStream());
             this.tabMacroLibrary.setContent(libraryPane);
             libraryController = fxmlLoader.getController();
             libraryController.init(this);
@@ -79,7 +79,7 @@ public class TabMacroMainViewController implements Initializable {
         Tab editMacro = new Tab("Edit Macro: " + macro.getName());
         FXMLLoader fxmlLoader = new FXMLLoader();
         try {
-            AnchorPane addPane = fxmlLoader.load(getClass().getResource("/view/macro/TabMacroEdit.fxml").openStream());
+            AnchorPane addPane = fxmlLoader.load(getClass().getResource("/assets/view/macro/TabMacroEdit.fxml").openStream());
             editMacro.setContent(addPane);
         } catch (IOException ex) {
             CommonFunctions.debugLog.error("Cannot edit Macro: ", ex);
@@ -100,10 +100,10 @@ public class TabMacroMainViewController implements Initializable {
         Tab viewMacro = new Tab("View Macro: " + macro.getName());
         FXMLLoader fxmlLoader = new FXMLLoader();
         try {
-            AnchorPane addPane = fxmlLoader.load(getClass().getResource("/view/macro/TabMacroNew.fxml").openStream());
+            AnchorPane addPane = fxmlLoader.load(getClass().getResource("/assets/view/macro/TabMacroNew.fxml").openStream());
             viewMacro.setContent(addPane);
         } catch (IOException ex) {
-            CommonFunctions.debugLog.error("Cannot view Macro: ", ex);
+            CommonFunctions.debugLog.error("Cannot assets.view Macro: ", ex);
         }
         viewMacroController = fxmlLoader.getController();
         viewMacroController.init(this);
@@ -117,7 +117,7 @@ public class TabMacroMainViewController implements Initializable {
         Tab newMacro = new Tab("New Macro");
         FXMLLoader fxmlLoader = new FXMLLoader();
         try {
-            AnchorPane addPane = fxmlLoader.load(getClass().getResource("/view/macro/TabMacroNew.fxml").openStream());
+            AnchorPane addPane = fxmlLoader.load(getClass().getResource("/assets/view/macro/TabMacroNew.fxml").openStream());
             newMacro.setContent(addPane);
         } catch (IOException ex) {
             CommonFunctions.debugLog.error("Cannot create new Macro: ", ex);

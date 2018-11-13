@@ -5,13 +5,14 @@
  */
 package model;
 
-import main.Main;
-import java.util.ArrayList;
 import javafx.event.Event;
 import javafx.scene.Cursor;
 import javafx.scene.ImageCursor;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
+import main.Main;
+
+import java.util.ArrayList;
 
 /**
  *
@@ -41,7 +42,7 @@ public class setCursorOnComponent {
         }).forEach((component1) -> {
             component1.setOnMouseExited((Event event) -> {
                 if(Main.isSet){
-                    Image image = new Image("/images/valid.png");
+                    Image image = new Image("/assets/images/valid.png");
                     Main.primaryStage.getScene().setCursor(new ImageCursor(image));
                     
                 }else{

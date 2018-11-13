@@ -92,7 +92,7 @@ public class PreviewMacro {
     }
 
     /**
-     * Update the gridpane of the view depending on the script selected (view
+     * Update the gridpane of the assets.view depending on the script selected (assets.view
      * View).
      *
      * @param controllerActions
@@ -102,7 +102,7 @@ public class PreviewMacro {
     }
 
     /**
-     * Construct default view. "Click on Equipment"
+     * Construct default assets.view. "Click on Equipment"
      *
      * @param controllerActions
      */
@@ -129,7 +129,7 @@ public class PreviewMacro {
 
     /**
      * Take the parameters from the popup script and associate them in the
-     * observable list, update the view with the corresponding values.
+     * observable list, update the assets.view with the corresponding values.
      *
      * @param paramScriptMacros observable list containing the parameters.
      * @param toSet             the hyperlink to change

@@ -61,7 +61,7 @@ public class TabTestCampaignExecutionMainViewController implements Initializable
         this.campaigns.setClosable(false);
         FXMLLoader fxmlLoader = new FXMLLoader();
         try {
-            AnchorPane campaignsPane = fxmlLoader.load(getClass().getResource("/view/testexecution/TabTestCampaignExecutionRepositoryBaseline.fxml").openStream());
+            AnchorPane campaignsPane = fxmlLoader.load(getClass().getResource("/assets/view/testexecution/TabTestCampaignExecutionRepositoryBaseline.fxml").openStream());
             this.campaigns.setContent(campaignsPane);
             repositoryBaselineController = fxmlLoader.getController();
             repositoryBaselineController.init(this);
@@ -89,7 +89,7 @@ public class TabTestCampaignExecutionMainViewController implements Initializable
                 CommonFunctions.reportLog.info("User open baseline: " + campaign.getReference());
                 Tab view = new Tab();
                 FXMLLoader fxmlLoader = new FXMLLoader();
-                AnchorPane baselinePane = fxmlLoader.load(getClass().getResource("/view/testexecution/TabTestCampaignExecutionBaselineCampaign.fxml").openStream());
+                AnchorPane baselinePane = fxmlLoader.load(getClass().getResource("/assets/view/testexecution/TabTestCampaignExecutionBaselineCampaign.fxml").openStream());
                 view.setContent(baselinePane);
                 baselineController = fxmlLoader.getController();
                 baselineController.init(this);
@@ -113,7 +113,7 @@ public class TabTestCampaignExecutionMainViewController implements Initializable
     }
 
     /**
-     * Open a tab to view the result of an execution
+     * Open a tab to assets.view the result of an execution
      *
      * @param iteration
      */
@@ -131,14 +131,14 @@ public class TabTestCampaignExecutionMainViewController implements Initializable
         FXMLLoader fxmlLoader = new FXMLLoader();
         AnchorPane editPane = null;
         try {
-            editPane = fxmlLoader.load(getClass().getResource("/view/testexecution/ViewResults.fxml").openStream());
+            editPane = fxmlLoader.load(getClass().getResource("/assets/view/testexecution/ViewResults.fxml").openStream());
         } catch (IOException ex) {
             Logger.getLogger(TabTestCampaignExecutionMainViewController.class.getName()).error("", ex);
         }
         view.setContent(editPane);
         viewController = fxmlLoader.getController();
         viewController.init(this);
-        CommonFunctions.reportLog.info("User view Iteration: " + iteration.getBaselineId());
+        CommonFunctions.reportLog.info("User assets.view Iteration: " + iteration.getBaselineId());
         view.setText("View : " + iteration.getBaselineId());
         this.tabPaneTestCampaignExecution.getTabs().add(view);
         th.start();
@@ -202,9 +202,9 @@ public class TabTestCampaignExecutionMainViewController implements Initializable
     }
 
     /**
-     * Call from the parent controller the method to open a campaign view tab
+     * Call from the parent controller the method to open a campaign assets.view tab
      *
-     * @param testCampaign the campaign to view
+     * @param testCampaign the campaign to assets.view
      */
     void viewTestCampaign(TestCampaign testCampaign) {
         this.mainFrameController.callViewToTestCampaign(testCampaign);

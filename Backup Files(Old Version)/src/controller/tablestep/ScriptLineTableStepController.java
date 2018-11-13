@@ -41,10 +41,10 @@ import java.util.ResourceBundle;
 public class ScriptLineTableStepController implements Initializable {
 
     private final static int constanteSize = 25;
-    private final static Image imd = new Image("images/imageDown.png");
-    private final static Image imu = new Image("images/imageUp.png");
-    private final Image delete = new Image("images/trash.png");
-    FXMLLoader fxmlLoader = new FXMLLoader();// FXMLLoader.load(getClass().getResource("/view/stepcreation/viewScript.fxml"));//InputStream anchorVerifStream = getClass().getResource("/view/stepcreation/viewScript.fxml").openStream();
+    private final static Image imd = new Image("assets/images/imageDown.png");
+    private final static Image imu = new Image("assets/images/imageUp.png");
+    private final Image delete = new Image("assets/images/trash.png");
+    FXMLLoader fxmlLoader = new FXMLLoader();// FXMLLoader.load(getClass().getResource("/assets.view/stepcreation/viewScript.fxml"));//InputStream anchorVerifStream = getClass().getResource("/assets.view/stepcreation/viewScript.fxml").openStream();
     FXMLLoader fxmlLoader2 = new FXMLLoader();
     AnchorPane anchorAction = new AnchorPane();
     AnchorPane anchorVerif = new AnchorPane();
@@ -266,7 +266,7 @@ public class ScriptLineTableStepController implements Initializable {
     }
 
     /**
-     * Update the image of the action view with the one given in parameter.
+     * Update the image of the action assets.view with the one given in parameter.
      *
      * @param image
      */
@@ -276,7 +276,7 @@ public class ScriptLineTableStepController implements Initializable {
     }
 
     /**
-     * Update the image of the verif view with the one given in parameter.
+     * Update the image of the verif assets.view with the one given in parameter.
      *
      * @param image
      */
@@ -470,7 +470,7 @@ public class ScriptLineTableStepController implements Initializable {
 
     private void loadViewStimuli() {
         try {
-            try (InputStream anchorActionStream = getClass().getResource("/view/stepcreation/viewScript.fxml").openStream()) {
+            try (InputStream anchorActionStream = getClass().getResource("/assets/view/stepcreation/viewScript.fxml").openStream()) {
                 anchorAction = fxmlLoader.load(anchorActionStream);
                 this.scriptControllerAction = (ViewScriptController) fxmlLoader.getController();
                 this.gridPaneScript.add(anchorAction, 2, 0, 1, 1);
@@ -486,7 +486,7 @@ public class ScriptLineTableStepController implements Initializable {
     private void loadViewCheck() {
         try {
 
-            try (InputStream anchorVerifStream = getClass().getResource("/view/stepcreation/viewScript.fxml").openStream()) {
+            try (InputStream anchorVerifStream = getClass().getResource("/assets/view/stepcreation/viewScript.fxml").openStream()) {
                 anchorVerif = fxmlLoader2.load(anchorVerifStream);
                 this.scriptControllerVerif = (ViewScriptController) fxmlLoader2.getController();
                 this.gridPaneScript.add(anchorVerif, 4, 0, 1, 1);

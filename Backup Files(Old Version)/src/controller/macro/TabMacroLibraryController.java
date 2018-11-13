@@ -187,7 +187,7 @@ public class TabMacroLibraryController implements Initializable {
 
         FXMLLoader fxmlLoader2 = new FXMLLoader();
         try {
-            AnchorPane paneTest = fxmlLoader2.load(getClass().getResource("/view/macroActions/headerPreviewMacro.fxml").openStream());
+            AnchorPane paneTest = fxmlLoader2.load(getClass().getResource("/assets/view/macroActions/headerPreviewMacro.fxml").openStream());
             this.gridPaneMacroLibrary.add(paneTest, 1, 1, 1, 1);
         } catch (IOException ex) {
             Logger.getLogger(TabTestCaseNewController.class.getName()).error("Cannot construct table Macro: ", ex);

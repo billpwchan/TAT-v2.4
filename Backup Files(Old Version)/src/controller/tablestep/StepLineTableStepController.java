@@ -36,17 +36,17 @@ import java.util.HashSet;
 import java.util.ResourceBundle;
 
 /**
- * FXML Controller class Class handling all the action happening the the view
+ * FXML Controller class Class handling all the action happening the the assets.view
  * test step.
  *
  * @author Martinez Thibault
  */
 public class StepLineTableStepController implements Initializable {
 
-    private static final Image imd = new Image("images/imageDown.png");
-    private static final Image ime = new Image("images/arrowDown.png");
-    private static final Image deilete = new Image("images/trash.png");
-    private static final Image imu = new Image("images/imageUp.png");
+    private static final Image imd = new Image("assets/images/imageDown.png");
+    private static final Image ime = new Image("assets/images/arrowDown.png");
+    private static final Image deilete = new Image("assets/images/trash.png");
+    private static final Image imu = new Image("assets/images/imageUp.png");
     private final TestStep personalTespStep = new TestStep();
     /**
      *
@@ -132,7 +132,7 @@ public class StepLineTableStepController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-        this.anchorPaneStep.getStylesheets().add("/view/CustomeStyle.css");
+        this.anchorPaneStep.getStylesheets().add("/assets/view/CustomeStyle.css");
         //this.listRequirement.getStyleClass().addAll("DeselectEven", "DeselectOdd");
         this.listRequirement.setCellFactory(new Callback() {
 
@@ -168,7 +168,7 @@ public class StepLineTableStepController implements Initializable {
         this.loadImagesView();
         this.defineCursorView();
         if (testStep != null) {
-            this.anchorPaneStep.getStylesheets().add("view/CustomeStyle.css");
+            this.anchorPaneStep.getStylesheets().add("assets/view/CustomeStyle.css");
             this.anchorPaneStep.setId("text-ar");
             this.textAreaAction.setText(testStep.getHumanStimuli());
             this.textAreaAction.setVisible(true);
@@ -238,7 +238,7 @@ public class StepLineTableStepController implements Initializable {
             }
         });
 
-        //Set the handler and listener for each compoent or node that need a listener, handler on this view.
+        //Set the handler and listener for each compoent or node that need a listener, handler on this assets.view.
         this.initializeHandler_Listener();
     }
 
@@ -411,7 +411,7 @@ public class StepLineTableStepController implements Initializable {
     }
 
     /**
-     * Return the test step linked to this view.
+     * Return the test step linked to this assets.view.
      *
      * @return
      */
@@ -443,7 +443,7 @@ public class StepLineTableStepController implements Initializable {
     }
 
     /**
-     * Method called when the view should change form a creation test step to a
+     * Method called when the assets.view should change form a creation test step to a
      * test step display.
      */
     public void executionInstance() {
@@ -462,7 +462,7 @@ public class StepLineTableStepController implements Initializable {
     }
 
     /**
-     * Method called when the view should change form a creation test step to a
+     * Method called when the assets.view should change form a creation test step to a
      * popup execution.
      *
      * @param step
@@ -537,7 +537,7 @@ public class StepLineTableStepController implements Initializable {
     }
 
     /**
-     * Delete the script given in parameters from the view.
+     * Delete the script given in parameters from the assets.view.
      *
      * @param aThis
      */
@@ -658,7 +658,7 @@ public class StepLineTableStepController implements Initializable {
     }
 
     /**
-     * Provide view initialization for TestCase View tab and all related
+     * Provide assets.view initialization for TestCase View tab and all related
      * operations.
      */
     private void loadImagesView() {

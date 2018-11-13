@@ -37,9 +37,9 @@ import java.util.ResourceBundle;
  */
 public class ScriptLineTableMacroController implements Initializable {
 
-    private final static Image delete = new Image("images/trash.png");
-    private final static Image imd = new Image("images/imageDown.png");
-    private final static Image imu = new Image("images/imageUp.png");
+    private final static Image delete = new Image("assets/images/trash.png");
+    private final static Image imd = new Image("assets/images/imageDown.png");
+    private final static Image imu = new Image("assets/images/imageUp.png");
     private final static int constanteSize = 25;
     AnchorPane anchorAction = new AnchorPane();
     @FXML
@@ -175,7 +175,7 @@ public class ScriptLineTableMacroController implements Initializable {
     }
 
     private void loadViewAction() {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/macroActions/viewScript.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/assets/view/macroActions/viewScript.fxml"));
         this.scriptControllerAction = new ViewScriptMacroController();
         fxmlLoader.setController(scriptControllerAction);
         try {

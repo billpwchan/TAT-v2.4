@@ -111,8 +111,8 @@ public class TableParamCreationController implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader();
         try {
             AnchorPane ParamPane;
-            //this..getStylesheets().add("/view/testcampaign/cssViewCampaign.css");
-            try (InputStream streamViewScript = getClass().getResource("/view/scriptmanagement/scriptLineParameter.fxml").openStream()) {
+            //this..getStylesheets().add("/assets.view/testcampaign/cssViewCampaign.css");
+            try (InputStream streamViewScript = getClass().getResource("/assets/view/scriptmanagement/scriptLineParameter.fxml").openStream()) {
                 ParamPane = fxmlLoader.load(streamViewScript);
                 controllerParamLine = (ScriptLineParameterController) fxmlLoader.getController();
             }

@@ -124,14 +124,14 @@ public class Main extends Application {
         if (currentUser != null) {
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader();
-                Parent root = fxmlLoader.load(getClass().getResource("/view/TATFrame.fxml").openStream());
+                Parent root = fxmlLoader.load(getClass().getResource("/assets/view/TATFrame.fxml").openStream());
                 tatFrameController = fxmlLoader.getController();
                 scene = new Scene(root);
                 primaryStage.setScene(scene);
                 getMainString(scene);
                 primaryStage.show();
                 primaryStage.setTitle("Test Automation Tool");
-                primaryStage.getIcons().add(new Image("/images/images.png"));
+                primaryStage.getIcons().add(new Image("/assets/images/images.png"));
 
                 Main.primaryStage = primaryStage;
                 tatFrameController.setPrimaryStage(Main.primaryStage);
@@ -178,7 +178,7 @@ public class Main extends Application {
      * @param scene
      */
     public void getMainString(Scene scene) {
-        Image image = new Image("/images/valid.png");  //pass in the image path
+        Image image = new Image("/assets/images/valid.png");  //pass in the image path
         scene.getAccelerators().put(new KeyCodeCombination(KeyCode.D, KeyCombination.ALT_ANY, KeyCombination.CONTROL_ANY), (Runnable) () -> {
             //condition here of you that want you want to achive.
             scene.setCursor(new ImageCursor(image));

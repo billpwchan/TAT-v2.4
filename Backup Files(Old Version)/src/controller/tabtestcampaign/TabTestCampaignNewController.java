@@ -160,10 +160,10 @@ public class TabTestCampaignNewController implements Initializable {
         TableViewTestCasesAdded.setItems(observableListTestCase);
 
         /*
-         * Listener in order to perform actions after mousePressed on the table view
+         * Listener in order to perform actions after mousePressed on the table assets.view
          * test cases if only 1click, get the index of the case selected and
          * Disable/Enable the buttons up and down if needed if 2 click, open the test
-         * case selected in a view tab.
+         * case selected in a assets.view tab.
          */
         this.TableViewTestCasesAdded.setOnMousePressed((MouseEvent event) -> {
             if (event.getClickCount() == 1 && TableViewTestCasesAdded.getSelectionModel().getSelectedItem() != null) {
@@ -232,7 +232,7 @@ public class TabTestCampaignNewController implements Initializable {
                     .observableArrayList(new ArrayList<TestCase>(testCaseHandler.getAllTestCases()));
             FXMLLoader fxmlLoader = new FXMLLoader();
             AnchorPane editPane = fxmlLoader
-                    .load(getClass().getResource("/view/popup/popUpCaseSelection.fxml").openStream());
+                    .load(getClass().getResource("/assets/view/popup/popUpCaseSelection.fxml").openStream());
             dialogStage = new Stage();
             dialogStage.setTitle("Case Selection");
             dialogStage.initOwner(Main.primaryStage);
@@ -282,7 +282,7 @@ public class TabTestCampaignNewController implements Initializable {
     }
 
     /**
-     * Method in order to call the method view test case from the mainFrame
+     * Method in order to call the method assets.view test case from the mainFrame
      *
      * @param testCaseToView the test case to display
      */
@@ -388,7 +388,7 @@ public class TabTestCampaignNewController implements Initializable {
     }
 
     /**
-     * initialize the buttons of the view
+     * initialize the buttons of the assets.view
      */
     private void initButtons() {
 
@@ -441,7 +441,7 @@ public class TabTestCampaignNewController implements Initializable {
     }
 
     /**
-     * automaticaly fill all the non editable fields of the view
+     * automaticaly fill all the non editable fields of the assets.view
      */
     private void fillNonEditableFields() {
         int NumberOfCases = 0;
@@ -458,14 +458,14 @@ public class TabTestCampaignNewController implements Initializable {
     }
 
     /**
-     * Add css sheet to the anchorPane of the view
+     * Add css sheet to the anchorPane of the assets.view
      */
     private void loadCSS() {
-        this.anchorPanelNewTestCampaign.getStylesheets().add("/view/testexecution/cssLibraryTestCase.css");
+        this.anchorPanelNewTestCampaign.getStylesheets().add("/assets/view/testexecution/cssLibraryTestCase.css");
     }
 
     /**
-     * initialize the context menu in the table view test case
+     * initialize the context menu in the table assets.view test case
      */
     private void initContextMenu() {
 

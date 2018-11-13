@@ -106,7 +106,7 @@ public class TabTestCampaignViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-        this.anchorPanelViewTestCampaign.getStylesheets().add("/view/testcampaign/cssViewCampaign.css");
+        this.anchorPanelViewTestCampaign.getStylesheets().add("/assets/view/testcampaign/cssViewCampaign.css");
         tableViewTestCase.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         tableViewTestCase.setTableMenuButtonVisible(true);
         initColumn campaignColumnInit = new initColumn();
@@ -138,7 +138,7 @@ public class TabTestCampaignViewController implements Initializable {
     }
 
     /**
-     * Construct all the information to display in the tab view
+     * Construct all the information to display in the tab assets.view
      *
      * @param testCampaign the campaign to display
      */

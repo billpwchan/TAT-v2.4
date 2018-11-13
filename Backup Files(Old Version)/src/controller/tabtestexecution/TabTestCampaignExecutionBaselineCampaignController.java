@@ -348,7 +348,7 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
     }
 
     /**
-     * Construct all the information to display in the tab view
+     * Construct all the information to display in the tab assets.view
      *
      * @param testCampaign the campaign to display
      */
@@ -381,12 +381,12 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
     }
 
     /**
-     * Prepare the view of the table of step
+     * Prepare the assets.view of the table of step
      */
     private void constructTableStep() {
         FXMLLoader fxmlLoader = new FXMLLoader();
         try {
-            this.gridPane.add((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream()), 1, 1, 3, 1);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
+            this.gridPane.add((AnchorPane) fxmlLoader.load(getClass().getResource("/assets/view/stepcreation/tableStepScriptCreation.fxml").openStream()), 1, 1, 3, 1);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/assets.view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
         } catch (IOException ex) {
             CommonFunctions.debugLog.error("", ex);
         }
@@ -394,8 +394,8 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
 
         FXMLLoader fxmlLoader2 = new FXMLLoader();
         try {
-            AnchorPane paneTest = (AnchorPane) fxmlLoader2.load(getClass().getResource("/view/stepcreation/headerTableStep.fxml").openStream());
-            this.gridPane.add(paneTest, 1, 0, 3, 1);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
+            AnchorPane paneTest = (AnchorPane) fxmlLoader2.load(getClass().getResource("/assets/view/stepcreation/headerTableStep.fxml").openStream());
+            this.gridPane.add(paneTest, 1, 0, 3, 1);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/assets.view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
         } catch (IOException ex) {
             CommonFunctions.debugLog.error("", ex);
         }
@@ -534,7 +534,7 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
     }
 
     /**
-     * Prepare the display of the view
+     * Prepare the display of the assets.view
      *
      * @param testCampaign the test campaign to baseline
      */
@@ -552,7 +552,7 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
     }
 
     /**
-     * Prepare the display of the buttons and labels of the view
+     * Prepare the display of the buttons and labels of the assets.view
      */
     public void prepareDisplayButtonsAndLabels() {
 
@@ -564,10 +564,10 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
     }
 
     /**
-     * Load the CSS sheet for the view
+     * Load the CSS sheet for the assets.view
      */
     public void loadCSS() {
-        this.anchorPanel.getStylesheets().add("/view/testexecution/cssLibraryTestCase.css");
+        this.anchorPanel.getStylesheets().add("/assets/view/testexecution/cssLibraryTestCase.css");
     }
 
     /**
@@ -741,7 +741,7 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
     private void showWizard() {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader();
-            AnchorPane instantiatePane = fxmlLoader.load(getClass().getResource("/view/popup/popUpcaseExcelValidation.fxml").openStream());
+            AnchorPane instantiatePane = fxmlLoader.load(getClass().getResource("/assets/view/popup/popUpcaseExcelValidation.fxml").openStream());
             popUpChooseExcel = fxmlLoader.getController();
             instantiateCase = new Stage();
             instantiateCase.setTitle("Value Instantiation");

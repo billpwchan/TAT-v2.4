@@ -54,8 +54,8 @@ public class TabScriptsMainViewController implements Initializable {
 
         FXMLLoader fxmlLoader = new FXMLLoader();
         try {
-            AnchorPane libraryPane = fxmlLoader.load(getClass().getResource("/view/scriptmanagement/TabScriptsLibrary.fxml").openStream());
-            //AnchorPane libraryPane = fxmlLoader.load(getClass().getResource("/view/scriptmanagement/TabScriptsLibrary.fxml").openStream());
+            AnchorPane libraryPane = fxmlLoader.load(getClass().getResource("/assets/view/scriptmanagement/TabScriptsLibrary.fxml").openStream());
+            //AnchorPane libraryPane = fxmlLoader.load(getClass().getResource("/assets.view/scriptmanagement/TabScriptsLibrary.fxml").openStream());
             this.tabScriptsLibrary.setContent(libraryPane);
             libraryController = (TabScriptsLibraryController) fxmlLoader.getController();
             libraryController.init(this);
@@ -79,7 +79,7 @@ public class TabScriptsMainViewController implements Initializable {
         AnchorPane addPane = null;
         FXMLLoader fxmlLoader = new FXMLLoader();
         try {
-            addPane = fxmlLoader.load(getClass().getResource("/view/scriptmanagement/TabScriptNew.fxml").openStream());
+            addPane = fxmlLoader.load(getClass().getResource("/assets/view/scriptmanagement/TabScriptNew.fxml").openStream());
         } catch (IOException ex) {
             Logger.getLogger(TabScriptsMainViewController.class.getName()).error("", ex);
         }

@@ -9,6 +9,15 @@ import DB.Parameters;
 import DB.ParametersExecution;
 import DB.Script;
 import engine.Result;
+import javafx.application.Platform;
+import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.scene.Node;
+import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
+import javafx.scene.text.Font;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,18 +25,6 @@ import java.util.Optional;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
-import javafx.application.Platform;
-import javafx.event.EventHandler;
-import javafx.geometry.Insets;
-import javafx.scene.Node;
-import javafx.scene.control.ButtonBar;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Dialog;
-import javafx.scene.control.DialogEvent;
-import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
-import javafx.scene.text.Font;
 
 /**
  * Method to display text in the command line.
@@ -101,7 +98,7 @@ public class popUpStimuli implements InterfaceScript {
             grid.setHgap(10);
             grid.setVgap(10);
             grid.setPadding(new Insets(20, 150, 10, 10));
-            grid.add(new ImageView("/images/action.png"), 0, 0, 3, 3);
+            grid.add(new ImageView("/assets/images/action.png"), 0, 0, 3, 3);
             Label action = new Label("Action to perform :");
             action.setFont(Font.font("Verdana", 20));
             action.setUnderline(true);

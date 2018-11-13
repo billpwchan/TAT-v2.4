@@ -133,7 +133,7 @@ public class TableActionCreationController implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader();
         try {
             AnchorPane scriptPane;
-            try (InputStream streamViewScript = getClass().getResource("/view/macroActions/scriptLineTableMacro.fxml").openStream()) {
+            try (InputStream streamViewScript = getClass().getResource("/assets/view/macroActions/scriptLineTableMacro.fxml").openStream()) {
                 scriptPane = fxmlLoader.load(streamViewScript);
                 controllerScriptLine = (ScriptLineTableMacroController) fxmlLoader.getController();
             }

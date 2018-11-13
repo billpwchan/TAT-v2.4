@@ -74,7 +74,7 @@
                         <Label text="Internal version" GridPane.columnIndex="6" GridPane.rowIndex="3" />
                         <Label text="Test case source" GridPane.columnIndex="3" GridPane.rowIndex="5" />
                         
-                        <!-- 1st column of the view textfield in testcase -->
+                        <!-- 1st column of the assets.view textfield in testcase -->
                         <TextField fx:id="jtextfieldCaseIDEdit" maxWidth="150.0" GridPane.columnIndex="1" />
                         <TextField fx:id="jtextfieldCaseVersionEdit" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <TextField fx:id="jtextfieldProjectCaseEdit" maxWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
@@ -82,7 +82,7 @@
                         <TextField fx:id="jtextfieldTestCategoryCaseEdit" maxWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                         <TextField fx:id="jtextfieldLocationCaseEdit" maxWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                         
-                        <!-- 2nd column of the view test case creation -->
+                        <!-- 2nd column of the assets.view test case creation -->
                         <TextField fx:id="jtextfieldCaseTitleEdit" maxWidth="150.0" GridPane.columnIndex="4" />
                         <ChoiceBox fx:id="choiceboxTestMethodAddCase" maxWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
                         <ChoiceBox fx:id="choiceboxWritingStatusAddCase" maxWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
@@ -90,7 +90,7 @@
                         <TextField fx:id="jtextfieldWriterEmailCaseEdit" maxWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
                         <TextField fx:id="jtextfieldCaseSourceEdit" maxWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="5" />
 
-                        <!-- 3rd column of the view test case creation -->
+                        <!-- 3rd column of the assets.view test case creation -->
                         <TextField fx:id="jtextfieldTestEnvironementCaseEdit" maxWidth="150.0" GridPane.columnIndex="7" />
                         <TextField fx:id="jtextfieldCreationDateCaseEdit" disable="true" editable="false" maxWidth="150.0" GridPane.columnIndex="7" GridPane.rowIndex="1" />
                         <TextField fx:id="jtextfieldInternalVersionCaseEdit" disable="true" editable="false" maxWidth="150.0" GridPane.columnIndex="7" GridPane.rowIndex="3" />

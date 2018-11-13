@@ -69,7 +69,7 @@ public class PopUpCampaignSelectionController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         textEmptyCampaign.setVisible(false);
         TestCaseDB testCaseHandler = new TestCaseDB();
-        this.anchorPane.getStylesheets().add("/view/CustomeStyle.css");
+        this.anchorPane.getStylesheets().add("/assets/view/CustomeStyle.css");
         tableViewCampaignPopUpAddCampaign.setPlaceholder(new Label(""));
         tableViewCampaignPopUpAddCampaign.setTableMenuButtonVisible(true);
         tableViewCampaignPopUpAddCampaign.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);

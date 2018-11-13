@@ -56,7 +56,7 @@ public class TabTestCaseMainViewController implements Initializable {
                 + "-fx-background-insets : transparent;");
         FXMLLoader fxmlLoader = new FXMLLoader();
         try {
-            AnchorPane libraryPane = fxmlLoader.load(getClass().getResource("/view/testcase/TabTestCaseLibrary.fxml").openStream());
+            AnchorPane libraryPane = fxmlLoader.load(getClass().getResource("/assets/view/testcase/TabTestCaseLibrary.fxml").openStream());
             tabLibrary.setContent(libraryPane);
             libraryController = fxmlLoader.getController();
             libraryController.init(this);
@@ -76,7 +76,7 @@ public class TabTestCaseMainViewController implements Initializable {
             try {
                 Tab edit = new Tab();
                 FXMLLoader fxmlLoader = new FXMLLoader();
-                AnchorPane editPane = fxmlLoader.load(getClass().getResource("/view/testcase/TabTestCaseEdit.fxml").openStream());
+                AnchorPane editPane = fxmlLoader.load(getClass().getResource("/assets/view/testcase/TabTestCaseEdit.fxml").openStream());
                 edit.setContent(editPane);
                 TabTestCaseEditController editController = fxmlLoader.getController();
                 editController.init(this);
@@ -107,7 +107,7 @@ public class TabTestCaseMainViewController implements Initializable {
         try {
             Tab newTestCase = new Tab();
             FXMLLoader fxmlLoader = new FXMLLoader();
-            AnchorPane newPane = fxmlLoader.load(getClass().getResource("/view/testcase/TabTestCaseNew.fxml").openStream());
+            AnchorPane newPane = fxmlLoader.load(getClass().getResource("/assets/view/testcase/TabTestCaseNew.fxml").openStream());
             newTestCase.setContent(newPane);
             TabTestCaseNewController newController = fxmlLoader.getController();
             newController.init(this);
@@ -121,16 +121,16 @@ public class TabTestCaseMainViewController implements Initializable {
     }
 
     /**
-     * Display a new tab view for the test case given in parameter.
+     * Display a new tab assets.view for the test case given in parameter.
      *
-     * @param testCaseView test case to view in new tab.
+     * @param testCaseView test case to assets.view in new tab.
      */
     public void displayViewTab(TestCase testCaseView) {
         if (searchPanel(currentViewTab, testCaseView.getIdtestCase())) {
             try {
                 Tab view = new Tab();
                 FXMLLoader fxmlLoader = new FXMLLoader();
-                AnchorPane editPane = fxmlLoader.load(getClass().getResource("/view/testcase/TabTestCaseView.fxml").openStream());
+                AnchorPane editPane = fxmlLoader.load(getClass().getResource("/assets/view/testcase/TabTestCaseView.fxml").openStream());
                 view.setContent(editPane);
                 TabTestCaseViewController viewController = fxmlLoader.getController();
                 viewController.init(this);
@@ -154,7 +154,7 @@ public class TabTestCaseMainViewController implements Initializable {
 
     /**
      * Search if the id of the object is already display in either the edit
-     * view(Arraylist edit) or in the view mode (arrayList view).
+     * assets.view(Arraylist edit) or in the assets.view mode (arrayList assets.view).
      *
      * @param currentTab arraylist of the tab to search into.
      * @param tabID      id of the object to lookfor.
