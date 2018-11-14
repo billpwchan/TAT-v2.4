@@ -9,167 +9,32 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c889ef52-46c0-4f96-a7a0-3467c1158425" name="Default Changelist" comment="">
+    <list default="true" id="c889ef52-46c0-4f96-a7a0-3467c1158425" name="Default Changelist" comment="Some Meaningful Content">
+      <change beforePath="$PROJECT_DIR$/../.idea/artifacts/TAT_V2_3_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/dataSources.local.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/dataSources/079e1941-a342-489e-88f3-9dbc2c5243ea/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/dataSources/91702316-8f1d-4edb-8550-af8db0bd678f/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Java_EE_6_Java_EE_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Libraries.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IEC104slave.ini" beforeDir="false" afterPath="$PROJECT_DIR$/IEC104slave.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/view/macro/TabMacroEdit.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/view/macro/TabMacroEdit.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/view/macro/TabMacroNew.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/view/macro/TabMacroNew.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/view/scriptmanagement/TabScriptNew.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/view/scriptmanagement/TabScriptNew.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/view/testcase/TabTestCaseEdit.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/view/testcase/TabTestCaseEdit.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/view/testcase/TabTestCaseNew.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/view/testcase/TabTestCaseNew.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/view/testcase/cssLibraryTestCase.css" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/view/testcase/cssLibraryTestCase.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reports/HelloWorld_Report_Iteration_1.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reports/novDi2_Report_Iteration_1.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Reports/novDi2_Report_Iteration_1.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/log/log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log/user_history.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/user_history.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mydb.db" beforeDir="false" afterPath="$PROJECT_DIR$/mydb.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/TATFrameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/TATFrameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/macro/TabMacroEditController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/macro/TabMacroEditController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/macro/TabMacroLibraryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/macro/TabMacroLibraryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/macro/TabMacroMainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/macro/TabMacroMainViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/macro/TabMacroNewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/macro/TabMacroNewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/macroActions/HeaderPreviewMacroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/macroActions/HeaderPreviewMacroController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/macroActions/HeaderTableActionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/macroActions/HeaderTableActionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/macroActions/PreviewMacro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/macroActions/PreviewMacro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/macroActions/ScriptLineTableMacroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/macroActions/ScriptLineTableMacroController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/macroActions/TableActionCreationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/macroActions/TableActionCreationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/macroActions/ViewScriptMacroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/macroActions/ViewScriptMacroController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/popup/PopUPRequirementSelectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/popup/PopUPRequirementSelectionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/popup/PopUpCampaignSelectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/popup/PopUpCampaignSelectionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/popup/PopUpCaseSelectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/popup/PopUpCaseSelectionController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/popup/PopUpRunController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/popup/PopUpRunController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/popup/PopUpWizardActionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/popup/PopUpWizardActionController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/popup/PopUpWizardScriptController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/popup/PopUpWizardScriptController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/requirements/TabRequirementMainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/requirements/TabRequirementMainViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/scriptParameters/ScriptLineParameterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/scriptParameters/ScriptLineParameterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/scripts/HeaderParametersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/scripts/HeaderParametersController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/scripts/TabScriptNewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/scripts/TabScriptNewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/scripts/TabScriptsLibraryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/scripts/TabScriptsLibraryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/scripts/TabScriptsMainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/scripts/TabScriptsMainViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/scripts/TableParamCreationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/scripts/TableParamCreationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/tablestep/HeaderTableStepController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/tablestep/HeaderTableStepController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/tablestep/ScriptLineTableStepController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/tablestep/ScriptLineTableStepController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/tablestep/StepLineTableStepController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/tablestep/StepLineTableStepController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/tablestep/TableStepScriptCreationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/tablestep/TableStepScriptCreationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/tablestep/ViewScriptController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/tablestep/ViewScriptController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/tabtestcampaign/TabTestCampaignMainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/tabtestcampaign/TabTestCampaignMainViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/tabtestcampaign/TabTestCampaignNewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/tabtestcampaign/TabTestCampaignNewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/tabtestcampaign/TabTestCampaignRepositoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/tabtestcampaign/TabTestCampaignRepositoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/tabtestcampaign/TabTestCampaignViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/tabtestcampaign/TabTestCampaignViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/tabtestcase/TabTestCaseEditController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/tabtestcase/TabTestCaseEditController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/tabtestcase/TabTestCaseLibraryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/tabtestcase/TabTestCaseLibraryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/tabtestcase/TabTestCaseMainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/tabtestcase/TabTestCaseMainViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/tabtestcase/TabTestCaseNewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/tabtestcase/TabTestCaseNewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/tabtestcase/TabTestCaseViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/tabtestcase/TabTestCaseViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/tabtestexecution/TabTestCampaignExecutionBaselineCampaignController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/tabtestexecution/TabTestCampaignExecutionBaselineCampaignController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/tabtestexecution/TabTestCampaignExecutionMainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/tabtestexecution/TabTestCampaignExecutionMainViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/tabtestexecution/TabTestCampaignExecutionRepositoryBaselineController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/tabtestexecution/TabTestCampaignExecutionRepositoryBaselineController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/tabtestexecution/TabViewResultsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/tabtestexecution/TabViewResultsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/62447.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/62447.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/62506.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/62506.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/62683.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/62683.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/ControlPanel.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/ControlPanel.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/Essai.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/Essai.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/Thales2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/Thales2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/Thales3.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/Thales3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/action.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/action.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/arrow-down-bold.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/arrow-down-bold.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/arrow-up-bold.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/arrow-up-bold.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/arrowDown.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/arrowDown.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/book-open.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/book-open.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/campaign2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/campaign2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/case2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/case2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/check.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/check.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/checkbox-blank-outline - Copy.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/checkbox-blank-outline - Copy.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/checkbox-marked-outline - Copy.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/checkbox-marked-outline - Copy.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/close-circle.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/close-circle.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/content-copy.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/content-copy.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/content-paste.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/content-paste.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/content-save.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/content-save.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/delete.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/delete.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/execution2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/execution2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/file-document.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/file-document.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/flag-triangle.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/flag-triangle.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/imageDown.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/imageDown.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/imageUp.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/imageUp.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/images.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/images.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/macro.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/macro.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/notready.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/notready.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/pencil.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/pencil.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/plus.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/plus.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/ready.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/ready.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/refresh.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/refresh.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/requirement.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/requirement.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/requirement2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/requirement2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/run.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/run.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/script.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/script.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/script2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/script2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/script_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/script_1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/test.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/test.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/trash.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/trash.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/valid.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/valid.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/valid1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/valid1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/wrong.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/wrong.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/initColumn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/initColumn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/setCursorOnComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/setCursorOnComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/WriteReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/WriteReport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/script/IEC104InitConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/IEC104InitConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/script/TriggerIEC104Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/TriggerIEC104Point.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/script/popUpStimuli.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/popUpStimuli.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/Finish.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/sounds/Finish.wav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/Go.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/sounds/Go.wav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/CustomStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/CustomStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/CustomeStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/CustomeStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/TATFrame.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/TATFrame.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/macro/TabMacroEdit.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/macro/TabMacroEdit.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/macro/TabMacroLibrary.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/macro/TabMacroLibrary.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/macro/TabMacroMainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/macro/TabMacroMainView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/macro/TabMacroNew.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/macro/TabMacroNew.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/macroActions/headerPreviewMacro.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/macroActions/headerPreviewMacro.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/macroActions/headerTableAction.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/macroActions/headerTableAction.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/macroActions/scriptLineTableMacro.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/macroActions/scriptLineTableMacro.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/macroActions/tableActionCreation.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/macroActions/tableActionCreation.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/macroActions/viewScript.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/macroActions/viewScript.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/popup/popUPRequirementSelection.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/popup/popUPRequirementSelection.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/popup/popUpBaselineCreation.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/popup/popUpBaselineCreation.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/popup/popUpCampaignCreation.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/popup/popUpCampaignCreation.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/popup/popUpCampaignSelection.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/popup/popUpCampaignSelection.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/popup/popUpCaseSelection.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/popup/popUpCaseSelection.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/popup/popUpChangeCaseComment.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/popup/popUpChangeCaseComment.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/popup/popUpConfiguration.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/popup/popUpConfiguration.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/popup/popUpRun.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/popup/popUpRun.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/popup/popUpScript.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/popup/popUpScript.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/popup/popUpWizardScript.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/popup/popUpWizardScript.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/popup/popUpcaseExcelValidation.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/popup/popUpcaseExcelValidation.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/popup/tablestep.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/popup/tablestep.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/requirements/TabRequirementCreation.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/requirements/TabRequirementCreation.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/requirements/TabRequirementLibrary.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/requirements/TabRequirementLibrary.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/requirements/TabRequirementMainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/requirements/TabRequirementMainView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/scriptmanagement/TabScriptNew.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/scriptmanagement/TabScriptNew.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/scriptmanagement/TabScriptsLibrary.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/scriptmanagement/TabScriptsLibrary.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/scriptmanagement/TabScriptsMainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/scriptmanagement/TabScriptsMainView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/scriptmanagement/headerParameters.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/scriptmanagement/headerParameters.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/scriptmanagement/scriptLineParameter.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/scriptmanagement/scriptLineParameter.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/scriptmanagement/tableScriptCreation.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/scriptmanagement/tableScriptCreation.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/stepcreation/cssScriptLine.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/stepcreation/cssScriptLine.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/stepcreation/headerTableStep.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/stepcreation/headerTableStep.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/stepcreation/scriptLineTableStep.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/stepcreation/scriptLineTableStep.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/stepcreation/stepLineTableStep.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/stepcreation/stepLineTableStep.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/stepcreation/tableStepScriptCreation.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/stepcreation/tableStepScriptCreation.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/stepcreation/viewScript.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/stepcreation/viewScript.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/testcampaign/TabTestCampaignMainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/testcampaign/TabTestCampaignMainView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/testcampaign/TabTestCampaignNew.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/testcampaign/TabTestCampaignNew.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/testcampaign/TabTestCampaignRepository.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/testcampaign/TabTestCampaignRepository.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/testcampaign/TabTestCampaignView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/testcampaign/TabTestCampaignView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/testcampaign/cssViewCampaign.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/testcampaign/cssViewCampaign.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/testcase/TabTestCaseEdit.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/testcase/TabTestCaseEdit.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/testcase/TabTestCaseLibrary.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/testcase/TabTestCaseLibrary.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/testcase/TabTestCaseMainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/testcase/TabTestCaseMainView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/testcase/TabTestCaseNew.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/testcase/TabTestCaseNew.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/testcase/TabTestCaseView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/testcase/TabTestCaseView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/testcase/cssLibraryTestCase.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/testcase/cssLibraryTestCase.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/testexecution/TabTestCampaignExecutionBaselineCampaign.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/testexecution/TabTestCampaignExecutionBaselineCampaign.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/testexecution/TabTestCampaignExecutionMainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/testexecution/TabTestCampaignExecutionMainView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/testexecution/TabTestCampaignExecutionRepositoryBaseline.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/testexecution/TabTestCampaignExecutionRepositoryBaseline.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/testexecution/ViewResults.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/testexecution/ViewResults.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/testexecution/cssLibraryTestCase.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/view/testexecution/cssLibraryTestCase.css" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -212,23 +77,23 @@
     <session id="30367687">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="37" />
-          <entry key="project.open.time.1" value="1" />
+          <entry key="project.closed" value="41" />
+          <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.10" value="7" />
-          <entry key="project.open.time.11" value="4" />
+          <entry key="project.open.time.11" value="5" />
           <entry key="project.open.time.12" value="3" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.14" value="2" />
           <entry key="project.open.time.15" value="1" />
-          <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.2" value="2" />
           <entry key="project.open.time.21" value="1" />
           <entry key="project.open.time.3" value="2" />
           <entry key="project.open.time.4" value="2" />
           <entry key="project.open.time.5" value="3" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.8" value="3" />
-          <entry key="project.open.time.9" value="8" />
-          <entry key="project.opened" value="41" />
+          <entry key="project.open.time.9" value="9" />
+          <entry key="project.opened" value="45" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -242,21 +107,22 @@
           <entry key="fxml" value="3" />
           <entry key="ini" value="4" />
           <entry key="iterations" value="15" />
-          <entry key="java" value="80" />
+          <entry key="java" value="91" />
           <entry key="parameters" value="2" />
           <entry key="parameters_execution" value="1" />
-          <entry key="script" value="13" />
+          <entry key="properties" value="1" />
+          <entry key="script" value="14" />
           <entry key="script_execution_result" value="1" />
           <entry key="script_executions" value="4" />
           <entry key="script_has_been_configured" value="3" />
           <entry key="script_has_parameters" value="5" />
           <entry key="snippet" value="4" />
-          <entry key="sql" value="14" />
+          <entry key="sql" value="16" />
           <entry key="step_executions" value="4" />
           <entry key="step_executions_result" value="1" />
           <entry key="test_campaign" value="3" />
           <entry key="test_campaign_test_case" value="3" />
-          <entry key="test_case" value="10" />
+          <entry key="test_case" value="12" />
           <entry key="test_step" value="6" />
           <entry key="test_step_has_requirement" value="1" />
           <entry key="test_step_has_script" value="3" />
@@ -266,33 +132,34 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="1" />
-          <entry key="Database Element" value="99" />
+          <entry key="Database Element" value="102" />
           <entry key="Ini" value="4" />
-          <entry key="JAVA" value="80" />
+          <entry key="JAVA" value="91" />
+          <entry key="Properties" value="1" />
           <entry key="SQL" value="7" />
-          <entry key="Scratch" value="11" />
+          <entry key="Scratch" value="13" />
           <entry key="UML" value="5" />
           <entry key="XML" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cell" value="634" />
+          <entry key="cell" value="692" />
           <entry key="dummy" value="1" />
           <entry key="ini" value="2" />
-          <entry key="java" value="4946" />
+          <entry key="java" value="5313" />
           <entry key="snippet" value="278" />
           <entry key="sql" value="558" />
-          <entry key="txt" value="868" />
+          <entry key="txt" value="954" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Ini" value="2" />
-          <entry key="JAVA" value="4946" />
-          <entry key="PLAIN_TEXT" value="869" />
+          <entry key="JAVA" value="5313" />
+          <entry key="PLAIN_TEXT" value="955" />
           <entry key="SQL" value="101" />
-          <entry key="Scratch" value="1369" />
+          <entry key="Scratch" value="1427" />
         </counts>
       </usages-collector>
     </session>
@@ -301,60 +168,12 @@
     <favorites_list name="Backup Files(Old Version)" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/script/IEC104InitConnection.java">
+        <entry file="file://$PROJECT_DIR$/src/model/WriteReport.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="52" column="23" lean-forward="true" selection-start-line="52" selection-start-column="23" selection-end-line="52" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/controller/tabtestexecution/TabTestCampaignExecutionMainViewController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="43" column="31" selection-start-line="43" selection-start-column="31" selection-end-line="43" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/controller/tabtestexecution/TabTestCampaignExecutionRepositoryBaselineController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="8404">
-              <caret line="423" column="22" selection-start-line="423" selection-start-column="16" selection-end-line="423" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/controller/tabtestexecution/TabViewResultsController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="52" column="13" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/controller/popup/PopUpRunController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4378">
-              <caret line="244" column="62" selection-start-line="244" selection-start-column="62" selection-end-line="244" selection-end-column="62" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/script/stopIEC104Simulator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="20" column="44" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="74">
+              <caret line="498" column="37" lean-forward="true" selection-start-line="498" selection-start-column="37" selection-end-line="498" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -362,17 +181,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/script/TriggerIEC104Point.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2222">
-              <caret line="117" column="13" selection-start-line="117" selection-start-column="13" selection-end-line="117" selection-end-column="13" />
+            <state relative-caret-position="1408">
+              <caret line="76" column="50" lean-forward="true" selection-start-line="76" selection-start-column="50" selection-end-line="76" selection-end-column="50" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DBcontroller/TestExecution.java">
+        <entry file="file://$PROJECT_DIR$/src/script/IEC104InitConnection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2398">
-              <caret line="122" column="28" selection-start-line="122" selection-start-column="28" selection-end-line="122" selection-end-column="28" />
+            <state relative-caret-position="148">
+              <caret line="32" column="82" selection-start-line="32" selection-start-column="82" selection-end-line="32" selection-end-column="82" />
             </state>
           </provider>
         </entry>
@@ -399,6 +218,9 @@
       <find>th</find>
       <find>th.run</find>
       <find>start</find>
+      <find>logger</find>
+      <find>commonfunctions</find>
+      <find>debug</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -438,9 +260,12 @@
         <option value="$PROJECT_DIR$/src/script/SearchOccurence.java" />
         <option value="$PROJECT_DIR$/src/script/stopIEC104Simulator.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/jshell/jshell_console_8.snippet" />
-        <option value="$PROJECT_DIR$/src/script/IEC104InitConnection.java" />
+        <option value="$PROJECT_DIR$/src/controller/tabtestexecution/TabTestCampaignExecutionMainViewController.java" />
         <option value="$PROJECT_DIR$/src/controller/popup/PopUpRunController.java" />
+        <option value="$PROJECT_DIR$/src/script/IEC104InitConnection.java" />
+        <option value="$PROJECT_DIR$/src/controller/popup/PopUpWizardScriptController.java" />
         <option value="$PROJECT_DIR$/src/script/TriggerIEC104Point.java" />
+        <option value="$PROJECT_DIR$/src/model/WriteReport.java" />
       </list>
     </option>
   </component>
@@ -461,9 +286,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1905" />
-    <option name="width" value="1950" />
-    <option name="height" value="2075" />
+    <option name="x" value="240" />
+    <option name="y" value="55" />
+    <option name="width" value="1315" />
+    <option name="height" value="810" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -471,6 +297,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -483,11 +310,16 @@
               <item name="Backup Files(Old Version)" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Backup Files(Old Version)" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Backup Files(Old Version)" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="script" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -497,7 +329,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$USER_HOME$/OneDrive/HKUST/COMP 3021/5-exceptions-program" />
+    <property name="last_opened_file_path" value="$USER_HOME$/OneDrive/HKUST/COMP 3021/8-event-driven-animations-program" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="SDKs" />
@@ -633,7 +465,11 @@
       <workItem from="1541581817069" duration="846000" />
       <workItem from="1541611353060" duration="973000" />
       <workItem from="1541741562954" duration="12000" />
-      <workItem from="1542073563605" duration="779000" />
+      <workItem from="1542073563605" duration="7647000" />
+      <workItem from="1542089753586" duration="3772000" />
+      <workItem from="1542112926363" duration="23000" />
+      <workItem from="1542173517556" duration="600000" />
+      <workItem from="1542217410815" duration="1518000" />
     </task>
     <task id="LOCAL-00001" summary="Able to create baseline and input value to IEC104slave.ini file on run-time.">
       <created>1539016208060</created>
@@ -733,11 +569,18 @@
       <option name="project" value="LOCAL" />
       <updated>1541473166544</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Rearrange Assets (Create new package named 'assets')">
+      <created>1542074381785</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1542074381785</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="99591000" />
+    <option name="totallyTimeSpent" value="112372000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -752,7 +595,7 @@
     <frame x="-6" y="-6" width="1549" height="837" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49722737" visible="true" weight="0.17303823" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49722737" visible="true" weight="0.167002" />
       <window_info id="Structure" order="1" sideWeight="0.5021552" side_tool="true" weight="0.229069" />
       <window_info id="Persistence" order="2" sideWeight="0.5009242" side_tool="true" weight="0.22103149" />
       <window_info id="Designer" order="3" />
@@ -760,7 +603,7 @@
       <window_info id="Favorites" order="5" sideWeight="0.4990758" weight="0.22103149" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32561505" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4996651" visible="true" weight="0.20260492" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4996651" weight="0.14327063" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.37771347" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -769,7 +612,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.32850942" />
       <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5003349" side_tool="true" weight="0.26878613" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5003349" side_tool="true" weight="0.26772794" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32561505" />
       <window_info anchor="bottom" id="Java Enterprise" order="13" weight="0.32947975" />
       <window_info anchor="bottom" id="Inspection Results" order="14" weight="0.3299566" />
@@ -777,7 +620,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Database" order="4" weight="0.3370319" />
+      <window_info anchor="right" id="Database" order="4" weight="0.23474178" />
       <window_info anchor="right" id="Palette&#9;" order="5" />
       <window_info anchor="right" id="Maven Projects" order="6" weight="0.32953784" />
     </layout>
@@ -808,7 +651,8 @@
     <MESSAGE value="Using default Wait w/o popup script." />
     <MESSAGE value="NoSleep Script is workable. Add bufferReader.close() in IECInitConnection." />
     <MESSAGE value="SOE2 Complete" />
-    <option name="LAST_COMMIT_MESSAGE" value="SOE2 Complete" />
+    <MESSAGE value="Rearrange Assets (Create new package named 'assets')" />
+    <option name="LAST_COMMIT_MESSAGE" value="Rearrange Assets (Create new package named 'assets')" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -872,13 +716,6 @@
       <provider editor-type-id="text-editor" />
       <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/c439b569-bf95-4aed-8c87-3099ddb4d676/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="22" column="25" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/script/SearchOccurence.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1166">
@@ -900,13 +737,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/tabtestexecution/TabTestCampaignExecutionBaselineCampaignController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="153" column="18" selection-start-line="153" selection-start-column="12" selection-end-line="153" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/assets/view/popup/popUPRequirementSelection.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
@@ -916,29 +746,37 @@
       <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/iterations" />
-    <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/script" />
     <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/test_step" />
-    <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/test_case" />
     <entry file="file://$PROJECT_DIR$/src/controller/tabtestexecution/TabTestCampaignExecutionRepositoryBaselineController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8404">
+        <state relative-caret-position="176">
           <caret line="423" column="22" selection-start-line="423" selection-start-column="16" selection-end-line="423" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/tabtestexecution/TabTestCampaignExecutionBaselineCampaignController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="153" column="18" selection-start-line="153" selection-start-column="12" selection-end-line="153" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/tabtestexecution/TabTestCampaignExecutionMainViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="193" column="71" selection-start-line="193" selection-start-column="71" selection-end-line="193" selection-end-column="71" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/tabtestexecution/TabViewResultsController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
+        <state relative-caret-position="-1936">
           <caret line="52" column="13" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/popup/PopUpRunController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4378">
-          <caret line="244" column="62" selection-start-line="244" selection-start-column="62" selection-end-line="244" selection-end-column="62" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/log4j.properties">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/script/stopIEC104Simulator.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -950,31 +788,89 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/script/TriggerIEC104Point.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2222">
-          <caret line="117" column="13" selection-start-line="117" selection-start-column="13" selection-end-line="117" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/DBcontroller/TestExecution.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2398">
+        <state relative-caret-position="481">
           <caret line="122" column="28" selection-start-line="122" selection-start-column="28" selection-end-line="122" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/tabtestexecution/TabTestCampaignExecutionMainViewController.java">
+    <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/script" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/c439b569-bf95-4aed-8c87-3099ddb4d676/console.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="43" column="31" selection-start-line="43" selection-start-column="31" selection-end-line="43" selection-end-column="31" />
+        <state relative-caret-position="484">
+          <caret line="22" column="25" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/test_case" />
+    <entry file="file://$PROJECT_DIR$/src/controller/popup/PopUpWizardScriptController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="528" column="56" lean-forward="true" selection-start-line="528" selection-start-column="56" selection-end-line="528" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/popup/PopUpScriptController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-176">
+          <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/popup/PopUpConfigurationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="34" column="31" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/tabtestcase/TabTestCaseEditController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="42" column="46" selection-start-line="42" selection-start-column="46" selection-end-line="42" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/popup/PopUpRunController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="144" column="29" selection-start-line="144" selection-start-column="29" selection-end-line="144" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/TestCasesExecution.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/HMI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-644">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/script/TriggerIEC104Point.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1408">
+          <caret line="76" column="50" lean-forward="true" selection-start-line="76" selection-start-column="50" selection-end-line="76" selection-end-column="50" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/script/IEC104InitConnection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="52" column="23" lean-forward="true" selection-start-line="52" selection-start-column="23" selection-end-line="52" selection-end-column="23" />
+        <state relative-caret-position="148">
+          <caret line="32" column="82" selection-start-line="32" selection-start-column="82" selection-end-line="32" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/WriteReport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="74">
+          <caret line="498" column="37" lean-forward="true" selection-start-line="498" selection-start-column="37" selection-end-line="498" selection-end-column="37" />
         </state>
       </provider>
     </entry>

@@ -514,13 +514,13 @@ public class PopUpRunController implements Initializable {
                 suspended = false;
                 runButton.setDisable(true);
                 pauseButton.setDisable(false);
-                stopButton.setDisable(false);
+//                stopButton.setDisable(false);
             } else if (suspended) {
                 th.resume();
                 suspended = false;
                 runButton.setDisable(true);
                 pauseButton.setDisable(false);
-                stopButton.setDisable(false);
+//                stopButton.setDisable(false);
             } else {
                 e.consume();
             }

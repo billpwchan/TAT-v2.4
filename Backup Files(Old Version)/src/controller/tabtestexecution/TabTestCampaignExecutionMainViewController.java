@@ -19,7 +19,6 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
 import model.currentTab;
-import org.apache.log4j.Logger;
 
 import java.io.IOException;
 import java.net.URL;
@@ -133,7 +132,7 @@ public class TabTestCampaignExecutionMainViewController implements Initializable
         try {
             editPane = fxmlLoader.load(getClass().getResource("/assets/view/testexecution/ViewResults.fxml").openStream());
         } catch (IOException ex) {
-            Logger.getLogger(TabTestCampaignExecutionMainViewController.class.getName()).error("", ex);
+            CommonFunctions.debugLog.error("", ex);
         }
         view.setContent(editPane);
         viewController = fxmlLoader.getController();

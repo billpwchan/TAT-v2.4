@@ -5,41 +5,17 @@
  */
 package model;
 
-import DB.CaseExecutions;
-import DB.Iterations;
-import DB.Macro;
-import DB.ParamScriptMacro;
-import DB.ParametersExecution;
-import DB.Script;
-import DB.ScriptExecutions;
-import DB.StepExecutions;
-import DB.TestCampaign;
+import DB.*;
 import DBcontroller.ScriptDB;
 import DBcontroller.TestCampaignDB;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
-
-import org.apache.log4j.Logger;
+import controller.util.CommonFunctions;
+import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.util.CellRangeAddress;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.CellStyle;
-import org.apache.poi.ss.usermodel.CreationHelper;
-import org.apache.poi.ss.usermodel.FillPatternType;
-import org.apache.poi.ss.usermodel.HorizontalAlignment;
-import org.apache.poi.ss.usermodel.Hyperlink;
-import org.apache.poi.ss.usermodel.IndexedColors;
-import org.apache.poi.ss.usermodel.Row;
-
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+import java.io.*;
+import java.util.*;
 
 /**
  *
@@ -207,7 +183,7 @@ public class WriteReport {
         try {
             this.readTemplateReport(it);
         } catch (Exception ex) {
-            Logger.getLogger(WriteReport.class.getName()).error("", ex);
+            CommonFunctions.debugLog.error("", ex);
         }
         this.initHashMaps();
         this.reportSheetOffsetInit(it);
@@ -224,9 +200,9 @@ public class WriteReport {
             this.workbook.write(outputStream);
             this.workbook.close();
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(WriteReport.class.getName()).error("", ex);
+            CommonFunctions.debugLog.error("", ex);
         } catch (IOException ex) {
-            Logger.getLogger(WriteReport.class.getName()).error("", ex);
+            CommonFunctions.debugLog.error("", ex);
         }
         System.out.println("Report Created");
     }
@@ -453,6 +429,14 @@ public class WriteReport {
                         scriptType = "AI";
                         this.scriptTypeGlobal = "AI";
                         maxStep = 2;
+                    } else if (script.getName().contains("SOE1")) {
+                        scriptType = "SOE1";
+                        this.scriptTypeGlobal = "SOE1";
+                        maxStep = 2;
+                    } else if (script.getName().contains("SOE2")) {
+                        scriptType = "SOE2";
+                        this.scriptTypeGlobal = "SOE2";
+                        maxStep = 4;
                     }
                     this.reportMaxStep = maxStep > this.reportMaxStep ? maxStep : this.reportMaxStep;
 
@@ -500,6 +484,8 @@ public class WriteReport {
                                         e.printStackTrace();
                                     }
                                 }
+                            } else if ("SOE1".equals(scriptType) || "SOE2".equals(scriptType)) {
+xxxx
                             }
                         }
                         numParameter++;

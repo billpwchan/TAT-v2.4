@@ -1897,3 +1897,386 @@
 2018-11-07 17:34:57 | TabTestCaseMainViewController.java |  INFO | reportsLogger : User cancel viewing Trigger DI2
 2018-11-13 09:52:30 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: IECSOE1
 2018-11-13 09:52:36 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: SOE2IEC
+2018-11-13 10:01:32 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User assets.view Iteration: NoSleep
+2018-11-13 10:01:38 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User delete baseline: IECSOE1
+2018-11-13 10:01:41 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User assets.view Iteration: IECSOE2
+2018-11-13 10:01:45 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: SOE2IEC
+2018-11-13 10:09:04 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: SOE2IEC
+2018-11-13 10:09:39 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: SOE2IEC
+2018-11-13 10:09:45 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: SOE2IEC
+2018-11-13 10:11:42 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: SOE2IEC
+2018-11-13 10:16:49 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: SOE2IEC
+2018-11-13 10:18:20 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User assets.view Iteration: NoSleep
+2018-11-13 10:18:26 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User assets.view Iteration: SOE2IEC
+2018-11-13 10:18:34 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User delete entire test campaign: SOE2IEC
+	Baseline: SOE2IEC
+
+2018-11-13 10:18:34 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User completed test campaign deletion.
+2018-11-13 10:18:37 | TabTestCampaignMainViewController.java |  INFO | reportsLogger : User cancel viewing 47
+2018-11-13 10:18:41 | TabTestCampaignRepositoryController.java |  INFO | reportsLogger : User deleted test campaign: IECSOE1
+2018-11-13 10:18:53 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User assets.view Iteration: SOE2
+2018-11-13 10:18:58 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User assets.view Iteration: IECSOE2
+2018-11-13 10:29:46 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: IECSOE2
+2018-11-13 10:29:59 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:30:02 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:30:05 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:30:08 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:34:55 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: NoSleep
+2018-11-13 10:36:01 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User delete entire test campaign: IECSOE2
+	Baseline: IECSOE2
+
+2018-11-13 10:36:01 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User completed test campaign deletion.
+2018-11-13 10:36:08 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User delete entire test campaign: NEWIEC
+	Baseline: NEWIEC
+
+2018-11-13 10:36:08 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User completed test campaign deletion.
+2018-11-13 10:36:11 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User delete entire test campaign: NoSleep
+	Baseline: NoSleep
+	Baseline: SOE2
+
+2018-11-13 10:36:11 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User completed test campaign deletion.
+2018-11-13 10:36:14 | TabTestCampaignRepositoryController.java |  INFO | reportsLogger : User deleted test campaign: NewIEC
+2018-11-13 10:36:30 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User open baseline: IECNoSleep
+2018-11-13 10:37:19 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: Trigger IEC-104 Point
+2018-11-13 10:37:23 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validate baseline: IECSOE1
+2018-11-13 10:37:23 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User close Baseline Tab.
+2018-11-13 10:38:02 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:38:05 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:38:13 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:38:16 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:38:24 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:38:27 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:38:35 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:38:38 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:38:46 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:38:49 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:38:57 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:39:00 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:39:08 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:39:11 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:39:18 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:39:22 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:39:30 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:39:33 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:39:41 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:39:44 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:39:52 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:39:55 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:40:03 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:40:06 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:40:14 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:40:17 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:40:25 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:40:28 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:40:36 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:40:39 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:40:47 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:40:50 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:40:58 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:41:01 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:41:09 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:41:12 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:41:20 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:41:23 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:41:31 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:41:34 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:41:42 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:41:45 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:41:53 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:41:56 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:42:04 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:42:07 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:42:15 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:42:18 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:42:26 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:42:30 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:42:37 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:42:41 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:42:49 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:42:52 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:43:00 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:43:03 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:43:11 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:43:14 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:43:22 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:43:25 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:43:33 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:43:36 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:43:44 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:43:47 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:43:55 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:43:58 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:44:06 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:44:09 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:44:19 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User assets.view Iteration: IECSOE1
+2018-11-13 10:54:26 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User assets.view Iteration: IECSOE1
+2018-11-13 10:57:50 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User run iteration: IECSOE1
+2018-11-13 10:57:59 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:58:02 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:58:10 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:58:13 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:58:21 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:58:24 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:58:32 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:58:35 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:58:43 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:58:46 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:58:54 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:58:57 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:59:05 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:59:08 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:59:16 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:59:19 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:59:27 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:59:30 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:59:38 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:59:41 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:59:49 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 10:59:52 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:00:00 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:00:03 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:00:11 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:00:14 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:00:22 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:00:25 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:00:33 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:00:36 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:00:44 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:00:47 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:00:55 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:00:58 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:01:06 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:01:09 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:01:17 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:01:20 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:01:28 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:01:31 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:01:38 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:01:42 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:01:49 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:01:52 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:02:01 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:02:04 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:02:11 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:02:15 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:02:23 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:02:26 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:02:33 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:02:36 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:02:44 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:02:47 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:02:55 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:02:58 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:03:06 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:03:09 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:03:17 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:03:20 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:03:28 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:03:31 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:03:39 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:03:42 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:03:50 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:03:53 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:04:01 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:04:04 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:04:36 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User assets.view Iteration: IECSOE1
+2018-11-13 11:09:56 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User open baseline: IECSOE2
+2018-11-13 11:10:37 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: Trigger IEC-104 Point
+2018-11-13 11:10:50 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: Trigger IEC-104 Point
+2018-11-13 11:10:51 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validate baseline: SOE2IEC
+2018-11-13 11:10:51 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User close Baseline Tab.
+2018-11-13 11:11:02 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:11:05 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:11:08 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:11:11 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:11:20 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:11:23 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:11:26 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:11:29 | ExecuteSSHCommand.java |  INFO | reportsLogger : 
+2018-11-13 11:28:35 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User delete entire test campaign: IEC104
+	Baseline: IEC104
+
+2018-11-13 11:28:35 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User completed test campaign deletion.
+2018-11-13 11:28:37 | TabTestCampaignRepositoryController.java |  INFO | reportsLogger : User deleted test campaign: IEC104
+2018-11-13 11:37:36 | TabTestCaseLibraryController.java |  INFO | reportsLogger : User Edited the Test Case(55): Trigger IEC104 SOE1
+2018-11-13 11:38:57 | TabTestCaseLibraryController.java |  INFO | reportsLogger : User Edited the Test Case(55): Trigger IEC104 SOE1
+2018-11-13 11:40:34 | TabTestCaseEditController.java |  INFO | reportsLogger : After Editing Test Case :Trigger IEC-104 Point
+	Step 0: Init IEC-104 Connection
+		Script 1 Step Description: IEC104InitConnection
+	Step 1: Low Level
+		Script 1 Step Description: TriggerIEC104Point
+	Step 2: Trigger High Level Result
+		Script 1 Step Description: TriggerIEC104Point
+		Script 1 Expected Result: CheckSSHEvent_ReportFinalized
+	Step 3: Trigger Low Level Result
+		Script 1 Step Description: TriggerIEC104Point
+		Script 1 Expected Result: CheckSSHEvent_ReportFinalized
+	Step 4: Stop IEC-104 Simulator
+		Script 1 Step Description: StopIEC104Simulator
+
+2018-11-13 11:40:34 | TabTestCaseEditController.java |  INFO | reportsLogger : Successfully saved test case: Trigger IEC104 SOE1
+2018-11-13 11:41:39 | TabTestCaseLibraryController.java |  INFO | reportsLogger : User Edited the Test Case(58): Trigger IEC104 SOE2
+2018-11-13 11:44:44 | TabTestCaseEditController.java |  INFO | reportsLogger : After Editing Test Case :Trigger IEC-104 Point
+	Step 0: Init IEC-104 Connection
+		Script 1 Step Description: IEC104InitConnection
+	Step 1: Trigger Low Level
+		Script 1 Step Description: TriggerIEC104Point
+	Step 2: Trigger Level 1 Result
+		Script 1 Step Description: TriggerIEC104Point
+		Script 1 Expected Result: CheckSSHEvent_ReportFinalized
+	Step 3: Trigger Level 2 Result
+		Script 1 Step Description: TriggerIEC104Point
+		Script 1 Expected Result: CheckSSHEvent_ReportFinalized
+	Step 4: Trigger Level 3 Result
+		Script 1 Step Description: TriggerIEC104Point
+		Script 1 Expected Result: CheckSSHEvent_ReportFinalized
+	Step 5: Trigger Level 0 Result
+		Script 1 Step Description: TriggerIEC104Point
+		Script 1 Expected Result: CheckSSHEvent_ReportFinalized
+	Step 6: Stop IEC-104 Simulator
+		Script 1 Step Description: StopIEC104Simulator
+
+2018-11-13 11:44:44 | TabTestCaseEditController.java |  INFO | reportsLogger : Successfully saved test case: Trigger IEC104 SOE2
+2018-11-13 11:44:49 | TabTestCaseLibraryController.java |  INFO | reportsLogger : User Edited the Test Case(60): Trigger IEC104 SOE1
+2018-11-13 11:45:29 | TabTestCaseEditController.java |  INFO | reportsLogger : After Editing Test Case :Trigger IEC-104 Point
+	Step 0: Init IEC-104 Connection
+		Script 1 Step Description: IEC104InitConnection
+	Step 1: Low Level
+		Script 1 Step Description: TriggerIEC104Point
+	Step 2: Trigger High Level Result
+		Script 1 Step Description: TriggerIEC104Point
+		Script 1 Expected Result: CheckSSHEvent_ReportFinalized
+	Step 3: Trigger Low Level Result
+		Script 1 Step Description: TriggerIEC104Point
+		Script 1 Expected Result: CheckSSHEvent_ReportFinalized
+	Step 4: Stop IEC-104 Simulator
+		Script 1 Step Description: StopIEC104Simulator
+
+2018-11-13 11:45:29 | TabTestCaseEditController.java |  INFO | reportsLogger : Successfully saved test case: Trigger IEC104 SOE1
+2018-11-13 11:55:24 | TabTestCaseLibraryController.java |  INFO | reportsLogger : User Edited the Test Case(59): Trigger IEC104 AI
+2018-11-13 11:56:55 | TabTestCaseEditController.java |  INFO | reportsLogger : After Editing Test Case :Trigger IEC-104 Point
+	Step 0: Init IEC-104 Connection
+		Script 1 Step Description: IEC104InitConnection
+	Step 1: Init Level
+		Script 1 Step Description: TriggerIEC104Point
+	Step 2: Trigger Level 20
+		Script 1 Step Description: TriggerIEC104Point
+		Script 1 Expected Result: CheckSSHEvent_ReportFinalized
+	Step 3: Trigger Level 5
+		Script 1 Step Description: TriggerIEC104Point
+		Script 1 Expected Result: CheckSSHEvent_ReportFinalized
+	Step 4: Stop IEC-104 Simulator
+		Script 1 Step Description: StopIEC104Simulator
+
+2018-11-13 11:56:55 | TabTestCaseEditController.java |  INFO | reportsLogger : Successfully saved test case: Trigger IEC104 AI
+2018-11-13 11:57:35 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User delete entire test campaign: SOE2IEC
+	Baseline: SOE2IEC
+
+2018-11-13 11:57:35 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User completed test campaign deletion.
+2018-11-13 11:57:37 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User delete entire test campaign: IECSOE1
+	Baseline: IECSOE1
+
+2018-11-13 11:57:37 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User completed test campaign deletion.
+2018-11-13 11:57:40 | TabTestCampaignRepositoryController.java |  INFO | reportsLogger : User deleted test campaign: IECSOE2
+2018-11-13 11:57:42 | TabTestCampaignRepositoryController.java |  INFO | reportsLogger : User deleted test campaign: IECNoSleep
+2018-11-13 11:57:48 | TabTestCaseLibraryController.java |  INFO | reportsLogger : User Edited the Test Case(55): Trigger IEC104 SOE1
+2018-11-13 11:58:54 | TabTestCaseEditController.java |  INFO | reportsLogger : After Editing Test Case :Trigger IEC-104 Point
+	Step 0: Init IEC-104 Connection
+		Script 1 Step Description: IEC104InitConnection
+	Step 1: Low Level
+		Script 1 Step Description: TriggerIEC104Point
+	Step 2: Trigger High Level Result
+		Script 1 Step Description: TriggerIEC104Point
+		Script 1 Expected Result: CheckSSHEvent_ReportFinalized
+	Step 3: Trigger Low Level Result
+		Script 1 Step Description: TriggerIEC104Point
+		Script 1 Expected Result: CheckSSHEvent_ReportFinalized
+	Step 4: Stop IEC-104 Simulator
+		Script 1 Step Description: StopIEC104Simulator
+
+2018-11-13 11:58:54 | TabTestCaseEditController.java |  INFO | reportsLogger : Successfully saved test case: Trigger IEC104 SOE1
+2018-11-13 11:59:03 | TabTestCaseLibraryController.java |  INFO | reportsLogger : User Edited the Test Case(58): Trigger IEC104 SOE2
+2018-11-13 12:00:50 | TabTestCaseEditController.java |  INFO | reportsLogger : After Editing Test Case :Trigger IEC-104 Point
+	Step 0: Init IEC-104 Connection
+		Script 1 Step Description: IEC104InitConnection
+	Step 1: Trigger Low Level
+		Script 1 Step Description: TriggerIEC104Point
+	Step 2: Trigger Level 1 Result
+		Script 1 Step Description: TriggerIEC104Point
+		Script 1 Expected Result: CheckSSHEvent_ReportFinalized
+	Step 3: Trigger Level 2 Result
+		Script 1 Step Description: TriggerIEC104Point
+		Script 1 Expected Result: CheckSSHEvent_ReportFinalized
+	Step 4: Trigger Level 3 Result
+		Script 1 Step Description: TriggerIEC104Point
+		Script 1 Expected Result: CheckSSHEvent_ReportFinalized
+	Step 5: Trigger Level 0 Result
+		Script 1 Step Description: TriggerIEC104Point
+		Script 1 Expected Result: CheckSSHEvent_ReportFinalized
+	Step 6: Stop IEC-104 Simulator
+		Script 1 Step Description: StopIEC104Simulator
+
+2018-11-13 12:00:50 | TabTestCaseEditController.java |  INFO | reportsLogger : Successfully saved test case: Trigger IEC104 SOE2
+2018-11-13 12:00:57 | TabTestCaseLibraryController.java |  INFO | reportsLogger : User Edited the Test Case(63): Trigger IEC104 AI (General)
+2018-11-13 12:01:01 | TabTestCaseMainViewController.java |  INFO | reportsLogger : User cancel editing Trigger IEC104 AI (General)
+2018-11-13 12:01:04 | TabTestCaseLibraryController.java |  INFO | reportsLogger : User Edited the Test Case(59): Trigger IEC104 AI
+2018-11-13 12:02:00 | TabTestCaseEditController.java |  INFO | reportsLogger : After Editing Test Case :Trigger IEC-104 Point
+	Step 0: Init IEC-104 Connection
+		Script 1 Step Description: IEC104InitConnection
+	Step 1: Init Level
+		Script 1 Step Description: TriggerIEC104Point
+	Step 2: Trigger Level 20
+		Script 1 Step Description: TriggerIEC104Point
+		Script 1 Expected Result: CheckSSHEvent_ReportFinalized
+	Step 3: Trigger Level 5
+		Script 1 Step Description: TriggerIEC104Point
+		Script 1 Expected Result: CheckSSHEvent_ReportFinalized
+	Step 4: Stop IEC-104 Simulator
+		Script 1 Step Description: StopIEC104Simulator
+
+2018-11-13 12:02:00 | TabTestCaseEditController.java |  INFO | reportsLogger : Successfully saved test case: Trigger IEC104 AI
+2018-11-13 12:20:40 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User assets.view Iteration: novDi2
+2018-11-13 14:37:24 | TestCampaignDB.java |  INFO | reportsLogger : After Creating Test Campaign :IECSOE1
+	Case 1: Trigger IEC-104 Point (64)
+
+2018-11-13 14:37:24 | TestCampaignDB.java |  INFO | reportsLogger : Successfully saved test campaign: IECSOE1
+2018-11-13 14:37:28 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User open baseline: IECSOE1
+2018-11-13 14:37:43 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validated test case: Trigger IEC-104 Point
+2018-11-13 14:37:44 | TabTestCampaignExecutionBaselineCampaignController.java |  INFO | reportsLogger : User successfully validate baseline: 34
+2018-11-13 14:37:44 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User close Baseline Tab.
+2018-11-13 15:36:34 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User delete entire test campaign: 34
+	Baseline: 34
+
+2018-11-13 15:36:34 | TabTestCampaignExecutionRepositoryBaselineController.java |  INFO | reportsLogger : User completed test campaign deletion.
+2018-11-13 15:36:36 | TabTestCampaignRepositoryController.java |  INFO | reportsLogger : User deleted test campaign: IECSOE1
+2018-11-13 17:07:16 | TabTestCaseLibraryController.java |  INFO | reportsLogger : User Viewed the Test Case(61): Trigger IEC104 SOE2 (General)
+2018-11-13 17:07:19 | TabTestCaseMainViewController.java |  INFO | reportsLogger : User cancel viewing Trigger IEC104 SOE2 (General)
+2018-11-13 17:07:21 | TabTestCaseLibraryController.java |  INFO | reportsLogger : User Viewed the Test Case(62): Trigger IEC104 SOE1 (General)
+2018-11-13 17:30:13 | TabTestCaseMainViewController.java |  INFO | reportsLogger : User cancel viewing Trigger IEC104 SOE1 (General)
+2018-11-13 17:47:02 | TestCampaignDB.java |  INFO | reportsLogger : After Creating Test Campaign :IEC104
+	Case 1: Trigger IEC-104 Point (64)
+	Case 2: Trigger IEC-104 Point (65)
+
+2018-11-13 17:47:02 | TestCampaignDB.java |  INFO | reportsLogger : Successfully saved test campaign: IEC104
+2018-11-13 17:47:06 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User open baseline: IEC104
+2018-11-13 17:50:13 | TabTestCaseLibraryController.java |  INFO | reportsLogger : User Viewed the Test Case(48): Trigger DI
+2018-11-13 18:10:37 | TabTestCaseMainViewController.java |  INFO | reportsLogger : User cancel viewing Trigger DI
+2018-11-13 18:11:15 | TabTestCaseLibraryController.java |  INFO | reportsLogger : User Edited the Test Case(48): Trigger DI
+2018-11-13 18:11:21 | TabTestCaseMainViewController.java |  INFO | reportsLogger : User cancel editing Trigger DI
+2018-11-13 18:12:34 | TabTestCaseLibraryController.java |  INFO | reportsLogger : User Edited the Test Case(48): Trigger DI
+2018-11-13 18:13:22 | TabTestCaseEditController.java |  INFO | reportsLogger : After Editing Test Case :Trigger DI CheckEvent
+	Step 0: Low Level
+		Script 1 Step Description: Trigger of DI (Modbus)
+	Step 1: Obtain Last Line
+		Script 1 Step Description: SSH command
+	Step 2: Trigger High Level
+		Script 1 Step Description: Trigger of DI (Modbus)
+		Script 1 Expected Result: CheckSSHEvent_ReportFinalized
+	Step 3: Trigger Low Level
+		Script 1 Step Description: Trigger of DI (Modbus)
+		Script 1 Expected Result: CheckSSHEvent_ReportFinalized
+	Step 4: Check Event Match
+		Script 1 Step Description: SSH command
+		Script 1 Expected Result: Search occurrence
+
+2018-11-13 18:13:22 | TabTestCaseEditController.java |  INFO | reportsLogger : Successfully saved test case: Trigger DI

@@ -521,14 +521,14 @@
              buttonSetParameters.setDisable(true);
              switch (newValue) {
                  case "Constant":
-
                      Label constantLabel = new Label("Constant");
                      constantLabel.setTooltip(new Tooltip("Type : String"));
                      changeColorLabel(constantLabel, true);
                      buttonSetParameters.setDisable(true);
                      TextFieldWithFormat constantTextField = new TextFieldWithFormat("[a-zA-Z_0-9]", false);
                      constantTextField.getTextField().textProperty().addListener((observable, oldValue, new2Value) -> {
-                         buttonSetParameters.setDisable(new2Value.trim().isEmpty());
+//                         buttonSetParameters.setDisable(new2Value.trim().isEmpty());
+                         buttonSetParameters.setDisable(false);
                          changeColorLabel(constantLabel, new2Value.trim().isEmpty());
                      });
                      if ("Constant".equals(this.observableListScriptMartinth.get(this.tableParameters.getSelectionModel().getSelectedIndex()).getValuePath())) {

@@ -61,7 +61,9 @@ public class TriggerIEC104Point implements InterfaceScript {
                     lines.set(i, "equipmentaddr0=0");
                 }
             }
-            this.lines.forEach(CommonFunctions.debugLog::debug);
+            StringBuilder sb = new StringBuilder();
+            this.lines.forEach(sb::append);
+            CommonFunctions.debugLog.debug(sb.toString());
             try (BufferedWriter writer = Files.newBufferedWriter(Paths.get("IEC104slave.ini"), Charset.forName("utf-8"))) {
                 for (String line : this.lines) {
                     writer.write(line, 0, line.length());

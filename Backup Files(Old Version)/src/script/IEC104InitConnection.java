@@ -14,6 +14,8 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.Duration;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -51,8 +53,9 @@ public class IEC104InitConnection implements InterfaceScript {
         InputStreamReader isr = new InputStreamReader(is);
         BufferedReader br = new BufferedReader(isr);
         String line123;
-//        Thread.sleep(3000);
-        while ((line123 = br.readLine()) != null && !line123.contains("Supervisory")) {
+
+        Instant before = Instant.now();
+        while ((line123 = br.readLine()) != null && !line123.contains("Supervisory") && Duration.between(before, Instant.now()).toMillis() < 10000) {
             //Should be finished initialization
             System.out.println(line123);
         }
