@@ -8,13 +8,14 @@ package script;
 import DB.Parameters;
 import DB.ParametersExecution;
 import DB.Script;
+import controller.util.CommonFunctions;
 import engine.Result;
-import java.util.ArrayList;
-import java.util.HashMap;
 import model.Position;
-import model.equipment;
 import org.sikuli.api.robot.Mouse;
 import org.sikuli.api.robot.desktop.DesktopMouse;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
@@ -34,7 +35,7 @@ public class ClickOnEquipment implements InterfaceScript {
         if (this.bufferName.contains("@&Buffer_")) {
             this.position = (Position) hashMap.get(this.bufferName);
         }
-        System.out.println("EQp : "+this.position);
+        CommonFunctions.debugLog.error("EQp : " + this.position);
         Mouse mouse =  new DesktopMouse();
         Thread.sleep(800);
         mouse.click(this.position.getScreenRegion().getCenter());

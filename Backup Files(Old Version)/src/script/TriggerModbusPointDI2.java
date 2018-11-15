@@ -8,13 +8,14 @@ package script;
 import DB.Parameters;
 import DB.ParametersExecution;
 import DB.Script;
+import controller.util.CommonFunctions;
 import engine.Result;
-import java.util.ArrayList;
-import java.util.HashMap;
-
-import org.apache.log4j.Logger;
 import net.wimpi.modbus.procimg.SimpleProcessImage;
 import net.wimpi.modbus.procimg.SimpleRegister;
+import org.apache.log4j.Logger;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
@@ -52,7 +53,7 @@ public class TriggerModbusPointDI2 implements InterfaceScript {
 
         processImage.setRegister((int) register, new SimpleRegister((int) newValue));
 
-        //System.out.println("Register is : " + newValue + " value is :" + register);
+        //CommonFunctions.debugLog.error("Register is : " + newValue + " value is :" + register);
         Thread.sleep(500);
     }
 
@@ -84,7 +85,7 @@ public class TriggerModbusPointDI2 implements InterfaceScript {
         // this.stringValue = this.stringValue.trim();
 //        if (this.stringValue.length() == 2) {
         this.value = 2 * Integer.valueOf(this.stringValueBit1) + 1 * Integer.valueOf(this.stringValueBit2);
-        System.out.println("THIS.VALUE= " + this.value);
+        CommonFunctions.debugLog.error("THIS.VALUE= " + this.value);
         //this.value = Math.pow(2, Integer.valueOf(this.stringValueBit2)) + Math.pow(2, Integer.valueOf(this.stringValueBit1));
 //        } else {
         //this.value = Math.pow(2,Integer.valueOf(this.stringValue)) ;
@@ -108,7 +109,7 @@ public class TriggerModbusPointDI2 implements InterfaceScript {
                 }
                 break;
             default:
-                //System.out.println("Error, neither AI,DI or DI2 where found !");
+                //CommonFunctions.debugLog.error("Error, neither AI,DI or DI2 where found !");
                 break;
         }
         return new Result();

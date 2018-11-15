@@ -5,14 +5,14 @@
  */
 package script;
 
-import DB.Parameters;
 import DB.ParametersExecution;
-import DB.Script;
-import java.util.ArrayList;
-import java.util.HashMap;
+import controller.util.CommonFunctions;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
@@ -37,11 +37,11 @@ public class SaveInFile {
         int buffer = 0;
         this.string = parameters.get(1).getValue().trim();
         if (this.string.contains("@&Buffer_")) {
-            System.out.println("STRING = " + hashMap.get(this.string).getClass());
+            CommonFunctions.debugLog.error("STRING = " + hashMap.get(this.string).getClass());
             if (hashMap.get(this.string) instanceof String) {
                 this.string = (String) hashMap.get(this.string);
             } else {
-                System.out.println("THIS IS AN ARRAYLIST");
+                CommonFunctions.debugLog.error("THIS IS AN ARRAYLIST");
                 this.strings = (ArrayList<String>) hashMap.get(this.string);
                 Arraylist = 1;
             }
@@ -58,10 +58,10 @@ public class SaveInFile {
         File file = new File(this.path + "\\" + this.fileName + ".txt");
         PrintWriter out = null;
         if (file.exists()) {
-            System.out.println("EXIST");
+            CommonFunctions.debugLog.error("EXIST");
             out = new PrintWriter(new FileOutputStream(file, true));
             if (Arraylist == 0) {
-                System.out.println("WRITE");
+                CommonFunctions.debugLog.error("WRITE");
                 out.append(this.string + "\n");
             } else {
                 if (strings.size() > 0) {
@@ -69,15 +69,15 @@ public class SaveInFile {
                         out.append(this.strings.get(i) + "\n");
                     }
                 } else {
-                    System.out.println("Empty array");
+                    CommonFunctions.debugLog.error("Empty array");
                 }
             }
         } else {
-            System.out.println("NOT EXIST");
+            CommonFunctions.debugLog.error("NOT EXIST");
             out = new PrintWriter(this.path + "\\" + this.fileName + ".txt");
             if (Arraylist == 0) {
-                System.out.println("THIS.STRING = " + this.string);
-                System.out.println("WRITE");
+                CommonFunctions.debugLog.error("THIS.STRING = " + this.string);
+                CommonFunctions.debugLog.error("WRITE");
                 out.println(this.string);
             } else {
                 if (strings.size() > 0) {
@@ -85,7 +85,7 @@ public class SaveInFile {
                         out.println(this.strings.get(i) + "\n");
                     }
                 } else {
-                    System.out.println("Empty array");
+                    CommonFunctions.debugLog.error("Empty array");
                 }
 
             }

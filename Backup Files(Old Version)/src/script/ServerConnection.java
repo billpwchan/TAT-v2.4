@@ -31,7 +31,7 @@ public class ServerConnection {
             session.setConfig(config);
             session.connect();
         } catch (Exception e) {
-            //System.out.println(e);
+            //CommonFunctions.debugLog.error(e);
         }
 
     }

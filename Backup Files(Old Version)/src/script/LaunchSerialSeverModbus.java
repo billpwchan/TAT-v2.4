@@ -1,17 +1,18 @@
 package script;
 
 import DB.ParametersExecution;
+import controller.util.CommonFunctions;
+import net.wimpi.modbus.ModbusCoupler;
+import net.wimpi.modbus.net.ModbusTCPListener;
+import net.wimpi.modbus.procimg.SimpleProcessImage;
+import net.wimpi.modbus.procimg.SimpleRegister;
+import org.apache.log4j.Logger;
+
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
-
-import org.apache.log4j.Logger;
-import net.wimpi.modbus.ModbusCoupler;
-import net.wimpi.modbus.net.ModbusTCPListener;
-import net.wimpi.modbus.procimg.SimpleProcessImage;
-import net.wimpi.modbus.procimg.SimpleRegister;
 
 ///*
 // * To change this license header, choose License Headers in Project Properties.
@@ -78,7 +79,7 @@ import net.wimpi.modbus.procimg.SimpleRegister;
 //        tEnd = System.currentTimeMillis();
 //        tDelta = tEnd - tStart;
 //        elapsedSeconds = tDelta / 1000.0;
-//        System.out.println(elapsedSeconds);
+//        CommonFunctions.debugLog.error(elapsedSeconds);
 //        processImage.setExceptionStatus((byte) 151);
 //        // Add an image listener.
 //        //BasicProcessImageListener imageListener = new BasicProcessImageListener();
@@ -90,15 +91,15 @@ import net.wimpi.modbus.procimg.SimpleRegister;
 //        
 //static class BasicProcessImageListener implements ProcessImageListener {
 //        public void coilWrite(int offset, boolean oldValue, boolean newValue) {
-//            System.out.println("Coil at " + offset + " was set from " + oldValue + " to " + newValue);
+//            CommonFunctions.debugLog.error("Coil at " + offset + " was set from " + oldValue + " to " + newValue);
 //        }
 //
 //        public void holdingRegisterWrite(int offset, short oldValue, short newValue) {
-//            System.out.println("HR at " + offset + " was set from " + oldValue + " to " + newValue);
+//            CommonFunctions.debugLog.error("HR at " + offset + " was set from " + oldValue + " to " + newValue);
 //        }
 //        
 //        public void setHoldingRegister(int offset, short oldValue, short newValue) {
-//            System.out.println("HR at " + offset + " was set from " + oldValue + " to " + newValue);
+//            CommonFunctions.debugLog.error("HR at " + offset + " was set from " + oldValue + " to " + newValue);
 //        }
 //    }
 //
@@ -178,6 +179,33 @@ public class LaunchSerialSeverModbus {
 
     /**
      *
+     */
+    public static void close() {
+        listener.stop();
+        instance = null;
+        Set<Thread> threadSet = Thread.getAllStackTraces().keySet();
+        Thread[] threadArray = threadSet.toArray(new Thread[threadSet.size()]);
+        for (int i = 0; i < threadArray.length; i++) {
+            //CommonFunctions.debugLog.error("Thread1 = " + threadArray[i]);
+            if (threadArray[i].getName().contains("Modbus_Pool")) {
+                threadArray[i].stop();
+            }
+        }
+    }
+
+    /**
+     * Singleton of the class.
+     *
+     * @param ip
+     * @return instance of the class
+     * @throws Exception exception
+     */
+    public static SimpleProcessImage getInstance() throws Exception {
+        return instance;
+    }
+
+    /**
+     *
      * @param ip
      * @param portDeServer
      * @param SlaveID
@@ -201,7 +229,7 @@ public class LaunchSerialSeverModbus {
                 }
                 break;
         }
-        System.out.println("Register : " + instance.getRegisterCount() + " ,Input register : " + instance.getInputRegisterCount());
+        CommonFunctions.debugLog.error("Register : " + instance.getRegisterCount() + " ,Input register : " + instance.getInputRegisterCount());
 //3. Set the image on the coupler9
         ModbusCoupler.getReference().setProcessImage(instance);
         ModbusCoupler.getReference().setMaster(false);
@@ -218,32 +246,5 @@ public class LaunchSerialSeverModbus {
         listener.setAddress(localhost);
         listener.setPort(portDeServer);
         listener.start();
-    }
-
-    /**
-     * Singleton of the class.
-     *
-     * @param ip
-     * @return instance of the class
-     * @throws Exception exception
-     */
-    public static SimpleProcessImage getInstance() throws Exception {
-        return instance;
-    }
-
-    /**
-     *
-     */
-    public static void close() {
-        listener.stop();
-        instance = null;
-        Set<Thread> threadSet = Thread.getAllStackTraces().keySet();
-        Thread[] threadArray = threadSet.toArray(new Thread[threadSet.size()]);
-        for (int i = 0; i < threadArray.length; i++) {
-            //System.out.println("Thread1 = " + threadArray[i]);
-            if (threadArray[i].getName().contains("Modbus_Pool")) {
-                threadArray[i].stop();
-            }
-        }
     }
 }

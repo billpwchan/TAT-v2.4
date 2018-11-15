@@ -9,6 +9,7 @@ import DB.ParametersExecution;
 import com.jcraft.jsch.ChannelExec;
 import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.Session;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -83,14 +84,14 @@ public class DacSimulator {
 //        toReturn.add("-18622 1 13094 2142351 0 \":WCH:ECS:ACG10001\" \"1.5\" 0 0 0 0 0 \";0||||||Air Curtain Group|Running Status|Stopped||||ACG1||WCH_ACG_201|$$;:WCH:ECS:ACG10001:dciECS-RUNSTA:dal.valueAlarmVector\" 0 0 0 1430215853 835800 1430215853 835800 1 13 0 0 \"SILENV\" \"\" \"\" \"\"");
 //        toReturn.add("-18622 1 13094 2142351 0 \":WCH:ECS:ACG10001\" \"1.5\" 0 0 0 0 0 \";0||||||Air Curtain Group|Running Status|Running||||ACG1||WCH_ACG_202|$$;:WCH:ECS:ACG10001:dciECS-RUNSTA:dal.valueAlarmVector\" 0 0 0 1430215853 835800 1430215853 835800 1 13 0 0 \"SILENV\" \"\" \"\" \"\"");
         while ((msg = in.readLine()) != null) {
-            //System.out.println("READLINE : "+msg);
+            //CommonFunctions.debugLog.error("READLINE : "+msg);
             toReturn.add(msg);
         }
         channel.disconnect();
 
         hashMap.put(this.indexNameReturn, toReturn);
         //session.disconnect();
-        //System.out.println("RESULT = "+this.result);
+            //CommonFunctions.debugLog.error("RESULT = "+this.result);
         return null;
     }
 

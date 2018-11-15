@@ -8,20 +8,21 @@ package script;
 import DB.Parameters;
 import DB.ParametersExecution;
 import DB.Script;
+import controller.util.CommonFunctions;
 import engine.Result;
-import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.HashMap;
-import javax.imageio.ImageIO;
 import org.sikuli.api.DesktopScreenRegion;
 import org.sikuli.api.ImageTarget;
 import org.sikuli.api.ScreenLocation;
 import org.sikuli.api.ScreenRegion;
 import org.sikuli.api.robot.Mouse;
 import org.sikuli.api.robot.desktop.DesktopMouse;
+
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
@@ -38,7 +39,7 @@ public class MoveMouseOnImages implements InterfaceScript {
     @Override
     public Result run(ArrayList<ParametersExecution> parameters, HashMap hashMap) throws Exception {
         path = parameters.get(1).getValue().trim();
-        System.out.println("Path file :"+path);
+        CommonFunctions.debugLog.error("Path file :" + path);
         File imgUp = new File(path);
         Image imageUp = ImageIO.read(imgUp);
         target = new ImageTarget(toBufferedImage(imageUp));

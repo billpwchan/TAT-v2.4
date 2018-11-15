@@ -1,6 +1,7 @@
 package script;
 
 import DB.ParametersExecution;
+import controller.util.CommonFunctions;
 import net.wimpi.modbus.ModbusCoupler;
 import net.wimpi.modbus.net.ModbusTCPListener;
 import net.wimpi.modbus.procimg.SimpleProcessImage;
@@ -78,7 +79,7 @@ import java.util.Set;
 //        tEnd = System.currentTimeMillis();
 //        tDelta = tEnd - tStart;
 //        elapsedSeconds = tDelta / 1000.0;
-//        System.out.println(elapsedSeconds);
+//        CommonFunctions.debugLog.error(elapsedSeconds);
 //        processImage.setExceptionStatus((byte) 151);
 //        // Add an image listener.
 //        //BasicProcessImageListener imageListener = new BasicProcessImageListener();
@@ -90,15 +91,15 @@ import java.util.Set;
 //        
 //static class BasicProcessImageListener implements ProcessImageListener {
 //        public void coilWrite(int offset, boolean oldValue, boolean newValue) {
-//            System.out.println("Coil at " + offset + " was set from " + oldValue + " to " + newValue);
+//            CommonFunctions.debugLog.error("Coil at " + offset + " was set from " + oldValue + " to " + newValue);
 //        }
 //
 //        public void holdingRegisterWrite(int offset, short oldValue, short newValue) {
-//            System.out.println("HR at " + offset + " was set from " + oldValue + " to " + newValue);
+//            CommonFunctions.debugLog.error("HR at " + offset + " was set from " + oldValue + " to " + newValue);
 //        }
 //        
 //        public void setHoldingRegister(int offset, short oldValue, short newValue) {
-//            System.out.println("HR at " + offset + " was set from " + oldValue + " to " + newValue);
+//            CommonFunctions.debugLog.error("HR at " + offset + " was set from " + oldValue + " to " + newValue);
 //        }
 //    }
 //
@@ -162,6 +163,29 @@ public class LaunchTCPServerModbus {
 
     /**
      *
+     */
+    public static void close() {
+        if (listener != null) {
+            listener.stop();
+        }
+        instance = null;
+        oldPort = 0;
+        oldIp = "";
+        oldServerType = "";
+        Set<Thread> threadSet = Thread.getAllStackTraces().keySet();
+        Thread[] threadArray = threadSet.toArray(new Thread[threadSet.size()]);
+        for (Thread threadArray1 : threadArray) {
+            //CommonFunctions.debugLog.error("Thread1 = " + threadArray[i]);
+            if (threadArray1.getName().contains("Modbus_Pool")) {
+                CommonFunctions.debugLog.error("J ai trouve le thread : " + threadArray1.getName());
+                threadArray1.stop();
+                threadArray1.interrupt();
+            }
+        }
+    }
+
+    /**
+     *
      * @param parameters
      * @param test
      * @return
@@ -173,7 +197,7 @@ public class LaunchTCPServerModbus {
         this.port = ((int) Double.parseDouble(parameters.get(2).getValue().trim()));
         this.slave = ((int) Double.parseDouble(parameters.get(3).getValue().trim()));
         serverType = parameters.get(4).getValue().trim();
-        //System.out.println("Server type is :"+serverType);
+        //CommonFunctions.debugLog.error("Server type is :"+serverType);
         if (oldPort != port || !oldServerType.equals(serverType) || !oldIp.equals(ip)) {
             close();
             oldPort = this.port;
@@ -184,6 +208,16 @@ public class LaunchTCPServerModbus {
         }
 
         return null;
+    }
+
+    /**
+     * Singleton of the class.
+     *
+     * @return instance of the class
+     * @throws Exception exception
+     */
+    public static SimpleProcessImage getInstance() throws Exception {
+        return instance;
     }
 
     /**
@@ -210,7 +244,7 @@ public class LaunchTCPServerModbus {
                 }
                 break;
         }
-        //System.out.println("Register : " + instance.getRegisterCount() + " ,Input register : " + instance.getInputRegisterCount());
+        //CommonFunctions.debugLog.error("Register : " + instance.getRegisterCount() + " ,Input register : " + instance.getInputRegisterCount());
 //3. Set the image on the coupler9
         ModbusCoupler.getReference().setProcessImage(instance);
         ModbusCoupler.getReference().setMaster(false);
@@ -227,38 +261,5 @@ public class LaunchTCPServerModbus {
         listener.setAddress(localhost);
         listener.setPort(portDeServer);
         listener.start();
-    }
-
-    /**
-     * Singleton of the class.
-     *
-     * @return instance of the class
-     * @throws Exception exception
-     */
-    public static SimpleProcessImage getInstance() throws Exception {
-        return instance;
-    }
-
-    /**
-     *
-     */
-    public static void close() {
-        if (listener != null) {
-            listener.stop();
-        }
-        instance = null;
-        oldPort = 0;
-        oldIp = "";
-        oldServerType = "";
-        Set<Thread> threadSet = Thread.getAllStackTraces().keySet();
-        Thread[] threadArray = threadSet.toArray(new Thread[threadSet.size()]);
-        for (Thread threadArray1 : threadArray) {
-            //System.out.println("Thread1 = " + threadArray[i]);
-            if (threadArray1.getName().contains("Modbus_Pool")) {
-                System.out.println("J ai trouve le thread : " + threadArray1.getName());
-                threadArray1.stop();
-                threadArray1.interrupt();
-            }
-        }
     }
 }

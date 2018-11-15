@@ -9,6 +9,7 @@ import DB.ParametersExecution;
 import com.jcraft.jsch.ChannelExec;
 import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.Session;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -102,8 +103,8 @@ public class ScadaCheck {
         //msg="-18622 1 13094 2142351 0 \":WCH:ECS:ACG10001\" \"1\" 0 0 0 0 0 \";0||||||Air Curtain Group|Running Status|Running||||ACG1||WCH_ACG_201|$$;:WCH:ECS:ACG10001:dciECS-RUNSTA:dal.valueAlarmVector\" 0 0 0 1430215853 835800 1430215853 835800 1 13 0 0 \"SILENV\" \"\" \"\" \"\"";
         while ((msg = in.readLine()) != null && (lowLevelFound == false || highLevelFound == false)) {
             lineDecoder(msg);
-            //System.out.println("TEST = "+this.equipmentNumber.equals(this.equipmentNumberFound));
-            //System.out.println("TEST = "+this.stateHighLevel.contains(stateFound));
+            //CommonFunctions.debugLog.error("TEST = "+this.equipmentNumber.equals(this.equipmentNumberFound));
+            //CommonFunctions.debugLog.error("TEST = "+this.stateHighLevel.contains(stateFound));
             if (this.equipmentNumber.equals(this.equipmentNumberFound) && this.stateFound.equals(stateHighLevel) && highLevelFound == false) {
                 highLevelFound = true;
                 comparison("High Level");
@@ -123,7 +124,7 @@ public class ScadaCheck {
         }
         channel.disconnect();
         //session.disconnect();
-        //System.out.println("RESULT = "+this.result);
+            //CommonFunctions.debugLog.error("RESULT = "+this.result);
         return this.result;
     }
 
@@ -144,7 +145,7 @@ public class ScadaCheck {
         index1 = msg.indexOf("||||||") + 6;
         index2 = msg.indexOf("|", index1);
         equipmentDescriptionFound = msg.substring(index1, index2);
-        //System.out.println("INDEX 1= " + index1);
+        //CommonFunctions.debugLog.error("INDEX 1= " + index1);
         this.severityFound = msg.charAt(index1 - 15);
         
         index1 = msg.indexOf("|", index2) + 1;
@@ -161,7 +162,7 @@ public class ScadaCheck {
         index1 = msg.indexOf(":", index2) + 1;
         index2 = msg.indexOf(":", index1);
         this.stationFound = msg.substring(index1, index2);
-        //System.out.println("DESCRIPTION "+ equipmentDescriptionFound+" state= "+stateFound+" equipment code= "+equipmentCodeFound+" equipmentNumber= "+equipmentNumberFound+" Station= "+stationFound);
+        //CommonFunctions.debugLog.error("DESCRIPTION "+ equipmentDescriptionFound+" state= "+stateFound+" equipment code= "+equipmentCodeFound+" equipmentNumber= "+equipmentNumberFound+" Station= "+stationFound);
     }
 
     /**

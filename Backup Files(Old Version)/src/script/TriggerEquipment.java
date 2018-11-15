@@ -8,9 +8,22 @@ package script;
 import DB.Parameters;
 import DB.ParametersExecution;
 import DB.Script;
+import controller.util.CommonFunctions;
 import engine.Result;
-import java.awt.Graphics2D;
-import java.awt.Image;
+import model.Classe;
+import model.HMI;
+import model.Position;
+import model.equipment;
+import org.apache.log4j.Logger;
+import org.sikuli.api.DesktopScreenRegion;
+import org.sikuli.api.ImageTarget;
+import org.sikuli.api.ScreenLocation;
+import org.sikuli.api.ScreenRegion;
+import org.sikuli.api.robot.Mouse;
+import org.sikuli.api.robot.desktop.DesktopMouse;
+
+import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.File;
@@ -23,21 +36,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
-import org.apache.log4j.Logger;
-import javax.imageio.ImageIO;
 import static main.Main.HMIs;
-import model.Classe;
-
-import model.HMI;
-import model.Position;
-import model.equipment;
-import org.sikuli.api.DesktopScreenRegion;
-import org.sikuli.api.ImageTarget;
-import org.sikuli.api.ScreenLocation;
-import org.sikuli.api.ScreenRegion;
-import org.sikuli.api.StyledRectangleTarget;
-import org.sikuli.api.robot.Mouse;
-import org.sikuli.api.robot.desktop.DesktopMouse;
 
 /**
  *
@@ -81,12 +80,12 @@ public class TriggerEquipment implements InterfaceScript {
 
         ArrayList<HMI> zobi = HMIs;
         HMI hmifound = null;
-        System.out.println("name to find : " + nameHMI);
+        CommonFunctions.debugLog.error("name to find : " + nameHMI);
         for (HMI h : zobi) {
-            System.out.println("name hmi : " + h.getName());
+            CommonFunctions.debugLog.error("name hmi : " + h.getName());
             if (h.getName().equals(this.nameHMI)) {
                 hmifound = h;
-                System.out.println("HMI found and name is : " + hmifound.getName());
+                CommonFunctions.debugLog.error("HMI found and name is : " + hmifound.getName());
                 break;
             }
         }
@@ -127,7 +126,7 @@ public class TriggerEquipment implements InterfaceScript {
         tamp = tamp.replace(".png", "");
         actionButton = new ArrayList(Arrays.asList(tamp.split("||")));
 //        for (String s : actionButton) {
-//            System.out.println("Value : " + s);
+//            CommonFunctions.debugLog.error("Value : " + s);
 //        }
         path = path.getParent();
         //String toBeEquals =main.Main.pathForFunctional+"\\testLibrary"; 
@@ -138,14 +137,14 @@ public class TriggerEquipment implements InterfaceScript {
             } else {
 
                 try (BufferedReader br = new BufferedReader(new FileReader(hmifound.getPathHMI() + path.toString() + "\\goto.txt"))) {
-                    //System.out.println("Path is : " + main.Main.pathForFunctional + path.toString() + "\\goto.txt");
+                    //CommonFunctions.debugLog.error("Path is : " + main.Main.pathForFunctional + path.toString() + "\\goto.txt");
                     String sCurrentLine;
 
                     while ((sCurrentLine = br.readLine()) != null) {
                         if (!sCurrentLine.isEmpty()) {
                             String[] ScreenRegion = sCurrentLine.split(",");
-                            System.out.println(sCurrentLine);
-                            System.out.println("toto " + Double.valueOf(ScreenRegion[0]).intValue());
+                            CommonFunctions.debugLog.error(sCurrentLine);
+                            CommonFunctions.debugLog.error("toto " + Double.valueOf(ScreenRegion[0]).intValue());
 //                                Double.valueOf(ScreenRegion[1]).intValue()+
 //                                Double.valueOf(ScreenRegion[2]).intValue()+
 //                                Double.valueOf(ScreenRegion[3]).intValue());
@@ -164,9 +163,9 @@ public class TriggerEquipment implements InterfaceScript {
                     e.printStackTrace();
                 }
 //                toClick.stream().forEach((s) -> {
-//                    //System.out.println("Value : " + s);
+//                    //CommonFunctions.debugLog.error("Value : " + s);
 //                });
-                //System.out.println("path is :" + path);
+                //CommonFunctions.debugLog.error("path is :" + path);
                 path = path.getParent();
             }
         }
@@ -178,11 +177,11 @@ public class TriggerEquipment implements InterfaceScript {
         InitializeButton();
         prepareLayout(actionButton);
         //ScreenRegion sr =  ;
-        System.out.println("EQP : " + currentPosition);
+        CommonFunctions.debugLog.error("EQP : " + currentPosition);
         Thread.sleep(2500);
 
         hashMap.put(this.indexNameReturn, currentPosition);
-        System.out.println("HASH SIZE = " + hashMap.size());
+        CommonFunctions.debugLog.error("HASH SIZE = " + hashMap.size());
         //File outputfile = new File("C:\\Users\\tmartinez\\Desktop\\imagesFunctional\\Equipment" +currentEquipment.getEquipmentName()+"-Date-" +df.format(Calendar.getInstance().getTime()) + ".png");
         //ImageIO.write(currentPosition.getScreenRegion().capture(), "png", outputfile);
         //this.clickOnTarget(currentEquipment.getScreenRegion());
@@ -311,7 +310,7 @@ public class TriggerEquipment implements InterfaceScript {
             } catch (InterruptedException ex) {
                 Logger.getLogger(TriggerEquipment.class.getName()).error("", ex);
             }
-            System.out.println("J'appuie sur " + s);
+            CommonFunctions.debugLog.error("J'appuie sur " + s);
             switch (s) {
                 case "P":
                     plus();
@@ -335,7 +334,7 @@ public class TriggerEquipment implements InterfaceScript {
                     center();
                     break;
                 default:
-                    System.out.println("Key non recognized");
+                    CommonFunctions.debugLog.error("Key non recognized");
                     break;
             }
         });
@@ -375,7 +374,7 @@ public class TriggerEquipment implements InterfaceScript {
         String settingsPath = currentHMI.getPathHMI().toString();
         File[] directories = new File(settingsPath + "\\Settings").listFiles();
         for (File fileImage : directories) {
-            //System.out.println("File path is : " + fileImage.getAbsolutePath());
+            //CommonFunctions.debugLog.error("File path is : " + fileImage.getAbsolutePath());
             if (fileImage.getAbsolutePath().equals(settingsPath + "\\Settings\\plus.png")) {
                 pathUtilitise.set(0, settingsPath + "\\Settings\\plus.png");
             } else if (fileImage.getAbsolutePath().equals(settingsPath + "\\Settings\\minus.png")) {

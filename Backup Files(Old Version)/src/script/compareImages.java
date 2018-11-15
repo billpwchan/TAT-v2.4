@@ -61,8 +61,8 @@
 //////
 //////        Imgproc.matchTemplate(img, templ, result, match_method);
 //////        Core.MinMaxLocResult mmr = Core.minMaxLoc(result);
-//////        System.out.println("MMR max value : " + mmr.maxVal);
-//////        System.out.println("MMR max value : " + mmr.minVal);
+//////        CommonFunctions.debugLog.error("MMR max value : " + mmr.maxVal);
+//////        CommonFunctions.debugLog.error("MMR max value : " + mmr.minVal);
 //////        accuracy = mmr.maxVal;
 //////
 //////        if (mmr.maxVal > (seuil * 100000)) {
@@ -110,9 +110,9 @@
 ////            }
 ////        }
 ////
-////        System.out.println(goodMatch.size() + " good matches found ");
-////        System.out.println("maxDist : " + max_dist);
-////        System.out.println("minDist : " + min_dist);
+////        CommonFunctions.debugLog.error(goodMatch.size() + " good matches found ");
+////        CommonFunctions.debugLog.error("maxDist : " + max_dist);
+////        CommonFunctions.debugLog.error("minDist : " + min_dist);
 ////
 //////Drawing good matches
 ////        Mat img_matches = new Mat();
@@ -171,7 +171,7 @@
 //
 //        Mat image02 = Highgui.imread(image2);//to look
 //        if (image01 == null || image02 == null) {
-//            System.out.println("At least one of the image is null");
+//            CommonFunctions.debugLog.error("At least one of the image is null");
 //            System.exit(0);
 //        }
 //        Mat grayImage01 = new Mat(image01.rows(), image01.cols(), image01.type());
@@ -195,7 +195,7 @@
 ////        matcher.match(descripters01, descripters02, matchs);
 ////        int N = 50;
 ////        DMatch[] tmp01 = matchs.toArray();
-////        System.out.println("temp01 size" + tmp01.length);
+////        CommonFunctions.debugLog.error("temp01 size" + tmp01.length);
 //////        DMatch[] tmp02 = new DMatch[N];
 //////        for (int i = 0; i < tmp02.length; i++) {
 //////            tmp02[i] = tmp01[i];
@@ -237,7 +237,7 @@
 //        Features2d.drawMatches(image01, keyPoint01, image02, keyPoint02, matchs, matchedImage);
 //// 出力画像 at SURF
 //        Highgui.imwrite("D:\\Users\\t0155040\\Desktop\\SURF" + now + ".png", matchedImage);
-//        System.out.println("Number of Matches SURF : " + tmp03.length );
+//        CommonFunctions.debugLog.error("Number of Matches SURF : " + tmp03.length );
 //        Result returnResult = new Result();
 //        returnResult.setComment("Matching value : " + df.format(tmp03.length/20));
 //        if (tmp03.length >= (minimum)) {

@@ -8,7 +8,9 @@ package script;
 import DB.Parameters;
 import DB.ParametersExecution;
 import DB.Script;
+import controller.util.CommonFunctions;
 import engine.Result;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
@@ -36,7 +38,7 @@ public class GetLineFile implements InterfaceScript {
                stringToReturn=currentLine; 
             }
         }catch(Exception e){
-            System.out.println("Exception e= "+e);
+            CommonFunctions.debugLog.error("Exception e= " + e);
         }
         tableToReturn.add(stringToReturn);
         hashMap.put(bufferName, tableToReturn);

@@ -8,14 +8,16 @@ package script;
 import DB.Parameters;
 import DB.ParametersExecution;
 import DB.Script;
+import controller.util.CommonFunctions;
 import engine.Result;
+import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
+
 import java.io.File;
 import java.net.URL;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
-import javafx.scene.image.Image;
-import javafx.scene.paint.Color;
 
 /**
  *
@@ -36,11 +38,11 @@ public class testColorImage implements InterfaceScript {
         if (this.imagePath.contains("@&Buffer_")) {
             this.imagePath = (String) hashMap.get(this.imagePath);
         }
-        System.out.println("Path is :" + this.imagePath.trim());
+        CommonFunctions.debugLog.error("Path is :" + this.imagePath.trim());
         DecimalFormat df = new DecimalFormat("###.###");
 
         int countPixel = 0;
-        System.out.println("Color is : "+color.trim());
+        CommonFunctions.debugLog.error("Color is : " + color.trim());
         Color col = Color.web(color.trim());
         File file = new File(imagePath.trim());
         URL url = file.toURI().toURL();

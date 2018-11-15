@@ -57,7 +57,7 @@ public class IEC104InitConnection implements InterfaceScript {
         Instant before = Instant.now();
         while ((line123 = br.readLine()) != null && !line123.contains("Supervisory") && Duration.between(before, Instant.now()).toMillis() < 10000) {
             //Should be finished initialization
-            System.out.println(line123);
+            CommonFunctions.debugLog.error(line123);
         }
         br.close();
         isr.close();

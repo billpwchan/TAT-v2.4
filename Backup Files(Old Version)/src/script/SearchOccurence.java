@@ -7,6 +7,7 @@ package script;
 
 import DB.ParametersExecution;
 import com.jcraft.jsch.JSchException;
+import controller.util.CommonFunctions;
 import engine.Result;
 
 import java.io.IOException;
@@ -46,7 +47,7 @@ public class SearchOccurence {
     public Result run(ArrayList<ParametersExecution> parameters, HashMap hashMap) throws JSchException, IOException {
         Result result = new Result();
         result.setResult("NOK");
-        System.out.println("enter search occurence");
+        CommonFunctions.debugLog.error("enter search occurence");
         this.toCompare = parameters.get(1).getValue().trim();
         if (this.toCompare.contains("@&Buffer_")) {
             this.toCompare = (String) ((ArrayList) hashMap.get(this.toCompare)).get(0);         //Special case
@@ -54,8 +55,8 @@ public class SearchOccurence {
         this.regularExpression = parameters.get(2).getValue().trim();
         this.hashMapIndex = parameters.get(3).getValue().trim();
         this.arrayToSearchIn = (ArrayList<String>) hashMap.get(this.hashMapIndex);
-        //System.out.println("ARRAY = " + this.arrayToSearchIn);
-        System.out.println("buffer size= " + this.arrayToSearchIn.size());
+        //CommmonFunctions.debugLog.error("ARRAY = " + this.arrayToSearchIn);
+        CommonFunctions.debugLog.error("buffer size= " + this.arrayToSearchIn.size());
         if (this.arrayToSearchIn.isEmpty()) {
             result.setComment("No lines found");
         } else {
@@ -85,7 +86,7 @@ public class SearchOccurence {
                         compare = compare + ".0";
                     }
 
-                    System.out.println("Compare: " + compare);
+                    CommonFunctions.debugLog.error("Compare: " + compare);
 
                     if (compare.equals(this.toCompare)) {
                         result.setResult("OK");
@@ -93,7 +94,7 @@ public class SearchOccurence {
                         result.setComment("Missmatch \n" + "Searched : " + this.toCompare + "\n" + "Found = " + compare);
                     }
                 } catch (Exception e) {
-                    System.out.println("in catch = " + e);
+                    CommonFunctions.debugLog.error("in catch = " + e);
                     result.setComment("Mismatch \n" + "Searched: " + this.toCompare + "\n" + "Found = " + "ErrorInVerificationOfHMI");
                 }
 
@@ -103,9 +104,9 @@ public class SearchOccurence {
                     result.setResult("OK");
                 }
             }
-//            System.out.println("COMPARE = " + compare);
-//            System.out.println("COMPARE = " + toCompare);
-//            System.out.println("EQUALS = " + compare.equals(this.toCompare));
+//            CommmonFunctions.debugLog.error("COMPARE = " + compare);
+//            CommmonFunctions.debugLog.error("COMPARE = " + toCompare);
+//            CommmonFunctions.debugLog.error("EQUALS = " + compare.equals(this.toCompare));
         }
         return result;
     }

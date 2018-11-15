@@ -6,7 +6,17 @@
 package script;
 
 import DB.ParametersExecution;
+import controller.util.CommonFunctions;
 import engine.Result;
+import javafx.application.Platform;
+import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.scene.Node;
+import javafx.scene.control.ButtonBar.ButtonData;
+import javafx.scene.control.*;
+import javafx.scene.layout.GridPane;
+import javafx.scene.text.Font;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,18 +24,6 @@ import java.util.Optional;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
-import javafx.application.Platform;
-import javafx.event.EventHandler;
-import javafx.geometry.Insets;
-import javafx.scene.Node;
-import javafx.scene.control.ButtonBar.ButtonData;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Dialog;
-import javafx.scene.control.DialogEvent;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.GridPane;
-import javafx.scene.text.Font;
 
 /**
  * Method to display text in the command line.
@@ -55,7 +53,7 @@ public class popUpCheck {
      * @throws ExecutionException
      */
     public Result run(ArrayList<ParametersExecution> parameters, HashMap hashMap) throws IOException, InterruptedException, ExecutionException {
-        System.out.println("JE RENTRE DANS POPUP");
+        CommonFunctions.debugLog.error("JE RENTRE DANS POPUP");
         this.humanCheck = parameters.get(1).getValue().trim();
         if (this.humanCheck.contains("@&Buffer_")) {
             this.humanCheck = (String) hashMap.get(this.humanCheck);
@@ -73,7 +71,7 @@ public class popUpCheck {
         result = futureTask.get();
         finalResult.setComment(result.get().getComment());
         finalResult.setResult(result.get().getResult());
-        //System.out.println("RESULTAT DE LA DIALOG= " + result.get().getResult());
+        //CommonFunctions.debugLog.error("RESULTAT DE LA DIALOG= " + result.get().getResult());
 //        result = futureTask.get();
 //        if (result.get()==buttonOK) {
 //            finalResult.setResult("OK");

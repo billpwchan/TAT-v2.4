@@ -9,6 +9,7 @@ package script;
 import DB.Parameters;
 import DB.ParametersExecution;
 import DB.Script;
+import controller.util.CommonFunctions;
 import engine.Result;
 import net.wimpi.modbus.procimg.SimpleProcessImage;
 import net.wimpi.modbus.procimg.SimpleRegister;
@@ -55,20 +56,20 @@ public class TriggerModbusPointDI implements InterfaceScript {
     public void updateHoldingRegister(SimpleProcessImage processImage, int register, double newValue) throws InterruptedException {
 
         processImage.setRegister((int) register, new SimpleRegister((int) newValue));
-        //System.out.println("updateHoldingReg = "+ register);
+        //CommonFunctions.debugLog.error("updateHoldingReg = "+ register);
 
-        //System.out.println("Register is : " + newValue + " value is :" + register);
+        //CommonFunctions.debugLog.error("Register is : " + newValue + " value is :" + register);
         Thread.sleep(500);
     }
 
     private void updateInputRegister(SimpleProcessImage instance, int register, double value) throws InterruptedException {
 
         instance.setInputRegister((int) register, new SimpleRegister((int) value));
-        System.out.println("Number of inputRegCount: " + instance.getInputRegisterCount());
+        CommonFunctions.debugLog.error("Number of inputRegCount: " + instance.getInputRegisterCount());
 
-        System.out.println("reg " + (int) register + " SimRegValue " + (int) value);
+        CommonFunctions.debugLog.error("reg " + (int) register + " SimRegValue " + (int) value);
 
-//      System.out.println("updateinputReg = "+ register);
+//      CommonFunctions.debugLog.error("updateinputReg = "+ register);
         Thread.sleep(500);
     }
 
@@ -96,7 +97,7 @@ public class TriggerModbusPointDI implements InterfaceScript {
 //            this.value = Math.pow(2, (int) this.stringValue.charAt(1)) + Math.pow(2, (int) this.stringValue.charAt(0));
 //        } else {
         int val = (int) Double.parseDouble(this.stringValue);
-        //System.out.println("VALUE AFTER CAST" + val);
+        //CommonFunctions.debugLog.error("VALUE AFTER CAST" + val);
         this.value = (int) Math.pow(2, val);
 //this.value = Math.pow(2,Integer.valueOf(this.stringValue)) ;
 //        }
@@ -118,21 +119,21 @@ public class TriggerModbusPointDI implements InterfaceScript {
                 try {
                     if (!this.stringValue.equals("0")) {
                         SimpleProcessImage instance = LaunchTCPServerModbus.getInstance();
-                        System.out.println("Register: " + register + " value: " + value);
+                        CommonFunctions.debugLog.error("Register: " + register + " value: " + value);
                         updateInputRegister(instance, register, value);
                     } else {
                         SimpleProcessImage instance = LaunchTCPServerModbus.getInstance();
-                        System.out.println("Register: " + register + " value: " + value);
+                        CommonFunctions.debugLog.error("Register: " + register + " value: " + value);
                         updateInputRegister(instance, register, 0);
                     }
                 } catch (Exception ex) {
-                    System.out.println("Exception caught.");
+                    CommonFunctions.debugLog.error("Exception caught.");
                     ex.printStackTrace();
                     Logger.getLogger(TriggerModbusPointDI.class.getName()).error("", ex);
                 }
                 break;
             default:
-                //System.out.println("Error, neither AI,DI or DI2 where found !");
+                //CommonFunctions.debugLog.error("Error, neither AI,DI or DI2 where found !");
                 break;
         }
         return new Result();

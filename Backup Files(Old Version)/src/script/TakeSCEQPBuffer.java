@@ -8,16 +8,16 @@ package script;
 import DB.Parameters;
 import DB.ParametersExecution;
 import DB.Script;
+import controller.util.CommonFunctions;
 import engine.Result;
+import model.Position;
+
+import javax.imageio.ImageIO;
 import java.io.File;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.HashMap;
-import javax.imageio.ImageIO;
-import model.Position;
-import script.InterfaceScript;
 
 /**
  *
@@ -46,7 +46,7 @@ public class TakeSCEQPBuffer implements InterfaceScript {
         File outputfile = new File(savedImagePath);
         ImageIO.write(position.getScreenRegion().capture(), "png", outputfile);
         hashMap.put(this.indexNameReturn, savedImagePath);
-        System.out.println("Path of image is : "+savedImagePath);
+        CommonFunctions.debugLog.error("Path of image is : " + savedImagePath);
         Thread.sleep(500);
         return null;
     }

@@ -5,16 +5,19 @@ package script;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 import DB.ParametersExecution;
+import controller.util.CommonFunctions;
+import net.wimpi.modbus.procimg.SimpleProcessImage;
+import net.wimpi.modbus.procimg.SimpleRegister;
+import org.apache.log4j.Logger;
+
 import java.text.DecimalFormat;
-//import configuration.ParametersScript;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
-import org.apache.log4j.Logger;
-import net.wimpi.modbus.procimg.SimpleProcessImage;
-import net.wimpi.modbus.procimg.SimpleRegister;
+//import configuration.ParametersScript;
 
 /**
  *
@@ -67,20 +70,20 @@ public class TriggerModbusPointAI {
         this.indexNameReturn = parameters.get(5).getValue().trim();
 
         int newInt = randInt(lowValue, maxValue);
-        //System.out.println("Scaling factor is :" + scalingFactor + "\n scaling factor by 1 is : " + scalingFactor * 1);
+        //CommonFunctions.debugLog.error("Scaling factor is :" + scalingFactor + "\n scaling factor by 1 is : " + scalingFactor * 1);
         //double formatInt =Math.round(((newInt * scalingFactor)*100)/100);
 
         double formatIntTest = (newInt * scalingFactor);
         DecimalFormat df = new DecimalFormat("#####0.00");
 
         // round(formatInt,2);
-        //System.out.println(" new int value is : " + newInt + "\n value with format is : " + formatInt);
+        //CommonFunctions.debugLog.error(" new int value is : " + newInt + "\n value with format is : " + formatInt);
         //String toReturn = String.format("%1.6e", formatInt);
         String toReturn = String.valueOf(df.format(formatIntTest));
-        //System.out.println("String to return is :" + toReturn);
+        //CommonFunctions.debugLog.error("String to return is :" + toReturn);
         switch (LaunchTCPServerModbus.serverType) {
 
-            // System.out.println();
+            // CommonFunctions.debugLog.error();
             case "HR":
                 try {
                     SimpleProcessImage instance = LaunchTCPServerModbus.getInstance();
@@ -98,7 +101,7 @@ public class TriggerModbusPointAI {
                 }
                 break;
             default:
-                System.out.println("Error, neither AI,DI or DI2 where found !");
+                CommonFunctions.debugLog.error("Error, neither AI,DI or DI2 where found !");
                 break;
         }
         hashMap.put(this.indexNameReturn, toReturn);
@@ -116,7 +119,7 @@ public class TriggerModbusPointAI {
 
         processImage.setRegister((int) register, new SimpleRegister((int) value));
 
-        //System.out.println("Register is : " + register + " value is :" + value);
+        //CommonFunctions.debugLog.error("Register is : " + register + " value is :" + value);
         Thread.sleep(500);
     }
 
