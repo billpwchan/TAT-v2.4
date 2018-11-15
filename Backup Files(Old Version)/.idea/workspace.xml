@@ -11,10 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c889ef52-46c0-4f96-a7a0-3467c1158425" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reports/novDi2_Report_Iteration_1.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Reports/novDi2_Report_Iteration_1.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/log/log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/user_history.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/user_history.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mydb.db" beforeDir="false" afterPath="$PROJECT_DIR$/mydb.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/WriteReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/WriteReport.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -128,17 +124,17 @@
           <entry key="cell" value="692" />
           <entry key="dummy" value="1" />
           <entry key="ini" value="2" />
-          <entry key="java" value="6338" />
+          <entry key="java" value="6378" />
           <entry key="snippet" value="278" />
           <entry key="sql" value="558" />
-          <entry key="txt" value="987" />
+          <entry key="txt" value="1019" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Ini" value="2" />
-          <entry key="JAVA" value="6338" />
-          <entry key="PLAIN_TEXT" value="988" />
+          <entry key="JAVA" value="6378" />
+          <entry key="PLAIN_TEXT" value="1020" />
           <entry key="SQL" value="101" />
           <entry key="Scratch" value="1427" />
         </counts>
@@ -153,8 +149,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/model/WriteReport.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="330" lean-forward="true" selection-start-line="330" selection-end-line="330" />
+            <state relative-caret-position="4180">
+              <caret line="670" column="16" lean-forward="true" selection-start-line="670" selection-start-column="16" selection-end-line="670" selection-end-column="16" />
               <folding>
                 <element signature="e#46820#46821#0" expanded="true" />
                 <element signature="e#46852#46853#0" expanded="true" />
@@ -466,7 +462,7 @@
       <workItem from="1542217410815" duration="1550000" />
       <workItem from="1542249227833" duration="339000" />
       <workItem from="1542249704527" duration="1074000" />
-      <workItem from="1542255901699" duration="4457000" />
+      <workItem from="1542255901699" duration="4698000" />
     </task>
     <task id="LOCAL-00001" summary="Able to create baseline and input value to IEC104slave.ini file on run-time.">
       <created>1539016208060</created>
@@ -580,11 +576,18 @@
       <option name="project" value="LOCAL" />
       <updated>1542219048288</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Report Function support SOE Type">
+      <created>1542260459981</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1542260459982</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="118274000" />
+    <option name="totallyTimeSpent" value="118515000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -657,7 +660,8 @@
     <MESSAGE value="SOE2 Complete" />
     <MESSAGE value="Rearrange Assets (Create new package named 'assets')" />
     <MESSAGE value="Pending Write Report Adjustment" />
-    <option name="LAST_COMMIT_MESSAGE" value="Pending Write Report Adjustment" />
+    <MESSAGE value="Report Function support SOE Type" />
+    <option name="LAST_COMMIT_MESSAGE" value="Report Function support SOE Type" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -692,12 +696,6 @@
           <line>501</line>
           <properties />
           <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/model/WriteReport.java</url>
-          <line>545</line>
-          <properties />
-          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -880,8 +878,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/WriteReport.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="330" lean-forward="true" selection-start-line="330" selection-end-line="330" />
+        <state relative-caret-position="4180">
+          <caret line="670" column="16" lean-forward="true" selection-start-line="670" selection-start-column="16" selection-end-line="670" selection-end-column="16" />
           <folding>
             <element signature="e#46820#46821#0" expanded="true" />
             <element signature="e#46852#46853#0" expanded="true" />

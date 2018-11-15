@@ -551,8 +551,7 @@ public class WriteReport {
                 }
 
                 //write register and offset
-                if (scriptType.contains("DI")) {
-                    if (caseNum != 0 && stepNumber != 0 && scriptValidation(totalSteps, stepNumber)) { //
+                if ((scriptType.contains("DI") && caseNum != 0 && stepNumber != 0 && scriptValidation(totalSteps, stepNumber)) || ((stepNumber > 1 && (stepNumber != totalSteps - 1)) && scriptType.contains("SOE"))) {
                         Row row = this.sheet.createRow(this.currentRow);
                         Cell cellR = row.createCell(1); //column = 1
                         cellR.setCellValue(overallStepResult);
@@ -669,122 +668,7 @@ public class WriteReport {
                         cell = reportRow.createCell(this.colv0_State + offset * 3);
                         cell.setCellValue(severity > 0 ? "A" : "N");
                     }
-                } else if (scriptType.contains("SOE")) {
-                    if (stepNumber > 1 && (stepNumber != totalSteps - 1)) { //
-                        Row row = this.sheet.createRow(this.currentRow);
-                        Cell cellR = row.createCell(1); //column = 1
-                        cellR.setCellValue(overallStepResult);
-                        if (overallStepResult.equals("NOK")) {
-                            CellStyle red = getRedCellStyle(this.workbook);
-                            cellR.setCellStyle(red);
-                        }
-                        cell = row.createCell(3);
-                        cell.setCellValue(registerList.get(0));         //Register
-                        if (reportDuplicateCheck(reportRow, this.colRegister_Address + (this.reportMaxStep - 1) * 3)) {
-                            cell = reportRow.createCell(this.colRegister_Address + (this.reportMaxStep - 1) * 3);
-                            cell.setCellValue(registerList.get(0));
 
-                        }
-                        Cell cell2 = row.createCell(4);
-                        cell2.setCellValue(registerList.get(1));        //Register Offset
-                        if (reportDuplicateCheck(reportRow, this.colBit_offset + (this.reportMaxStep - 1) * 3)) {
-                            cell = reportRow.createCell(this.colBit_offset + (this.reportMaxStep - 1) * 3);
-                            cell.setCellValue(registerList.get(1));
-
-                        }
-                        Cell cell3 = row.createCell(2);
-                        cell3.setCellValue(scriptType);                 //Data Type
-                        if (reportDuplicateCheck(reportRow, this.colDC_Data_Type)) {
-                            cell = reportRow.createCell(this.colDC_Data_Type);
-                            cell.setCellValue(scriptType);
-                        }
-
-                        Cell cell4 = row.createCell(5);
-                        cell4.setCellValue(String.valueOf((stepNumber) % maxStep));         //Triggering State
-
-                        if (reportDuplicateCheck(reportRow, this.colAssociatedDefect + (this.reportMaxStep - 1) * 3)) {       //Associated Defect
-                            cell = reportRow.createCell(this.colAssociatedDefect + (this.reportMaxStep - 1) * 3);
-                            cell.setCellStyle(cellStyle5);
-                        }
-
-                        if (reportDuplicateCheck(reportRow, this.colCommentOnResult + (this.reportMaxStep - 1) * 3)) {       //Comment on Result
-                            cell = reportRow.createCell(this.colCommentOnResult + (this.reportMaxStep - 1) * 3);
-                            cell.setCellStyle(cellStyle5);
-                            Hyperlink rawReportLink = createHelper.createHyperlink(Hyperlink.LINK_DOCUMENT);
-                            rawReportLink.setAddress("'Raw Result'!" + (this.currentRow) + ":" + (this.currentRow));
-                            cell.setHyperlink(rawReportLink);
-                            cell.setCellValue("Link to Raw Result");
-                        }
-
-                        if (reportDuplicateCheck(reportRow, this.colSystemVersionUnderTest + (this.reportMaxStep - 1) * 3)) {       //System Version Under Test
-                            cell = reportRow.createCell(this.colSystemVersionUnderTest + (this.reportMaxStep - 1) * 3);
-                            cell.setCellStyle(cellStyle5);
-                        }
-
-                        if (reportDuplicateCheck(reportRow, this.colDate + (this.reportMaxStep - 1) * 3)) {       //Operation Date
-                            cell = reportRow.createCell(this.colDate + (this.reportMaxStep - 1) * 3);
-                            cell.setCellValue(iteration.getDate());
-                            cell.setCellStyle(cellStyle5);
-                        }
-
-                        if (reportDuplicateCheck(reportRow, this.colTester + (this.reportMaxStep - 1) * 3)) {       //Tester
-                            cell = reportRow.createCell(this.colTester + (this.reportMaxStep - 1) * 3);
-                            cell.setCellValue("TAT");
-                            cell.setCellStyle(cellStyle5);
-                        }
-
-                        //write parameters in Raw Report
-                        for (int i = 0; i < paramSearchList.size(); i++) {
-                            Cell cellS = row.createCell(tempHeader.length + 2 * i);
-                            Cell cellF = row.createCell(tempHeader.length + 2 * i + 1);
-                            String search = "";
-                            String found = "";
-                            try {
-                                search = paramSearchList.get(i);
-                                found = paramFoundList.get(i);
-                            } catch (IndexOutOfBoundsException ex) {
-                                found = "N/A";
-                            }
-                            cellS.setCellValue(search);
-                            cellF.setCellValue(found);
-                            if (!search.equals(found)) {
-                                CellStyle red = getRedCellStyle(this.workbook);
-                                cellS.setCellStyle(red);
-                                cellF.setCellStyle(red);
-                            }
-                        }
-                        this.currentRow++;
-
-                        //write parameters in Report. Assume there's always 6 in paramSearchList.  These are before v0 columns.
-                        if (reportDuplicateCheck(reportRow, this.colStation)) {
-                            cell = reportRow.createCell(this.colStation);
-                            cell.setCellValue(paramSearchList.get(0));
-                        }
-                        if (reportDuplicateCheck(reportRow, this.colEqpt_Description)) {
-                            cell = reportRow.createCell(this.colEqpt_Description);
-                            cell.setCellValue(paramSearchList.get(1));
-                        }
-                        if (reportDuplicateCheck(reportRow, this.colEqpt_Identifier)) {
-                            cell = reportRow.createCell(this.colEqpt_Identifier);
-                            cell.setCellValue(paramSearchList.get(3));
-
-                        }
-                        if (reportDuplicateCheck(reportRow, this.colAttribute_Description)) {
-                            cell = reportRow.createCell(this.colAttribute_Description);
-                            cell.setCellValue(paramSearchList.get(4));
-
-                        }
-
-                        int offset = stepNumber % maxStep;  //In unit of 3
-                        cell = reportRow.createCell(this.colv0_label0 + offset * 3);
-                        cell.setCellValue(paramSearchList.get(5));
-                        cell = reportRow.createCell(this.colv0_Severity + offset * 3);
-                        Double severity = Double.parseDouble(paramSearchList.get(6));
-                        cell.setCellValue(severity.intValue());
-                        cell = reportRow.createCell(this.colv0_State + offset * 3);
-                        cell.setCellValue(severity > 0 ? "A" : "N");
-                    }
-                }
 
                 System.out.println("Step result of above step:" + overallStepResult + "\n");
                 stepNumber++;
