@@ -9,32 +9,13 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c889ef52-46c0-4f96-a7a0-3467c1158425" name="Default Changelist" comment="Some Meaningful Content">
-      <change beforePath="$PROJECT_DIR$/../.idea/artifacts/TAT_V2_3_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/dataSources.local.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/dataSources/079e1941-a342-489e-88f3-9dbc2c5243ea/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/dataSources/91702316-8f1d-4edb-8550-af8db0bd678f/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Java_EE_6_Java_EE_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Libraries.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" />
+    <list default="true" id="c889ef52-46c0-4f96-a7a0-3467c1158425" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IEC104slave.ini" beforeDir="false" afterPath="$PROJECT_DIR$/IEC104slave.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reports/HelloWorld_Report_Iteration_1.xlsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Reports/novDi2_Report_Iteration_1.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Reports/novDi2_Report_Iteration_1.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/log/log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log/user_history.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/user_history.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mydb.db" beforeDir="false" afterPath="$PROJECT_DIR$/mydb.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/popup/PopUpRunController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/popup/PopUpRunController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/popup/PopUpWizardScriptController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/popup/PopUpWizardScriptController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/tabtestexecution/TabTestCampaignExecutionMainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/tabtestexecution/TabTestCampaignExecutionMainViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/WriteReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/WriteReport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/script/IEC104InitConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/IEC104InitConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/script/TriggerIEC104Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/TriggerIEC104Point.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -77,9 +58,9 @@
     <session id="30367687">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="41" />
+          <entry key="project.closed" value="44" />
           <entry key="project.open.time.1" value="2" />
-          <entry key="project.open.time.10" value="7" />
+          <entry key="project.open.time.10" value="9" />
           <entry key="project.open.time.11" value="5" />
           <entry key="project.open.time.12" value="3" />
           <entry key="project.open.time.13" value="1" />
@@ -92,8 +73,8 @@
           <entry key="project.open.time.5" value="3" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.8" value="3" />
-          <entry key="project.open.time.9" value="9" />
-          <entry key="project.opened" value="45" />
+          <entry key="project.open.time.9" value="10" />
+          <entry key="project.opened" value="48" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -111,7 +92,7 @@
           <entry key="parameters" value="2" />
           <entry key="parameters_execution" value="1" />
           <entry key="properties" value="1" />
-          <entry key="script" value="14" />
+          <entry key="script" value="15" />
           <entry key="script_execution_result" value="1" />
           <entry key="script_executions" value="4" />
           <entry key="script_has_been_configured" value="3" />
@@ -132,7 +113,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="1" />
-          <entry key="Database Element" value="102" />
+          <entry key="Database Element" value="103" />
           <entry key="Ini" value="4" />
           <entry key="JAVA" value="91" />
           <entry key="Properties" value="1" />
@@ -147,17 +128,17 @@
           <entry key="cell" value="692" />
           <entry key="dummy" value="1" />
           <entry key="ini" value="2" />
-          <entry key="java" value="5313" />
+          <entry key="java" value="6338" />
           <entry key="snippet" value="278" />
           <entry key="sql" value="558" />
-          <entry key="txt" value="954" />
+          <entry key="txt" value="987" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Ini" value="2" />
-          <entry key="JAVA" value="5313" />
-          <entry key="PLAIN_TEXT" value="955" />
+          <entry key="JAVA" value="6338" />
+          <entry key="PLAIN_TEXT" value="988" />
           <entry key="SQL" value="101" />
           <entry key="Scratch" value="1427" />
         </counts>
@@ -168,12 +149,25 @@
     <favorites_list name="Backup Files(Old Version)" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/model/WriteReport.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="74">
-              <caret line="498" column="37" lean-forward="true" selection-start-line="498" selection-start-column="37" selection-end-line="498" selection-end-column="37" />
+            <state relative-caret-position="198">
+              <caret line="330" lean-forward="true" selection-start-line="330" selection-end-line="330" />
+              <folding>
+                <element signature="e#46820#46821#0" expanded="true" />
+                <element signature="e#46852#46853#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/script">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
             </state>
           </provider>
         </entry>
@@ -182,7 +176,7 @@
         <entry file="file://$PROJECT_DIR$/src/script/TriggerIEC104Point.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1408">
-              <caret line="76" column="50" lean-forward="true" selection-start-line="76" selection-start-column="50" selection-end-line="76" selection-end-column="50" />
+              <caret line="76" column="50" selection-start-line="76" selection-start-column="50" selection-end-line="76" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -190,7 +184,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/script/IEC104InitConnection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
+            <state relative-caret-position="308">
               <caret line="32" column="82" selection-start-line="32" selection-start-column="82" selection-end-line="32" selection-end-column="82" />
             </state>
           </provider>
@@ -297,7 +291,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -321,6 +314,7 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -469,7 +463,10 @@
       <workItem from="1542089753586" duration="3772000" />
       <workItem from="1542112926363" duration="23000" />
       <workItem from="1542173517556" duration="600000" />
-      <workItem from="1542217410815" duration="1518000" />
+      <workItem from="1542217410815" duration="1550000" />
+      <workItem from="1542249227833" duration="339000" />
+      <workItem from="1542249704527" duration="1074000" />
+      <workItem from="1542255901699" duration="4457000" />
     </task>
     <task id="LOCAL-00001" summary="Able to create baseline and input value to IEC104slave.ini file on run-time.">
       <created>1539016208060</created>
@@ -576,11 +573,18 @@
       <option name="project" value="LOCAL" />
       <updated>1542074381785</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Pending Write Report Adjustment">
+      <created>1542219048288</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1542219048288</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="112372000" />
+    <option name="totallyTimeSpent" value="118274000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -595,16 +599,16 @@
     <frame x="-6" y="-6" width="1549" height="837" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49722737" visible="true" weight="0.167002" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49722737" visible="true" weight="0.17347622" />
       <window_info id="Structure" order="1" sideWeight="0.5021552" side_tool="true" weight="0.229069" />
       <window_info id="Persistence" order="2" sideWeight="0.5009242" side_tool="true" weight="0.22103149" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Favorites" order="5" sideWeight="0.4990758" weight="0.22103149" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32561505" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4996651" weight="0.14327063" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.37771347" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.18208092" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4996651" visible="true" weight="0.13728324" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3236994" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32947975" />
@@ -613,14 +617,14 @@
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.32850942" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5003349" side_tool="true" weight="0.26772794" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.32561505" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.3251445" />
       <window_info anchor="bottom" id="Java Enterprise" order="13" weight="0.32947975" />
       <window_info anchor="bottom" id="Inspection Results" order="14" weight="0.3299566" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Database" order="4" weight="0.23474178" />
+      <window_info anchor="right" id="Database" order="4" weight="0.23442733" />
       <window_info anchor="right" id="Palette&#9;" order="5" />
       <window_info anchor="right" id="Maven Projects" order="6" weight="0.32953784" />
     </layout>
@@ -652,7 +656,8 @@
     <MESSAGE value="NoSleep Script is workable. Add bufferReader.close() in IECInitConnection." />
     <MESSAGE value="SOE2 Complete" />
     <MESSAGE value="Rearrange Assets (Create new package named 'assets')" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rearrange Assets (Create new package named 'assets')" />
+    <MESSAGE value="Pending Write Report Adjustment" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pending Write Report Adjustment" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -669,6 +674,30 @@
           <line>32</line>
           <properties />
           <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/model/WriteReport.java</url>
+          <line>410</line>
+          <properties />
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/model/WriteReport.java</url>
+          <line>475</line>
+          <properties />
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/model/WriteReport.java</url>
+          <line>501</line>
+          <properties />
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/model/WriteReport.java</url>
+          <line>545</line>
+          <properties />
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -707,14 +736,14 @@
     <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/script_execution_result" />
     <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/parameters_execution" />
     <entry file="file://$PROJECT_DIR$/src/assets/view/testcase/TabTestCaseLibrary.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1254" />
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/assets/view/TATFrame.fxml">
-      <provider editor-type-id="text-editor" />
       <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+      <provider editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/script/SearchOccurence.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -738,12 +767,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/assets/view/popup/popUPRequirementSelection.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
           <caret line="10" column="187" selection-start-line="10" selection-start-column="187" selection-end-line="10" selection-end-column="187" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/iterations" />
     <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/test_step" />
@@ -782,9 +811,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
           <caret line="20" column="44" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -795,7 +821,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/script" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/c439b569-bf95-4aed-8c87-3099ddb4d676/console.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="484">
@@ -853,24 +878,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/WriteReport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="330" lean-forward="true" selection-start-line="330" selection-end-line="330" />
+          <folding>
+            <element signature="e#46820#46821#0" expanded="true" />
+            <element signature="e#46852#46853#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/script">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/script/TriggerIEC104Point.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1408">
-          <caret line="76" column="50" lean-forward="true" selection-start-line="76" selection-start-column="50" selection-end-line="76" selection-end-column="50" />
+          <caret line="76" column="50" selection-start-line="76" selection-start-column="50" selection-end-line="76" selection-end-column="50" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/script/IEC104InitConnection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
+        <state relative-caret-position="308">
           <caret line="32" column="82" selection-start-line="32" selection-start-column="82" selection-end-line="32" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/WriteReport.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="74">
-          <caret line="498" column="37" lean-forward="true" selection-start-line="498" selection-start-column="37" selection-end-line="498" selection-end-column="37" />
         </state>
       </provider>
     </entry>

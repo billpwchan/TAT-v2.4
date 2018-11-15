@@ -2280,3 +2280,9 @@
 		Script 1 Expected Result: Search occurrence
 
 2018-11-13 18:13:22 | TabTestCaseEditController.java |  INFO | reportsLogger : Successfully saved test case: Trigger DI
+2018-11-15 12:25:39 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User assets.view Iteration: IEC test2
+2018-11-15 12:25:45 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User assets.view Iteration: IEC test 3
+2018-11-15 13:05:50 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User assets.view Iteration: NOV_test_withIOList
+2018-11-15 13:05:57 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User assets.view Iteration: novDi2
+2018-11-15 13:08:57 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User assets.view Iteration: IEC test
+2018-11-15 13:09:18 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User assets.view Iteration: IEC test

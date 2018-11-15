@@ -81,9 +81,9 @@ public class WriteReport {
 
     private static final HashMap<String, Integer> caseExeResult = new HashMap<>();
 
-    private static final String[] scriptTypeName = {"DI2", "DI", "AI"};      //DI2 has to be the first element (It will iterate through each element)
+    private static final String[] scriptTypeName = {"DI2", "DI", "AI", "IEC"};      //DI2 has to be the first element (It will iterate through each element)
 
-    private static final Integer[] scriptTypeMaxStep = {4, 2, 2};
+    private static final Integer[] scriptTypeMaxStep = {4, 2, 2, 4};
 
     private int reportMaxStep = 0;
 
@@ -265,26 +265,18 @@ public class WriteReport {
         this.campaignID = iteration.getTestCampaign().getIdtestCampaign();
         this.baselineID = iteration.getBaselineId();
         ArrayList<CaseExecutions> caseExecutionsList = testCaseExecution.PrepareCaseDisplayResults(baselineID, iteration.getIterationNumber());
-        Iterator<CaseExecutions> itCaseEx = caseExecutionsList.listIterator();
-        while (itCaseEx.hasNext()) {
-            CaseExecutions currCaseEx = itCaseEx.next();
-
+        for (CaseExecutions currCaseEx : caseExecutionsList) {
             testCaseExecution.PrepareStepsScriptsParametersDisplayResults(currCaseEx, iteration);
             testCaseExecution.prepareCaseDisplay(currCaseEx);
-
             Set<StepExecutions> stepExSet = currCaseEx.getStepExecutionses();
-            Iterator<StepExecutions> itStepEx = stepExSet.iterator();
-            while (itStepEx.hasNext()) {
-                StepExecutions currStepEx = itStepEx.next();
+            for (StepExecutions currStepEx : stepExSet) {
                 Set<ScriptExecutions> scriptExSet = currStepEx.getScriptExecutionses();
-                Iterator<ScriptExecutions> itScriptEx = scriptExSet.iterator();
-                while (itScriptEx.hasNext()) {
-                    ScriptExecutions scriptEx = itScriptEx.next();
-
+                for (ScriptExecutions scriptEx : scriptExSet) {
                     Script script = scriptEx.getScript();
                     for (int i = 0; i < scriptTypeName.length; i++) {
                         if (script.getName().contains(scriptTypeName[i])) {
-                            this.reportMaxStep = scriptTypeMaxStep[i] > this.reportMaxStep ? scriptTypeMaxStep[i] : this.reportMaxStep;
+                            this.scriptTypeGlobal = scriptTypeName[i];
+                            this.reportMaxStep = Math.max(scriptTypeMaxStep[i], this.reportMaxStep);
                         }
                     }
                 }
@@ -338,7 +330,7 @@ public class WriteReport {
             WriteReport.caseExeResult.put("Test case result", WriteReport.caseExeResult.get("Test case result") + 1);
 
             System.out.println("                            Overall Case Result: " + res + "\n");
-            if (caseNum != 0) {     //Manipulate result in both Report worksheet & Raw Result Worksheet.
+            if (!this.scriptTypeGlobal.contains("DI") || (caseNum != 0)) {     //Manipulate result in both Report worksheet & Raw Result Worksheet.
                 this.currentRowGlobal = this.currentRow;
                 Row row = this.sheet.createRow(this.currentRow);
                 cell = row.createCell(0);
@@ -429,13 +421,9 @@ public class WriteReport {
                         scriptType = "AI";
                         this.scriptTypeGlobal = "AI";
                         maxStep = 2;
-                    } else if (script.getName().contains("SOE1")) {
-                        scriptType = "SOE1";
-                        this.scriptTypeGlobal = "SOE1";
-                        maxStep = 2;
-                    } else if (script.getName().contains("SOE2")) {
-                        scriptType = "SOE2";
-                        this.scriptTypeGlobal = "SOE2";
+                    } else if (script.getName().contains("IEC104")) {
+                        scriptType = "SOE";
+                        this.scriptTypeGlobal = "SOE";
                         maxStep = 4;
                     }
                     this.reportMaxStep = maxStep > this.reportMaxStep ? maxStep : this.reportMaxStep;
@@ -484,8 +472,27 @@ public class WriteReport {
                                         e.printStackTrace();
                                     }
                                 }
-                            } else if ("SOE1".equals(scriptType) || "SOE2".equals(scriptType)) {
-xxxx
+                            } else if ("SOE".equals(scriptType)) {
+                                if (stepNumber > 1 && numParameter == 1) {
+                                    try {
+                                        registerList.add(String.valueOf((int) Math.round(Double.parseDouble(paramSearched))));
+                                        registerList.add("0");
+                                    } catch (NumberFormatException ex) {
+                                        System.out.println("Should be last step. Do nothing.");
+                                    }
+                                } else if (stepNumber > 1 && numParameter == 3) {
+                                    if (paramSearched.contains("SOE")) {
+                                        switch (paramSearched) {
+                                            case "SOE1":
+                                            case "AI":
+                                                maxStep = 2;
+                                                break;
+                                            case "SOE2":
+                                                maxStep = 4;
+                                                break;
+                                        }
+                                    }
+                                }
                             }
                         }
                         numParameter++;
@@ -505,7 +512,7 @@ xxxx
                     }
 
                     //getting param script macro
-                    if (caseNum != 0 && scriptNum != 0) {
+                    if (((caseNum != 0 && scriptType.contains("DI")) || scriptType.contains("SOE")) && scriptNum != 0) {
                         ScriptDB scDB = new ScriptDB();
                         scDB.getAllFromParamScriptMacro(script);
 
@@ -527,7 +534,7 @@ xxxx
                             }
                             i++;
                         }
-                        if (enteredWhile == true) {
+                        if (enteredWhile) {
                             hasSearchOccParamConf = true;
                         }
                         System.out.println("\n");
@@ -544,123 +551,239 @@ xxxx
                 }
 
                 //write register and offset
-                if (caseNum != 0 && stepNumber != 0 && scriptValidation(totalSteps, stepNumber)) { //
-                    Row row = this.sheet.createRow(this.currentRow);
-                    Cell cellR = row.createCell(1); //column = 1
-                    cellR.setCellValue(overallStepResult);
-                    if (overallStepResult.equals("NOK")) {
-                        CellStyle red = getRedCellStyle(this.workbook);
-                        cellR.setCellStyle(red);
-                    }
-                    cell = row.createCell(3);
-                    cell.setCellValue(registerList.get(0));         //Register
-                    if (reportDuplicateCheck(reportRow, this.colRegister_Address + (this.reportMaxStep - 1) * 3)) {
-                        cell = reportRow.createCell(this.colRegister_Address + (this.reportMaxStep - 1) * 3);
-                        cell.setCellValue(registerList.get(0));
-
-                    }
-
-                    Cell cell2 = row.createCell(4);
-                    cell2.setCellValue(registerList.get(1));        //Register Offset
-                    if (reportDuplicateCheck(reportRow, this.colBit_offset + (this.reportMaxStep - 1) * 3)) {
-                        cell = reportRow.createCell(this.colBit_offset + (this.reportMaxStep - 1) * 3);
-                        cell.setCellValue(registerList.get(1));
-
-                    }
-
-                    Cell cell3 = row.createCell(2);
-                    cell3.setCellValue(scriptType);                 //Data Type
-                    if (reportDuplicateCheck(reportRow, this.colDC_Data_Type)) {
-                        cell = reportRow.createCell(this.colDC_Data_Type);
-                        cell.setCellValue(scriptType);
-
-                    }
-
-                    Cell cell4 = row.createCell(5);
-                    cell4.setCellValue(String.valueOf((stepNumber) % maxStep));         //Triggering State
-
-                    if (reportDuplicateCheck(reportRow, this.colAssociatedDefect + (this.reportMaxStep - 1) * 3)) {       //Associated Defect
-                        cell = reportRow.createCell(this.colAssociatedDefect + (this.reportMaxStep - 1) * 3);
-                        cell.setCellStyle(cellStyle5);
-                    }
-
-                    if (reportDuplicateCheck(reportRow, this.colCommentOnResult + (this.reportMaxStep - 1) * 3)) {       //Comment on Result
-                        cell = reportRow.createCell(this.colCommentOnResult + (this.reportMaxStep - 1) * 3);
-                        cell.setCellStyle(cellStyle5);
-                        Hyperlink rawReportLink = createHelper.createHyperlink(Hyperlink.LINK_DOCUMENT);
-                        rawReportLink.setAddress("'Raw Result'!" + (this.currentRow) + ":" + (this.currentRow));
-                        cell.setHyperlink(rawReportLink);
-                        cell.setCellValue("Link to Raw Result");
-                    }
-
-                    if (reportDuplicateCheck(reportRow, this.colSystemVersionUnderTest + (this.reportMaxStep - 1) * 3)) {       //System Version Under Test
-                        cell = reportRow.createCell(this.colSystemVersionUnderTest + (this.reportMaxStep - 1) * 3);
-                        cell.setCellStyle(cellStyle5);
-                    }
-
-                    if (reportDuplicateCheck(reportRow, this.colDate + (this.reportMaxStep - 1) * 3)) {       //Operation Date
-                        cell = reportRow.createCell(this.colDate + (this.reportMaxStep - 1) * 3);
-                        cell.setCellValue(iteration.getDate());
-                        cell.setCellStyle(cellStyle5);
-                    }
-
-                    if (reportDuplicateCheck(reportRow, this.colTester + (this.reportMaxStep - 1) * 3)) {       //Tester
-                        cell = reportRow.createCell(this.colTester + (this.reportMaxStep - 1) * 3);
-                        cell.setCellValue("TAT");
-                        cell.setCellStyle(cellStyle5);
-                    }
-
-                    //write parameters in Raw Report
-                    for (int i = 0; i < paramSearchList.size(); i++) {
-                        Cell cellS = row.createCell(tempHeader.length + 2 * i);
-                        Cell cellF = row.createCell(tempHeader.length + 2 * i + 1);
-                        String search = "";
-                        String found = "";
-                        try {
-                            search = paramSearchList.get(i);
-                            found = paramFoundList.get(i);
-                        } catch (IndexOutOfBoundsException ex) {
-                            found = "N/A";
-                        }
-                        cellS.setCellValue(search);
-                        cellF.setCellValue(found);
-                        if (!search.equals(found)) {
+                if (scriptType.contains("DI")) {
+                    if (caseNum != 0 && stepNumber != 0 && scriptValidation(totalSteps, stepNumber)) { //
+                        Row row = this.sheet.createRow(this.currentRow);
+                        Cell cellR = row.createCell(1); //column = 1
+                        cellR.setCellValue(overallStepResult);
+                        if (overallStepResult.equals("NOK")) {
                             CellStyle red = getRedCellStyle(this.workbook);
-                            cellS.setCellStyle(red);
-                            cellF.setCellStyle(red);
+                            cellR.setCellStyle(red);
                         }
-                    }
-                    this.currentRow++;
+                        cell = row.createCell(3);
+                        cell.setCellValue(registerList.get(0));         //Register
+                        if (reportDuplicateCheck(reportRow, this.colRegister_Address + (this.reportMaxStep - 1) * 3)) {
+                            cell = reportRow.createCell(this.colRegister_Address + (this.reportMaxStep - 1) * 3);
+                            cell.setCellValue(registerList.get(0));
 
-                    //write parameters in Report. Assume there's always 6 in paramSearchList.  These are before v0 columns.
-                    if (reportDuplicateCheck(reportRow, this.colStation)) {
-                        cell = reportRow.createCell(this.colStation);
-                        cell.setCellValue(paramSearchList.get(0));
-                    }
-                    if (reportDuplicateCheck(reportRow, this.colEqpt_Description)) {
-                        cell = reportRow.createCell(this.colEqpt_Description);
-                        cell.setCellValue(paramSearchList.get(1));
-                    }
-                    if (reportDuplicateCheck(reportRow, this.colEqpt_Identifier)) {
-                        cell = reportRow.createCell(this.colEqpt_Identifier);
-                        cell.setCellValue(paramSearchList.get(3));
+                        }
 
+                        Cell cell2 = row.createCell(4);
+                        cell2.setCellValue(registerList.get(1));        //Register Offset
+                        if (reportDuplicateCheck(reportRow, this.colBit_offset + (this.reportMaxStep - 1) * 3)) {
+                            cell = reportRow.createCell(this.colBit_offset + (this.reportMaxStep - 1) * 3);
+                            cell.setCellValue(registerList.get(1));
+
+                        }
+
+                        Cell cell3 = row.createCell(2);
+                        cell3.setCellValue(scriptType);                 //Data Type
+                        if (reportDuplicateCheck(reportRow, this.colDC_Data_Type)) {
+                            cell = reportRow.createCell(this.colDC_Data_Type);
+                            cell.setCellValue(scriptType);
+
+                        }
+
+                        Cell cell4 = row.createCell(5);
+                        cell4.setCellValue(String.valueOf((stepNumber) % maxStep));         //Triggering State
+
+                        if (reportDuplicateCheck(reportRow, this.colAssociatedDefect + (this.reportMaxStep - 1) * 3)) {       //Associated Defect
+                            cell = reportRow.createCell(this.colAssociatedDefect + (this.reportMaxStep - 1) * 3);
+                            cell.setCellStyle(cellStyle5);
+                        }
+
+                        if (reportDuplicateCheck(reportRow, this.colCommentOnResult + (this.reportMaxStep - 1) * 3)) {       //Comment on Result
+                            cell = reportRow.createCell(this.colCommentOnResult + (this.reportMaxStep - 1) * 3);
+                            cell.setCellStyle(cellStyle5);
+                            Hyperlink rawReportLink = createHelper.createHyperlink(Hyperlink.LINK_DOCUMENT);
+                            rawReportLink.setAddress("'Raw Result'!" + (this.currentRow) + ":" + (this.currentRow));
+                            cell.setHyperlink(rawReportLink);
+                            cell.setCellValue("Link to Raw Result");
+                        }
+
+                        if (reportDuplicateCheck(reportRow, this.colSystemVersionUnderTest + (this.reportMaxStep - 1) * 3)) {       //System Version Under Test
+                            cell = reportRow.createCell(this.colSystemVersionUnderTest + (this.reportMaxStep - 1) * 3);
+                            cell.setCellStyle(cellStyle5);
+                        }
+
+                        if (reportDuplicateCheck(reportRow, this.colDate + (this.reportMaxStep - 1) * 3)) {       //Operation Date
+                            cell = reportRow.createCell(this.colDate + (this.reportMaxStep - 1) * 3);
+                            cell.setCellValue(iteration.getDate());
+                            cell.setCellStyle(cellStyle5);
+                        }
+
+                        if (reportDuplicateCheck(reportRow, this.colTester + (this.reportMaxStep - 1) * 3)) {       //Tester
+                            cell = reportRow.createCell(this.colTester + (this.reportMaxStep - 1) * 3);
+                            cell.setCellValue("TAT");
+                            cell.setCellStyle(cellStyle5);
+                        }
+
+                        //write parameters in Raw Report
+                        for (int i = 0; i < paramSearchList.size(); i++) {
+                            Cell cellS = row.createCell(tempHeader.length + 2 * i);
+                            Cell cellF = row.createCell(tempHeader.length + 2 * i + 1);
+                            String search = "";
+                            String found = "";
+                            try {
+                                search = paramSearchList.get(i);
+                                found = paramFoundList.get(i);
+                            } catch (IndexOutOfBoundsException ex) {
+                                found = "N/A";
+                            }
+                            cellS.setCellValue(search);
+                            cellF.setCellValue(found);
+                            if (!search.equals(found)) {
+                                CellStyle red = getRedCellStyle(this.workbook);
+                                cellS.setCellStyle(red);
+                                cellF.setCellStyle(red);
+                            }
+                        }
+                        this.currentRow++;
+
+                        //write parameters in Report. Assume there's always 6 in paramSearchList.  These are before v0 columns.
+                        if (reportDuplicateCheck(reportRow, this.colStation)) {
+                            cell = reportRow.createCell(this.colStation);
+                            cell.setCellValue(paramSearchList.get(0));
+                        }
+                        if (reportDuplicateCheck(reportRow, this.colEqpt_Description)) {
+                            cell = reportRow.createCell(this.colEqpt_Description);
+                            cell.setCellValue(paramSearchList.get(1));
+                        }
+                        if (reportDuplicateCheck(reportRow, this.colEqpt_Identifier)) {
+                            cell = reportRow.createCell(this.colEqpt_Identifier);
+                            cell.setCellValue(paramSearchList.get(3));
+
+                        }
+                        if (reportDuplicateCheck(reportRow, this.colAttribute_Description)) {
+                            cell = reportRow.createCell(this.colAttribute_Description);
+                            cell.setCellValue(paramSearchList.get(4));
+
+                        }
+
+                        int offset = stepNumber % maxStep;  //In unit of 3
+                        cell = reportRow.createCell(this.colv0_label0 + offset * 3);
+                        cell.setCellValue(paramSearchList.get(5));
+                        cell = reportRow.createCell(this.colv0_Severity + offset * 3);
+                        Double severity = Double.parseDouble(paramSearchList.get(6));
+                        cell.setCellValue(severity.intValue());
+                        cell = reportRow.createCell(this.colv0_State + offset * 3);
+                        cell.setCellValue(severity > 0 ? "A" : "N");
                     }
-                    if (reportDuplicateCheck(reportRow, this.colAttribute_Description)) {
-                        cell = reportRow.createCell(this.colAttribute_Description);
-                        cell.setCellValue(paramSearchList.get(4));
+                } else if (scriptType.contains("SOE")) {
+                    if (stepNumber > 1 && (stepNumber != totalSteps - 1)) { //
+                        Row row = this.sheet.createRow(this.currentRow);
+                        Cell cellR = row.createCell(1); //column = 1
+                        cellR.setCellValue(overallStepResult);
+                        if (overallStepResult.equals("NOK")) {
+                            CellStyle red = getRedCellStyle(this.workbook);
+                            cellR.setCellStyle(red);
+                        }
+                        cell = row.createCell(3);
+                        cell.setCellValue(registerList.get(0));         //Register
+                        if (reportDuplicateCheck(reportRow, this.colRegister_Address + (this.reportMaxStep - 1) * 3)) {
+                            cell = reportRow.createCell(this.colRegister_Address + (this.reportMaxStep - 1) * 3);
+                            cell.setCellValue(registerList.get(0));
 
+                        }
+                        Cell cell2 = row.createCell(4);
+                        cell2.setCellValue(registerList.get(1));        //Register Offset
+                        if (reportDuplicateCheck(reportRow, this.colBit_offset + (this.reportMaxStep - 1) * 3)) {
+                            cell = reportRow.createCell(this.colBit_offset + (this.reportMaxStep - 1) * 3);
+                            cell.setCellValue(registerList.get(1));
+
+                        }
+                        Cell cell3 = row.createCell(2);
+                        cell3.setCellValue(scriptType);                 //Data Type
+                        if (reportDuplicateCheck(reportRow, this.colDC_Data_Type)) {
+                            cell = reportRow.createCell(this.colDC_Data_Type);
+                            cell.setCellValue(scriptType);
+                        }
+
+                        Cell cell4 = row.createCell(5);
+                        cell4.setCellValue(String.valueOf((stepNumber) % maxStep));         //Triggering State
+
+                        if (reportDuplicateCheck(reportRow, this.colAssociatedDefect + (this.reportMaxStep - 1) * 3)) {       //Associated Defect
+                            cell = reportRow.createCell(this.colAssociatedDefect + (this.reportMaxStep - 1) * 3);
+                            cell.setCellStyle(cellStyle5);
+                        }
+
+                        if (reportDuplicateCheck(reportRow, this.colCommentOnResult + (this.reportMaxStep - 1) * 3)) {       //Comment on Result
+                            cell = reportRow.createCell(this.colCommentOnResult + (this.reportMaxStep - 1) * 3);
+                            cell.setCellStyle(cellStyle5);
+                            Hyperlink rawReportLink = createHelper.createHyperlink(Hyperlink.LINK_DOCUMENT);
+                            rawReportLink.setAddress("'Raw Result'!" + (this.currentRow) + ":" + (this.currentRow));
+                            cell.setHyperlink(rawReportLink);
+                            cell.setCellValue("Link to Raw Result");
+                        }
+
+                        if (reportDuplicateCheck(reportRow, this.colSystemVersionUnderTest + (this.reportMaxStep - 1) * 3)) {       //System Version Under Test
+                            cell = reportRow.createCell(this.colSystemVersionUnderTest + (this.reportMaxStep - 1) * 3);
+                            cell.setCellStyle(cellStyle5);
+                        }
+
+                        if (reportDuplicateCheck(reportRow, this.colDate + (this.reportMaxStep - 1) * 3)) {       //Operation Date
+                            cell = reportRow.createCell(this.colDate + (this.reportMaxStep - 1) * 3);
+                            cell.setCellValue(iteration.getDate());
+                            cell.setCellStyle(cellStyle5);
+                        }
+
+                        if (reportDuplicateCheck(reportRow, this.colTester + (this.reportMaxStep - 1) * 3)) {       //Tester
+                            cell = reportRow.createCell(this.colTester + (this.reportMaxStep - 1) * 3);
+                            cell.setCellValue("TAT");
+                            cell.setCellStyle(cellStyle5);
+                        }
+
+                        //write parameters in Raw Report
+                        for (int i = 0; i < paramSearchList.size(); i++) {
+                            Cell cellS = row.createCell(tempHeader.length + 2 * i);
+                            Cell cellF = row.createCell(tempHeader.length + 2 * i + 1);
+                            String search = "";
+                            String found = "";
+                            try {
+                                search = paramSearchList.get(i);
+                                found = paramFoundList.get(i);
+                            } catch (IndexOutOfBoundsException ex) {
+                                found = "N/A";
+                            }
+                            cellS.setCellValue(search);
+                            cellF.setCellValue(found);
+                            if (!search.equals(found)) {
+                                CellStyle red = getRedCellStyle(this.workbook);
+                                cellS.setCellStyle(red);
+                                cellF.setCellStyle(red);
+                            }
+                        }
+                        this.currentRow++;
+
+                        //write parameters in Report. Assume there's always 6 in paramSearchList.  These are before v0 columns.
+                        if (reportDuplicateCheck(reportRow, this.colStation)) {
+                            cell = reportRow.createCell(this.colStation);
+                            cell.setCellValue(paramSearchList.get(0));
+                        }
+                        if (reportDuplicateCheck(reportRow, this.colEqpt_Description)) {
+                            cell = reportRow.createCell(this.colEqpt_Description);
+                            cell.setCellValue(paramSearchList.get(1));
+                        }
+                        if (reportDuplicateCheck(reportRow, this.colEqpt_Identifier)) {
+                            cell = reportRow.createCell(this.colEqpt_Identifier);
+                            cell.setCellValue(paramSearchList.get(3));
+
+                        }
+                        if (reportDuplicateCheck(reportRow, this.colAttribute_Description)) {
+                            cell = reportRow.createCell(this.colAttribute_Description);
+                            cell.setCellValue(paramSearchList.get(4));
+
+                        }
+
+                        int offset = stepNumber % maxStep;  //In unit of 3
+                        cell = reportRow.createCell(this.colv0_label0 + offset * 3);
+                        cell.setCellValue(paramSearchList.get(5));
+                        cell = reportRow.createCell(this.colv0_Severity + offset * 3);
+                        Double severity = Double.parseDouble(paramSearchList.get(6));
+                        cell.setCellValue(severity.intValue());
+                        cell = reportRow.createCell(this.colv0_State + offset * 3);
+                        cell.setCellValue(severity > 0 ? "A" : "N");
                     }
-
-                    int offset = stepNumber % maxStep;  //In unit of 3
-                    cell = reportRow.createCell(this.colv0_label0 + offset * 3);
-                    cell.setCellValue(paramSearchList.get(5));
-                    cell = reportRow.createCell(this.colv0_Severity + offset * 3);
-                    Double severity = Double.parseDouble(paramSearchList.get(6));
-                    cell.setCellValue(severity.intValue());
-                    cell = reportRow.createCell(this.colv0_State + offset * 3);
-                    cell.setCellValue(severity > 0 ? "A" : "N");
-
                 }
 
                 System.out.println("Step result of above step:" + overallStepResult + "\n");
