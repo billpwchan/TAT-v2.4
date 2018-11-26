@@ -89,23 +89,40 @@ public class WriteReport {
 
     private String scriptTypeGlobal = "";
 
+    private final String colStationKey = "Station";
+    private final String colEqpt_CodeKey = "EQP Code";
+    private final String colEqpt_DescriptionKey = "EQP Description";
+    private final String colEqpt_IdentifierKey = "EQP Number";
+    private final String colAttribute_DescriptionKey = "Attribute Description";
+    private final String colStateKey = "State";
+
     //Initialize CCS.PSD Variables 
     private final int colStation = 0;
-    private final int colEqpt_Description = 1;
-    private final int colEqpt_Identifier = 2;
-    private final int colAttribute_Description = 3;
-    private final int colDC_Data_Type = 4;
-    private final int colv0_label0 = 5;
-    private final int colv0_Severity = 6;
-    private final int colv0_State = 7;
-    private final int colRegister_Address = 8;
-    private final int colBit_offset = 9;
-    private final int colResult = 10;
-    private final int colAssociatedDefect = 11;
-    private final int colCommentOnResult = 12;
-    private final int colSystemVersionUnderTest = 13;
-    private final int colDate = 14;
-    private final int colTester = 15;
+    private final int colEqpt_Code=1;
+    private final int colEqpt_Description = 2;
+    private final int colEqpt_Identifier = 3;
+    private final int colAttribute_Description = 4;
+    private final int colDC_Data_Type = 5;
+    private final int colv0_label0 = 6;
+    private final int colv0_Severity = 7;
+    private final int colv0_State = 8;
+    private final int colRegister_Address = 9;
+    private final int colBit_offset = 10;
+    private final int colResult = 11;
+    private final int colAssociatedDefect = 12;
+    private final int colCommentOnResult = 13;
+    private final int colSystemVersionUnderTest = 14;
+    private final int colDate = 15;
+    private final int colTester = 16;
+
+    //Initialize paramSearchListIndex for SummarySheet
+    private int paramIndex_Station;
+    private int paramIndex_EQPCode;
+    private int paramIndex_EQPNumber;
+    private int paramIndex_EQPDescription;
+    private int paramIndex_AttrDescription;
+    private int paramIndex_State;
+    private int paramIndex_AlarmSeverity;
 
     //Initialize Cell Styles
     private CellStyle cellStyle1;
@@ -339,7 +356,7 @@ public class WriteReport {
                 reportCell.setCellValue(res.equals("NExec") ? "NT" : res);      //Need to modify
                 switch (res) {
                     case "OK":
-                        cellStyle4.setFillForegroundColor(IndexedColors.LIGHT_GREEN.getIndex());
+                        cellStyle4.setFillForegroundColor(IndexedColors.BRIGHT_GREEN.getIndex());
                         break;
                     case "NExec":
                         cellStyle4.setFillForegroundColor(IndexedColors.GREY_50_PERCENT.getIndex());
@@ -472,7 +489,7 @@ public class WriteReport {
                                         e.printStackTrace();
                                     }
                                 }
-                            } else if ("SOE".equals(scriptType)) {
+                            } else if (scriptType.contains("SOE")) {
                                 if (stepNumber > 1 && numParameter == 1) {
                                     try {
                                         registerList.add(String.valueOf((int) Math.round(Double.parseDouble(paramSearched))));
@@ -484,10 +501,15 @@ public class WriteReport {
                                     if (paramSearched.contains("SOE")) {
                                         switch (paramSearched) {
                                             case "SOE1":
+                                                scriptType = "SOE1";
+                                                maxStep = 2;
+                                                break;
                                             case "AI":
+                                                scriptType = "AI";
                                                 maxStep = 2;
                                                 break;
                                             case "SOE2":
+                                                scriptType = "SOE2";
                                                 maxStep = 4;
                                                 break;
                                         }
@@ -542,7 +564,7 @@ public class WriteReport {
                     scriptNum++;
                 }
 
-                //Write Chcheck Number of Event if possible.
+                //Write check Number of Event if possible.
                 if (!scriptValidation(totalSteps, stepNumber) && res.equals("NOK")) {
                     cell = this.sheet.getRow(this.currentRowGlobal).createCell(20);
                     cell.setCellValue("Several events generated per trigger");
@@ -642,26 +664,30 @@ public class WriteReport {
                         //write parameters in Report. Assume there's always 6 in paramSearchList.  These are before v0 columns.
                         if (reportDuplicateCheck(reportRow, this.colStation)) {
                             cell = reportRow.createCell(this.colStation);
-                            cell.setCellValue(paramSearchList.get(0));
+                            cell.setCellValue(paramSearchList.get(getColIndex(searchOccParamList, colStationKey)));
+                        }
+                        if (reportDuplicateCheck(reportRow, this.colEqpt_Code)) {
+                            cell = reportRow.createCell(this.colEqpt_Code);
+                            cell.setCellValue(paramSearchList.get(getColIndex(searchOccParamList, colEqpt_CodeKey)));
                         }
                         if (reportDuplicateCheck(reportRow, this.colEqpt_Description)) {
                             cell = reportRow.createCell(this.colEqpt_Description);
-                            cell.setCellValue(paramSearchList.get(1));
+                            cell.setCellValue(paramSearchList.get(getColIndex(searchOccParamList, colEqpt_DescriptionKey)));
                         }
                         if (reportDuplicateCheck(reportRow, this.colEqpt_Identifier)) {
                             cell = reportRow.createCell(this.colEqpt_Identifier);
-                            cell.setCellValue(paramSearchList.get(3));
+                            cell.setCellValue(paramSearchList.get(getColIndex(searchOccParamList, colEqpt_IdentifierKey)));
 
                         }
                         if (reportDuplicateCheck(reportRow, this.colAttribute_Description)) {
                             cell = reportRow.createCell(this.colAttribute_Description);
-                            cell.setCellValue(paramSearchList.get(4));
+                            cell.setCellValue(paramSearchList.get(getColIndex(searchOccParamList, colAttribute_DescriptionKey)));
 
                         }
 
                         int offset = stepNumber % maxStep;  //In unit of 3
                         cell = reportRow.createCell(this.colv0_label0 + offset * 3);
-                        cell.setCellValue(paramSearchList.get(5));
+                        cell.setCellValue(paramSearchList.get(getColIndex(searchOccParamList, colStateKey)));
                         cell = reportRow.createCell(this.colv0_Severity + offset * 3);
                         Double severity = Double.parseDouble(paramSearchList.get(6));
                         cell.setCellValue(severity.intValue());
@@ -836,6 +862,13 @@ public class WriteReport {
      */
     public String getFileName() {
         return FILE_NAME;
+    }
+
+    private int getColIndex(List<String> searchOccParamList, String checkStr) {
+        for (int i = 0; i < searchOccParamList.size(); i++) {
+            if (searchOccParamList.get(i).contains(checkStr)) return i;
+        }
+        return -1;
     }
 
 }

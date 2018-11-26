@@ -2286,3 +2286,8 @@
 2018-11-15 13:05:57 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User assets.view Iteration: novDi2
 2018-11-15 13:08:57 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User assets.view Iteration: IEC test
 2018-11-15 13:09:18 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User assets.view Iteration: IEC test
+2018-11-20 10:00:48 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User assets.view Iteration: IEC test
+2018-11-20 10:01:02 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User assets.view Iteration: novDi2
+2018-11-20 10:16:26 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User assets.view Iteration: IEC test
+2018-11-20 10:17:55 | TabMacroLibraryController.java |  INFO | reportsLogger : User edited the Macro(54): CheckSSHEvent_ReportFinalized
+2018-11-20 10:23:03 | TabTestCampaignExecutionMainViewController.java |  INFO | reportsLogger : User assets.view Iteration: novDi2
