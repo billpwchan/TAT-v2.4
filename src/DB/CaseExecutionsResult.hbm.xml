@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 19, 2015 5:06:37 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="DB.CaseExecutionsResult" table="case_executions_result" optimistic-lock="version" >
+        <composite-id name="id" class="DB.CaseExecutionsResultId">
+            <key-property name="caseExecutionsIdcaseExecutions" type="int">
+                <column name="case_executions_idcase_executions" />
+            </key-property>
+            <key-property name="iterationNumber" type="byte">
+                <column name="iteration_number" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="caseExecutions" class="DB.CaseExecutions" update="false" insert="false" fetch="select">
+            <column name="case_executions_idcase_executions" not-null="true" />
+        </many-to-one>
+        <property name="baselineId" type="string">
+            <column name="baseline_id" length="20" not-null="true" />
+        </property>
+        <property name="result" type="string">
+            <column name="result" length="6" />
+        </property>
+        <property name="comment" type="string">
+            <column name="comment" length="65535" />
+        </property>
+    </class>
+</hibernate-mapping>

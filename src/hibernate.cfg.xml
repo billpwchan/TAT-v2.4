@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+      
+        <property name="dialect">org.hibernate.dialect.SQLiteDialect</property>
+        <property name="connection.driver_class">org.sqlite.JDBC</property>
+        <property name="connection.url">jdbc:sqlite:mydb.db</property>
+        <property name="connection.username"></property>
+        <property name="connection.password"></property>
+         
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        
+      
+      
+      
+        <!--<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>-->
+        <!--<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>-->
+        <!--<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/tat?zeroDateTimeBehavior=convertToNull</property>-->
+        <!--<property name="hibernate.hbm2ddl.import_files">src/import.sql</property>-->
+        <!--<property name="init">create schema if not exists tat</property>-->
+        <!--database.url=jdbc:h2:mem:;INIT=create schema IF NOT EXISTS sowa-->
+        <!--<property name="hibernate.connection.url">jdbc:mysql://10.216.132.42:3306/tat?zeroDateTimeBehavior=convertToNull</property>-->
+        <!--<property name="hibernate.hbm2ddl.auto">create</property>-->
+        <!--<property name="hibernate.hbm2ddl.import_files">src/import.sql</property>-->
+        <!--<property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">root</property>-->
+        <property name="hibernate.show_sql">false</property>
+        <property name="hibernate.format_sql">false</property>
+        <property name="hibernate.generate_statistics">false</property>
+        <property name="hibernate.use_sql_comments">false</property>
+        <property name="hibernate.cache.use_second_level_cache">false</property>
+        <property name="hibernate.cache.use_query_cache">false</property>
+        <property name="hibernate.c3p0.max_statements">0</property>
+        <mapping resource="DB/ScriptExecutionResult.hbm.xml"/>
+        <mapping resource="DB/TestCampaignTestCase.hbm.xml"/>
+        <mapping resource="DB/TestStepHasScript.hbm.xml"/>
+        <mapping resource="DB/StepExecutions.hbm.xml"/>
+        <mapping resource="DB/ScriptExecutions.hbm.xml"/>
+        <mapping resource="DB/TestStep.hbm.xml"/>
+        <mapping resource="DB/CaseExecutions.hbm.xml"/>
+        <mapping resource="DB/StepExecutionsResult.hbm.xml"/>
+        <mapping resource="DB/User.hbm.xml"/>
+        <mapping resource="DB/Script.hbm.xml"/>
+        <mapping resource="DB/ScriptHasParameters.hbm.xml"/>
+        <mapping resource="DB/Macro.hbm.xml"/>
+        <mapping resource="DB/TestCase.hbm.xml"/>
+        <mapping resource="DB/ParamScriptMacro.hbm.xml"/>
+        <mapping resource="DB/CaseExecutionsResult.hbm.xml"/>
+        <mapping resource="DB/ParametersExecution.hbm.xml"/>
+        <mapping resource="DB/Requirement.hbm.xml"/>
+        <mapping resource="DB/Iterations.hbm.xml"/>
+        <mapping resource="DB/MacroExecution.hbm.xml"/>
+        <mapping resource="DB/Parameters.hbm.xml"/>
+        <mapping resource="DB/ScriptHasBeenConfigured.hbm.xml"/>
+        <mapping resource="DB/TestCampaign.hbm.xml"/>  
+    </session-factory>
+</hibernate-configuration>

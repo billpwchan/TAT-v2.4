@@ -1,0 +1,107 @@
+.customTab *.tab-label {
+    text-align: center;
+    -fx-font-weight : bold;
+    -fx-font-size : 13;
+}
+
+#text-ar .text-area .content{
+    -fx-background-color: #CCFFCC;
+}
+
+.customTabCase {
+    -fx-pref-height: 55px;
+    -fx-background-color:#00bfa5; 
+    -fx-pref-width: 55px;
+}
+
+.customTabCampaign {
+    -fx-pref-height: 55px;
+    -fx-background-color: #ffc107; 
+    -fx-pref-width: 55px;
+}
+
+.customTabExec {
+    -fx-pref-height: 55px;
+    -fx-background-color: #ffee58; 
+    -fx-pref-width: 55px;
+}
+
+.customTabMacro {
+    -fx-pref-height: 55px;
+    -fx-background-color: #2196f3 ; 
+    -fx-pref-width: 55px;
+}
+
+.customTabScript {
+    -fx-pref-height: 55px;
+    -fx-background-color: #ba68c8; 
+    -fx-pref-width: 55px;
+}
+
+.customTabReq {
+    -fx-pref-height: 55px;
+    -fx-background-color: #e91e63; 
+    -fx-pref-width: 55px;
+}
+
+
+.customTabNotSelected {
+    -fx-pref-height: 55px; 
+    -fx-pref-width: 55px;
+}
+
+
+.table-row-cell:filled:focused:selected {
+    -fx-background-color: #9999FF;
+    -fx-background-insets: 0, 1, 2;
+    -fx-background: -fx-accent;
+    -fx-text-fill: -fx-selection-bar-text;
+}
+
+/* Row hovered */
+.table-view:row-selection .table-row-cell:filled:hover {
+    -fx-background-color: #D8D8D8  ;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-text-fill: -fx-text-inner-color;
+}
+
+/* Selected row hovered when table not focused */
+.table-view:row-selection .table-row-cell:filled:focused:hover {
+    -fx-background-color: #0099CC;
+    -fx-background-insets: 0, 0 0 1 0, 1 1 2 1, 2 2 3 2, 3 3 4 3;
+    -fx-text-fill: -fx-text-inner-color;
+}
+
+.DeselectOdd .list-cell:odd {
+    -fx-background-color: #CCFFCC;
+}
+
+.DeselectEven .list-cell:even {
+    -fx-background-color: #CCFFCC;
+}
+
+.SelectEven .list-cell:even {
+    -fx-background-color: #3366CC;
+    -fx-text-fill: white;
+}
+
+.SelectOdd .list-cell:odd {
+    -fx-background-color: #3366CC;
+    -fx-text-fill: white;
+}
+
+.header-custom {
+    -fx-text-fill: -fx-selection-bar-text;
+
+    /* TODO: for some reason, this doesn't scale. */
+    -fx-font-size: 1.083333em; /* 13pt - 1 more than the default font */
+    /*-fx-border-style: none;
+    -fx-border-color: 
+        -fx-body-color;
+    */
+}
+
+.header-custom2 {
+    -fx-background-color: -fx-inner-border, -fx-body-color;
+    -fx-background-insets: 0, 1;
+}

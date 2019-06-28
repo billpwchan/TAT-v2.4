@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 19, 2015 5:06:37 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="DB.Requirement" table="requirement" >
+        <id name="idrequirement" type="java.lang.Integer">
+            <column name="idrequirement" />
+            <generator class="identity" />
+        </id>
+        <version name="version" type="java.lang.Byte">
+            <column name="version" />
+        </version>
+        <property name="category" type="string">
+            <column name="category" length="20" />
+        </property>
+        <property name="requirementID" type="string">
+            <column name="requirement_id" length="15" />
+        </property>
+        <property name="writer" type="string">
+            <column name="writer" length="20" />
+        </property>
+        <property name="requirementText" type="string">
+            <column name="requirement_text" length="65535" />
+        </property>
+        <property name="coverage" type="java.lang.Short">
+            <column name="coverage" />
+        </property>
+        <property name="comment" type="string">
+            <column name="comment" length="65535" />
+        </property>
+        <property name="iadt" type="string">
+            <column name="iadt" length="15" />
+        </property>
+        <set name="testSteps" table="test_step_has_requirement" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="requirement_idrequirement" not-null="true" />
+            </key>
+            <many-to-many entity-name="DB.TestStep" class="DB.TestStep">
+                <column name="test_step_idtest_step" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>
