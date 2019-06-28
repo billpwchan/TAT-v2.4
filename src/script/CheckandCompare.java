@@ -9,6 +9,7 @@ import net.wimpi.modbus.Modbus;
 import net.wimpi.modbus.io.ModbusTCPTransaction;
 import net.wimpi.modbus.msg.*;
 import net.wimpi.modbus.net.TCPMasterConnection;
+import org.hibernate.tool.hbm2x.StringUtils;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -31,11 +32,12 @@ public class CheckandCompare implements InterfaceScript{
     InetAddress address = null;
     int port = Modbus.DEFAULT_PORT;
     int reference = 0;
-    int count = 1;
     String functionCode;
     String value;
-    private String receivedValue;
+    private String receivedValue ="";
     int scalingFactor = 1;
+    int addressSize;
+    String endianness;
 
     /**
      * Params of the test.
@@ -64,15 +66,17 @@ public class CheckandCompare implements InterfaceScript{
         this.value = parameters.get(3).getValue().trim();
         this.scalingFactor =  (int) Double.parseDouble(parameters.get(4).getValue().trim());
         this.reference = ((int) Double.parseDouble(parameters.get(5).getValue().trim()));
-        this.functionCode = parameters.get(6).getValue().trim();
+        this.addressSize = ((int) Double.parseDouble(parameters.get(6).getValue().trim()));
+        this.functionCode = parameters.get(7).getValue().trim();
+        this.endianness = parameters.get(8).getValue().trim();
         if(scalingFactor == '0')
             scalingFactor = 1;
         TimeUnit.MILLISECONDS.sleep(500);
-        launchServer(address, port, reference, count, functionCode, result);
+        launchServer(address, port, reference, addressSize, functionCode, endianness ,result);
 
         return result;
     }
-    private void launchServer(InetAddress address, int port, int reference, int count, String functionCode, Result result) {
+    private void launchServer(InetAddress address, int port, int reference, int addressSize, String functionCode, String endianness, Result result) {
 
         try{
         //2. Open the connection
@@ -84,7 +88,7 @@ public class CheckandCompare implements InterfaceScript{
         {
             case "15": case "15.0": case "0x0F": case "0x0f":
                 //3. Prepare the request
-                coilsRequest = new ReadCoilsRequest(reference, count);
+                coilsRequest = new ReadCoilsRequest(reference, 1);
 
                 //4. Prepare tht transaction
                 transaction = new ModbusTCPTransaction(connection);
@@ -100,7 +104,7 @@ public class CheckandCompare implements InterfaceScript{
                 if (receivedValue.charAt(7)==value.charAt(0))
                 {
                     result.setResult("OK");
-                    result.setComment("Sent : " +value + "\n" + "Found : " + receivedValue.charAt(7)+"\nReading Register : "+reference);
+                    result.setComment("Sent: " +value + "\n" + "Found: " + receivedValue.charAt(7)+"\nReading Register: "+reference);
                 }
                 else
                 {
@@ -112,35 +116,45 @@ public class CheckandCompare implements InterfaceScript{
                     transaction.setRequest(writeCoilRequest);
 
                     //5. Execute the transaction
-
                     transaction.execute();
                     receivedValue =coilsResponse.getCoils().toString();
-                    result.setComment("Forced to set 0\nMissmatch \n" + "Sent : " +value + "\n" + "Found : " + receivedValue.charAt(7)+"\nReading Register : "+reference);
+                    result.setComment("Forced to set 0\nMissmatch \n" + "Sent: " +value + "\n" + "Found: " + receivedValue.charAt(7)+"\nReading Register: "+reference);
                 }
                 break;
 
             case "16": case "16.0": case "0x10":
                 //3. Prepare the request
-                multipleRegistersRequest = new ReadMultipleRegistersRequest(reference, count);
+                multipleRegistersRequest = new ReadMultipleRegistersRequest(reference, 1);
 
                 //4. Prepare tht transaction
                 transaction = new ModbusTCPTransaction(connection);
-                transaction.setRequest(multipleRegistersRequest);
+                for (int i = reference; i <= reference + addressSize/16 - 1; ++i)
+                {
+                    multipleRegistersRequest.setReference(i);
+                    transaction.setRequest(multipleRegistersRequest);
+                    //5. Execute the transaction
+                    transaction.execute();
+                    multipleRegistersResponse = (ReadMultipleRegistersResponse) transaction.getResponse();
+                    if (endianness.toLowerCase().equals("little"))
+                        receivedValue += StringUtils.leftPad(Integer.toHexString(multipleRegistersResponse.getRegisterValue(0)),4,"0");
+                    else if (endianness.toLowerCase().equals("big"))
+                        receivedValue = StringUtils.leftPad(Integer.toHexString(multipleRegistersResponse.getRegisterValue(0)),4,"0")+receivedValue;
+                    }
 
-                //5. Execute the transaction
-
-                transaction.execute();
-                multipleRegistersResponse = (ReadMultipleRegistersResponse) transaction.getResponse();
-                receivedValue = Integer.toString(multipleRegistersResponse.getRegisterValue(0));
-
-                if (Integer.parseInt(receivedValue) == ((int) Double.parseDouble(value))*scalingFactor)
+                if (receivedValue.equals(StringUtils.leftPad(Integer.toHexString((int) (Double.parseDouble(value)*scalingFactor)),8,"0")))
                 {
                     result.setResult("OK");
-                    result.setComment("Sent : " +value + "\n" + "Found : " + receivedValue+"\nReading Register : "+reference);
+                    result.setComment("Sent: " + value + "\nScaling Factor: " + scalingFactor
+                            + "\nActual value Sent: " + (int) (Double.parseDouble(value)*scalingFactor) + "\nFound: " + Integer.parseInt(receivedValue,16)
+                            + "\nActual Value Sent (hex): " + StringUtils.leftPad(Integer.toHexString((int) (Double.parseDouble(value)*scalingFactor)),8,"0")+ "\nFound (hex): "+ receivedValue
+                            + "\nReading Register : "+reference);
                 }
                 else
                 {
-                    result.setComment("Missmatch \n" + "Sent : " +value + "\n" + "Found : " + receivedValue+"\nReading Register : "+reference);
+                    result.setComment("Missmatch \n" + "Sent : " + value + "\nScaling Factor: " + scalingFactor
+                            + "\nActual value Sent: " + (int) (Double.parseDouble(value)*scalingFactor) + "\nFound: " + Integer.parseInt(receivedValue,16)
+                            + "\nActual Value Sent (hex): " + StringUtils.leftPad(Integer.toHexString((int) (Double.parseDouble(value)*scalingFactor)),8,"0")+ "\nFound (hex): "+ receivedValue
+                            + "\nReading Register : "+reference);
                 }
                 break;
         }

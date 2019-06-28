@@ -24,7 +24,7 @@ public class CreateTCLfile {
     String databaseCommandPath0;
     String databaseCommandPath1;
     String CommandType;
-    int CommandValue;
+    double CommandValue;
     int scalingFactor;
 
     /**
@@ -53,7 +53,7 @@ public class CreateTCLfile {
             this.databaseCommandPath0 = parameters.get(5).getValue().trim();
             this.databaseCommandPath1 = parameters.get(6).getValue().trim();
             this.CommandType = parameters.get(7).getValue().trim();
-            this.CommandValue = (int) Double.parseDouble(parameters.get(8).getValue().trim());
+            this.CommandValue = Double.parseDouble(parameters.get(8).getValue().trim());
 
             switch (CommandType){
                 case "15": case "15.0": case "0x0F": case "0x0f":
