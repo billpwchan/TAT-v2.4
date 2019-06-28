@@ -64,7 +64,7 @@ public class CreateTCLfile {
                     break;
             }
                 this.SSHCommand = "echo $\'ScsCtl::init\nproc Callback args { }\nScsCtl::sendCommand " + RTServerEnvName + " " + databaseCommandPath0+":" + databaseCommandPath1 + " "
-                        + CommandType +" "+CommandValue+ " $SCSCTL_BYPASS $SCSCTL_BYPASS $SCSCTL_SEND_ANYWAY [Callback]\' >~/Desktop/test.tcl";
+                        + CommandType +" "+CommandValue+ " $SCSCTL_BYPASS $SCSCTL_BYPASS $SCSCTL_SEND_ANYWAY [Callback]\' >~/Desktop/TAT_Script.tcl";
             CommonFunctions.debugLog.info(SSHCommand);
 
             session = ServerConnection.getInstance(this.ip, this.user, this.password);
