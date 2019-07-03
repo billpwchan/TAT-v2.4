@@ -11,8 +11,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c889ef52-46c0-4f96-a7a0-3467c1158425" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mydb.db" beforeDir="false" afterPath="$PROJECT_DIR$/mydb.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/script/CreateTCLfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/CreateTCLfile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/script/CheckandCompare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/CheckandCompare.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -80,11 +79,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/script/CreateTCLfile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="565">
-              <caret line="70" column="13" lean-forward="true" selection-start-line="70" selection-start-column="13" selection-end-line="70" selection-end-column="13" />
+            <state relative-caret-position="499">
+              <caret line="68" column="62" lean-forward="true" selection-start-line="68" selection-start-column="62" selection-end-line="68" selection-end-column="62" />
             </state>
           </provider>
         </entry>
@@ -110,11 +109,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/script/CheckandCompare.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="810">
-              <caret line="105" column="43" selection-start-line="105" selection-start-column="43" selection-end-line="105" selection-end-column="43" />
+            <state relative-caret-position="297">
+              <caret line="140" column="79" selection-start-line="140" selection-start-column="79" selection-end-line="140" selection-end-column="79" />
             </state>
           </provider>
         </entry>
@@ -227,10 +226,10 @@
         <option value="$PROJECT_DIR$/src/script/IEC104InitConnection.java" />
         <option value="$PROJECT_DIR$/src/controller/popup/PopUpRunController.java" />
         <option value="$PROJECT_DIR$/src/controller/tabtestcase/TabTestCaseEditController.java" />
-        <option value="$PROJECT_DIR$/src/script/CheckandCompare.java" />
         <option value="$PROJECT_DIR$/src/script/CreateTCLfileDOCMB.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
         <option value="$PROJECT_DIR$/src/script/CreateTCLfile.java" />
+        <option value="$PROJECT_DIR$/src/script/CheckandCompare.java" />
       </list>
     </option>
   </component>
@@ -459,7 +458,7 @@
       <workItem from="1561690472225" duration="157000" />
       <workItem from="1561691252535" duration="25257000" />
       <workItem from="1562037653366" duration="598000" />
-      <workItem from="1562056389624" duration="5897000" />
+      <workItem from="1562056389624" duration="8104000" />
     </task>
     <task id="LOCAL-00001" summary="Able to create baseline and input value to IEC104slave.ini file on run-time.">
       <created>1539016208060</created>
@@ -636,11 +635,18 @@
       <option name="project" value="LOCAL" />
       <updated>1562034815504</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="fix CommandValue for function code 16 from int to double">
+      <created>1562123141950</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1562123141950</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="501598000" />
+    <option name="totallyTimeSpent" value="503805000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1215,13 +1221,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/script/CheckandCompare.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="105" column="43" selection-start-line="105" selection-start-column="43" selection-end-line="105" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/script/CreateTCLfileDOCMB.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="282">
@@ -1245,8 +1244,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/script/CreateTCLfile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="565">
-          <caret line="70" column="13" lean-forward="true" selection-start-line="70" selection-start-column="13" selection-end-line="70" selection-end-column="13" />
+        <state relative-caret-position="499">
+          <caret line="68" column="62" lean-forward="true" selection-start-line="68" selection-start-column="62" selection-end-line="68" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/script/CheckandCompare.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="140" column="79" selection-start-line="140" selection-start-column="79" selection-end-line="140" selection-end-column="79" />
         </state>
       </provider>
     </entry>

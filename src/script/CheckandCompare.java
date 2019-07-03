@@ -135,9 +135,9 @@ public class CheckandCompare implements InterfaceScript{
                     //5. Execute the transaction
                     transaction.execute();
                     multipleRegistersResponse = (ReadMultipleRegistersResponse) transaction.getResponse();
-                    if (endianness.toLowerCase().equals("little"))
+                    if (endianness.toLowerCase().equals("big"))
                         receivedValue += StringUtils.leftPad(Integer.toHexString(multipleRegistersResponse.getRegisterValue(0)),4,"0");
-                    else if (endianness.toLowerCase().equals("big"))
+                    else if (endianness.toLowerCase().equals("little"))
                         receivedValue = StringUtils.leftPad(Integer.toHexString(multipleRegistersResponse.getRegisterValue(0)),4,"0")+receivedValue;
                     }
 
