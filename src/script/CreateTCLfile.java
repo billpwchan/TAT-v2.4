@@ -58,14 +58,17 @@ public class CreateTCLfile {
             switch (CommandType){
                 case "15": case "15.0": case "0x0F": case "0x0f":
                     this.CommandType = "$SCSCTL_DIOV";
+                    this.SSHCommand = "echo $\'ScsCtl::init\nproc Callback args { }\nScsCtl::sendCommand " + RTServerEnvName + " " + databaseCommandPath0+":" + databaseCommandPath1 + " "
+                            + CommandType +" "+ (int) CommandValue+ " $SCSCTL_BYPASS $SCSCTL_BYPASS $SCSCTL_SEND_ANYWAY [Callback]\' >~/Desktop/TAT_Script.tcl";
+                    CommonFunctions.debugLog.info(SSHCommand);
                     break;
                 case "16": case "16.0": case "0x10":
                     this.CommandType ="$SCSCTL_AIOV";
+                    this.SSHCommand = "echo $\'ScsCtl::init\nproc Callback args { }\nScsCtl::sendCommand " + RTServerEnvName + " " + databaseCommandPath0+":" + databaseCommandPath1 + " "
+                            + CommandType +" "+ CommandValue+ " $SCSCTL_BYPASS $SCSCTL_BYPASS $SCSCTL_SEND_ANYWAY [Callback]\' >~/Desktop/TAT_Script.tcl";
+                    CommonFunctions.debugLog.info(SSHCommand);
                     break;
             }
-                this.SSHCommand = "echo $\'ScsCtl::init\nproc Callback args { }\nScsCtl::sendCommand " + RTServerEnvName + " " + databaseCommandPath0+":" + databaseCommandPath1 + " "
-                        + CommandType +" "+ (int) CommandValue+ " $SCSCTL_BYPASS $SCSCTL_BYPASS $SCSCTL_SEND_ANYWAY [Callback]\' >~/Desktop/TAT_Script.tcl";
-            CommonFunctions.debugLog.info(SSHCommand);
 
             session = ServerConnection.getInstance(this.ip, this.user, this.password);
             ChannelExec channel = (ChannelExec) session.openChannel("exec");

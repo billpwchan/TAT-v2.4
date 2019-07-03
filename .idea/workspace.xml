@@ -9,8 +9,10 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c889ef52-46c0-4f96-a7a0-3467c1158425" name="Default Changelist" comment="Change CommandValue for function code 15 from double to int">
+    <list default="true" id="c889ef52-46c0-4f96-a7a0-3467c1158425" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mydb.db" beforeDir="false" afterPath="$PROJECT_DIR$/mydb.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/script/CreateTCLfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/CreateTCLfile.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -63,8 +65,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/WriteReport.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="11286">
-              <caret line="358" column="41" selection-start-line="358" selection-start-column="41" selection-end-line="358" selection-end-column="41" />
+            <state relative-caret-position="809">
+              <caret line="287" column="74" selection-start-line="287" selection-start-column="74" selection-end-line="287" selection-end-column="74" />
             </state>
           </provider>
         </entry>
@@ -72,17 +74,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/script/CreateTCLfileDOCMB.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1254">
-              <caret line="50" column="45" selection-start-line="50" selection-start-column="45" selection-end-line="50" selection-end-column="45" />
+            <state relative-caret-position="282">
+              <caret line="133" column="12" selection-start-line="133" selection-start-column="12" selection-end-line="133" selection-end-column="12" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/script/CreateTCLfile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1848">
-              <caret line="68" selection-start-line="68" selection-end-line="68" />
+            <state relative-caret-position="565">
+              <caret line="70" column="13" lean-forward="true" selection-start-line="70" selection-start-column="13" selection-end-line="70" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -96,11 +98,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controller/popup/PopUpRunController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="395">
-              <caret line="278" column="33" selection-start-line="278" selection-start-column="33" selection-end-line="278" selection-end-column="33" />
+            <state relative-caret-position="428">
+              <caret line="279" column="38" selection-start-line="279" selection-start-column="38" selection-end-line="279" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -111,7 +113,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/script/CheckandCompare.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2904">
+            <state relative-caret-position="810">
               <caret line="105" column="43" selection-start-line="105" selection-start-column="43" selection-end-line="105" selection-end-column="43" />
             </state>
           </provider>
@@ -128,7 +130,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>delete</find>
       <find>stop</find>
       <find>executionFinished</find>
       <find>closeAll</find>
@@ -158,6 +159,7 @@
       <find>resultOKWC</find>
       <find>percentage</find>
       <find>event</find>
+      <find>OK</find>
     </findStrings>
     <replaceStrings>
       <replace>CommonFunctions.debugLog.error(</replace>
@@ -242,7 +244,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="240" />
     <option name="y" value="130" />
     <option name="width" value="1440" />
@@ -260,25 +262,13 @@
         <subPane>
           <expand>
             <path>
-              <item name="ttshk_tat-dev_Kelvin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ttshk_tat-dev_Kelvin" type="462c0819:PsiDirectoryNode" />
+              <item name="ttshk_tat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ttshk_tat" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="ttshk_tat-dev_Kelvin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ttshk_tat-dev_Kelvin" type="462c0819:PsiDirectoryNode" />
+              <item name="ttshk_tat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ttshk_tat" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ttshk_tat-dev_Kelvin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ttshk_tat-dev_Kelvin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ttshk_tat-dev_Kelvin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ttshk_tat-dev_Kelvin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="engine" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -297,7 +287,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.122507125" />
     <property name="project.structure.side.proportion" value="0.15584415" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
@@ -469,6 +459,7 @@
       <workItem from="1561690472225" duration="157000" />
       <workItem from="1561691252535" duration="25257000" />
       <workItem from="1562037653366" duration="598000" />
+      <workItem from="1562056389624" duration="5897000" />
     </task>
     <task id="LOCAL-00001" summary="Able to create baseline and input value to IEC104slave.ini file on run-time.">
       <created>1539016208060</created>
@@ -649,7 +640,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="495701000" />
+    <option name="totallyTimeSpent" value="501598000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -661,10 +652,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49624062" visible="true" weight="0.23880596" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49624062" weight="0.17803837" />
       <window_info id="Structure" order="1" sideWeight="0.5037594" side_tool="true" weight="0.19296375" />
       <window_info id="Persistence" order="2" sideWeight="0.5037594" side_tool="true" weight="0.19296375" />
       <window_info id="Designer" order="3" />
@@ -703,7 +694,7 @@
       <window_info anchor="right" id="Maven" order="10" weight="0.32995737" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49624062" visible="true" weight="0.23614073" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49624062" visible="true" weight="0.17803837" />
       <window_info id="Structure" order="1" sideWeight="0.5037594" side_tool="true" weight="0.19296375" />
       <window_info id="Persistence" order="2" sideWeight="0.5037594" side_tool="true" weight="0.19296375" />
       <window_info id="Designer" order="3" />
@@ -738,7 +729,7 @@
       <window_info anchor="right" id="Maven Projects" order="6" weight="0.32953784" />
       <window_info anchor="right" id="Capture Analysis" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
-      <window_info anchor="right" id="Database" order="9" sideWeight="0.49854228" visible="true" weight="0.22921109" />
+      <window_info anchor="right" id="Database" order="9" sideWeight="0.49854228" weight="0.22921109" />
       <window_info anchor="right" id="Maven" order="10" weight="0.32995737" />
     </layout-to-restore>
   </component>
@@ -828,7 +819,8 @@
     <MESSAGE value="AO checking support address size larger then 16 bits" />
     <MESSAGE value="Modify the script name to TAT_Script.tcl" />
     <MESSAGE value="Change CommandValue for function code 15 from double to int" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change CommandValue for function code 15 from double to int" />
+    <MESSAGE value="fix CommandValue for function code 16 from int to double" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix CommandValue for function code 16 from int to double" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -859,15 +851,6 @@
     <SUITE FILE_PATH="coverage/ttshk_tat_dev_Kelvin$Main.ic" NAME="Main Coverage Results" MODIFIED="1560820331610" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/step_executions_result">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="d2ec9edd-abd4-4ca0-b425-8fc5e7c91791">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_40/src.zip!/java/util/Set.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
@@ -1142,9 +1125,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/log/log.txt">
-      <provider selected="true" editor-type-id="LargeFileEditor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/log/log.txt" />
     <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/parameters">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state projectRestartId="01226186-c544-43d0-ba12-6e226c87dff1">
@@ -1217,27 +1198,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/WriteReport.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11286">
-          <caret line="358" column="41" selection-start-line="358" selection-start-column="41" selection-end-line="358" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/script/CreateTCLfileDOCMB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1254">
-          <caret line="50" column="45" selection-start-line="50" selection-start-column="45" selection-end-line="50" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/script/CreateTCLfile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1848">
-          <caret line="68" selection-start-line="68" selection-end-line="68" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/engine/Engine.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="660">
@@ -1245,20 +1205,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/popup/PopUpRunController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="428">
+          <caret line="279" column="38" selection-start-line="279" selection-start-column="38" selection-end-line="279" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/script/CheckandCompare.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2904">
+        <state relative-caret-position="810">
           <caret line="105" column="43" selection-start-line="105" selection-start-column="43" selection-end-line="105" selection-end-column="43" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/popup/PopUpRunController.java">
+    <entry file="file://$PROJECT_DIR$/src/script/CreateTCLfileDOCMB.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="278" column="33" selection-start-line="278" selection-start-column="33" selection-end-line="278" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="282">
+          <caret line="133" column="12" selection-start-line="133" selection-start-column="12" selection-end-line="133" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/Libraries/poi-3.16.jar!/org/apache/poi/ss/usermodel/IndexedColors.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="11" column="21" lean-forward="true" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/WriteReport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="809">
+          <caret line="287" column="74" selection-start-line="287" selection-start-column="74" selection-end-line="287" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/script/CreateTCLfile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="565">
+          <caret line="70" column="13" lean-forward="true" selection-start-line="70" selection-start-column="13" selection-end-line="70" selection-end-column="13" />
         </state>
       </provider>
     </entry>
