@@ -121,16 +121,16 @@ public class TriggerModbusPointDI implements InterfaceScript {
 //        }
         try {
             switch (LaunchTCPServerModbus.functionCode) {
-                case "fc03":
+                case "03": case "0x03":
                     if (!this.stringValue.equals("0")) {
                         SimpleProcessImage instance = LaunchTCPServerModbus.getInstance();
                         updateHoldingRegister(instance, register, value);
                     } else {
                         SimpleProcessImage instance = LaunchTCPServerModbus.getInstance();
-                        updateInputRegister(instance, register, 0);
+                        updateHoldingRegister(instance, register, 0);
                     }
                     break;
-                case "fc04":
+                case "04": case "0x04":
                     if (!this.stringValue.equals("0")) {
                         SimpleProcessImage instance = LaunchTCPServerModbus.getInstance();
                         updateInputRegister(instance, register, value);
@@ -139,7 +139,7 @@ public class TriggerModbusPointDI implements InterfaceScript {
                         updateInputRegister(instance, register, 0);
                     }
                     break;
-                case "fc01":
+                case "01": case "0x01":
                     if (!this.stringValue.equals("0")) {
                         SimpleProcessImage instance = LaunchTCPServerModbus.getInstance();
                         updateDigiatalOutputRegister(instance, register, value);
@@ -148,7 +148,7 @@ public class TriggerModbusPointDI implements InterfaceScript {
                         updateDigiatalOutputRegister(instance, register, 0);
                     }
                     break;
-                case "fc02":
+                case "02": case "0x02":
                     if (!this.stringValue.equals("0")) {
                         SimpleProcessImage instance = LaunchTCPServerModbus.getInstance();
                         updateDigiatalInputRegister(instance, register, value);
