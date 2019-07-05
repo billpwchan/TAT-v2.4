@@ -38,6 +38,8 @@ public class CheckandCompare implements InterfaceScript{
     int scalingFactor = 1;
     int addressSize;
     String endianness;
+    int milliseconds;
+
 
     /**
      * Params of the test.
@@ -69,9 +71,10 @@ public class CheckandCompare implements InterfaceScript{
         this.addressSize = ((int) Double.parseDouble(parameters.get(6).getValue().trim()));
         this.functionCode = parameters.get(7).getValue().trim();
         this.endianness = parameters.get(8).getValue().trim();
-        if(scalingFactor == '0')
+        this.milliseconds = Integer.parseInt(parameters.get(9).getValue().trim());
+        if(scalingFactor == 0)
             scalingFactor = 1;
-        TimeUnit.MILLISECONDS.sleep(500);
+        TimeUnit.MILLISECONDS.sleep(milliseconds);
         launchServer(address, port, reference, addressSize, functionCode, endianness ,result);
 
         return result;
