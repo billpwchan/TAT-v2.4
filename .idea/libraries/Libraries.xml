@@ -1,21 +1,21 @@
 <component name="libraryTable">
   <library name="Libraries">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/Libraries/poi-scratchpad-3.16.jar!/" />
-      <root url="jar://$PROJECT_DIR$/Libraries/poi-ooxml-schemas-3.16.jar!/" />
-      <root url="jar://$PROJECT_DIR$/Libraries/sikuli-api-1.0.2-standalone.jar!/" />
-      <root url="jar://$PROJECT_DIR$/Libraries/poi-excelant-3.16.jar!/" />
-      <root url="jar://$PROJECT_DIR$/Libraries/xmlbeans-2.6.0.jar!/" />
       <root url="jar://$PROJECT_DIR$/Libraries/opencv-2411.jar!/" />
-      <root url="jar://$PROJECT_DIR$/Libraries/jamod-1.2.SNAPSHOT-sources.jar!/" />
-      <root url="jar://$PROJECT_DIR$/Libraries/sqlite-jdbc-3.8.11.2.jar!/" />
-      <root url="jar://$PROJECT_DIR$/Libraries/controlsfx-8.40.9.jar!/" />
       <root url="jar://$PROJECT_DIR$/Libraries/poi-3.16.jar!/" />
       <root url="jar://$PROJECT_DIR$/Libraries/log4j-1.2.17.jar!/" />
-      <root url="jar://$PROJECT_DIR$/Libraries/poi-ooxml-3.16.jar!/" />
-      <root url="jar://$PROJECT_DIR$/Libraries/commons-collections4-4.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Libraries/controlsfx-8.40.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Libraries/poi-ooxml-schemas-3.16.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Libraries/sikuli-api-1.0.2-standalone.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Libraries/sqlite-jdbc-3.8.11.2.jar!/" />
       <root url="jar://$PROJECT_DIR$/Libraries/mysql-connector-java-5.1.34-bin.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Libraries/poi-scratchpad-3.16.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Libraries/poi-excelant-3.16.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Libraries/poi-ooxml-3.16.jar!/" />
       <root url="jar://$PROJECT_DIR$/Libraries/jsch-0.1.52.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Libraries/commons-collections4-4.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Libraries/jamod-1.2.SNAPSHOT-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Libraries/xmlbeans-2.6.0.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
