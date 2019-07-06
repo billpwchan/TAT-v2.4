@@ -53,11 +53,10 @@ public class IEC104InitConnection implements InterfaceScript {
         InputStreamReader isr = new InputStreamReader(is);
         BufferedReader br = new BufferedReader(isr);
         String line123;
-
         Instant before = Instant.now();
         while ((line123 = br.readLine()) != null && !line123.contains("Supervisory") && Duration.between(before, Instant.now()).toMillis() < 10000) {
             //Should be finished initialization
-            CommonFunctions.debugLog.error(line123);
+            CommonFunctions.debugLog.debug(line123);
         }
         br.close();
         isr.close();
