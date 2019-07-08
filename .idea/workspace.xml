@@ -7,11 +7,8 @@
     <list default="true" id="1b6de890-9eff-455f-a6c2-c2388aea1b1d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mydb.db" beforeDir="false" afterPath="$PROJECT_DIR$/mydb.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/WriteReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/WriteReport.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/script/CreateTCLfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/CreateTCLfile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/script/IEC104InitOutputConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/IEC104InitOutputConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/script/ReceiveIEC104Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/ReceiveIEC104Point.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/script/TakeSCEQPBuffer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/TakeSCEQPBuffer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/script/stopIEC104Simulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/stopIEC104Simulator.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -58,16 +55,18 @@
     <select />
   </component>
   <component name="DefaultGradleProjectSettings">
-    <option name="testRunner" value="GRADLE" />
-    <option name="delegatedBuild" value="true" />
+    <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/script/CreateTCLfile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
-              <caret line="63" column="26" selection-start-line="63" selection-start-column="26" selection-end-line="63" selection-end-column="26" />
+            <state relative-caret-position="820">
+              <caret line="90" column="13" selection-start-line="90" selection-start-column="13" selection-end-line="90" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -75,7 +74,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/script/TriggerIEC104Point.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
+            <state relative-caret-position="2604">
               <caret line="141" column="9" selection-start-line="141" selection-start-column="9" selection-end-line="141" selection-end-column="9" />
             </state>
           </provider>
@@ -84,7 +83,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/script/IEC104InitConnection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-90">
+            <state relative-caret-position="315">
               <caret line="33" selection-start-line="33" selection-end-line="33" />
             </state>
           </provider>
@@ -102,7 +101,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/script/ReceiveIEC104Point.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
+            <state relative-caret-position="651">
               <caret line="46" column="91" selection-start-line="46" selection-start-column="91" selection-end-line="46" selection-end-column="91" />
             </state>
           </provider>
@@ -111,7 +110,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controller/tabtestexecution/TabViewResultsController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3831">
+            <state relative-caret-position="231">
               <caret line="52" column="13" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
             </state>
           </provider>
@@ -120,8 +119,23 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/WriteReport.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
-              <caret line="36" selection-start-line="36" selection-end-line="36" />
+            <state relative-caret-position="126">
+              <caret line="82" column="76" selection-start-line="82" selection-start-column="76" selection-end-line="82" selection-end-column="76" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#13748#15324#1" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="das://d8048305-6c57-4c09-b5c7-484fdb5ba201/schema/main/table/script">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state projectRestartId="dd6ea322-9600-4ea1-ad37-7487d7057ba2">
+              <filtering>
+                <filter text="" />
+              </filtering>
             </state>
           </provider>
         </entry>
@@ -129,7 +143,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/script/CheckandCompare.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="882">
+            <state relative-caret-position="2520">
               <caret line="137" column="54" selection-start-line="137" selection-start-column="54" selection-end-line="137" selection-end-column="54" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -143,6 +157,8 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>Receiving Points Now</find>
+      <find>foreground</find>
+      <find>foregroundcolor</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -167,8 +183,8 @@
         <option value="$PROJECT_DIR$/src/script/IEC104InitOutputConnection.java" />
         <option value="$PROJECT_DIR$/src/script/stopIEC104Simulator.java" />
         <option value="$PROJECT_DIR$/src/script/ReceiveIEC104Point.java" />
-        <option value="$PROJECT_DIR$/src/model/WriteReport.java" />
         <option value="$PROJECT_DIR$/src/script/CreateTCLfile.java" />
+        <option value="$PROJECT_DIR$/src/model/WriteReport.java" />
       </list>
     </option>
   </component>
@@ -180,7 +196,7 @@
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="720" />
-    <option name="y" value="-58" />
+    <option name="y" value="-60" />
     <option name="width" value="3500" />
     <option name="height" value="1960" />
   </component>
@@ -189,6 +205,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -224,7 +241,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -232,7 +248,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="database.console.LAST_STATE" value="true" />
+    <property name="database.console.LAST_STATE" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
@@ -304,7 +320,8 @@
       <option name="presentableId" value="Default" />
       <updated>1562207995944</updated>
       <workItem from="1562207999624" duration="1895000" />
-      <workItem from="1562210319155" duration="25812000" />
+      <workItem from="1562210319155" duration="26042000" />
+      <workItem from="1562568712782" duration="4145000" />
     </task>
     <task id="LOCAL-00001" summary="[General] Add DO Receiver for IEC-104 Command. Print console messages to debuglog">
       <created>1562404452090</created>
@@ -327,16 +344,24 @@
       <option name="project" value="LOCAL" />
       <updated>1562553257441</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="[General] Implemented DO2 Test Case. Invalid negative response">
+      <created>1562568475636</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1562568475636</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27707000" />
+    <option name="totallyTimeSpent" value="32082000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1549" height="837" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14849499" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15050167" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Persistence" order="3" side_tool="true" />
@@ -345,11 +370,9 @@
       <window_info id="UI Designer" order="6" />
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info id="Learn" order="8" />
-      <window_info anchor="bottom" id="Database Console" weight="0.329927" />
-      <window_info anchor="bottom" id="Inspection Results" weight="0.329927" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329927" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33868614" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.36350363" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -360,14 +383,16 @@
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32846716" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
-      <window_info anchor="bottom" id="Version Control" order="13" />
+      <window_info anchor="bottom" id="Version Control" order="13" weight="0.329927" />
+      <window_info anchor="bottom" id="Database Console" order="14" weight="0.329927" />
+      <window_info anchor="bottom" id="Inspection Results" order="15" weight="0.329927" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Maven" order="3" weight="0.3297659" />
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.19130434" />
+      <window_info active="true" anchor="right" id="Database" order="6" visible="true" weight="0.19130434" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
     </layout>
@@ -375,12 +400,53 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="[General] Add DO Receiver for IEC-104 Command. Print console messages to debuglog" />
     <MESSAGE value="[General] Output Hex Digits Success" />
     <MESSAGE value="[General] InitIEC104OutputConnection" />
-    <option name="LAST_COMMIT_MESSAGE" value="[General] InitIEC104OutputConnection" />
+    <MESSAGE value="[General] Implemented DO2 Test Case. Invalid negative response" />
+    <option name="LAST_COMMIT_MESSAGE" value="[General] Implemented DO2 Test Case. Invalid negative response" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/d8048305-6c57-4c09-b5c7-484fdb5ba201/console.sql">
@@ -535,36 +601,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://d8048305-6c57-4c09-b5c7-484fdb5ba201/schema/main/table/script">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="9c8151aa-a342-4a3e-ab68-db211f62cca6">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/script/IEC104InitConnection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-90">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/script/stopIEC104Simulator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="183">
           <caret line="24" column="50" lean-forward="true" selection-start-line="24" selection-start-column="50" selection-end-line="24" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/script/CheckandCompare.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="882">
-          <caret line="137" column="54" selection-start-line="137" selection-start-column="54" selection-end-line="137" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -589,24 +629,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/tabtestexecution/TabViewResultsController.java">
+    <entry file="file://$PROJECT_DIR$/src/script/CreateTCLfile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3831">
-          <caret line="52" column="13" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
+        <state relative-caret-position="820">
+          <caret line="90" column="13" selection-start-line="90" selection-start-column="13" selection-end-line="90" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/WriteReport.java">
+    <entry file="file://$PROJECT_DIR$/src/script/TriggerIEC104Point.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
+        <state relative-caret-position="2604">
+          <caret line="141" column="9" selection-start-line="141" selection-start-column="9" selection-end-line="141" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/script/ReceiveIEC104Point.java">
+    <entry file="file://$PROJECT_DIR$/src/script/IEC104InitConnection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="46" column="91" selection-start-line="46" selection-start-column="91" selection-end-line="46" selection-end-column="91" />
+        <state relative-caret-position="315">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
         </state>
       </provider>
     </entry>
@@ -617,17 +660,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/script/TriggerIEC104Point.java">
+    <entry file="file://$PROJECT_DIR$/src/script/ReceiveIEC104Point.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="141" column="9" selection-start-line="141" selection-start-column="9" selection-end-line="141" selection-end-column="9" />
+        <state relative-caret-position="651">
+          <caret line="46" column="91" selection-start-line="46" selection-start-column="91" selection-end-line="46" selection-end-column="91" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/script/CreateTCLfile.java">
+    <entry file="file://$PROJECT_DIR$/src/controller/tabtestexecution/TabViewResultsController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="63" column="26" selection-start-line="63" selection-start-column="26" selection-end-line="63" selection-end-column="26" />
+        <state relative-caret-position="231">
+          <caret line="52" column="13" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/script/CheckandCompare.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2520">
+          <caret line="137" column="54" selection-start-line="137" selection-start-column="54" selection-end-line="137" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/ide/ide-scripting.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/WriteReport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="82" column="76" selection-start-line="82" selection-start-column="76" selection-end-line="82" selection-end-column="76" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#13748#15324#1" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://d8048305-6c57-4c09-b5c7-484fdb5ba201/schema/main/table/script">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="dd6ea322-9600-4ea1-ad37-7487d7057ba2">
+          <filtering>
+            <filter text="" />
+          </filtering>
         </state>
       </provider>
     </entry>
