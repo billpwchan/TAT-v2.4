@@ -31,8 +31,8 @@ public class ReceiveIEC104Point implements InterfaceScript {
         Result result = new Result();
         result.setResult("NOK");
 
-        int pointAddressExcel = ((int) Double.parseDouble(parameters.get(0).getValue().trim()));
-        int addressSizeExcel = (int) Double.parseDouble(parameters.get(1).getValue().trim());
+        int pointAddressExcel = ((int) Double.parseDouble(parameters.get(1).getValue().trim()));
+        int addressSizeExcel = (int) Double.parseDouble(parameters.get(2).getValue().trim());
         System.out.println("Receiving Points Now");
         while ((consoleLine = IEC104InitOutputConnection.br.readLine()) != null && !consoleLine.contains("Single Command Response")) {
             //Should be finished initialization
@@ -42,7 +42,7 @@ public class ReceiveIEC104Point implements InterfaceScript {
         System.out.println("Received DO Command with message: " + consoleLine);
         for (int i = 0; i < DOHexOffset; i++) {
             consoleLine = IEC104InitOutputConnection.br.readLine();
-            System.out.println("Line " + ++i + ": " + consoleLine);
+            CommonFunctions.debugLog.info("Line " + ++i + ": " + consoleLine);
         }
         consoleLine = IEC104InitOutputConnection.br.readLine();  //This is the line containing information;
 
@@ -58,23 +58,21 @@ public class ReceiveIEC104Point implements InterfaceScript {
         System.out.println("pointAddress is: " + pointAddressReceived);
         System.out.println("addressSize: " + addressSizeReceived);
 
-        if (pointAddressReceived == pointAddressExcel) {
+        if (pointAddressReceived == pointAddressExcel && addressSizeReceived == addressSizeExcel) {
             result.setResult("OK");
             StringBuilder resultComment = new StringBuilder();
-            resultComment.append("Result OK \n Received Point Address: ");
-            resultComment.append(pointAddressReceived);
-            resultComment.append("\n Actual Point Address: ");
-            resultComment.append(pointAddressExcel);
+            resultComment.append("Result OK \n Received Point Address: ").append(pointAddressReceived);
+            resultComment.append("\n Actual Point Address: ").append(pointAddressExcel);
+            resultComment.append("\n Received Address Size: ").append(pointAddressExcel);
             result.setComment(resultComment.toString());
         } else {
             StringBuilder resultComment = new StringBuilder();
-            resultComment.append("Result MisMatch \n Received Point Address: ");
-            resultComment.append(pointAddressReceived);
-            resultComment.append("\n Actual Point Address: ");
-            resultComment.append(pointAddressExcel);
+            resultComment.append("Result MisMatch \n Received Point Address: ").append(pointAddressReceived);
+            resultComment.append("\n Actual Point Address: ").append(pointAddressExcel);
+            resultComment.append("\n Received Address Size: ").append(pointAddressExcel);
             result.setComment(resultComment.toString());
         }
-        return null;
+        return result;
     }
 
     @Override
@@ -92,41 +90,7 @@ public class ReceiveIEC104Point implements InterfaceScript {
         return null;
     }
 
-    public static void main(String[] args) throws IOException {
-        //Must initiate IEC104 connection to keep lines of IEC104Template as static.
-//        Path inputPath = Paths.get("src\\script\\IEC104Simulator\\IEC104slavetemplate.ini");
-//        Path outputPath = Paths.get("IEC104slave.ini");
-//        try {
-//            //Read Template File
-//            List<String> lines = Files.readAllLines(inputPath);
-//            int port = 2404;
-//            int asduAddress = 7;
-//            for (int i = 0; i < lines.size(); i++) {
-//                if (lines.get(i) != null && (lines.get(i)).startsWith("Port")) {
-//                    lines.set(i, "Port=" + port);
-//                } else if (lines.get(i) != null && (lines.get(i)).startsWith("AsduAddress")) {
-//                    lines.set(i, "AsduAddress=" + asduAddress);
-//                }
-//            }
-//            //Write adjusted configuration to OutputFile.
-//            Files.write(outputPath, lines, Charset.defaultCharset());
-//        } catch (IOException ex) {
-//            CommonFunctions.debugLog.error("Cannot locate the file specified. Please check the IEC104Simulator Folder inside /scripts.", ex);
-//        }
-//        Runtime.getRuntime().exec("attrib +H IEC104slave.ini");     //Hide the .ini file from the user.
-//        Process process = new ProcessBuilder("src\\script\\IEC104Simulator\\20171117_104Slave.exe").start();
-//        IEC104InitConnection.process = process;
-//        InputStream is = process.getInputStream();
-//        InputStreamReader isr = new InputStreamReader(is);
-//        BufferedReader br = new BufferedReader(isr);
-//        String consoleLine;
-//        Instant before = Instant.now();
-//        try {
-//            while (!((consoleLine = br.readLine()) != null && !consoleLine.contains("Supervisory") && Duration.between(before, Instant.now()).toMillis() < 10000))
-//                CommonFunctions.debugLog.debug(consoleLine);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+    public static void main(String[] args) {
         IEC104InitOutputConnection temp = new IEC104InitOutputConnection();
 
         try {

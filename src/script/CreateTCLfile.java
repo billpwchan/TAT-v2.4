@@ -56,10 +56,10 @@ public class CreateTCLfile {
             this.CommandValue = Double.parseDouble(parameters.get(8).getValue().trim());
 
             switch (CommandType){
-                case "15": case "15.0": case "0x0F": case "0x0f":
+                case "15": case "15.0": case "0x0F": case "0x0f": case "45": case "45.0": case "0x2D": case "0x2d":
                     this.CommandType = "$SCSCTL_DIOV";
                     break;
-                case "16": case "16.0": case "0x10":
+                case "16": case "16.0": case "0x10": case "46": case "46.0": case "0x2E": case "0x2e":
                     this.CommandType ="$SCSCTL_AIOV";
                     break;
             }

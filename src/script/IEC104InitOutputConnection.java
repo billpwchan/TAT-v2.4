@@ -26,12 +26,10 @@ public class IEC104InitOutputConnection implements InterfaceScript {
 
     @Override
     public Result run(ArrayList<ParametersExecution> parameters, HashMap hashMap) throws Exception {
-//        String ip = parameters.get(1).getValue().trim().replace(',','.');    //Not used for simulator monitor process
-//        int port = ((int) Double.parseDouble(parameters.get(2).getValue().trim()));
-//        int asduAddress = (int) Double.parseDouble(parameters.get(3).getValue().trim());
+        String ip = parameters.get(1).getValue().trim().replace(',','.');    //Not used for simulator monitor process
+        int port = ((int) Double.parseDouble(parameters.get(2).getValue().trim()));
+        int asduAddress = (int) Double.parseDouble(parameters.get(3).getValue().trim());
 
-        int port = 2404;
-        int asduAddress = 7;
         IEC104InitConnection.initIEC104ConfigFile(port, asduAddress);
 
         Runtime.getRuntime().exec("attrib +H IEC104slave.ini");     //Hide the .ini file from the user.
