@@ -29,6 +29,26 @@ public class IEC104InitConnection implements InterfaceScript {
         String ip = parameters.get(1).getValue().trim().replace(',','.');    //Not used for simulator monitor process
         int port = ((int) Double.parseDouble(parameters.get(2).getValue().trim()));
         int asduAddress = (int) Double.parseDouble(parameters.get(3).getValue().trim());
+
+        IEC104InitConnection.initIEC104ConfigFile(port, asduAddress);
+
+        Runtime.getRuntime().exec("attrib +H IEC104slave.ini");     //Hide the .ini file from the user.
+        process = new ProcessBuilder("src\\script\\IEC104Simulator\\20171117_104Slave.exe").start();
+        InputStream is = process.getInputStream();
+        InputStreamReader isr = new InputStreamReader(is);
+        BufferedReader br = new BufferedReader(isr);
+        String line123;
+        Instant before = Instant.now();
+        while ((line123 = br.readLine()) != null && !line123.contains("Supervisory") && Duration.between(before, Instant.now()).toMillis() < 10000) {
+            //Should be finished initialization
+            CommonFunctions.debugLog.debug(line123);
+        }
+        br.close();
+        isr.close();
+        return null;
+    }
+
+    public static void initIEC104ConfigFile(int port, int asduAddress) {
         CommonFunctions.debugLog.debug("Working Directory = " + System.getProperty("user.dir"));
         Path inputPath = Paths.get("src\\script\\IEC104Simulator\\IEC104slavetemplate.ini");
         Path outputPath = Paths.get("IEC104slave.ini");
@@ -47,20 +67,6 @@ public class IEC104InitConnection implements InterfaceScript {
         } catch (IOException ex) {
             CommonFunctions.debugLog.error("Cannot locate the file specified. Please check the IEC104Simulator Folder inside /scripts.", ex);
         }
-        Runtime.getRuntime().exec("attrib +H IEC104slave.ini");     //Hide the .ini file from the user.
-        process = new ProcessBuilder("src\\script\\IEC104Simulator\\20171117_104Slave.exe").start();
-        InputStream is = process.getInputStream();
-        InputStreamReader isr = new InputStreamReader(is);
-        BufferedReader br = new BufferedReader(isr);
-        String line123;
-        Instant before = Instant.now();
-        while ((line123 = br.readLine()) != null && !line123.contains("Supervisory") && Duration.between(before, Instant.now()).toMillis() < 10000) {
-            //Should be finished initialization
-            CommonFunctions.debugLog.debug(line123);
-        }
-        br.close();
-        isr.close();
-        return null;
     }
 
     @Override
