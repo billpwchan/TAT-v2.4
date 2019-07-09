@@ -9,11 +9,11 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c889ef52-46c0-4f96-a7a0-3467c1158425" name="Default Changelist" comment="Fix percentage calculation and Trigger DI's function code input">
+    <list default="true" id="c889ef52-46c0-4f96-a7a0-3467c1158425" name="Default Changelist" comment="Command type reading change to CFG_Data_Type">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mydb.db" beforeDir="false" afterPath="$PROJECT_DIR$/mydb.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/WriteReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/WriteReport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/script/CheckandCompare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/CheckandCompare.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/script/CreateTCLfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/CreateTCLfile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/script/CreateTCLfileDOCMB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/CreateTCLfileDOCMB.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -63,18 +63,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/model/WriteReport.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="10" column="39" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
-              <folding>
-                <element signature="e#42815#42816#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controller/tabtestexecution/TabTestCampaignExecutionRepositoryBaselineController.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -84,11 +72,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/script/CreateTCLfileDOCMB.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-13">
-              <caret line="48" column="24" selection-start-line="48" selection-start-column="24" selection-end-line="48" selection-end-column="24" />
+            <state relative-caret-position="621">
+              <caret line="73" column="24" selection-start-line="73" selection-start-column="24" selection-end-line="73" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/script/CreateTCLfile.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="203">
+              <caret line="49" column="37" selection-start-line="49" selection-start-column="37" selection-end-line="49" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -96,7 +93,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/engine/Engine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
+            <state relative-caret-position="6777">
               <caret line="266" selection-start-line="266" selection-end-line="266" />
             </state>
           </provider>
@@ -105,7 +102,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/script/CheckandCompare.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
+            <state relative-caret-position="2214">
               <caret line="99" column="44" selection-start-line="99" selection-start-column="44" selection-end-line="99" selection-end-column="44" />
             </state>
           </provider>
@@ -217,12 +214,12 @@
         <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
         <option value="$PROJECT_DIR$/src/engine/Engine.java" />
         <option value="$PROJECT_DIR$/src/script/TriggerModbusPointDI.java" />
-        <option value="$PROJECT_DIR$/src/script/CreateTCLfile.java" />
-        <option value="$PROJECT_DIR$/src/script/CreateTCLfileDOCMB.java" />
         <option value="$PROJECT_DIR$/src/script/CheckandCompare.java" />
         <option value="$PROJECT_DIR$/src/controller/tabtestexecution/TabTestCampaignExecutionMainViewController.java" />
         <option value="$PROJECT_DIR$/src/controller/tabtestexecution/TabTestCampaignExecutionRepositoryBaselineController.java" />
         <option value="$PROJECT_DIR$/src/model/WriteReport.java" />
+        <option value="$PROJECT_DIR$/src/script/CreateTCLfile.java" />
+        <option value="$PROJECT_DIR$/src/script/CreateTCLfileDOCMB.java" />
       </list>
     </option>
   </component>
@@ -237,8 +234,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="240" />
-    <option name="y" value="130" />
+    <option name="x" value="494" />
+    <option name="y" value="153" />
     <option name="width" value="1440" />
     <option name="height" value="780" />
   </component>
@@ -264,19 +261,6 @@
               <item name="ttshk_tat" type="b2602c69:ProjectViewProjectNode" />
               <item name="ttshk_tat" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ttshk_tat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ttshk_tat" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-              <item name="tabtestexecution" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ttshk_tat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ttshk_tat" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="script" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -294,7 +278,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/IdeaProjects/test" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -368,10 +352,10 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Main" />
-      <item itemvalue="Application.TriggerIEC104Point" />
       <item itemvalue="Application.IEC104InitConnection" />
       <item itemvalue="Application.LaunchTCPIEC104SampleServer" />
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.TriggerIEC104Point" />
     </list>
     <recent_temporary>
       <list>
@@ -670,7 +654,14 @@
       <option name="project" value="LOCAL" />
       <updated>1562224820397</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Add milliseconds for checking DO and fix minor bugs for report">
+      <created>1562297866557</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1562297866557</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -689,7 +680,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49624062" visible="true" weight="0.18123667" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49624062" visible="true" weight="0.18283582" />
       <window_info id="Structure" order="1" sideWeight="0.5037594" side_tool="true" weight="0.19296375" />
       <window_info id="Persistence" order="2" sideWeight="0.5037594" side_tool="true" weight="0.19296375" />
       <window_info id="Designer" order="3" />
@@ -700,7 +691,7 @@
       <window_info anchor="bottom" id="Duplicates" order="0" weight="0.32900432" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.30194804" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.49733475" visible="true" weight="0.2012987" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49733475" weight="0.2012987" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.27597404" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -790,7 +781,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="Modified Hidden slave file" />
     <MESSAGE value="Added Event-check enabled test case" />
     <MESSAGE value="DB Content modified. Baseline creation troubleshooting." />
     <MESSAGE value="Remove unnecessary thread operation. Pending test." />
@@ -815,7 +805,8 @@
     <MESSAGE value="fix CommandValue for function code 16 from int to double" />
     <MESSAGE value="Fix big endian and little endian" />
     <MESSAGE value="Fix percentage calculation and Trigger DI's function code input" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix percentage calculation and Trigger DI's function code input" />
+    <MESSAGE value="Add milliseconds for checking DO and fix minor bugs for report" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add milliseconds for checking DO and fix minor bugs for report" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1063,13 +1054,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/script/CreateTCLfile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="69" column="26" lean-forward="true" selection-start-line="69" selection-start-column="26" selection-end-line="69" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/popup/PopUpRunController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="311">
@@ -1077,20 +1061,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/engine/Engine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="266" selection-start-line="266" selection-end-line="266" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/script/CreateTCLfileDOCMB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-13">
-          <caret line="48" column="24" selection-start-line="48" selection-start-column="24" selection-end-line="48" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -1150,17 +1120,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/script/CheckandCompare.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="99" column="44" selection-start-line="99" selection-start-column="44" selection-end-line="99" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/Libraries/poi-ooxml-3.16.jar!/org/apache/poi/POIXMLDocument.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="506">
           <caret line="41" column="22" selection-start-line="41" selection-start-column="22" selection-end-line="41" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/WriteReport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="96" column="47" lean-forward="true" selection-start-line="96" selection-start-column="47" selection-end-line="96" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#42716#42717#0" expanded="true" />
+            <element signature="e#42748#42749#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/engine/Engine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6777">
+          <caret line="266" selection-start-line="266" selection-end-line="266" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/script/CheckandCompare.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2214">
+          <caret line="99" column="44" selection-start-line="99" selection-start-column="44" selection-end-line="99" selection-end-column="44" />
         </state>
       </provider>
     </entry>
@@ -1171,13 +1160,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/WriteReport.java">
+    <entry file="file://$PROJECT_DIR$/src/script/CreateTCLfile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="10" column="39" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
-          <folding>
-            <element signature="e#42815#42816#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="203">
+          <caret line="49" column="37" selection-start-line="49" selection-start-column="37" selection-end-line="49" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/script/CreateTCLfileDOCMB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="621">
+          <caret line="73" column="24" selection-start-line="73" selection-start-column="24" selection-end-line="73" selection-end-column="24" />
         </state>
       </provider>
     </entry>

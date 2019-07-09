@@ -68,10 +68,10 @@ public class CreateTCLfileDOCMB {
             this.CommandValue6 = (int) Double.parseDouble(parameters.get(14).getValue().trim());
 
             switch (CommandType){
-                case "15": case "15.0": case "0x0F": case "0x0f":
+                case "DI": case "DO":
                     this.CommandType = "$SCSCTL_DIOV";
                     break;
-                case "16": case "16.0": case "0x10":
+                case "AI": case "AO":
                     this.CommandType ="$SCSCTL_AIOV";
                     break;
             }
