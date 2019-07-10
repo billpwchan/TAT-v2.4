@@ -12,8 +12,7 @@
     <list default="true" id="c889ef52-46c0-4f96-a7a0-3467c1158425" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mydb.db" beforeDir="false" afterPath="$PROJECT_DIR$/mydb.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/script/TriggerModbusPointDI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/TriggerModbusPointDI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/script/TriggerModbusPointDI2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/TriggerModbusPointDI2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/script/SearchOccurence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/SearchOccurence.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -73,19 +72,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/script/CheckandCompare.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="78" column="30" selection-start-line="78" selection-start-column="30" selection-end-line="78" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/script/CreateTCLfile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="27">
-              <caret line="63" selection-start-line="63" selection-end-line="63" />
+            <state relative-caret-position="459">
+              <caret line="76" column="26" selection-start-line="76" selection-start-column="26" selection-end-line="76" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -94,12 +84,12 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/engine/Engine.java">
+        <entry file="jar://$PROJECT_DIR$/Libraries/hibernate4/hibernate-core-4.3.1.Final.jar!/org/hibernate/collection/internal/AbstractPersistentCollection.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1113">
-              <caret line="589" column="40" selection-start-line="589" selection-start-column="40" selection-end-line="589" selection-end-column="40" />
+            <state relative-caret-position="214">
+              <caret line="648" selection-start-line="648" selection-end-line="648" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#24475#24476#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -108,17 +98,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/DBcontroller/ConfigurationDB.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="538">
-              <caret line="307" column="41" selection-start-line="307" selection-start-column="41" selection-end-line="307" selection-end-column="41" />
+            <state relative-caret-position="174">
+              <caret line="293" column="22" selection-start-line="293" selection-start-column="22" selection-end-line="293" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/script/TriggerModbusPointDI.java">
+        <entry file="file://$PROJECT_DIR$/src/script/CIPWriteTag.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="91" column="5" selection-start-line="77" selection-start-column="4" selection-end-line="91" selection-end-column="5" />
+            <state relative-caret-position="266">
+              <caret line="30" selection-start-line="30" selection-end-line="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -127,10 +117,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/script/TriggerModbusPointDI2.java">
+        <entry file="file://$PROJECT_DIR$/src/engine/Engine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-40">
-              <caret line="81" column="5" selection-start-line="81" selection-start-column="5" selection-end-line="81" selection-end-column="5" />
+            <state relative-caret-position="27">
+              <caret line="36" column="28" selection-start-line="36" selection-start-column="28" selection-end-line="36" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -139,13 +129,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/script/CIPWriteTag.java">
+        <entry file="jar://$PROJECT_DIR$/Libraries/log4j-1.2.17.jar!/org/apache/log4j/Category.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="214">
+              <caret line="84" selection-start-line="84" selection-end-line="84" />
             </state>
           </provider>
         </entry>
@@ -153,8 +140,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/script/SearchOccurence.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="608">
-              <caret line="110" column="5" selection-start-line="110" selection-start-column="5" selection-end-line="110" selection-end-column="5" />
+            <state relative-caret-position="388">
+              <caret line="101" column="17" selection-start-line="101" selection-start-column="17" selection-end-line="101" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -162,8 +149,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/script/CheckandVerify.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="446">
-              <caret line="49" column="9" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
+            <state relative-caret-position="365">
+              <caret line="67" column="75" selection-start-line="67" selection-start-column="75" selection-end-line="67" selection-end-column="75" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -182,16 +169,9 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>scriptTypeMaxStep</find>
-      <find>maximum Step:</find>
-      <find>res</find>
-      <find>Result OS</find>
-      <find>percentage</find>
       <find>nbcase</find>
       <find>nbcaseOK</find>
-      <find>stateMachineStepResult</find>
       <find>nbStepOK</find>
-      <find>nbCaseOK</find>
       <find>row</find>
       <find>functionCode</find>
       <find>stringValue</find>
@@ -205,13 +185,20 @@
       <find>report</find>
       <find>OS</find>
       <find>resultOutOfScope</find>
-      <find>result</find>
       <find>validate</find>
       <find>event</find>
       <find>exce</find>
       <find>excel</find>
       <find>OK</find>
       <find>label</find>
+      <find>stateMachineMacro</find>
+      <find>result</find>
+      <find>nbCaseOK</find>
+      <find>scriptNumber</find>
+      <find>stateMachineStepResult</find>
+      <find>step</find>
+      <find>macroResult</find>
+      <find>stepResult</find>
     </findStrings>
     <replaceStrings>
       <replace>CommonFunctions.debugLog.error(</replace>
@@ -269,20 +256,20 @@
         <option value="$PROJECT_DIR$/src/script/IEC104InitConnection.java" />
         <option value="$PROJECT_DIR$/src/controller/popup/PopUpRunController.java" />
         <option value="$PROJECT_DIR$/src/controller/tabtestcase/TabTestCaseEditController.java" />
-        <option value="$PROJECT_DIR$/src/engine/Engine.java" />
         <option value="$PROJECT_DIR$/src/controller/tabtestexecution/TabTestCampaignExecutionMainViewController.java" />
         <option value="$PROJECT_DIR$/src/controller/tabtestexecution/TabTestCampaignExecutionRepositoryBaselineController.java" />
         <option value="$PROJECT_DIR$/src/model/WriteReport.java" />
         <option value="$PROJECT_DIR$/src/script/CreateTCLfile.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
-        <option value="$PROJECT_DIR$/src/script/SearchOccurence.java" />
         <option value="$PROJECT_DIR$/src/DBcontroller/ConfigurationDB.java" />
         <option value="$PROJECT_DIR$/src/script/CheckandCompare.java" />
-        <option value="$PROJECT_DIR$/src/script/CIPWriteTag.java" />
         <option value="$PROJECT_DIR$/src/script/CreateTCLfileDOCMB.java" />
         <option value="$PROJECT_DIR$/src/script/CheckandVerify.java" />
         <option value="$PROJECT_DIR$/src/script/TriggerModbusPointDI.java" />
         <option value="$PROJECT_DIR$/src/script/TriggerModbusPointDI2.java" />
+        <option value="$PROJECT_DIR$/src/script/SearchOccurence.java" />
+        <option value="$PROJECT_DIR$/src/script/CIPWriteTag.java" />
+        <option value="$PROJECT_DIR$/src/engine/Engine.java" />
       </list>
     </option>
   </component>
@@ -745,7 +732,14 @@
       <option name="project" value="LOCAL" />
       <updated>1562725454598</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Change back to original logic">
+      <created>1562730423222</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1562730423223</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -764,7 +758,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49624062" visible="true" weight="0.18496802" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49624062" weight="0.18496802" />
       <window_info id="Structure" order="1" sideWeight="0.5037594" side_tool="true" weight="0.19296375" />
       <window_info id="Persistence" order="2" sideWeight="0.5037594" side_tool="true" weight="0.19296375" />
       <window_info id="Designer" order="3" />
@@ -775,7 +769,7 @@
       <window_info anchor="bottom" id="Duplicates" order="0" weight="0.32900432" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.30194804" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49733475" visible="true" weight="0.23160173" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.49733475" visible="true" weight="0.16341992" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.27597404" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -802,6 +796,45 @@
       <window_info active="true" anchor="right" id="Database" order="9" sideWeight="0.49854228" visible="true" weight="0.22921109" />
       <window_info anchor="right" id="Maven" order="10" weight="0.32995737" />
     </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49624062" weight="0.18496802" />
+      <window_info id="Structure" order="1" sideWeight="0.5037594" side_tool="true" weight="0.19296375" />
+      <window_info id="Persistence" order="2" sideWeight="0.5037594" side_tool="true" weight="0.19296375" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Favorites" order="5" sideWeight="0.4990758" weight="0.22068231" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info id="Image Layers" order="7" />
+      <window_info anchor="bottom" id="Duplicates" order="0" weight="0.32900432" />
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.30194804" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.49733475" visible="true" weight="0.16341992" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.27597404" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="7" weight="0.32900432" />
+      <window_info anchor="bottom" id="Database Console" order="8" weight="0.2098408" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32900432" />
+      <window_info anchor="bottom" id="Database Changes" order="10" sideWeight="0.49946696" weight="0.32792208" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32900432" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5026652" side_tool="true" weight="0.17316018" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.32467532" />
+      <window_info anchor="bottom" id="Java Enterprise" order="14" sideWeight="0.4989339" weight="0.32900432" />
+      <window_info anchor="bottom" id="Inspection Results" order="15" weight="0.3299566" />
+      <window_info anchor="bottom" id="Docker" order="16" show_stripe_button="false" />
+      <window_info anchor="bottom" id="SVN Repositories" order="17" weight="0.32900432" />
+      <window_info anchor="right" id="Coverage" order="0" sideWeight="0.50145775" side_tool="true" weight="0.23400854" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Palette&#9;" order="5" />
+      <window_info anchor="right" id="Maven Projects" order="6" weight="0.32953784" />
+      <window_info anchor="right" id="Capture Analysis" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info active="true" anchor="right" id="Database" order="9" sideWeight="0.49854228" visible="true" weight="0.22921109" />
+      <window_info anchor="right" id="Maven" order="10" weight="0.32995737" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -865,7 +898,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="Remove unnecessary thread operation. Pending test." />
     <MESSAGE value="Moving exe launcher to initConnection" />
     <MESSAGE value="Added Database Cleaning Tool. (Inside Script Folder)" />
     <MESSAGE value="Finalized adjusted deleteExecution Method in IterationDB. Passed test" />
@@ -890,7 +922,8 @@
     <MESSAGE value="Add milliseconds for checking DO and fix minor bugs for report" />
     <MESSAGE value="Command type reading change to CFG_Data_Type" />
     <MESSAGE value="Change the Default value of blank cell to be -1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change the Default value of blank cell to be -1" />
+    <MESSAGE value="Change back to original logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change back to original logic" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -910,6 +943,12 @@
           </properties>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/engine/Engine.java</url>
+          <line>376</line>
+          <properties />
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
@@ -921,15 +960,6 @@
     <SUITE FILE_PATH="coverage/ttshk_tat_dev_Kelvin$Main.ic" NAME="Main Coverage Results" MODIFIED="1560820331610" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/controller/tabtestcase/TabTestCaseEditController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="171" column="50" selection-start-line="171" selection-start-column="50" selection-end-line="171" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log/log.txt" />
-    <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/parameters" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_40/src.zip!/java/util/ArrayList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-643">
@@ -1177,33 +1207,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/engine/Engine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1113">
-          <caret line="589" column="40" selection-start-line="589" selection-start-column="40" selection-end-line="589" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/script/CreateTCLfile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="63" selection-start-line="63" selection-end-line="63" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DBcontroller/ConfigurationDB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="538">
-          <caret line="307" column="41" selection-start-line="307" selection-start-column="41" selection-end-line="307" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/script/CheckandCompare.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="351">
@@ -1215,33 +1218,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="365">
           <caret line="66" column="75" selection-start-line="66" selection-start-column="75" selection-end-line="66" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/script/SearchOccurence.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="110" column="5" selection-start-line="110" selection-start-column="5" selection-end-line="110" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/script/CIPWriteTag.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/script/CheckandVerify.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="446">
-          <caret line="49" column="9" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1257,8 +1233,90 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/script/TriggerModbusPointDI2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-40">
-          <caret line="81" column="5" selection-start-line="81" selection-start-column="5" selection-end-line="81" selection-end-column="5" />
+        <state relative-caret-position="905">
+          <caret line="115" column="54" selection-start-line="115" selection-start-column="54" selection-end-line="115" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/script/CheckandVerify.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="67" column="75" selection-start-line="67" selection-start-column="75" selection-end-line="67" selection-end-column="75" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DBcontroller/ConfigurationDB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="293" column="22" selection-start-line="293" selection-start-column="22" selection-end-line="293" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/Libraries/hibernate4/hibernate-core-4.3.1.Final.jar!/org/hibernate/collection/internal/AbstractPersistentCollection.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="648" selection-start-line="648" selection-end-line="648" />
+          <folding>
+            <element signature="e#24475#24476#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/script/CreateTCLfile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="76" column="26" selection-start-line="76" selection-start-column="26" selection-end-line="76" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/script/CIPWriteTag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/script/SearchOccurence.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="388">
+          <caret line="101" column="17" selection-start-line="101" selection-start-column="17" selection-end-line="101" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/Libraries/log4j-1.2.17.jar!/org/apache/log4j/Category.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="84" selection-start-line="84" selection-end-line="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DB/StepExecutions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="162" column="16" selection-start-line="162" selection-start-column="16" selection-end-line="162" selection-end-column="16" />
+          <folding>
+            <element signature="e#3462#3463#0" expanded="true" />
+            <element signature="e#3498#3499#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/engine/Engine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="36" column="28" selection-start-line="36" selection-start-column="28" selection-end-line="36" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

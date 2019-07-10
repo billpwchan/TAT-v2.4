@@ -88,7 +88,10 @@ public class SearchOccurence {
 
                     CommonFunctions.debugLog.error("Compare: " + compare);
 
-                    if (compare.equals(this.toCompare)) {
+                    if(this.toCompare.equals("-1.0")){
+                        System.out.println("Search OS");
+                        result.setResult("OS");
+                    }else if (compare.equals(this.toCompare)) {
                         result.setResult("OK");
                     } else {
                         result.setComment("Missmatch \n" + "Searched : " + this.toCompare + "\n" + "Found = " + compare);
