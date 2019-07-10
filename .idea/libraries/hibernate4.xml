@@ -24,6 +24,7 @@
       <root url="jar://$PROJECT_DIR$/Libraries/hibernate4/c3p0-0.9.2.1.jar!/" />
       <root url="jar://$PROJECT_DIR$/Libraries/hibernate4/log4j-1.2.12.jar!/" />
       <root url="jar://$PROJECT_DIR$/Libraries/hibernate4/antlr-2.7.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Libraries/etherip.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

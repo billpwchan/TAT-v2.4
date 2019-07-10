@@ -305,7 +305,7 @@ public class ConfigurationDB {
                 // System.out.println("VALUE = " + value);
                 break;
             default:
-                value = String.valueOf(0);
+                value = String.valueOf(-1);
         }
         return value;
     }

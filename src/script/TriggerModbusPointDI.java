@@ -119,51 +119,44 @@ public class TriggerModbusPointDI implements InterfaceScript {
         this.value = (int) Math.pow(2, val);
 //this.value = Math.pow(2,Integer.valueOf(this.stringValue)) ;
 //        }
-        try {
-            switch (LaunchTCPServerModbus.functionCode) {
-                case "fc03":
-                    if (!this.stringValue.equals("0")) {
-                        SimpleProcessImage instance = LaunchTCPServerModbus.getInstance();
-                        updateHoldingRegister(instance, register, value);
-                    } else {
-                        SimpleProcessImage instance = LaunchTCPServerModbus.getInstance();
-                        updateInputRegister(instance, register, 0);
-                    }
-                    break;
-                case "fc04":
-                    if (!this.stringValue.equals("0")) {
-                        SimpleProcessImage instance = LaunchTCPServerModbus.getInstance();
-                        updateInputRegister(instance, register, value);
-                    } else {
-                        SimpleProcessImage instance = LaunchTCPServerModbus.getInstance();
-                        updateInputRegister(instance, register, 0);
-                    }
-                    break;
-                case "fc01":
-                    if (!this.stringValue.equals("0")) {
-                        SimpleProcessImage instance = LaunchTCPServerModbus.getInstance();
-                        updateDigiatalOutputRegister(instance, register, value);
-                    } else {
-                        SimpleProcessImage instance = LaunchTCPServerModbus.getInstance();
-                        updateDigiatalOutputRegister(instance, register, 0);
-                    }
-                    break;
-                case "fc02":
-                    if (!this.stringValue.equals("0")) {
-                        SimpleProcessImage instance = LaunchTCPServerModbus.getInstance();
-                        updateDigiatalInputRegister(instance, register, value);
-                    } else {
-                        SimpleProcessImage instance = LaunchTCPServerModbus.getInstance();
-                        updateDigiatalInputRegister(instance, register, 0);
-                    }
-                    break;
-                default:
-                        break;
-            }
-        } catch(Exception ex){
-                Logger.getLogger(TriggerModbusPointDI.class.getName()).error("", ex);
-            }
-
+        switch (LaunchTCPServerModbus.functionCode)
+        {
+            case "03": case "0x03":
+                try {
+                    SimpleProcessImage instance = LaunchTCPServerModbus.getInstance();
+                    updateHoldingRegister(instance, register,(int) value);
+                } catch (Exception ex) {
+                    Logger.getLogger(TriggerModbusPointDI.class.getName()).error("", ex);
+                }
+                break;
+            case "04": case "0x04":
+                try {
+                    SimpleProcessImage instance = LaunchTCPServerModbus.getInstance();
+                    updateInputRegister(instance, register,(int) value);
+                } catch (Exception ex) {
+                    Logger.getLogger(TriggerModbusPointDI.class.getName()).error("", ex);
+                }
+                break;
+            case "01": case "0x01":
+                try {
+                    SimpleProcessImage instance = LaunchTCPServerModbus.getInstance();
+                    updateDigiatalOutputRegister(instance, register, value);
+                } catch (Exception ex) {
+                    Logger.getLogger(TriggerModbusPointDI.class.getName()).error("", ex);
+                }
+                break;
+            case "02": case "0x02":
+                try {
+                    SimpleProcessImage instance = LaunchTCPServerModbus.getInstance();
+                    updateDigiatalInputRegister(instance, register, value);
+                } catch (Exception ex) {
+                    Logger.getLogger(TriggerModbusPointDI.class.getName()).error("", ex);
+                }
+                break;
+            default:
+                //CommonFunctions.debugLog.error("Error, neither AI,DI or DI2 where found !");
+                break;
+        }
         return new Result();
     }
 

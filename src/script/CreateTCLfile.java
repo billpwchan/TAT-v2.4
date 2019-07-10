@@ -14,6 +14,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
+
+/**
+ *
+ * @author Kelvin Cheung
+ * @version 1.0
+ */
+
 public class CreateTCLfile {
     String indexNameReturn;
     String SSHCommand;
@@ -56,16 +63,19 @@ public class CreateTCLfile {
             this.CommandValue = Double.parseDouble(parameters.get(8).getValue().trim());
 
             switch (CommandType){
-                case "15": case "15.0": case "0x0F": case "0x0f":
+                case "DI": case "DO":
                     this.CommandType = "$SCSCTL_DIOV";
+                    this.SSHCommand = "echo $\'ScsCtl::init\nproc Callback args { }\nScsCtl::sendCommand " + RTServerEnvName + " " + databaseCommandPath0+":" + databaseCommandPath1 + " "
+                            + CommandType +" "+ (int) CommandValue+ " $SCSCTL_BYPASS $SCSCTL_BYPASS $SCSCTL_SEND_ANYWAY [Callback]\' >~/Desktop/TAT_Script.tcl";
+                    CommonFunctions.debugLog.info(SSHCommand);
                     break;
-                case "16": case "16.0": case "0x10":
+                case "AI": case "AO":
                     this.CommandType ="$SCSCTL_AIOV";
+                    this.SSHCommand = "echo $\'ScsCtl::init\nproc Callback args { }\nScsCtl::sendCommand " + RTServerEnvName + " " + databaseCommandPath0+":" + databaseCommandPath1 + " "
+                            + CommandType +" "+ CommandValue+ " $SCSCTL_BYPASS $SCSCTL_BYPASS $SCSCTL_SEND_ANYWAY [Callback]\' >~/Desktop/TAT_Script.tcl";
+                    CommonFunctions.debugLog.info(SSHCommand);
                     break;
             }
-                this.SSHCommand = "echo $\'ScsCtl::init\nproc Callback args { }\nScsCtl::sendCommand " + RTServerEnvName + " " + databaseCommandPath0+":" + databaseCommandPath1 + " "
-                        + CommandType +" "+ (int) CommandValue+ " $SCSCTL_BYPASS $SCSCTL_BYPASS $SCSCTL_SEND_ANYWAY [Callback]\' >~/Desktop/TAT_Script.tcl";
-            CommonFunctions.debugLog.info(SSHCommand);
 
             session = ServerConnection.getInstance(this.ip, this.user, this.password);
             ChannelExec channel = (ChannelExec) session.openChannel("exec");
