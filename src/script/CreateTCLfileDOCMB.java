@@ -14,6 +14,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
+
+/**
+ *
+ * @author Kelvin Cheung
+ * @version 1.0
+ */
+
 public class CreateTCLfileDOCMB {
     String indexNameReturn;
     String SSHCommand;
