@@ -10,14 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c889ef52-46c0-4f96-a7a0-3467c1158425" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/hibernate4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/hibernate4.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mydb.db" beforeDir="false" afterPath="$PROJECT_DIR$/mydb.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DBcontroller/ConfigurationDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBcontroller/ConfigurationDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/script/CheckandCompare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/CheckandCompare.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/script/CreateTCLfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/CreateTCLfile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/script/CreateTCLfileDOCMB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/CreateTCLfileDOCMB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/script/TriggerModbusPointDI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/TriggerModbusPointDI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/script/TriggerModbusPointDI2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/TriggerModbusPointDI2.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -70,17 +66,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/script/CreateTCLfileDOCMB.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="123">
-              <caret line="62" column="60" selection-start-line="62" selection-start-column="24" selection-end-line="62" selection-end-column="60" />
+            <state relative-caret-position="365">
+              <caret line="66" column="75" selection-start-line="66" selection-start-column="75" selection-end-line="66" selection-end-column="75" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/script/CheckandCompare.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="351">
-              <caret line="80" column="30" lean-forward="true" selection-start-line="80" selection-start-column="30" selection-end-line="80" selection-end-column="30" />
+              <caret line="78" column="30" selection-start-line="78" selection-start-column="30" selection-end-line="78" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -121,8 +117,23 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/script/TriggerModbusPointDI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2889">
-              <caret line="121" column="13" selection-start-line="121" selection-start-column="13" selection-end-line="121" selection-end-column="13" />
+            <state relative-caret-position="270">
+              <caret line="91" column="5" selection-start-line="77" selection-start-column="4" selection-end-line="91" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/script/TriggerModbusPointDI2.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-40">
+              <caret line="81" column="5" selection-start-line="81" selection-start-column="5" selection-end-line="81" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -130,8 +141,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/script/CIPWriteTag.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="548">
-              <caret line="57" column="57" selection-start-line="57" selection-start-column="57" selection-end-line="57" selection-end-column="57" />
+            <state relative-caret-position="108">
+              <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -142,8 +153,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/script/SearchOccurence.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1998">
-              <caret line="42" column="14" selection-start-line="42" selection-start-column="14" selection-end-line="42" selection-end-column="14" />
+            <state relative-caret-position="608">
+              <caret line="110" column="5" selection-start-line="110" selection-start-column="5" selection-end-line="110" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -151,8 +162,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/script/CheckandVerify.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="42" column="35" lean-forward="true" selection-start-line="42" selection-start-column="35" selection-end-line="42" selection-end-column="35" />
+            <state relative-caret-position="446">
+              <caret line="49" column="9" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -228,7 +239,6 @@
         <option value="$PROJECT_DIR$/src/script/TakeSCEQPBuffer.java" />
         <option value="$PROJECT_DIR$/src/script/testColorImage.java" />
         <option value="$PROJECT_DIR$/src/script/TriggerEquipment.java" />
-        <option value="$PROJECT_DIR$/src/script/TriggerModbusPointDI2.java" />
         <option value="$PROJECT_DIR$/src/script/TriggerModbusPointAI.java" />
         <option value="$PROJECT_DIR$/src/script/TriggerModbusPointDIByMaster.java" />
         <option value="$PROJECT_DIR$/src/engine/Result.java" />
@@ -260,18 +270,19 @@
         <option value="$PROJECT_DIR$/src/controller/popup/PopUpRunController.java" />
         <option value="$PROJECT_DIR$/src/controller/tabtestcase/TabTestCaseEditController.java" />
         <option value="$PROJECT_DIR$/src/engine/Engine.java" />
-        <option value="$PROJECT_DIR$/src/script/TriggerModbusPointDI.java" />
         <option value="$PROJECT_DIR$/src/controller/tabtestexecution/TabTestCampaignExecutionMainViewController.java" />
         <option value="$PROJECT_DIR$/src/controller/tabtestexecution/TabTestCampaignExecutionRepositoryBaselineController.java" />
         <option value="$PROJECT_DIR$/src/model/WriteReport.java" />
         <option value="$PROJECT_DIR$/src/script/CreateTCLfile.java" />
-        <option value="$PROJECT_DIR$/src/script/CreateTCLfileDOCMB.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
-        <option value="$PROJECT_DIR$/src/script/CIPWriteTag.java" />
         <option value="$PROJECT_DIR$/src/script/SearchOccurence.java" />
         <option value="$PROJECT_DIR$/src/DBcontroller/ConfigurationDB.java" />
-        <option value="$PROJECT_DIR$/src/script/CheckandVerify.java" />
         <option value="$PROJECT_DIR$/src/script/CheckandCompare.java" />
+        <option value="$PROJECT_DIR$/src/script/CIPWriteTag.java" />
+        <option value="$PROJECT_DIR$/src/script/CreateTCLfileDOCMB.java" />
+        <option value="$PROJECT_DIR$/src/script/CheckandVerify.java" />
+        <option value="$PROJECT_DIR$/src/script/TriggerModbusPointDI.java" />
+        <option value="$PROJECT_DIR$/src/script/TriggerModbusPointDI2.java" />
       </list>
     </option>
   </component>
@@ -727,7 +738,14 @@
       <option name="project" value="LOCAL" />
       <updated>1562641897561</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Change the Default value of blank cell to be -1">
+      <created>1562725454597</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1562725454598</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -746,7 +764,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49624062" visible="true" weight="0.18496802" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49624062" visible="true" weight="0.18496802" />
       <window_info id="Structure" order="1" sideWeight="0.5037594" side_tool="true" weight="0.19296375" />
       <window_info id="Persistence" order="2" sideWeight="0.5037594" side_tool="true" weight="0.19296375" />
       <window_info id="Designer" order="3" />
@@ -757,7 +775,7 @@
       <window_info anchor="bottom" id="Duplicates" order="0" weight="0.32900432" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.30194804" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.49733475" visible="true" weight="0.23160173" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49733475" visible="true" weight="0.23160173" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.27597404" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -847,7 +865,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="DB Content modified. Baseline creation troubleshooting." />
     <MESSAGE value="Remove unnecessary thread operation. Pending test." />
     <MESSAGE value="Moving exe launcher to initConnection" />
     <MESSAGE value="Added Database Cleaning Tool. (Inside Script Folder)" />
@@ -872,7 +889,8 @@
     <MESSAGE value="Fix percentage calculation and Trigger DI's function code input" />
     <MESSAGE value="Add milliseconds for checking DO and fix minor bugs for report" />
     <MESSAGE value="Command type reading change to CFG_Data_Type" />
-    <option name="LAST_COMMIT_MESSAGE" value="Command type reading change to CFG_Data_Type" />
+    <MESSAGE value="Change the Default value of blank cell to be -1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change the Default value of blank cell to be -1" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -933,13 +951,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret line="103" column="81" selection-start-line="103" selection-start-column="81" selection-end-line="103" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/script/TriggerModbusPointDI2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1159,24 +1170,10 @@
       </provider>
     </entry>
     <entry file="das://c439b569-bf95-4aed-8c87-3099ddb4d676/schema/main/table/script" />
-    <entry file="file://$PROJECT_DIR$/src/script/TriggerModbusPointDI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2889">
-          <caret line="121" column="13" selection-start-line="121" selection-start-column="13" selection-end-line="121" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_40/src.zip!/java/lang/Thread.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="267">
           <caret line="745" column="9" lean-forward="true" selection-start-line="745" selection-start-column="9" selection-end-line="745" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/script/SearchOccurence.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1998">
-          <caret line="42" column="14" selection-start-line="42" selection-start-column="14" selection-end-line="42" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -1200,23 +1197,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/script/CreateTCLfileDOCMB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="62" column="60" selection-start-line="62" selection-start-column="24" selection-end-line="62" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/script/CIPWriteTag.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="548">
-          <caret line="57" column="57" selection-start-line="57" selection-start-column="57" selection-end-line="57" selection-end-column="57" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/DBcontroller/ConfigurationDB.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="538">
@@ -1224,20 +1204,64 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/script/CheckandVerify.java">
+    <entry file="file://$PROJECT_DIR$/src/script/CheckandCompare.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="351">
-          <caret line="42" column="35" lean-forward="true" selection-start-line="42" selection-start-column="35" selection-end-line="42" selection-end-column="35" />
+          <caret line="78" column="30" selection-start-line="78" selection-start-column="30" selection-end-line="78" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/script/CreateTCLfileDOCMB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="66" column="75" selection-start-line="66" selection-start-column="75" selection-end-line="66" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/script/SearchOccurence.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="608">
+          <caret line="110" column="5" selection-start-line="110" selection-start-column="5" selection-end-line="110" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/script/CIPWriteTag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/script/CheckandCompare.java">
+    <entry file="file://$PROJECT_DIR$/src/script/CheckandVerify.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="80" column="30" lean-forward="true" selection-start-line="80" selection-start-column="30" selection-end-line="80" selection-end-column="30" />
+        <state relative-caret-position="446">
+          <caret line="49" column="9" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/script/TriggerModbusPointDI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="91" column="5" selection-start-line="77" selection-start-column="4" selection-end-line="91" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/script/TriggerModbusPointDI2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-40">
+          <caret line="81" column="5" selection-start-line="81" selection-start-column="5" selection-end-line="81" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
