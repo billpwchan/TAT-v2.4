@@ -1,8 +1,6 @@
 package script;
 
-import DB.Parameters;
 import DB.ParametersExecution;
-import DB.Script;
 import controller.util.CommonFunctions;
 import engine.Result;
 import net.wimpi.modbus.Modbus;
@@ -17,7 +15,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
-public class CheckandCompare implements InterfaceScript{
+/**
+ *
+ * @author Kelvin Cheung
+ * @version 1.0
+ */
+
+public class CheckandCompare{
 
     //Important instances of the classes
     TCPMasterConnection connection = null;
@@ -38,6 +42,8 @@ public class CheckandCompare implements InterfaceScript{
     int scalingFactor = 1;
     int addressSize;
     String endianness;
+    int milliseconds;
+
 
     /**
      * Params of the test.
@@ -53,7 +59,6 @@ public class CheckandCompare implements InterfaceScript{
         this.result = "success";
     }
 
-    @Override
     public void close() {
 
     }
@@ -69,9 +74,10 @@ public class CheckandCompare implements InterfaceScript{
         this.addressSize = ((int) Double.parseDouble(parameters.get(6).getValue().trim()));
         this.functionCode = parameters.get(7).getValue().trim();
         this.endianness = parameters.get(8).getValue().trim();
-        if(scalingFactor == '0')
+        this.milliseconds = Integer.parseInt(parameters.get(9).getValue().trim());
+        if(scalingFactor == -1)
             scalingFactor = 1;
-        TimeUnit.MILLISECONDS.sleep(500);
+        TimeUnit.MILLISECONDS.sleep(milliseconds);
         launchServer(address, port, reference, addressSize, functionCode, endianness ,result);
 
         return result;
@@ -118,7 +124,7 @@ public class CheckandCompare implements InterfaceScript{
                     //5. Execute the transaction
                     transaction.execute();
                     receivedValue =coilsResponse.getCoils().toString();
-                    result.setComment("Forced to set 0\nMissmatch \n" + "Sent: " +value + "\n" + "Found: " + receivedValue.charAt(7)+"\nReading Register: "+reference);
+                    result.setComment("Forced to set 0\nMissmatch \n" + "Sent: " +value + "\nFound: " + receivedValue.charAt(7)+"\nReading Register: "+reference);
                 }
                 break;
 
@@ -135,9 +141,9 @@ public class CheckandCompare implements InterfaceScript{
                     //5. Execute the transaction
                     transaction.execute();
                     multipleRegistersResponse = (ReadMultipleRegistersResponse) transaction.getResponse();
-                    if (endianness.toLowerCase().equals("little"))
+                    if (endianness.toLowerCase().equals("big"))
                         receivedValue += StringUtils.leftPad(Integer.toHexString(multipleRegistersResponse.getRegisterValue(0)),4,"0");
-                    else if (endianness.toLowerCase().equals("big"))
+                    else if (endianness.toLowerCase().equals("little"))
                         receivedValue = StringUtils.leftPad(Integer.toHexString(multipleRegistersResponse.getRegisterValue(0)),4,"0")+receivedValue;
                     }
 
@@ -162,14 +168,5 @@ public class CheckandCompare implements InterfaceScript{
         }catch (Exception e){
             e.printStackTrace();
         }
-    }
-    @Override
-    public ArrayList<Parameters> parameters() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Script scriptInfos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

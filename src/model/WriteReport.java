@@ -220,6 +220,7 @@ public class WriteReport {
         System.out.println("Report Created");
     }
 
+
     /**
      *
      */
@@ -376,6 +377,14 @@ public class WriteReport {
                 if (res.equals("NOK")) {
                     cell.setCellStyle(getRedCellStyle(this.workbook));
                     reportCell.setCellStyle(getRedCellStyle(this.workbook));
+                }
+                else if (res.equals("OS")) {
+                    cell.setCellStyle(getDarkBlueCellStyle(this.workbook));
+                    reportCell.setCellStyle(getDarkBlueCellStyle(this.workbook));
+                }
+                else if (res.equals("NExec")) {
+                    cell.setCellStyle(getGreyCellStyle(this.workbook));
+                    reportCell.setCellStyle(getGreyCellStyle(this.workbook));
                 }
                 System.out.println("OverallCase Result put in excel sheet at row: " + this.currentRow);
                 this.currentRow++;
@@ -904,9 +913,18 @@ public class WriteReport {
         return style;
     }
 
+
+    private static CellStyle getDarkBlueCellStyle(XSSFWorkbook workbook) {
+        CellStyle style = workbook.createCellStyle();
+        style.setFillForegroundColor(IndexedColors.DARK_BLUE.getIndex());
+        style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+        style.setAlignment(HorizontalAlignment.CENTER_SELECTION);
+        return style;
+    }
+
     private static CellStyle getGreyCellStyle(XSSFWorkbook workbook) {
         CellStyle style = workbook.createCellStyle();
-        style.setFillForegroundColor(IndexedColors.GREY_40_PERCENT.getIndex());
+        style.setFillForegroundColor(IndexedColors.GREY_50_PERCENT.getIndex());
         style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
         style.setAlignment(HorizontalAlignment.CENTER_SELECTION);
         return style;

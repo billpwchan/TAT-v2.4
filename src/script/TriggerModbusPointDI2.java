@@ -10,6 +10,8 @@ import DB.ParametersExecution;
 import DB.Script;
 import controller.util.CommonFunctions;
 import engine.Result;
+import net.wimpi.modbus.procimg.SimpleDigitalIn;
+import net.wimpi.modbus.procimg.SimpleDigitalOut;
 import net.wimpi.modbus.procimg.SimpleProcessImage;
 import net.wimpi.modbus.procimg.SimpleRegister;
 import org.apache.log4j.Logger;
@@ -63,6 +65,22 @@ public class TriggerModbusPointDI2 implements InterfaceScript {
         Thread.sleep(500);
     }
 
+    public void updateDigiatalOutputRegister(SimpleProcessImage instance, int register, double value) throws InterruptedException {
+
+        instance.setDigitalOut((int) register, new SimpleDigitalOut(value!=0));
+
+//      CommonFunctions.debugLogd.error("updateinputReg = "+ register);
+        Thread.sleep(500);
+    }
+
+    public void updateDigiatalInputRegister(SimpleProcessImage instance, int register, double value) throws InterruptedException {
+
+        instance.setDigitalIn((int) register, new SimpleDigitalIn (value!=0));
+
+//      CommonFunctions.debugLogd.error("updateinputReg = "+ register);
+        Thread.sleep(500);
+    }
+
     /**
      *
      */
@@ -91,24 +109,40 @@ public class TriggerModbusPointDI2 implements InterfaceScript {
         //this.value = Math.pow(2,Integer.valueOf(this.stringValue)) ;
 //        }
 
-        switch (LaunchTCPServerModbus.functionCode
-        ) {
-            case "HR":
-                try {
-                    SimpleProcessImage instance = LaunchTCPServerModbus.getInstance();
-                    updateHoldingRegister(instance, register,(int) value);
-                } catch (Exception ex) {
-                    Logger.getLogger(TriggerModbusPointDI.class.getName()).error("", ex);
-                }
-                break;
-            case "AI":
-                try {
-                    SimpleProcessImage instance = LaunchTCPServerModbus.getInstance();
-                    updateInputRegister(instance, register,(int) value);
-                } catch (Exception ex) {
-                    Logger.getLogger(TriggerModbusPointDI.class.getName()).error("", ex);
-                }
-                break;
+        switch (LaunchTCPServerModbus.functionCode)
+        {
+            case "03": case "0x03":
+            try {
+                SimpleProcessImage instance = LaunchTCPServerModbus.getInstance();
+                updateHoldingRegister(instance, register,(int) value);
+            } catch (Exception ex) {
+                Logger.getLogger(TriggerModbusPointDI.class.getName()).error("", ex);
+            }
+            break;
+            case "04": case "0x04":
+            try {
+                SimpleProcessImage instance = LaunchTCPServerModbus.getInstance();
+                updateInputRegister(instance, register,(int) value);
+            } catch (Exception ex) {
+                Logger.getLogger(TriggerModbusPointDI.class.getName()).error("", ex);
+            }
+            break;
+            case "01": case "0x01":
+            try {
+                SimpleProcessImage instance = LaunchTCPServerModbus.getInstance();
+                updateDigiatalOutputRegister(instance, register, value);
+            } catch (Exception ex) {
+                Logger.getLogger(TriggerModbusPointDI.class.getName()).error("", ex);
+            }
+            break;
+            case "02": case "0x02":
+            try {
+                SimpleProcessImage instance = LaunchTCPServerModbus.getInstance();
+                updateDigiatalInputRegister(instance, register, value);
+            } catch (Exception ex) {
+                Logger.getLogger(TriggerModbusPointDI.class.getName()).error("", ex);
+            }
+            break;
             default:
                 //CommonFunctions.debugLog.error("Error, neither AI,DI or DI2 where found !");
                 break;

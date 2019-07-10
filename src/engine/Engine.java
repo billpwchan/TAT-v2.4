@@ -264,13 +264,15 @@ public class Engine {
                 //CommonFunctions.debugLog.debug("1ere part= " + (1 - 1 / (i + 1)) * averageTimeCase + " 2eme part= " + (1 / (i + 1)) * seconds1);
                 averageTimeCase = ((1 - 1 / ((float) i + 1)) * averageTimeCase + (1 / ((float) i + 1)) * seconds1);
                 //CommonFunctions.debugLog.debug("Average Time Case = " + averageTimeCase);
-                iterationResultPercentage = ((double) nbCaseOK / (double) this.toExecute.size()) * 100;
-//                CommonFunctions.debugLog.debug("ITERATION RESULT = " + iterationResultPercentage);
-                this.popUpRunController.setIterationPercentage(iterationResultPercentage);
+
             }
             stateMachineCaseResult(hashMapNumberResultSteps, stepsNumber);
             //Thread.sleep(1000);
             endCaseSetResultChartAndDB(currentTestCase, caseHandler, averageTimeCase);
+
+            iterationResultPercentage = ((double) nbCaseOK / (double) this.toExecute.size()) * 100;
+//                CommonFunctions.debugLog.debug("ITERATION RESULT = " + iterationResultPercentage);
+            this.popUpRunController.setIterationPercentage(iterationResultPercentage);
         }
 
         this.stateMachineIterationResult(nbCaseOK, nbCaseNOK, nbCaseOKWC, nbCaseNtestable, nbCaseIncomplete, nbCaseOS, this.toExecute.size());
