@@ -20,7 +20,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- *
  * @author tmartinez
  */
 public class TakeSCEQPBuffer implements InterfaceScript {

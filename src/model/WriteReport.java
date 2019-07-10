@@ -18,7 +18,6 @@ import java.io.*;
 import java.util.*;
 
 /**
- *
  * @author tmorin
  */
 public class WriteReport {
@@ -81,9 +80,9 @@ public class WriteReport {
 
     private static final HashMap<String, Integer> caseExeResult = new HashMap<>();
 
-    private static final String[] scriptTypeName = {"DI2", "DI", "AI", "IEC"};      //DI2 has to be the first element (It will iterate through each element)
+    private static final String[] scriptTypeName = {"DI2", "DI", "AI", "DO", "IEC"};      //DI2 has to be the first element (It will iterate through each element)
 
-    private static final Integer[] scriptTypeMaxStep = {4, 2, 2, 4};
+    private static final Integer[] scriptTypeMaxStep = {4, 2, 2, 2, 4};
 
     private int reportMaxStep = 0;
 
@@ -98,7 +97,7 @@ public class WriteReport {
 
     //Initialize CCS.PSD Variables 
     private final int colStation = 0;
-    private final int colEqpt_Code=1;
+    private final int colEqpt_Code = 1;
     private final int colEqpt_Description = 2;
     private final int colEqpt_Identifier = 3;
     private final int colAttribute_Description = 4;
@@ -139,12 +138,11 @@ public class WriteReport {
     }
 
     /**
-     *
      * @param it
      * @throws FileNotFoundException
      * @throws IOException
      */
-    public void readTemplateReport(Iterations it) throws FileNotFoundException, IOException {
+    private void readTemplateReport(Iterations it) throws FileNotFoundException, IOException {
         String template = "Report_Temp.xlsx";
         FileInputStream inputStream = new FileInputStream(new File(template));
         this.workbook = new XSSFWorkbook(inputStream);
@@ -216,8 +214,6 @@ public class WriteReport {
             FileOutputStream outputStream = new FileOutputStream(FILE_NAME);
             this.workbook.write(outputStream);
             this.workbook.close();
-        } catch (FileNotFoundException ex) {
-            CommonFunctions.debugLog.error("", ex);
         } catch (IOException ex) {
             CommonFunctions.debugLog.error("", ex);
         }
@@ -244,7 +240,6 @@ public class WriteReport {
         this.currentRow += 2; //because we merge cells
 
         //this.reportMaxStep records the maximum step it contians. If it is 4, the we should add 3 * (4-1) columns to the worksheet.
-//        this.reportMaxStep;
     }
 
     private void setReportHeaderFileRows() {
@@ -278,7 +273,6 @@ public class WriteReport {
      * @param iteration
      */
     private void reportSheetOffsetInit(Iterations iteration) {
-
         TestCasesExecution testCaseExecution = new TestCasesExecution();
         this.campaignID = iteration.getTestCampaign().getIdtestCampaign();
         this.baselineID = iteration.getBaselineId();
@@ -291,6 +285,11 @@ public class WriteReport {
                 Set<ScriptExecutions> scriptExSet = currStepEx.getScriptExecutionses();
                 for (ScriptExecutions scriptEx : scriptExSet) {
                     Script script = scriptEx.getScript();
+//                    if (script.getName().contains("DO")) {
+//                        this.reportMaxStep = 2;
+//                        this.DO_FLAG = true;
+//                        return;
+//                    }
                     for (int i = 0; i < scriptTypeName.length; i++) {
                         if (script.getName().contains(scriptTypeName[i])) {
                             this.scriptTypeGlobal = scriptTypeName[i];
@@ -301,10 +300,10 @@ public class WriteReport {
             }
         }
         System.out.println("Maximum Step: " + this.reportMaxStep);
+        CommonFunctions.debugLog.info("Maximum Step Number of Baseline: " + this.reportMaxStep);
     }
 
     /**
-     *
      * @param iteration
      */
     public void set(Iterations iteration) {
@@ -330,6 +329,8 @@ public class WriteReport {
 
         //number of Test Cases
         while (itCaseEx.hasNext()) {
+            boolean DO_FLAG = false;
+
             Row reportRow = this.reportSheet.createRow(this.reportCurrentRow);
 
             CaseExecutions currCaseEx = itCaseEx.next();
@@ -347,8 +348,10 @@ public class WriteReport {
             WriteReport.caseExeResult.put(res, WriteReport.caseExeResult.get(res) + 1);
             WriteReport.caseExeResult.put("Test case result", WriteReport.caseExeResult.get("Test case result") + 1);
 
-            System.out.println("                            Overall Case Result: " + res + "\n");
-            if (!this.scriptTypeGlobal.contains("DI") || (caseNum != 0)) {     //Manipulate result in both Report worksheet & Raw Result Worksheet.
+            System.out.println("Overall Case Result: " + res + "\n");
+
+            if (!this.scriptTypeGlobal.contains("DI") || (caseNum != 0)) {
+                //Manipulate result in both Report worksheet & Raw Result Worksheet.
                 this.currentRowGlobal = this.currentRow;
                 Row row = this.sheet.createRow(this.currentRow);
                 cell = row.createCell(0);
@@ -422,12 +425,14 @@ public class WriteReport {
                 //either 1 or 2 script per step
                 int scriptNum = 0;
                 String scriptType = "";
+                boolean DO_POINT_ADDRESS_ERROR = false;
+                boolean DO_VALUE_ERROR = false;
                 while (itScriptEx.hasNext()) {
 
                     ScriptExecutions scriptEx = itScriptEx.next();
 
                     System.out.println("CaseNum: " + caseNum + " StepNum: " + stepNumber + " scriptNum :" + scriptNum + " ScriptName: " + scriptEx.getScript().getName());
-                    System.out.println("");
+                    System.out.println();
                     //Check if ScriptExecution is a stimuli
                     //if getIsStimuli = 1 ---> script on left side
                     //if getIsStimuli = 0 ---> script on right side
@@ -447,12 +452,23 @@ public class WriteReport {
                         scriptType = "AI";
                         this.scriptTypeGlobal = "AI";
                         maxStep = 2;
+                    } else if (script.getName().contains("DO2")) {
+                        scriptType = "DO2";
+                        this.scriptTypeGlobal = "DO";
+                        maxStep = 2;
+                        DO_FLAG = true;
+                    } else if (script.getName().contains("DO")) {
+                        scriptType = "DO";
+                        this.scriptTypeGlobal = "DO";
+                        maxStep = 1;
+                        DO_FLAG = true;
                     } else if (script.getName().contains("IEC104")) {
                         scriptType = "SOE";
                         this.scriptTypeGlobal = "SOE";
                         maxStep = 4;
                     }
-                    this.reportMaxStep = maxStep > this.reportMaxStep ? maxStep : this.reportMaxStep;
+                    if (!DO_FLAG)
+                        this.reportMaxStep = maxStep > this.reportMaxStep ? maxStep : this.reportMaxStep;
 
                     Set<ParametersExecution> paramExSet = scriptEx.getParametersExecutions();
                     Iterator<ParametersExecution> itParamEx = paramExSet.iterator();
@@ -463,9 +479,20 @@ public class WriteReport {
                         String paramSearched = paramEx.getValue();
                         System.out.println("numParameter: " + numParameter + " paramSearched: " + paramSearched);
                         if (!isStimuli) {       //For verifying the result
-                            System.out.println("Script is NOT stimuli, parameter " + paramSearched + " added in paramSearchList");
-                            if (paramEx.getParameters().getName().equalsIgnoreCase("searched value")) {     //This specific scripts is only used in Search Occurance. 
+                            if (paramEx.getParameters().getName().equalsIgnoreCase("searched value")) {
+                                System.out.println("Script is NOT stimuli, parameter " + paramSearched + " added in paramSearchList");
+                                //This specific scripts is only used in Search Occurance.
                                 paramSearchList.add(paramSearched);
+                            }
+                            if ("DO".equals(scriptType)) {
+                                if (numParameter == 0) {
+                                    try {
+                                        registerList.add(String.valueOf((int) Math.round(Double.parseDouble(paramSearched))));
+                                        registerList.add("0");
+                                    } catch (NumberFormatException ex) {
+                                        System.out.println("Should be last step. Do nothing.");
+                                    }
+                                }
                             }
                         } else {        //For Step Description (Stimuli only)
                             if ("DI".equals(scriptType) || "DI2".equals(scriptType)) {
@@ -531,8 +558,12 @@ public class WriteReport {
 
                     //Only if isStimuli = 0
                     if (!isStimuli) {
-                        String scriptExResult = scriptEx.getScriptExecutionResult();
                         String scriptExComment = scriptEx.getScriptExecutionComment();
+                        if (DO_FLAG && scriptExComment.contains("Received Incorrect value")) {
+                            DO_VALUE_ERROR = true;
+                        } else if (DO_FLAG && scriptExComment.contains("Received Incorrect Point Address")) {
+                            DO_POINT_ADDRESS_ERROR = true;
+                        }
                         //Either 2 for DI, 4 for DI2
                         paramFoundList = getParamFound(paramSearchList, scriptExComment);
                         Iterator it = paramFoundList.iterator();
@@ -543,7 +574,7 @@ public class WriteReport {
                     }
 
                     //getting param script macro
-                    if (((caseNum != 0 && scriptType.contains("DI")) || scriptType.contains("SOE")) && scriptNum != 0) {
+                    if (((caseNum != 0 && scriptType.contains("DI")) || scriptType.contains("SOE")) && scriptNum != 0 || scriptType.contains("DO") && scriptNum != 0) {
                         ScriptDB scDB = new ScriptDB();
                         scDB.getAllFromParamScriptMacro(script);
 
@@ -559,7 +590,7 @@ public class WriteReport {
                                     String[] tempStr = temp.getValue().split("Search");
                                     String param = tempStr[1].trim();
                                     searchOccParamList.add(param);
-                                    System.out.println("            paramScriptMacro Value: " + param);
+                                    System.out.println("paramScriptMacro Value: " + param);
                                 }
                                 enteredWhile = true;
                             }
@@ -582,93 +613,110 @@ public class WriteReport {
                 }
 
                 //write register and offset
-                if ((scriptType.contains("DI") && caseNum != 0 && stepNumber != 0 && scriptValidation(totalSteps, stepNumber)) || ((stepNumber > 1 && (stepNumber != totalSteps - 1)) && scriptType.contains("SOE"))) {
-                        Row row = this.sheet.createRow(this.currentRow);
-                        Cell cellR = row.createCell(1); //column = 1
-                        cellR.setCellValue(overallStepResult);
-                        if (overallStepResult.equals("NOK")) {
+                if ((scriptType.contains("DI") && caseNum != 0 && stepNumber != 0 && scriptValidation(totalSteps, stepNumber)) ||
+                        ((stepNumber > 1 && (stepNumber != totalSteps - 1)) && scriptType.contains("SOE")) ||
+                        ((stepNumber > 0 && (stepNumber != totalSteps - 1)) && scriptType.contains("DO"))
+                ) {
+                    Row row = this.sheet.createRow(this.currentRow);
+                    Cell cellR = row.createCell(1); //column = 1
+                    cellR.setCellValue(overallStepResult);
+                    if (overallStepResult.equals("NOK")) {
+                        CellStyle red = getRedCellStyle(this.workbook);
+                        red.setWrapText(true);
+                        red.setAlignment(CellStyle.ALIGN_LEFT);
+                        cellR.setCellStyle(red);
+                    }
+                    cell = row.createCell(3);
+                    cell.setCellValue(registerList.get(0));         //Register
+                    if (reportDuplicateCheck(reportRow, this.colRegister_Address + (this.reportMaxStep - 1) * 3)) {
+                        cell = reportRow.createCell(this.colRegister_Address + (this.reportMaxStep - 1) * 3);
+                        cell.setCellValue(registerList.get(0));
+                        if (DO_POINT_ADDRESS_ERROR) {
+                            CellStyle cellStyle = getRedCellStyle(this.workbook);
+                            cellStyle.setWrapText(true);
+                            cellStyle.setAlignment(CellStyle.ALIGN_LEFT);
+                            cell.setCellStyle(cellStyle);
+                        }
+                    }
+
+                    Cell cell2 = row.createCell(4);
+                    cell2.setCellValue(registerList.get(1));        //Register Offset
+                    if (reportDuplicateCheck(reportRow, this.colBit_offset + (this.reportMaxStep - 1) * 3)) {
+                        cell = reportRow.createCell(this.colBit_offset + (this.reportMaxStep - 1) * 3);
+                        cell.setCellValue(registerList.get(1));
+
+                    }
+
+                    Cell cell3 = row.createCell(2);
+                    cell3.setCellValue(scriptType);                 //Data Type
+                    if (reportDuplicateCheck(reportRow, this.colDC_Data_Type)) {
+                        cell = reportRow.createCell(this.colDC_Data_Type);
+                        cell.setCellValue(scriptType);
+                    }
+
+                    Cell cell4 = row.createCell(5);
+                    cell4.setCellValue(String.valueOf((stepNumber) % maxStep));         //Triggering State
+                    if (DO_VALUE_ERROR) {
+                        CellStyle cellStyle = getRedCellStyle(this.workbook);
+                        cellStyle.setWrapText(true);
+                        cellStyle.setAlignment(CellStyle.ALIGN_LEFT);
+                        cell4.setCellStyle(cellStyle);
+                    }
+
+                    if (reportDuplicateCheck(reportRow, this.colAssociatedDefect + (this.reportMaxStep - 1) * 3)) {       //Associated Defect
+                        cell = reportRow.createCell(this.colAssociatedDefect + (this.reportMaxStep - 1) * 3);
+                        cell.setCellStyle(cellStyle5);
+                    }
+
+                    if (reportDuplicateCheck(reportRow, this.colCommentOnResult + (this.reportMaxStep - 1) * 3)) {       //Comment on Result
+                        cell = reportRow.createCell(this.colCommentOnResult + (this.reportMaxStep - 1) * 3);
+                        cell.setCellStyle(cellStyle5);
+                        Hyperlink rawReportLink = createHelper.createHyperlink(Hyperlink.LINK_DOCUMENT);
+                        rawReportLink.setAddress("'Raw Result'!" + (this.currentRow) + ":" + (this.currentRow));
+                        cell.setHyperlink(rawReportLink);
+                        cell.setCellValue("Link to Raw Result");
+                    }
+
+                    if (reportDuplicateCheck(reportRow, this.colSystemVersionUnderTest + (this.reportMaxStep - 1) * 3)) {       //System Version Under Test
+                        cell = reportRow.createCell(this.colSystemVersionUnderTest + (this.reportMaxStep - 1) * 3);
+                        cell.setCellStyle(cellStyle5);
+                    }
+
+                    if (reportDuplicateCheck(reportRow, this.colDate + (this.reportMaxStep - 1) * 3)) {       //Operation Date
+                        cell = reportRow.createCell(this.colDate + (this.reportMaxStep - 1) * 3);
+                        cell.setCellValue(iteration.getDate());
+                        cell.setCellStyle(cellStyle5);
+                    }
+
+                    if (reportDuplicateCheck(reportRow, this.colTester + (this.reportMaxStep - 1) * 3)) {       //Tester
+                        cell = reportRow.createCell(this.colTester + (this.reportMaxStep - 1) * 3);
+                        cell.setCellValue("TAT");
+                        cell.setCellStyle(cellStyle5);
+                    }
+
+                    //write parameters in Raw Report
+                    for (int i = 0; i < paramSearchList.size(); i++) {
+                        Cell cellS = row.createCell(tempHeader.length + 2 * i);
+                        Cell cellF = row.createCell(tempHeader.length + 2 * i + 1);
+                        String search = "";
+                        String found = "";
+                        try {
+                            search = paramSearchList.get(i);
+                            found = DO_FLAG ? "N/A" : paramFoundList.get(i);
+                        } catch (IndexOutOfBoundsException ex) {
+                            found = "N/A";
+                        }
+                        cellS.setCellValue(search);
+                        cellF.setCellValue(found);
+                        if (DO_FLAG) {
+                            cellF.setCellStyle(getGreyCellStyle(this.workbook));
+                        } else if (!search.equals(found)) {
                             CellStyle red = getRedCellStyle(this.workbook);
-                            cellR.setCellStyle(red);
+                            cellS.setCellStyle(red);
+                            cellF.setCellStyle(red);
                         }
-                        cell = row.createCell(3);
-                        cell.setCellValue(registerList.get(0));         //Register
-                        if (reportDuplicateCheck(reportRow, this.colRegister_Address + (this.reportMaxStep - 1) * 3)) {
-                            cell = reportRow.createCell(this.colRegister_Address + (this.reportMaxStep - 1) * 3);
-                            cell.setCellValue(registerList.get(0));
-
-                        }
-
-                        Cell cell2 = row.createCell(4);
-                        cell2.setCellValue(registerList.get(1));        //Register Offset
-                        if (reportDuplicateCheck(reportRow, this.colBit_offset + (this.reportMaxStep - 1) * 3)) {
-                            cell = reportRow.createCell(this.colBit_offset + (this.reportMaxStep - 1) * 3);
-                            cell.setCellValue(registerList.get(1));
-
-                        }
-
-                        Cell cell3 = row.createCell(2);
-                        cell3.setCellValue(scriptType);                 //Data Type
-                        if (reportDuplicateCheck(reportRow, this.colDC_Data_Type)) {
-                            cell = reportRow.createCell(this.colDC_Data_Type);
-                            cell.setCellValue(scriptType);
-
-                        }
-
-                        Cell cell4 = row.createCell(5);
-                        cell4.setCellValue(String.valueOf((stepNumber) % maxStep));         //Triggering State
-
-                        if (reportDuplicateCheck(reportRow, this.colAssociatedDefect + (this.reportMaxStep - 1) * 3)) {       //Associated Defect
-                            cell = reportRow.createCell(this.colAssociatedDefect + (this.reportMaxStep - 1) * 3);
-                            cell.setCellStyle(cellStyle5);
-                        }
-
-                        if (reportDuplicateCheck(reportRow, this.colCommentOnResult + (this.reportMaxStep - 1) * 3)) {       //Comment on Result
-                            cell = reportRow.createCell(this.colCommentOnResult + (this.reportMaxStep - 1) * 3);
-                            cell.setCellStyle(cellStyle5);
-                            Hyperlink rawReportLink = createHelper.createHyperlink(Hyperlink.LINK_DOCUMENT);
-                            rawReportLink.setAddress("'Raw Result'!" + (this.currentRow) + ":" + (this.currentRow));
-                            cell.setHyperlink(rawReportLink);
-                            cell.setCellValue("Link to Raw Result");
-                        }
-
-                        if (reportDuplicateCheck(reportRow, this.colSystemVersionUnderTest + (this.reportMaxStep - 1) * 3)) {       //System Version Under Test
-                            cell = reportRow.createCell(this.colSystemVersionUnderTest + (this.reportMaxStep - 1) * 3);
-                            cell.setCellStyle(cellStyle5);
-                        }
-
-                        if (reportDuplicateCheck(reportRow, this.colDate + (this.reportMaxStep - 1) * 3)) {       //Operation Date
-                            cell = reportRow.createCell(this.colDate + (this.reportMaxStep - 1) * 3);
-                            cell.setCellValue(iteration.getDate());
-                            cell.setCellStyle(cellStyle5);
-                        }
-
-                        if (reportDuplicateCheck(reportRow, this.colTester + (this.reportMaxStep - 1) * 3)) {       //Tester
-                            cell = reportRow.createCell(this.colTester + (this.reportMaxStep - 1) * 3);
-                            cell.setCellValue("TAT");
-                            cell.setCellStyle(cellStyle5);
-                        }
-
-                        //write parameters in Raw Report
-                        for (int i = 0; i < paramSearchList.size(); i++) {
-                            Cell cellS = row.createCell(tempHeader.length + 2 * i);
-                            Cell cellF = row.createCell(tempHeader.length + 2 * i + 1);
-                            String search = "";
-                            String found = "";
-                            try {
-                                search = paramSearchList.get(i);
-                                found = paramFoundList.get(i);
-                            } catch (IndexOutOfBoundsException ex) {
-                                found = "N/A";
-                            }
-                            cellS.setCellValue(search);
-                            cellF.setCellValue(found);
-                            if (!search.equals(found)) {
-                                CellStyle red = getRedCellStyle(this.workbook);
-                                cellS.setCellStyle(red);
-                                cellF.setCellStyle(red);
-                            }
-                        }
-                        this.currentRow++;
+                    }
+                    this.currentRow++;
 
                     try {
                         //write parameters in Report. Assume there's always 6 in paramSearchList.  These are before v0 columns.
@@ -707,8 +755,6 @@ public class WriteReport {
                         CommonFunctions.debugLog.debug("Cannot find the keyword in parameters. Please ensure columnName used matched with pre-defined column key.", ex);
                     }
                 }
-
-
                 System.out.println("Step result of above step:" + overallStepResult + "\n");
                 stepNumber++;
             }
@@ -823,7 +869,6 @@ public class WriteReport {
     }
 
     /**
-     *
      * @param paramSearch
      * @param comment
      * @return
@@ -857,7 +902,6 @@ public class WriteReport {
     }
 
     /**
-     *
      * @param workbook
      * @return
      */
@@ -868,6 +912,7 @@ public class WriteReport {
         style.setAlignment(HorizontalAlignment.CENTER_SELECTION);
         return style;
     }
+
 
     private static CellStyle getDarkBlueCellStyle(XSSFWorkbook workbook) {
         CellStyle style = workbook.createCellStyle();
@@ -886,7 +931,6 @@ public class WriteReport {
     }
 
     /**
-     *
      * @return
      */
     public String getFileName() {

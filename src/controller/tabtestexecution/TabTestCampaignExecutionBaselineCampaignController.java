@@ -386,7 +386,7 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
     private void constructTableStep() {
         FXMLLoader fxmlLoader = new FXMLLoader();
         try {
-            this.gridPane.add((AnchorPane) fxmlLoader.load(getClass().getResource("/assets/view/stepcreation/tableStepScriptCreation.fxml").openStream()), 1, 1, 3, 1);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/assets.view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
+            this.gridPane.add(fxmlLoader.load(getClass().getResource("/assets/view/stepcreation/tableStepScriptCreation.fxml").openStream()), 1, 1, 3, 1);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/assets.view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
         } catch (IOException ex) {
             CommonFunctions.debugLog.error("", ex);
         }
@@ -394,7 +394,7 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
 
         FXMLLoader fxmlLoader2 = new FXMLLoader();
         try {
-            AnchorPane paneTest = (AnchorPane) fxmlLoader2.load(getClass().getResource("/assets/view/stepcreation/headerTableStep.fxml").openStream());
+            AnchorPane paneTest = fxmlLoader2.load(getClass().getResource("/assets/view/stepcreation/headerTableStep.fxml").openStream());
             this.gridPane.add(paneTest, 1, 0, 3, 1);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/assets.view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
         } catch (IOException ex) {
             CommonFunctions.debugLog.error("", ex);

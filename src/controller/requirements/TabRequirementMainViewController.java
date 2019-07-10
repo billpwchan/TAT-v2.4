@@ -77,7 +77,7 @@ public class TabRequirementMainViewController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(TabRequirementMainViewController.class.getName()).error("", ex);
         }
-        newController = (TabRequirementCreationController) fxmlLoader.getController();
+        newController = fxmlLoader.getController();
         newController.init(this);
         this.tabPaneRequirement.getTabs().add(newRequirement);
         newRequirement.setClosable(true);

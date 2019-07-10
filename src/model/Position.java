@@ -23,8 +23,6 @@ public class Position {
 
     private BooleanProperty checked = new SimpleBooleanProperty(false);
 
-    ;
-
     /**
      *
      * @param sr

@@ -9,39 +9,30 @@ import DB.Parameters;
 import DB.ParametersExecution;
 import DB.Script;
 import engine.Result;
+import org.sikuli.api.DesktopScreenRegion;
+import org.sikuli.api.ScreenRegion;
 
+import javax.imageio.ImageIO;
+import java.io.File;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 
 /**
- * @author Thomas Morin
+ * @author tmartinez
  */
-public class Concat implements InterfaceScript {
+public class GeneralSearchScript implements InterfaceScript {
 
-    private String string1;
-    private String string2;
-    private String stringToReturn;
-    private String bufferName;
 
     @Override
     public Result run(ArrayList<ParametersExecution> parameters, HashMap hashMap) throws Exception {
-        this.string1 = parameters.get(1).getValue().trim();
-        if (this.string1.contains("@&Buffer_")) {
-            this.string1 = (String) hashMap.get(this.string1);
-        }
-        this.string2 = parameters.get(2).getValue().trim();
-        if (this.string2.contains("@&Buffer_")) {
-            this.string2 = (String) hashMap.get(this.string2);
-        }
-        this.bufferName = parameters.get(3).getValue().trim();
-        this.stringToReturn = string1.concat(" " + string2);
-        hashMap.put(bufferName, this.stringToReturn);
         return null;
     }
 
     @Override
     public void close() {
-
     }
 
     @Override

@@ -62,7 +62,7 @@ public class TabTestCampaignMainViewController implements Initializable {
         try {
             AnchorPane repositoryPane = fxmlLoader.load(getClass().getResource("/assets/view/testcampaign/TabTestCampaignRepository.fxml").openStream());
             this.tabRepository.setContent(repositoryPane);
-            RepositoryController = (TabTestCampaignRepositoryController) fxmlLoader.getController();
+            RepositoryController = fxmlLoader.getController();
             RepositoryController.init(this);
         } catch (IOException ex) {
             CommonFunctions.debugLog.error("", ex);

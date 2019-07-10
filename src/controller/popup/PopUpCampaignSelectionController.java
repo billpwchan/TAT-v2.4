@@ -164,10 +164,8 @@ public class PopUpCampaignSelectionController implements Initializable {
                     return true;
                 } else if (tCampaign.getSystem() != null && tCampaign.getSystem().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
-                } else if (tCampaign.getWriterEmail() != null && tCampaign.getWriterEmail().toLowerCase().contains(lowerCaseFilter)) {
-                    return true;
-                }
-                return false; // Does not match.
+                } else return tCampaign.getWriterEmail() != null && tCampaign.getWriterEmail().toLowerCase().contains(lowerCaseFilter);
+                // Does not match.
             });
         });
 

@@ -31,7 +31,7 @@ public class CommonFunctions {
         if (!identifier) {
             return false;
         }
-        CommonFunctions.displayAlert(AlertType.WARNING, "Warning. ", "Incorect Input Format in Field \"" + fieldName + "\": ", fieldName + " exceeds maximum characters allowed (" + maxLength.toString() + " characters). Please use another value, or only part of your input will be recorded.");
+        CommonFunctions.displayAlert(AlertType.WARNING, "Warning. ", "Incorrect Input Format in Field \"" + fieldName + "\": ", fieldName + " exceeds maximum characters allowed (" + maxLength.toString() + " characters). Please use another value, or only part of your input will be recorded.");
         return true;
     }
 
@@ -109,10 +109,8 @@ public class CommonFunctions {
                     return true;
                 } else if (script.getName() != null && script.getName().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
-                } else if (script.getScriptVersion() != null && script.getScriptVersion().toString().toLowerCase().contains(lowerCaseFilter)) {
-                    return true;
-                }
-                return false; // Does not match.
+                } else return script.getScriptVersion() != null && script.getScriptVersion().toString().toLowerCase().contains(lowerCaseFilter);
+                // Does not match.
             });
         });
     }

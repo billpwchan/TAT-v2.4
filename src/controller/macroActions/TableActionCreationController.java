@@ -135,7 +135,7 @@ public class TableActionCreationController implements Initializable {
             AnchorPane scriptPane;
             try (InputStream streamViewScript = getClass().getResource("/assets/view/macroActions/scriptLineTableMacro.fxml").openStream()) {
                 scriptPane = fxmlLoader.load(streamViewScript);
-                controllerScriptLine = (ScriptLineTableMacroController) fxmlLoader.getController();
+                controllerScriptLine = fxmlLoader.getController();
             }
             controllerScriptLine.initControllerTable(this);
             controllerScriptLine.constructInformation(scriptID);

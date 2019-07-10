@@ -6,11 +6,12 @@ import DB.Script;
 import controller.util.CommonFunctions;
 import engine.Result;
 
-import java.io.BufferedWriter;
-import java.io.IOException;
+import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.time.Duration;
+import java.time.Instant;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -71,10 +72,11 @@ public class TriggerIEC104Point implements InterfaceScript {
                 }
                 writer.flush();
             } catch (IOException e) {
-                e.printStackTrace();
+                CommonFunctions.debugLog.error(e);
             }
+
             Thread.sleep(3000);
-//            Files.write(Paths.get("IEC104slave.ini"), lines, Charset.defaultCharset());
+
         } catch (IndexOutOfBoundsException ex) {
             CommonFunctions.debugLog.error("Invalid Line Index Caught. Please re-start the program.");
         } finally {

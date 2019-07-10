@@ -20,9 +20,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class IEC104InitConnection implements InterfaceScript {
-    static List<String> lines;
+public class IEC104InitOutputConnection implements InterfaceScript {
     static Process process;
+    static BufferedReader br;
 
     @Override
     public Result run(ArrayList<ParametersExecution> parameters, HashMap hashMap) throws Exception {
@@ -34,39 +34,15 @@ public class IEC104InitConnection implements InterfaceScript {
 
         Runtime.getRuntime().exec("attrib +H IEC104slave.ini");     //Hide the .ini file from the user.
         process = new ProcessBuilder("src\\script\\IEC104Simulator\\20171117_104Slave.exe").start();
-        InputStream is = process.getInputStream();
-        InputStreamReader isr = new InputStreamReader(is);
-        BufferedReader br = new BufferedReader(isr);
-        String line123;
-        Instant before = Instant.now();
-        while ((line123 = br.readLine()) != null && !line123.contains("Supervisory") && Duration.between(before, Instant.now()).toMillis() < 10000) {
-            //Should be finished initialization
-            CommonFunctions.debugLog.debug(line123);
-        }
-        br.close();
-        isr.close();
-        return null;
-    }
 
-    public static void initIEC104ConfigFile(int port, int asduAddress) {
-        CommonFunctions.debugLog.debug("Working Directory = " + System.getProperty("user.dir"));
-        Path inputPath = Paths.get("src\\script\\IEC104Simulator\\IEC104slavetemplate.ini");
-        Path outputPath = Paths.get("IEC104slave.ini");
-        try {
-            //Read Template File
-            lines = Files.readAllLines(inputPath);
-            for (int i = 0; i < lines.size(); i++) {
-                if (lines.get(i) != null && (lines.get(i)).startsWith("Port")) {
-                    lines.set(i, "Port=" + port);
-                } else if (lines.get(i) != null && (lines.get(i)).startsWith("AsduAddress")) {
-                    lines.set(i, "AsduAddress=" + asduAddress);
-                }
-            }
-            //Write adjusted configuration to OutputFile.
-            Files.write(outputPath, lines, Charset.defaultCharset());
-        } catch (IOException ex) {
-            CommonFunctions.debugLog.error("Cannot locate the file specified. Please check the IEC104Simulator Folder inside /scripts.", ex);
+        br = new BufferedReader(new InputStreamReader(process.getInputStream()));
+        String consoleLine;
+        Instant before = Instant.now();
+        while ((consoleLine = br.readLine()) != null && !consoleLine.contains("Supervisory") && Duration.between(before, Instant.now()).toMillis() < 10000) {
+            //Should be finished initialization
+            CommonFunctions.debugLog.debug(consoleLine);
         }
+        return null;
     }
 
     @Override
@@ -85,7 +61,7 @@ public class IEC104InitConnection implements InterfaceScript {
     }
 
     public static void main(String[] args) {
-        IEC104InitConnection temp = new IEC104InitConnection();
+        IEC104InitOutputConnection temp = new IEC104InitOutputConnection();
         try {
             temp.run(null, null);
         } catch (Exception e) {

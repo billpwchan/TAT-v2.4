@@ -173,7 +173,7 @@ public class MatchAndBit implements InterfaceScript {
         //Core.imwrite("D:\\Users\\t0155040\\Desktop\\Result.png", img);
         long tempsFin3 = System.currentTimeMillis();
         float seconds3 = (tempsFin3 - tempsDebut3) / 1000F;
-        CommonFunctions.debugLog.error("Comparison time= " + Float.toString(seconds3));
+        CommonFunctions.debugLog.error("Comparison time= " + seconds3);
         return returnResult;
     }
 

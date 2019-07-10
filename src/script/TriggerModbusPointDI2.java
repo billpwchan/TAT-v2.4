@@ -53,7 +53,7 @@ public class TriggerModbusPointDI2 implements InterfaceScript {
      */
     public void updateHoldingRegister(SimpleProcessImage processImage, int register, double newValue) throws InterruptedException {
 
-        processImage.setRegister((int) register, new SimpleRegister((int) newValue));
+        processImage.setRegister(register, new SimpleRegister((int) newValue));
 
         //CommonFunctions.debugLog.error("Register is : " + newValue + " value is :" + register);
         Thread.sleep(500);
@@ -61,7 +61,7 @@ public class TriggerModbusPointDI2 implements InterfaceScript {
 
     private void updateInputRegister(SimpleProcessImage instance, int register, double value) throws InterruptedException {
 
-        instance.setInputRegister((int) register, new SimpleRegister((int) value));
+        instance.setInputRegister(register, new SimpleRegister((int) value));
         Thread.sleep(500);
     }
 
