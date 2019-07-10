@@ -117,7 +117,7 @@ public class TriggerModbusPointAI {
      */
     public void updateHoldingRegister(SimpleProcessImage processImage, int value, int register) throws InterruptedException {
 
-        processImage.setRegister((int) register, new SimpleRegister((int) value));
+        processImage.setRegister(register, new SimpleRegister(value));
 
         //CommonFunctions.debugLog.error("Register is : " + register + " value is :" + value);
         Thread.sleep(500);
@@ -125,7 +125,7 @@ public class TriggerModbusPointAI {
 
     private void updateInputRegister(SimpleProcessImage instance, int register, int value) throws InterruptedException {
 
-        instance.setInputRegister((int) value, new SimpleRegister((int) register));
+        instance.setInputRegister(value, new SimpleRegister(register));
 
         Thread.sleep(500);
     }

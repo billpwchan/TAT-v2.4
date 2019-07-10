@@ -57,7 +57,7 @@ public class TabScriptsMainViewController implements Initializable {
             AnchorPane libraryPane = fxmlLoader.load(getClass().getResource("/assets/view/scriptmanagement/TabScriptsLibrary.fxml").openStream());
             //AnchorPane libraryPane = fxmlLoader.load(getClass().getResource("/assets.view/scriptmanagement/TabScriptsLibrary.fxml").openStream());
             this.tabScriptsLibrary.setContent(libraryPane);
-            libraryController = (TabScriptsLibraryController) fxmlLoader.getController();
+            libraryController = fxmlLoader.getController();
             libraryController.init(this);
         } catch (IOException ex) {
             Logger.getLogger(TabRequirementMainViewController.class.getName()).error("", ex);
@@ -84,7 +84,7 @@ public class TabScriptsMainViewController implements Initializable {
             Logger.getLogger(TabScriptsMainViewController.class.getName()).error("", ex);
         }
         newScript.setContent(addPane);
-        newScriptController = (TabScriptNewController) fxmlLoader.getController();
+        newScriptController = fxmlLoader.getController();
 
         newScriptController.init(this);
         newScriptController.initNewScript();

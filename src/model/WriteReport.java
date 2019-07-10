@@ -420,7 +420,7 @@ public class WriteReport {
                     ScriptExecutions scriptEx = itScriptEx.next();
 
                     System.out.println("CaseNum: " + caseNum + " StepNum: " + stepNumber + " scriptNum :" + scriptNum + " ScriptName: " + scriptEx.getScript().getName());
-                    System.out.println("");
+                    System.out.println();
                     //Check if ScriptExecution is a stimuli
                     //if getIsStimuli = 1 ---> script on left side
                     //if getIsStimuli = 0 ---> script on right side

@@ -39,7 +39,7 @@ public class ReceiveIEC104Point implements InterfaceScript {
             //Should be finished initialization
             CommonFunctions.debugLog.debug(consoleLine);
             System.out.println(consoleLine);
-            if (Duration.between(before, Instant.now()).toMillis() > 10000) {
+            if (Duration.between(before, Instant.now()).toMillis() > 10000 || consoleLine.contains("Unknown Sector")) {
                 StringBuilder resultComment = new StringBuilder();
                 resultComment.append("Result MisMatch \n Received Point Address: ").append(-1);
                 resultComment.append("\n Actual Point Address: ").append(pointAddressExcel);
@@ -100,19 +100,6 @@ public class ReceiveIEC104Point implements InterfaceScript {
     }
 
     public static void main(String[] args) {
-        IEC104InitOutputConnection temp = new IEC104InitOutputConnection();
-
-        try {
-            temp.run(null, null);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        ReceiveIEC104Point temp1 = new ReceiveIEC104Point();
-        try {
-            temp1.run(null, null);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 }
 

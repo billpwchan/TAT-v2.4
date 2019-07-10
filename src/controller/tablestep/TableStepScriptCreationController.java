@@ -194,7 +194,7 @@ public class TableStepScriptCreationController implements Initializable {
             try {
                 try (InputStream scriptPaneStream = getClass().getResource("/assets/view/stepcreation/scriptLineTableStep.fxml").openStream()) {
                     scriptPane = fxmlLoader.load(scriptPaneStream);
-                    controllerScriptLine = (ScriptLineTableStepController) fxmlLoader.getController();
+                    controllerScriptLine = fxmlLoader.getController();
                 }
                 scriptPane.setPrefWidth(vBox.getPrefWidth());
             } catch (IOException ex) {
@@ -287,7 +287,7 @@ public class TableStepScriptCreationController implements Initializable {
             AnchorPane stepPane;
             try (InputStream streamViewStep = getClass().getResource("/assets/view/stepcreation/stepLineTableStep.fxml").openStream()) {
                 stepPane = fxmlLoader.load(streamViewStep);
-                controllerStepLine = (StepLineTableStepController) fxmlLoader.getController();
+                controllerStepLine = fxmlLoader.getController();
             }
             controllerStepLine.initControllerTable(this);
             controllerStepLine.constructInformation(stepID);

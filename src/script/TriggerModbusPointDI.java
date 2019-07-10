@@ -57,7 +57,7 @@ public class TriggerModbusPointDI implements InterfaceScript {
      */
     public void updateHoldingRegister(SimpleProcessImage processImage, int register, double newValue) throws InterruptedException {
 
-        processImage.setRegister((int) register, new SimpleRegister((int) newValue));
+        processImage.setRegister(register, new SimpleRegister((int) newValue));
         //CommonFunctions.debugLog.error("updateHoldingReg = "+ register);
 
         //CommonFunctions.debugLog.error("Register is : " + newValue + " value is :" + register);
@@ -66,10 +66,10 @@ public class TriggerModbusPointDI implements InterfaceScript {
 
     private void updateInputRegister(SimpleProcessImage instance, int register, double value) throws InterruptedException {
 
-        instance.setInputRegister((int) register, new SimpleRegister((int) value));
+        instance.setInputRegister(register, new SimpleRegister((int) value));
         CommonFunctions.debugLog.error("Number of inputRegCount: " + instance.getInputRegisterCount());
 
-        CommonFunctions.debugLog.error("reg " + (int) register + " SimRegValue " + (int) value);
+        CommonFunctions.debugLog.error("reg " + register + " SimRegValue " + (int) value);
 
 //      CommonFunctions.debugLogd.error("updateinputReg = "+ register);
         Thread.sleep(500);
@@ -77,7 +77,7 @@ public class TriggerModbusPointDI implements InterfaceScript {
 
     public void updateDigiatalOutputRegister(SimpleProcessImage instance, int register, double value) throws InterruptedException {
 
-        instance.setDigitalOut((int) register, new SimpleDigitalOut(value!=0));
+        instance.setDigitalOut(register, new SimpleDigitalOut(value!=0));
 
 //      CommonFunctions.debugLogd.error("updateinputReg = "+ register);
         Thread.sleep(500);
@@ -85,7 +85,7 @@ public class TriggerModbusPointDI implements InterfaceScript {
 
     public void updateDigiatalInputRegister(SimpleProcessImage instance, int register, double value) throws InterruptedException {
 
-        instance.setDigitalIn((int) register, new SimpleDigitalIn (value!=0));
+        instance.setDigitalIn(register, new SimpleDigitalIn (value!=0));
 
 //      CommonFunctions.debugLogd.error("updateinputReg = "+ register);
         Thread.sleep(500);

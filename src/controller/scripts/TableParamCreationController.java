@@ -114,7 +114,7 @@ public class TableParamCreationController implements Initializable {
             //this..getStylesheets().add("/assets.view/testcampaign/cssViewCampaign.css");
             try (InputStream streamViewScript = getClass().getResource("/assets/view/scriptmanagement/scriptLineParameter.fxml").openStream()) {
                 ParamPane = fxmlLoader.load(streamViewScript);
-                controllerParamLine = (ScriptLineParameterController) fxmlLoader.getController();
+                controllerParamLine = fxmlLoader.getController();
             }
             controllerParamLine.initControllerTable(this);
             controllerParamLine.constructInformation(scriptID);

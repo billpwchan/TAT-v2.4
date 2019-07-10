@@ -28,12 +28,12 @@ public interface InterfaceScript {
      * @return the result of the test. Object result is composed by a comment and a result (Result can be : OK,MOK,OKWC,NT,IC,OS). In case of a stimuli, the object result returned 
      * can be "null". In this case put "return null" at the end of the run function.
      */
-    public Result run(ArrayList<ParametersExecution> parameters, HashMap hashMap) throws Exception;
+    Result run(ArrayList<ParametersExecution> parameters, HashMap hashMap) throws Exception;
 
     /**
      * close the script, all the connections opened for example. This function is called at the end of each test case.
      */
-    public void close();
+    void close();
 
     /**
      * Return all the parameters needed for the script with their name, type and
@@ -42,7 +42,7 @@ public interface InterfaceScript {
      * @return the ArrayList with all the parameters for the script
      * 
      */
-    public ArrayList<Parameters> parameters();
+    ArrayList<Parameters> parameters();
 
     /**
      * Return the script with all its information
@@ -50,6 +50,6 @@ public interface InterfaceScript {
      *
      * @return the script with its information
      */
-    public Script scriptInfos();
+    Script scriptInfos();
     
 }

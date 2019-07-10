@@ -160,7 +160,7 @@ public class ScriptLineTableStepController implements Initializable {
      */
     public void setIDs(int idStepFather, int personalID) {
         this.idStepFather = idStepFather;
-        this.labelID.setText(String.valueOf(this.idStepFather + "." + personalID));
+        this.labelID.setText(this.idStepFather + "." + personalID);
     }
 
     /**
@@ -472,7 +472,7 @@ public class ScriptLineTableStepController implements Initializable {
         try {
             try (InputStream anchorActionStream = getClass().getResource("/assets/view/stepcreation/viewScript.fxml").openStream()) {
                 anchorAction = fxmlLoader.load(anchorActionStream);
-                this.scriptControllerAction = (ViewScriptController) fxmlLoader.getController();
+                this.scriptControllerAction = fxmlLoader.getController();
                 this.gridPaneScript.add(anchorAction, 2, 0, 1, 1);
             }
             scriptControllerAction.init(this);
@@ -488,7 +488,7 @@ public class ScriptLineTableStepController implements Initializable {
 
             try (InputStream anchorVerifStream = getClass().getResource("/assets/view/stepcreation/viewScript.fxml").openStream()) {
                 anchorVerif = fxmlLoader2.load(anchorVerifStream);
-                this.scriptControllerVerif = (ViewScriptController) fxmlLoader2.getController();
+                this.scriptControllerVerif = fxmlLoader2.getController();
                 this.gridPaneScript.add(anchorVerif, 4, 0, 1, 1);
             }
             scriptControllerVerif.init(this);

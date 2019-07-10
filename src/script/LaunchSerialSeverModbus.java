@@ -167,10 +167,10 @@ public class LaunchSerialSeverModbus {
      */
     public String run(ArrayList<ParametersExecution> parameters, HashMap<String, Object> test) throws InterruptedException {
 
-        this.ip = (String) parameters.get(1).getValue();
+        this.ip = parameters.get(1).getValue();
         this.port = ((int) Double.parseDouble(parameters.get(2).getValue()));
         this.slave = ((int) Double.parseDouble(parameters.get(3).getValue()));
-        serverType = (String) parameters.get(4).getValue();
+        serverType = parameters.get(4).getValue();
         launchServer(ip, port, slave, serverType);
         Thread.sleep(3000);
 

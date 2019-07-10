@@ -171,7 +171,7 @@ public class TabScriptNewController implements Initializable {
     private void constructTableParams() {
         FXMLLoader fxmlLoader = new FXMLLoader();
         try {
-            this.gridPaneTableParam.add((AnchorPane) fxmlLoader.load(getClass().getResource("/assets/view/scriptmanagement/tableScriptCreation.fxml").openStream()), 0, 1, 1, 5);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/assets.view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
+            this.gridPaneTableParam.add(fxmlLoader.load(getClass().getResource("/assets/view/scriptmanagement/tableScriptCreation.fxml").openStream()), 0, 1, 1, 5);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/assets.view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
 
         } catch (IOException ex) {
             Logger.getLogger(TabTestCaseNewController.class
@@ -180,7 +180,7 @@ public class TabScriptNewController implements Initializable {
         controllerTableParam = fxmlLoader.getController();
         FXMLLoader fxmlLoader2 = new FXMLLoader();
         try {
-            AnchorPane paneTest = (AnchorPane) fxmlLoader2.load(getClass().getResource("/assets/view/scriptmanagement/headerParameters.fxml").openStream());
+            AnchorPane paneTest = fxmlLoader2.load(getClass().getResource("/assets/view/scriptmanagement/headerParameters.fxml").openStream());
             this.gridPaneTableParam.add(paneTest, 0, 0, 1, 1);
 
         } catch (IOException ex) {
@@ -250,7 +250,7 @@ public class TabScriptNewController implements Initializable {
      */
     public void initNewScript() {
         this.loadCSS();
-        this.jtextfieldScriptCreationDate.setText(String.valueOf(df.format(new Date())));
+        this.jtextfieldScriptCreationDate.setText(df.format(new Date()));
         this.jtextfieldScriptCreationDate.setId("displayStyle");
         this.jtextfieldTypeScriptEditionDate.setId("displayStyle");
         this.jtextfieldScriptNew.setText("1");
@@ -431,10 +431,10 @@ public class TabScriptNewController implements Initializable {
         //        System.out.println("CONTROLLER MACRO = " + controllerPreviewMacro);
         FXMLLoader fxmlLoader2 = new FXMLLoader();
         try {
-            AnchorPane paneTest = (AnchorPane) fxmlLoader2.load(getClass().getResource("/assets/view/stepcreation/viewScript.fxml").openStream());
+            AnchorPane paneTest = fxmlLoader2.load(getClass().getResource("/assets/view/stepcreation/viewScript.fxml").openStream());
             this.scrollPanePreview.setContent(paneTest);
 
-            controllerViewScript = (ViewScriptController) fxmlLoader2.getController();
+            controllerViewScript = fxmlLoader2.getController();
 
             //this.gridPaneLabelScriptNew.add(paneTest, 5, 0, 1, 1);
         } catch (IOException ex) {

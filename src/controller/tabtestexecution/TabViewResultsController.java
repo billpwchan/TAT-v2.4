@@ -271,7 +271,7 @@ public class TabViewResultsController implements Initializable {
     private void constructTableStep() {
         FXMLLoader fxmlLoader = new FXMLLoader();
         try {
-            this.gridPanePopUpCase.add((AnchorPane) fxmlLoader.load(getClass().getResource("/assets/view/stepcreation/tableStepScriptCreation.fxml").openStream()), 1, 4, 3, 3);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/assets.view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
+            this.gridPanePopUpCase.add(fxmlLoader.load(getClass().getResource("/assets/view/stepcreation/tableStepScriptCreation.fxml").openStream()), 1, 4, 3, 3);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/assets.view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
         } catch (IOException ex) {
             Logger.getLogger(TabTestCaseNewController.class.getName()).error("", ex);
         }
@@ -279,7 +279,7 @@ public class TabViewResultsController implements Initializable {
 
         FXMLLoader fxmlLoader2 = new FXMLLoader();
         try {
-            AnchorPane paneTest = (AnchorPane) fxmlLoader2.load(getClass().getResource("/assets/view/stepcreation/headerTableStep.fxml").openStream());
+            AnchorPane paneTest = fxmlLoader2.load(getClass().getResource("/assets/view/stepcreation/headerTableStep.fxml").openStream());
             this.gridPanePopUpCase.add(paneTest, 1, 3, 3, 1);// this.anchorPaneStepTable.getChildren().setAll((AnchorPane) fxmlLoader.load(getClass().getResource("/assets.view/stepcreation/tableStepScriptCreation.fxml").openStream())) ;
         } catch (IOException ex) {
             Logger.getLogger(TabTestCaseNewController.class.getName()).error("", ex);
@@ -410,10 +410,8 @@ public class TabViewResultsController implements Initializable {
      * @param caseExecModified
      */
     public void addModifiedCaseExecution(CaseExecutions caseExecModified) {
-        if (this.casesExecutionModified.contains(caseExecModified)) {
-            this.casesExecutionModified.remove(caseExecModified);
-            //this.testCases.get(this.testCases.indexOf(caseExecModified)).getCaseExecutionResultObj().setNewComment("");
-        }
+        //this.testCases.get(this.testCases.indexOf(caseExecModified)).getCaseExecutionResultObj().setNewComment("");
+        this.casesExecutionModified.remove(caseExecModified);
         if (this.testCases.get(this.testCases.indexOf(caseExecModified)).getOriginalResult() == null) {
 
         } else {
@@ -505,9 +503,7 @@ public class TabViewResultsController implements Initializable {
      * @param caseExecu
      */
     public void addCaseCommentModified(CaseExecutions caseExecu) {
-        if (this.casesExecutionModified.contains(caseExecu)) {
-            this.casesExecutionModified.remove(caseExecu);
-        }
+        this.casesExecutionModified.remove(caseExecu);
         this.casesExecutionModified.add(caseExecu);
         this.closePopUp();
         //this.testCases.get(this.testCases.indexOf(caseExecModified)).getCaseExecutionResultObj().setNewComment("");

@@ -14,7 +14,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- *
  * @author Thomas Morin
  */
 public class Concat implements InterfaceScript {
