@@ -80,14 +80,13 @@ public class WriteReport {
 
     private static final HashMap<String, Integer> caseExeResult = new HashMap<>();
 
-    private static final String[] scriptTypeName = {"DI2", "DI", "AI", "IEC"};      //DI2 has to be the first element (It will iterate through each element)
+    private static final String[] scriptTypeName = {"DI2", "DI", "AI", "DO", "IEC"};      //DI2 has to be the first element (It will iterate through each element)
 
-    private static final Integer[] scriptTypeMaxStep = {4, 2, 2, 4};
+    private static final Integer[] scriptTypeMaxStep = {4, 2, 2, 2, 4};
 
     private int reportMaxStep = 0;
 
     private String scriptTypeGlobal = "";
-    private boolean DO_FLAG = false;
 
     private final String colStationKey = "Station";
     private final String colEqpt_CodeKey = "EQP Code";
@@ -285,11 +284,11 @@ public class WriteReport {
                 Set<ScriptExecutions> scriptExSet = currStepEx.getScriptExecutionses();
                 for (ScriptExecutions scriptEx : scriptExSet) {
                     Script script = scriptEx.getScript();
-                    if (script.getName().contains("DO")) {
-                        this.reportMaxStep = 2;
-                        this.DO_FLAG = true;
-                        return;
-                    }
+//                    if (script.getName().contains("DO")) {
+//                        this.reportMaxStep = 2;
+//                        this.DO_FLAG = true;
+//                        return;
+//                    }
                     for (int i = 0; i < scriptTypeName.length; i++) {
                         if (script.getName().contains(scriptTypeName[i])) {
                             this.scriptTypeGlobal = scriptTypeName[i];
@@ -329,6 +328,8 @@ public class WriteReport {
 
         //number of Test Cases
         while (itCaseEx.hasNext()) {
+            boolean DO_FLAG = false;
+
             Row reportRow = this.reportSheet.createRow(this.reportCurrentRow);
 
             CaseExecutions currCaseEx = itCaseEx.next();
@@ -415,6 +416,8 @@ public class WriteReport {
                 //either 1 or 2 script per step
                 int scriptNum = 0;
                 String scriptType = "";
+                boolean DO_POINT_ADDRESS_ERROR = false;
+                boolean DO_VALUE_ERROR = false;
                 while (itScriptEx.hasNext()) {
 
                     ScriptExecutions scriptEx = itScriptEx.next();
@@ -440,11 +443,16 @@ public class WriteReport {
                         scriptType = "AI";
                         this.scriptTypeGlobal = "AI";
                         maxStep = 2;
+                    } else if (script.getName().contains("DO2")) {
+                        scriptType = "DO2";
+                        this.scriptTypeGlobal = "DO";
+                        maxStep = 2;
+                        DO_FLAG = true;
                     } else if (script.getName().contains("DO")) {
                         scriptType = "DO";
                         this.scriptTypeGlobal = "DO";
-                        maxStep = 2;
-                        this.DO_FLAG = true;
+                        maxStep = 1;
+                        DO_FLAG = true;
                     } else if (script.getName().contains("IEC104")) {
                         scriptType = "SOE";
                         this.scriptTypeGlobal = "SOE";
@@ -472,7 +480,6 @@ public class WriteReport {
                                     try {
                                         registerList.add(String.valueOf((int) Math.round(Double.parseDouble(paramSearched))));
                                         registerList.add("0");
-                                        maxStep = 2;
                                     } catch (NumberFormatException ex) {
                                         System.out.println("Should be last step. Do nothing.");
                                     }
@@ -542,8 +549,12 @@ public class WriteReport {
 
                     //Only if isStimuli = 0
                     if (!isStimuli) {
-                        String scriptExResult = scriptEx.getScriptExecutionResult();
                         String scriptExComment = scriptEx.getScriptExecutionComment();
+                        if (DO_FLAG && scriptExComment.contains("Received Incorrect value")) {
+                            DO_VALUE_ERROR = true;
+                        } else if (DO_FLAG && scriptExComment.contains("Received Incorrect Point Address")) {
+                            DO_POINT_ADDRESS_ERROR = true;
+                        }
                         //Either 2 for DI, 4 for DI2
                         paramFoundList = getParamFound(paramSearchList, scriptExComment);
                         Iterator it = paramFoundList.iterator();
@@ -609,7 +620,12 @@ public class WriteReport {
                     if (reportDuplicateCheck(reportRow, this.colRegister_Address + (this.reportMaxStep - 1) * 3)) {
                         cell = reportRow.createCell(this.colRegister_Address + (this.reportMaxStep - 1) * 3);
                         cell.setCellValue(registerList.get(0));
-
+                        if (DO_POINT_ADDRESS_ERROR) {
+                            CellStyle cellStyle = getRedCellStyle(this.workbook);
+                            cellStyle.setWrapText(true);
+                            cellStyle.setAlignment(CellStyle.ALIGN_LEFT);
+                            cell.setCellStyle(cellStyle);
+                        }
                     }
 
                     Cell cell2 = row.createCell(4);
@@ -625,11 +641,16 @@ public class WriteReport {
                     if (reportDuplicateCheck(reportRow, this.colDC_Data_Type)) {
                         cell = reportRow.createCell(this.colDC_Data_Type);
                         cell.setCellValue(scriptType);
-
                     }
 
                     Cell cell4 = row.createCell(5);
                     cell4.setCellValue(String.valueOf((stepNumber) % maxStep));         //Triggering State
+                    if (DO_VALUE_ERROR) {
+                        CellStyle cellStyle = getRedCellStyle(this.workbook);
+                        cellStyle.setWrapText(true);
+                        cellStyle.setAlignment(CellStyle.ALIGN_LEFT);
+                        cell4.setCellStyle(cellStyle);
+                    }
 
                     if (reportDuplicateCheck(reportRow, this.colAssociatedDefect + (this.reportMaxStep - 1) * 3)) {       //Associated Defect
                         cell = reportRow.createCell(this.colAssociatedDefect + (this.reportMaxStep - 1) * 3);
@@ -670,13 +691,15 @@ public class WriteReport {
                         String found = "";
                         try {
                             search = paramSearchList.get(i);
-                            found = paramFoundList.get(i);
+                            found = DO_FLAG ? "N/A" : paramFoundList.get(i);
                         } catch (IndexOutOfBoundsException ex) {
                             found = "N/A";
                         }
                         cellS.setCellValue(search);
                         cellF.setCellValue(found);
-                        if (!search.equals(found)) {
+                        if (DO_FLAG) {
+                            cellF.setCellStyle(getGreyCellStyle(this.workbook));
+                        } else if (!search.equals(found)) {
                             CellStyle red = getRedCellStyle(this.workbook);
                             cellS.setCellStyle(red);
                             cellF.setCellStyle(red);
@@ -874,6 +897,14 @@ public class WriteReport {
     private static CellStyle getRedCellStyle(XSSFWorkbook workbook) {
         CellStyle style = workbook.createCellStyle();
         style.setFillForegroundColor(IndexedColors.RED.getIndex());
+        style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+        style.setAlignment(HorizontalAlignment.CENTER_SELECTION);
+        return style;
+    }
+
+    private static CellStyle getGreyCellStyle(XSSFWorkbook workbook) {
+        CellStyle style = workbook.createCellStyle();
+        style.setFillForegroundColor(IndexedColors.GREY_40_PERCENT.getIndex());
         style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
         style.setAlignment(HorizontalAlignment.CENTER_SELECTION);
         return style;

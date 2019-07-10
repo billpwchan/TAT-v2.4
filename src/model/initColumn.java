@@ -667,7 +667,7 @@ public class initColumn {
 
         typeCol.setCellValueFactory(param -> {
             final TreeItem<Iterations> item = param.getValue();
-            final Iterations data = (Iterations) item.getValue();
+            final Iterations data = item.getValue();
             switch (data.getType()) {
                 case "baseline":
                     return new SimpleObjectProperty<>("Baseline");
@@ -685,7 +685,7 @@ public class initColumn {
         campaignCol.setPrefWidth(150);
         campaignCol.setCellValueFactory(param -> {
             final TreeItem<Iterations> item = param.getValue();
-            final Iterations data = (Iterations) item.getValue();
+            final Iterations data = item.getValue();
             switch (data.getType()) {
                 case "campaign":
                     return new SimpleObjectProperty<>(data.getTestCampaign().getReference());
@@ -703,13 +703,13 @@ public class initColumn {
         resultCol.setPrefWidth(150);
         resultCol.setCellValueFactory(param -> {
             final TreeItem<Iterations> item = param.getValue();
-            final Iterations data = (Iterations) item.getValue();
+            final Iterations data = item.getValue();
             switch (data.getType()) {
                 case "campaign":
                     return new SimpleObjectProperty<>("");
                 case "execution":
                     if (data.getIterationResult() != null) {
-                        return new SimpleObjectProperty<>(String.valueOf(data.getIterationResult().doubleValue()) + " %");
+                        return new SimpleObjectProperty<>(data.getIterationResult().doubleValue() + " %");
                     } else {
                         return new SimpleObjectProperty<>("");
                     }
@@ -725,7 +725,7 @@ public class initColumn {
         statusCol.setPrefWidth(150);
         statusCol.setCellValueFactory(param -> {
             final TreeItem<Iterations> item = param.getValue();
-            final Iterations data = (Iterations) item.getValue();
+            final Iterations data = item.getValue();
             if (data.getType().equals("execution")) {
                 return new SimpleObjectProperty<>(data.getIterationNumber());
             } else {
@@ -738,7 +738,7 @@ public class initColumn {
         dateCol.setPrefWidth(150);
         dateCol.setCellValueFactory(param -> {
             final TreeItem<Iterations> item = param.getValue();
-            final Iterations data = (Iterations) item.getValue();
+            final Iterations data = item.getValue();
             //System.out.println("DATA = "+data.getDate());
             if (data.getType().equals("baseline") || data.getType().equals("execution") || data.getType().equals("campaign")) {
                 return new SimpleObjectProperty<>(data.getDate());

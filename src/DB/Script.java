@@ -217,11 +217,7 @@ public class Script implements java.io.Serializable {
      * @throws ParseException
      */
     public void setEditionDate(String editionDate) throws ParseException {
-        if (editionDate != null) {
-            this.editionDate = editionDate;
-        } else {
-            this.editionDate = null;
-        }
+        this.editionDate = editionDate;
     }
 
     /**

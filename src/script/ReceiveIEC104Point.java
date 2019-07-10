@@ -39,11 +39,14 @@ public class ReceiveIEC104Point implements InterfaceScript {
             //Should be finished initialization
             CommonFunctions.debugLog.debug(consoleLine);
             System.out.println(consoleLine);
-            if (Duration.between(before, Instant.now()).toMillis() > 10000 || consoleLine.contains("Unknown Sector")) {
+            if (Duration.between(before, Instant.now()).toMillis() > 10000) {
                 StringBuilder resultComment = new StringBuilder();
-                resultComment.append("Result MisMatch \n Received Point Address: ").append(-1);
-                resultComment.append("\n Actual Point Address: ").append(pointAddressExcel);
-                resultComment.append("\n Received Address Size: ").append(pointAddressExcel);
+                resultComment.append("Result Mismatch \n Received Incorrect value. ");
+                result.setComment(resultComment.toString());
+                return result;
+            } else if (consoleLine.contains("Unknown Sector")) {
+                StringBuilder resultComment = new StringBuilder();
+                resultComment.append("Result MisMatch \n Received Incorrect Point Address. ");
                 result.setComment(resultComment.toString());
                 return result;
             }

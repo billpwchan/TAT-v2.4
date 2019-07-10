@@ -5,10 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1b6de890-9eff-455f-a6c2-c2388aea1b1d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/script/GeneralSearchScript.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mydb.db" beforeDir="false" afterPath="$PROJECT_DIR$/mydb.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DB/Script.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DB/Script.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Position.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/WriteReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/WriteReport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/initColumn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/initColumn.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/script/ReceiveIEC104Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/ReceiveIEC104Point.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -68,21 +70,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/script/IEC104InitOutputConnection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="40" column="154" selection-start-line="40" selection-start-column="93" selection-end-line="40" selection-end-column="154" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/script/ReceiveIEC104Point.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="40" column="44" lean-forward="true" selection-start-line="40" selection-start-column="44" selection-end-line="40" selection-end-column="44" />
-              <folding>
-                <element signature="e#4547#4548#0" expanded="true" />
-                <element signature="e#4623#4624#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="231">
+              <caret line="35" column="63" selection-start-line="35" selection-start-column="63" selection-end-line="35" selection-end-column="63" />
             </state>
           </provider>
         </entry>
@@ -96,13 +85,28 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/model/WriteReport.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="96" column="47" selection-start-line="96" selection-start-column="47" selection-end-line="96" selection-end-column="47" />
+            <state relative-caret-position="205">
+              <caret line="650" column="42" selection-start-line="650" selection-start-column="42" selection-end-line="650" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/script/ReceiveIEC104Point.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="861">
+              <caret line="77" column="58" selection-start-line="77" selection-start-column="58" selection-end-line="77" selection-end-column="58" />
+              <folding>
+                <element signature="e#4643#4644#0" expanded="true" />
+                <element signature="e#4670#4671#0" expanded="true" />
+                <element signature="e#4719#4720#0" expanded="true" />
+                <element signature="e#4746#4747#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -146,8 +150,9 @@
         <option value="$PROJECT_DIR$/src/script/CreateTCLfile.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
         <option value="$PROJECT_DIR$/src/script/GeneralSearchScript.java" />
-        <option value="$PROJECT_DIR$/src/model/WriteReport.java" />
+        <option value="$PROJECT_DIR$/src/script/Concat.java" />
         <option value="$PROJECT_DIR$/src/script/ReceiveIEC104Point.java" />
+        <option value="$PROJECT_DIR$/src/model/WriteReport.java" />
       </list>
     </option>
   </component>
@@ -158,8 +163,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-63" />
-    <option name="y" value="-35" />
+    <option name="x" value="197" />
+    <option name="y" value="-45" />
     <option name="width" value="3500" />
     <option name="height" value="1960" />
   </component>
@@ -192,12 +197,6 @@
               <item name="TATV2.3.3 IEC-104" type="b2602c69:ProjectViewProjectNode" />
               <item name="TATV2.3.3 IEC-104" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TATV2.3.3 IEC-104" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TATV2.3.3 IEC-104" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="script" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -208,12 +207,17 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="sqlite" />
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
   </component>
   <component name="RecentsManager">
@@ -284,7 +288,7 @@
       <updated>1562207995944</updated>
       <workItem from="1562207999624" duration="1895000" />
       <workItem from="1562210319155" duration="26042000" />
-      <workItem from="1562568712782" duration="13916000" />
+      <workItem from="1562568712782" duration="21352000" />
     </task>
     <task id="LOCAL-00001" summary="[General] Add DO Receiver for IEC-104 Command. Print console messages to debuglog">
       <created>1562404452090</created>
@@ -321,11 +325,25 @@
       <option name="project" value="LOCAL" />
       <updated>1562574686555</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="[Feature] DO Report Function">
+      <created>1562739510042</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1562739510042</updated>
+    </task>
+    <task id="LOCAL-00007" summary="[General] Controller &amp; Script Cleanup">
+      <created>1562742248398</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1562742248398</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41853000" />
+    <option name="totallyTimeSpent" value="49289000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1549" height="837" extended-state="6" />
@@ -342,7 +360,7 @@
       <window_info id="Learn" order="8" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49899665" weight="0.329927" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.21751826" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.21459854" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39562044" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -417,31 +435,23 @@
     <MESSAGE value="[General] InitIEC104OutputConnection" />
     <MESSAGE value="[General] Implemented DO2 Test Case. Invalid negative response" />
     <MESSAGE value="[General] Modify Database" />
-    <option name="LAST_COMMIT_MESSAGE" value="[General] Modify Database" />
+    <MESSAGE value="[Feature] DO Report Function" />
+    <MESSAGE value="[General] Controller &amp; Script Cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="[General] Controller &amp; Script Cleanup" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/model/WriteReport.java</url>
-          <line>356</line>
+          <line>551</line>
           <properties />
-          <option name="timeStamp" value="3" />
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/d8048305-6c57-4c09-b5c7-484fdb5ba201/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TAT/util/HibernateUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="37">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/util/CommonFunctions.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1407">
@@ -731,30 +741,90 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/WriteReport.java">
+    <entry file="file://$PROJECT_DIR$/src/script/DacSimulator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="96" column="47" selection-start-line="96" selection-start-column="47" selection-end-line="96" selection-end-column="47" />
+        <state relative-caret-position="-1031">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/script/IdentifyLine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/script/InitialAllDO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="77">
+          <caret line="17" column="24" lean-forward="true" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/script/Concat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="37" column="18" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/script/compareImages.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-189">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#0#11750#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/script/clickSouris.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DB/CaseExecutions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-725">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/tablestep/TableStepScriptCreationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="186" column="7" selection-start-line="186" selection-start-column="7" selection-end-line="186" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/script/IEC104InitOutputConnection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="40" column="154" selection-start-line="40" selection-start-column="93" selection-end-line="40" selection-end-column="154" />
+        <state relative-caret-position="231">
+          <caret line="35" column="63" selection-start-line="35" selection-start-column="63" selection-end-line="35" selection-end-column="63" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/script/ReceiveIEC104Point.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="40" column="44" lean-forward="true" selection-start-line="40" selection-start-column="44" selection-end-line="40" selection-end-column="44" />
+        <state relative-caret-position="861">
+          <caret line="77" column="58" selection-start-line="77" selection-start-column="58" selection-end-line="77" selection-end-column="58" />
           <folding>
-            <element signature="e#4547#4548#0" expanded="true" />
-            <element signature="e#4623#4624#0" expanded="true" />
+            <element signature="e#4643#4644#0" expanded="true" />
+            <element signature="e#4670#4671#0" expanded="true" />
+            <element signature="e#4719#4720#0" expanded="true" />
+            <element signature="e#4746#4747#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/WriteReport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="650" column="42" selection-start-line="650" selection-start-column="42" selection-end-line="650" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
