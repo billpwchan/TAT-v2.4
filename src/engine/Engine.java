@@ -196,7 +196,7 @@ public class Engine {
                                             count = true;
                                         }
                                         tempsDebut3 = System.currentTimeMillis();
-                                        CommonFunctions.debugLog.debug("ScriptName : " + scriptName.toString());
+                                        CommonFunctions.debugLog.debug("ScriptName : " + scriptName);
                                         CommonFunctions.debugLog.debug("paramScriptMacro : " + paramScriptMacro.toString());
                                         //This line might cause exception. Catch the error here.
 
@@ -281,7 +281,7 @@ public class Engine {
     }
 
     //Default method for handling remaining operations when an exception is encountered during the execution of a macro/script.
-    private float exceptionCausedExecutionTerminator(HashMap<String, Integer> hashMapNumberResultMacro, Result testResult, ScriptExecutions currentScript, Macro mac, int checkInMacro, HashMap<String, Integer> hashMapNumberResultScript, int scriptNumber, StepExecutions currentStep, HashMap<String, Integer> hashMapNumberResultSteps, long tempsDebut1, float averageTimeCase, int i, Set<String> set, int stepsNumber, CaseExecutions currentTestCase) throws Exception, ClassNotFoundException, InvocationTargetException, MalformedURLException, InstantiationException, IllegalAccessException, NoSuchMethodException, IllegalArgumentException {
+    private float exceptionCausedExecutionTerminator(HashMap<String, Integer> hashMapNumberResultMacro, Result testResult, ScriptExecutions currentScript, Macro mac, int checkInMacro, HashMap<String, Integer> hashMapNumberResultScript, int scriptNumber, StepExecutions currentStep, HashMap<String, Integer> hashMapNumberResultSteps, long tempsDebut1, float averageTimeCase, int i, Set<String> set, int stepsNumber, CaseExecutions currentTestCase) throws Exception {
         long tempsFin1;
         float seconds1;
         Double iterationResultPercentage;

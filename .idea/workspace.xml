@@ -4,14 +4,10 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1b6de890-9eff-455f-a6c2-c2388aea1b1d" name="Default Changelist" comment="">
+    <list default="true" id="1b6de890-9eff-455f-a6c2-c2388aea1b1d" name="Default Changelist" comment="[Feature] Report Feature Complete.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mydb.db" beforeDir="false" afterPath="$PROJECT_DIR$/mydb.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DB/Script.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DB/Script.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Position.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/Engine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/WriteReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/WriteReport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/initColumn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/initColumn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/script/ReceiveIEC104Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/ReceiveIEC104Point.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -88,8 +84,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/model/WriteReport.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
-              <caret line="650" column="42" selection-start-line="650" selection-start-column="42" selection-end-line="650" selection-end-column="42" />
+            <state relative-caret-position="310">
+              <caret line="559" column="64" lean-forward="true" selection-start-line="559" selection-start-column="64" selection-end-line="559" selection-end-column="64" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -191,12 +187,6 @@
               <item name="TATV2.3.3 IEC-104" type="b2602c69:ProjectViewProjectNode" />
               <item name="TATV2.3.3 IEC-104" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="configuration" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TATV2.3.3 IEC-104" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TATV2.3.3 IEC-104" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="script" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -288,7 +278,7 @@
       <updated>1562207995944</updated>
       <workItem from="1562207999624" duration="1895000" />
       <workItem from="1562210319155" duration="26042000" />
-      <workItem from="1562568712782" duration="21352000" />
+      <workItem from="1562568712782" duration="21804000" />
     </task>
     <task id="LOCAL-00001" summary="[General] Add DO Receiver for IEC-104 Command. Print console messages to debuglog">
       <created>1562404452090</created>
@@ -339,17 +329,24 @@
       <option name="project" value="LOCAL" />
       <updated>1562742248398</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="[Feature] Report Feature Complete.">
+      <created>1562748664237</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1562748664237</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49289000" />
+    <option name="totallyTimeSpent" value="49741000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1549" height="837" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15050167" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15050167" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Persistence" order="3" side_tool="true" />
@@ -360,14 +357,14 @@
       <window_info id="Learn" order="8" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49899665" weight="0.329927" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.21459854" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49899665" visible="true" weight="0.16788322" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39562044" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49966556" weight="0.329927" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5010033" side_tool="true" weight="0.329927" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5010033" side_tool="true" weight="0.16788322" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32846716" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
@@ -437,7 +434,8 @@
     <MESSAGE value="[General] Modify Database" />
     <MESSAGE value="[Feature] DO Report Function" />
     <MESSAGE value="[General] Controller &amp; Script Cleanup" />
-    <option name="LAST_COMMIT_MESSAGE" value="[General] Controller &amp; Script Cleanup" />
+    <MESSAGE value="[Feature] Report Feature Complete." />
+    <option name="LAST_COMMIT_MESSAGE" value="[Feature] Report Feature Complete." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -821,8 +819,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/WriteReport.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="650" column="42" selection-start-line="650" selection-start-column="42" selection-end-line="650" selection-end-column="42" />
+        <state relative-caret-position="310">
+          <caret line="559" column="64" lean-forward="true" selection-start-line="559" selection-start-column="64" selection-end-line="559" selection-end-column="64" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
