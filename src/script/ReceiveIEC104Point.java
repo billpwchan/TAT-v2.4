@@ -33,11 +33,20 @@ public class ReceiveIEC104Point implements InterfaceScript {
 
         int pointAddressExcel = ((int) Double.parseDouble(parameters.get(1).getValue().trim()));
         int addressSizeExcel = (int) Double.parseDouble(parameters.get(2).getValue().trim());
+        Instant before = Instant.now();
         System.out.println("Receiving Points Now");
         while ((consoleLine = IEC104InitOutputConnection.br.readLine()) != null && !consoleLine.contains("Single Command Response")) {
             //Should be finished initialization
             CommonFunctions.debugLog.debug(consoleLine);
             System.out.println(consoleLine);
+            if (Duration.between(before, Instant.now()).toMillis() > 10000) {
+                StringBuilder resultComment = new StringBuilder();
+                resultComment.append("Result MisMatch \n Received Point Address: ").append(-1);
+                resultComment.append("\n Actual Point Address: ").append(pointAddressExcel);
+                resultComment.append("\n Received Address Size: ").append(pointAddressExcel);
+                result.setComment(resultComment.toString());
+                return result;
+            }
         }
         System.out.println("Received DO Command with message: " + consoleLine);
         for (int i = 0; i < DOHexOffset; i++) {

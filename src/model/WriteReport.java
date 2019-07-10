@@ -87,6 +87,7 @@ public class WriteReport {
     private int reportMaxStep = 0;
 
     private String scriptTypeGlobal = "";
+    private boolean DO_FLAG = false;
 
     private final String colStationKey = "Station";
     private final String colEqpt_CodeKey = "EQP Code";
@@ -142,7 +143,7 @@ public class WriteReport {
      * @throws FileNotFoundException
      * @throws IOException
      */
-    public void readTemplateReport(Iterations it) throws FileNotFoundException, IOException {
+    private void readTemplateReport(Iterations it) throws FileNotFoundException, IOException {
         String template = "Report_Temp.xlsx";
         FileInputStream inputStream = new FileInputStream(new File(template));
         this.workbook = new XSSFWorkbook(inputStream);
@@ -214,8 +215,6 @@ public class WriteReport {
             FileOutputStream outputStream = new FileOutputStream(FILE_NAME);
             this.workbook.write(outputStream);
             this.workbook.close();
-        } catch (FileNotFoundException ex) {
-            CommonFunctions.debugLog.error("", ex);
         } catch (IOException ex) {
             CommonFunctions.debugLog.error("", ex);
         }
@@ -241,7 +240,6 @@ public class WriteReport {
         this.currentRow += 2; //because we merge cells
 
         //this.reportMaxStep records the maximum step it contians. If it is 4, the we should add 3 * (4-1) columns to the worksheet.
-//        this.reportMaxStep;
     }
 
     private void setReportHeaderFileRows() {
@@ -275,7 +273,6 @@ public class WriteReport {
      * @param iteration
      */
     private void reportSheetOffsetInit(Iterations iteration) {
-
         TestCasesExecution testCaseExecution = new TestCasesExecution();
         this.campaignID = iteration.getTestCampaign().getIdtestCampaign();
         this.baselineID = iteration.getBaselineId();
@@ -288,6 +285,11 @@ public class WriteReport {
                 Set<ScriptExecutions> scriptExSet = currStepEx.getScriptExecutionses();
                 for (ScriptExecutions scriptEx : scriptExSet) {
                     Script script = scriptEx.getScript();
+                    if (script.getName().contains("DO")) {
+                        this.reportMaxStep = 2;
+                        this.DO_FLAG = true;
+                        return;
+                    }
                     for (int i = 0; i < scriptTypeName.length; i++) {
                         if (script.getName().contains(scriptTypeName[i])) {
                             this.scriptTypeGlobal = scriptTypeName[i];
@@ -344,7 +346,8 @@ public class WriteReport {
             WriteReport.caseExeResult.put(res, WriteReport.caseExeResult.get(res) + 1);
             WriteReport.caseExeResult.put("Test case result", WriteReport.caseExeResult.get("Test case result") + 1);
 
-            System.out.println("                            Overall Case Result: " + res + "\n");
+            System.out.println("Overall Case Result: " + res + "\n");
+
             if (!this.scriptTypeGlobal.contains("DI") || (caseNum != 0)) {
                 //Manipulate result in both Report worksheet & Raw Result Worksheet.
                 this.currentRowGlobal = this.currentRow;
@@ -437,12 +440,18 @@ public class WriteReport {
                         scriptType = "AI";
                         this.scriptTypeGlobal = "AI";
                         maxStep = 2;
+                    } else if (script.getName().contains("DO")) {
+                        scriptType = "DO";
+                        this.scriptTypeGlobal = "DO";
+                        maxStep = 2;
+                        this.DO_FLAG = true;
                     } else if (script.getName().contains("IEC104")) {
                         scriptType = "SOE";
                         this.scriptTypeGlobal = "SOE";
                         maxStep = 4;
                     }
-                    this.reportMaxStep = maxStep > this.reportMaxStep ? maxStep : this.reportMaxStep;
+                    if (!DO_FLAG)
+                        this.reportMaxStep = maxStep > this.reportMaxStep ? maxStep : this.reportMaxStep;
 
                     Set<ParametersExecution> paramExSet = scriptEx.getParametersExecutions();
                     Iterator<ParametersExecution> itParamEx = paramExSet.iterator();
@@ -453,9 +462,21 @@ public class WriteReport {
                         String paramSearched = paramEx.getValue();
                         System.out.println("numParameter: " + numParameter + " paramSearched: " + paramSearched);
                         if (!isStimuli) {       //For verifying the result
-                            System.out.println("Script is NOT stimuli, parameter " + paramSearched + " added in paramSearchList");
-                            if (paramEx.getParameters().getName().equalsIgnoreCase("searched value")) {     //This specific scripts is only used in Search Occurance. 
+                            if (paramEx.getParameters().getName().equalsIgnoreCase("searched value")) {
+                                System.out.println("Script is NOT stimuli, parameter " + paramSearched + " added in paramSearchList");
+                                //This specific scripts is only used in Search Occurance.
                                 paramSearchList.add(paramSearched);
+                            }
+                            if ("DO".equals(scriptType)) {
+                                if (numParameter == 0) {
+                                    try {
+                                        registerList.add(String.valueOf((int) Math.round(Double.parseDouble(paramSearched))));
+                                        registerList.add("0");
+                                        maxStep = 2;
+                                    } catch (NumberFormatException ex) {
+                                        System.out.println("Should be last step. Do nothing.");
+                                    }
+                                }
                             }
                         } else {        //For Step Description (Stimuli only)
                             if ("DI".equals(scriptType) || "DI2".equals(scriptType)) {
@@ -533,7 +554,7 @@ public class WriteReport {
                     }
 
                     //getting param script macro
-                    if (((caseNum != 0 && scriptType.contains("DI")) || scriptType.contains("SOE")) && scriptNum != 0) {
+                    if (((caseNum != 0 && scriptType.contains("DI")) || scriptType.contains("SOE")) && scriptNum != 0 || scriptType.contains("DO") && scriptNum != 0) {
                         ScriptDB scDB = new ScriptDB();
                         scDB.getAllFromParamScriptMacro(script);
 
@@ -549,7 +570,7 @@ public class WriteReport {
                                     String[] tempStr = temp.getValue().split("Search");
                                     String param = tempStr[1].trim();
                                     searchOccParamList.add(param);
-                                    System.out.println("            paramScriptMacro Value: " + param);
+                                    System.out.println("paramScriptMacro Value: " + param);
                                 }
                                 enteredWhile = true;
                             }
@@ -572,7 +593,10 @@ public class WriteReport {
                 }
 
                 //write register and offset
-                if ((scriptType.contains("DI") && caseNum != 0 && stepNumber != 0 && scriptValidation(totalSteps, stepNumber)) || ((stepNumber > 1 && (stepNumber != totalSteps - 1)) && scriptType.contains("SOE"))) {
+                if ((scriptType.contains("DI") && caseNum != 0 && stepNumber != 0 && scriptValidation(totalSteps, stepNumber)) ||
+                        ((stepNumber > 1 && (stepNumber != totalSteps - 1)) && scriptType.contains("SOE")) ||
+                        ((stepNumber > 0 && (stepNumber != totalSteps - 1)) && scriptType.contains("DO"))
+                ) {
                     Row row = this.sheet.createRow(this.currentRow);
                     Cell cellR = row.createCell(1); //column = 1
                     cellR.setCellValue(overallStepResult);
