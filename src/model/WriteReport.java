@@ -613,6 +613,8 @@ public class WriteReport {
                     cellR.setCellValue(overallStepResult);
                     if (overallStepResult.equals("NOK")) {
                         CellStyle red = getRedCellStyle(this.workbook);
+                        red.setWrapText(true);
+                        red.setAlignment(CellStyle.ALIGN_LEFT);
                         cellR.setCellStyle(red);
                     }
                     cell = row.createCell(3);

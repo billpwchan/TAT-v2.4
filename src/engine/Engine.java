@@ -374,7 +374,7 @@ public class Engine {
     private void stateMachineStepResult(HashMap<String, Integer> hashMap, int numberScript) {
         CommonFunctions.debugLog.debug("IN RESULT");
         if (hashMap.get(resultOKWC) == 0 && hashMap.get(resultNOK) == 0 && hashMap.get(resultNotTestable) == 0 && hashMap.get(resultOutOfScope) != numberScript) {
-            CommonFunctions.debugLog.debug("OKWC");
+            CommonFunctions.debugLog.debug("OK");
             stepResult = resultOK;
             nbStepOK++;
         } else if (hashMap.get(resultNOK) > 0) {
