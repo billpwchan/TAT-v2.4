@@ -80,9 +80,9 @@ public class WriteReport {
 
     private static final HashMap<String, Integer> caseExeResult = new HashMap<>();
 
-    private static final String[] scriptTypeName = {"DI2", "DI", "AI", "DO", "IEC"};      //DI2 has to be the first element (It will iterate through each element)
+    private static final String[] scriptTypeName = {"DI2", "DI", "AI", "DO", "IEC", "CIP"};      //DI2 has to be the first element (It will iterate through each element)
 
-    private static final Integer[] scriptTypeMaxStep = {4, 2, 2, 2, 4};
+    private static final Integer[] scriptTypeMaxStep = {4, 2, 2, 2, 4, 9};
 
     private int reportMaxStep = 0;
 
@@ -285,11 +285,6 @@ public class WriteReport {
                 Set<ScriptExecutions> scriptExSet = currStepEx.getScriptExecutionses();
                 for (ScriptExecutions scriptEx : scriptExSet) {
                     Script script = scriptEx.getScript();
-//                    if (script.getName().contains("DO")) {
-//                        this.reportMaxStep = 2;
-//                        this.DO_FLAG = true;
-//                        return;
-//                    }
                     for (int i = 0; i < scriptTypeName.length; i++) {
                         if (script.getName().contains(scriptTypeName[i])) {
                             this.scriptTypeGlobal = scriptTypeName[i];
