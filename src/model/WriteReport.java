@@ -82,7 +82,7 @@ public class WriteReport {
 
     private static final String[] scriptTypeName = {"DI2", "DI", "AI", "DO", "IEC", "CIP"};      //DI2 has to be the first element (It will iterate through each element)
 
-    private static final Integer[] scriptTypeMaxStep = {4, 2, 2, 2, 4, 9};
+    private static final Integer[] scriptTypeMaxStep = {4, 2, 2, 2, 4, 8};
 
     private int reportMaxStep = 0;
 
@@ -369,17 +369,19 @@ public class WriteReport {
                 }
                 reportCell.setCellStyle(cellStyle4);
 
-                if (res.equals("NOK")) {
-                    cell.setCellStyle(getRedCellStyle(this.workbook));
-                    reportCell.setCellStyle(getRedCellStyle(this.workbook));
-                }
-                else if (res.equals("OS")) {
-                    cell.setCellStyle(getDarkBlueCellStyle(this.workbook));
-                    reportCell.setCellStyle(getDarkBlueCellStyle(this.workbook));
-                }
-                else if (res.equals("NExec")) {
-                    cell.setCellStyle(getGreyCellStyle(this.workbook));
-                    reportCell.setCellStyle(getGreyCellStyle(this.workbook));
+                switch (res) {
+                    case "NOK":
+                        cell.setCellStyle(getRedCellStyle(this.workbook));
+                        reportCell.setCellStyle(getRedCellStyle(this.workbook));
+                        break;
+                    case "OS":
+                        cell.setCellStyle(getDarkBlueCellStyle(this.workbook));
+                        reportCell.setCellStyle(getDarkBlueCellStyle(this.workbook));
+                        break;
+                    case "NExec":
+                        cell.setCellStyle(getGreyCellStyle(this.workbook));
+                        reportCell.setCellStyle(getGreyCellStyle(this.workbook));
+                        break;
                 }
                 System.out.println("OverallCase Result put in excel sheet at row: " + this.currentRow);
                 this.currentRow++;
@@ -461,6 +463,11 @@ public class WriteReport {
                         scriptType = "SOE";
                         this.scriptTypeGlobal = "SOE";
                         maxStep = 4;
+                    } else if (script.getName().contains("CIP")) {
+                        scriptType = "CIP";
+                        this.scriptTypeGlobal = "CIP";
+                        maxStep = 8;
+                        DO_FLAG = true;
                     }
                     if (!DO_FLAG)
                         this.reportMaxStep = maxStep > this.reportMaxStep ? maxStep : this.reportMaxStep;
@@ -486,6 +493,15 @@ public class WriteReport {
                                         registerList.add("0");
                                     } catch (NumberFormatException ex) {
                                         System.out.println("Should be last step. Do nothing.");
+                                    }
+                                }
+                            } else if ("CIP".equals(scriptType)) {
+                                if (numParameter == 2) {
+                                    try {
+                                        registerList.add(String.valueOf((int) Math.round(Double.parseDouble(paramSearched))));
+                                        registerList.add("0");
+                                    } catch (NumberFormatException ex) {
+                                        System.out.println("Number Format Exception ");
                                     }
                                 }
                             }
@@ -569,7 +585,7 @@ public class WriteReport {
                     }
 
                     //getting param script macro
-                    if (((caseNum != 0 && scriptType.contains("DI")) || scriptType.contains("SOE")) && scriptNum != 0 || scriptType.contains("DO") && scriptNum != 0) {
+                    if (((caseNum != 0 && scriptType.contains("DI")) || scriptType.contains("SOE")) && scriptNum != 0 || scriptType.contains("DO") && scriptNum != 0 || scriptType.contains("CIP") && scriptNum != 0) {
                         ScriptDB scDB = new ScriptDB();
                         scDB.getAllFromParamScriptMacro(script);
 
