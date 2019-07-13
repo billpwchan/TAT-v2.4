@@ -496,7 +496,7 @@ public class WriteReport {
                                     }
                                 }
                             } else if ("CIP".equals(scriptType)) {
-                                if (numParameter == 2) {
+                                if (numParameter == 2) {        // Assume the SLOT refers to the Register Information.
                                     try {
                                         registerList.add(String.valueOf((int) Math.round(Double.parseDouble(paramSearched))));
                                         registerList.add("0");
@@ -626,7 +626,8 @@ public class WriteReport {
                 //write register and offset
                 if ((scriptType.contains("DI") && caseNum != 0 && stepNumber != 0 && scriptValidation(totalSteps, stepNumber)) ||
                         ((stepNumber > 1 && (stepNumber != totalSteps - 1)) && scriptType.contains("SOE")) ||
-                        ((stepNumber > 0 && (stepNumber != totalSteps - 1)) && scriptType.contains("DO"))
+                        ((stepNumber > 0 && (stepNumber != totalSteps - 1)) && scriptType.contains("DO")) ||
+                        (scriptType.contains("CIP"))
                 ) {
                     Row row = this.sheet.createRow(this.currentRow);
                     Cell cellR = row.createCell(1); //column = 1
