@@ -441,11 +441,11 @@ public class WriteReport {
                         scriptType = "DI2";
                         this.scriptTypeGlobal = "DI2";
                         maxStep = 4;
-                    } else if (script.getName().contains("DI")) {
+                    } else if (script.getName().contains("DI") && !script.getName().contains("CIP")) {
                         scriptType = "DI";
                         this.scriptTypeGlobal = "DI";
                         maxStep = 2;
-                    } else if (script.getName().contains("AI")) {
+                    } else if (script.getName().contains("AI") && !script.getName().contains("CIP")) {
                         scriptType = "AI";
                         this.scriptTypeGlobal = "AI";
                         maxStep = 2;
@@ -463,9 +463,13 @@ public class WriteReport {
                         scriptType = "SOE";
                         this.scriptTypeGlobal = "SOE";
                         maxStep = 4;
-                    } else if (script.getName().contains("CIP")) {
-                        scriptType = "CIP";
-                        this.scriptTypeGlobal = "CIP";
+                    } else if (script.getName().contains("CIP") && (script.getName().contains("DI") || script.getName().contains("AI"))) {
+                        scriptType = "CIPDI";
+                        this.scriptTypeGlobal = "CIPDI";
+                        maxStep = 9;
+                    } else if (script.getName().contains("CIP")) {  //Assume it is CIP DO
+                        scriptType = "CIPDO";
+                        this.scriptTypeGlobal = "CIPDO";
                         maxStep = 8;
                         DO_FLAG = true;
                     }
@@ -495,7 +499,7 @@ public class WriteReport {
                                         System.out.println("Should be last step. Do nothing.");
                                     }
                                 }
-                            } else if ("CIP".equals(scriptType)) {
+                            } else if ("CIPDO".equals(scriptType)) {
                                 if (numParameter == 2) {        // Assume the SLOT refers to the Register Information.
                                     try {
                                         registerList.add(String.valueOf((int) Math.round(Double.parseDouble(paramSearched))));
@@ -585,7 +589,13 @@ public class WriteReport {
                     }
 
                     //getting param script macro
-                    if (((caseNum != 0 && scriptType.contains("DI")) || scriptType.contains("SOE")) && scriptNum != 0 || scriptType.contains("DO") && scriptNum != 0 || scriptType.contains("CIP") && scriptNum != 0) {
+                    if (
+                            ((caseNum != 0 && scriptType.contains("DI")) ||
+                                    scriptType.contains("SOE")) && scriptNum != 0 ||
+                                    scriptType.contains("DO") && scriptNum != 0 ||
+                                    scriptType.contains("CIPDO") && scriptNum != 0 ||
+                                    scriptType.contains("CIPDI") && scriptNum != 0
+                    ) {
                         ScriptDB scDB = new ScriptDB();
                         scDB.getAllFromParamScriptMacro(script);
 
@@ -627,7 +637,8 @@ public class WriteReport {
                 if ((scriptType.contains("DI") && caseNum != 0 && stepNumber != 0 && scriptValidation(totalSteps, stepNumber)) ||
                         ((stepNumber > 1 && (stepNumber != totalSteps - 1)) && scriptType.contains("SOE")) ||
                         ((stepNumber > 0 && (stepNumber != totalSteps - 1)) && scriptType.contains("DO")) ||
-                        (scriptType.contains("CIP"))
+                        (scriptType.contains("CIPDO")) ||
+                        (scriptType.contains("CIPDI"))
                 ) {
                     Row row = this.sheet.createRow(this.currentRow);
                     Cell cellR = row.createCell(1); //column = 1
