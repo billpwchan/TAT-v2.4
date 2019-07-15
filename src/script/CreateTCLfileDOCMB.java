@@ -16,7 +16,6 @@ import java.util.concurrent.TimeUnit;
 
 
 /**
- *
  * @author Kelvin Cheung
  * @version 1.0
  */
@@ -47,7 +46,6 @@ public class CreateTCLfileDOCMB {
     }
 
     /**
-     *
      * @param parameters
      * @param hashMap
      * @return
@@ -59,7 +57,7 @@ public class CreateTCLfileDOCMB {
         Session session;
         ArrayList<String> toReturn = new ArrayList<>();
         try {
-            this.ip = parameters.get(1).getValue().trim().replace(',','.');
+            this.ip = parameters.get(1).getValue().trim().replace(',', '.');
             this.user = parameters.get(2).getValue().trim();
             this.password = parameters.get(3).getValue().trim();
             this.RTServerEnvName = parameters.get(4).getValue().trim();
@@ -74,48 +72,43 @@ public class CreateTCLfileDOCMB {
             this.CommandValue5 = (int) Double.parseDouble(parameters.get(13).getValue().trim());
             this.CommandValue6 = (int) Double.parseDouble(parameters.get(14).getValue().trim());
 
-            switch (CommandType){
-                case "DI": case "DO":
+            switch (CommandType) {
+                case "DI":
+                case "DO":
                     this.CommandType = "$SCSCTL_DIOV";
                     break;
-                case "AI": case "AO":
-                    this.CommandType ="$SCSCTL_AIOV";
+                case "AI":
+                case "AO":
+                    this.CommandType = "$SCSCTL_AIOV";
                     break;
             }
-            if(CommandValue6 == 1)
-            {
+            if (CommandValue6 == 1) {
                 CommandValue6 = 7;
-                this.SSHCommand = "echo $\'ScsCtl::init\nproc Callback args { }\nScsCtl::sendCommand " + RTServerEnvName + " " + databaseCommandPath0+":" + databaseCommandPath1 + " "
-                        + CommandType +" "+CommandValue6+ " $SCSCTL_BYPASS $SCSCTL_BYPASS $SCSCTL_SEND_ANYWAY [Callback]\' >~/Desktop/TAT_Script.tcl";
-            } else if(CommandValue5 == 1)
-            {
+                this.SSHCommand = "echo $\'ScsCtl::init\nproc Callback args { }\nScsCtl::sendCommand " + RTServerEnvName + " " + databaseCommandPath0 + ":" + databaseCommandPath1 + " "
+                        + CommandType + " " + CommandValue6 + " $SCSCTL_BYPASS $SCSCTL_BYPASS $SCSCTL_SEND_ANYWAY [Callback]\' >~/Desktop/TAT_Script.tcl";
+            } else if (CommandValue5 == 1) {
                 CommandValue5 = 6;
-                this.SSHCommand = "echo $\'ScsCtl::init\nproc Callback args { }\nScsCtl::sendCommand " + RTServerEnvName + " " + databaseCommandPath0+":" + databaseCommandPath1 + " "
-                        + CommandType +" "+CommandValue5+ " $SCSCTL_BYPASS $SCSCTL_BYPASS $SCSCTL_SEND_ANYWAY [Callback]\' >~/Desktop/TAT_Script.tcl";
-            } else if(CommandValue4 == 1)
-             {
-                 CommandValue4 = 5;
-                 this.SSHCommand = "echo $\'ScsCtl::init\nproc Callback args { }\nScsCtl::sendCommand " + RTServerEnvName + " " + databaseCommandPath0+":" + databaseCommandPath1 + " "
-                         + CommandType +" "+CommandValue4+ " $SCSCTL_BYPASS $SCSCTL_BYPASS $SCSCTL_SEND_ANYWAY [Callback]\' >~/Desktop/TAT_Script.tcl";
-             } else if(CommandValue3 == 1)
-            {
+                this.SSHCommand = "echo $\'ScsCtl::init\nproc Callback args { }\nScsCtl::sendCommand " + RTServerEnvName + " " + databaseCommandPath0 + ":" + databaseCommandPath1 + " "
+                        + CommandType + " " + CommandValue5 + " $SCSCTL_BYPASS $SCSCTL_BYPASS $SCSCTL_SEND_ANYWAY [Callback]\' >~/Desktop/TAT_Script.tcl";
+            } else if (CommandValue4 == 1) {
+                CommandValue4 = 5;
+                this.SSHCommand = "echo $\'ScsCtl::init\nproc Callback args { }\nScsCtl::sendCommand " + RTServerEnvName + " " + databaseCommandPath0 + ":" + databaseCommandPath1 + " "
+                        + CommandType + " " + CommandValue4 + " $SCSCTL_BYPASS $SCSCTL_BYPASS $SCSCTL_SEND_ANYWAY [Callback]\' >~/Desktop/TAT_Script.tcl";
+            } else if (CommandValue3 == 1) {
                 CommandValue3 = 4;
-                this.SSHCommand = "echo $\'ScsCtl::init\nproc Callback args { }\nScsCtl::sendCommand " + RTServerEnvName + " " + databaseCommandPath0+":" + databaseCommandPath1 + " "
-                        + CommandType +" "+CommandValue3+ " $SCSCTL_BYPASS $SCSCTL_BYPASS $SCSCTL_SEND_ANYWAY [Callback]\' >~/Desktop/TAT_Script.tcl";
-            } else if(CommandValue2 == 1)
-            {
+                this.SSHCommand = "echo $\'ScsCtl::init\nproc Callback args { }\nScsCtl::sendCommand " + RTServerEnvName + " " + databaseCommandPath0 + ":" + databaseCommandPath1 + " "
+                        + CommandType + " " + CommandValue3 + " $SCSCTL_BYPASS $SCSCTL_BYPASS $SCSCTL_SEND_ANYWAY [Callback]\' >~/Desktop/TAT_Script.tcl";
+            } else if (CommandValue2 == 1) {
                 CommandValue2 = 3;
-                this.SSHCommand = "echo $\'ScsCtl::init\nproc Callback args { }\nScsCtl::sendCommand " + RTServerEnvName + " " + databaseCommandPath0+":" + databaseCommandPath1 + " "
-                        + CommandType +" "+CommandValue2+ " $SCSCTL_BYPASS $SCSCTL_BYPASS $SCSCTL_SEND_ANYWAY [Callback]\' >~/Desktop/TAT_Script.tcl";
-            } else if(CommandValue1 == 1)
-            {
+                this.SSHCommand = "echo $\'ScsCtl::init\nproc Callback args { }\nScsCtl::sendCommand " + RTServerEnvName + " " + databaseCommandPath0 + ":" + databaseCommandPath1 + " "
+                        + CommandType + " " + CommandValue2 + " $SCSCTL_BYPASS $SCSCTL_BYPASS $SCSCTL_SEND_ANYWAY [Callback]\' >~/Desktop/TAT_Script.tcl";
+            } else if (CommandValue1 == 1) {
                 CommandValue1 = 2;
-                this.SSHCommand = "echo $\'ScsCtl::init\nproc Callback args { }\nScsCtl::sendCommand " + RTServerEnvName + " " + databaseCommandPath0+":" + databaseCommandPath1 + " "
-                        + CommandType +" "+CommandValue1+ " $SCSCTL_BYPASS $SCSCTL_BYPASS $SCSCTL_SEND_ANYWAY [Callback]\' >~/Desktop/TAT_Script.tcl";
-            } else
-            {
-                this.SSHCommand = "echo $\'ScsCtl::init\nproc Callback args { }\nScsCtl::sendCommand " + RTServerEnvName + " " + databaseCommandPath0+":" + databaseCommandPath1 + " "
-                        + CommandType +" "+CommandValue0+ " $SCSCTL_BYPASS $SCSCTL_BYPASS $SCSCTL_SEND_ANYWAY [Callback]\' >~/Desktop/TAT_Script.tcl";
+                this.SSHCommand = "echo $\'ScsCtl::init\nproc Callback args { }\nScsCtl::sendCommand " + RTServerEnvName + " " + databaseCommandPath0 + ":" + databaseCommandPath1 + " "
+                        + CommandType + " " + CommandValue1 + " $SCSCTL_BYPASS $SCSCTL_BYPASS $SCSCTL_SEND_ANYWAY [Callback]\' >~/Desktop/TAT_Script.tcl";
+            } else {
+                this.SSHCommand = "echo $\'ScsCtl::init\nproc Callback args { }\nScsCtl::sendCommand " + RTServerEnvName + " " + databaseCommandPath0 + ":" + databaseCommandPath1 + " "
+                        + CommandType + " " + CommandValue0 + " $SCSCTL_BYPASS $SCSCTL_BYPASS $SCSCTL_SEND_ANYWAY [Callback]\' >~/Desktop/TAT_Script.tcl";
             }
             CommonFunctions.debugLog.info(SSHCommand);
 
@@ -138,12 +131,11 @@ public class CreateTCLfileDOCMB {
             return null;
         } catch (JSchException | IOException ex) {
             String stackTrace = Throwables.getStackTraceAsString(ex);
-            throw new Exception("Exception in executing SSH command. (IP: " + this.ip + "; User: " + this.user + "; SSHCommand: "+ this.SSHCommand);
+            throw new Exception("Exception in executing SSH command. (IP: " + this.ip + "; User: " + this.user + "; SSHCommand: " + this.SSHCommand);
         }
     }
 
     /**
-     *
      * @throws JSchException
      */
     public void close() throws JSchException {

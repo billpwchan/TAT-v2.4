@@ -20,31 +20,41 @@ import java.util.Random;
 //import configuration.ParametersScript;
 
 /**
- *
  * @author tmartinez
  */
 public class TriggerModbusPointAI {
 
     /**
+     * Params of the test.
+     */
+    String params, indexNameReturn;
+    /**
+     * Result of the test.
+     */
+    String result = "Failed";
+    /**
      * Message to display with the Echo.
      */
     private int register, lowValue, maxValue;
-
     private float scalingFactor;
     /**
      * Type of point to display
      */
 
     private String typeOfPoint, ip;
-    /**
-     * Params of the test.
-     */
-    String params, indexNameReturn;
 
     /**
-     * Result of the test.
+     * @param min
+     * @param max
+     * @return
      */
-    String result = "Failed";
+    public static int randInt(int min, int max) {
+
+        Random rand = new Random();
+        int randomNum = rand.nextInt((max - min) + 1) + min;
+
+        return randomNum;
+    }
 
     /**
      * Constructor of the class. Non instanciate.
@@ -54,7 +64,6 @@ public class TriggerModbusPointAI {
     }
 
     /**
-     *
      * @param parameters
      * @param hashMap
      * @return
@@ -109,7 +118,6 @@ public class TriggerModbusPointAI {
     }
 
     /**
-     *
      * @param processImage
      * @param value
      * @param register
@@ -150,20 +158,6 @@ public class TriggerModbusPointAI {
      *
      */
     public void close() {
-    }
-
-    /**
-     *
-     * @param min
-     * @param max
-     * @return
-     */
-    public static int randInt(int min, int max) {
-
-        Random rand = new Random();
-        int randomNum = rand.nextInt((max - min) + 1) + min;
-
-        return randomNum;
     }
 }
 //    public void updateProcessImage(BasicProcessImage processImage,int register,short newValue) throws IllegalDataAddressException {

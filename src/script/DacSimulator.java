@@ -45,14 +45,13 @@ public class DacSimulator {
 //    }
 
     /**
-     *
      * @param parameters
      * @param hashMap
      * @return
      * @throws JSchException
      * @throws IOException
      */
-        public String run(ArrayList<ParametersExecution> parameters, HashMap hashMap) throws JSchException, IOException {
+    public String run(ArrayList<ParametersExecution> parameters, HashMap hashMap) throws JSchException, IOException {
         Session session;
 //        this.station = "WCH";
 //        this.equipmentCode = "ACG1";
@@ -73,7 +72,7 @@ public class DacSimulator {
         session = ServerConnection.getInstance(this.ip, this.user, this.password);
         ChannelExec channel = (ChannelExec) session.openChannel("exec");
         BufferedReader in = new BufferedReader(new InputStreamReader(channel.getInputStream()));
-        channel.setCommand("echo extvar set "+this.epqState+ "| dacsimulator");
+        channel.setCommand("echo extvar set " + this.epqState + "| dacsimulator");
         channel.connect();
         String msg;
         //msg="-18622 1 13094 2142351 0 \":WCH:ECS:ACG10001\" \"1\" 0 0 0 0 0 \";0||||||Air Curtain Group|Running Status|Running||||ACG1||WCH_ACG_201|$$;:WCH:ECS:ACG10001:dciECS-RUNSTA:dal.valueAlarmVector\" 0 0 0 1430215853 835800 1430215853 835800 1 13 0 0 \"SILENV\" \"\" \"\" \"\"";
@@ -91,12 +90,11 @@ public class DacSimulator {
 
         hashMap.put(this.indexNameReturn, toReturn);
         //session.disconnect();
-            //CommonFunctions.debugLog.error("RESULT = "+this.result);
+        //CommonFunctions.debugLog.error("RESULT = "+this.result);
         return null;
     }
 
     /**
-     *
      * @throws JSchException
      */
     public void close() throws JSchException {

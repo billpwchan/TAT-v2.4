@@ -29,7 +29,7 @@ public class CIPWriteTag {
 
     public Result run(ArrayList<ParametersExecution> parameters, HashMap hashMap) throws Exception {
 
-        this.address = parameters.get(1).getValue().trim().replace(',','.');
+        this.address = parameters.get(1).getValue().trim().replace(',', '.');
         this.slot = Integer.parseInt(parameters.get(2).getValue().trim());
         this.tag0 = parameters.get(3).getValue().trim();
         this.tag1 = parameters.get(4).getValue().trim();
@@ -41,19 +41,19 @@ public class CIPWriteTag {
         return new Result();
     }
 
-    public void LaunchCIPConnection(String address, int slot, String tag, double value) throws Exception{
+    public void LaunchCIPConnection(String address, int slot, String tag, double value) throws Exception {
 
-        try (EtherNetIP plc = new EtherNetIP(address,slot)){
+        try (EtherNetIP plc = new EtherNetIP(address, slot)) {
             plc.connectTcp();
-            System.out.println("Tag"+ tag);
+            System.out.println("Tag" + tag);
             CIPData readValue = plc.readTag(tag);
-            System.out.println("Read Value: "+readValue);
+            System.out.println("Read Value: " + readValue);
 
-            readValue.set(0,value);
-            System.out.println("Value Sent: "+readValue);
+            readValue.set(0, value);
+            System.out.println("Value Sent: " + readValue);
 
             plc.writeTag(tag, readValue);
-            System.out.println("Value after Sent: "+readValue);
+            System.out.println("Value after Sent: " + readValue);
 
         } catch (final CipException e) {
             CommonFunctions.debugLog.info(e.getMessage());

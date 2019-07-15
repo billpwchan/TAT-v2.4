@@ -31,13 +31,25 @@ public class SearchOccurence {
     String indexNameReturn;
 
     /**
+     * @param s
+     * @return
+     */
+    public static boolean isInteger(String s) {
+        try {
+            Integer.parseInt(s);
+        } catch (NumberFormatException | NullPointerException e) {
+            return false;
+        }
+        return true;
+    }
+
+    /**
      * Constructor of SearchOccurence.
      */
     public void SearchOccurence() {
     }
 
     /**
-     *
      * @param parameters
      * @param hashMap
      * @return
@@ -69,7 +81,7 @@ public class SearchOccurence {
                     /*
                      Double severityDoub = Double.parseDouble(this.toCompare);
                      if ((severityDoub % 1 == 0) && (severityDoub / 4 == 0) && !this.toCompare.contains("[a-zA-Z]+")) {
-                     this.toCompare = String.valueOf((int) Math.round(severityDoub)); 
+                     this.toCompare = String.valueOf((int) Math.round(severityDoub));
                      }
                      this.toCompare = this.toCompare.trim();
                      */
@@ -88,10 +100,10 @@ public class SearchOccurence {
 
                     CommonFunctions.debugLog.error("Compare: " + compare);
 
-                    if(this.toCompare.equals("-1.0")){
+                    if (this.toCompare.equals("-1.0")) {
                         System.out.println("Search OS");
                         result.setResult("OS");
-                    }else if (compare.equals(this.toCompare)) {
+                    } else if (compare.equals(this.toCompare)) {
                         result.setResult("OK");
                     } else {
                         result.setComment("Missmatch \n" + "Searched : " + this.toCompare + "\n" + "Found = " + compare);
@@ -112,20 +124,6 @@ public class SearchOccurence {
 //            CommmonFunctions.debugLog.error("EQUALS = " + compare.equals(this.toCompare));
         }
         return result;
-    }
-
-    /**
-     *
-     * @param s
-     * @return
-     */
-    public static boolean isInteger(String s) {
-        try {
-            Integer.parseInt(s);
-        } catch (NumberFormatException | NullPointerException e) {
-            return false;
-        }
-        return true;
     }
 
     /**

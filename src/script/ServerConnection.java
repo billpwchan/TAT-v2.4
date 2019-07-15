@@ -10,16 +10,15 @@ import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.Session;
 
 /**
- *
  * @author tmorin
  */
 public class ServerConnection {
 
     private static String oldIP = "0.0.0.0";
+    private static Session session;
     String user = "";
     String pass = "";
     int port = 22;
-    private static Session session;
 
     private ServerConnection(String ip, String user, String password) throws JSchException {
         try {
@@ -37,7 +36,6 @@ public class ServerConnection {
     }
 
     /**
-     *
      * @param ip
      * @param user
      * @param password
@@ -64,7 +62,7 @@ public class ServerConnection {
         if (session != null) {
             session.disconnect();
         }
-        session=null;
+        session = null;
     }
 
 }

@@ -24,12 +24,10 @@ import java.util.HashMap;
  */
 public class TakeSCEQPBuffer implements InterfaceScript {
 
-    private Position position;
-
-    private String pathSave, EQPName, indexNameReturn;
-
-    private String bufferName;
     DateFormat df = new SimpleDateFormat("hh-mm-ss");
+    private Position position;
+    private String pathSave, EQPName, indexNameReturn;
+    private String bufferName;
 
     @Override
     public Result run(ArrayList<ParametersExecution> parameters, HashMap hashMap) throws Exception {

@@ -7,26 +7,28 @@ import controller.util.CommonFunctions;
 import engine.Result;
 
 import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 public class IEC104InitOutputConnection implements InterfaceScript {
     static Process process;
     static BufferedReader br;
 
+    public static void main(String[] args) {
+        IEC104InitOutputConnection temp = new IEC104InitOutputConnection();
+        try {
+            temp.run(null, null);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     @Override
     public Result run(ArrayList<ParametersExecution> parameters, HashMap hashMap) throws Exception {
-        String ip = parameters.get(1).getValue().trim().replace(',','.');    //Not used for simulator monitor process
+        String ip = parameters.get(1).getValue().trim().replace(',', '.');    //Not used for simulator monitor process
         int port = ((int) Double.parseDouble(parameters.get(2).getValue().trim()));
         int asduAddress = (int) Double.parseDouble(parameters.get(3).getValue().trim());
 
@@ -58,14 +60,5 @@ public class IEC104InitOutputConnection implements InterfaceScript {
     @Override
     public Script scriptInfos() {
         return null;
-    }
-
-    public static void main(String[] args) {
-        IEC104InitOutputConnection temp = new IEC104InitOutputConnection();
-        try {
-            temp.run(null, null);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 }

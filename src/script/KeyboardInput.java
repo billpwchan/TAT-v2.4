@@ -16,7 +16,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- *
  * @author tmartinez
  */
 public class KeyboardInput implements InterfaceScript {
@@ -28,7 +27,7 @@ public class KeyboardInput implements InterfaceScript {
         inputString = parameters.get(1).getValue();
         Keyboard kb = new DesktopKeyboard();
         //Mouse m = new DesktopMouse();
-       //m.click(m.getLocation());
+        //m.click(m.getLocation());
         kb.type(inputString);
         Thread.sleep(100);
         return null;

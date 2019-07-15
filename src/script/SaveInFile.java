@@ -15,7 +15,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- *
  * @author Thomas Morin
  */
 public class SaveInFile {
@@ -26,7 +25,6 @@ public class SaveInFile {
     private String fileName;
 
     /**
-     *
      * @param parameters
      * @param hashMap
      * @return

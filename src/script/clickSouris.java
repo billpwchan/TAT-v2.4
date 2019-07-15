@@ -16,16 +16,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- *
  * @author T0155040
  */
-public class clickSouris implements InterfaceScript{
+public class clickSouris implements InterfaceScript {
 
     @Override
     public Result run(ArrayList<ParametersExecution> parameters, HashMap hashMap) {
         Mouse m = new DesktopMouse();
         m.click(m.getLocation());
-        
+
         return null;
     }
 
@@ -46,5 +45,5 @@ public class clickSouris implements InterfaceScript{
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    
+
 }

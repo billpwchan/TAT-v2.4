@@ -39,7 +39,6 @@ public class ExecuteSSHCommand {
     }
 
     /**
-     *
      * @param parameters
      * @param hashMap
      * @return
@@ -51,7 +50,7 @@ public class ExecuteSSHCommand {
         Session session;
         ArrayList<String> toReturn = new ArrayList<>();
         try {
-            this.ip = parameters.get(1).getValue().trim().replace(',','.');
+            this.ip = parameters.get(1).getValue().trim().replace(',', '.');
             this.user = parameters.get(2).getValue().trim();
             this.password = parameters.get(3).getValue().trim();
             this.SSHCommand = parameters.get(4).getValue().trim();
@@ -78,13 +77,12 @@ public class ExecuteSSHCommand {
             return null;
         } catch (JSchException | IOException ex) {
             String stackTrace = Throwables.getStackTraceAsString(ex);
-            throw new Exception("Exception in executing SSH command. (IP: " + this.ip + "; User: " + this.user + "; SSHCommand: "+ this.SSHCommand);
+            throw new Exception("Exception in executing SSH command. (IP: " + this.ip + "; User: " + this.user + "; SSHCommand: " + this.SSHCommand);
         }
 
     }
 
     /**
-     *
      * @throws JSchException
      */
     public void close() throws JSchException {
