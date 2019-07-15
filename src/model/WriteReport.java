@@ -338,7 +338,7 @@ public class WriteReport {
                     Script script = scriptEx.getScript();
                     for (int i = 0; i < scriptTypeName.length; i++) {
                         if (script.getName().contains("CIP") && script.getName().contains("DI")) {
-                            this.reportMaxStep = Math.max(9, this.reportMaxStep);
+                            this.reportMaxStep = Math.max(8, this.reportMaxStep);
                         }
                         if (script.getName().contains(scriptTypeName[i])) {
                             this.scriptTypeGlobal = scriptTypeName[i];
@@ -526,7 +526,7 @@ public class WriteReport {
                     } else if (script.getName().contains("CIP") && (script.getName().contains("DI") || script.getName().contains("AI"))) {
                         scriptType = "CIPDI";
                         this.scriptTypeGlobal = "CIPDI";
-                        maxStep = 9;
+                        maxStep = 8;
                     }
                     if (!DO_FLAG)
                         this.reportMaxStep = maxStep > this.reportMaxStep ? maxStep : this.reportMaxStep;
@@ -825,12 +825,12 @@ public class WriteReport {
 
                         int offset = stepNumber % maxStep;  //In unit of 3
                         cell = reportRow.createCell(this.colv0_label0 + offset * 3);
-                        cell.setCellValue("-1".equals(paramSearchList.get(getColIndex(searchOccParamList, colStateKey))) ? "N/A" : paramSearchList.get(getColIndex(searchOccParamList, colStateKey)));
+                        cell.setCellValue("-1".equals(paramSearchList.get(getColIndex(searchOccParamList, colStateKey))) ? "" : paramSearchList.get(getColIndex(searchOccParamList, colStateKey)));
                         cell = reportRow.createCell(this.colv0_Severity + offset * 3);
-                        Double severity = Double.parseDouble(paramSearchList.get(6));
-                        cell.setCellValue(severity.intValue());
+                        double severity = Double.parseDouble(paramSearchList.get(6));
+                        cell.setCellValue((int) severity == -1 ? "" : String.valueOf((int) severity));
                         cell = reportRow.createCell(this.colv0_State + offset * 3);
-                        cell.setCellValue(severity > 0 ? "A" : "N");
+                        cell.setCellValue((int) severity == -1 ? "" : severity > 0 ? "A" : "N");
                     } catch (IndexOutOfBoundsException ex) {
                         CommonFunctions.debugLog.debug("Cannot find the keyword in parameters. Please ensure columnName used matched with pre-defined column key.", ex);
                     }
