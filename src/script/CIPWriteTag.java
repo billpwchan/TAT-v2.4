@@ -62,7 +62,6 @@ public class CIPWriteTag {
                 CommonFunctions.debugLog.info("Value after Sent: " + readValue);
             }
 
-
         } catch (final CipException e) {
             CommonFunctions.debugLog.info(e.getMessage());
             CommonFunctions.debugLog.info("Failed with CipException");

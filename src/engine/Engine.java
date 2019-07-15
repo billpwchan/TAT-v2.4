@@ -34,7 +34,7 @@ public class Engine {
      *
      */
     public PopUpRunController popUpRunController;
-    String stepResult = null, resultOKWC = "OKWC", resultOK = "OK", resultNOK = "NOK", resultNotTestable = "Not testable", resultOutOfScope = "OS", resultIncomplete = "Incomplete";
+    String stepResult = "OS", resultOKWC = "OKWC", resultOK = "OK", resultNOK = "NOK", resultNotTestable = "Not testable", resultOutOfScope = "OS", resultIncomplete = "Incomplete";
     int nbCaseOK = 0, nbCaseOKWC = 0, nbCaseNOK = 0, nbCaseNtestable = 0, nbCaseIncomplete = 0, nbCaseOS = 0, nbCaseNT = 0;
     int nbStepOK = 0, nbStepOKWC = 0, nbStepNOK = 0, nbStepNotTestable = 0, nbStepOutOfScope = 0, nbStepIncomplete = 0;
     // HashMap of buffer
@@ -318,7 +318,10 @@ public class Engine {
      * @param numberSteps the number of steps in the case
      */
     public void stateMachineCaseResult(HashMap<String, Integer> hashMap, int numberSteps) {
-        if (hashMap.get(resultOKWC) == 0 && hashMap.get(resultNOK) == 0 && hashMap.get(resultNotTestable) == 0 && hashMap.get(resultOutOfScope) != numberSteps) {
+        if (hashMap.get(resultOK) == 0 && hashMap.get(resultOKWC) == 0 && hashMap.get(resultNOK) == 0 && hashMap.get(resultNotTestable) == 0 && hashMap.get(resultOutOfScope) >=0) {
+            caseResult = resultOutOfScope;
+            nbCaseOS++;
+        } else if (hashMap.get(resultOKWC) == 0 && hashMap.get(resultNOK) == 0 && hashMap.get(resultNotTestable) == 0 && hashMap.get(resultOutOfScope) != numberSteps) {
             caseResult = resultOK;
             nbCaseOK++;
         } else if (hashMap.get(resultNOK) > 0) {
@@ -333,9 +336,6 @@ public class Engine {
         } else if ((hashMap.get(resultOK) > 0 || hashMap.get(resultOKWC) > 0) && hashMap.get(resultNOK) == 0 && hashMap.get(resultNotTestable) > 0) {
             caseResult = resultIncomplete;
             nbCaseIncomplete++;
-        } else if (hashMap.get(resultOK) == 0 && hashMap.get(resultOKWC) == 0 && hashMap.get(resultNOK) == 0 && hashMap.get(resultNotTestable) == 0 && hashMap.get(resultOutOfScope) == numberSteps) {
-            caseResult = resultOutOfScope;
-            nbCaseOS++;
         }
         nbCaseNT--;
     }
@@ -349,7 +349,9 @@ public class Engine {
     private void stateMachineMacro(HashMap<String, Integer> hashMap, int numberScripts) {
         CommonFunctions.debugLog.debug("RESULT MACRO");
         CommonFunctions.debugLog.debug("NUMBER OF SCRIPT IN MACRO = " + numberScripts);
-        if (hashMap.get(resultOKWC) == 0 && hashMap.get(resultNOK) == 0 && hashMap.get(resultNotTestable) == 0 && hashMap.get(resultOutOfScope) != numberScripts) {
+        if (numberScripts == 0 || (hashMap.get(resultOK) != numberScripts && hashMap.get(resultNotTestable) == 0 && hashMap.get(resultOutOfScope) > 0)) {
+            macroResult = resultOutOfScope;
+        } else if (hashMap.get(resultOKWC) == 0 && hashMap.get(resultNOK) == 0 && hashMap.get(resultNotTestable) == 0 && hashMap.get(resultOutOfScope) == 0 && numberScripts > 0) {
             macroResult = resultOK;
         } else if (hashMap.get(resultNOK) > 0) {
             macroResult = resultNOK;
@@ -359,8 +361,6 @@ public class Engine {
             macroResult = resultNotTestable;
         } else if ((hashMap.get(resultOK) > 0 || hashMap.get(resultOKWC) > 0) && hashMap.get(resultNOK) == 0 && hashMap.get(resultNotTestable) > 0) {
             macroResult = resultIncomplete;
-        } else if (hashMap.get(resultOK) == 0 && hashMap.get(resultOKWC) == 0 && hashMap.get(resultNOK) == 0 && hashMap.get(resultNotTestable) == 0 && hashMap.get(resultOutOfScope) == numberScripts) {
-            macroResult = resultOutOfScope;
         }
     }
 
@@ -372,7 +372,11 @@ public class Engine {
      */
     private void stateMachineStepResult(HashMap<String, Integer> hashMap, int numberScript) {
         CommonFunctions.debugLog.debug("IN RESULT");
-        if (hashMap.get(resultOKWC) == 0 && hashMap.get(resultNOK) == 0 && hashMap.get(resultNotTestable) == 0 && hashMap.get(resultOutOfScope) != numberScript) {
+        if ( numberScript == 0 || (hashMap.get(resultOK) != numberScript && hashMap.get(resultNotTestable) == 0 && hashMap.get(resultOutOfScope) > 0)) {
+            CommonFunctions.debugLog.debug("OS");
+            stepResult = resultOutOfScope;
+            nbStepOutOfScope++;
+        } else if (hashMap.get(resultOKWC) == 0 && hashMap.get(resultNOK) == 0 && hashMap.get(resultNotTestable) == 0 && hashMap.get(resultOutOfScope) == 0 && numberScript > 0) {
             CommonFunctions.debugLog.debug("OK");
             stepResult = resultOK;
             nbStepOK++;
@@ -392,10 +396,6 @@ public class Engine {
             CommonFunctions.debugLog.debug("IC");
             stepResult = resultIncomplete;
             nbStepIncomplete++;
-        } else if (hashMap.get(resultOK) == 0 && hashMap.get(resultOKWC) == 0 && hashMap.get(resultNOK) == 0 && hashMap.get(resultNotTestable) == 0 && hashMap.get(resultOutOfScope) == numberScript) {
-            CommonFunctions.debugLog.debug("OS");
-            stepResult = resultOutOfScope;
-            nbStepOutOfScope++;
         }
     }
 

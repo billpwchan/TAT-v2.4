@@ -27,6 +27,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -169,6 +171,29 @@ public class TabViewResultsController implements Initializable {
             @Override
             public void onChanged(ListChangeListener.Change c) {
                 buttonChangeResults.setDisable(casesExecutionModified.size() == 0);
+            }
+        });
+
+        this.tableViewCampaignPopUpRun.setOnKeyReleased((KeyEvent keyEvent)->{
+            if(keyEvent.getCode() == KeyCode.DOWN){
+                tableViewCampaignPopUpRun.getSelectionModel().selectNext();
+                testCaseSelected = tableViewCampaignPopUpRun.getSelectionModel().getSelectedItem();
+                tableViewCampaignPopUpRun.scrollTo(tableViewCampaignPopUpRun.getSelectionModel().getFocusedIndex());
+                long tempsDebut3 = System.currentTimeMillis();
+                DisplaySteps(testCaseSelected);
+                long tempsFin3 = System.currentTimeMillis();
+                float seconds3 = (tempsFin3 - tempsDebut3) / 1000F;
+                System.out.println("test case selected result = " + testCaseSelected.simpleStringResultProperty());
+            }
+            if(keyEvent.getCode() == KeyCode.UP){
+                tableViewCampaignPopUpRun.getSelectionModel().selectPrevious();
+                testCaseSelected = tableViewCampaignPopUpRun.getSelectionModel().getSelectedItem();
+                tableViewCampaignPopUpRun.scrollTo(tableViewCampaignPopUpRun.getSelectionModel().getFocusedIndex());
+                long tempsDebut3 = System.currentTimeMillis();
+                DisplaySteps(testCaseSelected);
+                long tempsFin3 = System.currentTimeMillis();
+                float seconds3 = (tempsFin3 - tempsDebut3) / 1000F;
+                System.out.println("test case selected result = " + testCaseSelected.simpleStringResultProperty());
             }
         });
 
