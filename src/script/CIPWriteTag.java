@@ -49,17 +49,18 @@ public class CIPWriteTag {
             CIPData readValue = plc.readTag(tag);
             CommonFunctions.debugLog.info("Read Value: "+readValue);
 
-            if((int) value == 0){
-                for (int i = 0; i < 8; ++i){
+            if((int) value == -1){
+                for (int i = 0; i <= 7; ++i){
                  readValue.set(0, i);
                  plc.writeTag(tag, readValue);
                 }
-            }
-            readValue.set(0,value);
-            CommonFunctions.debugLog.info("Value Sent: "+readValue);
+            } else {
+                readValue.set(0,value);
+                CommonFunctions.debugLog.info("Value Sent: "+readValue);
 
-            plc.writeTag(tag, readValue);
-            CommonFunctions.debugLog.info("Value after Sent: "+readValue);
+                plc.writeTag(tag, readValue);
+                CommonFunctions.debugLog.info("Value after Sent: "+readValue);
+            }
 
         } catch (final CipException e) {
             CommonFunctions.debugLog.info(e.getMessage());
