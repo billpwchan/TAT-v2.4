@@ -337,6 +337,9 @@ public class WriteReport {
                 for (ScriptExecutions scriptEx : scriptExSet) {
                     Script script = scriptEx.getScript();
                     for (int i = 0; i < scriptTypeName.length; i++) {
+                        if (script.getName().contains("CIP") && script.getName().contains("DI")) {
+                            this.reportMaxStep = Math.max(9, this.reportMaxStep);
+                        }
                         if (script.getName().contains(scriptTypeName[i])) {
                             this.scriptTypeGlobal = scriptTypeName[i];
                             this.reportMaxStep = Math.max(scriptTypeMaxStep[i], this.reportMaxStep);
@@ -556,7 +559,7 @@ public class WriteReport {
                                     registerList.add(paramSearched);
                                 }
                             }
-                        } else {        //For Step Description (Stimuli only)
+                        } else if (isStimuli) {        //For Step Description (Stimuli only)
                             if ("DI".equals(scriptType) || "DI2".equals(scriptType)) {
                                 if (stepNumber == 0 && numParameter != 0) {
                                     double reg = Double.parseDouble(paramSearched);
@@ -612,6 +615,10 @@ public class WriteReport {
                                                 break;
                                         }
                                     }
+                                }
+                            } else if (scriptType.equals("CIPDI")) {
+                                if (numParameter == 3 || numParameter == 4) {
+                                    registerList.add(paramSearched);
                                 }
                             }
                         }
@@ -685,7 +692,7 @@ public class WriteReport {
                         ((stepNumber > 1 && (stepNumber != totalSteps - 1)) && scriptType.contains("SOE")) ||
                         ((stepNumber > 0 && (stepNumber != totalSteps - 1)) && scriptType.contains("DO")) ||
                         (scriptType.contains("CIPDO")) ||
-                        (scriptType.contains("CIPDI"))
+                        (scriptType.contains("CIPDI") && stepNumber != 0)
                 ) {
                     Row row = this.sheet.createRow(this.currentRow);
                     Cell cellR = row.createCell(1); //column = 1
