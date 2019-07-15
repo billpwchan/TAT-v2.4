@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="90eb576c-ac40-4f05-8597-15fc6b2778c9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reports/IEC Report DO_Report_Iteration_6.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Reports/IEC Report DO_Report_Iteration_6.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TATV2.3.3 IEC-104.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mydb.db" beforeDir="false" afterPath="$PROJECT_DIR$/mydb.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/WriteReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/WriteReport.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -54,20 +50,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/model/WriteReport.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="277" column="41" selection-start-line="277" selection-start-column="41" selection-end-line="277" selection-end-column="41" />
+            <state relative-caret-position="176">
+              <caret line="805" column="36" lean-forward="true" selection-start-line="805" selection-start-column="36" selection-end-line="805" selection-end-column="36" />
               <folding>
                 <element signature="e#20446#20770#1" />
+                <element signature="e#33875#34942#1" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/controller/tabtestexecution/TabTestCampaignExecutionRepositoryBaselineController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="439" selection-start-line="439" selection-end-line="439" />
             </state>
           </provider>
         </entry>
@@ -174,7 +162,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1562991258138</updated>
-      <workItem from="1562991260284" duration="12241000" />
+      <workItem from="1562991260284" duration="14458000" />
     </task>
     <task id="LOCAL-00001" summary="[General] CIP Report Maximum Step: 9">
       <created>1562995159526</created>
@@ -204,11 +192,25 @@
       <option name="project" value="LOCAL" />
       <updated>1563009419444</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="[Feature] CIP DO Report Feature Complete. Customized Header">
+      <created>1563163240163</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1563163240164</updated>
+    </task>
+    <task id="LOCAL-00006" summary="[Feature] CIP DO Report Added -1 =&gt; N/A support.">
+      <created>1563172740900</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1563172740900</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12241000" />
+    <option name="totallyTimeSpent" value="14458000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1549" height="837" extended-state="6" />
@@ -221,8 +223,8 @@
       <window_info id="Favorites" side_tool="true" />
       <window_info id="Capture Tool" />
       <window_info id="Learn" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49918434" visible="true" weight="0.18729097" />
-      <window_info id="Structure" order="1" sideWeight="0.5008157" side_tool="true" visible="true" weight="0.18729097" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49816176" visible="true" weight="0.18729097" />
+      <window_info id="Structure" order="1" sideWeight="0.5018382" side_tool="true" weight="0.18729097" />
       <window_info anchor="bottom" id="Database Console" weight="0.329927" />
       <window_info anchor="bottom" id="Terminal" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
@@ -233,7 +235,7 @@
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329927" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.10510949" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.20583941" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.38394162" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -241,7 +243,7 @@
       <window_info anchor="right" id="Palette" />
       <window_info anchor="right" id="Capture Analysis" />
       <window_info anchor="right" id="Maven" />
-      <window_info anchor="right" id="Database" visible="true" weight="0.16989967" />
+      <window_info anchor="right" id="Database" weight="0.16989967" />
       <window_info anchor="right" id="Palette&#9;" />
       <window_info anchor="right" id="Theme Preview" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -254,19 +256,22 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="[General] CIP Report Maximum Step: 9" />
     <MESSAGE value="[General] CIP Result Print OK" />
     <MESSAGE value="[Feature] CIP DO Report Complete. Require adjustments to CIP DO Test Case (Add Searched Values * 7 for Report Display)" />
     <MESSAGE value="[General] Require Further Adjustment to CIP DI/AI Points. Change script name to CIPDI/CIPAI for better identification" />
-    <option name="LAST_COMMIT_MESSAGE" value="[General] Require Further Adjustment to CIP DI/AI Points. Change script name to CIPDI/CIPAI for better identification" />
+    <MESSAGE value="[Feature] CIP DO Report Feature Complete. Customized Header" />
+    <MESSAGE value="[Feature] CIP DO Report Added -1 =&gt; N/A support." />
+    <option name="LAST_COMMIT_MESSAGE" value="[Feature] CIP DO Report Added -1 =&gt; N/A support." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/model/WriteReport.java</url>
-          <line>924</line>
+          <line>927</line>
           <properties />
           <option name="timeStamp" value="5" />
         </line-breakpoint>
@@ -342,10 +347,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/WriteReport.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="277" column="41" selection-start-line="277" selection-start-column="41" selection-end-line="277" selection-end-column="41" />
+        <state relative-caret-position="176">
+          <caret line="805" column="36" lean-forward="true" selection-start-line="805" selection-start-column="36" selection-end-line="805" selection-end-column="36" />
           <folding>
             <element signature="e#20446#20770#1" />
+            <element signature="e#33875#34942#1" />
           </folding>
         </state>
       </provider>
