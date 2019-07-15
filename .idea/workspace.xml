@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="90eb576c-ac40-4f05-8597-15fc6b2778c9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="90eb576c-ac40-4f05-8597-15fc6b2778c9" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,8 +48,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/model/WriteReport.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="805" column="36" lean-forward="true" selection-start-line="805" selection-start-column="36" selection-end-line="805" selection-end-column="36" />
+            <state relative-caret-position="323">
+              <caret line="868" column="9" lean-forward="true" selection-start-line="868" selection-start-column="9" selection-end-line="868" selection-end-column="9" />
               <folding>
                 <element signature="e#20446#20770#1" />
                 <element signature="e#33875#34942#1" />
@@ -82,8 +80,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="510" />
-    <option name="y" value="-15" />
+    <option name="x" value="217" />
+    <option name="y" value="-35" />
     <option name="width" value="3500" />
     <option name="height" value="1960" />
   </component>
@@ -162,7 +160,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1562991258138</updated>
-      <workItem from="1562991260284" duration="14458000" />
+      <workItem from="1562991260284" duration="14979000" />
     </task>
     <task id="LOCAL-00001" summary="[General] CIP Report Maximum Step: 9">
       <created>1562995159526</created>
@@ -206,11 +204,39 @@
       <option name="project" value="LOCAL" />
       <updated>1563172740900</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="[Feature] CIP DO Report Added -1 =&gt; N/A support.">
+      <created>1563172969822</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1563172969822</updated>
+    </task>
+    <task id="LOCAL-00008" summary="[General] Refactor Model Class">
+      <created>1563173128194</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1563173128194</updated>
+    </task>
+    <task id="LOCAL-00009" summary="[General] Refactor Script Class">
+      <created>1563173254920</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1563173254920</updated>
+    </task>
+    <task id="LOCAL-00010" summary="[General] Refactor Engine Class">
+      <created>1563173389285</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1563173389285</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14458000" />
+    <option name="totallyTimeSpent" value="14979000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1549" height="837" extended-state="6" />
@@ -264,14 +290,20 @@
     <MESSAGE value="[General] Require Further Adjustment to CIP DI/AI Points. Change script name to CIPDI/CIPAI for better identification" />
     <MESSAGE value="[Feature] CIP DO Report Feature Complete. Customized Header" />
     <MESSAGE value="[Feature] CIP DO Report Added -1 =&gt; N/A support." />
-    <option name="LAST_COMMIT_MESSAGE" value="[Feature] CIP DO Report Added -1 =&gt; N/A support." />
+    <MESSAGE value="[General] Refactor Model Class" />
+    <MESSAGE value="[General] Refactor Script Class" />
+    <MESSAGE value="[General] Refactor Engine Class" />
+    <option name="LAST_COMMIT_MESSAGE" value="[General] Refactor Engine Class" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/model/WriteReport.java</url>
-          <line>927</line>
+          <line>125</line>
           <properties />
           <option name="timeStamp" value="5" />
         </line-breakpoint>
@@ -345,10 +377,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/META-INF/MANIFEST.MF">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2729">
+          <caret line="38" column="13" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IEC104slave.ini">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/script/Concat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/WriteReport.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="805" column="36" lean-forward="true" selection-start-line="805" selection-start-column="36" selection-end-line="805" selection-end-column="36" />
+        <state relative-caret-position="323">
+          <caret line="868" column="9" lean-forward="true" selection-start-line="868" selection-start-column="9" selection-end-line="868" selection-end-column="9" />
           <folding>
             <element signature="e#20446#20770#1" />
             <element signature="e#33875#34942#1" />

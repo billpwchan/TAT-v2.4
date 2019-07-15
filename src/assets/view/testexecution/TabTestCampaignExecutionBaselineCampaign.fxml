@@ -4,131 +4,170 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<AnchorPane id="AnchorPane" fx:id="anchorPanel" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.tabtestexecution.TabTestCampaignExecutionBaselineCampaignController">
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" id="AnchorPane" fx:id="anchorPanel" prefHeight="768.0" prefWidth="1024.0"
+            xmlns="http://javafx.com/javafx/8"
+            fx:controller="controller.tabtestexecution.TabTestCampaignExecutionBaselineCampaignController">
     <children>
-        <GridPane fx:id="gridPaneCampaignView" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <GridPane fx:id="gridPaneCampaignView" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0"
+                  AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="10.0" minWidth="10.0" prefWidth="10.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="10.0" minWidth="10.0" prefWidth="10.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
             </columnConstraints>
             <rowConstraints>
-                <RowConstraints maxHeight="170.0" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="30.0" minHeight="0.0" prefHeight="10.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="170.0" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="30.0" minHeight="0.0" prefHeight="10.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
             </rowConstraints>
             <children>
                 <GridPane fx:id="gridPaneLabel" GridPane.columnIndex="1">
                     <columnConstraints>
-                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="160.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="10.0" />
-                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="115.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="160.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="10.0" />
-                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="130.0" minWidth="10.0" prefWidth="160.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="160.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="10.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="5.0" prefWidth="125.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="5.0" minWidth="5.0" prefWidth="5.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="250.0" />
+                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0"
+                                           prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="160.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="10.0"/>
+                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0"
+                                           prefWidth="115.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="160.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="10.0"/>
+                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="130.0" minWidth="10.0"
+                                           prefWidth="160.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="160.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="10.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="5.0" prefWidth="125.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="5.0" minWidth="5.0" prefWidth="5.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="250.0"/>
                     </columnConstraints>
                     <rowConstraints>
-                        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES"/>
                     </rowConstraints>
                     <children>
-                        <Label fx:id="labelUserID" text="Reference" GridPane.halignment="LEFT" GridPane.rowIndex="1" />
-                        <Label fx:id="labelSystem" text="System" GridPane.halignment="LEFT" GridPane.rowIndex="3" />
-                        <Label fx:id="labelWriter" text="Writer" GridPane.halignment="LEFT" GridPane.rowIndex="4" />
-                        <Label fx:id="labelVersion" text="Version" GridPane.halignment="LEFT" GridPane.rowIndex="2" />
-                        <Label fx:id="labelCreationDate" text="Creation date" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="2" />
-                        <Label fx:id="labelEditionDate" text="Edition date" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="3" />
-                        <Label fx:id="labelSUTRelease" text="SUT release" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="4" />
-                  <Text fx:id="textTestCaseAddCampaign1" strokeType="OUTSIDE" strokeWidth="0.0" text="Test campaign information" GridPane.halignment="LEFT">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                  </Text>
-                        <Label fx:id="labelNumberOf" text="Number of cases" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="1" />
-                        <Label fx:id="labelRegressionThread" text="Regression thread" GridPane.columnIndex="6" GridPane.halignment="LEFT" GridPane.rowIndex="1" />
-                        <Label fx:id="labelWriterMail" text="Writer email" GridPane.columnIndex="6" GridPane.halignment="LEFT" GridPane.rowIndex="2" />
-                        <Label fx:id="labelRequirements" text="Requirements" GridPane.columnIndex="9" GridPane.rowIndex="1" />
-                        <Label fx:id="labelComments" text="Internal comments" GridPane.columnIndex="11" GridPane.rowIndex="1" />
-                        <TextField fx:id="jtextfieldUserID" disable="true" editable="false" maxWidth="150.0" opacity="0.7" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField fx:id="jtextfieldSystem" disable="true" editable="false" maxWidth="150.0" opacity="0.7" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <TextField fx:id="jtextfieldWriter" disable="true" editable="false" maxWidth="150.0" opacity="0.7" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <TextField fx:id="jtextfieldVersion" disable="true" editable="false" maxWidth="150.0" opacity="0.7" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <TextField fx:id="jtextfieldCreation" disable="true" editable="false" maxWidth="150.0" opacity="0.7" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-                        <TextField fx:id="jtextfieldEdition" disable="true" editable="false" maxWidth="150.0" opacity="0.7" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-                        <TextField fx:id="jtextfieldSUTRelease" disable="true" editable="false" maxWidth="150.0" opacity="0.7" GridPane.columnIndex="4" GridPane.rowIndex="4" />
-                        <TextField fx:id="jtextfieldNumberCases" disable="true" editable="false" maxWidth="150.0" opacity="0.7" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-                        <TextField fx:id="jtextfieldWriterEmail" disable="true" editable="false" maxWidth="150.0" opacity="0.7" GridPane.columnIndex="7" GridPane.rowIndex="2" />
-                        <TextArea fx:id="jtextareaComments" disable="true" editable="false" maxWidth="240.0" opacity="0.7" GridPane.columnIndex="11" GridPane.rowIndex="2" GridPane.rowSpan="5" />
-                        <CheckBox fx:id="CheckboxRegressionThread" mnemonicParsing="false" GridPane.columnIndex="7" GridPane.halignment="LEFT" GridPane.rowIndex="1" />
-                  <ListView fx:id="requirementsTable" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="9" GridPane.rowIndex="2" GridPane.rowSpan="5" />
+                        <Label fx:id="labelUserID" text="Reference" GridPane.halignment="LEFT" GridPane.rowIndex="1"/>
+                        <Label fx:id="labelSystem" text="System" GridPane.halignment="LEFT" GridPane.rowIndex="3"/>
+                        <Label fx:id="labelWriter" text="Writer" GridPane.halignment="LEFT" GridPane.rowIndex="4"/>
+                        <Label fx:id="labelVersion" text="Version" GridPane.halignment="LEFT" GridPane.rowIndex="2"/>
+                        <Label fx:id="labelCreationDate" text="Creation date" GridPane.columnIndex="3"
+                               GridPane.halignment="LEFT" GridPane.rowIndex="2"/>
+                        <Label fx:id="labelEditionDate" text="Edition date" GridPane.columnIndex="3"
+                               GridPane.halignment="LEFT" GridPane.rowIndex="3"/>
+                        <Label fx:id="labelSUTRelease" text="SUT release" GridPane.columnIndex="3"
+                               GridPane.halignment="LEFT" GridPane.rowIndex="4"/>
+                        <Text fx:id="textTestCaseAddCampaign1" strokeType="OUTSIDE" strokeWidth="0.0"
+                              text="Test campaign information" GridPane.halignment="LEFT">
+                            <font>
+                                <Font name="System Bold" size="14.0"/>
+                            </font>
+                        </Text>
+                        <Label fx:id="labelNumberOf" text="Number of cases" GridPane.columnIndex="3"
+                               GridPane.halignment="LEFT" GridPane.rowIndex="1"/>
+                        <Label fx:id="labelRegressionThread" text="Regression thread" GridPane.columnIndex="6"
+                               GridPane.halignment="LEFT" GridPane.rowIndex="1"/>
+                        <Label fx:id="labelWriterMail" text="Writer email" GridPane.columnIndex="6"
+                               GridPane.halignment="LEFT" GridPane.rowIndex="2"/>
+                        <Label fx:id="labelRequirements" text="Requirements" GridPane.columnIndex="9"
+                               GridPane.rowIndex="1"/>
+                        <Label fx:id="labelComments" text="Internal comments" GridPane.columnIndex="11"
+                               GridPane.rowIndex="1"/>
+                        <TextField fx:id="jtextfieldUserID" disable="true" editable="false" maxWidth="150.0"
+                                   opacity="0.7" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                        <TextField fx:id="jtextfieldSystem" disable="true" editable="false" maxWidth="150.0"
+                                   opacity="0.7" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                        <TextField fx:id="jtextfieldWriter" disable="true" editable="false" maxWidth="150.0"
+                                   opacity="0.7" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+                        <TextField fx:id="jtextfieldVersion" disable="true" editable="false" maxWidth="150.0"
+                                   opacity="0.7" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                        <TextField fx:id="jtextfieldCreation" disable="true" editable="false" maxWidth="150.0"
+                                   opacity="0.7" GridPane.columnIndex="4" GridPane.rowIndex="2"/>
+                        <TextField fx:id="jtextfieldEdition" disable="true" editable="false" maxWidth="150.0"
+                                   opacity="0.7" GridPane.columnIndex="4" GridPane.rowIndex="3"/>
+                        <TextField fx:id="jtextfieldSUTRelease" disable="true" editable="false" maxWidth="150.0"
+                                   opacity="0.7" GridPane.columnIndex="4" GridPane.rowIndex="4"/>
+                        <TextField fx:id="jtextfieldNumberCases" disable="true" editable="false" maxWidth="150.0"
+                                   opacity="0.7" GridPane.columnIndex="4" GridPane.rowIndex="1"/>
+                        <TextField fx:id="jtextfieldWriterEmail" disable="true" editable="false" maxWidth="150.0"
+                                   opacity="0.7" GridPane.columnIndex="7" GridPane.rowIndex="2"/>
+                        <TextArea fx:id="jtextareaComments" disable="true" editable="false" maxWidth="240.0"
+                                  opacity="0.7" GridPane.columnIndex="11" GridPane.rowIndex="2" GridPane.rowSpan="5"/>
+                        <CheckBox fx:id="CheckboxRegressionThread" mnemonicParsing="false" GridPane.columnIndex="7"
+                                  GridPane.halignment="LEFT" GridPane.rowIndex="1"/>
+                        <ListView fx:id="requirementsTable" prefHeight="200.0" prefWidth="200.0"
+                                  GridPane.columnIndex="9" GridPane.rowIndex="2" GridPane.rowSpan="5"/>
                     </children>
                 </GridPane>
-                <Text fx:id="textTestCaseAddCampaign" strokeType="OUTSIDE" strokeWidth="0.0" text="Test cases :" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+                <Text fx:id="textTestCaseAddCampaign" strokeType="OUTSIDE" strokeWidth="0.0" text="Test cases :"
+                      GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
                     <font>
-                        <Font name="System Bold" size="14.0" />
+                        <Font name="System Bold" size="14.0"/>
                     </font>
                     <GridPane.margin>
-                        <Insets bottom="10.0" left="10.0" />
+                        <Insets bottom="10.0" left="10.0"/>
                     </GridPane.margin>
                 </Text>
-                <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.rowSpan="3">
+                <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3"
+                            GridPane.rowSpan="3">
                     <children>
-                        <GridPane fx:id="gridPane" layoutX="7.0" layoutY="8.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <GridPane fx:id="gridPane" layoutX="7.0" layoutY="8.0" AnchorPane.bottomAnchor="0.0"
+                                  AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                             <columnConstraints>
-                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" />
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="908.0" />
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="908.0" />
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="908.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="200.0"
+                                                   prefWidth="200.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="908.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="908.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="908.0"/>
                             </columnConstraints>
                             <rowConstraints>
-                                <RowConstraints maxHeight="25.0" minHeight="25.0" prefHeight="25.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="25.0" minHeight="25.0" prefHeight="25.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES"/>
                             </rowConstraints>
                             <children>
-                                <Button fx:id="validTestCase" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="32.0" prefWidth="110.0" text="Valid test case" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
-                        <TableView fx:id="tableViewCases" prefHeight="200.0" prefWidth="200.0" GridPane.rowSpan="2" />
-                        <Text fx:id="validOtherCasesBefore" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Please valid all the previous test cases before" GridPane.rowIndex="2">
-                           <font>
-                              <Font name="System Bold" size="14.0" />
-                           </font>
-                        </Text>
-                        <Text fx:id="alreadyValidated" fill="#00ff26" strokeType="OUTSIDE" strokeWidth="0.0" text="The test case has been already validated" GridPane.rowIndex="2">
-                           <font>
-                              <Font name="System Bold" size="14.0" />
-                           </font>
-                        </Text>
-                        <Button fx:id="validConfiguration" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="32.0" prefWidth="100.0" text="Valid baseline" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                <Button fx:id="validTestCase" maxHeight="-Infinity" maxWidth="-Infinity"
+                                        mnemonicParsing="false" prefHeight="32.0" prefWidth="110.0"
+                                        text="Valid test case" GridPane.columnIndex="2" GridPane.halignment="RIGHT"
+                                        GridPane.rowIndex="2"/>
+                                <TableView fx:id="tableViewCases" prefHeight="200.0" prefWidth="200.0"
+                                           GridPane.rowSpan="2"/>
+                                <Text fx:id="validOtherCasesBefore" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0"
+                                      text="Please valid all the previous test cases before" GridPane.rowIndex="2">
+                                    <font>
+                                        <Font name="System Bold" size="14.0"/>
+                                    </font>
+                                </Text>
+                                <Text fx:id="alreadyValidated" fill="#00ff26" strokeType="OUTSIDE" strokeWidth="0.0"
+                                      text="The test case has been already validated" GridPane.rowIndex="2">
+                                    <font>
+                                        <Font name="System Bold" size="14.0"/>
+                                    </font>
+                                </Text>
+                                <Button fx:id="validConfiguration" maxHeight="-Infinity" maxWidth="-Infinity"
+                                        mnemonicParsing="false" prefHeight="32.0" prefWidth="100.0"
+                                        text="Valid baseline" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
                             </children>
                         </GridPane>
                     </children>
                 </AnchorPane>
-            <TextField fx:id="baselineName" maxWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <GridPane.margin>
-                  <Insets left="115.0" />
-               </GridPane.margin>
-            </TextField>
-            <Label fx:id="labelBaselineName" text="Baseline name" GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-               <GridPane.margin>
-                  <Insets />
-               </GridPane.margin>
-            </Label>
+                <TextField fx:id="baselineName" maxWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <GridPane.margin>
+                        <Insets left="115.0"/>
+                    </GridPane.margin>
+                </TextField>
+                <Label fx:id="labelBaselineName" text="Baseline name" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <font>
+                        <Font name="System Bold" size="14.0"/>
+                    </font>
+                    <GridPane.margin>
+                        <Insets/>
+                    </GridPane.margin>
+                </Label>
             </children>
         </GridPane>
     </children>

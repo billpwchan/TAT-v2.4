@@ -1,52 +1,52 @@
 .customTab *.tab-label {
     text-align: center;
-    -fx-font-weight : bold;
-    -fx-font-size : 13;
+    -fx-font-weight: bold;
+    -fx-font-size: 13;
 }
 
-#text-ar .text-area .content{
+#text-ar .text-area .content {
     -fx-background-color: #CCFFCC;
 }
 
 .customTabCase {
     -fx-pref-height: 55px;
-    -fx-background-color:#00bfa5; 
+    -fx-background-color: #00bfa5;
     -fx-pref-width: 55px;
 }
 
 .customTabCampaign {
     -fx-pref-height: 55px;
-    -fx-background-color: #ffc107; 
+    -fx-background-color: #ffc107;
     -fx-pref-width: 55px;
 }
 
 .customTabExec {
     -fx-pref-height: 55px;
-    -fx-background-color: #ffee58; 
+    -fx-background-color: #ffee58;
     -fx-pref-width: 55px;
 }
 
 .customTabMacro {
     -fx-pref-height: 55px;
-    -fx-background-color: #2196f3 ; 
+    -fx-background-color: #2196f3;
     -fx-pref-width: 55px;
 }
 
 .customTabScript {
     -fx-pref-height: 55px;
-    -fx-background-color: #ba68c8; 
+    -fx-background-color: #ba68c8;
     -fx-pref-width: 55px;
 }
 
 .customTabReq {
     -fx-pref-height: 55px;
-    -fx-background-color: #e91e63; 
+    -fx-background-color: #e91e63;
     -fx-pref-width: 55px;
 }
 
 
 .customTabNotSelected {
-    -fx-pref-height: 55px; 
+    -fx-pref-height: 55px;
     -fx-pref-width: 55px;
 }
 
@@ -60,7 +60,7 @@
 
 /* Row hovered */
 .table-view:row-selection .table-row-cell:filled:hover {
-    -fx-background-color: #D8D8D8  ;
+    -fx-background-color: #D8D8D8;
     -fx-background-insets: 0, 0 0 1 0;
     -fx-text-fill: -fx-text-inner-color;
 }
