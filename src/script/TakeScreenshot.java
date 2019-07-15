@@ -21,20 +21,19 @@ import java.util.Calendar;
 import java.util.HashMap;
 
 /**
- *
  * @author tmartinez
  */
 public class TakeScreenshot implements InterfaceScript {
 
     DateFormat df = new SimpleDateFormat("hh-mm-ss");
-    
+
     private String pathToSave;
 
     @Override
     public Result run(ArrayList<ParametersExecution> parameters, HashMap hashMap) throws Exception {
         pathToSave = parameters.get(1).getValue();
         ScreenRegion desktop = new DesktopScreenRegion();
-        File outputfile = new File(pathToSave+"\\-Date-" +df.format(Calendar.getInstance().getTime())+".png");
+        File outputfile = new File(pathToSave + "\\-Date-" + df.format(Calendar.getInstance().getTime()) + ".png");
         ImageIO.write(desktop.capture(), "png", outputfile);
         return null;
     }

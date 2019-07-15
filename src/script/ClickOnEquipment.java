@@ -18,14 +18,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- *
  * @author tmartinez
  */
 public class ClickOnEquipment implements InterfaceScript {
 
     private Position position;
-    
+
     private String bufferName;
+
     @Override
     public Result run(ArrayList<ParametersExecution> parameters, HashMap hashMap) throws Exception {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -36,12 +36,12 @@ public class ClickOnEquipment implements InterfaceScript {
             this.position = (Position) hashMap.get(this.bufferName);
         }
         CommonFunctions.debugLog.error("EQp : " + this.position);
-        Mouse mouse =  new DesktopMouse();
+        Mouse mouse = new DesktopMouse();
         Thread.sleep(800);
         mouse.click(this.position.getScreenRegion().getCenter());
-        
+
         return result;
-    } 
+    }
 
     @Override
     public void close() {

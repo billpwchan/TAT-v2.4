@@ -25,15 +25,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- *
  * @author tmartinez
  */
 public class MoveMouseOnImages implements InterfaceScript {
 
     private String path;
-    
+
     private ImageTarget target;
-    
+
     private ScreenLocation location;
 
     @Override

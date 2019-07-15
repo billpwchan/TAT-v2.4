@@ -26,30 +26,28 @@ import java.util.HashMap;
 //import org.opencv.highgui.Highgui;
 
 /**
- *
  * @author T0155040
  */
 public class MatchAndBit implements InterfaceScript {
 
+    private static final String LIB_BIN = "/src/file/";
     private String image1, image2, savePath;
     private double seuil;
-
-    private static final String LIB_BIN = "/src/file/";
 
     /**
      * Puts library to temp dir and loads to memory
      */
-    private static void loadLib( String name) {
+    private static void loadLib(String name) {
         CommonFunctions.debugLog.error("String loaded");
         name = "/file/opencv_java2411.dll";
         try {
             File temp;
             try ( // have to use a stream
-                    InputStream in = MatchAndBit.class.getResourceAsStream( name)) {
+                  InputStream in = MatchAndBit.class.getResourceAsStream(name)) {
                 CommonFunctions.debugLog.error(" try" + in.toString());
                 byte[] buffer = new byte[1024];
                 int read = -1;
-                 temp = File.createTempFile(name, "");//new File(new File(System.getProperty("java.io.tmpdir")), name); //temp = File.createTempFile(name, "");
+                temp = File.createTempFile(name, "");//new File(new File(System.getProperty("java.io.tmpdir")), name); //temp = File.createTempFile(name, "");
                 try (FileOutputStream fos = new FileOutputStream(temp)) {
                     while ((read = in.read(buffer)) != -1) {
                         fos.write(buffer, 0, read);
@@ -76,6 +74,15 @@ public class MatchAndBit implements InterfaceScript {
         }
     }
 
+    /**
+     * When packaged into JAR extracts DLLs, places these into
+     */
+    private static void loadFromJar() {
+        // we need to put both DLLs to temp dir
+        //String path = "AC_" + new Date().getTime();
+        loadLib("opencv_java2411");
+    }
+
     @Override
     public void close() {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -93,17 +100,7 @@ public class MatchAndBit implements InterfaceScript {
         return null;
     }
 
-
-    /**
-     * When packaged into JAR extracts DLLs, places these into
-     */
-    private static void loadFromJar() {
-        // we need to put both DLLs to temp dir
-        //String path = "AC_" + new Date().getTime();
-        loadLib("opencv_java2411");
-    }
-
-//    static {
+    //    static {
 //        System.loadLibrary("opencv_java2411");
 //    }
     @Override

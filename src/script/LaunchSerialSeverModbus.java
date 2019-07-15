@@ -139,43 +139,21 @@ import java.util.Set;
 /* The important instances and variables */
 
 /**
- *
  * @author tmartinez
  */
 
 public class LaunchSerialSeverModbus {
 
-    static ModbusTCPListener listener = null;
-    private static SimpleProcessImage instance = null;
-    //int port = Modbus.DEFAULT_PORT;
-    //private String ip;
-
-    private String ip;
-
     /**
      *
      */
     public static String serverType;
+    static ModbusTCPListener listener = null;
+    //int port = Modbus.DEFAULT_PORT;
+    //private String ip;
+    private static SimpleProcessImage instance = null;
+    private String ip;
     private int port, slave;
-
-    /**
-     *
-     * @param parameters
-     * @param test
-     * @return
-     * @throws InterruptedException
-     */
-    public String run(ArrayList<ParametersExecution> parameters, HashMap<String, Object> test) throws InterruptedException {
-
-        this.ip = parameters.get(1).getValue();
-        this.port = ((int) Double.parseDouble(parameters.get(2).getValue()));
-        this.slave = ((int) Double.parseDouble(parameters.get(3).getValue()));
-        serverType = parameters.get(4).getValue();
-        launchServer(ip, port, slave, serverType);
-        Thread.sleep(3000);
-
-        return null;
-    }
 
     /**
      *
@@ -205,7 +183,24 @@ public class LaunchSerialSeverModbus {
     }
 
     /**
-     *
+     * @param parameters
+     * @param test
+     * @return
+     * @throws InterruptedException
+     */
+    public String run(ArrayList<ParametersExecution> parameters, HashMap<String, Object> test) throws InterruptedException {
+
+        this.ip = parameters.get(1).getValue();
+        this.port = ((int) Double.parseDouble(parameters.get(2).getValue()));
+        this.slave = ((int) Double.parseDouble(parameters.get(3).getValue()));
+        serverType = parameters.get(4).getValue();
+        launchServer(ip, port, slave, serverType);
+        Thread.sleep(3000);
+
+        return null;
+    }
+
+    /**
      * @param ip
      * @param portDeServer
      * @param SlaveID

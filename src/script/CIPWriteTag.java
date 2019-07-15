@@ -29,7 +29,7 @@ public class CIPWriteTag {
 
     public Result run(ArrayList<ParametersExecution> parameters, HashMap hashMap) throws Exception {
 
-        this.address = parameters.get(1).getValue().trim().replace(',','.');
+        this.address = parameters.get(1).getValue().trim().replace(',', '.');
         this.slot = Integer.parseInt(parameters.get(2).getValue().trim());
         this.tag0 = parameters.get(3).getValue().trim();
         this.tag1 = parameters.get(4).getValue().trim();
@@ -41,26 +41,25 @@ public class CIPWriteTag {
         return new Result();
     }
 
-    public void LaunchCIPConnection(String address, int slot, String tag, double value) throws Exception{
+    public void LaunchCIPConnection(String address, int slot, String tag, double value) throws Exception {
 
-        try (EtherNetIP plc = new EtherNetIP(address,slot)){
+        try (EtherNetIP plc = new EtherNetIP(address, slot)) {
             plc.connectTcp();
-            CommonFunctions.debugLog.info("Tag"+ tag);
+            CommonFunctions.debugLog.info("Tag" + tag);
             CIPData readValue = plc.readTag(tag);
-            CommonFunctions.debugLog.info("Read Value: "+readValue);
+            CommonFunctions.debugLog.info("Read Value: " + readValue);
 
-            if((int) value == -1){
-                for (int i = 0; i <= 7; ++i){
-                    readValue.set(0,value);
-                    CommonFunctions.debugLog.info("Value Sent: "+readValue);
+            if ((int) value == -1) {
+                for (int i = 0; i <= 7; i++) {
+                    readValue.set(0, i);
                     plc.writeTag(tag, readValue);
-                    CommonFunctions.debugLog.info("Value after Sent: "+readValue);
+                    CommonFunctions.debugLog.info("Value Sent: " + readValue);
                 }
             } else {
-                readValue.set(0,value);
-                CommonFunctions.debugLog.info("Value Sent: "+readValue);
+                readValue.set(0, value);
+                CommonFunctions.debugLog.info("Value Sent: " + readValue);
                 plc.writeTag(tag, readValue);
-                CommonFunctions.debugLog.info("Value after Sent: "+readValue);
+                CommonFunctions.debugLog.info("Value after Sent: " + readValue);
             }
 
         } catch (final CipException e) {

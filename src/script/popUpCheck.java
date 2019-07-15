@@ -44,7 +44,6 @@ public class popUpCheck {
     }
 
     /**
-     *
      * @param parameters
      * @param hashMap
      * @return
@@ -79,6 +78,13 @@ public class popUpCheck {
 //            finalResult.setResult("NOK");
 //        }
         return finalResult;
+    }
+
+    /**
+     *
+     */
+    public void close() {
+
     }
 
     class showDialogBox implements Callable<Optional<Result>> {
@@ -201,13 +207,6 @@ public class popUpCheck {
             return result;
 
         }
-
-    }
-
-    /**
-     *
-     */
-    public void close() {
 
     }
 }

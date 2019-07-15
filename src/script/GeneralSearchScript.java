@@ -9,15 +9,8 @@ import DB.Parameters;
 import DB.ParametersExecution;
 import DB.Script;
 import engine.Result;
-import org.sikuli.api.DesktopScreenRegion;
-import org.sikuli.api.ScreenRegion;
 
-import javax.imageio.ImageIO;
-import java.io.File;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.HashMap;
 
 /**

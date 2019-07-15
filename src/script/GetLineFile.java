@@ -17,7 +17,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- *
  * @author Thomas Morin
  */
 public class GetLineFile implements InterfaceScript {
@@ -27,17 +26,17 @@ public class GetLineFile implements InterfaceScript {
 
     @Override
     public Result run(ArrayList<ParametersExecution> parameters, HashMap hashMap) throws Exception {
-        String stringToReturn=null;
-        ArrayList<String> tableToReturn=new ArrayList();
+        String stringToReturn = null;
+        ArrayList<String> tableToReturn = new ArrayList();
         this.FilePath = parameters.get(1).getValue().trim();
-        this.bufferName=parameters.get(2).getValue().trim();
-        try{
+        this.bufferName = parameters.get(2).getValue().trim();
+        try {
             String currentLine;
-            BufferedReader br=new BufferedReader(new FileReader(this.FilePath));
-            while((currentLine=br.readLine())!=null){
-               stringToReturn=currentLine; 
+            BufferedReader br = new BufferedReader(new FileReader(this.FilePath));
+            while ((currentLine = br.readLine()) != null) {
+                stringToReturn = currentLine;
             }
-        }catch(Exception e){
+        } catch (Exception e) {
             CommonFunctions.debugLog.error("Exception e= " + e);
         }
         tableToReturn.add(stringToReturn);

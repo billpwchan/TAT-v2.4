@@ -8,7 +8,6 @@
 }
 
 
-
 .table-row-cell:filled:focused:selected {
     -fx-background-color: #9999FF;
     -fx-background-insets: 0, 1, 2;
@@ -18,7 +17,7 @@
 
 /* Row hovered */
 .table-view:row-selection .table-row-cell:filled:hover {
-    -fx-background-color: #D8D8D8  ;
+    -fx-background-color: #D8D8D8;
     -fx-background-insets: 0, 0 0 1 0;
     -fx-text-fill: -fx-text-inner-color;
 }

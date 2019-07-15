@@ -14,28 +14,24 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- *
  * @author T0155040
  */
 public class equipment implements Serializable {
 
-    private String name;
-
     private final Set<Position> inFolder = new HashSet<>();
-
+    private String name;
     private boolean hasBeenConfigured = false;
 
-    private int mappedNumber=0;
+    private int mappedNumber = 0;
 
     /**
      *
      */
     public equipment() {
-       // hasBeenConfigured = false;
+        // hasBeenConfigured = false;
     }
 
     /**
-     *
      * @param name
      */
     public equipment(String name) {
@@ -44,7 +40,6 @@ public class equipment implements Serializable {
     }
 
     /**
-     *
      * @param name
      * @param sr
      * @param path
@@ -52,20 +47,11 @@ public class equipment implements Serializable {
     public equipment(String name, ScreenRegion sr, Path path) {
         this.name = name;
         this.inFolder.add(new Position(sr, path));
-        hasBeenConfigured=true;
+        hasBeenConfigured = true;
         mappedNumber++;
     }
 
     /**
-     *
-     * @param name
-     */
-    public void setEquipmentName(String name) {
-        this.name = name;
-    }
-
-    /**
-     *
      * @return
      */
     public String getEquipmentName() {
@@ -73,17 +59,22 @@ public class equipment implements Serializable {
     }
 
     /**
-     *
+     * @param name
+     */
+    public void setEquipmentName(String name) {
+        this.name = name;
+    }
+
+    /**
      * @param sr
      */
     public void setPosition(Position sr) {
         this.inFolder.add(sr);
-        this.hasBeenConfigured=true;
+        this.hasBeenConfigured = true;
         mappedNumber++;
     }
 
     /**
-     *
      * @return
      */
     public Set<Position> getPositions() {
@@ -91,45 +82,40 @@ public class equipment implements Serializable {
     }
 
     /**
-     *
      * @return
      */
     public boolean isConfigured() {
         return this.hasBeenConfigured;
     }
-    
+
     /**
-     *
      * @param b
      */
-    public void setConfigured(boolean b){
+    public void setConfigured(boolean b) {
         this.hasBeenConfigured = b;
     }
-    
+
     /**
-     *
      * @return
      */
-    public int getMappedNumber(){
+    public int getMappedNumber() {
         return this.mappedNumber;
     }
 
     /**
-     *
      * @param eqpPosition
      */
     public void setAllPosition(ObservableList<Position> eqpPosition) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         this.inFolder.clear();
         this.inFolder.addAll(eqpPosition);
-        this.mappedNumber=eqpPosition.size();
+        this.mappedNumber = eqpPosition.size();
     }
-    
+
     /**
-     *
      * @param pos
      */
-    public void removePosition(Position pos){
+    public void removePosition(Position pos) {
         this.inFolder.remove(pos);
         this.hasBeenConfigured = false;
         this.mappedNumber--;

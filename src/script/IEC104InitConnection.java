@@ -24,30 +24,6 @@ public class IEC104InitConnection implements InterfaceScript {
     static List<String> lines;
     static Process process;
 
-    @Override
-    public Result run(ArrayList<ParametersExecution> parameters, HashMap hashMap) throws Exception {
-        String ip = parameters.get(1).getValue().trim().replace(',','.');    //Not used for simulator monitor process
-        int port = ((int) Double.parseDouble(parameters.get(2).getValue().trim()));
-        int asduAddress = (int) Double.parseDouble(parameters.get(3).getValue().trim());
-
-        IEC104InitConnection.initIEC104ConfigFile(port, asduAddress);
-
-        Runtime.getRuntime().exec("attrib +H IEC104slave.ini");     //Hide the .ini file from the user.
-        process = new ProcessBuilder("src\\script\\IEC104Simulator\\20171117_104Slave.exe").start();
-        InputStream is = process.getInputStream();
-        InputStreamReader isr = new InputStreamReader(is);
-        BufferedReader br = new BufferedReader(isr);
-        String line123;
-        Instant before = Instant.now();
-        while ((line123 = br.readLine()) != null && !line123.contains("Supervisory") && Duration.between(before, Instant.now()).toMillis() < 10000) {
-            //Should be finished initialization
-            CommonFunctions.debugLog.debug(line123);
-        }
-        br.close();
-        isr.close();
-        return null;
-    }
-
     public static void initIEC104ConfigFile(int port, int asduAddress) {
         CommonFunctions.debugLog.debug("Working Directory = " + System.getProperty("user.dir"));
         Path inputPath = Paths.get("src\\script\\IEC104Simulator\\IEC104slavetemplate.ini");
@@ -69,6 +45,39 @@ public class IEC104InitConnection implements InterfaceScript {
         }
     }
 
+    public static void main(String[] args) {
+        IEC104InitConnection temp = new IEC104InitConnection();
+        try {
+            temp.run(null, null);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public Result run(ArrayList<ParametersExecution> parameters, HashMap hashMap) throws Exception {
+        String ip = parameters.get(1).getValue().trim().replace(',', '.');    //Not used for simulator monitor process
+        int port = ((int) Double.parseDouble(parameters.get(2).getValue().trim()));
+        int asduAddress = (int) Double.parseDouble(parameters.get(3).getValue().trim());
+
+        IEC104InitConnection.initIEC104ConfigFile(port, asduAddress);
+
+        Runtime.getRuntime().exec("attrib +H IEC104slave.ini");     //Hide the .ini file from the user.
+        process = new ProcessBuilder("src\\script\\IEC104Simulator\\20171117_104Slave.exe").start();
+        InputStream is = process.getInputStream();
+        InputStreamReader isr = new InputStreamReader(is);
+        BufferedReader br = new BufferedReader(isr);
+        String line123;
+        Instant before = Instant.now();
+        while ((line123 = br.readLine()) != null && !line123.contains("Supervisory") && Duration.between(before, Instant.now()).toMillis() < 10000) {
+            //Should be finished initialization
+            CommonFunctions.debugLog.debug(line123);
+        }
+        br.close();
+        isr.close();
+        return null;
+    }
+
     @Override
     public void close() {
 
@@ -82,14 +91,5 @@ public class IEC104InitConnection implements InterfaceScript {
     @Override
     public Script scriptInfos() {
         return null;
-    }
-
-    public static void main(String[] args) {
-        IEC104InitConnection temp = new IEC104InitConnection();
-        try {
-            temp.run(null, null);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 }

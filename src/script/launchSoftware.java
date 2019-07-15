@@ -14,13 +14,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- *
  * @author Thomas Morin
  */
 public class launchSoftware implements InterfaceScript {
 
-    private String pathSoftware;
     static Process process;
+    private String pathSoftware;
 
     @Override
     public Result run(ArrayList<ParametersExecution> parameters, HashMap hashMap) throws Exception {

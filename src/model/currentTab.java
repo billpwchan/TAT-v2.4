@@ -29,7 +29,7 @@ public class currentTab {
      * COnstructor of currentTab
      *
      * @param objectID Unique id of the object.
-     * @param tab reference to the tab.
+     * @param tab      reference to the tab.
      */
     public currentTab(int objectID, Tab tab) {
         this.tab = tab;

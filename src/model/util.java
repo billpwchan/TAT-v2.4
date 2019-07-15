@@ -6,12 +6,11 @@
 package model;
 
 /**
- *
  * @author T0155040
  */
 public class util {
 
-    static long tempsDebut,tempsFin;
+    static long tempsDebut, tempsFin;
 
     /**
      *

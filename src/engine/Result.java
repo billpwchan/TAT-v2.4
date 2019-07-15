@@ -6,14 +6,15 @@
 package engine;
 
 /**
- *Class of a result of a script, step and case
+ * Class of a result of a script, step and case
+ *
  * @author Thomas M.
  */
 public class Result {
 
     //the result
     private String result;
-    
+
     //the comment of the test
     private String comment;
 
@@ -22,13 +23,23 @@ public class Result {
     /**
      *
      */
-        public Result() {
+    public Result() {
         this.result = "";
         this.comment = "";
     }
 
     /**
+     * Getter of a result of a Result
+     *
+     * @return
+     */
+    public String getResult() {
+        return this.result;
+    }
+
+    /**
      * setter of the result of a Result
+     *
      * @param result the result to set
      */
     public void setResult(String result) {
@@ -36,26 +47,20 @@ public class Result {
     }
 
     /**
-     * Getter of a result of a Result
-     * @return 
+     * getter of a comment of a Result
+     *
+     * @return
      */
-    public String getResult() {
-        return this.result;
+    public String getComment() {
+        return this.comment;
     }
 
     /**
      * setter of a comment of a Result
+     *
      * @param comment the comment
      */
     public void setComment(String comment) {
         this.comment = comment;
-    }
-
-    /**
-     * getter of a comment of a Result
-     * @return 
-     */
-    public String getComment() {
-        return this.comment;
     }
 }

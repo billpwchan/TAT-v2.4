@@ -67,13 +67,12 @@ public class ScadaCheck {
 //    }
 
     /**
-     *
      * @param parameters
      * @return
      * @throws JSchException
      * @throws IOException
      */
-        public String run(ArrayList<ParametersExecution> parameters) throws JSchException, IOException {
+    public String run(ArrayList<ParametersExecution> parameters) throws JSchException, IOException {
         Session session;
         boolean highLevelFound = false;
         boolean lowLevelFound = false;
@@ -124,7 +123,7 @@ public class ScadaCheck {
         }
         channel.disconnect();
         //session.disconnect();
-            //CommonFunctions.debugLog.error("RESULT = "+this.result);
+        //CommonFunctions.debugLog.error("RESULT = "+this.result);
         return this.result;
     }
 
@@ -136,7 +135,6 @@ public class ScadaCheck {
     }
 
     /**
-     *
      * @param msg
      */
     public void lineDecoder(String msg) {
@@ -147,7 +145,7 @@ public class ScadaCheck {
         equipmentDescriptionFound = msg.substring(index1, index2);
         //CommonFunctions.debugLog.error("INDEX 1= " + index1);
         this.severityFound = msg.charAt(index1 - 15);
-        
+
         index1 = msg.indexOf("|", index2) + 1;
         index2 = msg.indexOf("|", index1);
         index1 = msg.indexOf("|", index2) + 1;
@@ -166,7 +164,6 @@ public class ScadaCheck {
     }
 
     /**
-     *
      * @param state
      */
     public void comparison(String state) {
@@ -181,15 +178,14 @@ public class ScadaCheck {
         if (!this.stationFound.equals(this.station)) {
             this.result = this.result + "Problem with the station of the " + state + "\n";
         }
-        
+
         if (!(this.severityFound == this.severity)) {
             this.result = this.result + "Problem with the severity of the " + state + "\n";
         }
-        
+
     }
 
     /**
-     *
      * @throws JSchException
      */
     public void close() throws JSchException {

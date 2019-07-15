@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
+  <component name="ChangeListManager">
+    <list default="true" id="90eb576c-ac40-4f05-8597-15fc6b2778c9" name="Default Changelist" comment="[Feature] CIP DI Report Complete">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mydb.db-shm" beforeDir="false" afterPath="$PROJECT_DIR$/mydb.db-shm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mydb.db-wal" beforeDir="false" afterPath="$PROJECT_DIR$/mydb.db-wal" afterDir="false" />
+=======
   <component name="AnalysisUIOptions">
     <option name="SCOPE_TYPE" value="3" />
   </component>
@@ -12,6 +19,7 @@
     <list default="true" id="c889ef52-46c0-4f96-a7a0-3467c1158425" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mydb.db" beforeDir="false" afterPath="$PROJECT_DIR$/mydb.db" afterDir="false" />
+>>>>>>> f59f2fbe27c56f1534b1cef14ec93b1733467e3e
       <change beforePath="$PROJECT_DIR$/src/script/CIPWriteTag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/CIPWriteTag.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -55,13 +63,34 @@
     <select />
   </component>
   <component name="DefaultGradleProjectSettings">
-    <option name="isMigrated" value="true" />
+    <option name="testRunner" value="GRADLE" />
+    <option name="delegatedBuild" value="true" />
   </component>
   <component name="FavoritesManager">
     <favorites_list name="Backup Files(Old Version)" />
   </component>
   <component name="FileEditorManager">
     <leaf>
+<<<<<<< HEAD
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/WriteReport.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="232">
+              <caret line="828" column="55" selection-start-line="828" selection-start-column="55" selection-end-line="828" selection-end-column="55" />
+              <folding>
+                <element signature="e#20446#20770#1" />
+                <element signature="e#48269#48270#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/script/CIPWriteTag.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+=======
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/script/CIPWriteTag.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -70,6 +99,7 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+>>>>>>> f59f2fbe27c56f1534b1cef14ec93b1733467e3e
             </state>
           </provider>
         </entry>
@@ -85,6 +115,13 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
+<<<<<<< HEAD
+      <find>write</find>
+      <find>successfully</find>
+      <find>CIP</find>
+      <find>header</find>
+      <find>N/A</find>
+=======
       <find>label</find>
       <find>stateMachineMacro</find>
       <find>result</find>
@@ -115,6 +152,7 @@
       <find>scriptName</find>
       <find>xm</find>
       <find>close</find>
+>>>>>>> f59f2fbe27c56f1534b1cef14ec93b1733467e3e
     </findStrings>
     <replaceStrings>
       <replace>CommonFunctions.debugLog.error(</replace>
@@ -124,6 +162,9 @@
     </dirStrings>
   </component>
   <component name="Git.Settings">
+<<<<<<< HEAD
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+=======
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
         <option value="Bill Chan &lt;billpwchan@hotmail.com&gt;" />
@@ -131,10 +172,15 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="SIGN_OFF_COMMIT" value="true" />
+>>>>>>> f59f2fbe27c56f1534b1cef14ec93b1733467e3e
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+<<<<<<< HEAD
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
+        <option value="$PROJECT_DIR$/src/model/WriteReport.java" />
+=======
         <option value="$PROJECT_DIR$/src/script/OpenShellChannel.java" />
         <option value="$PROJECT_DIR$/src/script/LaunchTCPServerModbusMaster.java" />
         <option value="$PROJECT_DIR$/src/script/CheckandMatch.java" />
@@ -185,10 +231,18 @@
         <option value="$PROJECT_DIR$/src/DBcontroller/UserDB.java" />
         <option value="$PROJECT_DIR$/src/hibernate.cfg.xml" />
         <option value="$PROJECT_DIR$/src/DBcontroller/TestExecution.java" />
+>>>>>>> f59f2fbe27c56f1534b1cef14ec93b1733467e3e
         <option value="$PROJECT_DIR$/src/script/CIPWriteTag.java" />
       </list>
     </option>
   </component>
+<<<<<<< HEAD
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-13" />
+    <option name="y" value="-40" />
+    <option name="width" value="3500" />
+    <option name="height" value="1960" />
+=======
   <component name="JavaeeView">
     <option name="frameworksView" value="false" />
     <option name="showModules" value="false" />
@@ -204,6 +258,7 @@
     <option name="y" value="153" />
     <option name="width" value="1440" />
     <option name="height" value="780" />
+>>>>>>> f59f2fbe27c56f1534b1cef14ec93b1733467e3e
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -211,11 +266,18 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
+=======
       <pane id="Scope" />
+>>>>>>> f59f2fbe27c56f1534b1cef14ec93b1733467e3e
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
+<<<<<<< HEAD
+              <item name="TATV2.3.4 IEC-104" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TATV2.3.4 IEC-104" type="462c0819:PsiDirectoryNode" />
+=======
               <item name="ttshk_tat_1.0" type="b2602c69:ProjectViewProjectNode" />
               <item name="ttshk_tat_1.0" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -240,12 +302,14 @@
               <item name="ttshk_tat_1.0" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="script" type="462c0819:PsiDirectoryNode" />
+>>>>>>> f59f2fbe27c56f1534b1cef14ec93b1733467e3e
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -254,6 +318,20 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="database.console.LAST_STATE" value="false" />
+<<<<<<< HEAD
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../TATV2.3.3 IEC-104" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Work\Thales\TAT Project\TATV2.3.4 IEC-104" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Work\Thales\TAT Project\TATV2.3.4 IEC-104\src\script" />
+=======
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/Libraries/jamod-1.2.SNAPSHOT-sources.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -267,6 +345,7 @@
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="assets" />
+>>>>>>> f59f2fbe27c56f1534b1cef14ec93b1733467e3e
     </key>
   </component>
   <component name="RunDashboard">
@@ -281,6 +360,12 @@
       </list>
     </option>
   </component>
+<<<<<<< HEAD
+  <component name="RunManager">
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.Main" />
+      <module name="TATV2.3.4 IEC-104" />
+=======
   <component name="RunManager" selected="Application.Main">
     <configuration name="IEC104InitConnection" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="script.IEC104InitConnection" />
@@ -324,10 +409,13 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+>>>>>>> f59f2fbe27c56f1534b1cef14ec93b1733467e3e
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+<<<<<<< HEAD
+=======
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.IEC104InitConnection" />
@@ -340,12 +428,84 @@
         <item itemvalue="Application.LaunchTCPIEC104SampleServer" />
       </list>
     </recent_temporary>
+>>>>>>> f59f2fbe27c56f1534b1cef14ec93b1733467e3e
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+<<<<<<< HEAD
+      <changelist id="90eb576c-ac40-4f05-8597-15fc6b2778c9" name="Default Changelist" comment="" />
+      <created>1562991258138</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1562991258138</updated>
+      <workItem from="1562991260284" duration="20677000" />
+    </task>
+    <task id="LOCAL-00001" summary="[General] CIP Report Maximum Step: 9">
+      <created>1562995159526</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1562995159526</updated>
+    </task>
+    <task id="LOCAL-00002" summary="[General] CIP Result Print OK">
+      <created>1563007847157</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1563007847157</updated>
+    </task>
+    <task id="LOCAL-00003" summary="[Feature] CIP DO Report Complete. Require adjustments to CIP DO Test Case (Add Searched Values * 7 for Report Display)">
+      <created>1563008174022</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1563008174022</updated>
+    </task>
+    <task id="LOCAL-00004" summary="[General] Require Further Adjustment to CIP DI/AI Points. Change script name to CIPDI/CIPAI for better identification">
+      <created>1563009419444</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1563009419444</updated>
+    </task>
+    <task id="LOCAL-00005" summary="[Feature] CIP DO Report Feature Complete. Customized Header">
+      <created>1563163240163</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1563163240164</updated>
+    </task>
+    <task id="LOCAL-00006" summary="[Feature] CIP DO Report Added -1 =&gt; N/A support.">
+      <created>1563172740900</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1563172740900</updated>
+    </task>
+    <task id="LOCAL-00007" summary="[Feature] CIP DO Report Added -1 =&gt; N/A support.">
+      <created>1563172969822</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1563172969822</updated>
+    </task>
+    <task id="LOCAL-00008" summary="[General] Refactor Model Class">
+      <created>1563173128194</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1563173128194</updated>
+    </task>
+    <task id="LOCAL-00009" summary="[General] Refactor Script Class">
+      <created>1563173254920</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1563173254920</updated>
+=======
       <changelist id="c889ef52-46c0-4f96-a7a0-3467c1158425" name="Default Changelist" comment="" />
       <created>1538928660604</created>
       <option name="number" value="Default" />
@@ -602,35 +762,39 @@
       <option name="presentableId" value="LOCAL-00024" />
       <option name="project" value="LOCAL" />
       <updated>1562030760437</updated>
+>>>>>>> f59f2fbe27c56f1534b1cef14ec93b1733467e3e
     </task>
-    <task id="LOCAL-00025" summary="Change CommandValue for function code 15 from double to int">
-      <created>1562034815504</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
+    <task id="LOCAL-00010" summary="[General] Refactor Engine Class">
+      <created>1563173389285</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
       <option name="project" value="LOCAL" />
-      <updated>1562034815504</updated>
+      <updated>1563173389285</updated>
     </task>
-    <task id="LOCAL-00026" summary="fix CommandValue for function code 16 from int to double">
-      <created>1562123141950</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
+    <task id="LOCAL-00011" summary="[General] Refactor FXML">
+      <created>1563173641897</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
       <option name="project" value="LOCAL" />
-      <updated>1562123141950</updated>
+      <updated>1563173641897</updated>
     </task>
-    <task id="LOCAL-00027" summary="Fix big endian and little endian">
-      <created>1562133853609</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
+    <task id="LOCAL-00012" summary="[General] Adjust CIP DI Report Structure">
+      <created>1563178835353</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
       <option name="project" value="LOCAL" />
-      <updated>1562133853609</updated>
+      <updated>1563178835353</updated>
     </task>
-    <task id="LOCAL-00028" summary="Fix percentage calculation and Trigger DI's function code input">
-      <created>1562224820397</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
+    <task id="LOCAL-00013" summary="[Feature] CIP DI Report Complete">
+      <created>1563180004687</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
       <option name="project" value="LOCAL" />
-      <updated>1562224820397</updated>
+      <updated>1563180004687</updated>
     </task>
+<<<<<<< HEAD
+    <option name="localTasksCounter" value="14" />
+=======
     <task id="LOCAL-00029" summary="Add milliseconds for checking DO and fix minor bugs for report">
       <created>1562297866557</created>
       <option name="number" value="00029" />
@@ -695,24 +859,52 @@
       <updated>1563179316711</updated>
     </task>
     <option name="localTasksCounter" value="38" />
+>>>>>>> f59f2fbe27c56f1534b1cef14ec93b1733467e3e
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="512338000" />
-  </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
+    <option name="totallyTimeSpent" value="20677000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-6" y="-6" width="1549" height="837" extended-state="6" />
     <editor active="true" />
     <layout>
+<<<<<<< HEAD
+      <window_info id="Persistence" side_tool="true" />
+      <window_info id="Designer" />
+      <window_info id="Image Layers" />
+      <window_info id="UI Designer" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info id="Capture Tool" />
+      <window_info id="Learn" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49816176" visible="true" weight="0.18729097" />
+      <window_info id="Structure" order="1" sideWeight="0.5018382" side_tool="true" weight="0.18729097" />
+      <window_info anchor="bottom" id="Database Console" weight="0.329927" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" weight="0.32846716" />
+      <window_info anchor="bottom" id="Java Enterprise" />
+      <window_info anchor="bottom" id="Database Changes" weight="0.329927" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.329927" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.1270073" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.2540146" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Maven" />
+      <window_info anchor="right" id="Database" weight="0.16989967" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.24949832" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+=======
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49624062" visible="true" weight="0.18923241" />
       <window_info id="Structure" order="1" sideWeight="0.5037594" side_tool="true" weight="0.19296375" />
       <window_info id="Persistence" order="2" sideWeight="0.5037594" side_tool="true" weight="0.19296375" />
@@ -790,10 +982,33 @@
       <window_info active="true" anchor="right" id="Database" order="9" sideWeight="0.49854228" visible="true" weight="0.22921109" />
       <window_info anchor="right" id="Maven" order="10" weight="0.32995737" />
     </layout-to-restore>
+>>>>>>> f59f2fbe27c56f1534b1cef14ec93b1733467e3e
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+<<<<<<< HEAD
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="[General] CIP Report Maximum Step: 9" />
+    <MESSAGE value="[General] CIP Result Print OK" />
+    <MESSAGE value="[Feature] CIP DO Report Complete. Require adjustments to CIP DO Test Case (Add Searched Values * 7 for Report Display)" />
+    <MESSAGE value="[General] Require Further Adjustment to CIP DI/AI Points. Change script name to CIPDI/CIPAI for better identification" />
+    <MESSAGE value="[Feature] CIP DO Report Feature Complete. Customized Header" />
+    <MESSAGE value="[Feature] CIP DO Report Added -1 =&gt; N/A support." />
+    <MESSAGE value="[General] Refactor Model Class" />
+    <MESSAGE value="[General] Refactor Script Class" />
+    <MESSAGE value="[General] Refactor Engine Class" />
+    <MESSAGE value="[General] Refactor FXML" />
+    <MESSAGE value="[General] Adjust CIP DI Report Structure" />
+    <MESSAGE value="[Feature] CIP DI Report Complete" />
+    <option name="LAST_COMMIT_MESSAGE" value="[Feature] CIP DI Report Complete" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
+=======
   <component name="UpdateCopyrightCheckinHandler">
     <option name="UPDATE_COPYRIGHT" value="true" />
   </component>
@@ -880,13 +1095,19 @@
     <MESSAGE value="Fix the initialization to support report function" />
     <option name="LAST_COMMIT_MESSAGE" value="Fix the initialization to support report function" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+>>>>>>> f59f2fbe27c56f1534b1cef14ec93b1733467e3e
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
+<<<<<<< HEAD
+          <url>file://$PROJECT_DIR$/src/model/WriteReport.java</url>
+          <line>125</line>
+=======
           <url>file://$PROJECT_DIR$/src/script/TriggerIEC104Point.java</url>
           <line>32</line>
+>>>>>>> f59f2fbe27c56f1534b1cef14ec93b1733467e3e
           <properties />
           <option name="timeStamp" value="10" />
         </line-breakpoint>
@@ -898,12 +1119,15 @@
           </properties>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
+<<<<<<< HEAD
+=======
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/engine/Engine.java</url>
           <line>593</line>
           <properties />
           <option name="timeStamp" value="23" />
         </line-breakpoint>
+>>>>>>> f59f2fbe27c56f1534b1cef14ec93b1733467e3e
       </breakpoints>
     </breakpoint-manager>
   </component>
@@ -911,6 +1135,129 @@
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
+<<<<<<< HEAD
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/script/LaunchTCPIEC104SampleServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/9f6cbbae-d9f4-416c-8cda-2429f083cc63/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="das://9f6cbbae-d9f4-416c-8cda-2429f083cc63/schema/main/table/parameters">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="d4868646-c264-40c5-aee3-773c2f12a14e">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://9f6cbbae-d9f4-416c-8cda-2429f083cc63/schema/main/table/script">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="d4868646-c264-40c5-aee3-773c2f12a14e">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://9f6cbbae-d9f4-416c-8cda-2429f083cc63/schema/main/table/script_has_parameters">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="d4868646-c264-40c5-aee3-773c2f12a14e">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://9f6cbbae-d9f4-416c-8cda-2429f083cc63/schema/main/table/macro">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="d4868646-c264-40c5-aee3-773c2f12a14e">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://9f6cbbae-d9f4-416c-8cda-2429f083cc63/schema/main/table/param_script_macro">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="d4868646-c264-40c5-aee3-773c2f12a14e">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/tabtestexecution/TabTestCampaignExecutionRepositoryBaselineController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="439" selection-start-line="439" selection-end-line="439" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/META-INF/MANIFEST.MF">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2729">
+          <caret line="38" column="13" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IEC104slave.ini">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/script/Concat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://9f6cbbae-d9f4-416c-8cda-2429f083cc63/schema/main/table/test_campaign">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="d4868646-c264-40c5-aee3-773c2f12a14e">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://9f6cbbae-d9f4-416c-8cda-2429f083cc63/schema/main/table/test_step">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="d4868646-c264-40c5-aee3-773c2f12a14e">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://9f6cbbae-d9f4-416c-8cda-2429f083cc63/schema/main/table/test_case">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="d4868646-c264-40c5-aee3-773c2f12a14e">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/WriteReport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="828" column="55" selection-start-line="828" selection-start-column="55" selection-end-line="828" selection-end-column="55" />
+=======
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ttshk_tat_dev_Kelvin$Main.ic" NAME="Main Coverage Results" MODIFIED="1560820331610" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
@@ -995,12 +1342,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
           <caret line="34" column="13" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
+>>>>>>> f59f2fbe27c56f1534b1cef14ec93b1733467e3e
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#20446#20770#1" />
+            <element signature="e#48269#48270#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/src/script/CIPWriteTag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+=======
     <entry file="file://$PROJECT_DIR$/src/script/SearchOccurence.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="671">
@@ -1316,12 +1671,15 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+>>>>>>> f59f2fbe27c56f1534b1cef14ec93b1733467e3e
         </state>
       </provider>
     </entry>
   </component>
   <component name="masterDetails">
     <states>
+<<<<<<< HEAD
+=======
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
@@ -1383,6 +1741,7 @@
           </splitter-proportions>
         </settings>
       </state>
+>>>>>>> f59f2fbe27c56f1534b1cef14ec93b1733467e3e
       <state key="ProjectJDKs.UI">
         <settings>
           <last-edited>10</last-edited>

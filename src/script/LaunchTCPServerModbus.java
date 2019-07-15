@@ -141,27 +141,23 @@ import java.util.Set;
 /* The important instances and variables */
 
 /**
- *
  * @author tmartinez
  */
 
 public class LaunchTCPServerModbus {
 
-    static ModbusTCPListener listener = null;
-    private static SimpleProcessImage instance = null;
-    //int port = Modbus.DEFAULT_PORT;
-    //private String ip;
-
-    private String ip;
-
     /**
      *
      */
     public static String functionCode;
-    private int port, slave;
-
+    static ModbusTCPListener listener = null;
+    //int port = Modbus.DEFAULT_PORT;
+    //private String ip;
+    private static SimpleProcessImage instance = null;
     private static String oldfunctionCode, oldIp;
     private static int oldPort;
+    private String ip;
+    private int port, slave;
 
     /**
      *
@@ -187,7 +183,16 @@ public class LaunchTCPServerModbus {
     }
 
     /**
+     * Singleton of the class.
      *
+     * @return instance of the class
+     * @throws Exception exception
+     */
+    public static SimpleProcessImage getInstance() throws Exception {
+        return instance;
+    }
+
+    /**
      * @param parameters
      * @param test
      * @return
@@ -195,7 +200,7 @@ public class LaunchTCPServerModbus {
      */
     public String run(ArrayList<ParametersExecution> parameters, HashMap<String, Object> test) throws InterruptedException {
 
-        this.ip = parameters.get(1).getValue().trim().replace(',','.');
+        this.ip = parameters.get(1).getValue().trim().replace(',', '.');
         this.port = ((int) Double.parseDouble(parameters.get(2).getValue().trim()));
         this.slave = ((int) Double.parseDouble(parameters.get(3).getValue().trim()));
         functionCode = parameters.get(4).getValue().trim();
@@ -213,17 +218,6 @@ public class LaunchTCPServerModbus {
     }
 
     /**
-     * Singleton of the class.
-     *
-     * @return instance of the class
-     * @throws Exception exception
-     */
-    public static SimpleProcessImage getInstance() throws Exception {
-        return instance;
-    }
-
-    /**
-     *
      * @param ip
      * @param portDeServer
      * @param SlaveID
@@ -233,8 +227,7 @@ public class LaunchTCPServerModbus {
 
 //2. Prepare a process image
         instance = new SimpleProcessImage();
-        for (int i = 0; i < 65535; i++)
-        {
+        for (int i = 0; i < 65535; i++) {
             instance.addRegister(new SimpleRegister(0));
             instance.addInputRegister(new SimpleRegister(0));
             instance.addDigitalOut(new SimpleDigitalOut(false));

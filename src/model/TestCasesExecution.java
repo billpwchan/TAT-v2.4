@@ -18,7 +18,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
- *
  * @author tmorin
  */
 public class TestCasesExecution {
@@ -31,7 +30,6 @@ public class TestCasesExecution {
     }
 
     /**
-     *
      * @param caseExecution
      * @return
      */
@@ -43,7 +41,6 @@ public class TestCasesExecution {
     }
 
     /**
-     *
      * @param caseToDisplay
      */
     public void prepareCaseDisplay(CaseExecutions caseToDisplay) {
@@ -177,13 +174,14 @@ public class TestCasesExecution {
 //        }
 //        return testCasesAndSteps.get(i - 1).getStepsExecutionsAndScripts();
 //    }
+
     /**
      * Get all the scripts of a particular step to display
      *
      * @param baselineID
      * @param testCasesAndSteps an arrayList of testCaseAndStep to search in
-     * @param testStepID the ID of the case from which get the scritp
-     * @param testStepOrder the order of the step
+     * @param testStepID        the ID of the case from which get the scritp
+     * @param testStepOrder     the order of the step
      * @return an ArrayList of scripts with all the parameters
      */
 //    public ArrayList<TestScriptsAndParameters> testScriptsToDisplay(ArrayList<TestStepExecutionAndScripts> stepExecutionsAndScripts, int testStepID, int testStepOrder) {
@@ -205,7 +203,6 @@ public class TestCasesExecution {
     }
 
     /**
-     *
      * @param caseExecution
      * @param currentIteration
      */

@@ -14,7 +14,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- *
  * @author T0155040
  */
 public class triggerStateModbusHMI implements InterfaceScript {
@@ -40,6 +39,4 @@ public class triggerStateModbusHMI implements InterfaceScript {
     }
 
 
-
-    
 }

@@ -12,7 +12,6 @@ import org.sikuli.api.ScreenRegion;
 import java.nio.file.Path;
 
 /**
- *
  * @author tmartinez
  */
 public class Position {
@@ -24,7 +23,6 @@ public class Position {
     private BooleanProperty checked = new SimpleBooleanProperty(false);
 
     /**
-     *
      * @param sr
      * @param loc
      */
@@ -35,7 +33,6 @@ public class Position {
     }
 
     /**
-     *
      * @return
      */
     public Path getPath() {
@@ -43,7 +40,6 @@ public class Position {
     }
 
     /**
-     *
      * @param loc
      */
     public void setPath(Path loc) {
@@ -51,7 +47,6 @@ public class Position {
     }
 
     /**
-     *
      * @return
      */
     public ScreenRegion getScreenRegion() {
@@ -59,7 +54,6 @@ public class Position {
     }
 
     /**
-     *
      * @param sr
      */
     public void setScreenRegion(ScreenRegion sr) {
@@ -67,15 +61,6 @@ public class Position {
     }
 
     /**
-     *
-     * @param checked
-     */
-    public void setChecked(boolean checked) {
-        this.checked.set(checked);
-    }
-
-    /**
-     *
      * @return
      */
     public BooleanProperty checkedProperty() {
@@ -83,10 +68,16 @@ public class Position {
     }
 
     /**
-     *
      * @return
      */
     public boolean isChecked() {
         return checked.get();
+    }
+
+    /**
+     * @param checked
+     */
+    public void setChecked(boolean checked) {
+        this.checked.set(checked);
     }
 }

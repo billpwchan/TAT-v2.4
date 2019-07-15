@@ -69,6 +69,10 @@ public class popUpStimuli implements InterfaceScript {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    public void close() {
+
+    }
+
     class showDialog implements Callable<Optional<Result>> {
 
         ButtonType selectedButton = null;
@@ -135,9 +139,5 @@ public class popUpStimuli implements InterfaceScript {
             return result;
 
         }
-    }
-
-    public void close() {
-
     }
 }

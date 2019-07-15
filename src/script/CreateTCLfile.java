@@ -16,7 +16,6 @@ import java.util.concurrent.TimeUnit;
 
 
 /**
- *
  * @author Kelvin Cheung
  * @version 1.0
  */
@@ -74,15 +73,15 @@ public class CreateTCLfile {
                 case "46.0":
                 case "0x2E":
                 case "0x2e":
-		case "DI": 
-		case "DO":
+                case "DI":
+                case "DO":
                     this.CommandType = "$SCSCTL_DIOV";
-                    this.SSHCommand = "echo $\'ScsCtl::init\nproc Callback args { }\nScsCtl::sendCommand " + RTServerEnvName + " " + databaseCommandPath0+":" + databaseCommandPath1 + " "
-                            + CommandType +" "+ (int) CommandValue+ " $SCSCTL_BYPASS $SCSCTL_BYPASS $SCSCTL_SEND_ANYWAY [Callback]\' >~/Desktop/TAT_Script.tcl";
+                    this.SSHCommand = "echo $\'ScsCtl::init\nproc Callback args { }\nScsCtl::sendCommand " + RTServerEnvName + " " + databaseCommandPath0 + ":" + databaseCommandPath1 + " "
+                            + CommandType + " " + (int) CommandValue + " $SCSCTL_BYPASS $SCSCTL_BYPASS $SCSCTL_SEND_ANYWAY [Callback]\' >~/Desktop/TAT_Script.tcl";
                     CommonFunctions.debugLog.info(SSHCommand);
                     break;
-		case "AI": 
-		case "AO":
+                case "AI":
+                case "AO":
                 case "16":
                 case "16.0":
                 case "0x10":

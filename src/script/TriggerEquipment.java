@@ -39,29 +39,22 @@ import java.util.HashMap;
 import static main.Main.HMIs;
 
 /**
- *
  * @author T0155040
  */
 public class TriggerEquipment implements InterfaceScript {
 
-    private String nameClasse, nameEquipment, indexNameReturn, nameHMI;
-
-    private final Mouse mouse = new DesktopMouse();
-
-    private ScreenLocation locationUp, locationDown, locationLeft, locationRight, locationPlus, locationMinus, locationRescale;
-
-    private ImageTarget targetUp, targetDown, targetPlus, targetMinus, targetCenter, targetLeft, targetRight, targetBack, targetFront, targetLogout;
-
     private final static double minScore = 0.999;
-
+    private final Mouse mouse = new DesktopMouse();
     /**
      *
      */
     public ArrayList<String> pathUtilitise = new ArrayList<>(Arrays.asList("", "", "", "", "", "", "", "", "", "", ""));
-
     // private boolean lookAndFeelExist = false;
     // private final Screen screen = new Screen();
     DateFormat df = new SimpleDateFormat("hh-mm-ss");
+    private String nameClasse, nameEquipment, indexNameReturn, nameHMI;
+    private ScreenLocation locationUp, locationDown, locationLeft, locationRight, locationPlus, locationMinus, locationRescale;
+    private ImageTarget targetUp, targetDown, targetPlus, targetMinus, targetCenter, targetLeft, targetRight, targetBack, targetFront, targetLogout;
 
     @Override
     public Result run(ArrayList<ParametersExecution> parameters, HashMap hashMap) throws Exception {

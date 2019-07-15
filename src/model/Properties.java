@@ -9,44 +9,14 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 /**
- *
  * @author tmartinez
  */
-public class Properties implements java.io.Serializable{
+public class Properties implements java.io.Serializable {
 
-    /**
-     *
-     */
-    public enum Type {
-
-        /**
-         *
-         */
-        string, 
-
-        /**
-         *
-         */
-        integer, 
-
-        /**
-         *
-         */
-        color, 
-
-        /**
-         *
-         */
-        image
-    }
-
-    private StringProperty  name;
-
+    private StringProperty name;
     private Type type;
-    private StringProperty  value;
-
+    private StringProperty value;
     /**
-     *
      * @param Name
      * @param type
      * @param value
@@ -56,53 +26,73 @@ public class Properties implements java.io.Serializable{
         this.type = type;
         this.value = new SimpleStringProperty(value);
     }
-    
+
     /**
-     *
      * @return
      */
-    public String getName(){
+    public String getName() {
         return this.name.get();
     }
-    
+
     /**
-     *
      * @param Name
      */
-    public void setName(String Name){
+    public void setName(String Name) {
         this.name = new SimpleStringProperty();
     }
-    
+
     /**
-     *
-     * @param Type
-     */
-    public void setType(Type Type){
-        this.type = Type;
-    }
-    
-    /**
-     *
      * @return
      */
-    public Type getType(){
+    public Type getType() {
         return this.type;
     }
-    
+
     /**
-     *
-     * @param value
+     * @param Type
      */
-    public void setValue(String value){
-        this.value.set(value);
+    public void setType(Type Type) {
+        this.type = Type;
     }
-    
+
     /**
-     *
      * @return
      */
-    public String getValue(){
+    public String getValue() {
         return this.value.get();
+    }
+
+    /**
+     * @param value
+     */
+    public void setValue(String value) {
+        this.value.set(value);
+    }
+
+    /**
+     *
+     */
+    public enum Type {
+
+        /**
+         *
+         */
+        string,
+
+        /**
+         *
+         */
+        integer,
+
+        /**
+         *
+         */
+        color,
+
+        /**
+         *
+         */
+        image
     }
 
 }

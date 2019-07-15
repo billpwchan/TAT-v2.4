@@ -24,7 +24,6 @@ public class WaitW {
     int timeToWait;
 
     /**
-     *
      * @param parameters
      * @param hashMap
      * @return
@@ -62,7 +61,6 @@ public class WaitW {
     }
 
     /**
-     *
      * @param i
      * @return
      */
