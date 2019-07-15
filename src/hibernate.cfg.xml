@@ -5,7 +5,7 @@
       
         <property name="dialect">org.hibernate.dialect.SQLiteDialect</property>
         <property name="connection.driver_class">org.sqlite.JDBC</property>
-        <property name="connection.url">jdbc:sqlite:mydb.db</property>
+        <property name="connection.url">jdbc:sqlite:mydb.db?journal_mode=WAL</property>
         <property name="connection.username"></property>
         <property name="connection.password"></property>
          
@@ -26,6 +26,8 @@
         <!--<property name="hibernate.hbm2ddl.import_files">src/import.sql</property>-->
         <!--<property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">root</property>-->
+        <property name="hibernate.transaction.flush_before_completion">true</property>
+        <property name="hibernate.connection.release_mode">on_close</property>
         <property name="hibernate.show_sql">false</property>
         <property name="hibernate.format_sql">false</property>
         <property name="hibernate.generate_statistics">false</property>
