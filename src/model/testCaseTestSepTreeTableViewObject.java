@@ -8,7 +8,6 @@ package model;
 import javafx.beans.property.SimpleStringProperty;
 
 /**
- *
  * @author tmartinez
  */
 public class testCaseTestSepTreeTableViewObject {
@@ -33,7 +32,6 @@ public class testCaseTestSepTreeTableViewObject {
     }
 
     /**
-     *
      * @param isCase
      */
     public testCaseTestSepTreeTableViewObject(boolean isCase) {
@@ -46,7 +44,6 @@ public class testCaseTestSepTreeTableViewObject {
     }
 
     /**
-     *
      * @param name
      * @param user_ID
      * @param isCase
@@ -61,7 +58,6 @@ public class testCaseTestSepTreeTableViewObject {
     }
 
     /**
-     *
      * @return
      */
     public SimpleStringProperty NameProperty() {
@@ -72,7 +68,6 @@ public class testCaseTestSepTreeTableViewObject {
     }
 
     /**
-     *
      * @return
      */
     public SimpleStringProperty userIDProperty() {
@@ -83,7 +78,6 @@ public class testCaseTestSepTreeTableViewObject {
     }
 
     /**
-     *
      * @param id
      */
     public void setIDCase(int id) {
@@ -91,7 +85,6 @@ public class testCaseTestSepTreeTableViewObject {
     }
 
     /**
-     *
      * @param id
      */
     public void setIDStep(int id) {
@@ -99,15 +92,6 @@ public class testCaseTestSepTreeTableViewObject {
     }
 
     /**
-     *
-     * @param Name
-     */
-    public void setName(String Name) {
-        this.Name.set(Name);
-    }
-
-    /**
-     *
      * @param user_ID
      */
     public void setUser_ID(String user_ID) {
@@ -115,15 +99,6 @@ public class testCaseTestSepTreeTableViewObject {
     }
 
     /**
-     *
-     * @param configured
-     */
-    public void setHasBeenConfiguredCase(boolean configured) {
-        this.hasBeenConfiguredCase = configured;
-    }
-
-    /**
-     *
      * @return
      */
     public boolean getType() {
@@ -131,7 +106,6 @@ public class testCaseTestSepTreeTableViewObject {
     }
 
     /**
-     *
      * @return
      */
     public String getName() {
@@ -139,7 +113,13 @@ public class testCaseTestSepTreeTableViewObject {
     }
 
     /**
-     *
+     * @param Name
+     */
+    public void setName(String Name) {
+        this.Name.set(Name);
+    }
+
+    /**
      * @return
      */
     public int getCaseID() {
@@ -147,7 +127,6 @@ public class testCaseTestSepTreeTableViewObject {
     }
 
     /**
-     *
      * @return
      */
     public String getUserID() {
@@ -155,10 +134,16 @@ public class testCaseTestSepTreeTableViewObject {
     }
 
     /**
-     *
      * @return
      */
     public boolean getHasBeenConfiguredCase() {
         return this.hasBeenConfiguredCase;
+    }
+
+    /**
+     * @param configured
+     */
+    public void setHasBeenConfiguredCase(boolean configured) {
+        this.hasBeenConfiguredCase = configured;
     }
 }

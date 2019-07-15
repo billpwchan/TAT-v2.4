@@ -22,84 +22,27 @@ import java.util.*;
  */
 public class WriteReport {
 
-    private XSSFWorkbook workbook;
-
-    private XSSFSheet sheet;
-
-    private XSSFSheet reportSheet;
-
-    private XSSFSheet summarySheet;
-
-    private TestCampaignDB testCampaignController = new TestCampaignDB();
-
-    private int campaignID;
-
-    private String baselineID;
-
-    private String campaignReference;
-
-    private String campainWriter;
-
-    private String campainCreationDate;
-
-    /**
-     * File Name to write to.
-     */
-    private String FILE_NAME;
-
-    /**
-     * Current Row in Excel workbook.
-     */
-    private int currentRow = 0;
-
-    private int currentRowGlobal = 0;
-
-    private int reportCurrentRow = 1;
-
-    /**
-     * Number of Iterations.
-     */
-    private int numIt;
-
-    private CreationHelper createHelper;
-
     /**
      * Hard-coded Header for Excel Report.
      */
     private static final String[] tempHeader = {"Overall Result", "EventList Result", "Data Type", "Register", "Register Offset", "Triggering State"};
-
     private static final String[] tempHeaderCIP = {"Overall Result", "EventList Result", "Data Type", "Program Tag", "Full Tag", "Triggering State"};
-
     private static final String[] tempReportHeader = {"Register_Address/File", "Bit_offset", "Result", "Associated defect (PCR ID)", "Comment on result", "System version under test", "Date", "Tester"};
-
     private static final String[] tempReportHeaderCIP = {"Program Tag", "Full Tag", "Result", "Associated defect (PCR ID)", "Comment on result", "System version under test", "Date", "Tester"};
-
     private static final HashMap<String, int[]> STDInformation = new HashMap<>();
-
     private static final HashMap<String, int[]> authorInformation = new HashMap<>();
-
     private static final HashMap<String, int[]> STRResults = new HashMap<>();
-
     private static final HashMap<String, int[]> STRInformation = new HashMap<>();
-
     private static final HashMap<String, Integer> caseExeResult = new HashMap<>();
-
     private static final String[] scriptTypeName = {"DI2", "DI", "AI", "DO", "IEC", "CIP"};      //DI2 has to be the first element (It will iterate through each element)
-
     private static final Integer[] scriptTypeMaxStep = {4, 2, 2, 2, 4, 8};
-
-    private int reportMaxStep = 0;
-
-    private String scriptTypeGlobal = "";
-
     private final String colStationKey = "Station";
     private final String colEqpt_CodeKey = "EQP Code";
     private final String colEqpt_DescriptionKey = "EQP Description";
     private final String colEqpt_IdentifierKey = "EQP Number";
     private final String colAttribute_DescriptionKey = "Attribute Description";
     private final String colStateKey = "State";
-
-    //Initialize CCS.PSD Variables 
+    //Initialize CCS.PSD Variables
     private final int colStation = 0;
     private final int colEqpt_Code = 1;
     private final int colEqpt_Description = 2;
@@ -117,7 +60,33 @@ public class WriteReport {
     private final int colSystemVersionUnderTest = 14;
     private final int colDate = 15;
     private final int colTester = 16;
-
+    private XSSFWorkbook workbook;
+    private XSSFSheet sheet;
+    private XSSFSheet reportSheet;
+    private XSSFSheet summarySheet;
+    private TestCampaignDB testCampaignController = new TestCampaignDB();
+    private int campaignID;
+    private String baselineID;
+    private String campaignReference;
+    private String campainWriter;
+    private String campainCreationDate;
+    /**
+     * File Name to write to.
+     */
+    private String FILE_NAME;
+    /**
+     * Current Row in Excel workbook.
+     */
+    private int currentRow = 0;
+    private int currentRowGlobal = 0;
+    private int reportCurrentRow = 1;
+    /**
+     * Number of Iterations.
+     */
+    private int numIt;
+    private CreationHelper createHelper;
+    private int reportMaxStep = 0;
+    private String scriptTypeGlobal = "";
     //Initialize paramSearchListIndex for SummarySheet
     private int paramIndex_Station;
     private int paramIndex_EQPCode;
@@ -139,6 +108,67 @@ public class WriteReport {
      */
     public WriteReport() {
         this.workbook = new XSSFWorkbook();
+    }
+
+    /**
+     * @param paramSearch
+     * @param comment
+     * @return
+     */
+    public static List<String> getParamFound(List<String> paramSearch, String comment) {
+
+        String[] split = comment.split("\n");
+        List<String> paramFound = new ArrayList<>();
+
+        System.out.println("getParamFound split string length: " + split.length);
+        int count = 0;
+        for (int i = 2; i < split.length; i++) {
+            String[] words = split[i].split(" ");
+            if (words.length > 3 && words[2].equalsIgnoreCase("NOK")) {           //NOK Mismatch
+                i += 2;
+                paramFound.add(split[i].substring(split[i].indexOf("=") + 1).trim());
+                count++;
+                continue;
+            }
+
+            try {
+                paramFound.add(paramSearch.get(count));
+            } catch (IndexOutOfBoundsException ex) {
+                paramFound.add("N/A");
+            }
+            count++;
+        }
+
+        return paramFound;
+
+    }
+
+    /**
+     * @param workbook
+     * @return
+     */
+    private static CellStyle getRedCellStyle(XSSFWorkbook workbook) {
+        CellStyle style = workbook.createCellStyle();
+        style.setFillForegroundColor(IndexedColors.RED.getIndex());
+        style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+        style.setAlignment(HorizontalAlignment.CENTER_SELECTION);
+        return style;
+    }
+
+    private static CellStyle getDarkBlueCellStyle(XSSFWorkbook workbook) {
+        CellStyle style = workbook.createCellStyle();
+        style.setFillForegroundColor(IndexedColors.DARK_BLUE.getIndex());
+        style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+        style.setAlignment(HorizontalAlignment.CENTER_SELECTION);
+        return style;
+    }
+
+    private static CellStyle getGreyCellStyle(XSSFWorkbook workbook) {
+        CellStyle style = workbook.createCellStyle();
+        style.setFillForegroundColor(IndexedColors.GREY_50_PERCENT.getIndex());
+        style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+        style.setAlignment(HorizontalAlignment.CENTER_SELECTION);
+        return style;
     }
 
     /**
@@ -223,7 +253,6 @@ public class WriteReport {
         }
         System.out.println("Report Created");
     }
-
 
     /**
      *
@@ -910,68 +939,6 @@ public class WriteReport {
         cell.setCellValue(WriteReport.caseExeResult.get("Test case result"));
         cell.setCellStyle(cellStyle);
 
-    }
-
-    /**
-     * @param paramSearch
-     * @param comment
-     * @return
-     */
-    public static List<String> getParamFound(List<String> paramSearch, String comment) {
-
-        String[] split = comment.split("\n");
-        List<String> paramFound = new ArrayList<>();
-
-        System.out.println("getParamFound split string length: " + split.length);
-        int count = 0;
-        for (int i = 2; i < split.length; i++) {
-            String[] words = split[i].split(" ");
-            if (words.length > 3 && words[2].equalsIgnoreCase("NOK")) {           //NOK Mismatch
-                i += 2;
-                paramFound.add(split[i].substring(split[i].indexOf("=") + 1).trim());
-                count++;
-                continue;
-            }
-
-            try {
-                paramFound.add(paramSearch.get(count));
-            } catch (IndexOutOfBoundsException ex) {
-                paramFound.add("N/A");
-            }
-            count++;
-        }
-
-        return paramFound;
-
-    }
-
-    /**
-     * @param workbook
-     * @return
-     */
-    private static CellStyle getRedCellStyle(XSSFWorkbook workbook) {
-        CellStyle style = workbook.createCellStyle();
-        style.setFillForegroundColor(IndexedColors.RED.getIndex());
-        style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
-        style.setAlignment(HorizontalAlignment.CENTER_SELECTION);
-        return style;
-    }
-
-
-    private static CellStyle getDarkBlueCellStyle(XSSFWorkbook workbook) {
-        CellStyle style = workbook.createCellStyle();
-        style.setFillForegroundColor(IndexedColors.DARK_BLUE.getIndex());
-        style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
-        style.setAlignment(HorizontalAlignment.CENTER_SELECTION);
-        return style;
-    }
-
-    private static CellStyle getGreyCellStyle(XSSFWorkbook workbook) {
-        CellStyle style = workbook.createCellStyle();
-        style.setFillForegroundColor(IndexedColors.GREY_50_PERCENT.getIndex());
-        style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
-        style.setAlignment(HorizontalAlignment.CENTER_SELECTION);
-        return style;
     }
 
     /**

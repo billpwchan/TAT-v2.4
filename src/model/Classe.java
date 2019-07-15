@@ -14,18 +14,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- *
  * @author T0155040
  */
 public class Classe implements Serializable {
 
-    private String nameClasse;
-
     private final ObservableList<equipment> equipmentInClass = FXCollections.observableArrayList();//Set();//checkedObservableSet(new ObservableSet<equipment> se);// new HashSet<>();
-
     private final ObservableList<StateClasse> state = FXCollections.observableArrayList();
-
     private final Set<String> eqpName = new HashSet<>();
+    private String nameClasse;
 
     /**
      *
@@ -35,7 +31,6 @@ public class Classe implements Serializable {
     }
 
     /**
-     *
      * @param name
      */
     public Classe(String name) {
@@ -43,38 +38,27 @@ public class Classe implements Serializable {
     }
 
     /**
-     *
      * @param eqp
      */
     public void addEquipment(equipment eqp) {
         if (eqpName.add(eqp.getEquipmentName())) {
-            System.out.println("Equipment name : "+eqp.getEquipmentName()+"Nombre position : "+eqp.getPositions().size());
+            System.out.println("Equipment name : " + eqp.getEquipmentName() + "Nombre position : " + eqp.getPositions().size());
             this.equipmentInClass.add(eqp);
             //Collections.sort(this.equipmentInClass, new AgeComparator());
         }
     }
 
     /**
-     *
      * @param eqp
      */
-    public void removeEquipment(equipment eqp){
+    public void removeEquipment(equipment eqp) {
         if (eqpName.remove(eqp.getEquipmentName())) {
-                this.equipmentInClass.remove(eqp);
+            this.equipmentInClass.remove(eqp);
         }
 
     }
 
     /**
-     *
-     * @param name
-     */
-    public void setClasseName(String name) {
-        this.nameClasse = name;
-    }
-
-    /**
-     *
      * @return
      */
     public String getClasseName() {
@@ -82,7 +66,13 @@ public class Classe implements Serializable {
     }
 
     /**
-     *
+     * @param name
+     */
+    public void setClasseName(String name) {
+        this.nameClasse = name;
+    }
+
+    /**
      * @return
      */
     public ObservableList<equipment> getEquipments() {
@@ -90,7 +80,6 @@ public class Classe implements Serializable {
     }
 
     /**
-     *
      * @param prop
      */
     public void addState(StateClasse prop) {
@@ -98,7 +87,6 @@ public class Classe implements Serializable {
     }
 
     /**
-     *
      * @return
      */
     public ObservableList<StateClasse> getState() {

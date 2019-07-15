@@ -13,13 +13,11 @@ import java.util.Set;
 import java.util.TreeSet;
 
 /**
- *
  * @author T0155041
  */
 public class ObjectCopy {
 
     /**
-     *
      * @param testCase
      * @return
      */
@@ -30,7 +28,6 @@ public class ObjectCopy {
     }
 
     /**
-     *
      * @param script
      * @return
      */
@@ -41,7 +38,6 @@ public class ObjectCopy {
     }
 
     /**
-     *
      * @param setMacros
      * @return
      */
@@ -59,7 +55,6 @@ public class ObjectCopy {
     }
 
     /**
-     *
      * @param setPSM
      * @return
      */
@@ -101,7 +96,6 @@ public class ObjectCopy {
     }
 
     /**
-     *
      * @param requirements
      * @return
      */
@@ -116,7 +110,6 @@ public class ObjectCopy {
     }
 
     /**
-     *
      * @param newStep
      * @return
      */
@@ -135,7 +128,6 @@ public class ObjectCopy {
     }
 
     /**
-     *
      * @param shbc
      * @param tshs
      * @return

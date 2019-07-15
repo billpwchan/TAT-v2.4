@@ -17,7 +17,6 @@ import javafx.stage.StageStyle;
 import javafx.stage.WindowEvent;
 
 /**
- *
  * @author Thomas M.
  */
 public class ProgressForm {
@@ -38,26 +37,25 @@ public class ProgressForm {
         dialogStage.setOnCloseRequest((WindowEvent event) -> {
             event.consume();
         });
-        
+
         // PROGRESS BAR
         final Label label = new Label();
         label.setText("Please wait until the end of display preparation");
         label.setStyle("-fx-font-size:15;"
                 + "-fx-font-weight:bold;");
-        
-        pin.setPrefSize(100,100);
+
+        pin.setPrefSize(100, 100);
         pin.setProgress(-1F);
         final HBox hb = new HBox();
         hb.setSpacing(5);
         hb.setAlignment(Pos.CENTER);
-        hb.getChildren().addAll(label,pin);
+        hb.getChildren().addAll(label, pin);
 
         Scene scene = new Scene(hb);
         dialogStage.setScene(scene);
     }
 
     /**
-     *
      * @param task
      */
     public void activateProgressBar(final Task<?> task) {
@@ -66,18 +64,16 @@ public class ProgressForm {
     }
 
     /**
-     *
      * @return
      */
     public Stage getDialogStage() {
         return dialogStage;
     }
-    
+
     /**
-     *
      * @return
      */
-    public ProgressIndicator getProgressBar(){
+    public ProgressIndicator getProgressBar() {
         return this.pin;
     }
 }
