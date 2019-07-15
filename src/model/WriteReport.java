@@ -68,7 +68,11 @@ public class WriteReport {
      */
     private static final String[] tempHeader = {"Overall Result", "EventList Result", "Data Type", "Register", "Register Offset", "Triggering State"};
 
+    private static final String[] tempHeaderCIP = {"Overall Result", "EventList Result", "Data Type", "Program Tag", "Full Tag", "Triggering State"};
+
     private static final String[] tempReportHeader = {"Register_Address/File", "Bit_offset", "Result", "Associated defect (PCR ID)", "Comment on result", "System version under test", "Date", "Tester"};
+
+    private static final String[] tempReportHeaderCIP = {"Program Tag", "Full Tag", "Result", "Associated defect (PCR ID)", "Comment on result", "System version under test", "Date", "Tester"};
 
     private static final HashMap<String, int[]> STDInformation = new HashMap<>();
 
@@ -202,8 +206,8 @@ public class WriteReport {
         }
         this.initHashMaps();
         this.reportSheetOffsetInit(it);
-        this.setHeaderFileRows();
-        this.setReportHeaderFileRows();
+        this.setHeaderFileRows(scriptTypeGlobal);
+        this.setReportHeaderFileRows(scriptTypeGlobal);
         this.set(it);
         this.updateSTDInformation();
         this.updateAuthorInformation();
@@ -224,15 +228,24 @@ public class WriteReport {
     /**
      *
      */
-    private void setHeaderFileRows() {
+    private void setHeaderFileRows(String scriptType) {
         //Fill in First Header Row
         CellStyle style = this.workbook.createCellStyle();
         style.setAlignment(HorizontalAlignment.CENTER);
         Row row = this.sheet.createRow(0);
         int colNum = 0;
-        for (int i = 0; i < tempHeader.length; i++) {
+        String[] header;
+        switch (scriptType) {
+            case "CIP":
+                header = tempHeaderCIP;
+                break;
+            default:
+                header = tempHeader;
+                break;
+        }
+        for (int i = 0; i < header.length; i++) {
             Cell cell = row.createCell(colNum);
-            cell.setCellValue(tempHeader[i]);
+            cell.setCellValue(header[i]);
             cell.setCellStyle(style);
             colNum++;
             this.sheet.addMergedRegion(new CellRangeAddress(0, 1, i, i));
@@ -242,7 +255,7 @@ public class WriteReport {
         //this.reportMaxStep records the maximum step it contians. If it is 4, the we should add 3 * (4-1) columns to the worksheet.
     }
 
-    private void setReportHeaderFileRows() {
+    private void setReportHeaderFileRows(String scriptType) {
         Row row = this.reportSheet.getRow(0);
 //        this.cellStyle1.setAlignment(HorizontalAlignment.CENTER);
         for (int i = 1; i <= this.reportMaxStep; i++) {
@@ -256,9 +269,18 @@ public class WriteReport {
             cell.setCellValue("v" + (i - 1) + "_State");
             cell.setCellStyle(this.cellStyle1);
         }
-        for (int i = 0; i < tempReportHeader.length; i++) {
+        String[] header;
+        switch (scriptType) {
+            case "CIP":
+                header = tempReportHeaderCIP;
+                break;
+            default:
+                header = tempReportHeader;
+                break;
+        }
+        for (int i = 0; i < header.length; i++) {
             Cell cell = row.createCell(this.colRegister_Address + (this.reportMaxStep - 1) * 3 + i);
-            cell.setCellValue(tempReportHeader[i]);
+            cell.setCellValue(header[i]);
             if (i > 1) {     //If greater than 1, means it is after "Result" Column
                 cell.setCellStyle(cellStyle3);
             } else {
@@ -437,6 +459,7 @@ public class WriteReport {
                     isStimuli = scriptEx.getIsStimuli() != 0;
 
                     Script script = scriptEx.getScript();
+                    System.out.println(script.getName());
                     if (script.getName().contains("DI2")) {
                         scriptType = "DI2";
                         this.scriptTypeGlobal = "DI2";
@@ -454,6 +477,11 @@ public class WriteReport {
                         this.scriptTypeGlobal = "DO";
                         maxStep = 2;
                         DO_FLAG = true;
+                    } else if (script.getName().contains("CIP") && script.getName().contains("DO")) {  //Assume it is CIP DO
+                        scriptType = "CIPDO";
+                        this.scriptTypeGlobal = "CIPDO";
+                        maxStep = 8;
+                        DO_FLAG = true;
                     } else if (script.getName().contains("DO")) {
                         scriptType = "DO";
                         this.scriptTypeGlobal = "DO";
@@ -467,11 +495,6 @@ public class WriteReport {
                         scriptType = "CIPDI";
                         this.scriptTypeGlobal = "CIPDI";
                         maxStep = 9;
-                    } else if (script.getName().contains("CIP")) {  //Assume it is CIP DO
-                        scriptType = "CIPDO";
-                        this.scriptTypeGlobal = "CIPDO";
-                        maxStep = 8;
-                        DO_FLAG = true;
                     }
                     if (!DO_FLAG)
                         this.reportMaxStep = maxStep > this.reportMaxStep ? maxStep : this.reportMaxStep;
@@ -500,13 +523,8 @@ public class WriteReport {
                                     }
                                 }
                             } else if ("CIPDO".equals(scriptType)) {
-                                if (numParameter == 2) {        // Assume the SLOT refers to the Register Information.
-                                    try {
-                                        registerList.add(String.valueOf((int) Math.round(Double.parseDouble(paramSearched))));
-                                        registerList.add("0");
-                                    } catch (NumberFormatException ex) {
-                                        System.out.println("Number Format Exception ");
-                                    }
+                                if (numParameter == 2 || numParameter == 3) {        // Assume the SLOT refers to the Register Information.
+                                    registerList.add(paramSearched);
                                 }
                             }
                         } else {        //For Step Description (Stimuli only)
@@ -905,7 +923,7 @@ public class WriteReport {
         int count = 0;
         for (int i = 2; i < split.length; i++) {
             String[] words = split[i].split(" ");
-            if (words[2].equalsIgnoreCase("NOK") && words.length > 3) {           //NOK Mismatch
+            if (words.length > 3 && words[2].equalsIgnoreCase("NOK")) {           //NOK Mismatch
                 i += 2;
                 paramFound.add(split[i].substring(split[i].indexOf("=") + 1).trim());
                 count++;
