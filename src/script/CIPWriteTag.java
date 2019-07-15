@@ -45,15 +45,23 @@ public class CIPWriteTag {
 
         try (EtherNetIP plc = new EtherNetIP(address, slot)) {
             plc.connectTcp();
-            System.out.println("Tag" + tag);
+            CommonFunctions.debugLog.info("Tag" + tag);
             CIPData readValue = plc.readTag(tag);
-            System.out.println("Read Value: " + readValue);
+            CommonFunctions.debugLog.info("Read Value: " + readValue);
 
-            readValue.set(0, value);
-            System.out.println("Value Sent: " + readValue);
+            if ((int) value == -1) {
+                for (int i = 0; i <= 7; i++) {
+                    readValue.set(0, i);
+                    plc.writeTag(tag, readValue);
+                    CommonFunctions.debugLog.info("Value Sent: " + readValue);
+                }
+            } else {
+                readValue.set(0, value);
+                CommonFunctions.debugLog.info("Value Sent: " + readValue);
+                plc.writeTag(tag, readValue);
+                CommonFunctions.debugLog.info("Value after Sent: " + readValue);
+            }
 
-            plc.writeTag(tag, readValue);
-            System.out.println("Value after Sent: " + readValue);
 
         } catch (final CipException e) {
             CommonFunctions.debugLog.info(e.getMessage());

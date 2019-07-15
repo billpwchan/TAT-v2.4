@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="90eb576c-ac40-4f05-8597-15fc6b2778c9" name="Default Changelist" comment="">
+    <list default="true" id="90eb576c-ac40-4f05-8597-15fc6b2778c9" name="Default Changelist" comment="[Feature] CIP DI Report Complete">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mydb.db" beforeDir="false" afterPath="$PROJECT_DIR$/mydb.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/WriteReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/WriteReport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src__v2.1.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mydb.db-shm" beforeDir="false" afterPath="$PROJECT_DIR$/mydb.db-shm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mydb.db-wal" beforeDir="false" afterPath="$PROJECT_DIR$/mydb.db-wal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/script/CIPWriteTag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/CIPWriteTag.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -50,16 +50,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/WriteReport.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="340" column="81" selection-start-line="340" selection-start-column="81" selection-end-line="340" selection-end-column="81" />
+            <state relative-caret-position="232">
+              <caret line="828" column="55" selection-start-line="828" selection-start-column="55" selection-end-line="828" selection-end-column="55" />
               <folding>
                 <element signature="e#20446#20770#1" />
-                <element signature="e#33875#34942#1" />
-                <element signature="e#48205#48206#0" expanded="true" />
+                <element signature="e#48269#48270#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/script/CIPWriteTag.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
             </state>
           </provider>
         </entry>
@@ -72,6 +80,7 @@
       <find>successfully</find>
       <find>CIP</find>
       <find>header</find>
+      <find>N/A</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -82,6 +91,7 @@
       <list>
         <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
         <option value="$PROJECT_DIR$/src/model/WriteReport.java" />
+        <option value="$PROJECT_DIR$/src/script/CIPWriteTag.java" />
       </list>
     </option>
   </component>
@@ -103,11 +113,6 @@
               <item name="TATV2.3.4 IEC-104" type="b2602c69:ProjectViewProjectNode" />
               <item name="TATV2.3.4 IEC-104" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="TATV2.3.4 IEC-104" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TATV2.3.4 IEC-104" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -125,6 +130,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../TATV2.3.3 IEC-104" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
@@ -166,7 +172,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1562991258138</updated>
-      <workItem from="1562991260284" duration="18609000" />
+      <workItem from="1562991260284" duration="20677000" />
     </task>
     <task id="LOCAL-00001" summary="[General] CIP Report Maximum Step: 9">
       <created>1562995159526</created>
@@ -245,11 +251,25 @@
       <option name="project" value="LOCAL" />
       <updated>1563173641897</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="[General] Adjust CIP DI Report Structure">
+      <created>1563178835353</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1563178835353</updated>
+    </task>
+    <task id="LOCAL-00013" summary="[Feature] CIP DI Report Complete">
+      <created>1563180004687</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1563180004687</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18609000" />
+    <option name="totallyTimeSpent" value="20677000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1549" height="837" extended-state="6" />
@@ -269,12 +289,12 @@
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Messages" weight="0.32846716" />
       <window_info anchor="bottom" id="Java Enterprise" />
-      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Database Changes" weight="0.329927" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329927" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.1270073" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.1270073" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.2540146" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -307,7 +327,9 @@
     <MESSAGE value="[General] Refactor Script Class" />
     <MESSAGE value="[General] Refactor Engine Class" />
     <MESSAGE value="[General] Refactor FXML" />
-    <option name="LAST_COMMIT_MESSAGE" value="[General] Refactor FXML" />
+    <MESSAGE value="[General] Adjust CIP DI Report Structure" />
+    <MESSAGE value="[Feature] CIP DI Report Complete" />
+    <option name="LAST_COMMIT_MESSAGE" value="[Feature] CIP DI Report Complete" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -438,15 +460,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/WriteReport.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="340" column="81" selection-start-line="340" selection-start-column="81" selection-end-line="340" selection-end-column="81" />
+        <state relative-caret-position="232">
+          <caret line="828" column="55" selection-start-line="828" selection-start-column="55" selection-end-line="828" selection-end-column="55" />
           <folding>
             <element signature="e#20446#20770#1" />
-            <element signature="e#33875#34942#1" />
-            <element signature="e#48205#48206#0" expanded="true" />
+            <element signature="e#48269#48270#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/script/CIPWriteTag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
         </state>
       </provider>
     </entry>
