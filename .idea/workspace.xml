@@ -9,10 +9,9 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c889ef52-46c0-4f96-a7a0-3467c1158425" name="Default Changelist" comment="Add key up and down to display test step.">
+    <list default="true" id="c889ef52-46c0-4f96-a7a0-3467c1158425" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mydb.db" beforeDir="false" afterPath="$PROJECT_DIR$/mydb.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/hibernate.cfg.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/script/CIPWriteTag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/CIPWriteTag.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -62,96 +61,15 @@
     <favorites_list name="Backup Files(Old Version)" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/DBcontroller/TestExecution.java">
+        <entry file="file://$PROJECT_DIR$/src/script/CIPWriteTag.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2278">
-              <caret line="38" column="41" selection-start-line="38" selection-start-column="41" selection-end-line="38" selection-end-column="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DBcontroller/ScriptDB.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="412">
-              <caret line="208" column="44" selection-start-line="208" selection-start-column="44" selection-end-line="208" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DBcontroller/ScriptExecutionDB.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="34" column="24" selection-start-line="34" selection-start-column="24" selection-end-line="34" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DBcontroller/sessionFactorySingleton.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="52" column="59" selection-start-line="52" selection-start-column="59" selection-end-line="52" selection-end-column="59" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DBcontroller/StepExecutionDB.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="39" column="24" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
+            <state relative-caret-position="1566">
+              <caret line="60" column="46" selection-start-line="60" selection-start-column="46" selection-end-line="60" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DBcontroller/TestCampaignDB.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="756">
-              <caret line="41" column="24" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DBcontroller/TestCaseDB.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="810">
-              <caret line="42" column="24" selection-start-line="42" selection-start-column="24" selection-end-line="42" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DBcontroller/TestStepDB.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="146" column="99" selection-start-line="146" selection-start-column="99" selection-end-line="146" selection-end-column="99" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DBcontroller/UserDB.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="33" column="48" selection-start-line="33" selection-start-column="48" selection-end-line="33" selection-end-column="48" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/hibernate.cfg.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -249,12 +167,9 @@
         <option value="$PROJECT_DIR$/src/script/SearchOccurence.java" />
         <option value="$PROJECT_DIR$/src/controller/popup/PopUpRunController.java" />
         <option value="$PROJECT_DIR$/src/controller/tabtestexecution/TabViewResultsController.java" />
-        <option value="$PROJECT_DIR$/src/script/CIPWriteTag.java" />
         <option value="$PROJECT_DIR$/src/DBcontroller/sessionFactorySingleton.java" />
         <option value="$APPLICATION_CONFIG_DIR$/idea64.exe.vmoptions" />
         <option value="$PROJECT_DIR$/src/engine/Engine.java" />
-        <option value="$PROJECT_DIR$/src/hibernate.cfg.xml" />
-        <option value="$PROJECT_DIR$/src/DBcontroller/TestExecution.java" />
         <option value="$PROJECT_DIR$/src/DBcontroller/ConfigurationDB.java" />
         <option value="$PROJECT_DIR$/src/DBcontroller/IterationDB.java" />
         <option value="$PROJECT_DIR$/src/DBcontroller/MacroDB.java" />
@@ -268,6 +183,9 @@
         <option value="$PROJECT_DIR$/src/DBcontroller/TestCaseDB.java" />
         <option value="$PROJECT_DIR$/src/DBcontroller/TestStepDB.java" />
         <option value="$PROJECT_DIR$/src/DBcontroller/UserDB.java" />
+        <option value="$PROJECT_DIR$/src/hibernate.cfg.xml" />
+        <option value="$PROJECT_DIR$/src/DBcontroller/TestExecution.java" />
+        <option value="$PROJECT_DIR$/src/script/CIPWriteTag.java" />
       </list>
     </option>
   </component>
@@ -393,7 +311,6 @@
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="TATV2.3.3 CIP" />
-      <option name="VM_PARAMETERS" value="-Xmx5g" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -763,7 +680,21 @@
       <option name="project" value="LOCAL" />
       <updated>1562835505794</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Change the connection mode of database to support multiple read.">
+      <created>1563177025794</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1563177025794</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Fix the initialization to support report function">
+      <created>1563179316711</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1563179316711</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -782,7 +713,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49624062" visible="true" weight="0.18710022" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49624062" visible="true" weight="0.18923241" />
       <window_info id="Structure" order="1" sideWeight="0.5037594" side_tool="true" weight="0.19296375" />
       <window_info id="Persistence" order="2" sideWeight="0.5037594" side_tool="true" weight="0.19296375" />
       <window_info id="Designer" order="3" />
@@ -922,8 +853,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="Created new scripts." />
-    <MESSAGE value="Test: Baseline Exception ==&gt; Will not cause database record disorder" />
     <MESSAGE value="Using default Wait w/o popup script." />
     <MESSAGE value="NoSleep Script is workable. Add bufferReader.close() in IECInitConnection." />
     <MESSAGE value="SOE2 Complete" />
@@ -947,7 +876,9 @@
     <MESSAGE value="Add CIP Verify script and CIP trigger script" />
     <MESSAGE value="Change Marco result and Step result" />
     <MESSAGE value="Add key up and down to display test step." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add key up and down to display test step." />
+    <MESSAGE value="Change the connection mode of database to support multiple read." />
+    <MESSAGE value="Fix the initialization to support report function" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix the initialization to support report function" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -984,17 +915,6 @@
     <SUITE FILE_PATH="coverage/ttshk_tat_dev_Kelvin$Main.ic" NAME="Main Coverage Results" MODIFIED="1560820331610" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/DB/StepExecutions.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="162" column="16" selection-start-line="162" selection-start-column="16" selection-end-line="162" selection-end-column="16" />
-          <folding>
-            <element signature="e#3462#3463#0" expanded="true" />
-            <element signature="e#3498#3499#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/Libraries/log4j-1.2.17.jar!/org/apache/log4j/Category.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="214">
@@ -1207,16 +1127,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/script/CIPWriteTag.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="40" column="28" selection-start-line="40" selection-start-column="28" selection-end-line="40" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/Libraries/hibernate4/hibernate-core-4.3.1.Final.jar!/org/hibernate/SessionFactory.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -1319,6 +1229,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/DBcontroller/sessionFactorySingleton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="52" column="59" selection-start-line="52" selection-start-column="59" selection-end-line="52" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/DBcontroller/ScriptDB.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="412">
@@ -1328,21 +1245,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DBcontroller/ScriptExecutionDB.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="372">
           <caret line="34" column="24" selection-start-line="34" selection-start-column="24" selection-end-line="34" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DBcontroller/sessionFactorySingleton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="52" column="59" selection-start-line="52" selection-start-column="59" selection-end-line="52" selection-end-column="59" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DBcontroller/StepExecutionDB.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="372">
           <caret line="39" column="24" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1380,15 +1290,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/hibernate.cfg.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
+        <state relative-caret-position="169">
+          <caret line="29" column="39" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="39" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DBcontroller/TestExecution.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2278">
-          <caret line="38" column="41" selection-start-line="38" selection-start-column="41" selection-end-line="38" selection-end-column="41" />
+        <state relative-caret-position="395">
+          <caret line="155" column="31" selection-start-line="155" selection-start-column="31" selection-end-line="155" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/script/TriggerModbusPointDI2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2533">
+          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/script/CIPWriteTag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1566">
+          <caret line="60" column="46" selection-start-line="60" selection-start-column="46" selection-end-line="60" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

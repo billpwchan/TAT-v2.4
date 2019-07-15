@@ -51,13 +51,14 @@ public class CIPWriteTag {
 
             if((int) value == -1){
                 for (int i = 0; i <= 7; ++i){
-                 readValue.set(0, i);
-                 plc.writeTag(tag, readValue);
+                    readValue.set(0,value);
+                    CommonFunctions.debugLog.info("Value Sent: "+readValue);
+                    plc.writeTag(tag, readValue);
+                    CommonFunctions.debugLog.info("Value after Sent: "+readValue);
                 }
             } else {
                 readValue.set(0,value);
                 CommonFunctions.debugLog.info("Value Sent: "+readValue);
-
                 plc.writeTag(tag, readValue);
                 CommonFunctions.debugLog.info("Value after Sent: "+readValue);
             }
