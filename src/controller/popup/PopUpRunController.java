@@ -29,6 +29,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -190,6 +192,47 @@ public class PopUpRunController implements Initializable {
         CaseToExecute.initColumnCaseToExecute(tableViewCampaignPopUpRun);
         autoExecutionDisplay.setVisible(false);
         autoExecutionDisplay.setDisable(true);
+
+        this.tableViewCampaignPopUpRun.setOnKeyReleased((KeyEvent keyEvent)->{
+            if(keyEvent.getCode() == KeyCode.UP){
+                tableViewCampaignPopUpRun.getSelectionModel().selectPrevious();
+                testCaseSelected = tableViewCampaignPopUpRun.getSelectionModel().getSelectedItem();
+                tableViewCampaignPopUpRun.scrollTo(tableViewCampaignPopUpRun.getSelectionModel().getFocusedIndex());
+                if (testCaseSelected != null) {
+                    caseSelected = true;
+                    autoExecutionDisplay.setDisable(false);
+                    try {
+                        DisplaySteps(testCaseSelected);
+                    } catch (InterruptedException ex) {
+                        CommonFunctions.debugLog.error("", ex);
+                    }
+                    if (testScript != null) {
+                        testScript.clear();
+                    } else {
+                        keyEvent.consume();
+                    }
+                }
+            }
+            if(keyEvent.getCode() == KeyCode.DOWN){
+                tableViewCampaignPopUpRun.getSelectionModel().selectNext();
+                testCaseSelected = tableViewCampaignPopUpRun.getSelectionModel().getSelectedItem();
+                tableViewCampaignPopUpRun.scrollTo(tableViewCampaignPopUpRun.getSelectionModel().getFocusedIndex());
+                if (testCaseSelected != null) {
+                    caseSelected = true;
+                    autoExecutionDisplay.setDisable(false);
+                    try {
+                        DisplaySteps(testCaseSelected);
+                    } catch (InterruptedException ex) {
+                        CommonFunctions.debugLog.error("", ex);
+                    }
+                    if (testScript != null) {
+                        testScript.clear();
+                    } else {
+                        keyEvent.consume();
+                    }
+                }
+            }
+        });
 
         this.tableViewCampaignPopUpRun.setOnMousePressed((MouseEvent event) -> {
             if (event.getClickCount() == 1) {
