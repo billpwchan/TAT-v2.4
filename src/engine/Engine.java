@@ -20,16 +20,16 @@ import java.util.concurrent.TimeUnit;
 /**
  * Class for the engine of the software. The tests are launched by this class.
  *
- * @version 1.0
  * @author Thomas M.
+ * @version 1.0
  */
 public class Engine {
 
+    private final MacroDB macroHandler = new MacroDB();
     /**
      * ArrayList of steps to execute.
      */
     public ArrayList<CaseExecutions> toExecute;
-
     /**
      *
      */
@@ -37,22 +37,19 @@ public class Engine {
     String stepResult = "OS", resultOKWC = "OKWC", resultOK = "OK", resultNOK = "NOK", resultNotTestable = "Not testable", resultOutOfScope = "OS", resultIncomplete = "Incomplete";
     int nbCaseOK = 0, nbCaseOKWC = 0, nbCaseNOK = 0, nbCaseNtestable = 0, nbCaseIncomplete = 0, nbCaseOS = 0, nbCaseNT = 0;
     int nbStepOK = 0, nbStepOKWC = 0, nbStepNOK = 0, nbStepNotTestable = 0, nbStepOutOfScope = 0, nbStepIncomplete = 0;
-
     // HashMap of buffer
     HashMap<String, Object> hashMap = new HashMap<>();
-
     String caseResult;
     String macroResult;
     String iterationResult;
     String baselineName;
     int iteration;
     TestExecution testExecutionHandler = new TestExecution();
-    private final MacroDB macroHandler = new MacroDB();
 
     /**
      * Constructor of an engine.
      *
-     * @param toExecute ArrayList of cases to execute
+     * @param toExecute          ArrayList of cases to execute
      * @param popUpRunController
      * @param baselineName
      * @param iteration
@@ -305,7 +302,7 @@ public class Engine {
         this.closeAllScripts(set);
         this.popUpRunController.executionFinished();
         //Possibly caused by setMachineCaseResult.
-        
+
 //        stateMachineCaseResult(hashMapNumberResultSteps, stepsNumber);
 ////        CommonFunctions.debugLog.debug("Case result = " + caseResult);
 //        currentTestCase.setCaseExecutionResult(caseResult);
@@ -317,7 +314,7 @@ public class Engine {
     /**
      * StateMachine to determine the result of a case
      *
-     * @param hashMap the hashmap of test step results
+     * @param hashMap     the hashmap of test step results
      * @param numberSteps the number of steps in the case
      */
     public void stateMachineCaseResult(HashMap<String, Integer> hashMap, int numberSteps) {
@@ -346,7 +343,7 @@ public class Engine {
     /**
      * StateMachine to determine the result of a case
      *
-     * @param hashMap the hashmap of test step results
+     * @param hashMap       the hashmap of test step results
      * @param numberScripts
      */
     private void stateMachineMacro(HashMap<String, Integer> hashMap, int numberScripts) {
@@ -370,7 +367,7 @@ public class Engine {
     /**
      * StateMachine to determine the result of a case
      *
-     * @param hashMap the hashmap of test step results
+     * @param hashMap      the hashmap of test step results
      * @param numberScript the number of scripts in the step
      */
     private void stateMachineStepResult(HashMap<String, Integer> hashMap, int numberScript) {
@@ -405,13 +402,13 @@ public class Engine {
     /**
      * State machine for the result of the iteration
      *
-     * @param nbCaseOK number of cases OK
-     * @param nbCaseNOK number of cases NOK
-     * @param nbCaseOKWC number of cases OKWC
-     * @param nbCaseNtestable number of cases Not testable
+     * @param nbCaseOK         number of cases OK
+     * @param nbCaseNOK        number of cases NOK
+     * @param nbCaseOKWC       number of cases OKWC
+     * @param nbCaseNtestable  number of cases Not testable
      * @param nbCaseIncomplete number of cases incomplete
-     * @param nbCaseOS number of cases OS
-     * @param numberCases total number of test cases
+     * @param nbCaseOS         number of cases OS
+     * @param numberCases      total number of test cases
      */
     private void stateMachineIterationResult(int nbCaseOK, int nbCaseNOK, int nbCaseOKWC, int nbCaseNtestable, int nbCaseIncomplete, int nbCaseOS, int numberCases) {
         if (nbCaseOKWC == 0 && nbCaseNOK == 0 && nbCaseNtestable == 0 && nbCaseOS != numberCases) {
@@ -449,7 +446,7 @@ public class Engine {
      * pie chart and put Case result in DB
      *
      * @param currentTestCase the current test case in execution
-     * @param caseHandler the TestCaseDB to use
+     * @param caseHandler     the TestCaseDB to use
      * @param averageTimeCase
      */
     private void endCaseSetResultChartAndDB(CaseExecutions currentTestCase, TestCaseDB caseHandler, float averageTimeCase) throws InterruptedException {
@@ -476,8 +473,8 @@ public class Engine {
     /**
      * set the result and the comment of the current script
      *
-     * @param result the result to set
-     * @param comment the comment to set
+     * @param result        the result to set
+     * @param comment       the comment to set
      * @param currentScript the script to which set the result
      */
     private void setScriptCommentAndResult(String result, String comment, ScriptExecutions currentScript) {
@@ -497,8 +494,8 @@ public class Engine {
     /**
      * set the result and the comment of the current step
      *
-     * @param result the result to set
-     * @param comment the comment to set
+     * @param result      the result to set
+     * @param comment     the comment to set
      * @param currentStep
      */
     private void setStepCommentAndResult(String result, String comment, StepExecutions currentStep) {
@@ -509,7 +506,7 @@ public class Engine {
     /**
      * Method which run the stimuli of the step.  Left side (Step description)
      *
-     * @param script script to run
+     * @param script     script to run
      * @param parameters parameters of the script
      * @param hashMap
      * @throws java.net.MalformedURLException
@@ -543,7 +540,7 @@ public class Engine {
     /**
      * Method which run the check of the step.  Right side (Expected Result)
      *
-     * @param script the name of the script to run
+     * @param script     the name of the script to run
      * @param parameters the parameters for the script
      * @param hashMap
      * @return the result of the step as a string

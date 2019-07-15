@@ -11,7 +11,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 /**
- *
  * @author MorinT
  */
 public class StepExecutionDB {
@@ -23,7 +22,6 @@ public class StepExecutionDB {
     }
 
     /**
-     *
      * @param campaignID
      * @param baselineID
      * @param iteration

@@ -14,7 +14,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 /**
- *
  * @author T0155040
  */
 public class ResultsDB {
@@ -27,7 +26,6 @@ public class ResultsDB {
     }
 
     /**
-     *
      * @param casesChanges
      */
     public void validCaseResultsChange(ObservableList<CaseExecutions> casesChanges) {

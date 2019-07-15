@@ -15,7 +15,6 @@ import main.Main;
 import java.util.ArrayList;
 
 /**
- *
  * @author Martinez Thibault.
  */
 public class setCursorOnComponent {
@@ -29,7 +28,8 @@ public class setCursorOnComponent {
 
     /**
      * Set the cursor Hand on every node given im the arraylist component when entering into this node and set it back to the default when it exit the node.
-     * @param component 
+     *
+     * @param component
      */
     public void setCursorHand(ArrayList<Node> component) {
 
@@ -41,11 +41,11 @@ public class setCursorOnComponent {
             return component1;
         }).forEach((component1) -> {
             component1.setOnMouseExited((Event event) -> {
-                if(Main.isSet){
+                if (Main.isSet) {
                     Image image = new Image("/assets/images/valid.png");
                     Main.primaryStage.getScene().setCursor(new ImageCursor(image));
-                    
-                }else{
+
+                } else {
                     Main.primaryStage.getScene().setCursor(Cursor.DEFAULT);
                 }
             });

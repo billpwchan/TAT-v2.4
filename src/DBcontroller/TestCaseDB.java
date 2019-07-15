@@ -16,7 +16,6 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- *
  * @author tmorin
  */
 public class TestCaseDB {
@@ -28,7 +27,6 @@ public class TestCaseDB {
     }
 
     /**
-     *
      * @return
      */
     public ArrayList<TestCase> getAllTestCases() {
@@ -45,7 +43,6 @@ public class TestCaseDB {
     }
 
     /**
-     *
      * @param Macro
      * @return
      */
@@ -61,7 +58,6 @@ public class TestCaseDB {
     }
 
     /**
-     *
      * @param testCase
      * @return
      */
@@ -77,7 +73,6 @@ public class TestCaseDB {
     }
 
     /**
-     *
      * @param caseExecution
      */
     public void getCaseAndStepExecutionsFromCaseExecution(CaseExecutions caseExecution) {
@@ -90,7 +85,6 @@ public class TestCaseDB {
     }
 
     /**
-     *
      * @param id
      * @return
      */
@@ -106,7 +100,6 @@ public class TestCaseDB {
     }
 
     /**
-     *
      * @param testCase
      */
     public void deleteTestCase(TestCase testCase) {
@@ -118,7 +111,6 @@ public class TestCaseDB {
     }
 
     /**
-     *
      * @param testcase
      */
     public void getAllFromCase(TestCase testcase) {
@@ -150,7 +142,6 @@ public class TestCaseDB {
     }
 
     /**
-     *
      * @param baselineID
      * @param iterationNumber
      * @return
@@ -194,7 +185,6 @@ public class TestCaseDB {
     }
 
     /**
-     *
      * @param campaignID
      * @return
      */
@@ -209,7 +199,6 @@ public class TestCaseDB {
     }
 
     /**
-     *
      * @param testCaseID
      */
     public void deleteCase(int testCaseID) {
@@ -266,8 +255,8 @@ public class TestCaseDB {
 
 
 //    @SuppressWarnings("empty-statement")
+
     /**
-     *
      * @param testCampaign
      * @return
      */

@@ -10,21 +10,16 @@ import javafx.scene.control.TextField;
 import java.util.regex.Pattern;
 
 /**
- *
  * @author tmartinez
  */
 public class TextFieldWithFormat {
 
+    private final String pattern;
+    boolean needToCheck = false;
     private String id;
-
     private TextField textfield = new TextField();
 
-    private final String pattern;
-
-    boolean needToCheck = false;
-
     /**
-     *
      * @param pattern
      * @param b
      */
@@ -34,7 +29,6 @@ public class TextFieldWithFormat {
     }
 
     /**
-     *
      * @param pattern
      * @param b
      * @param id
@@ -46,7 +40,6 @@ public class TextFieldWithFormat {
     }
 
     /**
-     *
      * @return
      */
     public TextField getTextField() {
@@ -54,15 +47,6 @@ public class TextFieldWithFormat {
     }
 
     /**
-     *
-     * @param test
-     */
-    public void setText(String test) {
-        this.textfield.setText(test);
-    }
-
-    /**
-     *
      * @param textField
      */
     public void setTextField(TextField textField) {
@@ -70,7 +54,6 @@ public class TextFieldWithFormat {
     }
 
     /**
-     *
      * @return
      */
     public String getText() {
@@ -78,7 +61,13 @@ public class TextFieldWithFormat {
     }
 
     /**
-     *
+     * @param test
+     */
+    public void setText(String test) {
+        this.textfield.setText(test);
+    }
+
+    /**
      * @return
      */
     public String getPattern() {
@@ -86,7 +75,6 @@ public class TextFieldWithFormat {
     }
 
     /**
-     *
      * @return
      */
     public Boolean isFormat() {
@@ -98,7 +86,6 @@ public class TextFieldWithFormat {
     }
 
     /**
-     *
      * @return
      */
     public String getId() {
@@ -106,10 +93,9 @@ public class TextFieldWithFormat {
     }
 
     /**
-     *
      * @param Id
      */
-    public void setId(String Id){
-        this.id=Id;
+    public void setId(String Id) {
+        this.id = Id;
     }
 }

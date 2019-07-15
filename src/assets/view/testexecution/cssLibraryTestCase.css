@@ -1,27 +1,29 @@
 
-.tree-table-row-cell:campaign .tree-table-cell{
-    -fx-control-inner-background: rgba(51,102,255,0.2);
+.tree-table-row-cell:campaign .tree-table-cell {
+    -fx-control-inner-background: rgba(51, 102, 255, 0.2);
     -fx-background-color: -fx-table-cell-border-color, -fx-control-inner-background;
-    -fx-background-insets: 0, 0 0 1 0; 
+    -fx-background-insets: 0, 0 0 1 0;
     -fx-text-fill: black;
 }
 
-.tree-table-row-cell:baseline .tree-table-cell{
-    -fx-control-inner-background: rgba(51,153,255,0.2);
+.tree-table-row-cell:baseline .tree-table-cell {
+    -fx-control-inner-background: rgba(51, 153, 255, 0.2);
     -fx-background-color: -fx-table-cell-border-color, -fx-control-inner-background;
-    -fx-background-insets: 0, 0 0 1 0; 
+    -fx-background-insets: 0, 0 0 1 0;
     -fx-text-fill: black;
 }
 
-.tree-table-row-cell:selected .tree-table-cell{
+.tree-table-row-cell:selected .tree-table-cell {
     -fx-background-color: #C9C9C9;
     -fx-text-fill: white
 }
-#displayStyle{
+
+#displayStyle {
     -fx-background-color: transparent;
-    -fx-text-fill : #9900CC;
+    -fx-text-fill: #9900CC;
     -fx-font-weight: bold;
 }
+
 /*#areaStyle {
     -fx-background-color: transparent;//rgba(53,89,119,0.4);
     -fx-border-color: black;
@@ -30,14 +32,14 @@
     -fx-text-fill : #9900CC;
 }*/
 
-.table-row-cell:configured .table-cell{
+.table-row-cell:configured .table-cell {
     -fx-control-inner-background: red;
     -fx-background-color: -fx-table-cell-border-color, -fx-control-inner-background;
-    -fx-background-insets: 0, 0 0 1 0; 
+    -fx-background-insets: 0, 0 0 1 0;
     -fx-text-fill: black;
 }
 
-.table-row-cell:selected .table-cell{
+.table-row-cell:selected .table-cell {
     -fx-background-color: #C9C9C9;
     -fx-text-fill: white
 }

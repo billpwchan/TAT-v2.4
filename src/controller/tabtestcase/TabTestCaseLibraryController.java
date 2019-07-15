@@ -473,6 +473,6 @@ public class TabTestCaseLibraryController implements Initializable {
                     "This test case is already used in a campaign, impossible to edit it.", "Do you want to create a new one from it ?");
             return result.isPresent() && result.get() == ButtonType.OK; // ... user chose CANCEL or closed the dialog
         }
-            return true;
-        }
+        return true;
+    }
 }

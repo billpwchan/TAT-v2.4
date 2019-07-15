@@ -35,7 +35,6 @@ public class CaseExecutions implements java.io.Serializable, Comparable<CaseExec
     }
 
     /**
-     *
      * @param iterations
      * @param testCase
      */
@@ -45,7 +44,6 @@ public class CaseExecutions implements java.io.Serializable, Comparable<CaseExec
     }
 
     /**
-     *
      * @param iterations
      * @param testCase
      * @param caseOrder
@@ -57,7 +55,6 @@ public class CaseExecutions implements java.io.Serializable, Comparable<CaseExec
     }
 
     /**
-     *
      * @param iterations
      * @param testCase
      * @param caseOrder
@@ -79,7 +76,6 @@ public class CaseExecutions implements java.io.Serializable, Comparable<CaseExec
     }
 
     /**
-     *
      * @return
      */
     public Integer getIdcaseExecutions() {
@@ -87,7 +83,6 @@ public class CaseExecutions implements java.io.Serializable, Comparable<CaseExec
     }
 
     /**
-     *
      * @param idcaseExecutions
      */
     public void setIdcaseExecutions(Integer idcaseExecutions) {
@@ -95,7 +90,6 @@ public class CaseExecutions implements java.io.Serializable, Comparable<CaseExec
     }
 
     /**
-     *
      * @return
      */
     public Iterations getIterations() {
@@ -103,7 +97,6 @@ public class CaseExecutions implements java.io.Serializable, Comparable<CaseExec
     }
 
     /**
-     *
      * @param iterations
      */
     public void setIterations(Iterations iterations) {
@@ -111,7 +104,6 @@ public class CaseExecutions implements java.io.Serializable, Comparable<CaseExec
     }
 
     /**
-     *
      * @return
      */
     public TestCase getTestCase() {
@@ -119,7 +111,6 @@ public class CaseExecutions implements java.io.Serializable, Comparable<CaseExec
     }
 
     /**
-     *
      * @param testCase
      */
     public void setTestCase(TestCase testCase) {
@@ -127,7 +118,6 @@ public class CaseExecutions implements java.io.Serializable, Comparable<CaseExec
     }
 
     /**
-     *
      * @return
      */
     public Short getCaseOrder() {
@@ -135,7 +125,6 @@ public class CaseExecutions implements java.io.Serializable, Comparable<CaseExec
     }
 
     /**
-     *
      * @param caseOrder
      */
     public void setCaseOrder(Short caseOrder) {
@@ -143,7 +132,6 @@ public class CaseExecutions implements java.io.Serializable, Comparable<CaseExec
     }
 
     /**
-     *
      * @return
      */
     public String getLocation() {
@@ -151,7 +139,6 @@ public class CaseExecutions implements java.io.Serializable, Comparable<CaseExec
     }
 
     /**
-     *
      * @param location
      */
     public void setLocation(String location) {
@@ -159,7 +146,6 @@ public class CaseExecutions implements java.io.Serializable, Comparable<CaseExec
     }
 
     /**
-     *
      * @return
      */
     public String getTestCategory() {
@@ -167,7 +153,6 @@ public class CaseExecutions implements java.io.Serializable, Comparable<CaseExec
     }
 
     /**
-     *
      * @param testCategory
      */
     public void setTestCategory(String testCategory) {
@@ -175,7 +160,6 @@ public class CaseExecutions implements java.io.Serializable, Comparable<CaseExec
     }
 
     /**
-     *
      * @return
      */
     public String getCaseInstance() {
@@ -183,7 +167,6 @@ public class CaseExecutions implements java.io.Serializable, Comparable<CaseExec
     }
 
     /**
-     *
      * @param caseInstance
      */
     public void setCaseInstance(String caseInstance) {
@@ -191,7 +174,6 @@ public class CaseExecutions implements java.io.Serializable, Comparable<CaseExec
     }
 
     /**
-     *
      * @return
      */
     public Set getCaseExecutionsResults() {
@@ -199,7 +181,6 @@ public class CaseExecutions implements java.io.Serializable, Comparable<CaseExec
     }
 
     /**
-     *
      * @param caseExecutionsResults
      */
     public void setCaseExecutionsResults(Set caseExecutionsResults) {
@@ -207,7 +188,6 @@ public class CaseExecutions implements java.io.Serializable, Comparable<CaseExec
     }
 
     /**
-     *
      * @return
      */
     public Set getStepExecutionses() {
@@ -215,7 +195,6 @@ public class CaseExecutions implements java.io.Serializable, Comparable<CaseExec
     }
 
     /**
-     *
      * @param stepExecutionses
      */
     public void setStepExecutionses(Set stepExecutionses) {
@@ -223,15 +202,6 @@ public class CaseExecutions implements java.io.Serializable, Comparable<CaseExec
     }
 
     /**
-     *
-     * @param comment
-     */
-    public void setCaseExecutionComment(String comment) {
-        this.comment = comment;
-    }
-
-    /**
-     *
      * @return
      */
     public String getCaseExecutionComment() {
@@ -239,16 +209,13 @@ public class CaseExecutions implements java.io.Serializable, Comparable<CaseExec
     }
 
     /**
-     *
-     * @param result
+     * @param comment
      */
-    public void setCaseExecutionResult(String result) {
-        simpleStringResultProperty().set(result);
-        this.result = result;
+    public void setCaseExecutionComment(String comment) {
+        this.comment = comment;
     }
 
     /**
-     *
      * @return
      */
     public String getSimpleStringResultProperty() {
@@ -256,7 +223,6 @@ public class CaseExecutions implements java.io.Serializable, Comparable<CaseExec
     }
 
     /**
-     *
      * @return
      */
     public StringProperty simpleStringResultProperty() {
@@ -267,11 +233,18 @@ public class CaseExecutions implements java.io.Serializable, Comparable<CaseExec
     }
 
     /**
-     *
      * @return
      */
     public String getCaseExecutionResult() {
         return this.result;
+    }
+
+    /**
+     * @param result
+     */
+    public void setCaseExecutionResult(String result) {
+        simpleStringResultProperty().set(result);
+        this.result = result;
     }
 
     @Override
@@ -280,15 +253,6 @@ public class CaseExecutions implements java.io.Serializable, Comparable<CaseExec
     }
 
     /**
-     *
-     * @param excelPath
-     */
-    public void setExcelPath(String excelPath) {
-        this.ExcelPath = excelPath;
-    }
-
-    /**
-     *
      * @return
      */
     public String getExcelPath() {
@@ -296,7 +260,20 @@ public class CaseExecutions implements java.io.Serializable, Comparable<CaseExec
     }
 
     /**
-     *
+     * @param excelPath
+     */
+    public void setExcelPath(String excelPath) {
+        this.ExcelPath = excelPath;
+    }
+
+    /**
+     * @return
+     */
+    public String getOriginalResult() {
+        return this.originalResult;
+    }
+
+    /**
      * @param originalResult
      */
     public void setOriginalResult(String originalResult) {
@@ -304,27 +281,17 @@ public class CaseExecutions implements java.io.Serializable, Comparable<CaseExec
     }
 
     /**
-     *
      * @return
      */
-    public String getOriginalResult() {
-        return this.originalResult;
-    }
-    
-    /**
-     *
-     * @return
-     */
-    public CaseExecutionsResult getCaseExecutionResultObj(){
+    public CaseExecutionsResult getCaseExecutionResultObj() {
         return this.caseExecutionResult;
     }
-    
+
     /**
-     *
      * @param caseExecutionResult
      */
-    public void setCaseExecutionResultObj(CaseExecutionsResult caseExecutionResult){
-        this.caseExecutionResult=caseExecutionResult;
+    public void setCaseExecutionResultObj(CaseExecutionsResult caseExecutionResult) {
+        this.caseExecutionResult = caseExecutionResult;
     }
 
 

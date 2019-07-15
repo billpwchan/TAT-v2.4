@@ -9,53 +9,46 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 /**
- *
  * @author tmartinez
  */
 public class StateClasse {
 
+    ObservableList<Properties> stateclasse = FXCollections.observableArrayList();
     private String name;
 
-    ObservableList<Properties> stateclasse = FXCollections.observableArrayList();
-    
     /**
-     *
      * @param name
      */
-    public StateClasse(String name){
-        this.name = name;
-    }
-    
-    /**
-     *
-     * @param name
-     */
-    public void setStateName(String name){
+    public StateClasse(String name) {
         this.name = name;
     }
 
     /**
-     *
      * @return
      */
-    public String getStateName(){
+    public String getStateName() {
         return this.name;
     }
-    
+
     /**
-     *
+     * @param name
+     */
+    public void setStateName(String name) {
+        this.name = name;
+    }
+
+    /**
      * @param aThis
      */
-    public void addProperties(Properties aThis){
+    public void addProperties(Properties aThis) {
         this.stateclasse.add(aThis);
     }
-    
+
     /**
-     *
      * @return
      */
-    public ObservableList<Properties> getProperties(){
+    public ObservableList<Properties> getProperties() {
         return this.stateclasse;
     }
-    
+
 }

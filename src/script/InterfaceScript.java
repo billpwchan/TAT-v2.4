@@ -40,7 +40,7 @@ public interface InterfaceScript {
      * description. This Script is useful to add new scripts in the TAT, all the information of the parameters are automatically filled for the user.
      *
      * @return the ArrayList with all the parameters for the script
-     * 
+     *
      */
     ArrayList<Parameters> parameters();
 
@@ -51,5 +51,5 @@ public interface InterfaceScript {
      * @return the script with its information
      */
     Script scriptInfos();
-    
+
 }

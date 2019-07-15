@@ -27,7 +27,6 @@ public class Iterations implements java.io.Serializable {
     }
 
     /**
-     *
      * @param testCampaign
      * @param baselineId
      * @param iterationNumber
@@ -41,7 +40,6 @@ public class Iterations implements java.io.Serializable {
     }
 
     /**
-     *
      * @param iditerations
      * @param testCampaign
      * @param baselineId
@@ -55,7 +53,6 @@ public class Iterations implements java.io.Serializable {
     }
 
     /**
-     *
      * @param iditerations
      * @param testCampaign
      * @param baselineId
@@ -64,7 +61,7 @@ public class Iterations implements java.io.Serializable {
      * @param caseExecutionses
      * @param user
      */
-    public Iterations(int iditerations, TestCampaign testCampaign, String baselineId, int iterationNumber, String date, Set caseExecutionses,String user) {
+    public Iterations(int iditerations, TestCampaign testCampaign, String baselineId, int iterationNumber, String date, Set caseExecutionses, String user) {
         this.iditerations = iditerations;
         this.testCampaign = testCampaign;
         this.baselineId = baselineId;
@@ -74,7 +71,6 @@ public class Iterations implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public int getIditerations() {
@@ -82,7 +78,6 @@ public class Iterations implements java.io.Serializable {
     }
 
     /**
-     *
      * @param iditerations
      */
     public void setIditerations(int iditerations) {
@@ -90,7 +85,6 @@ public class Iterations implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public TestCampaign getTestCampaign() {
@@ -98,7 +92,6 @@ public class Iterations implements java.io.Serializable {
     }
 
     /**
-     *
      * @param testCampaign
      */
     public void setTestCampaign(TestCampaign testCampaign) {
@@ -106,7 +99,6 @@ public class Iterations implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public String getBaselineId() {
@@ -114,7 +106,6 @@ public class Iterations implements java.io.Serializable {
     }
 
     /**
-     *
      * @param baselineId
      */
     public void setBaselineId(String baselineId) {
@@ -122,7 +113,6 @@ public class Iterations implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public int getIterationNumber() {
@@ -130,7 +120,6 @@ public class Iterations implements java.io.Serializable {
     }
 
     /**
-     *
      * @param iterationNumber
      */
     public void setIterationNumber(int iterationNumber) {
@@ -138,7 +127,6 @@ public class Iterations implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public String getDate() {
@@ -146,7 +134,6 @@ public class Iterations implements java.io.Serializable {
     }
 
     /**
-     *
      * @param date
      */
     public void setDate(String date) {
@@ -154,7 +141,6 @@ public class Iterations implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public Set getCaseExecutionses() {
@@ -162,7 +148,6 @@ public class Iterations implements java.io.Serializable {
     }
 
     /**
-     *
      * @param caseExecutionses
      */
     public void setCaseExecutionses(Set caseExecutionses) {
@@ -170,7 +155,6 @@ public class Iterations implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public String getResult() {
@@ -178,7 +162,6 @@ public class Iterations implements java.io.Serializable {
     }
 
     /**
-     *
      * @param result
      */
     public void setResult(String result) {
@@ -186,7 +169,6 @@ public class Iterations implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public String getType() {
@@ -194,7 +176,6 @@ public class Iterations implements java.io.Serializable {
     }
 
     /**
-     *
      * @param type
      */
     public void setType(String type) {
@@ -202,19 +183,17 @@ public class Iterations implements java.io.Serializable {
     }
 
     /**
-     *
-     * @param iterationResult
-     */
-    public void setIterationResult(Double iterationResult) {
-        this.iterationRestult = iterationResult;
-    }
-
-    /**
-     *
      * @return
      */
     public Double getIterationResult() {
         return this.iterationRestult;
+    }
+
+    /**
+     * @param iterationResult
+     */
+    public void setIterationResult(Double iterationResult) {
+        this.iterationRestult = iterationResult;
     }
 
     /**

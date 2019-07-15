@@ -19,25 +19,25 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- *
  * @author tmartinez
  */
 public class MoveMouseCoordinates implements InterfaceScript {
-    
-    
-    private int x,y;
+
+
+    private int x, y;
+
     @Override
     public Result run(ArrayList<ParametersExecution> parameters, HashMap hashMap) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         x = Integer.valueOf(parameters.get(1).getValue());
         y = Integer.valueOf(parameters.get(2).getValue());
-        
+
         ScreenRegion s = new DesktopScreenRegion();
         ScreenRegion test = new DefaultScreenRegion(s, x, y, 1, 1);
         Mouse m = new DesktopMouse();
         m.drop(test.getCenter());
         //m.click(m.getLocation());
-        
+
         return null;
     }
 

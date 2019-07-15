@@ -6,12 +6,11 @@ import DB.Script;
 import controller.util.CommonFunctions;
 import engine.Result;
 
-import java.io.*;
+import java.io.BufferedWriter;
+import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.time.Duration;
-import java.time.Instant;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -27,6 +26,21 @@ public class TriggerIEC104Point implements InterfaceScript {
 
     private List<String> lines;
 
+    public static void main(String[] args) {
+        //Must initiate IEC104 connection to keep lines of IEC104Template as static.
+        IEC104InitConnection temp = new IEC104InitConnection();
+        try {
+            temp.run(null, null);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        TriggerIEC104Point temp1 = new TriggerIEC104Point();
+        try {
+            temp1.run(null, null);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     @Override
     public Result run(ArrayList<ParametersExecution> parameters, HashMap hashMap) throws Exception {
@@ -130,21 +144,5 @@ public class TriggerIEC104Point implements InterfaceScript {
             }
         }
         return param;
-    }
-
-    public static void main(String[] args) {
-        //Must initiate IEC104 connection to keep lines of IEC104Template as static.
-        IEC104InitConnection temp = new IEC104InitConnection();
-        try {
-            temp.run(null, null);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        TriggerIEC104Point temp1 = new TriggerIEC104Point();
-        try {
-            temp1.run(null, null);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 }

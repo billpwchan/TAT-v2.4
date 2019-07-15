@@ -24,32 +24,26 @@ import java.util.HashMap;
 //import net.wimpi.modbus.debug;
 
 /**
- *
  * @author tmartinez
  */
 public class TriggerModbusPointDI implements InterfaceScript {
 
     /**
-     * Message to display with the Echo.
-     */
-    private int register;
-
-    private double value;
-
-    private String stringValue;
-
-    /**
      * Params of the test.
      */
     String params;
-
     /**
      * Result of the test.
      */
     String result = "Failed";
+    /**
+     * Message to display with the Echo.
+     */
+    private int register;
+    private double value;
+    private String stringValue;
 
     /**
-     *
      * @param processImage
      * @param register
      * @param newValue
@@ -77,7 +71,7 @@ public class TriggerModbusPointDI implements InterfaceScript {
 
     public void updateDigiatalOutputRegister(SimpleProcessImage instance, int register, double value) throws InterruptedException {
 
-        instance.setDigitalOut(register, new SimpleDigitalOut(value!=0));
+        instance.setDigitalOut(register, new SimpleDigitalOut(value != 0));
 
 //      CommonFunctions.debugLogd.error("updateinputReg = "+ register);
         Thread.sleep(500);
@@ -85,7 +79,7 @@ public class TriggerModbusPointDI implements InterfaceScript {
 
     public void updateDigiatalInputRegister(SimpleProcessImage instance, int register, double value) throws InterruptedException {
 
-        instance.setDigitalIn(register, new SimpleDigitalIn (value!=0));
+        instance.setDigitalIn(register, new SimpleDigitalIn(value != 0));
 
 //      CommonFunctions.debugLogd.error("updateinputReg = "+ register);
         Thread.sleep(500);
@@ -104,7 +98,7 @@ public class TriggerModbusPointDI implements InterfaceScript {
 
     @Override
     public Result run(ArrayList<ParametersExecution> parameters, HashMap hashMap) throws Exception {
-       //WARNING ! inverse values
+        //WARNING ! inverse values
 
         //this.typeOfPoint = (String) parameters.get(0).getParameter();
         this.register = ((int) Double.parseDouble(parameters.get(1).getValue().trim()));
@@ -119,25 +113,27 @@ public class TriggerModbusPointDI implements InterfaceScript {
         this.value = (int) Math.pow(2, val);
 //this.value = Math.pow(2,Integer.valueOf(this.stringValue)) ;
 //        }
-        switch (LaunchTCPServerModbus.functionCode)
-        {
-            case "03": case "0x03":
+        switch (LaunchTCPServerModbus.functionCode) {
+            case "03":
+            case "0x03":
                 try {
                     SimpleProcessImage instance = LaunchTCPServerModbus.getInstance();
-                    updateHoldingRegister(instance, register,(int) value);
+                    updateHoldingRegister(instance, register, (int) value);
                 } catch (Exception ex) {
                     Logger.getLogger(TriggerModbusPointDI.class.getName()).error("", ex);
                 }
                 break;
-            case "04": case "0x04":
+            case "04":
+            case "0x04":
                 try {
                     SimpleProcessImage instance = LaunchTCPServerModbus.getInstance();
-                    updateInputRegister(instance, register,(int) value);
+                    updateInputRegister(instance, register, (int) value);
                 } catch (Exception ex) {
                     Logger.getLogger(TriggerModbusPointDI.class.getName()).error("", ex);
                 }
                 break;
-            case "01": case "0x01":
+            case "01":
+            case "0x01":
                 try {
                     SimpleProcessImage instance = LaunchTCPServerModbus.getInstance();
                     updateDigiatalOutputRegister(instance, register, value);
@@ -145,7 +141,8 @@ public class TriggerModbusPointDI implements InterfaceScript {
                     Logger.getLogger(TriggerModbusPointDI.class.getName()).error("", ex);
                 }
                 break;
-            case "02": case "0x02":
+            case "02":
+            case "0x02":
                 try {
                     SimpleProcessImage instance = LaunchTCPServerModbus.getInstance();
                     updateDigiatalInputRegister(instance, register, value);

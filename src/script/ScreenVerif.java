@@ -14,8 +14,8 @@ import java.util.HashMap;
 /**
  * Class which verify a picture. this is a check script for the TAT
  *
- * @version 1.0
  * @author Thomas Morin
+ * @version 1.0
  */
 public class ScreenVerif {
 
@@ -46,7 +46,6 @@ public class ScreenVerif {
 
     /**
      * constructor of a screen verification.
-     *
      */
     public ScreenVerif() {
     }

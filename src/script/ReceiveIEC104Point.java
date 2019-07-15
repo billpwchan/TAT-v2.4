@@ -5,17 +5,11 @@ import DB.ParametersExecution;
 import DB.Script;
 import controller.util.CommonFunctions;
 import engine.Result;
-import org.hibernate.tool.hbm2x.StringUtils;
 
-import java.io.*;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.time.Duration;
 import java.time.Instant;
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 
 public class ReceiveIEC104Point implements InterfaceScript {
@@ -24,6 +18,8 @@ public class ReceiveIEC104Point implements InterfaceScript {
     private int DOCodeOffset2 = 12;
     private int DOHexOffset = 8;
 
+    public static void main(String[] args) {
+    }
 
     @Override
     public Result run(ArrayList<ParametersExecution> parameters, HashMap hashMap) throws Exception {
@@ -100,9 +96,6 @@ public class ReceiveIEC104Point implements InterfaceScript {
     @Override
     public Script scriptInfos() {
         return null;
-    }
-
-    public static void main(String[] args) {
     }
 }
 

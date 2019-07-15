@@ -17,7 +17,6 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- *
  * @author tmorin
  */
 public class TestExecution {
@@ -29,7 +28,6 @@ public class TestExecution {
     }
 
     /**
-     *
      * @param campaign
      * @return
      * @throws ParseException
@@ -54,7 +52,6 @@ public class TestExecution {
     }
 
     /**
-     *
      * @param baseline
      * @return
      */
@@ -75,11 +72,10 @@ public class TestExecution {
 
 
     /**
-     *
      * @param baselineName
      * @return
      */
-        public Iterations prepareIteration(String baselineName) {
+    public Iterations prepareIteration(String baselineName) {
         Iterations iterationCreated = new Iterations();
         Iterations iteration0 = this.getIterationFromBaselineName(baselineName);
         int Iteration = this.getIterationNumber(iteration0) + 1;
@@ -97,7 +93,6 @@ public class TestExecution {
     }
 
     /**
-     *
      * @param iteration
      */
     public void deleteIteration(Iterations iteration) {
@@ -135,7 +130,6 @@ public class TestExecution {
     }
 
     /**
-     *
      * @param caseExecution
      * @param iterationNumber
      */
@@ -162,9 +156,8 @@ public class TestExecution {
         session.beginTransaction().commit();
         session.close();
     }
-    
+
     /**
-     *
      * @param caseExecution
      * @param iterationNumber
      */
@@ -189,11 +182,10 @@ public class TestExecution {
             }
         }
         session.beginTransaction().commit();
-        session.close();        
+        session.close();
     }
 
     /**
-     *
      * @param iteration0
      * @return
      */
@@ -208,7 +200,6 @@ public class TestExecution {
     }
 
     /**
-     *
      * @param baselineName
      * @return
      */
@@ -223,7 +214,6 @@ public class TestExecution {
     }
 
     /**
-     *
      * @param currCaseEx
      */
     public void initializeStepEx(CaseExecutions currCaseEx) {

@@ -20,17 +20,14 @@ import java.util.Calendar;
 import java.util.HashMap;
 
 /**
- *
  * @author tmartinez
  */
 public class TakeScreenShotEQP implements InterfaceScript {
 
-    private Position position;
-
-    private String pathSave;
-
-    private String bufferName;
     DateFormat df = new SimpleDateFormat("hh-mm-ss");
+    private Position position;
+    private String pathSave;
+    private String bufferName;
 
     @Override
     public Result run(ArrayList<ParametersExecution> parameters, HashMap hashMap) throws Exception {
@@ -47,7 +44,7 @@ public class TakeScreenShotEQP implements InterfaceScript {
 
     @Override
     public void close() {
-       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override

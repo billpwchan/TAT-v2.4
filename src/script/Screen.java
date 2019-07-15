@@ -14,8 +14,8 @@ import java.util.HashMap;
  * Class which perform a screenshot of the screen. this is a stimuli script for
  * the TAT
  *
- * @version 1.0
  * @author Thomas Morin
+ * @version 1.0
  */
 public class Screen {
 
@@ -41,7 +41,6 @@ public class Screen {
 
     /**
      * Constructor of a screenshot. get the parameters and run the script.
-     *
      */
     public Screen() {
 

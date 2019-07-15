@@ -28,7 +28,6 @@ public class ScriptExecutions implements java.io.Serializable {
     }
 
     /**
-     *
      * @param script
      * @param stepExecutions
      */
@@ -38,7 +37,6 @@ public class ScriptExecutions implements java.io.Serializable {
     }
 
     /**
-     *
      * @param script
      * @param stepExecutions
      * @param scriptOrder
@@ -52,7 +50,6 @@ public class ScriptExecutions implements java.io.Serializable {
     }
 
     /**
-     *
      * @param script
      * @param stepExecutions
      * @param scriptOrder
@@ -74,7 +71,6 @@ public class ScriptExecutions implements java.io.Serializable {
     }
 
     /**
-     *
      * @param scriptExecutions
      */
     public ScriptExecutions(ScriptExecutions scriptExecutions) {
@@ -90,7 +86,6 @@ public class ScriptExecutions implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public Integer getIdscriptExecutions() {
@@ -98,7 +93,6 @@ public class ScriptExecutions implements java.io.Serializable {
     }
 
     /**
-     *
      * @param idscriptExecutions
      */
     public void setIdscriptExecutions(Integer idscriptExecutions) {
@@ -106,7 +100,6 @@ public class ScriptExecutions implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public Script getScript() {
@@ -114,7 +107,6 @@ public class ScriptExecutions implements java.io.Serializable {
     }
 
     /**
-     *
      * @param script
      */
     public void setScript(Script script) {
@@ -122,7 +114,6 @@ public class ScriptExecutions implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public StepExecutions getStepExecutions() {
@@ -130,7 +121,6 @@ public class ScriptExecutions implements java.io.Serializable {
     }
 
     /**
-     *
      * @param stepExecutions
      */
     public void setStepExecutions(StepExecutions stepExecutions) {
@@ -138,7 +128,6 @@ public class ScriptExecutions implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public Byte getScriptOrder() {
@@ -146,7 +135,6 @@ public class ScriptExecutions implements java.io.Serializable {
     }
 
     /**
-     *
      * @param scriptOrder
      */
     public void setScriptOrder(Byte scriptOrder) {
@@ -154,7 +142,6 @@ public class ScriptExecutions implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public Byte getIsStimuli() {
@@ -162,7 +149,6 @@ public class ScriptExecutions implements java.io.Serializable {
     }
 
     /**
-     *
      * @param isStimuli
      */
     public void setIsStimuli(Byte isStimuli) {
@@ -170,7 +156,6 @@ public class ScriptExecutions implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public Set getMacroExecutionsForScriptExecutionsIdscriptExecutions() {
@@ -178,7 +163,6 @@ public class ScriptExecutions implements java.io.Serializable {
     }
 
     /**
-     *
      * @param macroExecutionsForScriptExecutionsIdscriptExecutions
      */
     public void setMacroExecutionsForScriptExecutionsIdscriptExecutions(Set macroExecutionsForScriptExecutionsIdscriptExecutions) {
@@ -186,7 +170,6 @@ public class ScriptExecutions implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public Set getMacroExecutionsForScriptExecutionsIdscriptExecutions1() {
@@ -194,7 +177,6 @@ public class ScriptExecutions implements java.io.Serializable {
     }
 
     /**
-     *
      * @param macroExecutionsForScriptExecutionsIdscriptExecutions1
      */
     public void setMacroExecutionsForScriptExecutionsIdscriptExecutions1(Set macroExecutionsForScriptExecutionsIdscriptExecutions1) {
@@ -202,7 +184,6 @@ public class ScriptExecutions implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public Set getParametersExecutions() {
@@ -210,7 +191,6 @@ public class ScriptExecutions implements java.io.Serializable {
     }
 
     /**
-     *
      * @param parametersExecutions
      */
     public void setParametersExecutions(Set parametersExecutions) {
@@ -218,7 +198,6 @@ public class ScriptExecutions implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public Set getScriptExecutionResults() {
@@ -226,7 +205,6 @@ public class ScriptExecutions implements java.io.Serializable {
     }
 
     /**
-     *
      * @param scriptExecutionResults
      */
     public void setScriptExecutionResults(Set scriptExecutionResults) {
@@ -234,15 +212,6 @@ public class ScriptExecutions implements java.io.Serializable {
     }
 
     /**
-     *
-     * @param result
-     */
-    public void setScriptExecutionResult(String result) {
-        this.result = result;
-    }
-
-    /**
-     *
      * @return
      */
     public String getScriptExecutionResult() {
@@ -250,19 +219,24 @@ public class ScriptExecutions implements java.io.Serializable {
     }
 
     /**
-     *
-     * @param comment
+     * @param result
      */
-    public void setScriptExecutionComment(String comment) {
-        this.comment = comment;
+    public void setScriptExecutionResult(String result) {
+        this.result = result;
     }
 
     /**
-     *
      * @return
      */
     public String getScriptExecutionComment() {
         return this.comment;
+    }
+
+    /**
+     * @param comment
+     */
+    public void setScriptExecutionComment(String comment) {
+        this.comment = comment;
     }
 
 }

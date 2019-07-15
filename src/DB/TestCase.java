@@ -45,8 +45,8 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *Default Constructor
-     * 
+     * Default Constructor
+     *
      * @param testCaseTitle
      * @param writter
      * @param caseInternalVersion
@@ -98,7 +98,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @param testCase
      */
     public TestCase(TestCase testCase) {
@@ -128,7 +127,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @param testCaseTitle
      * @param writter
      * @param caseInternalVersion
@@ -200,15 +198,13 @@ public class TestCase implements java.io.Serializable {
 //    }
 
     /**
-     *
      * @return
      */
-        public Integer getIdtestCase() {
+    public Integer getIdtestCase() {
         return this.idtestCase;
     }
 
     /**
-     *
      * @param idtestCase
      */
     public void setIdtestCase(Integer idtestCase) {
@@ -216,7 +212,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public String getTestCaseTitle() {
@@ -224,7 +219,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @param testCaseTitle
      */
     public void setTestCaseTitle(String testCaseTitle) {
@@ -232,7 +226,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public String getWritter() {
@@ -240,7 +233,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @param writter
      */
     public void setWritter(String writter) {
@@ -248,7 +240,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public Byte getCaseInternalVersion() {
@@ -256,7 +247,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @param caseInternalVersion
      */
     public void setCaseInternalVersion(Byte caseInternalVersion) {
@@ -264,7 +254,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public String getCreationDate() {
@@ -272,7 +261,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @param creationDate
      */
     public void setCreationDate(String creationDate) {
@@ -280,7 +268,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public String getEditionDate() {
@@ -288,7 +275,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @param editionDate
      */
     public void setEditionDate(String editionDate) {
@@ -296,7 +282,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public String getTestCaseIdentification() {
@@ -304,7 +289,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @param testCaseIdentification
      */
     public void setTestCaseIdentification(String testCaseIdentification) {
@@ -312,7 +296,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public String getTestCaseVersion() {
@@ -320,7 +303,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @param testCaseVersion
      */
     public void setTestCaseVersion(String testCaseVersion) {
@@ -328,7 +310,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public String getProject() {
@@ -336,7 +317,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @param project
      */
     public void setProject(String project) {
@@ -344,7 +324,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public String getTypeOfTest() {
@@ -352,7 +331,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @param typeOfTest
      */
     public void setTypeOfTest(String typeOfTest) {
@@ -360,7 +338,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public String getCategoryOfTest() {
@@ -368,7 +345,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @param categoryOfTest
      */
     public void setCategoryOfTest(String categoryOfTest) {
@@ -376,7 +352,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public String getLocation() {
@@ -384,7 +359,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @param location
      */
     public void setLocation(String location) {
@@ -392,7 +366,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public String getEnvironment() {
@@ -400,7 +373,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @param environment
      */
     public void setEnvironment(String environment) {
@@ -408,7 +380,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public String getTestObjective() {
@@ -416,7 +387,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @param testObjective
      */
     public void setTestObjective(String testObjective) {
@@ -424,7 +394,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public Byte getTotalSteps() {
@@ -432,7 +401,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @param totalSteps
      */
     public void setTotalSteps(Byte totalSteps) {
@@ -440,7 +408,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public String getWritterEmail() {
@@ -448,7 +415,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @param writterEmail
      */
     public void setWritterEmail(String writterEmail) {
@@ -456,7 +422,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public String getWritingStatus() {
@@ -464,7 +429,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @param writingStatus
      */
     public void setWritingStatus(String writingStatus) {
@@ -472,7 +436,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public String getTestMethodIadt() {
@@ -480,7 +443,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @param testMethodIadt
      */
     public void setTestMethodIadt(String testMethodIadt) {
@@ -488,7 +450,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public Byte getBlocking() {
@@ -496,7 +457,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @param blocking
      */
     public void setBlocking(Byte blocking) {
@@ -504,7 +464,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public String getInternalComments() {
@@ -512,7 +471,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @param internalComments
      */
     public void setInternalComments(String internalComments) {
@@ -520,7 +478,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public String getTestCaseSource() {
@@ -528,7 +485,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @param testCaseSource
      */
     public void setTestCaseSource(String testCaseSource) {
@@ -536,7 +492,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public Set getTestSteps() {
@@ -544,7 +499,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @param testSteps
      */
     public void setTestSteps(Set testSteps) {
@@ -552,7 +506,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public Set getTestCampaignTestCases() {
@@ -560,7 +513,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @param testCampaignTestCases
      */
     public void setTestCampaignTestCases(Set testCampaignTestCases) {
@@ -568,7 +520,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public Set getCaseExecutionses() {
@@ -576,7 +527,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @param caseExecutionses
      */
     public void setCaseExecutionses(Set caseExecutionses) {
@@ -584,7 +534,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @param configured
      */
     public void setConfigured(String configured) {
@@ -592,7 +541,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public String getSimpleStringConfiguredProperty() {
@@ -600,7 +548,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public StringProperty simpleStringConfiguredProperty() {
@@ -611,7 +558,6 @@ public class TestCase implements java.io.Serializable {
     }
 
     /**
-     *
      * @param testStep
      */
     public void addStep(TestStep testStep) {

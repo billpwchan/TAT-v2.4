@@ -125,7 +125,8 @@ public class TabTestCampaignRepositoryController implements Initializable {
                     return true;
                 } else if (tCampaign.getSystem() != null && tCampaign.getSystem().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
-                } else return tCampaign.getWriterEmail() != null && tCampaign.getWriterEmail().toLowerCase().contains(lowerCaseFilter);
+                } else
+                    return tCampaign.getWriterEmail() != null && tCampaign.getWriterEmail().toLowerCase().contains(lowerCaseFilter);
                 // Does not match.
             });
         });

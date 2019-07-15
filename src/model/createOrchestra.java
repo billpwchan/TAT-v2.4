@@ -23,54 +23,36 @@ import java.util.List;
 import java.util.Set;
 
 /**
- *
  * @author T0155040
  */
 public class createOrchestra {
 
+    private final List<Integer> positionSteps = new ArrayList<>();
+    File source;
+    File dest;
+    XSSFWorkbook wb;
+    // copy file using FileStreams
+    long start = System.nanoTime();
+    long end;
     private String pathOrchestra = "src/file/HK - IVVQ - Template - STD - v16.xlsx";
     //private final String pathOrchestra = "D:\\Users\\t0155040\\Desktop\\HK - IVVQ - Template - STD - v16.xlsx";
     //private final String pathOrchestra = "D:\\Users\\t0155040\\Desktop\\HK - IVVQ - Template - STD - v16.xlsx";
     //private final String pathOrchestra = "D:\\Users\\t0155040\\Desktop\\New Microsoft Excel Worksheet.xlsx";
     private TestCampaign testCampaign;//Iteration should be replaced by that
-
     private Iterations iteration;
-
     private boolean hasBeenCOnfigured = false;
-
     private int postitionRow = 0;
-
     private int positionColumnScriptPreparation = 14;
-
     private int positionWritingScript = 14;
-
     private int mergeCellScriptName = 14;
     private Cell cell = null;
-
     private XSSFSheet sheetSummary;
     private XSSFRichTextString richString;
-
     private ParametersExecution paramExe;
-
     private CellStyle currentStyle;
-
     private StepExecutions currentStepExecution;
-
     private ScriptExecutions currentScriptExecution;
-
     private TestStep currentTestStep;
-
-    private FileInputStream file;
-
-    private Row row;
-
-    private Iterator<ParametersExecution> iteParametersExecution;
-
-    private Iterator<StepExecutions> iteStepExecutions;
-
-    private Iterator<ScriptExecutions> iteScriptExecutions;
-
-    private final List<Integer> positionSteps = new ArrayList<>();
 //    Point[] cellsSummary = {
 //        //TEST SHEET DEFINITION
 //        new Point(3, 5),//E3 : Test sheet identification
@@ -104,13 +86,11 @@ public class createOrchestra {
 //    //        new Point(18, 5),//H28 : Approximate preparation duration
 //    //        new Point(19, 5),//H29 : Approximate running duration
 //    };
-
-    File source;
-    File dest;
-    XSSFWorkbook wb;
-    // copy file using FileStreams
-    long start = System.nanoTime();
-    long end;
+private FileInputStream file;
+    private Row row;
+    private Iterator<ParametersExecution> iteParametersExecution;
+    private Iterator<StepExecutions> iteStepExecutions;
+    private Iterator<ScriptExecutions> iteScriptExecutions;
 
     /**
      *
@@ -119,14 +99,28 @@ public class createOrchestra {
 
     }
 
+    private static void copyFileUsingFileChannels(File source, File dest)
+            throws IOException {
+//        FileChannel inputChannel = null;
+//        FileChannel outputChannel = null;
+//        try {
+//            inputChannel = new FileInputStream(source).getChannel();
+//            outputChannel = new FileOutputStream(dest).getChannel();
+//            outputChannel.transferFrom(inputChannel, 0, inputChannel.size());
+//        } finally {
+//            inputChannel.close();
+//            outputChannel.close();
+        Files.copy(source.toPath(), dest.toPath());
+//        }
+    }
+
     /**
-     *
      * @param iteration
      * @param file
      * @param pathOrche
      */
-    public void generateExcelRapport(Iterations iteration, File file,String pathOrche) {
-        
+    public void generateExcelRapport(Iterations iteration, File file, String pathOrche) {
+
         //System.out.println("Start excel generation file");
         pathOrchestra = pathOrche;
         this.testCampaign = iteration.getTestCampaign();
@@ -141,7 +135,7 @@ public class createOrchestra {
         sheetSummary = wb.getSheetAt(0);
         this.writeSummary(currentTestCase, this.testCampaign);
         sheetSummary = wb.getSheetAt(2);
-        System.out.println("Taille de l'array :"+currentTestCaseExecution.getStepExecutionses().size());
+        System.out.println("Taille de l'array :" + currentTestCaseExecution.getStepExecutionses().size());
         this.readyHeader(currentTestCaseExecution);
         writeTestCase(currentTestCaseExecution.getStepExecutionses());
 
@@ -181,21 +175,6 @@ public class createOrchestra {
 
     }
 
-    private static void copyFileUsingFileChannels(File source, File dest)
-            throws IOException {
-//        FileChannel inputChannel = null;
-//        FileChannel outputChannel = null;
-//        try {
-//            inputChannel = new FileInputStream(source).getChannel();
-//            outputChannel = new FileOutputStream(dest).getChannel();
-//            outputChannel.transferFrom(inputChannel, 0, inputChannel.size());
-//        } finally {
-//            inputChannel.close();
-//            outputChannel.close();
-        Files.copy(source.toPath(), dest.toPath());
-//        }
-    }
-
     private void openFile() {
         try {
             file = new FileInputStream(dest);
@@ -212,7 +191,7 @@ public class createOrchestra {
      * Print basic details including size of provided object to standard output.
      *
      * @param object Object whose value and size are to be printed to standard
-     * output.
+     *               output.
      */
 //    public static void printInstrumentationSize(final Object object) {
 //        System.out.println(

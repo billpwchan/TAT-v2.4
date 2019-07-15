@@ -18,7 +18,6 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- *
  * @author T0155040
  */
 public class RequirementDB {
@@ -31,7 +30,6 @@ public class RequirementDB {
     }
 
     /**
-     *
      * @return
      */
     public ArrayList<Requirement> getAllRequirement() {
@@ -47,7 +45,6 @@ public class RequirementDB {
     }
 
     /**
-     *
      * @param HashRequirement
      */
     public void updateRequirement(HashSet<Requirement> HashRequirement) {

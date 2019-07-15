@@ -22,7 +22,6 @@ public class Macro implements java.io.Serializable {
     }
 
     /**
-     *
      * @param scriptByScriptIdScript
      * @param scriptByScriptIdScript1
      */
@@ -32,10 +31,9 @@ public class Macro implements java.io.Serializable {
     }
 
     /**
-     *
      * @param macro
      */
-    public Macro(Macro macro){
+    public Macro(Macro macro) {
         this.scriptByScriptIdScript = macro.getScriptByScriptIdScript();
         this.scriptByScriptIdScript1 = macro.getScriptByScriptIdScript1();
         this.scriptOrder = macro.getScriptOrder();
@@ -43,7 +41,6 @@ public class Macro implements java.io.Serializable {
     }
 
     /**
-     *
      * @param scriptByScriptIdScript
      * @param scriptByScriptIdScript1
      * @param scriptOrder
@@ -57,7 +54,6 @@ public class Macro implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public Integer getIdmacro() {
@@ -65,7 +61,6 @@ public class Macro implements java.io.Serializable {
     }
 
     /**
-     *
      * @param idmacro
      */
     public void setIdmacro(Integer idmacro) {
@@ -73,7 +68,6 @@ public class Macro implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public Script getScriptByScriptIdScript() {
@@ -81,7 +75,6 @@ public class Macro implements java.io.Serializable {
     }
 
     /**
-     *
      * @param scriptByScriptIdScript
      */
     public void setScriptByScriptIdScript(Script scriptByScriptIdScript) {
@@ -89,7 +82,6 @@ public class Macro implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public Script getScriptByScriptIdScript1() {
@@ -97,7 +89,6 @@ public class Macro implements java.io.Serializable {
     }
 
     /**
-     *
      * @param scriptByScriptIdScript1
      */
     public void setScriptByScriptIdScript1(Script scriptByScriptIdScript1) {
@@ -105,7 +96,6 @@ public class Macro implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public Byte getScriptOrder() {
@@ -113,7 +103,6 @@ public class Macro implements java.io.Serializable {
     }
 
     /**
-     *
      * @param scriptOrder
      */
     public void setScriptOrder(Byte scriptOrder) {
@@ -121,7 +110,6 @@ public class Macro implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public Set getParamScriptMacros() {
@@ -129,7 +117,6 @@ public class Macro implements java.io.Serializable {
     }
 
     /**
-     *
      * @param paramScriptMacros
      */
     public void setParamScriptMacros(Set paramScriptMacros) {
@@ -137,7 +124,6 @@ public class Macro implements java.io.Serializable {
     }
 
     /**
-     *
      * @param paramScriptMacro
      */
     public void addParamScriptMacro(ParamScriptMacro paramScriptMacro) {

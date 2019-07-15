@@ -8,7 +8,6 @@ package model;
 import DB.Script;
 
 /**
- *
  * @author tmartinez
  */
 public class paramsForScript {
@@ -34,7 +33,6 @@ public class paramsForScript {
     }
 
     /**
-     *
      * @param order
      */
     public paramsForScript(int order) {
@@ -42,7 +40,6 @@ public class paramsForScript {
     }
 
     /**
-     *
      * @param location
      */
     public void locationOfVariable(String location) {
@@ -50,23 +47,6 @@ public class paramsForScript {
     }
 
     /**
-     *
-     * @param configured
-     */
-    public void setConfigured(boolean configured) {
-        this.hasBeenConfigured = configured;
-    }
-
-    /**
-     *
-     * @param value
-     */
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    /**
-     *
      * @return
      */
     public String getValue() {
@@ -74,15 +54,13 @@ public class paramsForScript {
     }
 
     /**
-     *
-     * @param id
+     * @param value
      */
-    public void setPathToVariable(String id) {
-        this.pathToVariable = id;
+    public void setValue(String value) {
+        this.value = value;
     }
 
     /**
-     *
      * @return
      */
     public String getPathToVariable() {
@@ -90,7 +68,13 @@ public class paramsForScript {
     }
 
     /**
-     *
+     * @param id
+     */
+    public void setPathToVariable(String id) {
+        this.pathToVariable = id;
+    }
+
+    /**
      * @return
      */
     public boolean getConfigured() {
@@ -98,15 +82,13 @@ public class paramsForScript {
     }
 
     /**
-     *
-     * @param script
+     * @param configured
      */
-    public void setScript(Script script) {
-        this.personalScript = script;
+    public void setConfigured(boolean configured) {
+        this.hasBeenConfigured = configured;
     }
 
     /**
-     *
      * @return
      */
     public Script getScript() {
@@ -114,18 +96,23 @@ public class paramsForScript {
     }
 
     /**
-     *
-     * @param order
+     * @param script
      */
-    public void setOrder(int order) {
-        this.order = order;
+    public void setScript(Script script) {
+        this.personalScript = script;
     }
 
     /**
-     *
      * @return
      */
     public int getOrder() {
         return this.order;
+    }
+
+    /**
+     * @param order
+     */
+    public void setOrder(int order) {
+        this.order = order;
     }
 }

@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
+      <module fileurl="file://$PROJECT_DIR$/TATV2.3.4 IEC-104.iml" filepath="$PROJECT_DIR$/TATV2.3.4 IEC-104.iml" />
+=======
       <module fileurl="file://$PROJECT_DIR$/TATV2.3.3 CIP.iml" filepath="$PROJECT_DIR$/TATV2.3.3 CIP.iml" />
+>>>>>>> f59f2fbe27c56f1534b1cef14ec93b1733467e3e
     </modules>
   </component>
 </project>

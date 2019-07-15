@@ -3,78 +3,83 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" stylesheets="@CustomeStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TATFrameController">
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity"
+            prefHeight="800.0" prefWidth="1280.0" stylesheets="@CustomeStyle.css"
+            xmlns="http://javafx.com/javafx/8" fx:controller="controller.TATFrameController">
     <children>
-        <BorderPane prefHeight="768.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <bottom>
-            <GridPane BorderPane.alignment="CENTER">
-               <children>
-                  <Label fx:id="labelUserRight" text="User right :">
-                     <opaqueInsets>
-                        <Insets right="10.0" />
-                     </opaqueInsets>
-                     <GridPane.margin>
-                        <Insets />
-                     </GridPane.margin>
-                  </Label>
-                  <Label fx:id="labelTime" text="Label" GridPane.columnIndex="4" />
-                  <Label fx:id="labelUserName" text="User name :" GridPane.columnIndex="1" />
-                  <Label fx:id="labelRight" text="label">
-                     <opaqueInsets>
-                        <Insets right="10.0" />
-                     </opaqueInsets>
-                     <GridPane.margin>
-                        <Insets left="62.0" />
-                     </GridPane.margin>
-                  </Label>
-                  <Label fx:id="labelName" text="label" GridPane.columnIndex="1">
-                     <GridPane.margin>
-                        <Insets left="67.0" />
-                     </GridPane.margin>
-                  </Label>
-               </children>
-               <columnConstraints>
-                  <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="125.0" minWidth="10.0" prefWidth="125.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="397.0" minWidth="10.0" prefWidth="397.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints vgrow="SOMETIMES" />
-               </rowConstraints>
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-            </GridPane>
-         </bottom>
-         <top>
-            <MenuBar BorderPane.alignment="CENTER">
-              <menus>
-                <Menu mnemonicParsing="false" text="File">
-                  <items>
-                        <MenuItem fx:id="itemSettings" mnemonicParsing="false" text="Settings" />
-                        <MenuItem fx:id="itemHMIs" mnemonicParsing="false" text="Load HMIs" />
-                        <MenuItem fx:id="Load" mnemonicParsing="false" text="Load" />
-                    <MenuItem mnemonicParsing="false" text="Close" />
-                  </items>
-                </Menu>
-                <Menu disable="true" mnemonicParsing="false" text="Edit">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="Delete" />
-                  </items>
-                </Menu>
-                <Menu disable="true" mnemonicParsing="false" text="Help">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="About" />
-                  </items>
-                </Menu>
-              </menus>
-            </MenuBar>
-         </top>
-         <center>
-            <TabPane fx:id="tabPaneHMI" side="LEFT" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER" />
-         </center>
+        <BorderPane prefHeight="768.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                    AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <bottom>
+                <GridPane BorderPane.alignment="CENTER">
+                    <children>
+                        <Label fx:id="labelUserRight" text="User right :">
+                            <opaqueInsets>
+                                <Insets right="10.0"/>
+                            </opaqueInsets>
+                            <GridPane.margin>
+                                <Insets/>
+                            </GridPane.margin>
+                        </Label>
+                        <Label fx:id="labelTime" text="Label" GridPane.columnIndex="4"/>
+                        <Label fx:id="labelUserName" text="User name :" GridPane.columnIndex="1"/>
+                        <Label fx:id="labelRight" text="label">
+                            <opaqueInsets>
+                                <Insets right="10.0"/>
+                            </opaqueInsets>
+                            <GridPane.margin>
+                                <Insets left="62.0"/>
+                            </GridPane.margin>
+                        </Label>
+                        <Label fx:id="labelName" text="label" GridPane.columnIndex="1">
+                            <GridPane.margin>
+                                <Insets left="67.0"/>
+                            </GridPane.margin>
+                        </Label>
+                    </children>
+                    <columnConstraints>
+                        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="125.0" minWidth="10.0"
+                                           prefWidth="125.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="397.0" minWidth="10.0" prefWidth="397.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                    <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                    </padding>
+                </GridPane>
+            </bottom>
+            <top>
+                <MenuBar BorderPane.alignment="CENTER">
+                    <menus>
+                        <Menu mnemonicParsing="false" text="File">
+                            <items>
+                                <MenuItem fx:id="itemSettings" mnemonicParsing="false" text="Settings"/>
+                                <MenuItem fx:id="itemHMIs" mnemonicParsing="false" text="Load HMIs"/>
+                                <MenuItem fx:id="Load" mnemonicParsing="false" text="Load"/>
+                                <MenuItem mnemonicParsing="false" text="Close"/>
+                            </items>
+                        </Menu>
+                        <Menu disable="true" mnemonicParsing="false" text="Edit">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="Delete"/>
+                            </items>
+                        </Menu>
+                        <Menu disable="true" mnemonicParsing="false" text="Help">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="About"/>
+                            </items>
+                        </Menu>
+                    </menus>
+                </MenuBar>
+            </top>
+            <center>
+                <TabPane fx:id="tabPaneHMI" side="LEFT" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER"/>
+            </center>
         </BorderPane>
     </children>
 </AnchorPane>

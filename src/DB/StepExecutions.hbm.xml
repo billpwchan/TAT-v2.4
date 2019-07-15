@@ -1,33 +1,35 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated Jun 19, 2015 5:06:37 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="DB.StepExecutions" table="step_executions" optimistic-lock="version">
         <id name="idstepExecutions" type="java.lang.Integer">
-            <column name="idstep_executions" />
-            <generator class="identity" />
+            <column name="idstep_executions"/>
+            <generator class="identity"/>
         </id>
         <many-to-one name="caseExecutions" class="DB.CaseExecutions" fetch="select">
-            <column name="case_executions_idcase_executions" not-null="true" />
+            <column name="case_executions_idcase_executions" not-null="true"/>
         </many-to-one>
         <many-to-one name="testStep" class="DB.TestStep" fetch="select">
-            <column name="test_step_idtest_step" />
+            <column name="test_step_idtest_step"/>
         </many-to-one>
         <property name="stepOrder" type="java.lang.Byte">
-            <column name="step_order" />
+            <column name="step_order"/>
         </property>
-        <set name="stepExecutionsResults" table="step_executions_result" inverse="true" lazy="true" fetch="select" cascade="delete">
+        <set name="stepExecutionsResults" table="step_executions_result" inverse="true" lazy="true" fetch="select"
+             cascade="delete">
             <key>
-                <column name="step_executions_idstep_executions" not-null="true" />
+                <column name="step_executions_idstep_executions" not-null="true"/>
             </key>
-            <one-to-many class="DB.StepExecutionsResult" />
+            <one-to-many class="DB.StepExecutionsResult"/>
         </set>
-        <set name="scriptExecutionses" table="script_executions" inverse="true" lazy="true" fetch="select" cascade="all" order-by="script_order">
+        <set name="scriptExecutionses" table="script_executions" inverse="true" lazy="true" fetch="select" cascade="all"
+             order-by="script_order">
             <key>
-                <column name="step_executions_idstep_executions" not-null="true" />
+                <column name="step_executions_idstep_executions" not-null="true"/>
             </key>
-            <one-to-many class="DB.ScriptExecutions" />
+            <one-to-many class="DB.ScriptExecutions"/>
         </set>
     </class>
 </hibernate-mapping>

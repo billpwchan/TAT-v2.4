@@ -35,7 +35,6 @@ public class IdentifyLine {
     }
 
     /**
-     *
      * @param parameters
      * @param hashMap
      * @return
@@ -44,8 +43,8 @@ public class IdentifyLine {
     public String run(ArrayList<ParametersExecution> parameters, HashMap hashMap) throws JSchException {
         ArrayList<String> toReturn = new ArrayList<>();
         this.toCompare = parameters.get(1).getValue().trim();
-        if (this.toCompare.contains("@&Buffer_")){
-            this.toCompare=(String) hashMap.get(this.toCompare);
+        if (this.toCompare.contains("@&Buffer_")) {
+            this.toCompare = (String) hashMap.get(this.toCompare);
         }
         this.regularExpression = parameters.get(2).getValue().trim();
         this.hashMapIndex = parameters.get(3).getValue().trim();

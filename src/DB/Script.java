@@ -34,7 +34,6 @@ public class Script implements java.io.Serializable {
     }
 
     /**
-     *
      * @param idScript
      */
     public Script(int idScript) {
@@ -42,7 +41,6 @@ public class Script implements java.io.Serializable {
     }
 
     /**
-     *
      * @param script
      */
     public Script(Script script) {
@@ -90,7 +88,6 @@ public class Script implements java.io.Serializable {
     }
 
     /**
-     *
      * @param idScript
      * @param name
      * @param desciption
@@ -123,7 +120,6 @@ public class Script implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public int getIdScript() {
@@ -131,7 +127,6 @@ public class Script implements java.io.Serializable {
     }
 
     /**
-     *
      * @param idScript
      */
     public void setIdScript(int idScript) {
@@ -139,7 +134,6 @@ public class Script implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public String getName() {
@@ -147,7 +141,6 @@ public class Script implements java.io.Serializable {
     }
 
     /**
-     *
      * @param name
      */
     public void setName(String name) {
@@ -155,7 +148,6 @@ public class Script implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public String getDesciption() {
@@ -163,7 +155,6 @@ public class Script implements java.io.Serializable {
     }
 
     /**
-     *
      * @param desciption
      */
     public void setDesciption(String desciption) {
@@ -171,7 +162,6 @@ public class Script implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public Integer getScriptVersion() {
@@ -179,7 +169,6 @@ public class Script implements java.io.Serializable {
     }
 
     /**
-     *
      * @param scriptVersion
      */
     public void setScriptVersion(Integer scriptVersion) {
@@ -187,7 +176,6 @@ public class Script implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public String getCreationDate() {
@@ -195,7 +183,6 @@ public class Script implements java.io.Serializable {
     }
 
     /**
-     *
      * @param creationDate
      * @throws ParseException
      */
@@ -204,7 +191,6 @@ public class Script implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public String getEditionDate() {
@@ -212,7 +198,6 @@ public class Script implements java.io.Serializable {
     }
 
     /**
-     *
      * @param editionDate
      * @throws ParseException
      */
@@ -221,7 +206,6 @@ public class Script implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public Byte getIsStimuli() {
@@ -229,7 +213,6 @@ public class Script implements java.io.Serializable {
     }
 
     /**
-     *
      * @param isStimuli
      */
     public void setIsStimuli(Byte isStimuli) {
@@ -237,7 +220,6 @@ public class Script implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public Byte getIsMacro() {
@@ -245,7 +227,6 @@ public class Script implements java.io.Serializable {
     }
 
     /**
-     *
      * @param isMacro
      */
     public void setIsMacro(Byte isMacro) {
@@ -253,7 +234,6 @@ public class Script implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public Set getScriptExecutionses() {
@@ -261,7 +241,6 @@ public class Script implements java.io.Serializable {
     }
 
     /**
-     *
      * @param scriptExecutionses
      */
     public void setScriptExecutionses(Set scriptExecutionses) {
@@ -269,7 +248,6 @@ public class Script implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public Set getMacrosForScriptIdScript() {
@@ -277,7 +255,6 @@ public class Script implements java.io.Serializable {
     }
 
     /**
-     *
      * @param macrosForScriptIdScript
      */
     public void setMacrosForScriptIdScript(Set macrosForScriptIdScript) {
@@ -285,7 +262,6 @@ public class Script implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public Set getTestStepHasScripts() {
@@ -293,7 +269,6 @@ public class Script implements java.io.Serializable {
     }
 
     /**
-     *
      * @param testStepHasScripts
      */
     public void setTestStepHasScripts(Set testStepHasScripts) {
@@ -301,7 +276,6 @@ public class Script implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public Set getMacrosForScriptIdScript1() {
@@ -309,7 +283,6 @@ public class Script implements java.io.Serializable {
     }
 
     /**
-     *
      * @param macrosForScriptIdScript1
      */
     public void setMacrosForScriptIdScript1(Set macrosForScriptIdScript1) {
@@ -317,7 +290,6 @@ public class Script implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public Set getScriptHasParameterses() {
@@ -325,7 +297,6 @@ public class Script implements java.io.Serializable {
     }
 
     /**
-     *
      * @param scriptHasParameterses
      */
     public void setScriptHasParameterses(Set scriptHasParameterses) {

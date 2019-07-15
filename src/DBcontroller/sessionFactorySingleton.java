@@ -10,7 +10,6 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
 /**
- *
  * @author tmorin
  */
 public class sessionFactorySingleton {
@@ -30,18 +29,6 @@ public class sessionFactorySingleton {
         }
     }
 
-    /**
-     *
-     * @return
-     */
-    public static SessionFactory getInstance() {
-        if (cfg == null) {
-            new sessionFactorySingleton();
-        } else {
-        }
-        return factory;
-    }
-
     private sessionFactorySingleton(String DatabasePath) {
         factory.close();
         cfg = new Configuration();
@@ -54,7 +41,17 @@ public class sessionFactorySingleton {
     }
 
     /**
-     *
+     * @return
+     */
+    public static SessionFactory getInstance() {
+        if (cfg == null) {
+            new sessionFactorySingleton();
+        } else {
+        }
+        return factory;
+    }
+
+    /**
      * @param DatabasePath
      * @return
      */

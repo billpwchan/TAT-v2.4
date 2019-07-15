@@ -29,7 +29,6 @@ public class wait {
     int timeToWait;
 
     /**
-     *
      * @param parameters
      * @param hashMap
      * @return
@@ -40,19 +39,19 @@ public class wait {
         this.timeToWait = (int) Double.parseDouble(parameters.get(1).getValue());
         this.timeToWait = this.timeToWait * 1000;
         Platform.runLater(() -> {
-       
-                Alert alert = new Alert(AlertType.INFORMATION);
-                alert.setTitle("Information Dialog");
-                alert.setHeaderText(null);
-                alert.setContentText("Please wait " + timeToWait/1000 + " seconds");
-                Node OKButton = alert.getDialogPane().lookupButton(ButtonType.OK);
-                OKButton.setVisible(false);
-                //alert.getButtonTypes().get(alert.getButtonTypes().indexOf(ButtonType.OK));
-                alert.show();
 
-                
-                alert.close();
-  
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText(null);
+            alert.setContentText("Please wait " + timeToWait / 1000 + " seconds");
+            Node OKButton = alert.getDialogPane().lookupButton(ButtonType.OK);
+            OKButton.setVisible(false);
+            //alert.getButtonTypes().get(alert.getButtonTypes().indexOf(ButtonType.OK));
+            alert.show();
+
+
+            alert.close();
+
         });
         Thread.sleep(this.timeToWait);
         return null;
@@ -66,7 +65,6 @@ public class wait {
     }
 
     /**
-     *
      * @param i
      * @return
      */

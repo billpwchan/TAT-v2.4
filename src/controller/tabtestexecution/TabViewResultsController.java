@@ -174,8 +174,8 @@ public class TabViewResultsController implements Initializable {
             }
         });
 
-        this.tableViewCampaignPopUpRun.setOnKeyReleased((KeyEvent keyEvent)->{
-            if(keyEvent.getCode() == KeyCode.DOWN){
+        this.tableViewCampaignPopUpRun.setOnKeyReleased((KeyEvent keyEvent) -> {
+            if (keyEvent.getCode() == KeyCode.DOWN) {
                 tableViewCampaignPopUpRun.getSelectionModel().selectNext();
                 testCaseSelected = tableViewCampaignPopUpRun.getSelectionModel().getSelectedItem();
                 tableViewCampaignPopUpRun.scrollTo(tableViewCampaignPopUpRun.getSelectionModel().getFocusedIndex());
@@ -185,7 +185,7 @@ public class TabViewResultsController implements Initializable {
                 float seconds3 = (tempsFin3 - tempsDebut3) / 1000F;
                 System.out.println("test case selected result = " + testCaseSelected.simpleStringResultProperty());
             }
-            if(keyEvent.getCode() == KeyCode.UP){
+            if (keyEvent.getCode() == KeyCode.UP) {
                 tableViewCampaignPopUpRun.getSelectionModel().selectPrevious();
                 testCaseSelected = tableViewCampaignPopUpRun.getSelectionModel().getSelectedItem();
                 tableViewCampaignPopUpRun.scrollTo(tableViewCampaignPopUpRun.getSelectionModel().getFocusedIndex());

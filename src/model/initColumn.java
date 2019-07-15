@@ -28,14 +28,12 @@ import javafx.util.Callback;
 import java.util.Objects;
 
 /**
- *
  * @author tmorin
  */
 public class initColumn {
 
-    private TabViewResultsController mainViewResultController = null;
-
     ObservableList<String> testlist = FXCollections.observableArrayList("NOK", "OKWC", "OK", "Not testable", "Incomplete", "OS", "NExec");
+    private TabViewResultsController mainViewResultController = null;
 
     /**
      *
@@ -45,7 +43,29 @@ public class initColumn {
     }
 
     /**
-     *
+     * @param requirements
+     */
+    public static void initTableViewRequirement(ListView requirements) {
+        requirements.setCellFactory(listView -> {
+            ListCell<Requirement> cell = new ListCell<Requirement>() {
+                @Override
+                public void updateItem(Requirement item, boolean empty) {
+                    super.updateItem(item, empty);
+
+                    if (empty) {
+                        setText(null);
+                        setGraphic(null);
+                    } else {
+                        setText(item.getRequirementID());
+                        setGraphic(null);
+                    }
+                }
+            };
+            return cell;
+        });
+    }
+
+    /**
      * @param mainViewResultController
      */
     public void setMainController(TabViewResultsController mainViewResultController) {
@@ -53,7 +73,6 @@ public class initColumn {
     }
 
     /**
-     *
      * @param tableViewTestCase
      */
     public void initColumnCase(TableView<TestCase> tableViewTestCase) {
@@ -211,7 +230,6 @@ public class initColumn {
     }
 
     /**
-     *
      * @param tableViewTestCampaign
      */
     public void initColumnCampaign(TableView<TestCampaign> tableViewTestCampaign) {
@@ -301,7 +319,6 @@ public class initColumn {
     }
 
     /**
-     *
      * @param tableViewTestCase
      */
     public void initColumnCaseToExecute(TableView<CaseExecutions> tableViewTestCase) {
@@ -339,42 +356,42 @@ public class initColumn {
 
         if (mainViewResultController != null) {
             result.setCellFactory(new Callback<TableColumn<CaseExecutions, String>, TableCell<CaseExecutions, String>>() {
-                @Override
-                public TableCell<CaseExecutions, String> call(TableColumn<CaseExecutions, String> param) {
-                    TableCell<CaseExecutions, String> cell = new TableCell<CaseExecutions, String>() {
-                        @Override
-                        public void updateItem(String item, boolean empty) {
-                            if (item != null && item != "NExec") {
-                                System.out.println("ITEM = " + item);
-                                ChoiceBox choice = new ChoiceBox(testlist);
-                                choice.getSelectionModel().select(testlist.indexOf(item));
-                                setStyle(setStyleColor(item));
-                                choice.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-                                    public void changed(ObservableValue<? extends String> source, String oldValue, String newValue) {
-                                        setStyle(setStyleColor(newValue));
-                                        //System.out.println("OBJECT = "+ getTableRow().getItem());
-                                        CaseExecutions caseexec = (CaseExecutions) getTableRow().getItem();
-                                        caseexec.setCaseExecutionResult(newValue);
-                                        mainViewResultController.addModifiedCaseExecution(caseexec);
-                                    }
-                                }
-                                );
-                                //SETTING ALL THE GRAPHICS COMPONENT FOR CELL
-                                setGraphic(choice);
+                                      @Override
+                                      public TableCell<CaseExecutions, String> call(TableColumn<CaseExecutions, String> param) {
+                                          TableCell<CaseExecutions, String> cell = new TableCell<CaseExecutions, String>() {
+                                              @Override
+                                              public void updateItem(String item, boolean empty) {
+                                                  if (item != null && item != "NExec") {
+                                                      System.out.println("ITEM = " + item);
+                                                      ChoiceBox choice = new ChoiceBox(testlist);
+                                                      choice.getSelectionModel().select(testlist.indexOf(item));
+                                                      setStyle(setStyleColor(item));
+                                                      choice.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+                                                                                                                        public void changed(ObservableValue<? extends String> source, String oldValue, String newValue) {
+                                                                                                                            setStyle(setStyleColor(newValue));
+                                                                                                                            //System.out.println("OBJECT = "+ getTableRow().getItem());
+                                                                                                                            CaseExecutions caseexec = (CaseExecutions) getTableRow().getItem();
+                                                                                                                            caseexec.setCaseExecutionResult(newValue);
+                                                                                                                            mainViewResultController.addModifiedCaseExecution(caseexec);
+                                                                                                                        }
+                                                                                                                    }
+                                                      );
+                                                      //SETTING ALL THE GRAPHICS COMPONENT FOR CELL
+                                                      setGraphic(choice);
 
-                            } else {
-                                if (Objects.equals(item, "NExec")) {
-                                    setText(item);
-                                    setStyle(" -fx-control-inner-background: #D9D9D9;\n"
-                                            + " -fx-background-color: -fx-table-cell-border-color, -fx-control-inner-background;\n"
-                                            + " -fx-background-insets: 0, 0 0 1 0;-fx-text-color: black");
-                                }
-                            }
-                        }
-                    };
-                    return cell;
-                }
-            }
+                                                  } else {
+                                                      if (Objects.equals(item, "NExec")) {
+                                                          setText(item);
+                                                          setStyle(" -fx-control-inner-background: #D9D9D9;\n"
+                                                                  + " -fx-background-color: -fx-table-cell-border-color, -fx-control-inner-background;\n"
+                                                                  + " -fx-background-insets: 0, 0 0 1 0;-fx-text-color: black");
+                                                      }
+                                                  }
+                                              }
+                                          };
+                                          return cell;
+                                      }
+                                  }
             );
 
             executionComments.setCellFactory(new Callback<TableColumn<CaseExecutions, String>, TableCell<CaseExecutions, String>>() {
@@ -449,14 +466,14 @@ public class initColumn {
 
         testCategory.setCellValueFactory(new Callback<CellDataFeatures<CaseExecutions, String>, ObservableValue<String>>() {
 
-            public ObservableValue<String> call(CellDataFeatures<CaseExecutions, String> p) {
-                if (p.getValue().getTestCategory() != null) {
-                    return new ReadOnlyObjectWrapper(p.getValue().getTestCategory());
-                } else {
-                    return new ReadOnlyObjectWrapper(p.getValue().getTestCase().getCategoryOfTest());
-                }
-            }
-        }
+                                             public ObservableValue<String> call(CellDataFeatures<CaseExecutions, String> p) {
+                                                 if (p.getValue().getTestCategory() != null) {
+                                                     return new ReadOnlyObjectWrapper(p.getValue().getTestCategory());
+                                                 } else {
+                                                     return new ReadOnlyObjectWrapper(p.getValue().getTestCase().getCategoryOfTest());
+                                                 }
+                                             }
+                                         }
         );
 
         TableColumn<CaseExecutions, String> location = new TableColumn<>("Location");
@@ -516,10 +533,10 @@ public class initColumn {
 
         TableColumn<CaseExecutions, String> excelPath = new TableColumn<CaseExecutions, String>("Path Excel File");
         excelPath.setCellValueFactory(new Callback<CellDataFeatures<CaseExecutions, String>, ObservableValue<String>>() {
-            public ObservableValue<String> call(CellDataFeatures<CaseExecutions, String> p) {
-                return new ReadOnlyObjectWrapper(p.getValue().getExcelPath());
-            }
-        }
+                                          public ObservableValue<String> call(CellDataFeatures<CaseExecutions, String> p) {
+                                              return new ReadOnlyObjectWrapper(p.getValue().getExcelPath());
+                                          }
+                                      }
         );
 
         /*
@@ -604,7 +621,6 @@ public class initColumn {
     }
 
     /**
-     *
      * @param tableViewTestScript
      */
     public void initScriptToExecute(TableView<Script> tableViewTestScript) {
@@ -630,7 +646,6 @@ public class initColumn {
     }
 
     /**
-     *
      * @param tableViewTestStep
      */
     public void initColumnStepToExecute(TableView<TestStep> tableViewTestStep) {
@@ -657,7 +672,6 @@ public class initColumn {
     }
 
     /**
-     *
      * @param campaignBaselineAndExecution
      */
     public void prepareTreeViewTabTestExecution(TreeTableView<Iterations> campaignBaselineAndExecution) {
@@ -748,21 +762,21 @@ public class initColumn {
         });
 
         campaignBaselineAndExecution.setRowFactory(new Callback<TreeTableView<Iterations>, TreeTableRow<Iterations>>() {
-            @Override
-            public TreeTableRow<Iterations> call(TreeTableView<Iterations> param) {
-                TreeTableRow<Iterations> treeTableRow = new TreeTableRow<Iterations>() {
-                    @Override
-                    protected void updateItem(Iterations item, boolean empty) {
-                        super.updateItem(item, empty);
-                        PseudoClass campaignPseudoClass = PseudoClass.getPseudoClass("campaign");
-                        PseudoClass baselinePseudoClass = PseudoClass.getPseudoClass("baseline");
-                        pseudoClassStateChanged(campaignPseudoClass, (!empty) && item.getType().equals("campaign"));
-                        pseudoClassStateChanged(baselinePseudoClass, (!empty) && item.getType().equals("baseline"));
-                    }
-                };
-                return treeTableRow;
-            }
-        }
+                                                       @Override
+                                                       public TreeTableRow<Iterations> call(TreeTableView<Iterations> param) {
+                                                           TreeTableRow<Iterations> treeTableRow = new TreeTableRow<Iterations>() {
+                                                               @Override
+                                                               protected void updateItem(Iterations item, boolean empty) {
+                                                                   super.updateItem(item, empty);
+                                                                   PseudoClass campaignPseudoClass = PseudoClass.getPseudoClass("campaign");
+                                                                   PseudoClass baselinePseudoClass = PseudoClass.getPseudoClass("baseline");
+                                                                   pseudoClassStateChanged(campaignPseudoClass, (!empty) && item.getType().equals("campaign"));
+                                                                   pseudoClassStateChanged(baselinePseudoClass, (!empty) && item.getType().equals("baseline"));
+                                                               }
+                                                           };
+                                                           return treeTableRow;
+                                                       }
+                                                   }
         );
         campaignBaselineAndExecution.getColumns().addAll(campaignCol, typeCol, dateCol, resultCol);
 
@@ -825,7 +839,6 @@ public class initColumn {
     }
 
     /**
-     *
      * @param tableViewTestCase
      */
     public void initColumnCaseForBaseline(TableView<TestCase> tableViewTestCase) {
@@ -871,7 +884,6 @@ public class initColumn {
     }
 
     /**
-     *
      * @param tableViewRequirements
      */
     public void initColumnRequirement(TableView<Requirement> tableViewRequirements) {
@@ -926,7 +938,6 @@ public class initColumn {
     }
 
     /**
-     *
      * @param tableViewScripts
      * @param isScript
      */
@@ -957,30 +968,6 @@ public class initColumn {
         macroEditionDate.setText("Edition date");
         macroDescription.setText("Description");
 
-    }
-
-    /**
-     *
-     * @param requirements
-     */
-    public static void initTableViewRequirement(ListView requirements) {
-        requirements.setCellFactory(listView -> {
-            ListCell<Requirement> cell = new ListCell<Requirement>() {
-                @Override
-                public void updateItem(Requirement item, boolean empty) {
-                    super.updateItem(item, empty);
-
-                    if (empty) {
-                        setText(null);
-                        setGraphic(null);
-                    } else {
-                        setText(item.getRequirementID());
-                        setGraphic(null);
-                    }
-                }
-            };
-            return cell;
-        });
     }
 
     private String setStyleColor(String result) {

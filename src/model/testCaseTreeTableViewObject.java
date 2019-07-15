@@ -73,7 +73,6 @@ public class testCaseTreeTableViewObject {
     }
 
     /**
-     *
      * @return
      */
     public SimpleStringProperty checkProperty() {
@@ -84,7 +83,6 @@ public class testCaseTreeTableViewObject {
     }
 
     /**
-     *
      * @return
      */
     public SimpleStringProperty stimuliProperty() {
@@ -109,73 +107,6 @@ public class testCaseTreeTableViewObject {
 //        // this.isBolcking  = isBlocking;
 //        this.isTestStep = isTestStep;
 //    }
-    /**
-     * set the script check id of this object
-     *
-     * @param id id to be set with this object
-     */
-    public void setIDCheckScript(int id) {
-        this.idCheckScript = id;
-    }
-
-    /**
-     * set the script stimuli id of this object
-     *
-     * @param id id to be set with this object
-     */
-    public void setIDStimuliScript(int id) {
-        this.idStimuliScript = id;
-    }
-
-    /**
-     * Set the string check of this object
-     *
-     * @param check string of check to set to this object
-     */
-    public void setCheck(String check) {
-        this.check.set(check);
-    }
-
-    /**
-     * Set the string stimuli of this object
-     *
-     * @param stimuli string of stimuli to set to this object
-     */
-    public void setStimuli(String stimuli) {
-        //System.out.println("Stimuli externe :" + stimuli);
-       // System.out.println("Stimuli interne :" + this.stimuli);
-        this.stimuli.set(stimuli);
-    }
-
-    /**
-     * Set the boolean for test step configured, to know if the test step of
-     * this object has been configured.
-     *
-     * @param configured boolean for test step
-     */
-    public void setHasBeenConfiguredStep(boolean configured) {
-        this.hasBeenConfiguredStep = configured;
-    }
-
-    /**
-     * Set the boolean for script check configured, to know if the script check
-     * of this object has been configured.
-     *
-     * @param configured boolean for test step
-     */
-    public void setHasBeenConfiguredCheck(boolean configured) {
-        this.hasBeenConfiguredCheck = configured;
-    }
-
-    /**
-     * Set the boolean for script stimuli configured, to know if the script
-     * stimuli of this object has been configured.
-     *
-     * @param configured boolean for test step
-     */
-    public void setHasBeenConfiguredStimuli(boolean configured) {
-        this.hasBeenConfiguredStimuli = configured;
-    }
 
     /**
      * Return the type of this object
@@ -196,12 +127,32 @@ public class testCaseTreeTableViewObject {
     }
 
     /**
+     * Set the string check of this object
+     *
+     * @param check string of check to set to this object
+     */
+    public void setCheck(String check) {
+        this.check.set(check);
+    }
+
+    /**
      * return the string stimuli of this object
      *
      * @return
      */
     public String getStimuli() {
         return this.stimuli.get();
+    }
+
+    /**
+     * Set the string stimuli of this object
+     *
+     * @param stimuli string of stimuli to set to this object
+     */
+    public void setStimuli(String stimuli) {
+        //System.out.println("Stimuli externe :" + stimuli);
+        // System.out.println("Stimuli interne :" + this.stimuli);
+        this.stimuli.set(stimuli);
     }
 
     /**
@@ -214,12 +165,30 @@ public class testCaseTreeTableViewObject {
     }
 
     /**
+     * set the script check id of this object
+     *
+     * @param id id to be set with this object
+     */
+    public void setIDCheckScript(int id) {
+        this.idCheckScript = id;
+    }
+
+    /**
      * return the script stimuli id of this object.
      *
      * @return
      */
     public int getIDStimuliScript() {
         return this.idStimuliScript;
+    }
+
+    /**
+     * set the script stimuli id of this object
+     *
+     * @param id id to be set with this object
+     */
+    public void setIDStimuliScript(int id) {
+        this.idStimuliScript = id;
     }
 
     /**
@@ -232,6 +201,16 @@ public class testCaseTreeTableViewObject {
     }
 
     /**
+     * Set the boolean for test step configured, to know if the test step of
+     * this object has been configured.
+     *
+     * @param configured boolean for test step
+     */
+    public void setHasBeenConfiguredStep(boolean configured) {
+        this.hasBeenConfiguredStep = configured;
+    }
+
+    /**
      * return if the script check has been configured
      *
      * @return
@@ -241,11 +220,31 @@ public class testCaseTreeTableViewObject {
     }
 
     /**
+     * Set the boolean for script check configured, to know if the script check
+     * of this object has been configured.
+     *
+     * @param configured boolean for test step
+     */
+    public void setHasBeenConfiguredCheck(boolean configured) {
+        this.hasBeenConfiguredCheck = configured;
+    }
+
+    /**
      * return if the script stimuli has been configured.
      *
      * @return
      */
     public boolean getHasBeenConfiguredStimuli() {
         return this.hasBeenConfiguredStimuli;
+    }
+
+    /**
+     * Set the boolean for script stimuli configured, to know if the script
+     * stimuli of this object has been configured.
+     *
+     * @param configured boolean for test step
+     */
+    public void setHasBeenConfiguredStimuli(boolean configured) {
+        this.hasBeenConfiguredStimuli = configured;
     }
 }
