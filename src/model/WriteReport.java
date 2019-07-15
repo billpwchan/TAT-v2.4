@@ -742,12 +742,15 @@ public class WriteReport {
                         String search = "";
                         String found = "";
                         try {
-                            search = paramSearchList.get(i);
+                            search = "-1".equals(paramSearchList.get(i)) ? "N/A" : paramSearchList.get(i);
                             found = DO_FLAG ? "N/A" : paramFoundList.get(i);
                         } catch (IndexOutOfBoundsException ex) {
                             found = "N/A";
                         }
                         cellS.setCellValue(search);
+                        if ("-1".equals(paramSearchList.get(i))) {
+                            cellS.setCellStyle(getGreyCellStyle(this.workbook));
+                        }
                         cellF.setCellValue(found);
                         if (DO_FLAG) {
                             cellF.setCellStyle(getGreyCellStyle(this.workbook));
@@ -786,7 +789,7 @@ public class WriteReport {
 
                         int offset = stepNumber % maxStep;  //In unit of 3
                         cell = reportRow.createCell(this.colv0_label0 + offset * 3);
-                        cell.setCellValue(paramSearchList.get(getColIndex(searchOccParamList, colStateKey)));
+                        cell.setCellValue("-1".equals(paramSearchList.get(getColIndex(searchOccParamList, colStateKey))) ? "N/A" : paramSearchList.get(getColIndex(searchOccParamList, colStateKey)));
                         cell = reportRow.createCell(this.colv0_Severity + offset * 3);
                         Double severity = Double.parseDouble(paramSearchList.get(6));
                         cell.setCellValue(severity.intValue());
