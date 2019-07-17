@@ -507,7 +507,7 @@ public class WriteReport {
                     } else if (script.getName().contains("DO2")) {
                         scriptType = "DO2";
                         this.scriptTypeGlobal = "DO";
-                        maxStep = 2;
+                        maxStep = 4;
                         DO_FLAG = true;
                     } else if (script.getName().contains("CIP") && script.getName().contains("DO")) {  //Assume it is CIP DO
                         scriptType = "CIPDO";
@@ -545,7 +545,7 @@ public class WriteReport {
                                 //This specific scripts is only used in Search Occurance.
                                 paramSearchList.add(paramSearched);
                             }
-                            if ("DO".equals(scriptType)) {
+                            if ("DO".equals(scriptType) || "DO2".equals(scriptType)) {
                                 if (numParameter == 0) {
                                     try {
                                         registerList.add(String.valueOf((int) Math.round(Double.parseDouble(paramSearched))));
@@ -648,7 +648,8 @@ public class WriteReport {
                                     scriptType.contains("SOE")) && scriptNum != 0 ||
                                     scriptType.contains("DO") && scriptNum != 0 ||
                                     scriptType.contains("CIPDO") && scriptNum != 0 ||
-                                    scriptType.contains("CIPDI") && scriptNum != 0
+                                    scriptType.contains("CIPDI") && scriptNum != 0 ||
+                                    scriptType.contains("DO2") && scriptNum != 0
                     ) {
                         ScriptDB scDB = new ScriptDB();
                         scDB.getAllFromParamScriptMacro(script);
@@ -732,7 +733,11 @@ public class WriteReport {
                     }
 
                     Cell cell4 = row.createCell(5);
-                    cell4.setCellValue(String.valueOf((stepNumber) % maxStep));         //Triggering State
+                    int cellOffset = stepNumber % maxStep;
+                    if (scriptType.equals("DO2")) {
+                        cellOffset = (stepNumber - 1) % maxStep;
+                    }
+                    cell4.setCellValue(String.valueOf(cellOffset));         //Triggering State
                     if (DO_VALUE_ERROR) {
                         CellStyle cellStyle = getRedCellStyle(this.workbook);
                         cellStyle.setWrapText(true);
@@ -824,6 +829,9 @@ public class WriteReport {
                         }
 
                         int offset = stepNumber % maxStep;  //In unit of 3
+                        if (scriptType.equals("DO2")) {
+                            offset = (stepNumber - 1) % maxStep;
+                        }
                         cell = reportRow.createCell(this.colv0_label0 + offset * 3);
                         cell.setCellValue("-1".equals(paramSearchList.get(getColIndex(searchOccParamList, colStateKey))) ? "" : paramSearchList.get(getColIndex(searchOccParamList, colStateKey)));
                         cell = reportRow.createCell(this.colv0_Severity + offset * 3);

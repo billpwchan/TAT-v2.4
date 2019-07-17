@@ -28,6 +28,11 @@ public class ReceiveIEC104DO2Point implements InterfaceScript {
         result.setResult("NOK");
 
         int pointAddressExcel = ((int) Double.parseDouble(parameters.get(1).getValue().trim()));
+
+        if (parameters.get(2).getValue().trim().equals("-1")) {
+            result.setResult("OS");
+            return result;
+        }
         int addressSizeExcel = (int) Double.parseDouble(parameters.get(2).getValue().trim());
         Instant before = Instant.now();
         System.out.println("Receiving Points Now");
@@ -71,13 +76,15 @@ public class ReceiveIEC104DO2Point implements InterfaceScript {
             StringBuilder resultComment = new StringBuilder();
             resultComment.append("Result OK \n Received Point Address: ").append(pointAddressReceived);
             resultComment.append("\n Actual Point Address: ").append(pointAddressExcel);
-            resultComment.append("\n Received Address Size: ").append(pointAddressExcel);
+            resultComment.append("\n Received Address Size: ").append(addressSizeReceived);
+            resultComment.append("\n Actual Address Size: ").append(addressSizeExcel);
             result.setComment(resultComment.toString());
         } else {
             StringBuilder resultComment = new StringBuilder();
             resultComment.append("Result MisMatch \n Received Point Address: ").append(pointAddressReceived);
             resultComment.append("\n Actual Point Address: ").append(pointAddressExcel);
             resultComment.append("\n Received Address Size: ").append(pointAddressExcel);
+            resultComment.append("\n Actual Address Size: ").append(addressSizeExcel);
             result.setComment(resultComment.toString());
         }
         return result;
