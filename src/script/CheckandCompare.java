@@ -23,24 +23,24 @@ import java.util.concurrent.TimeUnit;
 public class CheckandCompare {
 
     //Important instances of the classes
-    TCPMasterConnection connection = null;
-    ModbusTCPTransaction transaction = null;
-    ReadCoilsRequest coilsRequest = null;
-    ReadCoilsResponse coilsResponse = null;
-    ReadMultipleRegistersRequest multipleRegistersRequest = null;
-    ReadMultipleRegistersResponse multipleRegistersResponse = null;
-    WriteCoilRequest writeCoilRequest = null;
+    private TCPMasterConnection connection = null;
+    private ModbusTCPTransaction transaction = null;
+    private ReadCoilsRequest coilsRequest = null;
+    private ReadCoilsResponse coilsResponse = null;
+    private ReadMultipleRegistersRequest multipleRegistersRequest = null;
+    private ReadMultipleRegistersResponse multipleRegistersResponse = null;
+    private WriteCoilRequest writeCoilRequest = null;
 
     //Variables for storing the parameters
-    InetAddress address = null;
-    int port = Modbus.DEFAULT_PORT;
-    int reference = 0;
-    String functionCode;
-    String value;
-    int scalingFactor = 1;
-    int addressSize;
-    String endianness;
-    int milliseconds;
+    private InetAddress address = null;
+    private int port = Modbus.DEFAULT_PORT;
+    private int reference = 0;
+    private String functionCode;
+    private String value;
+    private int scalingFactor = 1;
+    private int addressSize;
+    private String endianness;
+    private int milliseconds;
     /**
      * Params of the test.
      */
@@ -62,19 +62,19 @@ public class CheckandCompare {
     public Result run(ArrayList<ParametersExecution> parameters, HashMap hashMap) throws UnknownHostException, InterruptedException {
         Result result = new Result();
         result.setResult("NOK");
-        this.address = InetAddress.getByName(parameters.get(1).getValue().trim().replace(',', '.'));
-        this.port = ((int) Double.parseDouble(parameters.get(2).getValue().trim()));
-        this.value = parameters.get(3).getValue().trim();
-        this.scalingFactor = (int) Double.parseDouble(parameters.get(4).getValue().trim());
-        this.reference = ((int) Double.parseDouble(parameters.get(5).getValue().trim()));
-        this.addressSize = ((int) Double.parseDouble(parameters.get(6).getValue().trim()));
-        this.functionCode = parameters.get(7).getValue().trim();
-        this.endianness = parameters.get(8).getValue().trim();
-        this.milliseconds = Integer.parseInt(parameters.get(9).getValue().trim());
+        //this.address = InetAddress.getByName(parameters.get(1).getValue().trim().replace(',', '.'));
+        //this.port = ((int) Double.parseDouble(parameters.get(2).getValue().trim()));
+        this.value = parameters.get(1).getValue().trim();
+        this.scalingFactor = (int) Double.parseDouble(parameters.get(2).getValue().trim());
+        this.reference = ((int) Double.parseDouble(parameters.get(3).getValue().trim()));
+        this.addressSize = ((int) Double.parseDouble(parameters.get(4).getValue().trim()));
+        this.functionCode = parameters.get(5).getValue().trim();
+        this.endianness = parameters.get(6).getValue().trim();
+        this.milliseconds = Integer.parseInt(parameters.get(7).getValue().trim());
         if (scalingFactor == -1)
             scalingFactor = 1;
         TimeUnit.MILLISECONDS.sleep(milliseconds);
-        launchServer(address, port, reference, addressSize, functionCode, endianness, result);
+        launchServer(InetAddress.getByName(LaunchTCPServerModbus.ip), LaunchTCPServerModbus.port, reference, addressSize, functionCode, endianness, result);
 
         return result;
     }

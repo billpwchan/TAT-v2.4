@@ -21,17 +21,16 @@ import java.util.concurrent.TimeUnit;
  */
 
 public class CreateTCLfile {
-    String indexNameReturn;
-    String SSHCommand;
-    String ip;
-    String user;
-    String password;
-    String RTServerEnvName;
-    String databaseCommandPath0;
-    String databaseCommandPath1;
-    String CommandType;
-    double CommandValue;
-    int scalingFactor;
+    private String indexNameReturn;
+    private String SSHCommand;
+    private String ip;
+    private String user;
+    private String password;
+    private String RTServerEnvName;
+    private String databaseCommandPath0;
+    private String databaseCommandPath1;
+    private String CommandType;
+    private double CommandValue;
 
     /**
      * Constructor of ExcuteSSHCommandCreateTCLfile.
@@ -78,7 +77,6 @@ public class CreateTCLfile {
                     this.CommandType = "$SCSCTL_DIOV";
                     this.SSHCommand = "echo $\'ScsCtl::init\nproc Callback args { }\nScsCtl::sendCommand " + RTServerEnvName + " " + databaseCommandPath0 + ":" + databaseCommandPath1 + " "
                             + CommandType + " " + (int) CommandValue + " $SCSCTL_BYPASS $SCSCTL_BYPASS $SCSCTL_SEND_ANYWAY [Callback]\' >~/Desktop/TAT_Script.tcl";
-                    CommonFunctions.debugLog.info(SSHCommand);
                     break;
                 case "AI":
                 case "AO":
@@ -86,10 +84,11 @@ public class CreateTCLfile {
                 case "16.0":
                 case "0x10":
                     this.CommandType = "$SCSCTL_AIOV";
+                    this.SSHCommand = "echo $\'ScsCtl::init\nproc Callback args { }\nScsCtl::sendCommand " + RTServerEnvName + " " + databaseCommandPath0 + ":" + databaseCommandPath1 + " "
+                            + CommandType + " " + CommandValue + " $SCSCTL_BYPASS $SCSCTL_BYPASS $SCSCTL_SEND_ANYWAY [Callback]\' >~/Desktop/TAT_Script.tcl";
                     break;
             }
-            this.SSHCommand = "echo $\'ScsCtl::init\nproc Callback args { }\nScsCtl::sendCommand " + RTServerEnvName + " " + databaseCommandPath0 + ":" + databaseCommandPath1 + " "
-                    + CommandType + " " + (int) CommandValue + " $SCSCTL_BYPASS $SCSCTL_BYPASS $SCSCTL_SEND_ANYWAY [Callback]\' >~/Desktop/TAT_Script.tcl";
+
             CommonFunctions.debugLog.info(SSHCommand);
             session = ServerConnection.getInstance(this.ip, this.user, this.password);
             ChannelExec channel = (ChannelExec) session.openChannel("exec");
