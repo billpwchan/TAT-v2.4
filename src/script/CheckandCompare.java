@@ -3,17 +3,17 @@ package script;
 import DB.ParametersExecution;
 import controller.util.CommonFunctions;
 import engine.Result;
-import net.wimpi.modbus.Modbus;
 import net.wimpi.modbus.io.ModbusTCPTransaction;
 import net.wimpi.modbus.msg.*;
 import net.wimpi.modbus.net.TCPMasterConnection;
-import org.hibernate.tool.hbm2x.StringUtils;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
+
+import static com.google.common.base.Strings.repeat;
 
 /**
  * @author Kelvin Cheung
@@ -32,8 +32,6 @@ public class CheckandCompare {
     private WriteCoilRequest writeCoilRequest = null;
 
     //Variables for storing the parameters
-    private InetAddress address = null;
-    private int port = Modbus.DEFAULT_PORT;
     private int reference = 0;
     private String functionCode;
     private String value;
@@ -57,6 +55,14 @@ public class CheckandCompare {
 
     public void close() {
 
+    }
+
+    public String leftPad(String str, int size, String delim){
+        size = (size - str.length() )/ delim.length();
+        if(size > 0){
+            str = repeat(delim, size) + str;
+        }
+        return str;
     }
 
     public Result run(ArrayList<ParametersExecution> parameters, HashMap hashMap) throws UnknownHostException, InterruptedException {
@@ -139,21 +145,21 @@ public class CheckandCompare {
                         transaction.execute();
                         multipleRegistersResponse = (ReadMultipleRegistersResponse) transaction.getResponse();
                         if (endianness.toLowerCase().equals("big"))
-                            receivedValue += StringUtils.leftPad(Integer.toHexString(multipleRegistersResponse.getRegisterValue(0)), 4, "0");
+                            receivedValue += leftPad(Integer.toHexString(multipleRegistersResponse.getRegisterValue(0)), 4, "0");
                         else if (endianness.toLowerCase().equals("little"))
-                            receivedValue = StringUtils.leftPad(Integer.toHexString(multipleRegistersResponse.getRegisterValue(0)), 4, "0") + receivedValue;
+                            receivedValue = leftPad(Integer.toHexString(multipleRegistersResponse.getRegisterValue(0)), 4, "0") + receivedValue;
                     }
 
-                    if (receivedValue.equals(StringUtils.leftPad(Integer.toHexString((int) (Double.parseDouble(value) * scalingFactor)), 8, "0"))) {
+                    if (receivedValue.equals(leftPad(Integer.toHexString((int) (Double.parseDouble(value) * scalingFactor)), 8, "0"))) {
                         result.setResult("OK");
                         result.setComment("Sent: " + value + "\nScaling Factor: " + scalingFactor
                                 + "\nActual value Sent: " + (int) (Double.parseDouble(value) * scalingFactor) + "\nFound: " + Integer.parseInt(receivedValue, 16)
-                                + "\nActual Value Sent (hex): " + StringUtils.leftPad(Integer.toHexString((int) (Double.parseDouble(value) * scalingFactor)), 8, "0") + "\nFound (hex): " + receivedValue
+                                + "\nActual Value Sent (hex): " + leftPad(Integer.toHexString((int) (Double.parseDouble(value) * scalingFactor)), 8, "0") + "\nFound (hex): " + receivedValue
                                 + "\nReading Register : " + reference);
                     } else {
                         result.setComment("Missmatch \n" + "Sent : " + value + "\nScaling Factor: " + scalingFactor
                                 + "\nActual value Sent: " + (int) (Double.parseDouble(value) * scalingFactor) + "\nFound: " + Integer.parseInt(receivedValue, 16)
-                                + "\nActual Value Sent (hex): " + StringUtils.leftPad(Integer.toHexString((int) (Double.parseDouble(value) * scalingFactor)), 8, "0") + "\nFound (hex): " + receivedValue
+                                + "\nActual Value Sent (hex): " + leftPad(Integer.toHexString((int) (Double.parseDouble(value) * scalingFactor)), 8, "0") + "\nFound (hex): " + receivedValue
                                 + "\nReading Register : " + reference);
                     }
                     break;

@@ -1,6 +1,7 @@
 package script;
 
 import DB.ParametersExecution;
+import controller.util.CommonFunctions;
 import net.wimpi.modbus.io.ModbusTCPTransaction;
 import net.wimpi.modbus.msg.WriteCoilRequest;
 import net.wimpi.modbus.net.TCPMasterConnection;
@@ -49,6 +50,7 @@ public class ModbusDOInitialization {
 
             connection.close();
         } catch (Exception e) {
+            CommonFunctions.debugLog.info("Check Modbus server connection");
             e.printStackTrace();
         }
     }

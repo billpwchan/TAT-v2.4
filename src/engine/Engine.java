@@ -6,6 +6,7 @@ import com.google.common.base.Throwables;
 import configuration.settings;
 import controller.popup.PopUpRunController;
 import controller.util.CommonFunctions;
+import javafx.concurrent.Task;
 import model.TestCasesExecution;
 
 import java.io.File;
@@ -45,6 +46,7 @@ public class Engine {
     String baselineName;
     int iteration;
     TestExecution testExecutionHandler = new TestExecution();
+    Task<Void> task;
 
     /**
      * Constructor of an engine.
@@ -54,11 +56,12 @@ public class Engine {
      * @param baselineName
      * @param iteration
      */
-    public Engine(ArrayList<CaseExecutions> toExecute, PopUpRunController popUpRunController, String baselineName, int iteration) {
+    public Engine(ArrayList<CaseExecutions> toExecute, PopUpRunController popUpRunController, String baselineName, int iteration, Task<Void> task) {
         this.iteration = iteration;
         this.baselineName = baselineName;
         this.toExecute = toExecute;
         this.popUpRunController = popUpRunController;
+        this.task = task;
     }
 
     /**
@@ -84,12 +87,11 @@ public class Engine {
         long tempsDebut1;
         long tempsFin1;
         float seconds1;
-        long tempsDebut3;
-        long tempsFin3;
-        float seconds3;
         int paramToTake;
         Double iterationResultPercentage;
         for (int i = 0; i < this.toExecute.size(); i++) {                        //Loop through each test case
+            if(task.isCancelled())
+                break;
             hashMap.clear();
             tempsDebut1 = System.currentTimeMillis();
             //this.toExecute.get(0).getStepsExecutionsAndScripts().get(0).getStepExecution().setIterationResult("Incomplete");
@@ -97,9 +99,6 @@ public class Engine {
             startCaseInit(hashMapNumberResultSteps);
             currentTestCase = testExecution.getStepsScriptsParametersFromCaseExecution(this.toExecute.get(i));
             //Automatic mode to display case in execution
-            long tempsDebut2 = System.currentTimeMillis();
-            long tempsFin2 = System.currentTimeMillis();
-            float seconds2 = (tempsFin2 - tempsDebut2) / 1000F;
             //CommonFunctions.debugLog.debug("QUERY TIME= " + Float.toString(seconds2));
             //currentTestCaseAndSteps.setStepsExecutionsAndScripts(testStepsExecutionAndScripts);
             //popUpRunController.callDisplaySteps(currentTestCase);
@@ -107,9 +106,7 @@ public class Engine {
             //Thread.sleep(1000);
             stepsNumber = currentTestCase.getStepExecutionses().size();
             Iterator<StepExecutions> itSteps = currentTestCase.getStepExecutionses().iterator();
-            int itStepCount = 0;
             while (itSteps.hasNext()) {                                          //Loop through each STEP EXECUTION
-                itStepCount++;
                 StepExecutions currentStep = itSteps.next();
                 startCaseInit(hashMapNumberResultScript);
                 startCaseInit(hashMapNumberResultMacro);
@@ -129,28 +126,22 @@ public class Engine {
                     checkInMacro = 0;
                     scriptNumber = 0;
                     Iterator<ScriptExecutions> itScripts = currentStep.getScriptExecutionses().iterator();
-                    int itScriptCount = 0;
                     while (itScripts.hasNext()) {                               //Loop through each SCRIPT EXECUTION
-                        itScriptCount++;
                         ScriptExecutions currentScript = itScripts.next();
                         currentParameters = new ArrayList<>(currentScript.getParametersExecutions());
-                        scriptExecutionHandler.getScriptFromScriptExecution(currentScript);
+                            scriptExecutionHandler.getScriptFromScriptExecution(currentScript);
                         if (currentScript.getScript().getIsMacro() == 1) {      //Script is a Macro
                             macroHandler.getAllFromMacro(currentScript.getScript());
                             Iterator<Macro> itMacro = currentScript.getScript().getMacrosForScriptIdScript().iterator();
                             paramToTake = 0;
-                            int itMacroCount = 0;
                             while (itMacro.hasNext()) {                         //loop through each MACRO EXECUTION
-                                itMacroCount++;
                                 boolean count = false;
                                 Macro mac = itMacro.next();
                                 scriptName = mac.getScriptByScriptIdScript1().getCallName();
                                 set.add(scriptName);
                                 ArrayList<ParametersExecution> paramScriptMacro = new ArrayList<>();
                                 Iterator<ParamScriptMacro> itParamScMacro = mac.getParamScriptMacros().iterator(); //get Set of ParamScriptMacros
-                                int itParamScMacroCount = 0;
                                 while (itParamScMacro.hasNext()) {              //loop through each ParamScriptMacros from MACRO
-                                    itParamScMacroCount++;
                                     ParametersExecution param = new ParametersExecution();      //declare new ParameterExecution
                                     ParamScriptMacro paramScMacro = itParamScMacro.next();
                                     //get current ParamScriptMacro
@@ -180,10 +171,7 @@ public class Engine {
                                 }      //Catch exception occured in Script. Only focus on InvocationTargetException now. 
                                 try {
                                     if (mac.getScriptByScriptIdScript1().getIsStimuli() == 1) {
-                                        tempsDebut3 = System.currentTimeMillis();
                                         runStimuliScript(scriptName, paramScriptMacro, hashMap);
-                                        tempsFin3 = System.currentTimeMillis();
-                                        seconds3 = (tempsFin3 - tempsDebut3) / 1000F;
                                         setMacroComment("Exec", "", currentScript, mac.getScriptByScriptIdScript1());
                                         //setScriptCommentAndResult("Exec", "", currentScript);
                                     } else if (mac.getScriptByScriptIdScript1().getIsStimuli() == 0) {
@@ -192,14 +180,11 @@ public class Engine {
                                             scriptNumber++;
                                             count = true;
                                         }
-                                        tempsDebut3 = System.currentTimeMillis();
                                         CommonFunctions.debugLog.debug("ScriptName : " + scriptName);
                                         CommonFunctions.debugLog.debug("paramScriptMacro : " + paramScriptMacro.toString());
                                         //This line might cause exception. Catch the error here.
 
                                         testResult = runCheckScript(scriptName, paramScriptMacro, hashMap);
-                                        tempsFin3 = System.currentTimeMillis();
-                                        seconds3 = (tempsFin3 - tempsDebut3) / 1000F;
                                         CommonFunctions.debugLog.debug("SCRIPT = " + scriptName);
                                         //CommonFunctions.debugLog.debug("Script = " + scriptName + " effectue en : " + Float.toString(seconds3));
                                         CommonFunctions.debugLog.debug("RESULT SCRIPT MACRO = " + testResult.getResult());
@@ -220,7 +205,6 @@ public class Engine {
                                     } else if (mac.getScriptByScriptIdScript1().getIsStimuli() == 1) {        //With Stimuli, three extra steps.
                                         setMacroComment("Exec", "", currentScript, mac.getScriptByScriptIdScript1());
                                     }
-                                    averageTimeCase = exceptionCausedExecutionTerminator(hashMapNumberResultMacro, testResult, currentScript, mac, checkInMacro, hashMapNumberResultScript, scriptNumber, currentStep, hashMapNumberResultSteps, tempsDebut1, averageTimeCase, i, set, stepsNumber, currentTestCase);
 
                                     throw ex;    //Go to PopUpRunController.java
                                 }
@@ -232,17 +216,11 @@ public class Engine {
                             scriptName = currentScript.getScript().getCallName();
                             set.add(scriptName);
                             if (currentScript.getIsStimuli() == 1) {
-                                tempsDebut3 = System.currentTimeMillis();
                                 runStimuliScript(scriptName, currentParameters, hashMap);
-                                tempsFin3 = System.currentTimeMillis();
-                                seconds3 = (tempsFin3 - tempsDebut3) / 1000F;
                                 setScriptCommentAndResult("Exec", "", currentScript);
                             } else if (currentScript.getIsStimuli() == 0) {
                                 scriptNumber++;
-                                tempsDebut3 = System.currentTimeMillis();
                                 testResult = runCheckScript(scriptName, currentParameters, hashMap);
-                                tempsFin3 = System.currentTimeMillis();
-                                seconds3 = (tempsFin3 - tempsDebut3) / 1000F;
                                 hashMapNumberResultScript.put(testResult.getResult(), hashMapNumberResultScript.get(testResult.getResult()) + 1);
                                 setScriptCommentAndResult(testResult.getResult(), testResult.getComment(), currentScript);
                             }

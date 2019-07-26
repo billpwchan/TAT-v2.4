@@ -173,6 +173,10 @@ public class PopUpRunController implements Initializable {
 
     private Double iterationPercentage;
 
+    private Task<Void> task;
+
+    IterationDB iterationHandler = new IterationDB();
+
     /**
      * Initializes the controller class.
      *
@@ -272,13 +276,12 @@ public class PopUpRunController implements Initializable {
             );
         });
 
-        Task<Void> task = new Task<Void>() {
+        task = new Task<Void>() {
             @Override
             protected Void call() {
-                Engine engine = new Engine(caseExecutions, thisController, baselineId, iterationNumber);
+                Engine engine = new Engine(caseExecutions, thisController, baselineId, iterationNumber, this);
                 try {
                     engine.run();
-
                 } catch (InterruptedException | ClosedByInterruptException ex) {
                     System.out.println("Break the current session.");
                     CommonFunctions.debugLog.error("Stopping Baseline Execution.");
@@ -297,6 +300,11 @@ public class PopUpRunController implements Initializable {
                             CommonFunctions.debugLog.error("\"The server (IP: \" + exceptionMessage.replace(\"//n\", \" \").replace(\"    \", \" \").substring(exceptionMessage.indexOf(\"IP: \"), exceptionMessage.indexOf(\"at\")).trim() + \" ) cannot be reached.", ex);
                         }
                         alert.showAndWait();
+                        try {
+                            executionFinished();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                     });
                 }
                 return null;
@@ -557,14 +565,8 @@ public class PopUpRunController implements Initializable {
                 th.start();
                 suspended = false;
                 runButton.setDisable(true);
-                pauseButton.setDisable(false);
-//                stopButton.setDisable(false);
-            } else if (suspended) {
-                th.resume();
-                suspended = false;
-                runButton.setDisable(true);
-                pauseButton.setDisable(false);
-//                stopButton.setDisable(false);
+                pauseButton.setDisable(true);
+                stopButton.setDisable(false);
             } else {
                 e.consume();
             }
@@ -596,19 +598,14 @@ public class PopUpRunController implements Initializable {
 
         stopButton.setOnAction((ActionEvent e) -> {
             //The Stop button is not working at this stage. Only UI responds, but the algorithm will keep running till encountering exceptions / Finished.
-            try {
                 //Need to delete one record in Iterations database. Provide iteration_number and baseline_id
 //                th.suspend();
 //                th.resume();
-                th.interrupt();
-//                this.executionInterrupted();
-                //Change the state of testCaseInExecution to "Not tested."
+                task.cancel();
+            //Change the state of testCaseInExecution to "Not tested."
 //                this.executionFinished();
                 //Need to stop the currentThread now.
 //              Thread.currentThread().interrupt();
-            } catch (Exception ex) {
-                CommonFunctions.debugLog.error("ExecutionInterrupted Is having problem! ", ex);
-            }
         });
     }
 
@@ -616,7 +613,6 @@ public class PopUpRunController implements Initializable {
      * @throws Exception
      */
     public void executionInterrupted() throws Exception {
-        IterationDB iterationHandler = new IterationDB();
         iterationHandler.deleteExecution(iteration);        //Causing exception
         Update();
         stopButton.setDisable(true);
@@ -629,7 +625,6 @@ public class PopUpRunController implements Initializable {
      * @throws Exception
      */
     public void executionFinished() throws Exception {
-        IterationDB iterationHandler = new IterationDB();
         iterationHandler.setIterationResult(iteration, iterationPercentage);
         Update();
         stopButton.setDisable(true);
