@@ -343,7 +343,7 @@ public class WriteReport {
                         if (script.getName().contains("Modbus") && script.getName().contains("DO")) {
                             this.reportMaxStep = 2;
                         }
-                        if (script.getName().contains("Modbus") && script.getName().contains("DOCBM")) {
+                        if (script.getName().contains("Modbus") && script.getName().contains("DOCMB")) {
                             this.reportMaxStep = 1;
                         }
                         if (script.getName().contains("Modbus") && script.getName().contains("AO")) {
