@@ -48,7 +48,9 @@ import java.nio.channels.ClosedByInterruptException;
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.ResourceBundle;
+import java.util.Set;
 
 /**
  * FXML Controller class
@@ -155,7 +157,7 @@ public class PopUpRunController implements Initializable {
 
     private int iterationNumber;
 
-    private Thread th;
+    private Thread[] th;
 
     private boolean caseSelected = false;
 
@@ -173,9 +175,19 @@ public class PopUpRunController implements Initializable {
 
     private Double iterationPercentage;
 
-    private Task<Void> task;
+    private Task<Void>[] task;
+
+    private Task<Void> task1;
 
     IterationDB iterationHandler = new IterationDB();
+
+    Engine engine;
+
+    private Thread thread;
+
+    Set<String> set = new HashSet<>();
+
+    int nbCaseOK = 0, nbCaseOKWC = 0, nbCaseNOK = 0, nbCaseNtestable = 0, nbCaseIncomplete = 0, nbCaseOS = 0, nbCaseNT = 0;
 
     /**
      * Initializes the controller class.
@@ -199,7 +211,6 @@ public class PopUpRunController implements Initializable {
 
         this.tableViewCampaignPopUpRun.setOnKeyReleased((KeyEvent keyEvent)->{
             if(keyEvent.getCode() == KeyCode.UP){
-                tableViewCampaignPopUpRun.getSelectionModel().selectPrevious();
                 testCaseSelected = tableViewCampaignPopUpRun.getSelectionModel().getSelectedItem();
                 tableViewCampaignPopUpRun.scrollTo(tableViewCampaignPopUpRun.getSelectionModel().getFocusedIndex());
                 if (testCaseSelected != null) {
@@ -218,7 +229,6 @@ public class PopUpRunController implements Initializable {
                 }
             }
             if(keyEvent.getCode() == KeyCode.DOWN){
-                tableViewCampaignPopUpRun.getSelectionModel().selectNext();
                 testCaseSelected = tableViewCampaignPopUpRun.getSelectionModel().getSelectedItem();
                 tableViewCampaignPopUpRun.scrollTo(tableViewCampaignPopUpRun.getSelectionModel().getFocusedIndex());
                 if (testCaseSelected != null) {
@@ -276,44 +286,88 @@ public class PopUpRunController implements Initializable {
             );
         });
 
-        task = new Task<Void>() {
+        task1 = new Task<Void>() {
             @Override
             protected Void call() {
-                Engine engine = new Engine(caseExecutions, thisController, baselineId, iterationNumber, this);
+
+                for (int i = 0; i < caseExecutions.size(); ++i) {
+                    th[i].start();
+                    while(th[i].isAlive()){
+                    }
+                    th[i]= null;
+                    task[i] = null;
+                }
                 try {
-                    engine.run();
-                } catch (InterruptedException | ClosedByInterruptException ex) {
-                    System.out.println("Break the current session.");
-                    CommonFunctions.debugLog.error("Stopping Baseline Execution.");
+                    Update();
+                } catch (ParseException ex) {
+                    ex.printStackTrace();
+                }
+
+                try {
+                    engine.finished();
                 } catch (Exception ex) {
-                    //Default Logger Event
-                    CommonFunctions.debugLog.error("", ex);
-                    //Can be specified to different types of exception. 
-                    String exceptionMessage = ex.getMessage();
-                    Platform.runLater(() -> {
-                        Alert alert = new Alert(Alert.AlertType.ERROR);
-                        alert.setTitle("Error: ");
-                        alert.setHeaderText("Exception Caught. Cannot execute the test case / User interrupted the session.");
-                        alert.setContentText("Please refer to the log for adjusting configurations.");
-                        if (ex.getMessage() != null && ex.getMessage().contains("SSH")) {      //Customized Content for Exceptions from SSHCommand Script
-                            alert.setTitle("Error: The server (IP: " + exceptionMessage.substring(exceptionMessage.indexOf("IP: ")).trim() + " ) cannot be reached.");
-                            CommonFunctions.debugLog.error("\"The server (IP: \" + exceptionMessage.replace(\"//n\", \" \").replace(\"    \", \" \").substring(exceptionMessage.indexOf(\"IP: \"), exceptionMessage.indexOf(\"at\")).trim() + \" ) cannot be reached.", ex);
-                        }
-                        alert.showAndWait();
-                        try {
-                            executionFinished();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    });
+                    ex.printStackTrace();
                 }
                 return null;
             }
         };
 
-        th = new Thread(task);
+        thread = new Thread(task1);
         this.initButtons();
         this.loadCss();
+    }
+
+    public void setnbCase(Set set, int nbCaseOK, int nbCaseOKWC, int nbCaseNOK, int nbCaseNtestable, int nbCaseIncomplete,int nbCaseOS, int nbCaseNT) {
+        this.set = set;
+        this.nbCaseOK = nbCaseOK;
+        this.nbCaseOKWC = nbCaseOKWC;
+        this.nbCaseNOK = nbCaseNOK;
+        this.nbCaseNtestable = nbCaseNtestable;
+        this.nbCaseIncomplete = nbCaseIncomplete;
+        this.nbCaseOS = nbCaseOS;
+        this.nbCaseNT = nbCaseNT;
+    }
+
+
+    private class myTask extends Task<Void> {
+        private int index;
+
+        public myTask(int index){
+            this.index = index;
+        }
+
+        @Override
+        protected Void call() {
+            try {
+                engine = new Engine(caseExecutions, thisController, baselineId, iterationNumber, set, nbCaseOK, nbCaseOKWC, nbCaseNOK, nbCaseNtestable, nbCaseIncomplete, nbCaseOS, nbCaseNT);
+                engine.run(index);
+            } catch (InterruptedException | ClosedByInterruptException ex) {
+                System.out.println("Break the current session.");
+                CommonFunctions.debugLog.error("Stopping Baseline Execution.");
+            } catch (Exception ex) {
+                //Default Logger Event
+                CommonFunctions.debugLog.error("", ex);
+                //Can be specified to different types of exception.
+                String exceptionMessage = ex.getMessage();
+                Platform.runLater(() -> {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Error: ");
+                    alert.setHeaderText("Exception Caught. Cannot execute the test case / User interrupted the session.");
+                    alert.setContentText("Please refer to the log for adjusting configurations.");
+                    if (ex.getMessage() != null && ex.getMessage().contains("SSH")) {      //Customized Content for Exceptions from SSHCommand Script
+                        alert.setTitle("Error: The server (IP: " + exceptionMessage.substring(exceptionMessage.indexOf("IP: ")).trim() + " ) cannot be reached.");
+                        CommonFunctions.debugLog.error("\"The server (IP: \" + exceptionMessage.replace(\"//n\", \" \").replace(\"    \", \" \").substring(exceptionMessage.indexOf(\"IP: \"), exceptionMessage.indexOf(\"at\")).trim() + \" ) cannot be reached.", ex);
+                    }
+                    alert.showAndWait();
+                    try {
+                        executionFinished();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                });
+            }
+            return null;
+        }
     }
 
     /**
@@ -329,30 +383,32 @@ public class PopUpRunController implements Initializable {
     public void setPrimaryStage(Stage stage) {
         this.dialogStage = stage;
         stage.setOnCloseRequest((WindowEvent event) -> {
-            if (th.getState() != Thread.State.NEW && th.getState() != Thread.State.TERMINATED) {
-                event.consume();
-            } else if (th.getState() == Thread.State.NEW) {
-                long tempsDebut = System.currentTimeMillis();
-                try {
-                    testExecutionHandler.deleteIteration(this.iteration);
-                } catch(org.hibernate.service.UnknownServiceException ex) {
-                    CommonFunctions.debugLog.error("Invalid Request. Caused by Invalid operation on thread.", ex);
-                    return;
-                } catch(org.hibernate.HibernateException ex) {
-                    CommonFunctions.debugLog.error("Invalid Request.", ex);
-                    return;
+
+                if (thread.getState() != Thread.State.NEW && thread.getState() != Thread.State.TERMINATED) {
+                    event.consume();
+                } else if (thread.getState() == Thread.State.NEW) {
+                    long tempsDebut = System.currentTimeMillis();
+                    try {
+                        testExecutionHandler.deleteIteration(this.iteration);
+                    } catch (org.hibernate.service.UnknownServiceException ex) {
+                        CommonFunctions.debugLog.error("Invalid Request. Caused by Invalid operation on thread.", ex);
+                        return;
+                    } catch (org.hibernate.HibernateException ex) {
+                        CommonFunctions.debugLog.error("Invalid Request.", ex);
+                        return;
+                    }
+                    long tempsFin = System.currentTimeMillis();
+                    float seconds = (tempsFin - tempsDebut) / 1000F;
+                    try {
+                        long tempsDebut2 = System.currentTimeMillis();
+                        Update();
+                        long tempsFin2 = System.currentTimeMillis();
+                        float seconds2 = (tempsFin2 - tempsDebut2) / 1000F;
+                    } catch (ParseException ex) {
+                        CommonFunctions.debugLog.error("", ex);
+                    }
                 }
-                long tempsFin = System.currentTimeMillis();
-                float seconds = (tempsFin - tempsDebut) / 1000F;
-                try {
-                    long tempsDebut2 = System.currentTimeMillis();
-                    Update();
-                    long tempsFin2 = System.currentTimeMillis();
-                    float seconds2 = (tempsFin2 - tempsDebut2) / 1000F;
-                } catch (ParseException ex) {
-                    CommonFunctions.debugLog.error("", ex);
-                }
-            }
+
         });
     }
 
@@ -373,6 +429,13 @@ public class PopUpRunController implements Initializable {
         long tempsDebut3 = System.currentTimeMillis();
         //System.out.println("");
         caseExecutions = testCaseExecution.PrepareCaseDisplayResults(this.baselineId, this.iterationNumber);    //Causing Exception with No Message.
+        task = new myTask[caseExecutions.size()];
+        th = new Thread[caseExecutions.size()];
+        for (int i = 0; i < caseExecutions.size(); ++i) {
+            task[i] = new myTask(i);
+            th[i] = new Thread(task[i]);
+        }
+        nbCaseNT = caseExecutions.size();
         long tempsFin3 = System.currentTimeMillis();
         float seconds3 = (tempsFin3 - tempsDebut3) / 1000F;
         //System.out.println("Case display= " + Float.toString(seconds3));
@@ -559,17 +622,18 @@ public class PopUpRunController implements Initializable {
         stopButton.setDisable(true);
 
         runButton.setOnAction((ActionEvent e) -> {
-            // Control the button behavior. 
-            if (ready && th.getState() == Thread.State.NEW) {
-                //playSound("go");
-                th.start();
-                suspended = false;
-                runButton.setDisable(true);
-                pauseButton.setDisable(true);
-                stopButton.setDisable(false);
-            } else {
-                e.consume();
-            }
+            // Control the button behavior.
+            suspended = false;
+            runButton.setDisable(true);
+            pauseButton.setDisable(true);
+            stopButton.setDisable(false);
+                if (ready && thread.getState() == Thread.State.NEW) {
+                    //playSound("go");
+                    thread.start();
+                } else {
+                    e.consume();
+                }
+
 
         });
 
@@ -587,7 +651,7 @@ public class PopUpRunController implements Initializable {
 
         pauseButton.setOnAction((ActionEvent e) -> {
             if (!suspended) {
-                th.suspend();
+                //th.suspend();
                 suspended = true;
                 runButton.setDisable(false);
                 pauseButton.setDisable(true);
@@ -601,7 +665,9 @@ public class PopUpRunController implements Initializable {
                 //Need to delete one record in Iterations database. Provide iteration_number and baseline_id
 //                th.suspend();
 //                th.resume();
-                task.cancel();
+                    for (int i = 0; i < caseExecutions.size(); ++i)
+                        task[i].cancel();
+
             //Change the state of testCaseInExecution to "Not tested."
 //                this.executionFinished();
                 //Need to stop the currentThread now.
@@ -626,7 +692,6 @@ public class PopUpRunController implements Initializable {
      */
     public void executionFinished() throws Exception {
         iterationHandler.setIterationResult(iteration, iterationPercentage);
-        Update();
         stopButton.setDisable(true);
         pauseButton.setDisable(true);
         runButton.setDisable(true);

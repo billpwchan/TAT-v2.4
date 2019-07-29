@@ -6,7 +6,6 @@ import com.google.common.base.Throwables;
 import configuration.settings;
 import controller.popup.PopUpRunController;
 import controller.util.CommonFunctions;
-import javafx.concurrent.Task;
 import model.TestCasesExecution;
 
 import java.io.File;
@@ -46,7 +45,24 @@ public class Engine {
     String baselineName;
     int iteration;
     TestExecution testExecutionHandler = new TestExecution();
-    Task<Void> task;
+    TestStepDB testStepHandler = new TestStepDB();
+    ScriptExecutionDB scriptExecutionHandler = new ScriptExecutionDB();
+    float averageTimeCase = 0;
+    TestCasesExecution testExecution = new TestCasesExecution();
+    Result testResult;
+    String scriptName;
+    CaseExecutions currentTestCase;
+    TestCaseDB caseHandler = new TestCaseDB();
+    HashMap<String, Integer> hashMapNumberResultSteps = new HashMap<>();
+    HashMap<String, Integer> hashMapNumberResultScript = new HashMap<>();
+    HashMap<String, Integer> hashMapNumberResultMacro = new HashMap<>();
+    int stepsNumber, scriptNumber, checkInMacro;
+    Set<String> set = new HashSet<>();
+    long tempsDebut1;
+    long tempsFin1;
+    float seconds1;
+    int paramToTake;
+    Double iterationResultPercentage;
 
     /**
      * Constructor of an engine.
@@ -56,12 +72,20 @@ public class Engine {
      * @param baselineName
      * @param iteration
      */
-    public Engine(ArrayList<CaseExecutions> toExecute, PopUpRunController popUpRunController, String baselineName, int iteration, Task<Void> task) {
+    public Engine(ArrayList<CaseExecutions> toExecute, PopUpRunController popUpRunController, String baselineName, int iteration,
+                  Set set, int nbCaseOK, int nbCaseOKWC, int nbCaseNOK, int nbCaseNtestable, int nbCaseIncomplete,int nbCaseOS, int nbCaseNT) {
         this.iteration = iteration;
         this.baselineName = baselineName;
         this.toExecute = toExecute;
         this.popUpRunController = popUpRunController;
-        this.task = task;
+        this.set = set;
+        this.nbCaseOK = nbCaseOK;
+        this.nbCaseOKWC = nbCaseOKWC;
+        this.nbCaseNOK = nbCaseNOK;
+        this.nbCaseNtestable = nbCaseNtestable;
+        this.nbCaseIncomplete = nbCaseIncomplete;
+        this.nbCaseOS = nbCaseOS;
+        this.nbCaseNT = nbCaseNT;
     }
 
     /**
@@ -69,29 +93,7 @@ public class Engine {
      *
      * @throws Exception
      */
-    public void run() throws Exception {
-        TestStepDB testStepHandler = new TestStepDB();
-        ScriptExecutionDB scriptExecutionHandler = new ScriptExecutionDB();
-        float averageTimeCase = 0;
-        TestCasesExecution testExecution = new TestCasesExecution();
-        Result testResult;
-        String scriptName;
-        CaseExecutions currentTestCase;
-        TestCaseDB caseHandler = new TestCaseDB();
-        HashMap<String, Integer> hashMapNumberResultSteps = new HashMap<>();
-        HashMap<String, Integer> hashMapNumberResultScript = new HashMap<>();
-        HashMap<String, Integer> hashMapNumberResultMacro = new HashMap<>();
-        int stepsNumber, scriptNumber, checkInMacro;
-        nbCaseNT = this.toExecute.size();
-        Set<String> set = new HashSet<>();
-        long tempsDebut1;
-        long tempsFin1;
-        float seconds1;
-        int paramToTake;
-        Double iterationResultPercentage;
-        for (int i = 0; i < this.toExecute.size(); i++) {                        //Loop through each test case
-            if(task.isCancelled())
-                break;
+    public void run(int i) throws Exception {
             hashMap.clear();
             tempsDebut1 = System.currentTimeMillis();
             //this.toExecute.get(0).getStepsExecutionsAndScripts().get(0).getStepExecution().setIterationResult("Incomplete");
@@ -248,8 +250,9 @@ public class Engine {
             iterationResultPercentage = ((double) nbCaseOK / (double) this.toExecute.size()) * 100;
 //                CommonFunctions.debugLog.debug("ITERATION RESULT = " + iterationResultPercentage);
             this.popUpRunController.setIterationPercentage(iterationResultPercentage);
-        }
+    }
 
+    public void finished() throws Exception {
         this.stateMachineIterationResult(nbCaseOK, nbCaseNOK, nbCaseOKWC, nbCaseNtestable, nbCaseIncomplete, nbCaseOS, this.toExecute.size());
         //this.toExecute.get(0).getStepsExecutionsAndScripts().get(0).getStepExecution().setIterationResult(iterationResult);
         //stepExecutionHandler.setIterationResultInDB(this.toExecute.get(0).getStepsExecutionsAndScripts().get(0).getStepExecution());
@@ -431,6 +434,7 @@ public class Engine {
         CommonFunctions.debugLog.debug("Case result = " + caseResult);
         //this.baselineName will show the name of Iteration (baselineId)
         currentTestCase.setCaseExecutionResult(caseResult);
+        popUpRunController.setnbCase(set, nbCaseOK, nbCaseOKWC, nbCaseNOK, nbCaseNtestable, nbCaseIncomplete, nbCaseOS, nbCaseNT);
         popUpRunController.setNumberNotExecuted(nbCaseOK, nbCaseOKWC, nbCaseNOK, nbCaseNtestable, nbCaseIncomplete, nbCaseOS, nbCaseNT);
         popUpRunController.updateAverageTimeCase(averageTimeCase, averageTimeCase * (float) nbCaseNT);
         testExecutionHandler.resultInDB(currentTestCase, iteration, this.baselineName);
