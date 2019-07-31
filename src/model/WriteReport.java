@@ -730,7 +730,7 @@ public class WriteReport {
                         ((stepNumber > 0 && (stepNumber != totalSteps - 1)) && scriptType.contains("DO")) ||
                         (scriptType.contains("CIPDO")) || (scriptType.contains("CIPAO")) ||
                         (scriptType.contains("CIPDI") && stepNumber != 0) ||
-                        (scriptType.contains("MODBUSDO")) ||
+                        (scriptType.contains("MODBUSDO") && stepNumber > 0) ||
                         (scriptType.contains("MODBUSDOCMB")) ||
                         (scriptType.contains("MODBUSAO"))
                 ) {
@@ -868,7 +868,7 @@ public class WriteReport {
                         }
 
                         int offset = stepNumber % maxStep;  //In unit of 3
-                        if (scriptType.equals("DO2")) {
+                        if (scriptType.equals("DO2") || scriptType.equals("MODBUSDO")) {
                             offset = (stepNumber - 1) % maxStep;
                         }
                         cell = reportRow.createCell(this.colv0_label0 + offset * 3);
