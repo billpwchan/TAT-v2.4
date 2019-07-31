@@ -29,7 +29,7 @@ public class Engine {
     /**
      * ArrayList of steps to execute.
      */
-    public ArrayList<CaseExecutions> toExecute;
+    public CaseExecutions toExecute;
     /**
      *
      */
@@ -63,6 +63,7 @@ public class Engine {
     float seconds1;
     int paramToTake;
     Double iterationResultPercentage;
+    int size;
 
     /**
      * Constructor of an engine.
@@ -72,7 +73,7 @@ public class Engine {
      * @param baselineName
      * @param iteration
      */
-    public Engine(ArrayList<CaseExecutions> toExecute, PopUpRunController popUpRunController, String baselineName, int iteration,
+    public Engine(CaseExecutions toExecute, PopUpRunController popUpRunController, String baselineName, int iteration,
                   Set set, int nbCaseOK, int nbCaseOKWC, int nbCaseNOK, int nbCaseNtestable, int nbCaseIncomplete,int nbCaseOS, int nbCaseNT) {
         this.iteration = iteration;
         this.baselineName = baselineName;
@@ -86,6 +87,7 @@ public class Engine {
         this.nbCaseIncomplete = nbCaseIncomplete;
         this.nbCaseOS = nbCaseOS;
         this.nbCaseNT = nbCaseNT;
+        this.size = nbCaseOK + nbCaseOKWC + nbCaseNOK + nbCaseNtestable + nbCaseIncomplete + nbCaseOS + nbCaseNT;
     }
 
     /**
@@ -99,7 +101,7 @@ public class Engine {
             //this.toExecute.get(0).getStepsExecutionsAndScripts().get(0).getStepExecution().setIterationResult("Incomplete");
             //stepExecutionHandler.setIterationResultInDB(this.toExecute.get(0).getStepsExecutionsAndScripts().get(0).getStepExecution());
             startCaseInit(hashMapNumberResultSteps);
-            currentTestCase = testExecution.getStepsScriptsParametersFromCaseExecution(this.toExecute.get(i));
+            currentTestCase = testExecution.getStepsScriptsParametersFromCaseExecution(this.toExecute);
             //Automatic mode to display case in execution
             //CommonFunctions.debugLog.debug("QUERY TIME= " + Float.toString(seconds2));
             //currentTestCaseAndSteps.setStepsExecutionsAndScripts(testStepsExecutionAndScripts);
@@ -171,6 +173,7 @@ public class Engine {
                                         paramToTake++;
                                     }
                                 }      //Catch exception occured in Script. Only focus on InvocationTargetException now. 
+                                itParamScMacro = null;
                                 try {
                                     if (mac.getScriptByScriptIdScript1().getIsStimuli() == 1) {
                                         runStimuliScript(scriptName, paramScriptMacro, hashMap);
@@ -211,6 +214,7 @@ public class Engine {
                                     throw ex;    //Go to PopUpRunController.java
                                 }
                             }
+                            itMacro = null;
                             this.stateMachineMacro(hashMapNumberResultMacro, checkInMacro);
                             setMacroResult(macroResult, currentScript);
                             hashMapNumberResultScript.put(macroResult, hashMapNumberResultScript.get(macroResult) + 1);
@@ -232,6 +236,7 @@ public class Engine {
                     }
                     CommonFunctions.debugLog.debug("RESULT STEP = " + stepResult);
                     hashMapNumberResultSteps.put(stepResult, hashMapNumberResultSteps.get(stepResult) + 1);
+                    itScripts = null;
 
                 }
 
@@ -247,13 +252,15 @@ public class Engine {
             //Thread.sleep(1000);
             endCaseSetResultChartAndDB(currentTestCase, caseHandler, averageTimeCase);
 
-            iterationResultPercentage = ((double) nbCaseOK / (double) this.toExecute.size()) * 100;
+            iterationResultPercentage = ((double) nbCaseOK / (double) this.size) * 100;
 //                CommonFunctions.debugLog.debug("ITERATION RESULT = " + iterationResultPercentage);
             this.popUpRunController.setIterationPercentage(iterationResultPercentage);
+        testExecution = null;
+        itSteps = null;
     }
 
     public void finished() throws Exception {
-        this.stateMachineIterationResult(nbCaseOK, nbCaseNOK, nbCaseOKWC, nbCaseNtestable, nbCaseIncomplete, nbCaseOS, this.toExecute.size());
+        this.stateMachineIterationResult(nbCaseOK, nbCaseNOK, nbCaseOKWC, nbCaseNtestable, nbCaseIncomplete, nbCaseOS, this.size);
         //this.toExecute.get(0).getStepsExecutionsAndScripts().get(0).getStepExecution().setIterationResult(iterationResult);
         //stepExecutionHandler.setIterationResultInDB(this.toExecute.get(0).getStepsExecutionsAndScripts().get(0).getStepExecution());
         this.closeAllScripts(set);
@@ -276,10 +283,10 @@ public class Engine {
         tempsFin1 = System.currentTimeMillis();
         seconds1 = (tempsFin1 - tempsDebut1) / 1000;
         averageTimeCase = ((1 - 1 / ((float) i + 1)) * averageTimeCase + (1 / ((float) i + 1)) * seconds1);
-        iterationResultPercentage = ((double) nbCaseOK / (double) this.toExecute.size()) * 100;
+        iterationResultPercentage = ((double) nbCaseOK / (double) this.size) * 100;
 //        CommonFunctions.debugLog.debug("ITERATION RESULT = " + iterationResultPercentage);
         this.popUpRunController.setIterationPercentage(iterationResultPercentage);
-        this.stateMachineIterationResult(nbCaseOK, nbCaseNOK, nbCaseOKWC, nbCaseNtestable, nbCaseIncomplete, nbCaseOS, this.toExecute.size());
+        this.stateMachineIterationResult(nbCaseOK, nbCaseNOK, nbCaseOKWC, nbCaseNtestable, nbCaseIncomplete, nbCaseOS, this.size);
         this.closeAllScripts(set);
         this.popUpRunController.executionFinished();
         //Possibly caused by setMachineCaseResult.

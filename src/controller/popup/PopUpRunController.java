@@ -187,7 +187,7 @@ public class PopUpRunController implements Initializable {
 
     Set<String> set = new HashSet<>();
 
-    int nbCaseOK = 0, nbCaseOKWC = 0, nbCaseNOK = 0, nbCaseNtestable = 0, nbCaseIncomplete = 0, nbCaseOS = 0, nbCaseNT = 0;
+    int nbCaseOK = 0, nbCaseOKWC = 0, nbCaseNOK = 0, nbCaseNtestable = 0, nbCaseIncomplete = 0, nbCaseOS = 0, nbCaseNT = 0, nbofCase = 0;
 
     /**
      * Initializes the controller class.
@@ -290,12 +290,15 @@ public class PopUpRunController implements Initializable {
             @Override
             protected Void call() {
 
-                for (int i = 0; i < caseExecutions.size(); ++i) {
+                for (int i = 0; i < nbofCase; ++i) {
+                    if(isCancelled())
+                        break;
                     th[i].start();
-                    while(th[i].isAlive()){
-                    }
+                    while(th[i].isAlive()){}
                     th[i]= null;
                     task[i] = null;
+                    if(i < nbofCase - 1)
+                        engine = null;
                 }
                 try {
                     Update();
@@ -305,6 +308,7 @@ public class PopUpRunController implements Initializable {
 
                 try {
                     engine.finished();
+                    engine = null;
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
@@ -339,8 +343,9 @@ public class PopUpRunController implements Initializable {
         @Override
         protected Void call() {
             try {
-                engine = new Engine(caseExecutions, thisController, baselineId, iterationNumber, set, nbCaseOK, nbCaseOKWC, nbCaseNOK, nbCaseNtestable, nbCaseIncomplete, nbCaseOS, nbCaseNT);
+                engine = new Engine(caseExecutions.get(0), thisController, baselineId, iterationNumber, set, nbCaseOK, nbCaseOKWC, nbCaseNOK, nbCaseNtestable, nbCaseIncomplete, nbCaseOS, nbCaseNT);
                 engine.run(index);
+                caseExecutions.remove(0);
             } catch (InterruptedException | ClosedByInterruptException ex) {
                 System.out.println("Break the current session.");
                 CommonFunctions.debugLog.error("Stopping Baseline Execution.");
@@ -429,13 +434,14 @@ public class PopUpRunController implements Initializable {
         long tempsDebut3 = System.currentTimeMillis();
         //System.out.println("");
         caseExecutions = testCaseExecution.PrepareCaseDisplayResults(this.baselineId, this.iterationNumber);    //Causing Exception with No Message.
-        task = new myTask[caseExecutions.size()];
-        th = new Thread[caseExecutions.size()];
-        for (int i = 0; i < caseExecutions.size(); ++i) {
+        nbofCase = caseExecutions.size();
+        task = new myTask[nbofCase];
+        th = new Thread[nbofCase];
+        for (int i = 0; i < nbofCase; ++i) {
             task[i] = new myTask(i);
             th[i] = new Thread(task[i]);
         }
-        nbCaseNT = caseExecutions.size();
+        nbCaseNT = nbofCase;
         long tempsFin3 = System.currentTimeMillis();
         float seconds3 = (tempsFin3 - tempsDebut3) / 1000F;
         //System.out.println("Case display= " + Float.toString(seconds3));
@@ -665,8 +671,8 @@ public class PopUpRunController implements Initializable {
                 //Need to delete one record in Iterations database. Provide iteration_number and baseline_id
 //                th.suspend();
 //                th.resume();
-                    for (int i = 0; i < caseExecutions.size(); ++i)
-                        task[i].cancel();
+                  task1.cancel();
+                  stopButton.setDisable(true);
 
             //Change the state of testCaseInExecution to "Not tested."
 //                this.executionFinished();
