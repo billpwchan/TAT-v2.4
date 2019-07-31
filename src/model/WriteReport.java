@@ -588,7 +588,7 @@ public class WriteReport {
                                     registerList.add(paramSearched);
                                 }
                             } else if ("MODBUSDO".equals(scriptType) || "MODBUSDOCMB".equals(scriptType) || "MODBUSAO".equals(scriptType)) {
-                                if (numParameter == 4 || numParameter == 5) {
+                                if (numParameter == 2 || numParameter == 3) {
                                     registerList.add(paramSearched);
                                 }
                             }
