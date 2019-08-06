@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  *
@@ -139,7 +140,7 @@ public class TestExecution {
      * @param caseExecution
      * @param iterationNumber
      */
-    public void resultInDB(CaseExecutions caseExecution, int iterationNumber, String baselineId) {
+    public void resultInDB(CaseExecutions caseExecution, int iterationNumber, String baselineId) throws InterruptedException {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
         CaseExecutionsResultId caseResultId = new CaseExecutionsResultId(caseExecution.getIdcaseExecutions(), (byte) iterationNumber);
@@ -159,6 +160,7 @@ public class TestExecution {
                 session.save(scriptResult);
             }
         }
+        TimeUnit.MILLISECONDS.sleep(600);
         session.beginTransaction().commit();
         session.close();
     }

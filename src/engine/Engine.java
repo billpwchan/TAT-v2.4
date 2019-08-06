@@ -74,7 +74,7 @@ public class Engine {
      * @param iteration
      */
     public Engine(CaseExecutions toExecute, PopUpRunController popUpRunController, String baselineName, int iteration,
-                  Set set, int nbCaseOK, int nbCaseOKWC, int nbCaseNOK, int nbCaseNtestable, int nbCaseIncomplete,int nbCaseOS, int nbCaseNT) {
+                  Set set, int nbCaseOK, int nbCaseOKWC, int nbCaseNOK, int nbCaseNtestable, int nbCaseIncomplete,int nbCaseOS, int nbCaseNT , float averageTimeCase) {
         this.iteration = iteration;
         this.baselineName = baselineName;
         this.toExecute = toExecute;
@@ -88,6 +88,7 @@ public class Engine {
         this.nbCaseOS = nbCaseOS;
         this.nbCaseNT = nbCaseNT;
         this.size = nbCaseOK + nbCaseOKWC + nbCaseNOK + nbCaseNtestable + nbCaseIncomplete + nbCaseOS + nbCaseNT;
+        this.averageTimeCase = averageTimeCase;
     }
 
     /**
@@ -441,11 +442,10 @@ public class Engine {
         CommonFunctions.debugLog.debug("Case result = " + caseResult);
         //this.baselineName will show the name of Iteration (baselineId)
         currentTestCase.setCaseExecutionResult(caseResult);
-        popUpRunController.setnbCase(set, nbCaseOK, nbCaseOKWC, nbCaseNOK, nbCaseNtestable, nbCaseIncomplete, nbCaseOS, nbCaseNT);
+        popUpRunController.setnbCase(set, nbCaseOK, nbCaseOKWC, nbCaseNOK, nbCaseNtestable, nbCaseIncomplete, nbCaseOS, nbCaseNT, averageTimeCase);
         popUpRunController.setNumberNotExecuted(nbCaseOK, nbCaseOKWC, nbCaseNOK, nbCaseNtestable, nbCaseIncomplete, nbCaseOS, nbCaseNT);
         popUpRunController.updateAverageTimeCase(averageTimeCase, averageTimeCase * (float) nbCaseNT);
         testExecutionHandler.resultInDB(currentTestCase, iteration, this.baselineName);
-        TimeUnit.MILLISECONDS.sleep(50);
         //caseHandler.updateDBwithResults(currentTestCase, (byte) iteration);
     }
 

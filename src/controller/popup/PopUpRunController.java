@@ -43,6 +43,7 @@ import org.apache.log4j.Logger;
 import javax.sound.sampled.*;
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.nio.channels.ClosedByInterruptException;
 import java.text.DecimalFormat;
@@ -51,6 +52,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.ResourceBundle;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 /**
  * FXML Controller class
@@ -189,6 +191,8 @@ public class PopUpRunController implements Initializable {
 
     int nbCaseOK = 0, nbCaseOKWC = 0, nbCaseNOK = 0, nbCaseNtestable = 0, nbCaseIncomplete = 0, nbCaseOS = 0, nbCaseNT = 0, nbofCase = 0;
 
+    float averageTimeCase = 0;
+
     /**
      * Initializes the controller class.
      *
@@ -295,18 +299,13 @@ public class PopUpRunController implements Initializable {
                         break;
                     th[i].start();
                     while(th[i].isAlive()){}
-                    th[i]= null;
+                    th[i] = null;
                     task[i] = null;
                     if(i < nbofCase - 1)
                         engine = null;
                 }
                 try {
                     Update();
-                } catch (ParseException ex) {
-                    ex.printStackTrace();
-                }
-
-                try {
                     engine.finished();
                     engine = null;
                 } catch (Exception ex) {
@@ -321,7 +320,7 @@ public class PopUpRunController implements Initializable {
         this.loadCss();
     }
 
-    public void setnbCase(Set set, int nbCaseOK, int nbCaseOKWC, int nbCaseNOK, int nbCaseNtestable, int nbCaseIncomplete,int nbCaseOS, int nbCaseNT) {
+    public void setnbCase(Set set, int nbCaseOK, int nbCaseOKWC, int nbCaseNOK, int nbCaseNtestable, int nbCaseIncomplete,int nbCaseOS, int nbCaseNT, float averageTimeCase) {
         this.set = set;
         this.nbCaseOK = nbCaseOK;
         this.nbCaseOKWC = nbCaseOKWC;
@@ -330,6 +329,7 @@ public class PopUpRunController implements Initializable {
         this.nbCaseIncomplete = nbCaseIncomplete;
         this.nbCaseOS = nbCaseOS;
         this.nbCaseNT = nbCaseNT;
+        this.averageTimeCase = averageTimeCase;
     }
 
 
@@ -343,9 +343,12 @@ public class PopUpRunController implements Initializable {
         @Override
         protected Void call() {
             try {
-                engine = new Engine(caseExecutions.get(0), thisController, baselineId, iterationNumber, set, nbCaseOK, nbCaseOKWC, nbCaseNOK, nbCaseNtestable, nbCaseIncomplete, nbCaseOS, nbCaseNT);
+                engine = new Engine(caseExecutions.get(0), thisController, baselineId, iterationNumber, set, nbCaseOK, nbCaseOKWC, nbCaseNOK, nbCaseNtestable, nbCaseIncomplete, nbCaseOS, nbCaseNT, averageTimeCase);
                 engine.run(index);
+                TimeUnit.MILLISECONDS.sleep(500);
                 caseExecutions.remove(0);
+            } catch (InvocationTargetException ex){
+                CommonFunctions.debugLog.error(ex);
             } catch (InterruptedException | ClosedByInterruptException ex) {
                 System.out.println("Break the current session.");
                 CommonFunctions.debugLog.error("Stopping Baseline Execution.");
