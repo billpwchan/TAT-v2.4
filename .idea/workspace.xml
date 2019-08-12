@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c4dc682d-150f-4040-9412-8f200dac0d8b" name="Default Changelist" comment="[Feature] DO2 Test Report Complete Support">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="c4dc682d-150f-4040-9412-8f200dac0d8b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mydb.db" beforeDir="false" afterPath="$PROJECT_DIR$/mydb.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mydb.db-shm" beforeDir="false" afterPath="$PROJECT_DIR$/mydb.db-shm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mydb.db-wal" beforeDir="false" afterPath="$PROJECT_DIR$/mydb.db-wal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/WriteReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/WriteReport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/script/CheckandCompare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/CheckandCompare.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/script/LaunchTCPServerModbus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/LaunchTCPServerModbus.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -53,15 +46,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/model/WriteReport.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="588" column="33" selection-start-line="588" selection-start-column="33" selection-end-line="588" selection-end-column="33" />
-              <folding>
-                <element signature="e#51632#51633#0" expanded="true" />
-                <element signature="e#51664#51665#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="3435">
+              <caret line="879" column="96" lean-forward="true" selection-start-line="879" selection-start-column="96" selection-end-line="879" selection-end-column="96" />
             </state>
           </provider>
         </entry>
@@ -75,11 +64,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/script/ModbusDOInitialization.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="29" column="91" selection-start-line="29" selection-start-column="91" selection-end-line="29" selection-end-column="91" />
+            <state relative-caret-position="252">
+              <caret line="21" selection-start-line="20" selection-start-column="37" selection-end-line="21" />
             </state>
           </provider>
         </entry>
@@ -87,8 +76,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/script/LaunchTCPServerModbus.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="152" column="12" selection-start-line="152" selection-start-column="12" selection-end-line="152" selection-end-column="12" />
+            <state relative-caret-position="3045">
+              <caret line="159" column="12" selection-start-line="159" selection-start-column="12" selection-end-line="159" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -96,7 +85,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/script/CheckandCompare.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
+            <state relative-caret-position="1071">
               <caret line="66" column="44" selection-start-line="66" selection-start-column="44" selection-end-line="66" selection-end-column="44" />
             </state>
           </provider>
@@ -134,9 +123,10 @@
         <option value="$PROJECT_DIR$/src/script/ReceiveIEC104DO2Point.java" />
         <option value="$PROJECT_DIR$/src/script/ReceiveIEC104Point.java" />
         <option value="$PROJECT_DIR$/src/script/CheckandCompare.java" />
-        <option value="$PROJECT_DIR$/src/model/WriteReport.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
         <option value="$PROJECT_DIR$/src/script/LaunchTCPServerModbus.java" />
+        <option value="$PROJECT_DIR$/src/script/ModbusDOInitialization.java" />
+        <option value="$PROJECT_DIR$/src/model/WriteReport.java" />
       </list>
     </option>
   </component>
@@ -158,7 +148,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -181,7 +171,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -243,7 +233,8 @@
       <workItem from="1563758819309" duration="3163000" />
       <workItem from="1563929818954" duration="2345000" />
       <workItem from="1563932222618" duration="3830000" />
-      <workItem from="1564536350883" duration="3858000" />
+      <workItem from="1564536350883" duration="5866000" />
+      <workItem from="1565572792722" duration="257000" />
     </task>
     <task id="LOCAL-00001" summary="[General] Code Refactoring">
       <created>1563184235108</created>
@@ -280,16 +271,45 @@
       <option name="project" value="LOCAL" />
       <updated>1564241016670</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="[Feature] DO2 Test Report Complete Support">
+      <created>1564540421756</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1564540421756</updated>
+    </task>
+    <task id="LOCAL-00007" summary="[Feature] DO2 Test Report Complete Support">
+      <created>1564540443725</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1564540443725</updated>
+    </task>
+    <task id="LOCAL-00008" summary="[Feature] MODBUS DO REPORT TEST COMPLETE">
+      <created>1564541444155</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1564541444155</updated>
+    </task>
+    <task id="LOCAL-00009" summary="[Feature] MODBUS DOCMB&amp;AO REPORT TEST COMPLETE">
+      <created>1564542268422</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1564542268422</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32599000" />
+    <option name="totallyTimeSpent" value="34864000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1549" height="837" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49906543" visible="true" weight="0.20602007" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49906543" visible="true" weight="0.20869565" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Persistence" order="3" sideWeight="0.5009346" side_tool="true" weight="0.19799331" />
@@ -300,7 +320,7 @@
       <window_info id="Learn" order="8" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.329927" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49899665" visible="true" weight="0.21751826" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49899665" weight="0.21751826" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -376,10 +396,12 @@
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <MESSAGE value="[General] Code Refactoring" />
     <MESSAGE value="[Feature] DO2 Test Complete" />
-    <MESSAGE value="[Feature] DO2 Test Report Complete Support" />
     <MESSAGE value="[Feature] Modbus Report Support Complete" />
     <MESSAGE value="[General] Modbus DOCMB Support" />
-    <option name="LAST_COMMIT_MESSAGE" value="[General] Modbus DOCMB Support" />
+    <MESSAGE value="[Feature] DO2 Test Report Complete Support" />
+    <MESSAGE value="[Feature] MODBUS DO REPORT TEST COMPLETE" />
+    <MESSAGE value="[Feature] MODBUS DOCMB&amp;AO REPORT TEST COMPLETE" />
+    <option name="LAST_COMMIT_MESSAGE" value="[Feature] MODBUS DOCMB&amp;AO REPORT TEST COMPLETE" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -389,9 +411,9 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/model/WriteReport.java</url>
-          <line>774</line>
+          <line>874</line>
           <properties />
-          <option name="timeStamp" value="1" />
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -476,21 +498,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/script/CheckandCompare.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="66" column="44" selection-start-line="66" selection-start-column="44" selection-end-line="66" selection-end-column="44" />
+    <entry file="das://9049d9fa-b124-40d0-80ec-fc40944053b3/schema/main/table/script">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="a46ddf26-fe0b-4d83-87fe-5f90585afc44">
+          <filtering>
+            <filter text="" />
+          </filtering>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/WriteReport.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="588" column="33" selection-start-line="588" selection-start-column="33" selection-end-line="588" selection-end-column="33" />
-          <folding>
-            <element signature="e#51632#51633#0" expanded="true" />
-            <element signature="e#51664#51665#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="3435">
+          <caret line="879" column="96" lean-forward="true" selection-start-line="879" selection-start-column="96" selection-end-line="879" selection-end-column="96" />
         </state>
       </provider>
     </entry>
@@ -501,26 +521,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://9049d9fa-b124-40d0-80ec-fc40944053b3/schema/main/table/script">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="a46ddf26-fe0b-4d83-87fe-5f90585afc44">
-          <filtering>
-            <filter text="" />
-          </filtering>
+    <entry file="file://$PROJECT_DIR$/src/script/ModbusDOInitialization.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="21" selection-start-line="20" selection-start-column="37" selection-end-line="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/script/LaunchTCPServerModbus.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="152" column="12" selection-start-line="152" selection-start-column="12" selection-end-line="152" selection-end-column="12" />
+        <state relative-caret-position="3045">
+          <caret line="159" column="12" selection-start-line="159" selection-start-column="12" selection-end-line="159" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/script/ModbusDOInitialization.java">
+    <entry file="file://$PROJECT_DIR$/src/script/CheckandCompare.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="29" column="91" selection-start-line="29" selection-start-column="91" selection-end-line="29" selection-end-column="91" />
+        <state relative-caret-position="1071">
+          <caret line="66" column="44" selection-start-line="66" selection-start-column="44" selection-end-line="66" selection-end-column="44" />
         </state>
       </provider>
     </entry>
