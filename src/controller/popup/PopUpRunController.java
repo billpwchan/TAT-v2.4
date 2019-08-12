@@ -301,8 +301,6 @@ public class PopUpRunController implements Initializable {
                     while(th[i].isAlive()){}
                     th[i] = null;
                     task[i] = null;
-                    if(i < nbofCase - 1)
-                        engine = null;
                 }
                 try {
                     Update();

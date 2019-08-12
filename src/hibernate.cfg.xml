@@ -26,7 +26,6 @@
         <!--<property name="hibernate.hbm2ddl.import_files">src/import.sql</property>-->
         <!--<property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">root</property>-->
-        <property name="hibernate.connection.autocommit">true</property>
         <property name="current_session_context_class">thread</property>
         <property name="hibernate.transaction.flush_before_completion">true</property>
         <property name="hibernate.flushMode">true</property>
