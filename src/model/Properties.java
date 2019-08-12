@@ -16,6 +16,7 @@ public class Properties implements java.io.Serializable {
     private StringProperty name;
     private Type type;
     private StringProperty value;
+
     /**
      * @param Name
      * @param type

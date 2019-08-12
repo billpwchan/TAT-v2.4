@@ -16,7 +16,6 @@ import org.hibernate.SessionFactory;
 import java.util.*;
 
 /**
- *
  * @author T0155040
  */
 public class MacroDB {
@@ -29,7 +28,6 @@ public class MacroDB {
     }
 
     /**
-     *
      * @param macro
      */
     public void getAllFromMacro(Script macro) {
@@ -54,7 +52,6 @@ public class MacroDB {
     }
 
     /**
-     *
      * @param macro
      */
     public void deleteMacro(Script macro) {
@@ -84,6 +81,7 @@ public class MacroDB {
     }
 
     //
+
     /**
      * Delete in ParamScriptmacro database based on certain ID.
      *

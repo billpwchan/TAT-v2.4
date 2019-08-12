@@ -109,7 +109,8 @@ public class CommonFunctions {
                     return true;
                 } else if (script.getName() != null && script.getName().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
-                } else return script.getScriptVersion() != null && script.getScriptVersion().toString().toLowerCase().contains(lowerCaseFilter);
+                } else
+                    return script.getScriptVersion() != null && script.getScriptVersion().toString().toLowerCase().contains(lowerCaseFilter);
                 // Does not match.
             });
         });

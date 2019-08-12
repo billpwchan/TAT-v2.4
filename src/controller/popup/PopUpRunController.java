@@ -213,6 +213,7 @@ public class PopUpRunController implements Initializable {
         autoExecutionDisplay.setVisible(false);
         autoExecutionDisplay.setDisable(true);
 
+
         this.tableViewCampaignPopUpRun.setOnKeyReleased((KeyEvent keyEvent)->{
             if(keyEvent.getCode() == KeyCode.UP){
                 testCaseSelected = tableViewCampaignPopUpRun.getSelectionModel().getSelectedItem();
@@ -232,6 +233,7 @@ public class PopUpRunController implements Initializable {
                     }
                 }
             }
+
             if(keyEvent.getCode() == KeyCode.DOWN){
                 testCaseSelected = tableViewCampaignPopUpRun.getSelectionModel().getSelectedItem();
                 tableViewCampaignPopUpRun.scrollTo(tableViewCampaignPopUpRun.getSelectionModel().getFocusedIndex());
@@ -389,6 +391,7 @@ public class PopUpRunController implements Initializable {
     public void setPrimaryStage(Stage stage) {
         this.dialogStage = stage;
         stage.setOnCloseRequest((WindowEvent event) -> {
+<<<<<<< HEAD
 
                 if (thread.getState() != Thread.State.NEW && thread.getState() != Thread.State.TERMINATED) {
                     event.consume();

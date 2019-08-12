@@ -18,10 +18,10 @@ import java.util.HashMap;
 
 public class ModbusDOInitialization {
 
+    int reference = 0;
     private TCPMasterConnection connection = null;
     private ModbusTCPTransaction transaction = null;
     private WriteCoilRequest writeCoilRequest = null;
-    int reference = 0;
 
     public void run(ArrayList<ParametersExecution> parameters, HashMap hashMap) throws UnknownHostException {
 

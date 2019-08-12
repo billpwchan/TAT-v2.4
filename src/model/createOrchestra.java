@@ -53,7 +53,7 @@ public class createOrchestra {
     private StepExecutions currentStepExecution;
     private ScriptExecutions currentScriptExecution;
     private TestStep currentTestStep;
-//    Point[] cellsSummary = {
+    //    Point[] cellsSummary = {
 //        //TEST SHEET DEFINITION
 //        new Point(3, 5),//E3 : Test sheet identification
 //        new Point(4, 5),//E4 : Version of the test sheet
@@ -86,7 +86,7 @@ public class createOrchestra {
 //    //        new Point(18, 5),//H28 : Approximate preparation duration
 //    //        new Point(19, 5),//H29 : Approximate running duration
 //    };
-private FileInputStream file;
+    private FileInputStream file;
     private Row row;
     private Iterator<ParametersExecution> iteParametersExecution;
     private Iterator<StepExecutions> iteStepExecutions;

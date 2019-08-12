@@ -11,7 +11,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 /**
- *
  * @author T0155040
  */
 public class UserDB {
@@ -24,7 +23,6 @@ public class UserDB {
     }
 
     /**
-     *
      * @param login
      * @param password
      * @return

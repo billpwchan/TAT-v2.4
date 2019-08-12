@@ -1,33 +1,33 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated Jun 19, 2015 5:06:37 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="DB.User" table="user" optimistic-lock="version">
         <id name="idUser" type="java.lang.Integer">
-            <column name="idUser" />
-            <generator class="identity" />
+            <column name="idUser"/>
+            <generator class="identity"/>
         </id>
         <property name="login" type="string">
-            <column name="login" length="70" />
+            <column name="login" length="70"/>
         </property>
         <property name="password" type="string">
-            <column name="password" length="45" />
+            <column name="password" length="45"/>
         </property>
         <property name="right" type="string">
-            <column name="user_right" length="70" />
+            <column name="user_right" length="70"/>
         </property>
         <property name="email" type="string">
-            <column name="email" length="45" />
+            <column name="email" length="45"/>
         </property>
         <property name="name" type="string">
-            <column name="name" length="45" />
+            <column name="name" length="45"/>
         </property>
         <set name="testCampaigns" table="test_campaign_has_user" inverse="false" lazy="true" fetch="select">
             <key>
-                <column name="user_idUser" not-null="true" />
+                <column name="user_idUser" not-null="true"/>
             </key>
-            <many-to-many entity-name="DB.TestCampaign" class="DB.TestCampaign" >
+            <many-to-many entity-name="DB.TestCampaign" class="DB.TestCampaign">
                 <column name="test_campaign_idtest_campaign" not-null="true"/>
             </many-to-many>
         </set>

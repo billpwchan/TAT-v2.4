@@ -418,7 +418,6 @@ public class TabTestCaseEditController implements Initializable {
     }
 
 
-
     /**
      * Create the object test case linked to his set of test steps, which each
      * steps linked to the his set of script.

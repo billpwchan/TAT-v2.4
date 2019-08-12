@@ -68,8 +68,6 @@ public class CheckandCompare {
     public Result run(ArrayList<ParametersExecution> parameters, HashMap hashMap) throws UnknownHostException, InterruptedException {
         Result result = new Result();
         result.setResult("NOK");
-        //this.address = InetAddress.getByName(parameters.get(1).getValue().trim().replace(',', '.'));
-        //this.port = ((int) Double.parseDouble(parameters.get(2).getValue().trim()));
         this.value = parameters.get(1).getValue().trim();
         this.scalingFactor = (int) Double.parseDouble(parameters.get(2).getValue().trim());
         this.reference = ((int) Double.parseDouble(parameters.get(3).getValue().trim()));

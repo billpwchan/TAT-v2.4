@@ -340,6 +340,15 @@ public class WriteReport {
                         if (script.getName().contains("CIP") && script.getName().contains("DI")) {
                             this.reportMaxStep = Math.max(8, this.reportMaxStep);
                         }
+                        if (script.getName().contains("Modbus") && script.getName().contains("DO")) {
+                            this.reportMaxStep = 2;
+                        }
+                        if (script.getName().contains("Modbus") && script.getName().contains("DOCMB")) {
+                            this.reportMaxStep = 1;
+                        }
+                        if (script.getName().contains("Modbus") && script.getName().contains("AO")) {
+                            this.reportMaxStep = 1;
+                        }
                         if (script.getName().contains(scriptTypeName[i])) {
                             this.scriptTypeGlobal = scriptTypeName[i];
                             this.reportMaxStep = Math.max(scriptTypeMaxStep[i], this.reportMaxStep);
@@ -492,11 +501,11 @@ public class WriteReport {
 
                     Script script = scriptEx.getScript();
                     System.out.println(script.getName());
-                    if (script.getName().contains("DI2")) {
+                    if (script.getName().contains("DI2")) {     //Refer to Modbus DI2
                         scriptType = "DI2";
                         this.scriptTypeGlobal = "DI2";
                         maxStep = 4;
-                    } else if (script.getName().contains("DI") && !script.getName().contains("CIP")) {
+                    } else if (script.getName().contains("DI") && !script.getName().contains("CIP")) {      //Refer to Modbus DI
                         scriptType = "DI";
                         this.scriptTypeGlobal = "DI";
                         maxStep = 2;
@@ -504,22 +513,42 @@ public class WriteReport {
                         scriptType = "AI";
                         this.scriptTypeGlobal = "AI";
                         maxStep = 2;
-                    } else if (script.getName().contains("DO2")) {
+                    } else if (script.getName().contains("DO2")) {      //Refer to IEC-104 DO2
                         scriptType = "DO2";
                         this.scriptTypeGlobal = "DO";
-                        maxStep = 2;
+                        maxStep = 4;
                         DO_FLAG = true;
                     } else if (script.getName().contains("CIP") && script.getName().contains("DO")) {  //Assume it is CIP DO
                         scriptType = "CIPDO";
                         this.scriptTypeGlobal = "CIPDO";
                         maxStep = 8;
                         DO_FLAG = true;
-                    } else if (script.getName().contains("DO")) {
+                    } else if (script.getName().contains("CIP") && script.getName().contains("AO")) {   //Assume it is CIP AO
+                        scriptType = "CIPAO";
+                        this.scriptTypeGlobal = "CIPAO";
+                        maxStep = 1;
+                        DO_FLAG = true;
+                    } else if (script.getName().contains("DO") && !script.getName().contains("Modbus")) {       //Refer to IEC-104 DO
                         scriptType = "DO";
                         this.scriptTypeGlobal = "DO";
                         maxStep = 1;
                         DO_FLAG = true;
-                    } else if (script.getName().contains("IEC104")) {
+                    } else if (script.getName().contains("DOCMB") && script.getName().contains("Modbus")) {     //Refer to Modbus DOCMB
+                        scriptType = "MODBUSDOCMB";
+                        this.scriptTypeGlobal = "MODBUSDOCMB";
+                        maxStep = 4;
+                        DO_FLAG = true;
+                    } else if (script.getName().contains("DO") && script.getName().contains("Modbus")) {        //Refer to Modbus DO
+                        scriptType = "MODBUSDO";
+                        this.scriptTypeGlobal = "MODBUSDO";
+                        maxStep = 2;
+                        DO_FLAG = true;
+                    } else if (script.getName().contains("AO") && script.getName().contains("Modbus")) {        //Refer to Modbus AO
+                        scriptType = "MODBUSAO";
+                        this.scriptTypeGlobal = "MODBUSAO";
+                        maxStep = 1;
+                        DO_FLAG = true;
+                    } else if (script.getName().contains("IEC104")) {       //Refer to IEC-104 DI/AI SOE1 SOE2
                         scriptType = "SOE";
                         this.scriptTypeGlobal = "SOE";
                         maxStep = 4;
@@ -545,7 +574,7 @@ public class WriteReport {
                                 //This specific scripts is only used in Search Occurance.
                                 paramSearchList.add(paramSearched);
                             }
-                            if ("DO".equals(scriptType)) {
+                            if ("DO".equals(scriptType) || "DO2".equals(scriptType)) {
                                 if (numParameter == 0) {
                                     try {
                                         registerList.add(String.valueOf((int) Math.round(Double.parseDouble(paramSearched))));
@@ -554,8 +583,12 @@ public class WriteReport {
                                         System.out.println("Should be last step. Do nothing.");
                                     }
                                 }
-                            } else if ("CIPDO".equals(scriptType)) {
+                            } else if ("CIPDO".equals(scriptType) || "CIPAO".equals(scriptType)) {
                                 if (numParameter == 2 || numParameter == 3) {        // Assume the SLOT refers to the Register Information.
+                                    registerList.add(paramSearched);
+                                }
+                            } else if ("MODBUSDO".equals(scriptType) || "MODBUSDOCMB".equals(scriptType) || "MODBUSAO".equals(scriptType)) {
+                                if (numParameter == 2 || numParameter == 3) {
                                     registerList.add(paramSearched);
                                 }
                             }
@@ -644,11 +677,15 @@ public class WriteReport {
 
                     //getting param script macro
                     if (
-                            ((caseNum != 0 && scriptType.contains("DI")) ||
-                                    scriptType.contains("SOE")) && scriptNum != 0 ||
+                            ((caseNum != 0 && scriptType.contains("DI")) || scriptType.contains("SOE")) && scriptNum != 0 ||
                                     scriptType.contains("DO") && scriptNum != 0 ||
                                     scriptType.contains("CIPDO") && scriptNum != 0 ||
-                                    scriptType.contains("CIPDI") && scriptNum != 0
+                                    scriptType.contains("CIPAO") && scriptNum != 0 ||
+                                    scriptType.contains("CIPDI") && scriptNum != 0 ||
+                                    scriptType.contains("DO2") && scriptNum != 0 ||
+                                    (scriptType.contains("MODBUSDO") && scriptNum != 0 && caseNum != 0) ||
+                                    (scriptType.contains("MODBUSDOCMB") && scriptNum != 0 && caseNum != 0) ||
+                                    (scriptType.contains("MODBUSAO") && scriptNum != 0 && caseNum != 0)
                     ) {
                         ScriptDB scDB = new ScriptDB();
                         scDB.getAllFromParamScriptMacro(script);
@@ -691,8 +728,11 @@ public class WriteReport {
                 if ((scriptType.contains("DI") && caseNum != 0 && stepNumber != 0 && scriptValidation(totalSteps, stepNumber)) ||
                         ((stepNumber > 1 && (stepNumber != totalSteps - 1)) && scriptType.contains("SOE")) ||
                         ((stepNumber > 0 && (stepNumber != totalSteps - 1)) && scriptType.contains("DO")) ||
-                        (scriptType.contains("CIPDO")) ||
-                        (scriptType.contains("CIPDI") && stepNumber != 0)
+                        (scriptType.contains("CIPDO")) || (scriptType.contains("CIPAO")) ||
+                        (scriptType.contains("CIPDI") && stepNumber != 0) ||
+                        (scriptType.contains("MODBUSDO") && stepNumber > 0) ||
+                        (scriptType.contains("MODBUSDOCMB")) ||
+                        (scriptType.contains("MODBUSAO"))
                 ) {
                     Row row = this.sheet.createRow(this.currentRow);
                     Cell cellR = row.createCell(1); //column = 1
@@ -732,7 +772,11 @@ public class WriteReport {
                     }
 
                     Cell cell4 = row.createCell(5);
-                    cell4.setCellValue(String.valueOf((stepNumber) % maxStep));         //Triggering State
+                    int cellOffset = stepNumber % maxStep;
+                    if (scriptType.equals("DO2")) {
+                        cellOffset = (stepNumber - 1) % maxStep;
+                    }
+                    cell4.setCellValue(String.valueOf(cellOffset));         //Triggering State
                     if (DO_VALUE_ERROR) {
                         CellStyle cellStyle = getRedCellStyle(this.workbook);
                         cellStyle.setWrapText(true);
@@ -824,6 +868,9 @@ public class WriteReport {
                         }
 
                         int offset = stepNumber % maxStep;  //In unit of 3
+                        if (scriptType.equals("DO2") || scriptType.equals("MODBUSDO")) {
+                            offset = (stepNumber - 1) % maxStep;
+                        }
                         cell = reportRow.createCell(this.colv0_label0 + offset * 3);
                         cell.setCellValue("-1".equals(paramSearchList.get(getColIndex(searchOccParamList, colStateKey))) ? "" : paramSearchList.get(getColIndex(searchOccParamList, colStateKey)));
                         cell = reportRow.createCell(this.colv0_Severity + offset * 3);

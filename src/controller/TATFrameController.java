@@ -294,7 +294,6 @@ public class TATFrameController implements Initializable {
 
     /**
      * Display the assets.view for script configuration when a parameters is clicked.
-     *
      */
     private void displaySettings() {
 

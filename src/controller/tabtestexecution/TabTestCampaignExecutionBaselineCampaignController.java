@@ -239,7 +239,7 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
                 (ActionEvent event) -> {
                     try {
                         this.main.updateBaselineTree();
-                        CommonFunctions.reportLog.info("User successfully validate baseline: "+ this.BaselineName);
+                        CommonFunctions.reportLog.info("User successfully validate baseline: " + this.BaselineName);
                     } catch (ParseException ex) {
                         CommonFunctions.debugLog.error("", ex);
                     }
@@ -500,7 +500,7 @@ public class TabTestCampaignExecutionBaselineCampaignController implements Initi
      * newValue if new value is empty, label will be displayed in red. Otherwise
      * the label will be displayed in black
      *
-     * @param label    the label for which change the color
+     * @param label the label for which change the color
      * @param empty the string to check
      */
     private void changeColorLabel(Label label, Boolean empty) {

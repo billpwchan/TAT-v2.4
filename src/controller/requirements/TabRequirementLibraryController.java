@@ -125,7 +125,8 @@ public class TabRequirementLibraryController implements Initializable {
                     return true;
                 } else if (requirement.getIadt() != null && requirement.getIadt().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
-                } else return requirement.getComment() != null && requirement.getComment().toLowerCase().contains(lowerCaseFilter);
+                } else
+                    return requirement.getComment() != null && requirement.getComment().toLowerCase().contains(lowerCaseFilter);
                 // Does not match.
             });
         });

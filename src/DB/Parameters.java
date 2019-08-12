@@ -24,7 +24,6 @@ public class Parameters implements java.io.Serializable {
     }
 
     /**
-     *
      * @param param
      */
     public Parameters(Parameters param) {
@@ -35,7 +34,6 @@ public class Parameters implements java.io.Serializable {
     }
 
     /**
-     *
      * @param name
      * @param parameterType
      * @param description
@@ -53,7 +51,6 @@ public class Parameters implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public Integer getIdparameters() {
@@ -61,7 +58,6 @@ public class Parameters implements java.io.Serializable {
     }
 
     /**
-     *
      * @param idparameters
      */
     public void setIdparameters(Integer idparameters) {
@@ -69,7 +65,6 @@ public class Parameters implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public String getName() {
@@ -77,7 +72,6 @@ public class Parameters implements java.io.Serializable {
     }
 
     /**
-     *
      * @param name
      */
     public void setName(String name) {
@@ -85,7 +79,6 @@ public class Parameters implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public String getParameterType() {
@@ -93,7 +86,6 @@ public class Parameters implements java.io.Serializable {
     }
 
     /**
-     *
      * @param parameterType
      */
     public void setParameterType(String parameterType) {
@@ -101,7 +93,6 @@ public class Parameters implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public String getDescription() {
@@ -109,7 +100,6 @@ public class Parameters implements java.io.Serializable {
     }
 
     /**
-     *
      * @param description
      */
     public void setDescription(String description) {
@@ -117,7 +107,6 @@ public class Parameters implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public Set getScriptHasBeenConfigureds() {
@@ -125,7 +114,6 @@ public class Parameters implements java.io.Serializable {
     }
 
     /**
-     *
      * @param scriptHasBeenConfigureds
      */
     public void setScriptHasBeenConfigureds(Set scriptHasBeenConfigureds) {
@@ -133,7 +121,6 @@ public class Parameters implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public Set getParametersExecutions() {
@@ -141,7 +128,6 @@ public class Parameters implements java.io.Serializable {
     }
 
     /**
-     *
      * @param parametersExecutions
      */
     public void setParametersExecutions(Set parametersExecutions) {
@@ -149,7 +135,6 @@ public class Parameters implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public Set getScriptHasParameterses() {
@@ -157,7 +142,6 @@ public class Parameters implements java.io.Serializable {
     }
 
     /**
-     *
      * @param scriptHasParameterses
      */
     public void setScriptHasParameterses(Set scriptHasParameterses) {

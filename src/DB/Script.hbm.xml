@@ -1,66 +1,69 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated Jul 7, 2015 10:16:27 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="DB.Script" table="script" optimistic-lock="version">
         <id name="idScript" type="int">
-            <column name="idScript" />
-            <generator class="identity" />
+            <column name="idScript"/>
+            <generator class="identity"/>
         </id>
         <property name="name" type="string">
-            <column name="name" length="50" />
+            <column name="name" length="50"/>
         </property>
         <property name="desciption" type="string">
-            <column name="desciption" length="65535" />
+            <column name="desciption" length="65535"/>
         </property>
         <property name="scriptVersion" type="java.lang.Integer">
-            <column name="script_version" />
+            <column name="script_version"/>
         </property>
         <property name="creationDate" type="text">
-            <column name="creation_date" length="10" />
+            <column name="creation_date" length="10"/>
         </property>
         <property name="editionDate" type="text">
-            <column name="edition_date" length="10" />
+            <column name="edition_date" length="10"/>
         </property>
         <property name="isStimuli" type="java.lang.Byte">
-            <column name="is_stimuli" />
+            <column name="is_stimuli"/>
         </property>
         <property name="isMacro" type="java.lang.Byte">
-            <column name="is_macro" />
+            <column name="is_macro"/>
         </property>
         <property name="callName" type="string">
-            <column name="call_name" length="45" />
+            <column name="call_name" length="45"/>
         </property>
         <set name="scriptExecutionses" table="script_executions" inverse="true" lazy="false" fetch="select">
             <key>
-                <column name="script_idScript" not-null="true" />
+                <column name="script_idScript" not-null="true"/>
             </key>
-            <one-to-many class="DB.ScriptExecutions" />
+            <one-to-many class="DB.ScriptExecutions"/>
         </set>
-        <set name="macrosForScriptIdScript" table="macro" inverse="true" lazy="false" fetch="select"  cascade="save-update" order-by="script_order">
+        <set name="macrosForScriptIdScript" table="macro" inverse="true" lazy="false" fetch="select"
+             cascade="save-update" order-by="script_order">
             <key>
-                <column name="script_idScript" not-null="true" />
+                <column name="script_idScript" not-null="true"/>
             </key>
-            <one-to-many class="DB.Macro" />
+            <one-to-many class="DB.Macro"/>
         </set>
-        <set name="testStepHasScripts" table="test_step_has_script" inverse="true" lazy="false" fetch="select" cascade="save-update">
+        <set name="testStepHasScripts" table="test_step_has_script" inverse="true" lazy="false" fetch="select"
+             cascade="save-update">
             <key>
-                <column name="script_idScript" not-null="true" />
+                <column name="script_idScript" not-null="true"/>
             </key>
-            <one-to-many class="DB.TestStepHasScript" />
+            <one-to-many class="DB.TestStepHasScript"/>
         </set>
         <set name="macrosForScriptIdScript1" table="macro" inverse="true" lazy="false" fetch="select" cascade="all">
             <key>
-                <column name="script_idScript1" not-null="true" />
+                <column name="script_idScript1" not-null="true"/>
             </key>
-            <one-to-many class="DB.Macro" />
+            <one-to-many class="DB.Macro"/>
         </set>
-        <set name="scriptHasParameterses" table="script_has_parameters" inverse="true" lazy="false" fetch="select" order-by="param_order ASC" cascade="save-update">
+        <set name="scriptHasParameterses" table="script_has_parameters" inverse="true" lazy="false" fetch="select"
+             order-by="param_order ASC" cascade="save-update">
             <key>
-                <column name="script_idScript" not-null="true" />
+                <column name="script_idScript" not-null="true"/>
             </key>
-            <one-to-many class="DB.ScriptHasParameters" />
+            <one-to-many class="DB.ScriptHasParameters"/>
         </set>
     </class>
 </hibernate-mapping>

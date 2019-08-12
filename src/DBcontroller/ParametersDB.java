@@ -13,7 +13,6 @@ import org.hibernate.SessionFactory;
 import java.util.ArrayList;
 
 /**
- *
  * @author tmorin
  */
 public class ParametersDB {
@@ -26,7 +25,6 @@ public class ParametersDB {
     }
 
     /**
-     *
      * @return
      */
     public ArrayList<Parameters> getAllParams() {

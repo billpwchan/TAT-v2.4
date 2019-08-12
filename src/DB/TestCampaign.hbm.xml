@@ -1,68 +1,69 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated Jun 19, 2015 5:06:37 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="DB.TestCampaign" table="test_campaign" optimistic-lock="version">
         <id name="idtestCampaign" type="java.lang.Integer">
-            <column name="idtest_campaign" />
-            <generator class="identity" />
+            <column name="idtest_campaign"/>
+            <generator class="identity"/>
         </id>
         <property name="reference" type="string">
-            <column name="reference" length="45" />
+            <column name="reference" length="45"/>
         </property>
         <property name="system" type="string">
-            <column name="System" length="20" />
+            <column name="System" length="20"/>
         </property>
         <property name="writter" type="string">
-            <column name="writter" length="20" />
+            <column name="writter" length="20"/>
         </property>
         <property name="campaignVersion" type="java.lang.Integer">
-            <column name="campaign_version" />
+            <column name="campaign_version"/>
         </property>
         <property name="description" type="string">
-            <column name="description" length="65535" />
+            <column name="description" length="65535"/>
         </property>
         <property name="comments" type="string">
-            <column name="comments" length="65535" />
+            <column name="comments" length="65535"/>
         </property>
         <property name="creationDate" type="string">
-            <column name="creation_date" length="10" />
+            <column name="creation_date" length="10"/>
         </property>
         <property name="editionDate" type="string">
-            <column name="edition_date" length="10" />
+            <column name="edition_date" length="10"/>
         </property>
         <property name="softwareSutRelease" type="string">
-            <column name="software_sut_release" length="20" />
+            <column name="software_sut_release" length="20"/>
         </property>
         <property name="numberTestCase" type="java.lang.Integer">
-            <column name="number_test_case" />
+            <column name="number_test_case"/>
         </property>
         <property name="regressionThread" type="java.lang.Byte">
-            <column name="regression_thread" />
+            <column name="regression_thread"/>
         </property>
         <property name="writerEmail" type="string">
-            <column name="writer_email" length="50" />
+            <column name="writer_email" length="50"/>
         </property>
         <set name="users" table="test_campaign_has_user" inverse="false" lazy="true" fetch="select">
             <key>
-                <column name="test_campaign_idtest_campaign" not-null="true" />
+                <column name="test_campaign_idtest_campaign" not-null="true"/>
             </key>
-            <many-to-many entity-name="DB.User" class="DB.User" >
+            <many-to-many entity-name="DB.User" class="DB.User">
                 <column name="user_idUser" not-null="true"/>
             </many-to-many>
         </set>
         <set name="iterationses" table="iterations" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="test_campaign_idtest_campaign" not-null="true" />
+                <column name="test_campaign_idtest_campaign" not-null="true"/>
             </key>
-            <one-to-many class="DB.Iterations" />
+            <one-to-many class="DB.Iterations"/>
         </set>
-        <set name="testCampaignTestCases" table="test_campaign_test_case" inverse="true" lazy="true" fetch="select" cascade="save-update">
+        <set name="testCampaignTestCases" table="test_campaign_test_case" inverse="true" lazy="true" fetch="select"
+             cascade="save-update">
             <key>
-                <column name="test_campaign_idtest_campaign" not-null="true" />
+                <column name="test_campaign_idtest_campaign" not-null="true"/>
             </key>
-            <one-to-many class="DB.TestCampaignTestCase" />
+            <one-to-many class="DB.TestCampaignTestCase"/>
         </set>
     </class>
 </hibernate-mapping>

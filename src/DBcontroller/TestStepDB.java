@@ -16,7 +16,6 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- *
  * @author tmorin
  */
 public class TestStepDB {
@@ -28,7 +27,6 @@ public class TestStepDB {
     }
 
     /**
-     *
      * @param stepExecution
      */
     public void getStepAndScriptsFromStepExecution(StepExecutions stepExecution) {
@@ -41,7 +39,6 @@ public class TestStepDB {
     }
 
     /**
-     *
      * @param CaseID
      * @return
      */
@@ -59,7 +56,6 @@ public class TestStepDB {
     }
 
     /**
-     *
      * @param caseExecution
      * @return
      */
@@ -83,7 +79,6 @@ public class TestStepDB {
     }
 
     /**
-     *
      * @param stepExecution
      */
     public void getStepFromStepExecution(StepExecutions stepExecution) {
@@ -95,7 +90,6 @@ public class TestStepDB {
     }
 
     /**
-     *
      * @param caseExecution
      * @param iteration
      */
@@ -136,7 +130,6 @@ public class TestStepDB {
     }
 
     /**
-     *
      * @param caseExecution
      * @return
      */

@@ -20,7 +20,6 @@ public class ParametersExecution implements java.io.Serializable {
     }
 
     /**
-     *
      * @param parameters
      * @param scriptExecutions
      */
@@ -30,7 +29,6 @@ public class ParametersExecution implements java.io.Serializable {
     }
 
     /**
-     *
      * @param parameters
      * @param scriptExecutions
      * @param value
@@ -44,7 +42,6 @@ public class ParametersExecution implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public Integer getIdparameters() {
@@ -52,7 +49,6 @@ public class ParametersExecution implements java.io.Serializable {
     }
 
     /**
-     *
      * @param idparameters
      */
     public void setIdparameters(Integer idparameters) {
@@ -60,7 +56,6 @@ public class ParametersExecution implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public Parameters getParameters() {
@@ -68,7 +63,6 @@ public class ParametersExecution implements java.io.Serializable {
     }
 
     /**
-     *
      * @param parameters
      */
     public void setParameters(Parameters parameters) {
@@ -76,7 +70,6 @@ public class ParametersExecution implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public ScriptExecutions getScriptExecutions() {
@@ -84,7 +77,6 @@ public class ParametersExecution implements java.io.Serializable {
     }
 
     /**
-     *
      * @param scriptExecutions
      */
     public void setScriptExecutions(ScriptExecutions scriptExecutions) {
@@ -92,7 +84,6 @@ public class ParametersExecution implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public String getValue() {
@@ -100,7 +91,6 @@ public class ParametersExecution implements java.io.Serializable {
     }
 
     /**
-     *
      * @param value
      */
     public void setValue(String value) {
@@ -108,7 +98,6 @@ public class ParametersExecution implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public Byte getParamOrder() {
@@ -116,27 +105,24 @@ public class ParametersExecution implements java.io.Serializable {
     }
 
     /**
-     *
      * @param paramOrder
      */
     public void setParamOrder(Byte paramOrder) {
         this.paramOrder = paramOrder;
-            }
-    
-    /**
-     *
-     * @param purpose
-     */
-    public void setPurpose(String purpose){
-        this.purpose=purpose;
     }
 
     /**
-     *
      * @return
      */
-    public String getPurpose(){
+    public String getPurpose() {
         return this.purpose;
+    }
+
+    /**
+     * @param purpose
+     */
+    public void setPurpose(String purpose) {
+        this.purpose = purpose;
     }
 
 }

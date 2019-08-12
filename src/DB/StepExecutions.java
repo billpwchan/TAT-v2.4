@@ -25,27 +25,24 @@ public class StepExecutions implements java.io.Serializable {
     }
 
     /**
-     *
      * @param caseExecutions
      */
     public StepExecutions(CaseExecutions caseExecutions) {
         this.caseExecutions = caseExecutions;
     }
-    
+
     /**
-     *
      * @param caseExecutions
      * @param testStep
      * @param stepOrder
      */
     public StepExecutions(CaseExecutions caseExecutions, TestStep testStep, Byte stepOrder) {
         this.caseExecutions = caseExecutions;
-        this.testStep=testStep;
-        this.stepOrder=stepOrder;
+        this.testStep = testStep;
+        this.stepOrder = stepOrder;
     }
 
     /**
-     *
      * @param caseExecutions
      * @param testStep
      * @param stepOrder
@@ -61,7 +58,6 @@ public class StepExecutions implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public Integer getIdstepExecutions() {
@@ -69,7 +65,6 @@ public class StepExecutions implements java.io.Serializable {
     }
 
     /**
-     *
      * @param idstepExecutions
      */
     public void setIdstepExecutions(Integer idstepExecutions) {
@@ -77,7 +72,6 @@ public class StepExecutions implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public CaseExecutions getCaseExecutions() {
@@ -85,7 +79,6 @@ public class StepExecutions implements java.io.Serializable {
     }
 
     /**
-     *
      * @param caseExecutions
      */
     public void setCaseExecutions(CaseExecutions caseExecutions) {
@@ -93,7 +86,6 @@ public class StepExecutions implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public TestStep getTestStep() {
@@ -101,7 +93,6 @@ public class StepExecutions implements java.io.Serializable {
     }
 
     /**
-     *
      * @param testStep
      */
     public void setTestStep(TestStep testStep) {
@@ -109,7 +100,6 @@ public class StepExecutions implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public Byte getStepOrder() {
@@ -117,7 +107,6 @@ public class StepExecutions implements java.io.Serializable {
     }
 
     /**
-     *
      * @param stepOrder
      */
     public void setStepOrder(Byte stepOrder) {
@@ -125,7 +114,6 @@ public class StepExecutions implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public Set getStepExecutionsResults() {
@@ -133,7 +121,6 @@ public class StepExecutions implements java.io.Serializable {
     }
 
     /**
-     *
      * @param stepExecutionsResults
      */
     public void setStepExecutionsResults(Set stepExecutionsResults) {
@@ -141,7 +128,6 @@ public class StepExecutions implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public Set getScriptExecutionses() {
@@ -149,23 +135,13 @@ public class StepExecutions implements java.io.Serializable {
     }
 
     /**
-     *
      * @param scriptExecutionses
      */
     public void setScriptExecutionses(Set scriptExecutionses) {
         this.scriptExecutionses = scriptExecutionses;
     }
-    
-    /**
-     *
-     * @param result
-     */
-    public void setStepExecutionResult(String result) {
-        this.result = result;
-    }
 
     /**
-     *
      * @return
      */
     public String getStepExecutionResult() {
@@ -173,19 +149,24 @@ public class StepExecutions implements java.io.Serializable {
     }
 
     /**
-     *
-     * @param comment
+     * @param result
      */
-    public void setStepExecutionComment(String comment) {
-        this.comment = comment;
+    public void setStepExecutionResult(String result) {
+        this.result = result;
     }
 
     /**
-     *
      * @return
      */
     public String getStepExecutionComment() {
         return this.comment;
+    }
+
+    /**
+     * @param comment
+     */
+    public void setStepExecutionComment(String comment) {
+        this.comment = comment;
     }
 
 }
