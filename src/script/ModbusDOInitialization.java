@@ -12,8 +12,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * s
- *
  * @author Kelvin Cheung
  * @version 1.0
  */

@@ -335,6 +335,7 @@ public class TabTestCampaignExecutionRepositoryBaselineController implements Ini
 
             runController.setPrimaryStage(runStage);
             runController.init(this);
+            th.start();
             runStage.show();
             runStage.setX(Main.primaryStage.getX() + Main.primaryStage.getWidth() / 2 - runStage.getWidth() / 2);
             runStage.setY(Main.primaryStage.getY() + Main.primaryStage.getHeight() / 2 - runStage.getHeight() / 2);
@@ -342,7 +343,6 @@ public class TabTestCampaignExecutionRepositoryBaselineController implements Ini
             runStage.setWidth(800);
 //            runStage.setX(main.getMainController().getPrimaryStage().getX() + main.getMainController().getPrimaryStage().getWidth() / 2 - runStage.getWidth() / 2);
 //            runStage.setY(main.getMainController().getPrimaryStage().getY() + main.getMainController().getPrimaryStage().getHeight() / 2 - runStage.getHeight() / 2);
-            th.start();
         } catch (IOException ex) {
             CommonFunctions.debugLog.error("", ex);
         }

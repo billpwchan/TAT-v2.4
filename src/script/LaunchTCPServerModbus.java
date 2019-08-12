@@ -149,15 +149,15 @@ public class LaunchTCPServerModbus {
     /**
      *
      */
-    public static String functionCode;
-    static String ip;
-    static int port;
+    static String functionCode;
+    private static ModbusTCPListener listener = null;
     //int port = Modbus.DEFAULT_PORT;
     //private String ip;
     private static SimpleProcessImage instance = null;
     private static String oldfunctionCode, oldIp;
     private static int oldPort;
-    private static ModbusTCPListener listener = null;
+    static String ip;
+    static int port;
     private int slave;
 
     /**

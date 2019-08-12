@@ -15,7 +15,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.*;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Class for the engine of the software. The tests are launched by this class.
@@ -29,7 +28,7 @@ public class Engine {
     /**
      * ArrayList of steps to execute.
      */
-    public ArrayList<CaseExecutions> toExecute;
+    public CaseExecutions toExecute;
     /**
      *
      */
@@ -45,6 +44,25 @@ public class Engine {
     String baselineName;
     int iteration;
     TestExecution testExecutionHandler = new TestExecution();
+    TestStepDB testStepHandler = new TestStepDB();
+    ScriptExecutionDB scriptExecutionHandler = new ScriptExecutionDB();
+    float averageTimeCase = 0;
+    TestCasesExecution testExecution = new TestCasesExecution();
+    Result testResult;
+    String scriptName;
+    CaseExecutions currentTestCase;
+    TestCaseDB caseHandler = new TestCaseDB();
+    HashMap<String, Integer> hashMapNumberResultSteps = new HashMap<>();
+    HashMap<String, Integer> hashMapNumberResultScript = new HashMap<>();
+    HashMap<String, Integer> hashMapNumberResultMacro = new HashMap<>();
+    int stepsNumber, scriptNumber, checkInMacro;
+    Set<String> set = new HashSet<>();
+    long tempsDebut1;
+    long tempsFin1;
+    float seconds1;
+    int paramToTake;
+    Double iterationResultPercentage;
+    int size;
 
     /**
      * Constructor of an engine.
@@ -54,11 +72,22 @@ public class Engine {
      * @param baselineName
      * @param iteration
      */
-    public Engine(ArrayList<CaseExecutions> toExecute, PopUpRunController popUpRunController, String baselineName, int iteration) {
+    public Engine(CaseExecutions toExecute, PopUpRunController popUpRunController, String baselineName, int iteration,
+                  Set set, int nbCaseOK, int nbCaseOKWC, int nbCaseNOK, int nbCaseNtestable, int nbCaseIncomplete,int nbCaseOS, int nbCaseNT , float averageTimeCase) {
         this.iteration = iteration;
         this.baselineName = baselineName;
         this.toExecute = toExecute;
         this.popUpRunController = popUpRunController;
+        this.set = set;
+        this.nbCaseOK = nbCaseOK;
+        this.nbCaseOKWC = nbCaseOKWC;
+        this.nbCaseNOK = nbCaseNOK;
+        this.nbCaseNtestable = nbCaseNtestable;
+        this.nbCaseIncomplete = nbCaseIncomplete;
+        this.nbCaseOS = nbCaseOS;
+        this.nbCaseNT = nbCaseNT;
+        this.size = nbCaseOK + nbCaseOKWC + nbCaseNOK + nbCaseNtestable + nbCaseIncomplete + nbCaseOS + nbCaseNT;
+        this.averageTimeCase = averageTimeCase;
     }
 
     /**
@@ -66,40 +95,14 @@ public class Engine {
      *
      * @throws Exception
      */
-    public void run() throws Exception {
-        TestStepDB testStepHandler = new TestStepDB();
-        ScriptExecutionDB scriptExecutionHandler = new ScriptExecutionDB();
-        float averageTimeCase = 0;
-        TestCasesExecution testExecution = new TestCasesExecution();
-        Result testResult;
-        String scriptName;
-        CaseExecutions currentTestCase;
-        TestCaseDB caseHandler = new TestCaseDB();
-        HashMap<String, Integer> hashMapNumberResultSteps = new HashMap<>();
-        HashMap<String, Integer> hashMapNumberResultScript = new HashMap<>();
-        HashMap<String, Integer> hashMapNumberResultMacro = new HashMap<>();
-        int stepsNumber, scriptNumber, checkInMacro;
-        nbCaseNT = this.toExecute.size();
-        Set<String> set = new HashSet<>();
-        long tempsDebut1;
-        long tempsFin1;
-        float seconds1;
-        long tempsDebut3;
-        long tempsFin3;
-        float seconds3;
-        int paramToTake;
-        Double iterationResultPercentage;
-        for (int i = 0; i < this.toExecute.size(); i++) {                        //Loop through each test case
+    public void run(int i) throws Exception {
             hashMap.clear();
             tempsDebut1 = System.currentTimeMillis();
             //this.toExecute.get(0).getStepsExecutionsAndScripts().get(0).getStepExecution().setIterationResult("Incomplete");
             //stepExecutionHandler.setIterationResultInDB(this.toExecute.get(0).getStepsExecutionsAndScripts().get(0).getStepExecution());
             startCaseInit(hashMapNumberResultSteps);
-            currentTestCase = testExecution.getStepsScriptsParametersFromCaseExecution(this.toExecute.get(i));
+            currentTestCase = testExecution.getStepsScriptsParametersFromCaseExecution(this.toExecute);
             //Automatic mode to display case in execution
-            long tempsDebut2 = System.currentTimeMillis();
-            long tempsFin2 = System.currentTimeMillis();
-            float seconds2 = (tempsFin2 - tempsDebut2) / 1000F;
             //CommonFunctions.debugLog.debug("QUERY TIME= " + Float.toString(seconds2));
             //currentTestCaseAndSteps.setStepsExecutionsAndScripts(testStepsExecutionAndScripts);
             //popUpRunController.callDisplaySteps(currentTestCase);
@@ -107,9 +110,7 @@ public class Engine {
             //Thread.sleep(1000);
             stepsNumber = currentTestCase.getStepExecutionses().size();
             Iterator<StepExecutions> itSteps = currentTestCase.getStepExecutionses().iterator();
-            int itStepCount = 0;
             while (itSteps.hasNext()) {                                          //Loop through each STEP EXECUTION
-                itStepCount++;
                 StepExecutions currentStep = itSteps.next();
                 startCaseInit(hashMapNumberResultScript);
                 startCaseInit(hashMapNumberResultMacro);
@@ -129,28 +130,22 @@ public class Engine {
                     checkInMacro = 0;
                     scriptNumber = 0;
                     Iterator<ScriptExecutions> itScripts = currentStep.getScriptExecutionses().iterator();
-                    int itScriptCount = 0;
                     while (itScripts.hasNext()) {                               //Loop through each SCRIPT EXECUTION
-                        itScriptCount++;
                         ScriptExecutions currentScript = itScripts.next();
                         currentParameters = new ArrayList<>(currentScript.getParametersExecutions());
-                        scriptExecutionHandler.getScriptFromScriptExecution(currentScript);
+                            scriptExecutionHandler.getScriptFromScriptExecution(currentScript);
                         if (currentScript.getScript().getIsMacro() == 1) {      //Script is a Macro
                             macroHandler.getAllFromMacro(currentScript.getScript());
                             Iterator<Macro> itMacro = currentScript.getScript().getMacrosForScriptIdScript().iterator();
                             paramToTake = 0;
-                            int itMacroCount = 0;
                             while (itMacro.hasNext()) {                         //loop through each MACRO EXECUTION
-                                itMacroCount++;
                                 boolean count = false;
                                 Macro mac = itMacro.next();
                                 scriptName = mac.getScriptByScriptIdScript1().getCallName();
                                 set.add(scriptName);
                                 ArrayList<ParametersExecution> paramScriptMacro = new ArrayList<>();
                                 Iterator<ParamScriptMacro> itParamScMacro = mac.getParamScriptMacros().iterator(); //get Set of ParamScriptMacros
-                                int itParamScMacroCount = 0;
                                 while (itParamScMacro.hasNext()) {              //loop through each ParamScriptMacros from MACRO
-                                    itParamScMacroCount++;
                                     ParametersExecution param = new ParametersExecution();      //declare new ParameterExecution
                                     ParamScriptMacro paramScMacro = itParamScMacro.next();
                                     //get current ParamScriptMacro
@@ -178,12 +173,10 @@ public class Engine {
                                         paramToTake++;
                                     }
                                 }      //Catch exception occured in Script. Only focus on InvocationTargetException now. 
+                                itParamScMacro = null;
                                 try {
                                     if (mac.getScriptByScriptIdScript1().getIsStimuli() == 1) {
-                                        tempsDebut3 = System.currentTimeMillis();
                                         runStimuliScript(scriptName, paramScriptMacro, hashMap);
-                                        tempsFin3 = System.currentTimeMillis();
-                                        seconds3 = (tempsFin3 - tempsDebut3) / 1000F;
                                         setMacroComment("Exec", "", currentScript, mac.getScriptByScriptIdScript1());
                                         //setScriptCommentAndResult("Exec", "", currentScript);
                                     } else if (mac.getScriptByScriptIdScript1().getIsStimuli() == 0) {
@@ -192,14 +185,11 @@ public class Engine {
                                             scriptNumber++;
                                             count = true;
                                         }
-                                        tempsDebut3 = System.currentTimeMillis();
                                         CommonFunctions.debugLog.debug("ScriptName : " + scriptName);
                                         CommonFunctions.debugLog.debug("paramScriptMacro : " + paramScriptMacro.toString());
                                         //This line might cause exception. Catch the error here.
 
                                         testResult = runCheckScript(scriptName, paramScriptMacro, hashMap);
-                                        tempsFin3 = System.currentTimeMillis();
-                                        seconds3 = (tempsFin3 - tempsDebut3) / 1000F;
                                         CommonFunctions.debugLog.debug("SCRIPT = " + scriptName);
                                         //CommonFunctions.debugLog.debug("Script = " + scriptName + " effectue en : " + Float.toString(seconds3));
                                         CommonFunctions.debugLog.debug("RESULT SCRIPT MACRO = " + testResult.getResult());
@@ -220,11 +210,11 @@ public class Engine {
                                     } else if (mac.getScriptByScriptIdScript1().getIsStimuli() == 1) {        //With Stimuli, three extra steps.
                                         setMacroComment("Exec", "", currentScript, mac.getScriptByScriptIdScript1());
                                     }
-                                    averageTimeCase = exceptionCausedExecutionTerminator(hashMapNumberResultMacro, testResult, currentScript, mac, checkInMacro, hashMapNumberResultScript, scriptNumber, currentStep, hashMapNumberResultSteps, tempsDebut1, averageTimeCase, i, set, stepsNumber, currentTestCase);
 
                                     throw ex;    //Go to PopUpRunController.java
                                 }
                             }
+                            itMacro = null;
                             this.stateMachineMacro(hashMapNumberResultMacro, checkInMacro);
                             setMacroResult(macroResult, currentScript);
                             hashMapNumberResultScript.put(macroResult, hashMapNumberResultScript.get(macroResult) + 1);
@@ -232,17 +222,11 @@ public class Engine {
                             scriptName = currentScript.getScript().getCallName();
                             set.add(scriptName);
                             if (currentScript.getIsStimuli() == 1) {
-                                tempsDebut3 = System.currentTimeMillis();
                                 runStimuliScript(scriptName, currentParameters, hashMap);
-                                tempsFin3 = System.currentTimeMillis();
-                                seconds3 = (tempsFin3 - tempsDebut3) / 1000F;
                                 setScriptCommentAndResult("Exec", "", currentScript);
                             } else if (currentScript.getIsStimuli() == 0) {
                                 scriptNumber++;
-                                tempsDebut3 = System.currentTimeMillis();
                                 testResult = runCheckScript(scriptName, currentParameters, hashMap);
-                                tempsFin3 = System.currentTimeMillis();
-                                seconds3 = (tempsFin3 - tempsDebut3) / 1000F;
                                 hashMapNumberResultScript.put(testResult.getResult(), hashMapNumberResultScript.get(testResult.getResult()) + 1);
                                 setScriptCommentAndResult(testResult.getResult(), testResult.getComment(), currentScript);
                             }
@@ -252,6 +236,7 @@ public class Engine {
                     }
                     CommonFunctions.debugLog.debug("RESULT STEP = " + stepResult);
                     hashMapNumberResultSteps.put(stepResult, hashMapNumberResultSteps.get(stepResult) + 1);
+                    itScripts = null;
 
                 }
 
@@ -267,12 +252,15 @@ public class Engine {
             //Thread.sleep(1000);
             endCaseSetResultChartAndDB(currentTestCase, caseHandler, averageTimeCase);
 
-            iterationResultPercentage = ((double) nbCaseOK / (double) this.toExecute.size()) * 100;
+            iterationResultPercentage = ((double) nbCaseOK / (double) this.size) * 100;
 //                CommonFunctions.debugLog.debug("ITERATION RESULT = " + iterationResultPercentage);
             this.popUpRunController.setIterationPercentage(iterationResultPercentage);
-        }
+        testExecution = null;
+        itSteps = null;
+    }
 
-        this.stateMachineIterationResult(nbCaseOK, nbCaseNOK, nbCaseOKWC, nbCaseNtestable, nbCaseIncomplete, nbCaseOS, this.toExecute.size());
+    public void finished() throws Exception {
+        this.stateMachineIterationResult(nbCaseOK, nbCaseNOK, nbCaseOKWC, nbCaseNtestable, nbCaseIncomplete, nbCaseOS, this.size);
         //this.toExecute.get(0).getStepsExecutionsAndScripts().get(0).getStepExecution().setIterationResult(iterationResult);
         //stepExecutionHandler.setIterationResultInDB(this.toExecute.get(0).getStepsExecutionsAndScripts().get(0).getStepExecution());
         this.closeAllScripts(set);
@@ -295,10 +283,10 @@ public class Engine {
         tempsFin1 = System.currentTimeMillis();
         seconds1 = (tempsFin1 - tempsDebut1) / 1000;
         averageTimeCase = ((1 - 1 / ((float) i + 1)) * averageTimeCase + (1 / ((float) i + 1)) * seconds1);
-        iterationResultPercentage = ((double) nbCaseOK / (double) this.toExecute.size()) * 100;
+        iterationResultPercentage = ((double) nbCaseOK / (double) this.size) * 100;
 //        CommonFunctions.debugLog.debug("ITERATION RESULT = " + iterationResultPercentage);
         this.popUpRunController.setIterationPercentage(iterationResultPercentage);
-        this.stateMachineIterationResult(nbCaseOK, nbCaseNOK, nbCaseOKWC, nbCaseNtestable, nbCaseIncomplete, nbCaseOS, this.toExecute.size());
+        this.stateMachineIterationResult(nbCaseOK, nbCaseNOK, nbCaseOKWC, nbCaseNtestable, nbCaseIncomplete, nbCaseOS, this.size);
         this.closeAllScripts(set);
         this.popUpRunController.executionFinished();
         //Possibly caused by setMachineCaseResult.
@@ -453,10 +441,10 @@ public class Engine {
         CommonFunctions.debugLog.debug("Case result = " + caseResult);
         //this.baselineName will show the name of Iteration (baselineId)
         currentTestCase.setCaseExecutionResult(caseResult);
+        popUpRunController.setnbCase(set, nbCaseOK, nbCaseOKWC, nbCaseNOK, nbCaseNtestable, nbCaseIncomplete, nbCaseOS, nbCaseNT, averageTimeCase);
         popUpRunController.setNumberNotExecuted(nbCaseOK, nbCaseOKWC, nbCaseNOK, nbCaseNtestable, nbCaseIncomplete, nbCaseOS, nbCaseNT);
         popUpRunController.updateAverageTimeCase(averageTimeCase, averageTimeCase * (float) nbCaseNT);
         testExecutionHandler.resultInDB(currentTestCase, iteration, this.baselineName);
-        TimeUnit.MILLISECONDS.sleep(50);
         //caseHandler.updateDBwithResults(currentTestCase, (byte) iteration);
     }
 

@@ -3,7 +3,7 @@
 <hibernate-configuration>
     <session-factory>
       
-        <property name="dialect">org.hibernate.dialect.SQLiteDialect</property>
+        <property name="dialect">com.enigmabridge.hibernate.dialect.SQLiteDialect</property>
         <property name="connection.driver_class">org.sqlite.JDBC</property>
         <property name="connection.url">jdbc:sqlite:mydb.db?journal_mode=WAL</property>
         <property name="connection.username"></property>
@@ -26,14 +26,16 @@
         <!--<property name="hibernate.hbm2ddl.import_files">src/import.sql</property>-->
         <!--<property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">root</property>-->
+        <property name="current_session_context_class">thread</property>
         <property name="hibernate.transaction.flush_before_completion">true</property>
+        <property name="hibernate.flushMode">true</property>
+        <property name="hibernate.connection.release_mode">on_close</property>
         <property name="hibernate.show_sql">false</property>
         <property name="hibernate.format_sql">false</property>
         <property name="hibernate.generate_statistics">false</property>
         <property name="hibernate.use_sql_comments">false</property>
         <property name="hibernate.cache.use_second_level_cache">false</property>
         <property name="hibernate.cache.use_query_cache">false</property>
-        <property name="hibernate.c3p0.max_statements">0</property>
         <mapping resource="DB/ScriptExecutionResult.hbm.xml"/>
         <mapping resource="DB/TestCampaignTestCase.hbm.xml"/>
         <mapping resource="DB/TestStepHasScript.hbm.xml"/>

@@ -3,17 +3,17 @@ package script;
 import DB.ParametersExecution;
 import controller.util.CommonFunctions;
 import engine.Result;
-import net.wimpi.modbus.Modbus;
 import net.wimpi.modbus.io.ModbusTCPTransaction;
 import net.wimpi.modbus.msg.*;
 import net.wimpi.modbus.net.TCPMasterConnection;
-import org.hibernate.tool.hbm2x.StringUtils;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
+
+import static com.google.common.base.Strings.repeat;
 
 /**
  * @author Kelvin Cheung
@@ -23,24 +23,22 @@ import java.util.concurrent.TimeUnit;
 public class CheckandCompare {
 
     //Important instances of the classes
-    TCPMasterConnection connection = null;
-    ModbusTCPTransaction transaction = null;
-    ReadCoilsRequest coilsRequest = null;
-    ReadCoilsResponse coilsResponse = null;
-    ReadMultipleRegistersRequest multipleRegistersRequest = null;
-    ReadMultipleRegistersResponse multipleRegistersResponse = null;
-    WriteCoilRequest writeCoilRequest = null;
+    private TCPMasterConnection connection = null;
+    private ModbusTCPTransaction transaction = null;
+    private ReadCoilsRequest coilsRequest = null;
+    private ReadCoilsResponse coilsResponse = null;
+    private ReadMultipleRegistersRequest multipleRegistersRequest = null;
+    private ReadMultipleRegistersResponse multipleRegistersResponse = null;
+    private WriteCoilRequest writeCoilRequest = null;
 
     //Variables for storing the parameters
-    InetAddress address = null;
-    int port = Modbus.DEFAULT_PORT;
-    int reference = 0;
-    String functionCode;
-    String value;
-    int scalingFactor = 1;
-    int addressSize;
-    String endianness;
-    int milliseconds;
+    private int reference = 0;
+    private String functionCode;
+    private String value;
+    private int scalingFactor = 1;
+    private int addressSize;
+    private String endianness;
+    private int milliseconds;
     /**
      * Params of the test.
      */
@@ -59,10 +57,17 @@ public class CheckandCompare {
 
     }
 
+    public String leftPad(String str, int size, String delim){
+        size = (size - str.length() )/ delim.length();
+        if(size > 0){
+            str = repeat(delim, size) + str;
+        }
+        return str;
+    }
+
     public Result run(ArrayList<ParametersExecution> parameters, HashMap hashMap) throws UnknownHostException, InterruptedException {
         Result result = new Result();
         result.setResult("NOK");
-
         this.value = parameters.get(1).getValue().trim();
         this.scalingFactor = (int) Double.parseDouble(parameters.get(2).getValue().trim());
         this.reference = ((int) Double.parseDouble(parameters.get(3).getValue().trim()));
@@ -73,7 +78,7 @@ public class CheckandCompare {
         if (scalingFactor == -1)
             scalingFactor = 1;
         TimeUnit.MILLISECONDS.sleep(milliseconds);
-        launchServer(address, port, reference, addressSize, functionCode, endianness, result);
+        launchServer(InetAddress.getByName(LaunchTCPServerModbus.ip), LaunchTCPServerModbus.port, reference, addressSize, functionCode, endianness, result);
 
         return result;
     }
@@ -138,21 +143,21 @@ public class CheckandCompare {
                         transaction.execute();
                         multipleRegistersResponse = (ReadMultipleRegistersResponse) transaction.getResponse();
                         if (endianness.toLowerCase().equals("big"))
-                            receivedValue += StringUtils.leftPad(Integer.toHexString(multipleRegistersResponse.getRegisterValue(0)), 4, "0");
+                            receivedValue += leftPad(Integer.toHexString(multipleRegistersResponse.getRegisterValue(0)), 4, "0");
                         else if (endianness.toLowerCase().equals("little"))
-                            receivedValue = StringUtils.leftPad(Integer.toHexString(multipleRegistersResponse.getRegisterValue(0)), 4, "0") + receivedValue;
+                            receivedValue = leftPad(Integer.toHexString(multipleRegistersResponse.getRegisterValue(0)), 4, "0") + receivedValue;
                     }
 
-                    if (receivedValue.equals(StringUtils.leftPad(Integer.toHexString((int) (Double.parseDouble(value) * scalingFactor)), 8, "0"))) {
+                    if (receivedValue.equals(leftPad(Integer.toHexString((int) (Double.parseDouble(value) * scalingFactor)), 8, "0"))) {
                         result.setResult("OK");
                         result.setComment("Sent: " + value + "\nScaling Factor: " + scalingFactor
                                 + "\nActual value Sent: " + (int) (Double.parseDouble(value) * scalingFactor) + "\nFound: " + Integer.parseInt(receivedValue, 16)
-                                + "\nActual Value Sent (hex): " + StringUtils.leftPad(Integer.toHexString((int) (Double.parseDouble(value) * scalingFactor)), 8, "0") + "\nFound (hex): " + receivedValue
+                                + "\nActual Value Sent (hex): " + leftPad(Integer.toHexString((int) (Double.parseDouble(value) * scalingFactor)), 8, "0") + "\nFound (hex): " + receivedValue
                                 + "\nReading Register : " + reference);
                     } else {
                         result.setComment("Missmatch \n" + "Sent : " + value + "\nScaling Factor: " + scalingFactor
                                 + "\nActual value Sent: " + (int) (Double.parseDouble(value) * scalingFactor) + "\nFound: " + Integer.parseInt(receivedValue, 16)
-                                + "\nActual Value Sent (hex): " + StringUtils.leftPad(Integer.toHexString((int) (Double.parseDouble(value) * scalingFactor)), 8, "0") + "\nFound (hex): " + receivedValue
+                                + "\nActual Value Sent (hex): " + leftPad(Integer.toHexString((int) (Double.parseDouble(value) * scalingFactor)), 8, "0") + "\nFound (hex): " + receivedValue
                                 + "\nReading Register : " + reference);
                     }
                     break;

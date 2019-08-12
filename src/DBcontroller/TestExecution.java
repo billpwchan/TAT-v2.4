@@ -133,7 +133,7 @@ public class TestExecution {
      * @param caseExecution
      * @param iterationNumber
      */
-    public void resultInDB(CaseExecutions caseExecution, int iterationNumber, String baselineId) {
+    public void resultInDB(CaseExecutions caseExecution, int iterationNumber, String baselineId) throws InterruptedException {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
         CaseExecutionsResultId caseResultId = new CaseExecutionsResultId(caseExecution.getIdcaseExecutions(), (byte) iterationNumber);

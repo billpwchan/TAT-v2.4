@@ -93,7 +93,8 @@ public class TriggerModbusPointAI {
         switch (LaunchTCPServerModbus.functionCode) {
 
             // CommonFunctions.debugLog.error();
-            case "HR":
+            case "03":
+            case "0x03":
                 try {
                     SimpleProcessImage instance = LaunchTCPServerModbus.getInstance();
                     updateHoldingRegister(instance, newInt, register);
@@ -101,7 +102,8 @@ public class TriggerModbusPointAI {
                     Logger.getLogger(TriggerModbusPointAI.class.getName()).error("", ex);
                 }
                 break;
-            case "AI":
+            case "04":
+            case "0x04":
                 try {
                     SimpleProcessImage instance = LaunchTCPServerModbus.getInstance();
                     updateInputRegister(instance, newInt, register);
