@@ -14,7 +14,6 @@ import org.hibernate.SessionFactory;
 import java.util.*;
 
 /**
- *
  * @author tmorin
  */
 public class ScriptDB {
@@ -26,7 +25,6 @@ public class ScriptDB {
     }
 
     /**
-     *
      * @return
      */
     public ArrayList<Script> getAllScripts() {
@@ -40,7 +38,6 @@ public class ScriptDB {
     }
 
     /**
-     *
      * @param id
      * @return
      */
@@ -56,7 +53,6 @@ public class ScriptDB {
     }
 
     /**
-     *
      * @param scriptExecution
      */
     public void getScriptAndParametersExecutionFromScriptExecution(ScriptExecutions scriptExecution) {
@@ -69,7 +65,6 @@ public class ScriptDB {
     }
 
     /**
-     *
      * @param session
      * @param stepExecution
      * @param iteration
@@ -106,7 +101,6 @@ public class ScriptDB {
     }
 
     /**
-     *
      * @return
      */
     public HashSet<Script> getScriptListWithParameters() {
@@ -130,7 +124,6 @@ public class ScriptDB {
     }
 
     /**
-     *
      * @return
      */
     public HashSet<Script> getScriptListAndParameters() {
@@ -154,7 +147,6 @@ public class ScriptDB {
     }
 
     /**
-     *
      * @param script
      */
     public void getAllFromScript(Script script) {
@@ -170,7 +162,6 @@ public class ScriptDB {
     }
 
     /**
-     *
      * @param script
      */
     public void getAllFromParamScriptMacro(Script script) {

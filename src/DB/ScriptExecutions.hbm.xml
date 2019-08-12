@@ -1,48 +1,52 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated Jun 19, 2015 5:06:37 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="DB.ScriptExecutions" table="script_executions" optimistic-lock="version">
         <id name="idscriptExecutions" type="java.lang.Integer">
-            <column name="idscript_executions" />
-            <generator class="identity" />
+            <column name="idscript_executions"/>
+            <generator class="identity"/>
         </id>
         <many-to-one name="script" class="DB.Script" fetch="select">
-            <column name="script_idScript" not-null="true" />
+            <column name="script_idScript" not-null="true"/>
         </many-to-one>
         <many-to-one name="stepExecutions" class="DB.StepExecutions" fetch="select">
-            <column name="step_executions_idstep_executions" not-null="true" />
+            <column name="step_executions_idstep_executions" not-null="true"/>
         </many-to-one>
         <property name="scriptOrder" type="java.lang.Byte">
-            <column name="script_order" />
+            <column name="script_order"/>
         </property>
         <property name="isStimuli" type="java.lang.Byte">
-            <column name="is_stimuli" />
+            <column name="is_stimuli"/>
         </property>
-        <set name="macroExecutionsForScriptExecutionsIdscriptExecutions" table="macro_execution" inverse="true" lazy="true" fetch="select" cascade="delete">
+        <set name="macroExecutionsForScriptExecutionsIdscriptExecutions" table="macro_execution" inverse="true"
+             lazy="true" fetch="select" cascade="delete">
             <key>
-                <column name="script_executions_idscript_executions" not-null="true" />
+                <column name="script_executions_idscript_executions" not-null="true"/>
             </key>
-            <one-to-many class="DB.MacroExecution" />
+            <one-to-many class="DB.MacroExecution"/>
         </set>
-        <set name="macroExecutionsForScriptExecutionsIdscriptExecutions1" table="macro_execution" inverse="true" lazy="true" fetch="select" cascade="delete">
+        <set name="macroExecutionsForScriptExecutionsIdscriptExecutions1" table="macro_execution" inverse="true"
+             lazy="true" fetch="select" cascade="delete">
             <key>
-                <column name="script_executions_idscript_executions1" not-null="true" />
+                <column name="script_executions_idscript_executions1" not-null="true"/>
             </key>
-            <one-to-many class="DB.MacroExecution" />
+            <one-to-many class="DB.MacroExecution"/>
         </set>
-        <set name="parametersExecutions" table="parameters_execution" inverse="true" lazy="true" fetch="select" cascade="all" order-by="param_order">
+        <set name="parametersExecutions" table="parameters_execution" inverse="true" lazy="true" fetch="select"
+             cascade="all" order-by="param_order">
             <key>
-                <column name="script_executions_idscript_executions" not-null="true" />
+                <column name="script_executions_idscript_executions" not-null="true"/>
             </key>
-            <one-to-many class="DB.ParametersExecution" />
+            <one-to-many class="DB.ParametersExecution"/>
         </set>
-        <set name="scriptExecutionResults" table="script_execution_result" inverse="true" lazy="true" fetch="select" cascade="delete">
+        <set name="scriptExecutionResults" table="script_execution_result" inverse="true" lazy="true" fetch="select"
+             cascade="delete">
             <key>
-                <column name="script_executions_idscript_executions" not-null="true" />
+                <column name="script_executions_idscript_executions" not-null="true"/>
             </key>
-            <one-to-many class="DB.ScriptExecutionResult" />
+            <one-to-many class="DB.ScriptExecutionResult"/>
         </set>
     </class>
 </hibernate-mapping>

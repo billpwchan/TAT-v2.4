@@ -1,39 +1,40 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated Jun 24, 2015 5:05:36 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="DB.ScriptHasBeenConfigured" table="script_has_been_configured" optimistic-lock="version">
         <id name="idscriptHasBeenConfigured" type="java.lang.Integer">
-            <column name="idscript_has_been_configured" />
-            <generator class="identity" />
+            <column name="idscript_has_been_configured"/>
+            <generator class="identity"/>
         </id>
         <many-to-one name="parameters" class="DB.Parameters" fetch="select">
-            <column name="parameters_idparameters" not-null="true" />
+            <column name="parameters_idparameters" not-null="true"/>
         </many-to-one>
         <many-to-one name="testStepHasScript" class="DB.TestStepHasScript" fetch="select">
-            <column name="test_step_has_script_idtest_step_has_script" not-null="true" />
+            <column name="test_step_has_script_idtest_step_has_script" not-null="true"/>
         </many-to-one>
         <property name="paramOrder" type="byte">
-            <column name="param_order" not-null="true" />
+            <column name="param_order" not-null="true"/>
         </property>
         <property name="isConfigured" type="java.lang.Byte">
-            <column name="is_configured" />
+            <column name="is_configured"/>
         </property>
         <property name="value" type="string">
-            <column name="value" length="150" />
+            <column name="value" length="150"/>
         </property>
         <property name="valuePath" type="string">
-            <column name="value_path" length="150" />
+            <column name="value_path" length="150"/>
         </property>
         <many-to-one name="refScriptHasBeenConfigured" class="DB.ScriptHasBeenConfigured" fetch="select">
-            <column name="reference_idscript_has_been_configured" />
+            <column name="reference_idscript_has_been_configured"/>
         </many-to-one>
-        <set name="scriptHasBeenConfiguredToMe" table="script_has_been_configured" inverse="true" lazy="true" fetch="select" order-by="param_order ASC">
+        <set name="scriptHasBeenConfiguredToMe" table="script_has_been_configured" inverse="true" lazy="true"
+             fetch="select" order-by="param_order ASC">
             <key>
-                <column name="reference_idscript_has_been_configured" />
+                <column name="reference_idscript_has_been_configured"/>
             </key>
-            <one-to-many class="DB.ScriptHasBeenConfigured" />
+            <one-to-many class="DB.ScriptHasBeenConfigured"/>
         </set>
     </class>
 </hibernate-mapping>

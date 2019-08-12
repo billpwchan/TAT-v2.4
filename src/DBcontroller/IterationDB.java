@@ -19,22 +19,20 @@ import java.util.List;
 import java.util.TreeSet;
 
 /**
- *
  * @author T0155040
  */
 public class IterationDB {
 
+    public static SessionFactory factory = sessionFactorySingleton.getInstance();
+    public static Session session;
     /**
      *
      */
     public IterationDB() {
 
     }
-    public static SessionFactory factory = sessionFactorySingleton.getInstance();
-    public static Session session;
 
     /**
-     *
      * @param ite
      */
     public void initializeIteration(Iterations ite) {
@@ -51,7 +49,6 @@ public class IterationDB {
     }
 
     /**
-     *
      * @param ite
      * @param iterationResult
      */
@@ -65,11 +62,10 @@ public class IterationDB {
     }
 
     /**
-     *
      * @param ite
      */
     public void deleteExecution(Iterations ite) {
-          session = factory.openSession();
+        session = factory.openSession();
 //        Query query = session.createQuery("delete from CaseExecutionsResult CER where CER.id.iterationNumber=:iterationNumber and CER.baselineId=:baselineId");
 //        query.setInteger("iterationNumber", ite.getIterationNumber());
 //        query.setString("baselineId", ite.getBaselineId());
@@ -98,7 +94,6 @@ public class IterationDB {
     }
 
     /**
-     *
      * @param tCampaign
      * @return
      */
@@ -113,7 +108,6 @@ public class IterationDB {
     }
 
     /**
-     *
      * @param id
      * @return
      */
@@ -127,7 +121,6 @@ public class IterationDB {
     }
 
     /**
-     *
      * @param id
      * @return
      */
@@ -141,7 +134,6 @@ public class IterationDB {
     }
 
     /**
-     *
      * @param ite
      */
     public void deleteIterationFromIterationNum(Iterations ite) {

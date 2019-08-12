@@ -150,14 +150,15 @@ public class LaunchTCPServerModbus {
      *
      */
     public static String functionCode;
-    static ModbusTCPListener listener = null;
+    static String ip;
+    static int port;
     //int port = Modbus.DEFAULT_PORT;
     //private String ip;
     private static SimpleProcessImage instance = null;
     private static String oldfunctionCode, oldIp;
     private static int oldPort;
-    private String ip;
-    private int port, slave;
+    private static ModbusTCPListener listener = null;
+    private int slave;
 
     /**
      *
@@ -200,15 +201,15 @@ public class LaunchTCPServerModbus {
      */
     public String run(ArrayList<ParametersExecution> parameters, HashMap<String, Object> test) throws InterruptedException {
 
-        this.ip = parameters.get(1).getValue().trim().replace(',', '.');
-        this.port = ((int) Double.parseDouble(parameters.get(2).getValue().trim()));
+        ip = parameters.get(1).getValue().trim().replace(',', '.');
+        port = ((int) Double.parseDouble(parameters.get(2).getValue().trim()));
         this.slave = ((int) Double.parseDouble(parameters.get(3).getValue().trim()));
         functionCode = parameters.get(4).getValue().trim();
         //CommonFunctions.debugLog.error("Server type is :"+functionCode);
         if (oldPort != port || !oldfunctionCode.equals(functionCode) || !oldIp.equals(ip)) {
             close();
-            oldPort = this.port;
-            oldIp = this.ip;
+            oldPort = port;
+            oldIp = ip;
             oldfunctionCode = functionCode;
             launchServer(ip, port, slave, functionCode);
             Thread.sleep(6000);

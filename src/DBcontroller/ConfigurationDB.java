@@ -26,7 +26,6 @@ import java.util.Date;
 import java.util.Iterator;
 
 /**
- *
  * @author Martinth
  */
 public class ConfigurationDB {
@@ -42,7 +41,6 @@ public class ConfigurationDB {
     }
 
     /**
-     *
      * @param iteration
      * @param testCase
      * @param exceFile
@@ -58,7 +56,7 @@ public class ConfigurationDB {
      * @throws Exception
      */
     public int configureTestCase(Iterations iteration, TestCase testCase, File exceFile, int range, String sheetNumber,
-            int caseNumber, String excelCategoryInstantiation, String excelLocationInstantiation)
+                                 int caseNumber, String excelCategoryInstantiation, String excelLocationInstantiation)
             throws FileNotFoundException, IOException, InterruptedException, Exception {
         // final Stage dialog2 = dialog;
         SessionFactory factory = sessionFactorySingleton.getInstance();
@@ -176,7 +174,7 @@ public class ConfigurationDB {
                                 }
                                 caseExecution.setExcelPath(
                                         settings.scriptsPaht + "\\" + iteration.getTestCampaign().getReference() + "\\"
-                                        + iteration.getBaselineId() + "\\" + exceFile.toPath().getFileName());
+                                                + iteration.getBaselineId() + "\\" + exceFile.toPath().getFileName());
                                 value = this.getExcelValue(sheet, x, y, indexLine);
                                 break;
                             case "Constant":
@@ -219,7 +217,6 @@ public class ConfigurationDB {
     }
 
     /**
-     *
      * @param baselineName
      * @return
      */
@@ -234,7 +231,6 @@ public class ConfigurationDB {
     }
 
     /**
-     *
      * @param baseline
      */
     public void deleteConfiguration(Iterations baseline) {
@@ -258,8 +254,8 @@ public class ConfigurationDB {
     }
 
     //Baseline has something wrong. Records are not deleted. 
+
     /**
-     *
      * @param baselineId
      * @param campaignToBaseline
      * @return
@@ -276,7 +272,6 @@ public class ConfigurationDB {
     }
 
     /**
-     *
      * @param sheet
      * @param x
      * @param y

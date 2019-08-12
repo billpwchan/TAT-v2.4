@@ -4,7 +4,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" id="AnchorPane" fx:id="anchorPaneStep" minHeight="60.0" prefHeight="60.0"
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" id="AnchorPane" fx:id="anchorPaneStep" minHeight="60.0"
+            prefHeight="60.0"
             prefWidth="875.0" xmlns="http://javafx.com/javafx/8"
             fx:controller="controller.tablestep.StepLineTableStepController">
     <children>

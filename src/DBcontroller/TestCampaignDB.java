@@ -18,7 +18,6 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- *
  * @author tmartinez
  */
 public class TestCampaignDB {
@@ -28,7 +27,6 @@ public class TestCampaignDB {
     }
 
     /**
-     *
      * @return
      */
     public ArrayList<TestCampaign> getAllCampaigns() {
@@ -45,7 +43,6 @@ public class TestCampaignDB {
 //
 
     /**
-     *
      * @param testCampaign
      * @param testCases
      * @return
@@ -81,7 +78,6 @@ public class TestCampaignDB {
     }
 
     /**
-     *
      * @return @throws ParseException
      */
     public ArrayList<Iterations> getBaselinedCampaignsTree() throws ParseException {
@@ -105,7 +101,6 @@ public class TestCampaignDB {
     }
 
     /**
-     *
      * @param campaignID
      * @return
      */
@@ -118,7 +113,6 @@ public class TestCampaignDB {
     }
 
     /**
-     *
      * @param campaignName
      * @return
      */
@@ -133,7 +127,6 @@ public class TestCampaignDB {
     }
 
     /**
-     *
      * @param campaign
      */
     public void deleteCampaignNotExecuted(TestCampaign campaign) {
@@ -148,7 +141,6 @@ public class TestCampaignDB {
     }
 
     /**
-     *
      * @param testCase
      * @return
      */

@@ -72,12 +72,14 @@ public class ReceiveIEC104Point implements InterfaceScript {
             resultComment.append("Result OK \n Received Point Address: ").append(pointAddressReceived);
             resultComment.append("\n Actual Point Address: ").append(pointAddressExcel);
             resultComment.append("\n Received Address Size: ").append(pointAddressExcel);
+            resultComment.append("\n Actual Address Size: ").append(addressSizeExcel);
             result.setComment(resultComment.toString());
         } else {
             StringBuilder resultComment = new StringBuilder();
             resultComment.append("Result MisMatch \n Received Point Address: ").append(pointAddressReceived);
             resultComment.append("\n Actual Point Address: ").append(pointAddressExcel);
             resultComment.append("\n Received Address Size: ").append(pointAddressExcel);
+            resultComment.append("\n Actual Address Size: ").append(addressSizeExcel);
             result.setComment(resultComment.toString());
         }
         return result;

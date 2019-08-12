@@ -193,8 +193,8 @@ public class PopUpRunController implements Initializable {
         autoExecutionDisplay.setVisible(false);
         autoExecutionDisplay.setDisable(true);
 
-        this.tableViewCampaignPopUpRun.setOnKeyReleased((KeyEvent keyEvent)->{
-            if(keyEvent.getCode() == KeyCode.UP){
+        this.tableViewCampaignPopUpRun.setOnKeyReleased((KeyEvent keyEvent) -> {
+            if (keyEvent.getCode() == KeyCode.UP) {
                 tableViewCampaignPopUpRun.getSelectionModel().selectPrevious();
                 testCaseSelected = tableViewCampaignPopUpRun.getSelectionModel().getSelectedItem();
                 tableViewCampaignPopUpRun.scrollTo(tableViewCampaignPopUpRun.getSelectionModel().getFocusedIndex());
@@ -213,7 +213,7 @@ public class PopUpRunController implements Initializable {
                     }
                 }
             }
-            if(keyEvent.getCode() == KeyCode.DOWN){
+            if (keyEvent.getCode() == KeyCode.DOWN) {
                 tableViewCampaignPopUpRun.getSelectionModel().selectNext();
                 testCaseSelected = tableViewCampaignPopUpRun.getSelectionModel().getSelectedItem();
                 tableViewCampaignPopUpRun.scrollTo(tableViewCampaignPopUpRun.getSelectionModel().getFocusedIndex());
@@ -327,10 +327,10 @@ public class PopUpRunController implements Initializable {
                 long tempsDebut = System.currentTimeMillis();
                 try {
                     testExecutionHandler.deleteIteration(this.iteration);
-                } catch(org.hibernate.service.UnknownServiceException ex) {
+                } catch (org.hibernate.service.UnknownServiceException ex) {
                     CommonFunctions.debugLog.error("Invalid Request. Caused by Invalid operation on thread.", ex);
                     return;
-                } catch(org.hibernate.HibernateException ex) {
+                } catch (org.hibernate.HibernateException ex) {
                     CommonFunctions.debugLog.error("Invalid Request.", ex);
                     return;
                 }

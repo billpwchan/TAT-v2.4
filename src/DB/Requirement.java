@@ -27,7 +27,6 @@ public class Requirement implements java.io.Serializable {
     }
 
     /**
-     *
      * @param idRequirement
      * @param category
      * @param writer
@@ -49,7 +48,6 @@ public class Requirement implements java.io.Serializable {
     }
 
     /**
-     *
      * @param req
      */
     public Requirement(Requirement req) {
@@ -63,7 +61,6 @@ public class Requirement implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public Integer getIdrequirement() {
@@ -71,7 +68,6 @@ public class Requirement implements java.io.Serializable {
     }
 
     /**
-     *
      * @param idrequirement
      */
     public void setIdrequirement(Integer idrequirement) {
@@ -79,7 +75,6 @@ public class Requirement implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public Byte getVersion() {
@@ -87,7 +82,6 @@ public class Requirement implements java.io.Serializable {
     }
 
     /**
-     *
      * @param version
      */
     public void setVersion(Byte version) {
@@ -95,7 +89,6 @@ public class Requirement implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public String getCategory() {
@@ -103,7 +96,6 @@ public class Requirement implements java.io.Serializable {
     }
 
     /**
-     *
      * @param category
      */
     public void setCategory(String category) {
@@ -111,7 +103,6 @@ public class Requirement implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public String getRequirementID() {
@@ -119,7 +110,6 @@ public class Requirement implements java.io.Serializable {
     }
 
     /**
-     *
      * @param name
      */
     public void setRequirementID(String name) {
@@ -127,7 +117,6 @@ public class Requirement implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public String getWriter() {
@@ -135,7 +124,6 @@ public class Requirement implements java.io.Serializable {
     }
 
     /**
-     *
      * @param writer
      */
     public void setWriter(String writer) {
@@ -143,7 +131,6 @@ public class Requirement implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public String getRequirementText() {
@@ -151,7 +138,6 @@ public class Requirement implements java.io.Serializable {
     }
 
     /**
-     *
      * @param requirementText
      */
     public void setRequirementText(String requirementText) {
@@ -159,7 +145,6 @@ public class Requirement implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public Short getCoverage() {
@@ -167,7 +152,6 @@ public class Requirement implements java.io.Serializable {
     }
 
     /**
-     *
      * @param coverage
      */
     public void setCoverage(Short coverage) {
@@ -175,7 +159,6 @@ public class Requirement implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public String getComment() {
@@ -183,7 +166,6 @@ public class Requirement implements java.io.Serializable {
     }
 
     /**
-     *
      * @param comment
      */
     public void setComment(String comment) {
@@ -191,7 +173,6 @@ public class Requirement implements java.io.Serializable {
     }
 
     /**
-     *
      * @return
      */
     public Set getTestSteps() {
@@ -199,7 +180,6 @@ public class Requirement implements java.io.Serializable {
     }
 
     /**
-     *
      * @param testSteps
      */
     public void setTestSteps(Set testSteps) {

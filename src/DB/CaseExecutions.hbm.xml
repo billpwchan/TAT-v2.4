@@ -1,45 +1,47 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated Jun 22, 2015 3:07:06 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="DB.CaseExecutions" table="case_executions" optimistic-lock="version">
         <id name="idcaseExecutions" type="java.lang.Integer">
-            <column name="idcase_executions" />
-            <generator class="identity" />
+            <column name="idcase_executions"/>
+            <generator class="identity"/>
         </id>
         <many-to-one name="iterations" class="DB.Iterations" fetch="select">
-            <column name="iterations_iditerations" not-null="true" />
+            <column name="iterations_iditerations" not-null="true"/>
         </many-to-one>
         <many-to-one name="testCase" class="DB.TestCase" fetch="select">
-            <column name="test_case_idtest_case" not-null="true" />
+            <column name="test_case_idtest_case" not-null="true"/>
         </many-to-one>
         <property name="caseOrder" type="java.lang.Short">
-            <column name="case_order" />
+            <column name="case_order"/>
         </property>
         <property name="location" type="string">
-            <column name="location" length="20" />
+            <column name="location" length="20"/>
         </property>
         <property name="testCategory" type="string">
-            <column name="test_category" length="15" />
+            <column name="test_category" length="15"/>
         </property>
         <property name="caseInstance" type="string">
-            <column name="case_instance" length="20" />
+            <column name="case_instance" length="20"/>
         </property>
         <property name="excelPath" type="string">
-            <column name="excel_path" />
+            <column name="excel_path"/>
         </property>
-        <set name="caseExecutionsResults" table="case_executions_result" inverse="true" lazy="true" fetch="select" cascade="delete">
+        <set name="caseExecutionsResults" table="case_executions_result" inverse="true" lazy="true" fetch="select"
+             cascade="delete">
             <key>
-                <column name="case_executions_idcase_executions" not-null="true" />
+                <column name="case_executions_idcase_executions" not-null="true"/>
             </key>
-            <one-to-many class="DB.CaseExecutionsResult" />
+            <one-to-many class="DB.CaseExecutionsResult"/>
         </set>
-        <set name="stepExecutionses" table="step_executions" inverse="true" lazy="true" fetch="select" cascade="all" order-by="step_order">
+        <set name="stepExecutionses" table="step_executions" inverse="true" lazy="true" fetch="select" cascade="all"
+             order-by="step_order">
             <key>
-                <column name="case_executions_idcase_executions" not-null="true" />
+                <column name="case_executions_idcase_executions" not-null="true"/>
             </key>
-            <one-to-many class="DB.StepExecutions" />
+            <one-to-many class="DB.StepExecutions"/>
         </set>
     </class>
 </hibernate-mapping>

@@ -62,15 +62,14 @@ public class CheckandCompare {
     public Result run(ArrayList<ParametersExecution> parameters, HashMap hashMap) throws UnknownHostException, InterruptedException {
         Result result = new Result();
         result.setResult("NOK");
-        this.address = InetAddress.getByName(parameters.get(1).getValue().trim().replace(',', '.'));
-        this.port = ((int) Double.parseDouble(parameters.get(2).getValue().trim()));
-        this.value = parameters.get(3).getValue().trim();
-        this.scalingFactor = (int) Double.parseDouble(parameters.get(4).getValue().trim());
-        this.reference = ((int) Double.parseDouble(parameters.get(5).getValue().trim()));
-        this.addressSize = ((int) Double.parseDouble(parameters.get(6).getValue().trim()));
-        this.functionCode = parameters.get(7).getValue().trim();
-        this.endianness = parameters.get(8).getValue().trim();
-        this.milliseconds = Integer.parseInt(parameters.get(9).getValue().trim());
+
+        this.value = parameters.get(1).getValue().trim();
+        this.scalingFactor = (int) Double.parseDouble(parameters.get(2).getValue().trim());
+        this.reference = ((int) Double.parseDouble(parameters.get(3).getValue().trim()));
+        this.addressSize = ((int) Double.parseDouble(parameters.get(4).getValue().trim()));
+        this.functionCode = parameters.get(5).getValue().trim();
+        this.endianness = parameters.get(6).getValue().trim();
+        this.milliseconds = Integer.parseInt(parameters.get(7).getValue().trim());
         if (scalingFactor == -1)
             scalingFactor = 1;
         TimeUnit.MILLISECONDS.sleep(milliseconds);

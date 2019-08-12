@@ -5,13 +5,13 @@
  * and open the template in the editor.
  */
 package DBcontroller;
+
 import DB.ScriptExecutions;
 import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 /**
- *
  * @author MorinT
  */
 public class ScriptExecutionDB {
@@ -24,7 +24,6 @@ public class ScriptExecutionDB {
     }
 
     /**
-     *
      * @param scriptExecutions
      */
     public void getScriptFromScriptExecution(ScriptExecutions scriptExecutions) {
