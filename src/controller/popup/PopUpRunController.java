@@ -305,9 +305,9 @@ public class PopUpRunController implements Initializable {
                     task[i] = null;
                 }
                 try {
-                    Update();
                     engine.finished();
                     engine = null;
+                    Update();
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
@@ -676,6 +676,14 @@ public class PopUpRunController implements Initializable {
 //                th.resume();
                   task1.cancel();
                   stopButton.setDisable(true);
+            try {
+                engine.finished();
+                engine = null;
+                Update();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+
 
             //Change the state of testCaseInExecution to "Not tested."
 //                this.executionFinished();

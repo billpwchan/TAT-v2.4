@@ -32,33 +32,33 @@
         <property name="callName" type="string">
             <column name="call_name" length="45"/>
         </property>
-        <set name="scriptExecutionses" table="script_executions" inverse="true" lazy="false" fetch="select">
+        <set name="scriptExecutionses" table="script_executions" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="script_idScript" not-null="true"/>
             </key>
             <one-to-many class="DB.ScriptExecutions"/>
         </set>
-        <set name="macrosForScriptIdScript" table="macro" inverse="true" lazy="false" fetch="select"
+        <set name="macrosForScriptIdScript" table="macro" inverse="true" lazy="true" fetch="select"
              cascade="save-update" order-by="script_order">
             <key>
                 <column name="script_idScript" not-null="true"/>
             </key>
             <one-to-many class="DB.Macro"/>
         </set>
-        <set name="testStepHasScripts" table="test_step_has_script" inverse="true" lazy="false" fetch="select"
+        <set name="testStepHasScripts" table="test_step_has_script" inverse="true" lazy="true" fetch="select"
              cascade="save-update">
             <key>
                 <column name="script_idScript" not-null="true"/>
             </key>
             <one-to-many class="DB.TestStepHasScript"/>
         </set>
-        <set name="macrosForScriptIdScript1" table="macro" inverse="true" lazy="false" fetch="select" cascade="all">
+        <set name="macrosForScriptIdScript1" table="macro" inverse="true" lazy="true" fetch="select" cascade="all">
             <key>
                 <column name="script_idScript1" not-null="true"/>
             </key>
             <one-to-many class="DB.Macro"/>
         </set>
-        <set name="scriptHasParameterses" table="script_has_parameters" inverse="true" lazy="false" fetch="select"
+        <set name="scriptHasParameterses" table="script_has_parameters" inverse="true" lazy="true" fetch="select"
              order-by="param_order ASC" cascade="save-update">
             <key>
                 <column name="script_idScript" not-null="true"/>

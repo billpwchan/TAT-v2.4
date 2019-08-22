@@ -68,7 +68,7 @@
         <property name="testCaseSource" type="string">
             <column name="test_case_source" length="50"/>
         </property>
-        <set name="testSteps" table="test_step" inverse="true" lazy="false" fetch="select" cascade="all"
+        <set name="testSteps" table="test_step" inverse="true" lazy="true" fetch="select" cascade="all"
              order-by="step_order ASC">
             <key>
                 <column name="test_case_idtest_case"/>

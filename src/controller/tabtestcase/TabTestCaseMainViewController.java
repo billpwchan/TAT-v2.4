@@ -94,6 +94,7 @@ public class TabTestCaseMainViewController implements Initializable {
                     currentEditTab.remove(editCurrent);
                     CommonFunctions.reportLog.info("User cancel editing " + testcaseEdit.getTestCaseIdentification());
                 });
+                currentEditTab.remove(editCurrent);
             } catch (IOException ex) {
                 CommonFunctions.debugLog.error("", ex);
             }
