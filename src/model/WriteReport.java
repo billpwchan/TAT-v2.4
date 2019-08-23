@@ -102,6 +102,9 @@ public class WriteReport {
     private CellStyle cellStyle3;
     private CellStyle cellStyle4;
     private CellStyle cellStyle5;
+    private static CellStyle REDstyle;
+    private static CellStyle DARKBLUEstyle;
+    private static CellStyle GREYstyle;
 
     /**
      *
@@ -143,32 +146,37 @@ public class WriteReport {
 
     }
 
+    private static void InitCellStyles(XSSFWorkbook workbook) {
+        REDstyle = workbook.createCellStyle();
+        REDstyle.setFillForegroundColor(IndexedColors.RED.getIndex());
+        REDstyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+        REDstyle.setAlignment(HorizontalAlignment.CENTER_SELECTION);
+        DARKBLUEstyle = workbook.createCellStyle();
+        DARKBLUEstyle.setFillForegroundColor(IndexedColors.DARK_BLUE.getIndex());
+        DARKBLUEstyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+        DARKBLUEstyle.setAlignment(HorizontalAlignment.CENTER_SELECTION);
+        GREYstyle = workbook.createCellStyle();
+        GREYstyle.setFillForegroundColor(IndexedColors.GREY_50_PERCENT.getIndex());
+        GREYstyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+        GREYstyle.setAlignment(HorizontalAlignment.CENTER_SELECTION);
+    }
+
     /**
      * @param workbook
      * @return
      */
     private static CellStyle getRedCellStyle(XSSFWorkbook workbook) {
-        CellStyle style = workbook.createCellStyle();
-        style.setFillForegroundColor(IndexedColors.RED.getIndex());
-        style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
-        style.setAlignment(HorizontalAlignment.CENTER_SELECTION);
-        return style;
+        return REDstyle;
     }
 
     private static CellStyle getDarkBlueCellStyle(XSSFWorkbook workbook) {
-        CellStyle style = workbook.createCellStyle();
-        style.setFillForegroundColor(IndexedColors.DARK_BLUE.getIndex());
-        style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
-        style.setAlignment(HorizontalAlignment.CENTER_SELECTION);
-        return style;
+
+        return DARKBLUEstyle;
     }
 
     private static CellStyle getGreyCellStyle(XSSFWorkbook workbook) {
-        CellStyle style = workbook.createCellStyle();
-        style.setFillForegroundColor(IndexedColors.GREY_50_PERCENT.getIndex());
-        style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
-        style.setAlignment(HorizontalAlignment.CENTER_SELECTION);
-        return style;
+
+        return GREYstyle;
     }
 
     /**
@@ -234,6 +242,7 @@ public class WriteReport {
         } catch (Exception ex) {
             CommonFunctions.debugLog.error("", ex);
         }
+        InitCellStyles(this.workbook);
         this.initHashMaps();
         this.reportSheetOffsetInit(it);
         this.setHeaderFileRows(scriptTypeGlobal);
@@ -251,7 +260,6 @@ public class WriteReport {
         } catch (IOException ex) {
             CommonFunctions.debugLog.error("", ex);
         }
-        System.out.println("Report Created");
     }
 
     /**

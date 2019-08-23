@@ -20,9 +20,11 @@ public class stopIEC104Simulator implements InterfaceScript {
         }
         IEC104InitConnection.process = null;
 
+        if (IEC104InitOutputConnection.br != null) {
+            IEC104InitOutputConnection.br.close();
+        }
         if (IEC104InitOutputConnection.process != null && IEC104InitOutputConnection.process.isAlive()) {
             IEC104InitOutputConnection.process.destroy();
-            IEC104InitOutputConnection.br.close();
         }
         Thread.sleep(1000);
         if (IEC104InitOutputConnection.process != null && IEC104InitOutputConnection.process.isAlive()) {
