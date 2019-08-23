@@ -26,22 +26,6 @@ public class TriggerIEC104Point implements InterfaceScript {
 
     private List<String> lines;
 
-    public static void main(String[] args) {
-        //Must initiate IEC104 connection to keep lines of IEC104Template as static.
-        IEC104InitConnection temp = new IEC104InitConnection();
-        try {
-            temp.run(null, null);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        TriggerIEC104Point temp1 = new TriggerIEC104Point();
-        try {
-            temp1.run(null, null);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
     @Override
     public Result run(ArrayList<ParametersExecution> parameters, HashMap hashMap) throws Exception {
 
@@ -49,6 +33,10 @@ public class TriggerIEC104Point implements InterfaceScript {
         this.stringValue = (parameters.get(2).getValue().trim());
         this.value = Double.parseDouble(this.stringValue);
         this.dcType = parameters.get(3).getValue().trim();
+//        this.register = 3061;
+//        this.value = 1;
+//        this.dcType = "SOE1";
+
 
         this.lines = IEC104InitConnection.lines.stream().collect(Collectors.toList());
         try {

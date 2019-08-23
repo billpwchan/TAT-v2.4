@@ -231,8 +231,6 @@ public class LaunchTCPServerModbus {
         for (int i = 0; i < 65535; i++) {
             instance.addRegister(new SimpleRegister(0));
             instance.addInputRegister(new SimpleRegister(0));
-            instance.addDigitalOut(new SimpleDigitalOut(false));
-            instance.addDigitalIn(new SimpleDigitalIn(false));
         }
         //CommonFunctions.debugLog.info("Register : " + instance.getRegisterCount());
         //CommonFunctions.debugLog.info("Input register : " + instance.getInputRegisterCount());
