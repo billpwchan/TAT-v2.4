@@ -31,7 +31,8 @@ public class ReceiveIEC104Point implements InterfaceScript {
         int addressSizeExcel = (int) Double.parseDouble(parameters.get(2).getValue().trim());
         Instant before = Instant.now();
         System.out.println("Receiving Points Now");
-        while ((consoleLine = IEC104InitOutputConnection.br.readLine()) != null && !consoleLine.contains("Single Command Response")) {
+        while ((consoleLine = IEC104InitOutputConnection.br.readLine()) != null && !consoleLine.contains("Single Command Response")
+                && Duration.between(before, Instant.now()).toMillis() < 3000) {
             //Should be finished initialization
             CommonFunctions.debugLog.debug(consoleLine);
             System.out.println(consoleLine);

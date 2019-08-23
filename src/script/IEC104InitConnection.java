@@ -60,10 +60,11 @@ public class IEC104InitConnection implements InterfaceScript {
         int port = ((int) Double.parseDouble(parameters.get(2).getValue().trim()));
         int asduAddress = (int) Double.parseDouble(parameters.get(3).getValue().trim());
 
+
         IEC104InitConnection.initIEC104ConfigFile(port, asduAddress);
 
         Runtime.getRuntime().exec("attrib +H IEC104slave.ini");     //Hide the .ini file from the user.
-        process = new ProcessBuilder("src\\script\\IEC104Simulator\\20171117_104Slave.exe").start();
+        process = new ProcessBuilder("20171117_104Slave.exe").start();
         InputStream is = process.getInputStream();
         InputStreamReader isr = new InputStreamReader(is);
         BufferedReader br = new BufferedReader(isr);
