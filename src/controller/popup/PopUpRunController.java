@@ -391,10 +391,7 @@ public class PopUpRunController implements Initializable {
     public void setPrimaryStage(Stage stage) {
         this.dialogStage = stage;
         stage.setOnCloseRequest((WindowEvent event) -> {
-<<<<<<< HEAD
 
-=======
->>>>>>> 139264f8a76c5aecaa057fd745fd120c78a5ab46
                 if (thread.getState() != Thread.State.NEW && thread.getState() != Thread.State.TERMINATED) {
                     event.consume();
                 } else if (thread.getState() == Thread.State.NEW) {
