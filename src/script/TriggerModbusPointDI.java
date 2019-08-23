@@ -117,8 +117,13 @@ public class TriggerModbusPointDI implements InterfaceScript {
             case "03":
             case "0x03":
                 try {
-                    SimpleProcessImage instance = LaunchTCPServerModbus.getInstance();
-                    updateHoldingRegister(instance, register, (int) value);
+                    if (!this.stringValue.equals("0")) {
+                        SimpleProcessImage instance = LaunchTCPServerModbus.getInstance();
+                        updateHoldingRegister(instance, register, value);
+                    } else {
+                        SimpleProcessImage instance = LaunchTCPServerModbus.getInstance();
+                        updateInputRegister(instance, register, 0);
+                    }
                 } catch (Exception ex) {
                     Logger.getLogger(TriggerModbusPointDI.class.getName()).error("", ex);
                 }
@@ -126,8 +131,13 @@ public class TriggerModbusPointDI implements InterfaceScript {
             case "04":
             case "0x04":
                 try {
-                    SimpleProcessImage instance = LaunchTCPServerModbus.getInstance();
-                    updateInputRegister(instance, register, (int) value);
+                    if (!this.stringValue.equals("0")) {
+                        SimpleProcessImage instance = LaunchTCPServerModbus.getInstance();
+                        updateInputRegister(instance, register, value);
+                    } else {
+                        SimpleProcessImage instance = LaunchTCPServerModbus.getInstance();
+                        updateInputRegister(instance, register, 0);
+                    }
                 } catch (Exception ex) {
                     Logger.getLogger(TriggerModbusPointDI.class.getName()).error("", ex);
                 }
@@ -135,8 +145,13 @@ public class TriggerModbusPointDI implements InterfaceScript {
             case "01":
             case "0x01":
                 try {
-                    SimpleProcessImage instance = LaunchTCPServerModbus.getInstance();
-                    updateDigiatalOutputRegister(instance, register, value);
+                    if (!this.stringValue.equals("0")) {
+                        SimpleProcessImage instance = LaunchTCPServerModbus.getInstance();
+                        updateDigiatalOutputRegister(instance, register, value);
+                    } else {
+                        SimpleProcessImage instance = LaunchTCPServerModbus.getInstance();
+                        updateDigiatalOutputRegister(instance, register, 0);
+                    }
                 } catch (Exception ex) {
                     Logger.getLogger(TriggerModbusPointDI.class.getName()).error("", ex);
                 }
@@ -144,8 +159,13 @@ public class TriggerModbusPointDI implements InterfaceScript {
             case "02":
             case "0x02":
                 try {
-                    SimpleProcessImage instance = LaunchTCPServerModbus.getInstance();
-                    updateDigiatalInputRegister(instance, register, value);
+                    if (!this.stringValue.equals("0")) {
+                        SimpleProcessImage instance = LaunchTCPServerModbus.getInstance();
+                        updateDigiatalInputRegister(instance, register, value);
+                    } else {
+                        SimpleProcessImage instance = LaunchTCPServerModbus.getInstance();
+                        updateDigiatalInputRegister(instance, register, 0);
+                    }
                 } catch (Exception ex) {
                     Logger.getLogger(TriggerModbusPointDI.class.getName()).error("", ex);
                 }

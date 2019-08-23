@@ -32,8 +32,8 @@ public class TestExecution {
      * @return
      * @throws ParseException
      */
-    public ArrayList<Iterations> getBaselinesFromCampaign(TestCampaign campaign) throws ParseException {
-        ArrayList<Iterations> baselines = new ArrayList<>();
+    public ArrayList<Iterations> getBaselinesFromCampaign(TestCampaign campaign) {
+        ArrayList<Iterations> baselines;
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
         Query qry = session.createQuery("select IT from Iterations IT where IT.testCampaign.idtestCampaign=:campaignId group by IT.baselineId");
@@ -47,6 +47,7 @@ public class TestExecution {
             baseline.setDate(maxDate);
             baseline.setType("baseline");
         }
+        session.beginTransaction().commit();
         session.close();
         return baselines;
     }
@@ -66,6 +67,7 @@ public class TestExecution {
         executions.forEach((execution) -> {
             execution.setType("execution");
         });
+        session.beginTransaction().commit();
         session.close();
         return executions;
     }

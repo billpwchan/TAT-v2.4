@@ -221,6 +221,7 @@ public class TabMacroNewController implements Initializable {
         if (!missingPurpose) {
             try {
                 session.beginTransaction().commit();
+                session.close();
                 mainController.updateRepository();
                 mainController.closeTab();
                 mainController.focusLibrary();
@@ -231,7 +232,6 @@ public class TabMacroNewController implements Initializable {
                 throw new ParseException("In Macro", 1);
             }
         }
-        session.close();
     }
 
     private Script constructMacro() throws ParseException {

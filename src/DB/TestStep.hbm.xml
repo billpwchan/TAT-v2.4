@@ -50,7 +50,7 @@
                 <column name="requirement_idrequirement" not-null="true"/>
             </many-to-many>
         </set>
-        <set name="testStepHasScripts" table="test_step_has_script" inverse="true" lazy="false" fetch="select"
+        <set name="testStepHasScripts" table="test_step_has_script" inverse="true" lazy="true" fetch="select"
              order-by="execution_order ASC" cascade="all">
             <key>
                 <column name="test_step_idtest_step" not-null="true"/>

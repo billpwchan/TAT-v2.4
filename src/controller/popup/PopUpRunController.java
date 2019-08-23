@@ -305,9 +305,9 @@ public class PopUpRunController implements Initializable {
                     task[i] = null;
                 }
                 try {
-                    Update();
                     engine.finished();
                     engine = null;
+                    Update();
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
@@ -391,6 +391,10 @@ public class PopUpRunController implements Initializable {
     public void setPrimaryStage(Stage stage) {
         this.dialogStage = stage;
         stage.setOnCloseRequest((WindowEvent event) -> {
+<<<<<<< HEAD
+
+=======
+>>>>>>> 139264f8a76c5aecaa057fd745fd120c78a5ab46
                 if (thread.getState() != Thread.State.NEW && thread.getState() != Thread.State.TERMINATED) {
                     event.consume();
                 } else if (thread.getState() == Thread.State.NEW) {
@@ -675,6 +679,14 @@ public class PopUpRunController implements Initializable {
 //                th.resume();
                   task1.cancel();
                   stopButton.setDisable(true);
+            try {
+                engine.finished();
+                engine = null;
+                Update();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+
 
             //Change the state of testCaseInExecution to "Not tested."
 //                this.executionFinished();

@@ -17,7 +17,7 @@
         <property name="scriptOrder" type="java.lang.Byte">
             <column name="script_order"/>
         </property>
-        <set name="paramScriptMacros" table="param_script_macro" inverse="true" lazy="false" fetch="select"
+        <set name="paramScriptMacros" table="param_script_macro" inverse="true" lazy="true" fetch="select"
              cascade="save-update" order-by="param_order">
             <key>
                 <column name="macro_idmacro"/>

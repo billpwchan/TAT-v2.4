@@ -80,8 +80,7 @@ public class TestCampaignDB {
     /**
      * @return @throws ParseException
      */
-    public ArrayList<Iterations> getBaselinedCampaignsTree() throws ParseException {
-        ArrayList<Iterations> baselinedCampaigns = new ArrayList<>();
+    public ArrayList<Iterations> getBaselinedCampaignsTree() {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
         Query qry = session.createQuery("select IT from Iterations IT group by IT.testCampaign");
@@ -96,6 +95,7 @@ public class TestCampaignDB {
             iteration.setType("campaign");
             Hibernate.initialize(iteration.getTestCampaign());
         }
+        session.beginTransaction().commit();
         session.close();
         return iterations;
     }

@@ -58,6 +58,8 @@ public class MacroDB {
         SessionFactory factory = sessionFactorySingleton.getInstance();
         Session session = factory.openSession();
         session.delete(macro);
+        session.beginTransaction().commit();
+        session.close();
         Set<Macro> deleteMacros = new HashSet<>(macro.getMacrosForScriptIdScript()); //Set of IDs.
         for (Macro deleteMacro : deleteMacros) {
             deletePSMGivenMacroId(deleteMacro);
@@ -65,8 +67,7 @@ public class MacroDB {
 //            removePSMGivenId(deleteMacro.getIdmacro());
 //            session.delete(deleteMacro);
         }
-        session.beginTransaction().commit();
-        session.close();
+
     }
 
     //Delete in Macro database based on certain ID
