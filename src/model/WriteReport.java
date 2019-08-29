@@ -9,8 +9,11 @@ import DB.*;
 import DBcontroller.ScriptDB;
 import DBcontroller.TestCampaignDB;
 import controller.util.CommonFunctions;
+import org.apache.poi.hssf.usermodel.HSSFCellStyle;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.util.CellRangeAddress;
+import org.apache.poi.ss.util.RegionUtil;
+import org.apache.poi.xssf.usermodel.XSSFFont;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -146,19 +149,44 @@ public class WriteReport {
 
     }
 
+    private static void GeneralCellStyle(CellStyle cellStyle) {
+        cellStyle.setBorderBottom(CellStyle.BORDER_THIN);
+        cellStyle.setBorderLeft(CellStyle.BORDER_THIN);
+        cellStyle.setBorderRight(CellStyle.BORDER_THIN);
+        cellStyle.setBorderTop(HSSFCellStyle.BORDER_THIN);
+    }
+
+    private CellStyle getBorderCellStyle() {
+        CellStyle cellStyle = workbook.createCellStyle();
+        GeneralCellStyle(cellStyle);
+        return cellStyle;
+    }
+
     private static void InitCellStyles(XSSFWorkbook workbook) {
+        XSSFFont font = workbook.createFont();
+        font.setFontName("Arial");
+        font.setColor(IndexedColors.BLACK.getIndex());
+        font.setBold(true);
+        font.setItalic(false);
         REDstyle = workbook.createCellStyle();
+        GeneralCellStyle(REDstyle);
         REDstyle.setFillForegroundColor(IndexedColors.RED.getIndex());
         REDstyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
-        REDstyle.setAlignment(HorizontalAlignment.CENTER_SELECTION);
+        REDstyle.setAlignment(CellStyle.ALIGN_CENTER);
+        REDstyle.setFont(font);
         DARKBLUEstyle = workbook.createCellStyle();
-        DARKBLUEstyle.setFillForegroundColor(IndexedColors.DARK_BLUE.getIndex());
+        GeneralCellStyle(DARKBLUEstyle);
+        DARKBLUEstyle.setFillForegroundColor(IndexedColors.SKY_BLUE.getIndex());
         DARKBLUEstyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
-        DARKBLUEstyle.setAlignment(HorizontalAlignment.CENTER_SELECTION);
+        DARKBLUEstyle.setAlignment(CellStyle.ALIGN_CENTER);
+        DARKBLUEstyle.setFont(font);
         GREYstyle = workbook.createCellStyle();
+        GeneralCellStyle(GREYstyle);
         GREYstyle.setFillForegroundColor(IndexedColors.GREY_50_PERCENT.getIndex());
         GREYstyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
-        GREYstyle.setAlignment(HorizontalAlignment.CENTER_SELECTION);
+        GREYstyle.setAlignment(CellStyle.ALIGN_CENTER);
+
+//        GREYstyle.setFont(font);
     }
 
     /**
@@ -197,11 +225,27 @@ public class WriteReport {
 
     private void initHashMaps() {
         //Initialize Pre-defined CellStyle from Template
+        XSSFFont font = workbook.createFont();
+        font.setFontName("Arial");
+        font.setColor(IndexedColors.BLACK.getIndex());
+        font.setBold(true);
+        font.setItalic(false);
         this.cellStyle1 = this.reportSheet.getRow(0).getCell(this.colStation).getCellStyle();
+        this.cellStyle1.setFont(font);
+        GeneralCellStyle(cellStyle1);
         this.cellStyle2 = this.reportSheet.getRow(0).getCell(this.colAttribute_Description).getCellStyle();
+        this.cellStyle2.setFont(font);
+        GeneralCellStyle(cellStyle2);
         this.cellStyle3 = this.reportSheet.getRow(0).getCell(this.colResult).getCellStyle();
+        this.cellStyle3.setFont(font);
+        GeneralCellStyle(cellStyle3);
         this.cellStyle4 = this.reportSheet.getRow(1).getCell(this.colResult).getCellStyle();
+        this.cellStyle4.setFont(font);
+        GeneralCellStyle(cellStyle4);
         this.cellStyle5 = this.reportSheet.getRow(1).getCell(this.colAssociatedDefect).getCellStyle();
+        this.cellStyle5.setFont(font);
+        GeneralCellStyle(cellStyle5);
+
 
         WriteReport.STDInformation.put("STD ID", new int[]{4, 3 - 1});
 
@@ -248,6 +292,7 @@ public class WriteReport {
         this.setHeaderFileRows(scriptTypeGlobal);
         this.setReportHeaderFileRows(scriptTypeGlobal);
         this.set(it);
+        this.setRegionCellStyle();
         this.updateSTDInformation();
         this.updateAuthorInformation();
         this.updateSTRInformation();
@@ -269,6 +314,7 @@ public class WriteReport {
         //Fill in First Header Row
         CellStyle style = this.workbook.createCellStyle();
         style.setAlignment(HorizontalAlignment.CENTER);
+        GeneralCellStyle(style);
         Row row = this.sheet.createRow(0);
         int colNum = 0;
         String[] header;
@@ -433,6 +479,7 @@ public class WriteReport {
                         break;
                     case "NOK":
                         cellStyle4.setFillForegroundColor(IndexedColors.RED.getIndex());
+                        cellStyle4.setAlignment(HorizontalAlignment.CENTER_SELECTION);
                         break;
                     case "OS":
                         cellStyle4.setFillForegroundColor(IndexedColors.DARK_BLUE.getIndex());
@@ -745,38 +792,44 @@ public class WriteReport {
                     Row row = this.sheet.createRow(this.currentRow);
                     Cell cellR = row.createCell(1); //column = 1
                     cellR.setCellValue(overallStepResult);
+                    cellR.setCellStyle(this.getBorderCellStyle());
                     if (overallStepResult.equals("NOK")) {
                         CellStyle red = getRedCellStyle(this.workbook);
                         red.setWrapText(true);
-                        red.setAlignment(CellStyle.ALIGN_LEFT);
+                        red.setAlignment(CellStyle.ALIGN_CENTER);
                         cellR.setCellStyle(red);
                     }
                     cell = row.createCell(3);
                     cell.setCellValue(registerList.get(0));         //Register
+                    cell.setCellStyle(this.getBorderCellStyle());
                     if (reportDuplicateCheck(reportRow, this.colRegister_Address + (this.reportMaxStep - 1) * 3)) {
                         cell = reportRow.createCell(this.colRegister_Address + (this.reportMaxStep - 1) * 3);
                         cell.setCellValue(registerList.get(0));
+                        cell.setCellStyle(this.getBorderCellStyle());
                         if (DO_POINT_ADDRESS_ERROR) {
                             CellStyle cellStyle = getRedCellStyle(this.workbook);
                             cellStyle.setWrapText(true);
-                            cellStyle.setAlignment(CellStyle.ALIGN_LEFT);
+                            cellStyle.setAlignment(CellStyle.ALIGN_CENTER);
                             cell.setCellStyle(cellStyle);
                         }
                     }
 
                     Cell cell2 = row.createCell(4);
                     cell2.setCellValue(registerList.get(1));        //Register Offset
+                    cell2.setCellStyle(this.getBorderCellStyle());
                     if (reportDuplicateCheck(reportRow, this.colBit_offset + (this.reportMaxStep - 1) * 3)) {
                         cell = reportRow.createCell(this.colBit_offset + (this.reportMaxStep - 1) * 3);
                         cell.setCellValue(registerList.get(1));
-
+                        cell2.setCellStyle(this.getBorderCellStyle());
                     }
 
                     Cell cell3 = row.createCell(2);
                     cell3.setCellValue(scriptType);                 //Data Type
+                    cell3.setCellStyle(this.getBorderCellStyle());
                     if (reportDuplicateCheck(reportRow, this.colDC_Data_Type)) {
                         cell = reportRow.createCell(this.colDC_Data_Type);
                         cell.setCellValue(scriptType);
+                        cell.setCellStyle(this.getBorderCellStyle());
                     }
 
                     Cell cell4 = row.createCell(5);
@@ -785,10 +838,11 @@ public class WriteReport {
                         cellOffset = (stepNumber - 1) % maxStep;
                     }
                     cell4.setCellValue(String.valueOf(cellOffset));         //Triggering State
+                    cell4.setCellStyle(this.getBorderCellStyle());
                     if (DO_VALUE_ERROR) {
                         CellStyle cellStyle = getRedCellStyle(this.workbook);
                         cellStyle.setWrapText(true);
-                        cellStyle.setAlignment(CellStyle.ALIGN_LEFT);
+                        cellStyle.setAlignment(CellStyle.ALIGN_CENTER);
                         cell4.setCellStyle(cellStyle);
                     }
 
@@ -855,24 +909,28 @@ public class WriteReport {
                         if (reportDuplicateCheck(reportRow, this.colStation)) {
                             cell = reportRow.createCell(this.colStation);
                             cell.setCellValue(paramSearchList.get(getColIndex(searchOccParamList, colStationKey)));
+                            cell.setCellStyle(this.getBorderCellStyle());
                         }
                         if (reportDuplicateCheck(reportRow, this.colEqpt_Code)) {
                             cell = reportRow.createCell(this.colEqpt_Code);
                             cell.setCellValue(paramSearchList.get(getColIndex(searchOccParamList, colEqpt_CodeKey)));
+                            cell.setCellStyle(this.getBorderCellStyle());
                         }
                         if (reportDuplicateCheck(reportRow, this.colEqpt_Description)) {
                             cell = reportRow.createCell(this.colEqpt_Description);
                             cell.setCellValue(paramSearchList.get(getColIndex(searchOccParamList, colEqpt_DescriptionKey)));
+                            cell.setCellStyle(this.getBorderCellStyle());
                         }
                         if (reportDuplicateCheck(reportRow, this.colEqpt_Identifier)) {
                             cell = reportRow.createCell(this.colEqpt_Identifier);
                             cell.setCellValue(paramSearchList.get(getColIndex(searchOccParamList, colEqpt_IdentifierKey)));
+                            cell.setCellStyle(this.getBorderCellStyle());
 
                         }
                         if (reportDuplicateCheck(reportRow, this.colAttribute_Description)) {
                             cell = reportRow.createCell(this.colAttribute_Description);
                             cell.setCellValue(paramSearchList.get(getColIndex(searchOccParamList, colAttribute_DescriptionKey)));
-
+                            cell.setCellStyle(this.getBorderCellStyle());
                         }
 
                         int offset = stepNumber % maxStep;  //In unit of 3
@@ -881,13 +939,18 @@ public class WriteReport {
                         }
                         cell = reportRow.createCell(this.colv0_label0 + offset * 3);
                         cell.setCellValue("-1".equals(paramSearchList.get(getColIndex(searchOccParamList, colStateKey))) ? "" : paramSearchList.get(getColIndex(searchOccParamList, colStateKey)));
+                        cell.setCellStyle(getBorderCellStyle());
+
                         cell = reportRow.createCell(this.colv0_Severity + offset * 3);
+                        cell.setCellStyle(getBorderCellStyle());
                         double severity = Double.parseDouble(paramSearchList.get(6));
                         cell.setCellValue((int) severity == -1 ? "" : String.valueOf((int) severity));
+
                         cell = reportRow.createCell(this.colv0_State + offset * 3);
                         cell.setCellValue((int) severity == -1 ? "" : severity > 0 ? "A" : "N");
+                        cell.setCellStyle(getBorderCellStyle());
                     } catch (IndexOutOfBoundsException ex) {
-                        CommonFunctions.debugLog.debug("Cannot find the keyword in parameters. Please ensure columnName used matched with pre-defined column key.", ex);
+                        CommonFunctions.debugLog.debug("Cannot find the keyword in parameters. Please ensure columnName used matched with pre-defined column key.");
                     }
                 }
                 System.out.println("Step result of above step:" + overallStepResult + "\n");
@@ -904,13 +967,16 @@ public class WriteReport {
             Cell cell = row.createCell(tempHeader.length + 2 * i);
             cell.setCellValue(searchOccParamList.get(i));
             CellStyle style = workbook.createCellStyle();
+            GeneralCellStyle(style);
             style.setAlignment(HorizontalAlignment.CENTER);
             cell.setCellStyle(style);
             this.sheet.addMergedRegion(new CellRangeAddress(0, 0, tempHeader.length + 2 * i, tempHeader.length + 2 * i + 1));
             Cell cellSearch = row2.createCell(tempHeader.length + 2 * i);
             cellSearch.setCellValue("Searched");
+            cellSearch.setCellStyle(getBorderCellStyle());
             Cell cellFound = row2.createCell(tempHeader.length + 2 * i + 1);
             cellFound.setCellValue("Found");
+            cellFound.setCellStyle(getBorderCellStyle());
         }
     }
 
@@ -930,6 +996,13 @@ public class WriteReport {
             }
         }
         return true;
+    }
+
+    private void setRegionCellStyle() {
+        RegionUtil.setBorderBottom(CellStyle.BORDER_THIN, CellRangeAddress.valueOf("A1:AL6000"), this.reportSheet, this.workbook);
+        RegionUtil.setBorderLeft(CellStyle.BORDER_THIN, CellRangeAddress.valueOf("A1:AL6000"), this.reportSheet, this.workbook);
+        RegionUtil.setBorderTop(CellStyle.BORDER_THIN, CellRangeAddress.valueOf("A1:AL6000"), this.reportSheet, this.workbook);
+        RegionUtil.setBorderRight(CellStyle.BORDER_THIN, CellRangeAddress.valueOf("A1:AL6000"), this.reportSheet, this.workbook);
     }
 
     private void updateSTDInformation() {
